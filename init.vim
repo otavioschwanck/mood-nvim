@@ -1,0 +1,9 @@
+runtime ./modules/plugins.vim
+runtime ./modules/settings.vim
+runtime ./modules/telescope.vim
+runtime ./modules/mappings.vim
+runtime ./modules/coc.vim
+runtime ./modules/tree-sitter.vim
+runtime ./modules/yoink.vim
+runtime ./modules/which-key.vim
+runtime ./user.vim
