@@ -56,6 +56,7 @@ return require('packer').startup(function()
   use 'folke/which-key.nvim'
   use 'rcarriga/vim-ultest'
   use 'preservim/tagbar'
+  use 'terryma/vim-multiple-cursors'
 
   use {
     'lewis6991/gitsigns.nvim', requires = { 'nvim-lua/plenary.nvim' },
