@@ -113,3 +113,5 @@ set confirm
 set clipboard=unnamedplus
 
 let g:camelsnek_i_am_an_old_fart_with_no_sense_of_humour_or_internet_culture = 1
+
+let g:closetag_filenames = '*.html,*.xhtml,*.phtml,*.erb'

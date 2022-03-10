@@ -10,6 +10,7 @@ return require('packer').startup(function()
   use 'tpope/vim-surround'
   use 'vim-test/vim-test'
   use 'tpope/vim-eunuch'
+  use 'alvan/vim-closetag'
   use 'tpope/vim-rails'
   use 'vim-ruby/vim-ruby'
   use 'jeetsukumaran/vim-indentwise'
