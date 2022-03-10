@@ -67,7 +67,7 @@ fi
 
 ## Run
 
-Run the first time with nvim +PackerSync
+Run the first time with nvim and execute the command: :PackerSync
 
 # After install
 
