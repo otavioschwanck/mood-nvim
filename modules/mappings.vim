@@ -73,7 +73,7 @@ lua << EOF
     r = { ":Telescope oldfiles<CR>", "Recent Files" },
     R = { ":Move ", "Rename Current File" },
     D = { ":Delete<CR>", "Delete the current file" },
-    p = { ":e ~/.config/nvim/user.vim", "Open Your Private Files" }
+    p = { ":e ~/.config/nvim/user.vim<CR>", "Open Your Private Files" }
   },
   g = { 
     name = "+Git",
