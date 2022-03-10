@@ -157,5 +157,7 @@ endif
 nnoremap gh :SidewaysLeft<cr>
 nnoremap gl :SidewaysRight<cr>
 
+nmap vij vaI
+
 vnoremap J :m '>+1<CR>gv=gv
 vnoremap K :m '<-2<CR>gv=gv
