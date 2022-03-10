@@ -118,3 +118,4 @@ let g:closetag_filenames = '*.html,*.xhtml,*.phtml,*.erb'
 
 let g:multi_cursor_use_default_mapping=0
 let g:multi_cursor_select_all_word_key = 'ga'
+let g:multi_cursor_quit_key            = '<Esc>'
