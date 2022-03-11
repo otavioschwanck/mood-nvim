@@ -103,6 +103,9 @@ To execute some command in all items of the quickfix list, just run `:cfdo S/old
 | gs      | Toggle thing at point.  `:foo` to `foo =>` to `'foo'` and `do ... end` to `{ ... }` |
 |---------|-------------------------------------------------------------------------------------|
 
+# Snippets
+To use snippets, just press C-o to expand and C-o to move forward.
+
 # Running stuff
 
 ## Test
