@@ -17,9 +17,11 @@ lua << EOF
         t = { ":Term brownie test<CR>", "Run Tests" },
         c = { ":Term brownie compile<CR>", "Compile" }
       },
+      g = { ":e ~/.gitconfig<CR>", "Open Git Config" },
+      z = { ":e ~/.zshrc<CR>", "Open zshrc" }
     },
     -- Add your rails folders and commands here
-    r = { 
+    r = {
       name = "+Rails",
       r = { ":Term rails console<CR>", "Rails Console" },
       R = { ":Term rails console<CR>", "Rails Server" },
