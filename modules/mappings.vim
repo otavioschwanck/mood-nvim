@@ -97,10 +97,10 @@ lua << EOF
     b = { ":Gitsigns toggle_current_line_blame<CR>", "Toggle current line blame" },
     d = { ":Gitsigns diffthis<CR>", "Diff this file" },
     l = { ":GcLog -- %<CR>", "Log this file" },
-    q = { ":cclose<CR>", "Quick Fix Close" }
   },
   [','] = { ":Telescope buffers<CR>", "Find Buffers" },
-  v = { ":Term<CR>", "Open a blank terminal" }
+  v = { ":Term<CR>", "Open a blank terminal" },
+  q = { ":cclose<CR>", "Quick Fix Close" }
 }, { prefix = "<leader>", silent = false })
 EOF
 
