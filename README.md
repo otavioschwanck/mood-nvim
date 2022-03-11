@@ -13,6 +13,8 @@
 
 - Install the config
 
+- Run this: `git config --global push.default current`
+
 ```sh
 git clone git@github.com:otavioschwanck/neovim-on-reails.git ~/.config/nvim
 ```
