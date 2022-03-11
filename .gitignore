@@ -1,3 +1,4 @@
 .DS_Files
 plugin/
 user.vim
+user-snippets/

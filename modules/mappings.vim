@@ -27,11 +27,21 @@ function! AlternateForCurrentFile()
 endfunction
 
 lua << EOF
-  require("which-key").setup { 
+  require("which-key").setup {
     ignore_missing = true
   }
 
   local wk = require("which-key")
+  -- Visual mode:
+   wk.register({
+     c = {
+       name = "+Lsp and CoC",
+       s = { "<Plug>(coc-convert-snippet)", "Convert selection into snippet" },
+       a = { "<Plug>(coc-codeaction-selected)", "Code Action" },
+     },
+   }, { mode = "v", prefix = "<leader>" })
+
+  -- Normal mode:
   wk.register({
   ["1"] = { ":lua require('harpoon.ui').nav_file(1)<CR>", 'Harpoon to 1' },
   ["2"] = { ":lua require('harpoon.ui').nav_file(2)<CR>", 'Harpoon to 2' },
@@ -86,7 +96,7 @@ lua << EOF
     D = { ":Delete<CR>", "Delete the current file" },
     p = { ":e ~/.config/nvim/user.vim<CR>", "Open Your Private Files" }
   },
-  g = { 
+  g = {
     name = "+Git",
     g = { ":LazyGit<CR>", "LazyGit" },
     r = { ":Gitsigns reset_hunk<CR>", "Reset hunk at point" },
