@@ -74,3 +74,7 @@ Run the first time with nvim and execute the command: :PackerSync
 # After install
 
 - Check if is missing something with :checkhealth
+
+# Learning some stuff
+
+Just press `SPC h h` to open the handbook

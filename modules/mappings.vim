@@ -43,7 +43,8 @@ lua << EOF
   a = { ":call OpenTestAlternate()<cr>", "Go to Test" },
   h = {
     name = "+Help",
-    t = { ":Telescope colorscheme<CR>", "Change Theme" }
+    t = { ":Telescope colorscheme<CR>", "Change Theme" },
+    h = { ":e ~/.config/nvim/handbook.md<CR>", "Open the Handbook" }
   },
   A = { ":AV<CR>", "Go to Test (split)" },
   ["."] = { ":NvimTreeFindFileToggle<CR>", "Toggle Tree" },

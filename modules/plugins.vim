@@ -2,6 +2,7 @@ lua <<LUA
 
 return require('packer').startup(function()
   use 'eddyekofo94/gruvbox-flat.nvim'
+  use 'dhruvasagar/vim-table-mode'
   use 'morhetz/gruvbox'
   use 'folke/tokyonight.nvim'
   use 'wbthomason/packer.nvim'
