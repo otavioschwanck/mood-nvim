@@ -119,3 +119,16 @@ let g:closetag_filenames = '*.html,*.xhtml,*.phtml,*.erb'
 let g:multi_cursor_use_default_mapping=0
 let g:multi_cursor_select_all_word_key = 'ga'
 let g:multi_cursor_quit_key            = '<Esc>'
+
+" Vim Script
+let g:nvim_tree_respect_buf_cwd = 1
+
+lua << EOF
+require("nvim-tree").setup({
+  update_cwd = true,
+  update_focused_file = {
+    enable = true,
+    update_cwd = true
+  },
+})
+EOF

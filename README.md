@@ -9,7 +9,7 @@
 
 ## For all operational systems:
 
-- Install a nerd font and configure your terminal to use it.  Nerd fonts here: https://github.com/ryanoasis/nerd-fonts/blob/master/patched-fonts/JetBrainsMono/Ligatures/Medium/complete/JetBrains%20Mono%20Medium%20Nerd%20Font%20Complete.ttf
+- Install a nerd font and configure your terminal to use it.  Nerd fonts here: https://www.nerdfonts.com/font-downloads
 
 - Install the config
 

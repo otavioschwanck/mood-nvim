@@ -37,12 +37,17 @@ lua << EOF
   ["2"] = { ":lua require('harpoon.ui').nav_file(2)<CR>", 'Harpoon to 2' },
   ["3"] = { ":lua require('harpoon.ui').nav_file(3)<CR>", 'Harpoon to 3' },
   ["4"] = { ":lua require('harpoon.ui').nav_file(4)<CR>", 'Harpoon to 4' },
+  ["*"] = { ":Telescope grep_string<CR>", "Search string at point on project" },
   ["<space>"] = { ":Telescope find_files<CR>", "Find Files" },
   e = { ":NvimTreeFindFileToggle<CR>", "Toggle Tree" },
   a = { ":call OpenTestAlternate()<cr>", "Go to Test" },
   A = { ":AV<CR>", "Go to Test (split)" },
   ["."] = { ":NvimTreeFindFileToggle<CR>", "Toggle Tree" },
   k = { ":bd!<CR>", "Kill current buffer" },
+  p = {
+    name = "+Projects",
+    p = { ":Telescope projects<CR>", "Go To Project" }
+  },
   t = {
     name = '+Test',
     v = { ":TestFile<CR>", "Test Current File" },
@@ -89,7 +94,7 @@ lua << EOF
   },
   [','] = { ":Telescope buffers<CR>", "Find Buffers" },
   v = { ":Term<CR>", "Open a blank terminal" }
-}, { prefix = "<leader>" })
+}, { prefix = "<leader>", silent = false })
 EOF
 
 nmap <C-l> <C-w>l
@@ -107,8 +112,8 @@ nnoremap <silent><esc> :noh<return><esc>
 " Quickfix
 nmap ]q :cnext<CR>
 nmap [q :cprevious<CR>
-nnoremap <silent>H :BufferPrevious<CR>
-nnoremap <silent>L :BufferNext<CR>
+nnoremap <silent>H :bp<CR>
+nnoremap <silent>L :bn<CR>
 
 " Save all
 nmap \ :wall<CR>

@@ -15,7 +15,6 @@ return require('packer').startup(function()
   use 'vim-ruby/vim-ruby'
   use 'jeetsukumaran/vim-indentwise'
   use 'akinsho/toggleterm.nvim'
-  use 'romgrk/barbar.nvim'
   use 'farmergreg/vim-lastplace'
   use 'ThePrimeagen/harpoon'
   use 'svermeulen/vim-yoink'
@@ -25,6 +24,16 @@ return require('packer').startup(function()
   use 'michaeljsmith/vim-indent-object'
   use 'vimlab/split-term.vim'
   use 'nvim-lualine/lualine.nvim'
+  use {
+    "ahmedkhalf/project.nvim",
+    config = function()
+    require("project_nvim").setup {
+      -- your configuration comes here
+      -- or leave it empty to use the default settings
+      -- refer to the configuration section below
+      }
+  end
+  }
 
   use {
     'kyazdani42/nvim-tree.lua',
@@ -77,6 +86,8 @@ require('lualine').setup()
   options = {
     theme = 'gruvbox-flat'
   }
+
+require('telescope').load_extension('projects')
 END
 
 let g:coc_global_extensions = ['coc-html', 'coc-css', 'coc-json', 'coc-prettier', 'coc-tsserver', 'coc-solidity',
