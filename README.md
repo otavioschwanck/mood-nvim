@@ -13,11 +13,11 @@
 
 - Install the config
 
-- Run this: `git config --global push.default current`
-
 ```sh
-git clone git@github.com:otavioschwanck/neovim-on-reails.git ~/.config/nvim
+git clone git@github.com:otavioschwanck/nvim-on-rails.git ~/.config/nvim
 ```
+
+- Run this: `git config --global push.default current`
 
 - Install packer
 
@@ -30,6 +30,7 @@ git clone --depth 1 https://github.com/wbthomason/packer.nvim\
 
 ```sh
 pip install neovim-remote neovim
+gem install solargraph neovim
 ```
 
 ## Ubuntu Steps
@@ -39,7 +40,7 @@ sudo add-apt-repository ppa:neovim-ppa/unstable
 sudo apt-get update
 sudo apt-get install neovim
 
-sudo apt-get install sqlite3 libsqlite3-dev # Ubuntu
+sudo apt-get install sqlite3 libsqlite3-dev
 
 sudo add-apt-repository ppa:lazygit-team/release
 sudo apt-get update

@@ -81,7 +81,7 @@ lua << EOF
   },
   f = {
     name = "+File",
-    r = { ":Telescope frecency<CR>", "Recent Files" },
+    r = { ":Telescope oldfiles<CR>", "Recent Files" },
     R = { ":Move ", "Rename Current File" },
     D = { ":Delete<CR>", "Delete the current file" },
     p = { ":e ~/.config/nvim/user.vim<CR>", "Open Your Private Files" }
