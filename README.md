@@ -80,3 +80,7 @@ Run the first time with nvim and execute the command: :PackerSync
 # Learning some stuff
 
 Just press `SPC h h` to open the handbook
+
+# Tmux
+
+I Really recommend you to learn tmux / tmuxinator.  Take a look on tmuxinator on youtube.
