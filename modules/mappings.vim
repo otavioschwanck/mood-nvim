@@ -94,7 +94,10 @@ lua << EOF
     r = { ":Telescope oldfiles<CR>", "Recent Files" },
     R = { ":Move ", "Rename Current File" },
     D = { ":Delete<CR>", "Delete the current file" },
-    p = { ":e ~/.config/nvim/user.vim<CR>", "Open Your Private Files" }
+    p = { ":e ~/.config/nvim/user.vim<CR>", "Open Your Private Files" },
+    y = { ":call CopyRelativePath()<CR>", "Copy Relative Path" },
+    Y = { ":call CopyFullPath()<CR>", "Copy Full Path" },
+    c = { ":saveas ", "Copy current file to" }
   },
   g = {
     name = "+Git",
@@ -151,23 +154,23 @@ nnoremap <expr> gp '`[' . strpart(getregtype(), 0, 1) . '`]'
 
 nnoremap <silent> <C-q>    :BufferPick<CR>
 
-" copy current file name (relative/absolute) to system clipboard
-if has("mac") || has("gui_macvim") || has("gui_mac")
-  " relative path  (src/foo.txt)
-  nnoremap <leader>fy :let @*=expand("%")<CR>
+function Setreg(regname, regval)
+  exe "let @".a:regname." = '".a:regval."'"
+endfunction
 
-  " absolute path  (/something/src/foo.txt)
-  nnoremap <leader>fY :let @*=expand("%:p")<CR>
-endif
+function CopyRelativePath()
+    let value = expand("%")
+    call Setreg("*", value)
+    call Setreg("+", value)
+    echom "Yanked: " . value
+endfunction
 
-" copy current file name (relative/absolute) to system clipboard (Linux version)
-if has("gui_gtk") || has("gui_gtk2") || has("gui_gnome") || has("unix")
-  " relative path (src/foo.txt)
-  nnoremap <leader>fy :let @+=expand("%")<CR>
-
-  " absolute path (/something/src/foo.txt)
-  nnoremap <leader>fY :let @+=expand("%:p")<CR>
-endif
+function CopyFullPath()
+  let value = expand("%:p")
+  call Setreg("*", value)
+  call Setreg("+", value)
+  echom "Yanked: " . value
+endfunction
 
 nnoremap gh :SidewaysLeft<cr>
 nnoremap gl :SidewaysRight<cr>
