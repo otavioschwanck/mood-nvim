@@ -1,4 +1,7 @@
 {
   "suggest.noselect": false,
-  "snippets.userSnippetsDirectory": "~/.config/nvim/user-snippets"
+  "snippets.userSnippetsDirectory": "~/.config/nvim/user-snippets",
+  "snippets.ultisnips.directories": [
+    "~/.config/nvim/UltiSnips"
+  ]
 }
