@@ -111,6 +111,7 @@ lua << EOF
     name = "+Git",
     g = { ":LazyGit<CR>", "LazyGit" },
     r = { ":Gitsigns reset_hunk<CR>", "Reset hunk at point" },
+    c = { ":Gdiff<CR>", "Diff from HEAD" },
     s = { ":Gitsigns stage_hunk<CR>", "Stage hunk at point" },
     S = { ":Gitsigns stage_buffer<CR>", "Stage buffer" },
     R = { ":Gitsigns reset_buffer<CR>", "Reset buffer" },
