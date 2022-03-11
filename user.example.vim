@@ -15,7 +15,7 @@ lua << EOF
       b = {
         name = "+Brownie",
         t = { ":Term brownie test<CR>", "Run Tests" },
-        t = { ":Term brownie compile<CR>", "Run Tests" }
+        c = { ":Term brownie compile<CR>", "Compile" }
       },
     },
     -- Add your rails folders and commands here
