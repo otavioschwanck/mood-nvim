@@ -75,6 +75,7 @@ To execute some command in all items of the quickfix list, just run `:cfdo S/old
 | Command | Description                                    |
 |---------|------------------------------------------------|
 | P       | Go to parent node (useful)                     |
+| A       | Create new file or folder                      |
 | r       | Rename the file                                |
 | x       | Add or Remove current file to cut clipboard    |
 | c       | Add or Remove current file to copy clipboard   |
