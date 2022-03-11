@@ -38,6 +38,7 @@ lua << EOF
        name = "+Lsp and CoC",
        s = { "<Plug>(coc-convert-snippet)", "Convert selection into snippet" },
        a = { "<Plug>(coc-codeaction-selected)", "Code Action" },
+       f = { "<Plug>(coc-format-selected)", "Format" },
      },
    }, { mode = "v", prefix = "<leader>" })
 
@@ -73,13 +74,13 @@ lua << EOF
   c = {
     name = "+Lsp (COC)",
     r = { "<Plug>(coc-rename)", "Rename" },
-    f = { "<Plug>(coc-format-selected)", "Format" },
     a = { "<Plug>(coc-codeaction)", "Code Action" },
-    F = { "<Plug>(coc-fix-current)", "Fix Current File" },
     l = { "<Plug>(coc-codelens-action)", "Code Lens" },
     x = { ":<C-u>CocList diagnostics<cr>", "Diagnostics" },
     j = { ":<C-u>CocList -I symbols<cr>", "Symbols" },
     s = { "<Plug>(coc-convert-snippet)", "Convert selection into snippet" },
+    o = { ":OR<CR>", "Organize Imports" },
+    f = { ":Format<CR>", "Format File" },
     ["!"] = { ":<C-u>CocListResume<CR>", "Resume" }
   },
   s = {
@@ -97,7 +98,7 @@ lua << EOF
     p = { ":e ~/.config/nvim/user.vim<CR>", "Open Your Private Files" },
     y = { ":call CopyRelativePath()<CR>", "Copy Relative Path" },
     Y = { ":call CopyFullPath()<CR>", "Copy Full Path" },
-    c = { ":saveas ", "Copy current file to" }
+    C = { ":saveas ", "Copy current file to" }
   },
   g = {
     name = "+Git",
