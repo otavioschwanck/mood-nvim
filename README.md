@@ -37,6 +37,8 @@ sudo add-apt-repository ppa:neovim-ppa/unstable
 sudo apt-get update
 sudo apt-get install neovim
 
+sudo apt-get install sqlite3 libsqlite3-dev # Ubuntu
+
 sudo add-apt-repository ppa:lazygit-team/release
 sudo apt-get update
 sudo apt-get install lazygit
@@ -45,7 +47,7 @@ sudo apt-get install lazygit
 ## Mac Steps
 
 ```sh
-brew install lazygit
+brew install lazygit sqlite
 brew install --HEAD neovim
 ```
 

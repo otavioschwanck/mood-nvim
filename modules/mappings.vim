@@ -41,6 +41,10 @@ lua << EOF
   ["<space>"] = { ":Telescope find_files<CR>", "Find Files" },
   e = { ":NvimTreeFindFileToggle<CR>", "Toggle Tree" },
   a = { ":call OpenTestAlternate()<cr>", "Go to Test" },
+  h = {
+    name = "+Help",
+    t = { ":Telescope colorscheme<CR>", "Change Theme" }
+  },
   A = { ":AV<CR>", "Go to Test (split)" },
   ["."] = { ":NvimTreeFindFileToggle<CR>", "Toggle Tree" },
   k = { ":bd!<CR>", "Kill current buffer" },
@@ -75,7 +79,7 @@ lua << EOF
   },
   f = {
     name = "+File",
-    r = { ":Telescope oldfiles<CR>", "Recent Files" },
+    r = { ":Telescope frecency<CR>", "Recent Files" },
     R = { ":Move ", "Rename Current File" },
     D = { ":Delete<CR>", "Delete the current file" },
     p = { ":e ~/.config/nvim/user.vim<CR>", "Open Your Private Files" }

@@ -5,6 +5,7 @@ return require('packer').startup(function()
   use 'morhetz/gruvbox'
   use 'folke/tokyonight.nvim'
   use 'wbthomason/packer.nvim'
+  use 'flazz/vim-colorschemes'
   use 'tpope/vim-commentary'
   use 'jiangmiao/auto-pairs'
   use 'tpope/vim-surround'
@@ -67,6 +68,8 @@ return require('packer').startup(function()
   use 'preservim/tagbar'
   use 'tpope/vim-abolish'
   use 'terryma/vim-multiple-cursors'
+  use 'nvim-telescope/telescope-frecency.nvim'
+  use 'tami5/sqlite.lua'
 
   use {
     'lewis6991/gitsigns.nvim', requires = { 'nvim-lua/plenary.nvim' },

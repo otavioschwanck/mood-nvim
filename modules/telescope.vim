@@ -1,7 +1,23 @@
 lua <<EOF
+local _, actions = pcall(require, "telescope.actions")
 require('telescope').setup{
-  defaults = {},
+  defaults = {
+    mappings = {
+      i = {
+        ["<C-j>"] = actions.move_selection_next,
+        ["<C-k>"] = actions.move_selection_previous,
+        ["<C-n>"] = actions.cycle_history_next,
+        ["<C-p>"] = actions.cycle_history_prev,
+      },
+      n = {
+        ["<C-j>"] = actions.move_selection_next,
+        ["<C-k>"] = actions.move_selection_previous,
+      }
+    }
+  },
   pickers = {},
   extensions = {}
 }
+
+require"telescope".load_extension("frecency")
 EOF
