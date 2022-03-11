@@ -20,6 +20,7 @@ return require('packer').startup(function()
   use 'farmergreg/vim-lastplace'
   use 'ThePrimeagen/harpoon'
   use 'svermeulen/vim-yoink'
+  use 'psf/black'
   use 'tpope/vim-fugitive'
   use 'AndrewRadev/undoquit.vim'
   use 'rhysd/clever-f.vim'

@@ -144,3 +144,8 @@ function! <SID>StripTrailingWhitespaces()
 endfunction
 
 autocmd BufWritePre * call <SID>StripTrailingWhitespaces()
+
+aug python
+    au!
+    autocmd BufWritePre *.py Black
+aug END
