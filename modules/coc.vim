@@ -114,7 +114,7 @@ imap <C-o> <Plug>(coc-snippets-expand-jump)
 let g:coc_snippet_next = '<c-o>'
 
 " Use <C-k> for jump to previous placeholder, it's default of coc.nvim
-let g:coc_snippet_prev = '<c-s-o>'
+let g:coc_snippet_prev = '<c-k>'
 
 " Make <CR> auto-select the first completion item and notify coc.nvim to
 " format on enter, <cr> could be remapped by other vim plugin

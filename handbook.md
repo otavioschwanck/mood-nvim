@@ -105,7 +105,7 @@ To execute some command in all items of the quickfix list, just run `:cfdo S/old
 |---------|-------------------------------------------------------------------------------------|
 
 # Snippets
-To use snippets, just press C-o to expand and C-o to move forward.
+To use snippets, just press C-o to expand and C-o to move forward and C-k to move backward.
 
 # Running stuff
 
