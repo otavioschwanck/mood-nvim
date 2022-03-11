@@ -26,6 +26,7 @@ return require('packer').startup(function()
   use 'michaeljsmith/vim-indent-object'
   use 'vimlab/split-term.vim'
   use 'nvim-lualine/lualine.nvim'
+  use 'mbbill/undotree'
   use {
     "ahmedkhalf/project.nvim",
     config = function()

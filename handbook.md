@@ -94,6 +94,7 @@ To execute some command in all items of the quickfix list, just run `:cfdo S/old
 
 | Command | Description                                                                         |
 |---------|-------------------------------------------------------------------------------------|
+| SPC u   | Undo Tree (love this plugin)                                                        |
 | gh      | Move argument to left                                                               |
 | gl      | Move argument to right                                                              |
 | daa     | Delete argument                                                                     |

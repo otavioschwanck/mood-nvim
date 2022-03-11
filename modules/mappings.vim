@@ -40,6 +40,7 @@ lua << EOF
   ["*"] = { ":Telescope grep_string<CR>", "Search string at point on project" },
   ["<space>"] = { ":Telescope find_files<CR>", "Find Files" },
   e = { ":NvimTreeFindFileToggle<CR>", "Toggle Tree" },
+  u = { ":UndotreeToggle<CR>", "Undo Tree" },
   a = { ":call OpenTestAlternate()<cr>", "Go to Test" },
   h = {
     name = "+Help",
@@ -134,13 +135,6 @@ nnoremap <C-space> :lua require("harpoon.ui").toggle_quick_menu()<CR>
 nmap s <Plug>(easymotion-overwin-f)
 
 let g:EasyMotion_do_mapping = 0 " Disable default mappings
-
-augroup textobj_quote
-  autocmd!
-  autocmd FileType markdown call textobj#quote#init()
-  autocmd FileType textile call textobj#quote#init()
-  autocmd FileType text call textobj#quote#init({'educate': 0})
-augroup END
 
 nnoremap <expr> gp '`[' . strpart(getregtype(), 0, 1) . '`]'
 
