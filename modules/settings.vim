@@ -132,3 +132,5 @@ require("nvim-tree").setup({
   },
 })
 EOF
+
+autocmd Filetype * AnyFoldActivate               " activate for all filetypes

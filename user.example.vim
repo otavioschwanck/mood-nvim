@@ -14,7 +14,7 @@ lua << EOF
       ["1"] = { ":Term docker-compose up<CR>", "Run Docker Compose" },
       b = {
         name = "+Brownie",
-        t = { ":Term brownie test<CR>", "Run Tests" }
+        t = { ":Term brownie test<CR>", "Run Tests" },
         t = { ":Term brownie compile<CR>", "Run Tests" }
       },
     },
@@ -33,5 +33,15 @@ lua << EOF
     }
   }, { prefix = "<leader>" })
 EOF
+
+" How many spaces / tabs ?
+autocmd Filetype html setlocal ts=2 sw=2 expandtab
+autocmd Filetype ruby setlocal ts=2 sw=2 expandtab
+
+" 4 for javascript and other stuff?
+autocmd Filetype javascript setlocal ts=4 sw=4 sts=0 expandtab
+autocmd Filetype coffeescript setlocal ts=4 sw=4 sts=0 expandtab
+autocmd Filetype typescript setlocal ts=4 sw=4 sts=0 expandtab
+autocmd Filetype solidity setlocal ts=4 sw=4 sts=0 expandtab
 
 " Add your vim stuff here:

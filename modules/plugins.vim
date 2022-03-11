@@ -23,6 +23,7 @@ return require('packer').startup(function()
   use 'tpope/vim-fugitive'
   use 'AndrewRadev/undoquit.vim'
   use 'rhysd/clever-f.vim'
+  use 'pseewald/vim-anyfold'
   use 'michaeljsmith/vim-indent-object'
   use 'vimlab/split-term.vim'
   use 'nvim-lualine/lualine.nvim'
