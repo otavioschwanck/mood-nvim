@@ -24,6 +24,8 @@ return require('packer').startup(function()
   use 'rhysd/clever-f.vim'
   use 'pseewald/vim-anyfold'
   use 'michaeljsmith/vim-indent-object'
+  use 'norcalli/nvim-terminal.lua'
+  use 'camgraff/telescope-tmux.nvim'
   use 'vimlab/split-term.vim'
   use 'nvim-lualine/lualine.nvim'
   use 'mbbill/undotree'
@@ -92,5 +94,6 @@ require('lualine').setup({
 require('telescope').load_extension('projects')
 END
 
+lua require'terminal'.setup()
 let g:coc_global_extensions = ['coc-html', 'coc-css', 'coc-json', 'coc-prettier', 'coc-tsserver', 'coc-solidity',
       \ 'coc-solargraph', 'coc-emmet', 'coc-yaml', 'coc-snippets', 'coc-pyright', 'coc-solidity']

@@ -60,6 +60,12 @@ lua << EOF
   e = { ":NvimTreeFindFileToggle<CR>", "Toggle Tree" },
   u = { ":UndotreeToggle<CR>", "Undo Tree" },
   a = { ":call OpenTestAlternate()<cr>", "Go to Test" },
+  l = {
+    name = "+Tmux",
+    s = { ":Telescope tmux sessions<CR>", "Sessions" },
+    w = { ":Telescope tmux windows<CR>", "Windows" },
+    p = { ":Telescope tmux pane_contents<CR>", "Pane Contents" },
+  },
   h = {
     name = "+Help",
     t = { ":Telescope colorscheme<CR>", "Change Theme" },
