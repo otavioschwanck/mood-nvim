@@ -1,12 +1,9 @@
 lua <<LUA
 
 return require('packer').startup(function()
-  use 'eddyekofo94/gruvbox-flat.nvim'
   use 'dhruvasagar/vim-table-mode'
-  use 'morhetz/gruvbox'
   use 'folke/tokyonight.nvim'
   use 'wbthomason/packer.nvim'
-  use 'flazz/vim-colorschemes'
   use 'tpope/vim-commentary'
   use 'jiangmiao/auto-pairs'
   use 'tpope/vim-surround'
@@ -62,8 +59,6 @@ return require('packer').startup(function()
   use 'cocopon/iceberg.vim'
   use 'kdheepak/lazygit.nvim'
   use 'NLKNguyen/papercolor-theme'
-  use 'sainnhe/gruvbox-material'
-  use 'lifepillar/vim-gruvbox8'
   use 'nicwest/vim-camelsnek'
   use 'AndrewRadev/sideways.vim'
   use 'AndrewRadev/splitjoin.vim'
@@ -75,6 +70,7 @@ return require('packer').startup(function()
   use 'terryma/vim-multiple-cursors'
   use 'nvim-telescope/telescope-frecency.nvim'
   use 'tami5/sqlite.lua'
+  use 'ellisonleao/gruvbox.nvim'
 
   use {
     'lewis6991/gitsigns.nvim', requires = { 'nvim-lua/plenary.nvim' },
@@ -90,11 +86,9 @@ end)
 LUA
 
 lua <<END
-require('lualine').setup()
-  options = {
-    theme = 'gruvbox-flat'
-  }
-
+require('lualine').setup({
+  options = { theme = 'gruvbox' }
+})
 require('telescope').load_extension('projects')
 END
 

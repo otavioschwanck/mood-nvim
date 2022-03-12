@@ -101,12 +101,11 @@ au BufEnter * :set signcolumn=yes
 
 autocmd SwapExists * let v:swapchoice = "e"
 
-let g:lightline = {'colorscheme': 'gruvbox-flat'}
-
 let g:gruvbox_flat_style = "hard"
 
 set background=dark
-colorscheme gruvbox-flat
+set termguicolors
+colorscheme gruvbox
 
 set confirm
 
