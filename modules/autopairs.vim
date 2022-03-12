@@ -1,6 +1,8 @@
 lua << EOF
   require('nvim-autopairs').setup({
     disable_filetype = { "TelescopePrompt" },
+    map_bs = false,
+    map_cr = false
   })
 
   local npairs = require'nvim-autopairs'
