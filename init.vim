@@ -6,4 +6,5 @@ runtime ./modules/coc.vim
 runtime ./modules/tree-sitter.vim
 runtime ./modules/yoink.vim
 runtime ./modules/which-key.vim
+runtime ./modules/autopairs.vim
 runtime ./user.vim

@@ -31,29 +31,45 @@ On your personal configuration you can configure stuff like commands to run with
 | SPC k   | Kill current buffer     |
 | SPC A   | Go to Test (and vsplit) |
 | SPC a   | Go to test              |
+| SPC a   | Go to test              |
+|---------|-------------------------|
+| ]g      | Next git hunk           |
+| [g      | Previous git hunk       |
+|---------|-------------------------|
+| ]e      | Next Error              |
+| [e      | Previous Error          |
+|---------|-------------------------|
+| ]q      | Next Quickfix           |
+| [q      | Previous Quickfix       |
 |---------|-------------------------|
 
 # Window Navigation
 
 Just C-h C-j C-k C-l
 
+`<C-w>u` will undo a closed window.
+
 # Searching
 
 ## Common search
 
-| Command        | Description                            |
-|----------------|----------------------------------------|
-| SPC SPC        | Find Files in Project                  |
-| SPC s g        | Git Modified Files                     |
-| SPC s s        | Fuzzy find in current buffer           |
-| SPC s p        | Search text on project                 |
-| SPC s P        | Search text on project using CocSearch |
-| SPC *          | Search text at point on project        |
-|----------------|----------------------------------------|
-| C-SPC          | Toggle Harpoon                         |
-| C-s            | Add file to harpoon                    |
-| SPC 1 to SPC 4 | Change harpoon by order                |
-|----------------|----------------------------------------|
+| Command        | Description                                      |
+|----------------|--------------------------------------------------|
+| SPC SPC        | Find Files in Project                            |
+| SPC s g        | Git Modified Files                               |
+| SPC s i        | Search Document Symbols (Just love this command) |
+| spc s j        | Search Workspace Symbols                         |
+| SPC s s        | Fuzzy find in current buffer                     |
+| SPC s p        | Search text on project                           |
+| SPC s P        | Search text on project using CocSearch           |
+| SPC *          | Search text at point on project                  |
+|----------------|--------------------------------------------------|
+| C-SPC          | Toggle Harpoon                                   |
+| C-s            | Add file to harpoon                              |
+| SPC 1 to SPC 4 | Change harpoon by order                          |
+|----------------|--------------------------------------------------|
+
+Quick Tip: You can come back to any telescope search with `SPC RET`.
 
 ## Search and Replace on Project
 
@@ -97,8 +113,13 @@ To execute some command in all items of the quickfix list, just run `:cfdo S/old
 | Command | Description                                                                         |
 |---------|-------------------------------------------------------------------------------------|
 | SPC u   | Undo Tree (love this plugin)                                                        |
+|---------|-------------------------------------------------------------------------------------|
 | gh      | Move argument to left                                                               |
 | gl      | Move argument to right                                                              |
+|---------|-------------------------------------------------------------------------------------|
+| gcc     | Comment (insert mode)                                                               |
+| gc      | Comment (viaul mode)                                                                |
+|---------|-------------------------------------------------------------------------------------|
 | daa     | Delete argument                                                                     |
 | gS      | Split to multiline method / args                                                    |
 | gJ      | Join multiline method \ args                                                        |
@@ -126,5 +147,10 @@ To use snippets, just press C-o to expand and C-o to move forward and C-k to mov
 
 ## Additional Lsp Servers
 To install additional servers, look for the plugin CoC
+
+
+## Some useful plugins
+
+`:TableModeEnable` will facilitate your life when creating tables
 
 ### For additional commands, just press SPC and follow your heart.

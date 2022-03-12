@@ -5,7 +5,7 @@ return require('packer').startup(function()
   use 'folke/tokyonight.nvim'
   use 'wbthomason/packer.nvim'
   use 'tpope/vim-commentary'
-  use 'jiangmiao/auto-pairs'
+  use 'windwp/nvim-autopairs'
   use 'tpope/vim-surround'
   use 'vim-test/vim-test'
   use 'tpope/vim-eunuch'

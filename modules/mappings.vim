@@ -73,7 +73,7 @@ lua << EOF
   },
   A = { ":AV<CR>", "Go to Test (split)" },
   ["."] = { ":NvimTreeFindFileToggle<CR>", "Toggle Tree" },
-  k = { ":bd!<CR>", "Kill current buffer" },
+  k = { ":call undoquit#SaveWindowQuitHistory()<cr>:bd!<CR>", "Kill current buffer" },
   p = {
     name = "+Projects",
     p = { ":Telescope projects<CR>", "Go To Project" }
@@ -94,15 +94,17 @@ lua << EOF
     s = { "<Plug>(coc-convert-snippet)", "Convert selection into snippet" },
     o = { ":OR<CR>", "Organize Imports" },
     f = { ":Format<CR>", "Format File" },
-    ["!"] = { ":<C-u>CocListResume<CR>", "Resume" }
+    i = { ":Telescope coc document_symbols<CR>", "Search Outline Symbols" }
   },
+  ["<return>"] = { ":Telescope resume<CR>", "Telescope Resume" },
   s = {
     name = "+Search",
     p = { ":Telescope live_grep<CR>", "Grep on Project" },
     P = { ":CocSearch ", "Grep using CoC" },
     g = { ":Telescope git_status<CR>", "Search files modified in git" },
     s = { ":Telescope current_buffer_fuzzy_find fuzzy=false case_mode=ignore_case<CR>", "Fuzzy CUrrent Buffer" },
-    i = { ":Telescope coc document_symbols<CR>", "Search Outline Symbols" }
+    i = { ":Telescope coc document_symbols<CR>", "Search Outline Symbols" },
+    j = { ":Telescope coc workspace_symbols<CR>", "Symbols" },
   },
   f = {
     name = "+File",
@@ -198,3 +200,5 @@ vnoremap J :m '>+1<CR>gv=gv
 vnoremap K :m '<-2<CR>gv=gv
 
 nnoremap <expr> gp '`[' . strpart(getregtype(), 0, 1) . '`]'
+
+nnoremap <c-w>c :call undoquit#SaveWindowQuitHistory()<cr><c-w>c
