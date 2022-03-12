@@ -1,0 +1,126 @@
+# A valid snippet should starts with:
+#
+#		snippet trigger_word [ "description" [ options ] ]
+#
+# and end with:
+#
+#		endsnippet
+#
+# Snippet options:
+#
+#		b - Beginning of line.
+#		i - In-word expansion.
+#		w - Word boundary.
+#		r - Regular expression
+#		e - Custom context snippet
+#		A - Snippet will be triggered automatically, when condition matches.
+#
+# Basic example:
+#
+#		snippet emitter "emitter properties" b
+#		private readonly ${1} = new Emitter<$2>()
+#		public readonly ${1/^_(.*)/$1/}: Event<$2> = this.$1.event
+#		endsnippet
+#
+# Online reference: https://github.com/SirVer/ultisnips/blob/master/doc/UltiSnips.txt
+
+snippet enum "as_enum :field, [...], prefix: true, map: :string" i
+as_enum :${1:field}, ${2:[:${3:value1}]}${4:, prefix: true, map: :string}
+endsnippet
+
+snippet attr "attribute :name, Value" i
+attribute :${column}, ${String}
+endsnippet
+
+snippet bel "belongs_to :model, optional: true" i
+belongs_to :${1:model}${2:, optional: ${3:true}}
+endsnippet
+
+snippet can "can(:manage, Class, user: @user)" i
+can(${1::manage}, ${2:Class}${3:, ${4:field}: ${5:value}})
+endsnippet
+
+snippet dol "do |code|" i
+do |${1:code}|
+  ${2:}
+end
+endsnippet
+
+snippet fb "find_by(column: value)" i
+find_by(${1:column}: ${2:value})
+endsnippet
+
+snippet hasm "has_many :models, class_name: 'class'" i
+has_many :${1:models}${2:, class_name: '${3:class}'}
+endsnippet
+
+snippet now "Time.zone.now" i
+Time.zone.now
+endsnippet
+
+snippet numericality "numericality: { greater_than: 0 }" i
+numericality: { ${1:greater_than}: ${2:0} }
+endsnippet
+
+snippet resc "rescue StandardError => e" i
+rescue ${StandardError} => ${1:e}
+  ${2:}
+endsnippet
+
+snippet rescb "rescue StandardError => e ... byebug" i
+rescue StandardError => e
+  byebug
+endsnippet
+
+snippet rescr "rescue StandardError => e ... Rollbar.error(e)" i
+rescue StandardError => e
+  Rollbar.error(e, ${${1:item}: ${2:value}})
+endsnippet
+
+snippet strf "UTC Timestamp" i
+strftime('%Y/%m/%d')
+endsnippet
+
+snippet strfpt "BR Timestamp" i
+strftime('%d/%m/%Y')
+endsnippet
+
+snippet trans "ActiveRecord::Base.transaction(...) do" i
+ActiveRecord::Base.transaction(joinable: false, requires_new: true) do
+endsnippet
+
+snippet vali "validates :field, presence: true" i
+validates :${1:field}${2:, ${3:presence}: ${4:true}}
+endsnippet
+
+snippet wh "where(field: value)" i
+where(${1:field}: ${2:value})
+endsnippet
+
+snippet contw "context 'when something' do .. end" i
+context 'when ${1:something}' do
+  ${2:}
+end
+endsnippet
+
+snippet descc "description '#call' do ... end" i
+describe '#call' do
+  ${2:}
+end
+endsnippet
+
+snippet letm "{ create(:$1${2:, $3}) }" i
+let(:${1:model_name}) { create(:$1${2:, $3}) }
+endsnippet
+
+snippet let!m "{ create(:$1${2:, $3}) }" i
+let!(:${1:model_name}) { create(:$1${2:, $3}) }
+endsnippet
+
+snippet params "let(:params) do { ... } end" i
+let(:params) do
+  {
+    ${0:}
+  }
+end
+endsnippet
