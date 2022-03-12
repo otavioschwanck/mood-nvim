@@ -87,10 +87,10 @@ lua << EOF
   c = {
     name = "+Lsp (COC)",
     r = { "<Plug>(coc-rename)", "Rename" },
-    a = { "<Plug>(coc-codeaction)", "Code Action" },
+    a = { ":Telescope coc code_actions<CR>", "Code Action" },
     l = { "<Plug>(coc-codelens-action)", "Code Lens" },
-    x = { ":<C-u>CocList diagnostics<cr>", "Diagnostics" },
-    j = { ":<C-u>CocList -I symbols<cr>", "Symbols" },
+    x = { ":Telescope coc diagnostics<CR>", "Diagnostics" },
+    j = { ":Telescope coc workspace_symbols<CR>", "Symbols" },
     s = { "<Plug>(coc-convert-snippet)", "Convert selection into snippet" },
     o = { ":OR<CR>", "Organize Imports" },
     f = { ":Format<CR>", "Format File" },
@@ -102,7 +102,7 @@ lua << EOF
     P = { ":CocSearch ", "Grep using CoC" },
     g = { ":Telescope git_status<CR>", "Search files modified in git" },
     s = { ":Telescope current_buffer_fuzzy_find fuzzy=false case_mode=ignore_case<CR>", "Fuzzy CUrrent Buffer" },
-    i = { ":CocList outline<CR>", "Search Outline Symbols" }
+    i = { ":Telescope coc document_symbols<CR>", "Search Outline Symbols" }
   },
   f = {
     name = "+File",
@@ -148,8 +148,8 @@ nnoremap <silent><esc> :noh<return><esc>
 " Quickfix
 nmap ]q :cnext<CR>
 nmap [q :cprevious<CR>
-nnoremap <silent>H :bp<CR>
-nnoremap <silent>L :bn<CR>
+nnoremap <silent>H :BufMRUPrev<CR>
+nnoremap <silent>L :BufMRUNext<CR>
 
 " Save all
 nmap \ :wall<CR>

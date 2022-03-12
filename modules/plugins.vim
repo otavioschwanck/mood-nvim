@@ -66,6 +66,7 @@ return require('packer').startup(function()
   use 'AndrewRadev/splitjoin.vim'
   use 'AndrewRadev/switch.vim'
   use 'folke/which-key.nvim'
+  use 'RRethy/nvim-treesitter-endwise'
   use 'rcarriga/vim-ultest'
   use 'preservim/tagbar'
   use 'tpope/vim-abolish'
@@ -73,6 +74,8 @@ return require('packer').startup(function()
   use 'nvim-telescope/telescope-frecency.nvim'
   use 'tami5/sqlite.lua'
   use 'ellisonleao/gruvbox.nvim'
+  use 'mildred/vim-bufmru'
+  use 'fannheyward/telescope-coc.nvim'
 
   use {
     'lewis6991/gitsigns.nvim', requires = { 'nvim-lua/plenary.nvim' },

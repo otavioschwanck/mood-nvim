@@ -19,6 +19,16 @@ require('telescope').setup{
   extensions = {}
 }
 
+local actions = require('telescope.actions')require('telescope').setup{
+  pickers = {
+    buffers = {
+      sort_lastused = true,
+      ignore_current_buffer = true
+    }
+  }
+}
+
 require"telescope".load_extension("frecency")
 require"telescope".load_extension("tmux")
+require('telescope').load_extension('coc')
 EOF
