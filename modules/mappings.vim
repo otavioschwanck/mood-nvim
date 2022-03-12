@@ -94,7 +94,8 @@ lua << EOF
     name = "+Search",
     p = { ":Telescope live_grep<CR>", "Grep on Project" },
     P = { ":CocSearch ", "Grep using CoC" },
-    s = { ":Telescope git_status<CR>", "Search files modified in git" },
+    g = { ":Telescope git_status<CR>", "Search files modified in git" },
+    s = { ":Telescope current_buffer_fuzzy_find fuzzy=false case_mode=ignore_case<CR>", "Fuzzy CUrrent Buffer" },
     i = { ":CocList outline<CR>", "Search Outline Symbols" }
   },
   f = {

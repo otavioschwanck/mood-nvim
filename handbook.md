@@ -44,7 +44,8 @@ Just C-h C-j C-k C-l
 | Command        | Description                            |
 |----------------|----------------------------------------|
 | SPC SPC        | Find Files in Project                  |
-| SPC s s        | Git Modified Files                     |
+| SPC s g        | Git Modified Files                     |
+| SPC s s        | Fuzzy find in current buffer           |
 | SPC s p        | Search text on project                 |
 | SPC s P        | Search text on project using CocSearch |
 | SPC *          | Search text at point on project        |
