@@ -1,7 +1,7 @@
 " To reload your configs, press :so %
 
 " Select your colorscheme.  To see others: SPC h t
-colorscheme gruvbox-flat
+colorscheme gruvbox
 
 " Your private mappings
 lua << EOF
@@ -16,7 +16,8 @@ lua << EOF
       b = {
         name = "+Brownie",
         t = { ":Term brownie test<CR>", "Run Tests" },
-        c = { ":Term brownie compile<CR>", "Compile" }
+        c = { ":Term brownie compile<CR>", "Compile" },
+        b = { ":execute 'Term' .. ' brownie test ' .. fnameescape(expand('%:P'))<CR>", "Test Current File" } -- Run a command using the file name.
       },
       g = { ":e ~/.gitconfig<CR>", "Open Git Config" },
       z = { ":e ~/.zshrc<CR>", "Open zshrc" }
