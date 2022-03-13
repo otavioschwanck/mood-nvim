@@ -17,11 +17,11 @@ else
   inoremap <silent><expr> <c-@> coc#refresh()
 endif
 
-inoremap <silent><expr> <TAB>
+inoremap <silent><expr> <C-j>
       \ pumvisible() ? "\<C-n>" :
-      \ <SID>check_back_space() ? "\<TAB>" :
+      \ <SID>check_back_space() ? "\<C-j>" :
       \ coc#refresh()
-inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+inoremap <expr><C-k> pumvisible() ? "\<C-p>" : "\<C-k>"
 
 function! s:check_back_space() abort
   let col = col('.') - 1
@@ -104,17 +104,14 @@ command! -nargs=0 OR   :call     CocActionAsync('runCommand', 'editor.action.org
 " provide custom statusline: lightline.vim, vim-airline.
 set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
 
-" Mappings for CoCList
-nnoremap <silent><nowait> <space>
-
 " Use <C-j> for both expand and jump (make expand higher priority.)
-imap <C-o> <Plug>(coc-snippets-expand-jump)
+imap <silent><expr><tab> coc#expandableOrJumpable() ? "\<C-e>\<C-r>=coc#rpc#request('doKeymap', ['snippets-expand-jump',''])\<CR>" : "\<TAB>"
 
 " Use <C-j> for jump to next placeholder, it's default of coc.nvim
-let g:coc_snippet_next = '<c-o>'
+let g:coc_snippet_next = '<tab>'
 
 " Use <C-k> for jump to previous placeholder, it's default of coc.nvim
-let g:coc_snippet_prev = '<c-k>'
+let g:coc_snippet_prev = '<S-tab>'
 
 " Make <CR> auto-select the first completion item and notify coc.nvim to
 " format on enter, <cr> could be remapped by other vim plugin

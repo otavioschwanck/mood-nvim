@@ -124,3 +124,11 @@ let(:params) do
   }
 end
 endsnippet
+
+snippet rspec "Rspec.describe Class, type: :model do ... end"
+require 'rails_helper'
+
+RSpec.describe ${1:Class}, type: :${2:model} do
+  ${3:}
+end
+endsnippet
