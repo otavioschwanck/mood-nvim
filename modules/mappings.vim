@@ -161,6 +161,7 @@ vmap - $<Left>
 
 nnoremap gr :NvimTreeRefresh<CR>
 nnoremap <TAB> <C-w>w
+nnoremap <S-TAB> <C-w>W
 
 nnoremap <C-s> :lua require("harpoon.mark").add_file()<CR>
 nnoremap <C-space> :lua require("harpoon.ui").toggle_quick_menu()<CR>
