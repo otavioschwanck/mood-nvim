@@ -170,8 +170,6 @@ let g:EasyMotion_do_mapping = 0 " Disable default mappings
 
 nnoremap <expr> gp '`[' . strpart(getregtype(), 0, 1) . '`]'
 
-nnoremap <silent> <C-q>    :BufferPick<CR>
-
 function Setreg(regname, regval)
   exe "let @".a:regname." = '".a:regval."'"
 endfunction

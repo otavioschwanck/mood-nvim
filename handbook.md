@@ -134,6 +134,14 @@ I deactivated the TAB for go forward and backward on the list.  Use C-j and C-k 
 
 To select, just press ENTER.  To close the suggestions pop-up, press C-e.
 
+# Multiple Cursors
+
+| Command | Description                         |
+|---------|-------------------------------------|
+| C-q     | Start multiple cursors / go forward |
+| gq      | Select all occurrences              |
+|---------|-------------------------------------|
+
 # Running stuff
 
 ## Test
