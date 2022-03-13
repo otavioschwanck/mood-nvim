@@ -51,6 +51,7 @@ return require('packer').startup(function()
 
   -- Editing stuff
   use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
+  use 'nvim-treesitter/nvim-treesitter-textobjects'
   use 'tmux-plugins/vim-tmux-focus-events'
   use {'neoclide/coc.nvim', branch = 'release'}
   use "rafamadriz/friendly-snippets"
