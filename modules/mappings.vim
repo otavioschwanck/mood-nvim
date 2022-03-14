@@ -156,6 +156,7 @@ nnoremap <silent>L :BufMRUNext<CR>
 
 " Save all
 nmap \ :wall<CR>
+nmap ç :wall<CR>
 
 nmap - $
 vmap - $<Left>
