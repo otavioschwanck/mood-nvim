@@ -87,6 +87,7 @@ return require('packer').startup(function()
   use 'ellisonleao/gruvbox.nvim'
   use 'mildred/vim-bufmru'
   use 'fannheyward/telescope-coc.nvim'
+  use 'tomasr/molokai'
 
   use {
     'lewis6991/gitsigns.nvim', requires = { 'nvim-lua/plenary.nvim' },
