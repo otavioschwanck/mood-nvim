@@ -15,7 +15,7 @@ documented.
 
 # Installation
 
-1. Install a nerd font and configure your terminal to use it.  Nerd fonts [Here](link:https://www.nerdfonts.com/font-downloads)
+1. Install a nerd font and configure your terminal to use it.  Nerd fonts [Here](https://www.nerdfonts.com/font-downloads)
 2. Install the config
 
 ```sh
