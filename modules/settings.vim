@@ -157,5 +157,5 @@ augroup Mkdir
 augroup END
 
 let g:yoinkSavePersistently = 1
-let g:g:yoinkIncludeDeleteOperations = 1
+let g:yoinkIncludeDeleteOperations = 1
 let g:yoinkMaxItems = 20
