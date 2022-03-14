@@ -80,7 +80,7 @@ return require('packer').startup(function()
   use 'rcarriga/vim-ultest'
   use 'preservim/tagbar'
   use 'tpope/vim-abolish'
-  use 'iamcco/markdown-preview.nvim'
+  use({ "iamcco/markdown-preview.nvim", run = "cd app && npm install", setup = function() vim.g.mkdp_filetypes = { "markdown" } end, ft = { "markdown" }, })
   use 'terryma/vim-multiple-cursors'
   use 'nvim-telescope/telescope-frecency.nvim'
   use 'tami5/sqlite.lua'
