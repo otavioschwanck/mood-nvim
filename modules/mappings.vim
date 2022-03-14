@@ -119,6 +119,7 @@ lua << EOF
   g = {
     name = "+Git",
     g = { ":LazyGit<CR>", "LazyGit" },
+    t = { ":0GcLog<CR>:echo 'Use ]q and [q to navigate on file history.  SPC q to close.'<CR>", "Git Time Machine" },
     r = { ":Gitsigns reset_hunk<CR>", "Reset hunk at point" },
     c = { ":Gdiff<CR>", "Diff from HEAD" },
     s = { ":Gitsigns stage_hunk<CR>", "Stage hunk at point" },
