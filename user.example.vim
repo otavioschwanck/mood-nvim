@@ -10,7 +10,7 @@ lua << EOF
   wk.register({
     -- Example of custom terminal commands
     o = {
-      r = { ":!rubocop -a %<CR>", "Rubocop on current file" },
+      r = { ":!bundle exec rubocop -a %<CR>", "Rubocop on current file" },
       name = "+Term Commands",
       ["1"] = { ":Term docker-compose up<CR>", "Run Docker Compose" },
       b = {

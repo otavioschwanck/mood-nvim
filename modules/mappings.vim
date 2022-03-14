@@ -102,7 +102,7 @@ lua << EOF
     p = { ":Telescope live_grep<CR>", "Grep on Project" },
     P = { ":CocSearch ", "Grep using CoC" },
     g = { ":Telescope git_status<CR>", "Search files modified in git" },
-    s = { ":Telescope current_buffer_fuzzy_find fuzzy=false case_mode=ignore_case<CR>", "Fuzzy CUrrent Buffer" },
+    s = { ":Telescope current_buffer_fuzzy_find fuzzy=false case_mode=ignore_case<CR>", "Fuzzy Current Buffer" },
     i = { ":Telescope coc document_symbols<CR>", "Search Outline Symbols" },
     j = { ":Telescope coc workspace_symbols<CR>", "Symbols" },
   },
@@ -167,9 +167,7 @@ nnoremap <S-TAB> <C-w>W
 nnoremap <C-s> :lua require("harpoon.mark").add_file()<CR>
 nnoremap <C-space> :lua require("harpoon.ui").toggle_quick_menu()<CR>
 
-nmap s <Plug>(easymotion-overwin-f)
-
-let g:EasyMotion_do_mapping = 0 " Disable default mappings
+nmap s :HopChar1<CR>
 
 nnoremap <expr> gp '`[' . strpart(getregtype(), 0, 1) . '`]'
 

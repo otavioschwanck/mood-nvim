@@ -55,8 +55,15 @@ return require('packer').startup(function()
   use 'tmux-plugins/vim-tmux-focus-events'
   use {'neoclide/coc.nvim', branch = 'release'}
   use "rafamadriz/friendly-snippets"
-  use 'easymotion/vim-easymotion'
   use 'windwp/nvim-ts-autotag'
+  use {
+    'phaazon/hop.nvim',
+    branch = 'v1', -- optional but strongly recommended
+    config = function()
+      -- you can configure Hop the way you like here; see :h hop-config
+      require'hop'.setup { keys = 'etovxqpdygfblzhckisuran' }
+    end
+  }
   use 'wellle/targets.vim'
 
   use 'EdenEast/nightfox.nvim'
@@ -69,6 +76,7 @@ return require('packer').startup(function()
   use 'AndrewRadev/switch.vim'
   use 'folke/which-key.nvim'
   use 'RRethy/nvim-treesitter-endwise'
+  use 'editorconfig/editorconfig-vim'
   use 'rcarriga/vim-ultest'
   use 'preservim/tagbar'
   use 'tpope/vim-abolish'
