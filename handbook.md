@@ -45,16 +45,16 @@ On your personal configuration you can configure stuff like commands to run with
 
 # Window Navigation
 
-| Command | Description                                    |
-|---------|------------------------------------------------|
-| C-h     | Focus Window to the left                       |
-| C-l     | Focus Window to the right                      |
-| TAB     | Focus next window (Dont works on the tree)     |
-| S-TAB   | Focus previous window (Dont works on the tree) |
-|---------|------------------------------------------------|
-| C-w u   | Undo a window closed                           |
-| C-w o   | Maximize window                                |
-|---------|------------------------------------------------|
+| Command | Description                                                              |
+|---------|--------------------------------------------------------------------------|
+| C-h     | Focus Window to the left                                                 |
+| C-l     | Focus Window to the right                                                |
+| TAB     | Focus next window (Dont works on the tree) (Cool to use on terminal)     |
+| S-TAB   | Focus previous window (Dont works on the tree) (Cool to use on terminal) |
+|---------|--------------------------------------------------------------------------|
+| C-w u   | Undo a window closed                                                     |
+| C-w o   | Maximize window                                                          |
+|---------|--------------------------------------------------------------------------|
 
 `<C-w>u` will undo a closed window.
 
