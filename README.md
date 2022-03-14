@@ -57,6 +57,7 @@ sudo mv lazygit /usr/local/bin/
 6. (b) Mac Steps
 
 ```sh
+brew install jesseduffield/lazygit/lazygit
 brew install lazygit sqlite
 brew install --HEAD neovim
 ```
