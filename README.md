@@ -1,17 +1,22 @@
+# Introduction
+
+A neovim configuration for Rails developers.  Also works with Javascript, python and soildity.  Ready to use and well
+documented.
+
+# Demo
+
+![demo](demo.gif)
+
 # Dependencies
 - Neovim 0.5+
 - lazygit
 - ripgrep
-- etags (Optional)
 - NerdFonts
 
 # Installation
 
-## For all operational systems:
-
-- Install a nerd font and configure your terminal to use it.  Nerd fonts here: https://www.nerdfonts.com/font-downloads
-
-- Install the config
+1. Install a nerd font and configure your terminal to use it.  Nerd fonts [Here](link:https://www.nerdfonts.com/font-downloads)
+2. Install the config
 
 ```sh
 git clone git@github.com:otavioschwanck/nvim-on-rails.git ~/.config/nvim
@@ -20,23 +25,20 @@ cp ~/.config/nvim/user.example.vim ~/.config/nvim/user.vim
 cp ~/.config/nvim/.tmux.conf ~/.tmux.conf
 ```
 
-- Run this: `git config --global push.default current`
-
-- Install packer
-
+3. Run this: `git config --global push.default current`
+4. Install packer:
 ```sh
 git clone --depth 1 https://github.com/wbthomason/packer.nvim\
  ~/.local/share/nvim/site/pack/packer/start/packer.nvim
 ```
-
-- Install some dependencies:
+5. Install some dependencies:
 
 ```sh
 pip install neovim-remote neovim
 gem install solargraph neovim
 ```
 
-## Ubuntu Steps
+6. (a) Ubuntu Steps
 
 ```sh
 sudo add-apt-repository ppa:neovim-ppa/unstable
@@ -45,19 +47,20 @@ sudo apt-get install neovim
 
 sudo apt-get install sqlite3 libsqlite3-dev
 
-sudo add-apt-repository ppa:lazygit-team/release
-sudo apt-get update
-sudo apt-get install lazygit
+export VER="0.31.4"
+wget -O lazygit.tgz https://github.com/jesseduffield/lazygit/releases/download/v${VER}/lazygit_${VER}_Linux_x86_64.tar.gz
+tar xvf lazygit.tgz
+sudo mv lazygit /usr/local/bin/
 ```
 
-## Mac Steps
+6. (b) Mac Steps
 
 ```sh
 brew install lazygit sqlite
 brew install --HEAD neovim
 ```
 
-## Add to your .zshrc ou .bashrc:
+7. Add to your .zshrc ou .bashrc:
 
 ```sh
 if [ -n "$NVIM_LISTEN_ADDRESS" ]; then
@@ -73,18 +76,19 @@ else
 fi
 ```
 
-## Run
-
-Run the first time with nvim and execute the command: :PackerSync
+7. Run `nvim` on the terminal and then, run `:PackerSync`.
 
 # After install
 
-- Check if is missing something with :checkhealth
+- Check if is missing something with `:checkhealth`
 
-# Learning some stuff
+# How to learn the keybindings of this configuration?
 
-Just press `SPC h h` to open the handbook
+Just press `SPC h h` to open the handbook inside vim.
 
-# Tmux
+
+# Other tips
+
+## Tmux
 
 I Really recommend you to learn tmux / tmuxinator.  Take a look on tmuxinator on youtube.

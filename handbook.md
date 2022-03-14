@@ -175,4 +175,6 @@ To install additional servers, look for the plugin CoC
 
 `:TableModeEnable` will facilitate your life when creating tables
 
+`:markdownPreview` is awesome to create markdown files.
+
 ### For additional commands, just press SPC and follow your heart.

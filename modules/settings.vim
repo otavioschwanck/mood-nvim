@@ -150,3 +150,8 @@ aug python
     au!
     autocmd BufWritePre *.py Black
 aug END
+
+augroup Mkdir
+  autocmd!
+  autocmd BufWritePre * call mkdir(expand("<afile>:p:h"), "p")
+augroup END

@@ -26,7 +26,7 @@ lua << EOF
     r = {
       name = "+Rails",
       r = { ":Term rails console<CR>", "Rails Console" },
-      R = { ":Term rails console<CR>", "Rails Server" },
+      R = { ":Term rails server<CR>", "Rails Server" },
       i = { ":Term bundle install<CR>", "Bundle Install" },
       m = { ":lua require'telescope.builtin'.find_files({ cwd = 'app/models' })<CR>", "Find Model" },
       c = { ":lua require'telescope.builtin'.find_files({ cwd = 'app/controllers' })<CR>", "Find Controller" },
