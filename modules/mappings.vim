@@ -71,7 +71,7 @@ lua << EOF
     t = { ":Telescope colorscheme<CR>", "Change Theme" },
     h = { ":e ~/.config/nvim/handbook.md<CR>", "Open the Handbook" }
   },
-  A = { ":AV<CR>", "Go to Test (split)" },
+  A = { "<C-w>o <C-w>v :call OpenTestAlternate()<cr>", "Go to Test (split)" },
   ["."] = { ":NvimTreeFindFileToggle<CR>", "Toggle Tree" },
   k = { ":call undoquit#SaveWindowQuitHistory()<cr>:bd!<CR>", "Kill current buffer" },
   p = {
