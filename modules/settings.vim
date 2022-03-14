@@ -155,3 +155,7 @@ augroup Mkdir
   autocmd!
   autocmd BufWritePre * call mkdir(expand("<afile>:p:h"), "p")
 augroup END
+
+let g:yoinkSavePersistently = 1
+let g:g:yoinkIncludeDeleteOperations = 1
+let g:yoinkMaxItems = 20
