@@ -109,7 +109,7 @@ colorscheme gruvbox
 
 set confirm
 
-set clipboard=unnamedplus
+set clipboard=unnamed,unnamedplus
 
 let g:camelsnek_i_am_an_old_fart_with_no_sense_of_humour_or_internet_culture = 1
 

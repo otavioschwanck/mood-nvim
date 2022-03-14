@@ -34,7 +34,8 @@ git clone --depth 1 https://github.com/wbthomason/packer.nvim\
 5. Install some dependencies:
 
 ```sh
-pip install neovim-remote neovim
+python -m pip install neovim-remote pynvim
+python -m pip3 install neovim-remote pynvim
 gem install solargraph neovim
 ```
 
@@ -86,6 +87,12 @@ fi
 
 Just press `SPC h h` to open the handbook inside vim.
 
+
+# Troubleshoot
+
+## Error on python for some reason.
+
+Check your personal config `SPC f p` at the bottom.  Set the python envs to their real values.
 
 # Other tips
 
