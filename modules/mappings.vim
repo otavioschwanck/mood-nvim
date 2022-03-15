@@ -207,4 +207,8 @@ nnoremap <expr> gp '`[' . strpart(getregtype(), 0, 1) . '`]'
 
 nnoremap <c-w>c :call undoquit#SaveWindowQuitHistory()<cr><c-w>c
 
-inoremap <S-Tab> <C-d>
+" Big Improvements
+imap <C-v> <C-r>+
+cnoremap <C-v> <C-r>+
+cnoremap <C-a> <C-left>
+cnoremap <C-e> <C-right>
