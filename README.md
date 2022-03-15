@@ -12,6 +12,7 @@ documented.
 - lazygit
 - ripgrep
 - NerdFonts
+- Python
 
 # Installation
 
