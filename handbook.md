@@ -167,6 +167,10 @@ To select, just press ENTER.  To close the suggestions pop-up, press C-e.
 `SPC v` open a blank terminal
 `:Term command` open a terminal with the command
 
+# Command mode
+
+On command mode `:`, you can press C-v to paste, `C-a` to go back one word, and `C-e` to go forward one word.
+
 ## Additional Lsp Servers
 To install additional servers, look for the plugin CoC
 
