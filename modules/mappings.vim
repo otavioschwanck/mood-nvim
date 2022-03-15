@@ -27,9 +27,7 @@ function! AlternateForCurrentFile()
 endfunction
 
 lua << EOF
-  require("which-key").setup {
-    ignore_missing = true
-  }
+  require("which-key").setup {}
 
   local wk = require("which-key")
   -- Visual mode:
