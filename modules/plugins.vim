@@ -56,6 +56,7 @@ return require('packer').startup(function()
   use {'neoclide/coc.nvim', branch = 'release'}
   use "rafamadriz/friendly-snippets"
   use 'windwp/nvim-ts-autotag'
+  use { 'svermeulen/vim-subversive' }
   use {
     'phaazon/hop.nvim',
     branch = 'v1', -- optional but strongly recommended
