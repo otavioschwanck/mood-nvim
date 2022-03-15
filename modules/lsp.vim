@@ -203,7 +203,7 @@ local servers = {
   "jsonls",
   "yamlls",
   "tsserver",
-  "solc"
+  "solang"
 }
 
 for _, name in pairs(servers) do
