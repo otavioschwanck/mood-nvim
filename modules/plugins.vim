@@ -127,15 +127,22 @@ require('lualine').setup({
 })
 require('telescope').load_extension('projects')
 
-require("null-ls").setup({
-    sources = {
-        require("null-ls").builtins.diagnostics.rubocop.with({
-            command = "bundle",
-            args = vim.list_extend({ "exec", "rubocop" }, require("null-ls").builtins.diagnostics.rubocop._opts.args),
-        }),
-    }
-})
+local null_ls = require("null-ls")
 
+local conditional = function(fn)
+    local utils = require("null-ls.utils").make_conditional_utils()
+    return fn(utils)
+end
+
+null_ls.setup({
+    sources = {
+      null_ls.builtins.formatting.rubocop.with({
+      command = "bundle",
+      args = vim.list_extend({ "exec", "rubocop" }, null_ls.builtins.formatting.rubocop._opts.args),
+      }),
+    null_ls.builtins.formatting.black,
+    },
+})
 
 END
 

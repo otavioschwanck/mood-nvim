@@ -196,6 +196,9 @@ nmap <C-k> [=
 vmap <C-j> ]=
 vmap <C-k> [=
 
+imap <C-f> <Right>
+imap <C-b> <Left>
+
 nnoremap <expr> gp '`[' . strpart(getregtype(), 0, 1) . '`]'
 
 nnoremap <c-w>c :call undoquit#SaveWindowQuitHistory()<cr><c-w>c
