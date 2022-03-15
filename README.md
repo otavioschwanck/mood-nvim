@@ -36,6 +36,7 @@ git clone --depth 1 https://github.com/wbthomason/packer.nvim\
 ```sh
 python -m pip install neovim-remote pynvim
 python -m pip3 install neovim-remote pynvim
+npm install -g neovim
 gem install solargraph neovim
 ```
 
