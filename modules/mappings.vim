@@ -33,10 +33,8 @@ lua << EOF
   -- Visual mode:
    wk.register({
      c = {
-       name = "+Lsp and CoC",
-       s = { "<Plug>(coc-convert-snippet)", "Convert selection into snippet" },
-       a = { "<Plug>(coc-codeaction-selected)", "Code Action" },
-       f = { "<Plug>(coc-format-selected)", "Format" },
+       name = "+Lsp",
+       a = { "<cmd>lua vim.lsp.buf.range_code_action()<CR>", "Code Action" }
      },
      r = {
        name = "+Refactor",
@@ -83,16 +81,12 @@ lua << EOF
     a = { ":TestSuite<CR>", "Test Project" },
   },
   c = {
-    name = "+Lsp (COC)",
-    r = { "<Plug>(coc-rename)", "Rename" },
-    a = { ":Telescope coc code_actions<CR>", "Code Action" },
-    l = { "<Plug>(coc-codelens-action)", "Code Lens" },
-    x = { ":Telescope coc diagnostics<CR>", "Diagnostics" },
-    j = { ":Telescope coc workspace_symbols<CR>", "Symbols" },
-    s = { "<Plug>(coc-convert-snippet)", "Convert selection into snippet" },
-    o = { ":OR<CR>", "Organize Imports" },
-    f = { ":Format<CR>", "Format File" },
-    i = { ":Telescope coc document_symbols<CR>", "Search Outline Symbols" }
+    name = "+Lsp",
+    r = { "<cmd>lua vim.lsp.buf.rename()<CR>", "Rename" },
+    a = { "<cmd>lua vim.lsp.buf.code_action()<CR>", "Code Action" },
+    x = { ":Telescope diagnostics", "Diagnostics" },
+    j = { ":Telescope lsp_workspace_symbols<CR>", "Symbols" },
+    i = { ":Telescope lsp_document_symbols<CR>", "Search Outline Symbols" }
   },
   ["<return>"] = { ":Telescope resume<CR>", "Telescope Resume" },
   s = {
@@ -101,8 +95,8 @@ lua << EOF
     P = { ":CocSearch ", "Grep using CoC" },
     g = { ":Telescope git_status<CR>", "Search files modified in git" },
     s = { ":Telescope current_buffer_fuzzy_find fuzzy=false case_mode=ignore_case<CR>", "Fuzzy Current Buffer" },
-    i = { ":Telescope coc document_symbols<CR>", "Search Outline Symbols" },
-    j = { ":Telescope coc workspace_symbols<CR>", "Symbols" },
+    i = { ":Telescope lsp_document_symbols<CR>", "Search Outline Symbols" },
+    j = { ":Telescope lsp_workspace_symbols<CR>", "Symbols" },
   },
   f = {
     name = "+File",
@@ -205,3 +199,5 @@ vmap <C-k> [=
 nnoremap <expr> gp '`[' . strpart(getregtype(), 0, 1) . '`]'
 
 nnoremap <c-w>c :call undoquit#SaveWindowQuitHistory()<cr><c-w>c
+
+inoremap <S-Tab> <C-d>

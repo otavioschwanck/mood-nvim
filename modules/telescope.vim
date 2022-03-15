@@ -30,5 +30,4 @@ local actions = require('telescope.actions')require('telescope').setup{
 
 require"telescope".load_extension("frecency")
 require"telescope".load_extension("tmux")
-require('telescope').load_extension('coc')
 EOF

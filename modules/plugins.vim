@@ -53,7 +53,6 @@ return require('packer').startup(function()
   use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
   use 'nvim-treesitter/nvim-treesitter-textobjects'
   use 'tmux-plugins/vim-tmux-focus-events'
-  use {'neoclide/coc.nvim', branch = 'release'}
   use "rafamadriz/friendly-snippets"
   use 'windwp/nvim-ts-autotag'
   use {
@@ -67,7 +66,6 @@ return require('packer').startup(function()
   use 'wellle/targets.vim'
 
   use 'EdenEast/nightfox.nvim'
-  use 'cocopon/iceberg.vim'
   use 'kdheepak/lazygit.nvim'
   use 'NLKNguyen/papercolor-theme'
   use 'nicwest/vim-camelsnek'
@@ -86,9 +84,30 @@ return require('packer').startup(function()
   use 'tami5/sqlite.lua'
   use 'ellisonleao/gruvbox.nvim'
   use 'mildred/vim-bufmru'
-  use 'fannheyward/telescope-coc.nvim'
   use 'tomasr/molokai'
 
+  use 'neovim/nvim-lspconfig'
+  use 'hrsh7th/cmp-nvim-lsp'
+  use 'hrsh7th/cmp-buffer'
+  use 'hrsh7th/cmp-path'
+  use 'hrsh7th/cmp-cmdline'
+  use 'hrsh7th/nvim-cmp'
+  use { 'williamboman/nvim-lsp-installer' }
+  use { 'jose-elias-alvarez/null-ls.nvim' }
+
+  use 'quangnguyen30192/cmp-nvim-ultisnips'
+  use {'SirVer/ultisnips',
+  requires = {{'honza/vim-snippets', rtp = '.'}},
+  config = function()
+  vim.g.UltiSnipsExpandTrigger = '<Plug>(ultisnips_expand)'
+  vim.g.UltiSnipsJumpForwardTrigger = '<Plug>(ultisnips_jump_forward)'
+  vim.g.UltiSnipsJumpBackwardTrigger = '<Plug>(ultisnips_jump_backward)'
+  vim.g.UltiSnipsListSnippets = '<c-x><c-s>'
+  vim.g.UltiSnipsRemoveSelectModeMappings = 0
+  end
+  }
+
+  use { 'ray-x/lsp_signature.nvim' }
   use {
     'lewis6991/gitsigns.nvim', requires = { 'nvim-lua/plenary.nvim' },
     config = function() require('gitsigns').setup() end
@@ -107,8 +126,17 @@ require('lualine').setup({
   options = { theme = 'gruvbox' }
 })
 require('telescope').load_extension('projects')
+
+require("null-ls").setup({
+    sources = {
+        require("null-ls").builtins.diagnostics.rubocop.with({
+            command = "bundle",
+            args = vim.list_extend({ "exec", "rubocop" }, require("null-ls").builtins.diagnostics.rubocop._opts.args),
+        }),
+    }
+})
+
+
 END
 
 lua require'terminal'.setup()
-let g:coc_global_extensions = ['coc-html', 'coc-css', 'coc-json', 'coc-prettier', 'coc-tsserver', 'coc-solidity',
-      \ 'coc-solargraph', 'coc-emmet', 'coc-yaml', 'coc-snippets', 'coc-pyright', 'coc-solidity']

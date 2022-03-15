@@ -159,3 +159,5 @@ augroup END
 let g:yoinkSavePersistently = 1
 let g:yoinkIncludeDeleteOperations = 1
 let g:yoinkMaxItems = 20
+
+let g:UltiSnipsSnippetStorageDirectoryForUltiSnipsEdit = "~/.config/nvim/user-snippets/"
