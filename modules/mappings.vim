@@ -107,6 +107,7 @@ lua << EOF
   f = {
     name = "+File",
     r = { ":Telescope oldfiles<CR>", "Recent Files" },
+    s = { ":w!", "Save" },
     R = { ":Move ", "Rename Current File" },
     D = { ":Delete<CR>", "Delete the current file" },
     p = { ":e ~/.config/nvim/user.vim<CR>", "Open Your Private Files" },
@@ -130,7 +131,11 @@ lua << EOF
   },
   [','] = { ":Telescope buffers<CR>", "Find Buffers" },
   v = { ":Term<CR>", "Open a blank terminal" },
-  q = { ":cclose<CR>", "Quick Fix Close" }
+  q = {
+    name = "+Quit and Close",
+    q = { ":qall!<CR>", "Quit Vim" },
+    c = {":cclose<CR>", "Quick Fix Close"}
+  }
 }, { prefix = "<leader>", silent = false })
 EOF
 
