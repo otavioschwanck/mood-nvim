@@ -1,0 +1,353 @@
+# Keywords
+snippet pu
+public
+endsnippet
+
+snippet pr
+private
+endsnippet
+
+snippet in
+internal
+endsnippet
+
+snippet t
+true
+endsnippet
+
+snippet f
+false
+endsnippet
+
+snippet dl
+delete $1;
+endsnippet
+
+snippet rt "return"
+return $1;
+endsnippet
+
+snippet rts "returns"
+returns
+endsnippet
+
+snippet co
+constant
+endsnippet
+
+snippet im "" b
+import "$1";
+endsnippet
+
+snippet tr "throw"
+throw;
+endsnippet
+
+snippet sd "selfdestruct"
+selfdestruct($1);
+endsnippet
+
+snippet new
+$1 = new $2($3);
+endsnippet
+
+snippet ev "event" b
+event $1($2);
+endsnippet
+
+# Variables and data structures
+snippet ui
+uint $1;
+endsnippet
+
+snippet uip
+uint public $1;
+endsnippet
+
+snippet in
+int $1;
+endsnippet
+
+snippet inp
+int public $1;
+endsnippet
+
+snippet bl
+bool $1;
+endsnippet
+
+snippet bts
+bytes
+endsnippet
+
+snippet v
+var $1;
+endsnippet
+
+snippet va
+var $1 = $2;
+endsnippet
+
+snippet blp
+bool public $1;
+endsnippet
+
+snippet sr "string"
+string $1;
+endsnippet
+
+snippet stri "string"
+string $1;
+endsnippet
+
+snippet srp
+string public $1;
+endsnippet
+
+snippet struct "" b
+struct $1 {
+    $2
+}
+endsnippet
+
+snippet stru "" b
+struct $1 {
+    $2
+}
+endsnippet
+
+snippet en "" b
+enum $1 { $2 };
+endsnippet
+
+snippet adr "" b
+address $1;
+endsnippet
+
+snippet ad
+address
+endsnippet
+
+snippet adrp "" b
+address public $1;
+endsnippet
+
+snippet mp "" b
+mapping ($1 => $2) $3;
+endsnippet
+
+snippet mpp "public mapping" b
+mapping ($1 => $2) public $3;
+endsnippet
+
+# Contracts/functions
+snippet cont "Contract" b
+contract $1 {
+    $2
+}
+endsnippet
+
+snippet conta "Contract with some standard features" b
+contract $1 {
+    function $1($2) {
+	$3
+    }
+
+    function remove() {
+	if(msg.sender == creator) {
+	    selfdestruct(creator);
+	}
+    }
+
+    function () { throw; }
+}
+endsnippet
+
+snippet fun "" b
+function $1($2) {
+    $3
+}
+endsnippet
+
+snippet funm "Function with modifier" b
+function $1($2)
+$3($4)
+{
+  $5
+}
+endsnippet
+
+snippet funr "Function with returns" b
+function $1($2) returns ($3){
+  $4
+}
+endsnippet
+
+snippet mod "" b
+modifier $1($2) {
+    $3
+    _
+}
+endsnippet
+
+snippet modi "modifier with if" b
+modifier $1($2) {
+    if ($3) {
+	$4
+    }
+    _
+}
+endsnippet
+
+snippet modst "modifier in a certain taste"
+modifier inState(State _state) {
+  if (state != _state) throw;
+  _
+}
+endsnippet
+
+snippet modre "modifier test of condition"
+modifier require (bool condition) {
+  if (!_condition) throw;
+  _
+}
+endsnippet
+
+# Conditionals
+snippet if "" b
+if ($1) {
+    $2
+}
+endsnippet
+
+snippet el "" b
+else {
+    $1
+}
+endsnippet
+
+snippet ife ""
+if ($1) {
+  $2
+} else {
+  $3
+}
+endsnippet
+
+# Loops
+snippet fr "standard for"
+for($1) {
+    $2
+}
+endsnippet
+
+snippet for "incrementing for loop" b
+for(uint $1 = $2; $1 < $3; $1++) {
+    $4
+}
+endsnippet
+
+snippet fori "For with counter" b
+for (uint i = 0; i < $1; i++) {
+    $2
+}
+endsnippet
+
+# Custom variables
+snippet ms "sender" i
+msg.sender
+endsnippet
+
+snippet mv "value"
+msg.value
+endsnippet
+
+snippet mg "gas"
+msg.gas
+endsnippet
+
+snippet md "data"
+msg.data
+endsnippet
+
+snippet blc "coinbase"
+block.coinbase
+endsnippet
+
+snippet bld "difficulty"
+block.difficulty
+endsnippet
+
+snippet blg "gaslimit"
+block.gaslimit
+endsnippet
+
+snippet bln "number"
+block.number
+endsnippet
+
+snippet blb "blockhash"
+block.blockhash
+endsnippet
+
+snippet blt "timestamp"
+block.timestamp
+endsnippet
+
+snippet txg "gasprice"
+tx.gasprise
+endsnippet
+
+snippet txo "origin"
+tx.origin
+endsnippet
+
+snippet sto "default storage map"
+storage[$1] $2
+endsnippet
+
+# Common design patterns
+snippet funt "standard contract throw function" b
+function () { throw; }
+endsnippet
+
+snippet ifs "check if a send went through"
+if($1.send($2)) {
+    $3
+}
+endsnippet
+
+snippet snd "send ether"
+$1.send($2);
+endsnippet
+
+snippet psh "push into an array"
+$1.push($2);
+endsnippet
+
+snippet evli "Event Listener" b
+$1.$2().watch({}, '', function(error, result) {
+    if (!error) {
+    $3
+    }
+}
+endsnippet
+
+# Printing
+snippet cl
+console.log($1);
+endsnippet
+
+# Crypto
+snippet sh3 "sha3"
+sha3($1);
+endsnippet
+
+snippet sh2 "sha256"
+sha256($2);
+endsnippet
+
+# Comments/NatSpec
+snippet /nt "Natspec with title"
+/// @title $1
+endsnippet

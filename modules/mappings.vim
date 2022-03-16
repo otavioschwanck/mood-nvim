@@ -84,19 +84,18 @@ lua << EOF
     name = "+Lsp",
     r = { "<cmd>lua vim.lsp.buf.rename()<CR>", "Rename" },
     a = { "<cmd>lua vim.lsp.buf.code_action()<CR>", "Code Action" },
-    x = { ":Telescope diagnostics", "Diagnostics" },
-    j = { ":Telescope lsp_workspace_symbols<CR>", "Symbols" },
+    x = { ":Telescope diagnostics<CR>", "Diagnostics" },
+    j = { ":Telescope lsp_dynamic_workspace_symbols<CR>", "Symbols" },
     i = { ":Telescope lsp_document_symbols<CR>", "Search Outline Symbols" }
   },
   ["<return>"] = { ":Telescope resume<CR>", "Telescope Resume" },
   s = {
     name = "+Search",
     p = { ":Telescope live_grep<CR>", "Grep on Project" },
-    P = { ":CocSearch ", "Grep using CoC" },
     g = { ":Telescope git_status<CR>", "Search files modified in git" },
     s = { ":Telescope current_buffer_fuzzy_find fuzzy=false case_mode=ignore_case<CR>", "Fuzzy Current Buffer" },
     i = { ":Telescope lsp_document_symbols<CR>", "Search Outline Symbols" },
-    j = { ":Telescope lsp_workspace_symbols<CR>", "Symbols" },
+    j = { ":Telescope lsp_dynamic_workspace_symbols<CR>", "Symbols" },
   },
   f = {
     name = "+File",
@@ -198,6 +197,11 @@ vmap <C-k> [=
 
 imap <C-f> <Right>
 imap <C-b> <Left>
+
+nmap gd :Telescope lsp_definitions<CR>
+nmap gD :Telescope lsp_references<CR>
+nmap gi :Telescope lsp_implementations<CR>
+nmap gt :Telescope lsp_implementations<CR>
 
 nnoremap <expr> gp '`[' . strpart(getregtype(), 0, 1) . '`]'
 

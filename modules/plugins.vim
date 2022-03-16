@@ -55,6 +55,7 @@ return require('packer').startup(function()
   use 'tmux-plugins/vim-tmux-focus-events'
   use "rafamadriz/friendly-snippets"
   use 'windwp/nvim-ts-autotag'
+  use { 'svermeulen/vim-subversive' }
   use {
     'phaazon/hop.nvim',
     branch = 'v1', -- optional but strongly recommended

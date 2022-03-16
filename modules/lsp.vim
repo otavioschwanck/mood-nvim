@@ -5,101 +5,48 @@ local t = function(str)
     return vim.api.nvim_replace_termcodes(str, true, true, true)
 end
 
+local cmp_ultisnips_mappings = require("cmp_nvim_ultisnips.mappings")
+
 local cmp = require('cmp')
 cmp.setup {
     snippet = {
         expand = function(args) vim.fn["UltiSnips#Anon"](args.body) end
     },
+    completion = {
+      completeopt = 'menu,menuone,noinsert'
+    },
     sources = cmp.config.sources({
       { name = 'nvim_lsp' },
       { name = 'ultisnips' },
-      { name = 'buffer' }
+      { name = 'buffer' },
+      { name = 'path' }
     }),
     mapping = {
-      ["<C-l>"] = cmp.mapping({
-            c = function()
-                if cmp.visible() then
-                    cmp.select_prev_item({ behavior = cmp.SelectBehavior.Insert })
-                else
-                    cmp.complete()
-                end
-            end,
+        ["<Tab>"] = cmp.mapping({
             i = function(fallback)
-                if cmp.visible() then
-                    cmp.select_prev_item({ behavior = cmp.SelectBehavior.Insert })
-                elseif vim.fn["UltiSnips#CanJumpBackwards"]() == 1 then
-                    return vim.api.nvim_feedkeys( t("<Plug>(ultisnips_jump_backward)"), 'm', true)
-                else
-                    fallback()
-                end
-            end,
-            s = function(fallback)
-                if vim.fn["UltiSnips#CanJumpBackwards"]() == 1 then
-                    return vim.api.nvim_feedkeys( t("<Plug>(ultisnips_jump_backward)"), 'm', true)
-                else
-                    fallback()
-                end
-            end
-      }),
-      ["<C-o>"] = cmp.mapping({
-            i = function(fallback)
-                if vim.fn["UltiSnips#CanExpandSnippet"]() then
+                if vim.fn["UltiSnips#CanExpandSnippet"]() == 1 and not(vim.fn["UltiSnips#CanJumpForwards"]() == 1) then
                     vim.cmd(':call UltiSnips#ExpandSnippetOrJump()')
                 elseif vim.fn["UltiSnips#CanJumpForwards"]() == 1 then
-                    vim.api.nvim_feedkeys(t("<Plug>(ultisnips_jump_forward)"), 'm', true)
+                    vim.cmd(':call UltiSnips#JumpForwards()')
                 end
             end,
             s = function(fallback)
                 if vim.fn["UltiSnips#CanJumpForwards"]() == 1 then
-                    vim.api.nvim_feedkeys(t("<Plug>(ultisnips_jump_forward)"), 'm', true)
-                end
-            end
-      }),
-        ["<Tab>"] = cmp.mapping({
-            c = function()
-                if cmp.visible() then
-                    cmp.select_next_item({ behavior = cmp.SelectBehavior.Insert })
-                else
-                    cmp.complete()
-                end
-            end,
-            i = function(fallback)
-                if cmp.visible() then
-                    cmp.select_next_item({ behavior = cmp.SelectBehavior.Insert })
-                elseif vim.fn["UltiSnips#CanJumpForwards"]() == 1 then
-                    vim.api.nvim_feedkeys(t("<Plug>(ultisnips_jump_forward)"), 'm', true)
-                else
-                    fallback()
-                end
-            end,
-            s = function(fallback)
-                if vim.fn["UltiSnips#CanJumpForwards"]() == 1 then
-                    vim.api.nvim_feedkeys(t("<Plug>(ultisnips_jump_forward)"), 'm', true)
-                else
-                    fallback()
+                    vim.cmd(':call UltiSnips#JumpForwards()')
                 end
             end
         }),
         ["<S-Tab>"] = cmp.mapping({
-            c = function()
-                if cmp.visible() then
-                    cmp.select_prev_item({ behavior = cmp.SelectBehavior.Insert })
-                else
-                    cmp.complete()
-                end
-            end,
             i = function(fallback)
-                if cmp.visible() then
-                    cmp.select_prev_item({ behavior = cmp.SelectBehavior.Insert })
-                elseif vim.fn["UltiSnips#CanJumpBackwards"]() == 1 then
-                    return vim.api.nvim_feedkeys( t("<Plug>(ultisnips_jump_backward)"), 'm', true)
+                if vim.fn["UltiSnips#CanJumpBackwards"]() == 1 then
+                    vim.cmd(':call UltiSnips#JumpBackwards()')
                 else
                     fallback()
                 end
             end,
             s = function(fallback)
                 if vim.fn["UltiSnips#CanJumpBackwards"]() == 1 then
-                    return vim.api.nvim_feedkeys( t("<Plug>(ultisnips_jump_backward)"), 'm', true)
+                    vim.cmd(':call UltiSnips#JumpBackwards()')
                 else
                     fallback()
                 end
@@ -110,14 +57,14 @@ cmp.setup {
         ['<C-n>'] = cmp.mapping({
             c = function()
                 if cmp.visible() then
-                    cmp.select_next_item({ behavior = cmp.SelectBehavior.Select })
+                    cmp.select_next_item({ behavior = cmp.SelectBehavior.Insert })
                 else
                     vim.api.nvim_feedkeys(t('<Down>'), 'n', true)
                 end
             end,
             i = function(fallback)
                 if cmp.visible() then
-                    cmp.select_next_item({ behavior = cmp.SelectBehavior.Select })
+                    cmp.select_next_item({ behavior = cmp.SelectBehavior.Insert })
                 else
                     fallback()
                 end
@@ -126,14 +73,14 @@ cmp.setup {
         ['<C-p>'] = cmp.mapping({
             c = function()
                 if cmp.visible() then
-                    cmp.select_prev_item({ behavior = cmp.SelectBehavior.Select })
+                    cmp.select_prev_item({ behavior = cmp.SelectBehavior.Insert })
                 else
                     vim.api.nvim_feedkeys(t('<Up>'), 'n', true)
                 end
             end,
             i = function(fallback)
                 if cmp.visible() then
-                    cmp.select_prev_item({ behavior = cmp.SelectBehavior.Select })
+                    cmp.select_prev_item({ behavior = cmp.SelectBehavior.Insert })
                 else
                     fallback()
                 end
