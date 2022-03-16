@@ -1,0 +1,364 @@
+# A valid snippet should starts with:
+#
+#		snippet trigger_word [ "description" [ options ] ]
+#
+# and end with:
+#
+#		endsnippet
+#
+# Snippet options:
+#
+#		b - Beginning of line.
+#		i - In-word expansion.
+#		w - Word boundary.
+#		r - Regular expression
+#		e - Custom context snippet
+#		A - Snippet will be triggered automatically, when condition matches.
+#
+# Basic example:
+#
+#		snippet emitter "emitter properties" b
+#		private readonly ${1} = new Emitter<$2>()
+#		public readonly ${1/^_(.*)/$1/}: Event<$2> = this.$1.event
+#		endsnippet
+#
+# Online reference: https://github.com/SirVer/ultisnips/blob/master/doc/UltiSnips.txt
+snippet link_to "link_to" i
+link_to ${1:"${2:Text"}}${3:, ${4:some_path}}
+endsnippet
+
+snippet root_path "root_path" i
+root_path
+endsnippet
+
+snippet paginate "paginate" i
+paginate
+endsnippet
+
+snippet form_with "form_with" i
+form_with
+endsnippet
+
+snippet label "label" i
+label
+endsnippet
+
+snippet text_field "text_field" i
+text_field
+endsnippet
+
+snippet submit "submit" i
+submit
+endsnippet
+
+snippet check_box "check_box" i
+check_box
+endsnippet
+
+snippet label "label" i
+label
+endsnippet
+
+snippet radio_button "radio_button" i
+radio_button
+endsnippet
+
+snippet text_area "text_area" i
+text_area
+endsnippet
+
+snippet hidden_field "hidden_field" i
+hidden_field
+endsnippet
+
+snippet password_field "password_field" i
+password_field
+endsnippet
+
+snippet number_field "number_field" i
+number_field
+endsnippet
+
+snippet range_field "range_field" i
+range_field
+endsnippet
+
+snippet date_field "date_field" i
+date_field
+endsnippet
+
+snippet time_field "time_field" i
+time_field
+endsnippet
+
+snippet datetime_local_field "datetime_local_field" i
+datetime_local_field
+endsnippet
+
+snippet month_field "month_field" i
+month_field
+endsnippet
+
+snippet week_field "week_field" i
+week_field
+endsnippet
+
+snippet search_field "search_field" i
+search_field
+endsnippet
+
+snippet email_field "email_field" i
+email_field
+endsnippet
+
+snippet telephone_field "telephone_field" i
+telephone_field
+endsnippet
+
+snippet url_field "url_field" i
+url_field
+endsnippet
+
+snippet color_field "color_field" i
+color_field
+endsnippet
+
+snippet render "render" i
+render
+endsnippet
+
+snippet json "json" i
+json
+endsnippet
+
+snippet plain "plain" i
+plain
+endsnippet
+
+snippet formats "formats" i
+formats
+endsnippet
+
+snippet variants "variants" i
+variants
+endsnippet
+
+snippet stylesheet_link_tag "stylesheet_link_tag" i
+stylesheet_link_tag
+endsnippet
+
+snippet javascript_include_tag "javascript_include_tag" i
+javascript_include_tag
+endsnippet
+
+snippet image_tag "image_tag" i
+image_tag
+endsnippet
+
+snippet video_tag "video_tag" i
+video_tag
+endsnippet
+
+snippet audio_tag "audio_tag" i
+audio_tag
+endsnippet
+
+snippet partial: "partial:" A
+partial: ${1:'${2:partial_path}'}
+endsnippet
+
+snippet input "input" i
+input
+endsnippet
+
+snippet simple_form_for "simple_form_for" i
+simple_form_for ${1:@${2:resource}}
+endsnippet
+
+snippet label_html:  "label_html:" A
+label_html: ${1:'${2:label}'}
+endsnippet
+
+snippet hint_html:  "hint_html:" A
+hint_html: ${1:'${2:hint}'}
+endsnippet
+
+snippet maxlength: "maxlength:" A
+maxlength: ${1:43}
+endsnippet
+
+snippet value "value" i
+value
+endsnippet
+
+snippet wrapper_html:  "wrapper_html:" i
+wrapper_html:
+endsnippet
+
+snippet required:  "required:" A
+required: ${1:true}
+endsnippet
+
+snippet as:  "as:" i
+as:
+endsnippet
+
+snippet hint "hint" i
+hint
+endsnippet
+
+snippet error "error" i
+error
+endsnippet
+
+snippet collection:  "collection:" i
+collection:
+endsnippet
+
+snippet as:\ :select "as:" i
+as:
+endsnippet
+
+snippet as: :radio_buttons "as:" i
+as:
+endsnippet
+
+snippet as: :check_boxes "as:" i
+as:
+endsnippet
+
+snippet priority "priority" i
+priority
+endsnippet
+
+snippet boolean "boolean" i
+boolean
+endsnippet
+
+snippet string "string" i
+string
+endsnippet
+
+snippet citext "citext" i
+citext
+endsnippet
+
+snippet email "email" i
+email
+endsnippet
+
+snippet url "url" i
+url
+endsnippet
+
+snippet tel "tel" i
+tel
+endsnippet
+
+snippet password "password" i
+password
+endsnippet
+
+snippet search "search" i
+search
+endsnippet
+
+snippet uuid "uuid" i
+uuid
+endsnippet
+
+snippet color "color" i
+color
+endsnippet
+
+snippet text "text" i
+text
+endsnippet
+
+snippet hstore "hstore" i
+hstore
+endsnippet
+
+snippet json "json" i
+json
+endsnippet
+
+snippet jsonb "jsonb" i
+jsonb
+endsnippet
+
+snippet file "file" i
+file
+endsnippet
+
+snippet hidden "hidden" i
+hidden
+endsnippet
+
+snippet integer "integer" i
+integer
+endsnippet
+
+snippet float "float" i
+float
+endsnippet
+
+snippet decimal "decimal" i
+decimal
+endsnippet
+
+snippet range "range" i
+range
+endsnippet
+
+snippet datetime "datetime" i
+datetime
+endsnippet
+
+snippet date "date" i
+date
+endsnippet
+
+snippet time "time" i
+time
+endsnippet
+
+snippet select "select" i
+select
+endsnippet
+
+snippet radio_buttons "radio_buttons" i
+radio_buttons
+endsnippet
+
+snippet check_boxes "check_boxes" i
+check_boxes
+endsnippet
+
+snippet country "country" i
+country
+endsnippet
+
+snippet time_zone "time_zone" i
+time_zone
+endsnippet
+
+snippet current_user "current_user" i
+current_user
+endsnippet
+
+snippet can? "can?" i
+can?
+endsnippet
+
+snippet input_html:  "input_html:" i
+input_html:
+endsnippet
+
+snippet html:  "html:" i
+html:
+endsnippet
+
+snippet render partial:  "render" i
+render
+endsnippet
