@@ -90,6 +90,7 @@ return require('packer').startup(function()
   use 'fannheyward/telescope-coc.nvim'
   use 'tomasr/molokai'
   use 'honza/vim-snippets'
+  use 'skywind3000/asyncrun.vim'
 
   use {
     'lewis6991/gitsigns.nvim', requires = { 'nvim-lua/plenary.nvim' },

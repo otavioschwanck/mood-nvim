@@ -87,6 +87,17 @@
           "dartfmt": {
             "command": "dartfmt",
             "args": [ "--fix" ]
+          },
+          "rubocop": {
+            "command": "bundle",
+            "args": [
+              "exec",
+              "rubocop",
+              "-a",
+              "%filepath",
+              ">",
+              "tmp/rubocop"
+            ]
           }
         },
         "filetypes": {
@@ -95,7 +106,8 @@
           "ruby": "rubocop"
         },
         "formatFiletypes": {
-          "dart": "dartfmt"
+          "dart": "dartfmt",
+          "ruby": "rubocop"
         }
       }
     }
