@@ -65,8 +65,8 @@ return require('packer').startup(function()
       require'hop'.setup { keys = 'etovxqpdygfblzhckisuran' }
     end
   }
-  use 'wellle/targets.vim'
 
+  use 'beloglazov/vim-textobj-quotes'
   use 'EdenEast/nightfox.nvim'
   use 'cocopon/iceberg.vim'
   use 'kdheepak/lazygit.nvim'
