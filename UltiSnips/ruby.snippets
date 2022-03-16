@@ -65,8 +65,8 @@ snippet now "Time.zone.now" i
 Time.zone.now
 endsnippet
 
-snippet numericality "numericality: { greater_than: 0 }" i
-numericality: { ${1:greater_than}: ${2:0} }
+snippet numericality: "numericality: { | }" i
+numericality: { $0 }
 endsnippet
 
 snippet resc "rescue StandardError => e" i
