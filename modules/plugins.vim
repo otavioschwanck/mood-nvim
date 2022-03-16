@@ -89,6 +89,7 @@ return require('packer').startup(function()
   use 'mildred/vim-bufmru'
   use 'fannheyward/telescope-coc.nvim'
   use 'tomasr/molokai'
+  use 'honza/vim-snippets'
 
   use {
     'lewis6991/gitsigns.nvim', requires = { 'nvim-lua/plenary.nvim' },
@@ -111,5 +112,5 @@ require('telescope').load_extension('projects')
 END
 
 lua require'terminal'.setup()
-let g:coc_global_extensions = ['coc-html', 'coc-css', 'coc-json', 'coc-prettier', 'coc-tsserver', 'coc-solidity',
+let g:coc_global_extensions = ['coc-html', 'coc-css', 'coc-json', 'coc-prettier', 'coc-tsserver', 'coc-solidity', 'coc-diagnostic',
       \ 'coc-solargraph', 'coc-emmet', 'coc-yaml', 'coc-snippets', 'coc-pyright', 'coc-solidity']
