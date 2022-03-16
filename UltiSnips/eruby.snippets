@@ -23,6 +23,15 @@
 #		endsnippet
 #
 # Online reference: https://github.com/SirVer/ultisnips/blob/master/doc/UltiSnips.txt
+global !p
+def complete(t, opts):
+	if t:
+		opts = [ m[len(t):] for m in opts if m.startswith(t) ]
+	if len(opts) == 1:
+		return opts[0]
+	return "(" + '|'.join(opts) + ')'
+endglobal
+
 snippet link_to "link_to" i
 link_to ${1:"${2:Text"}}${3:, ${4:some_path}}
 endsnippet
@@ -200,7 +209,7 @@ required: ${1:true}
 endsnippet
 
 snippet as:  "as:" i
-as:
+as: :$1`!p snip.rv=complete(t[1], ['select', 'radio_buttons', 'check_boxes', 'boolean', 'string', 'citext', 'email', 'url', 'tel', 'password', 'search', 'uuid', 'color', 'text', 'hstore', 'json', 'jsonb', 'file', 'hidden', 'integer', 'float', 'decimal', 'range', 'datetime', 'date', 'time', 'country', 'time_zone'])`$0
 endsnippet
 
 snippet hint "hint" i
@@ -213,18 +222,6 @@ endsnippet
 
 snippet collection:  "collection:" i
 collection:
-endsnippet
-
-snippet as:\ :select "as:" i
-as:
-endsnippet
-
-snippet as: :radio_buttons "as:" i
-as:
-endsnippet
-
-snippet as: :check_boxes "as:" i
-as:
 endsnippet
 
 snippet priority "priority" i
