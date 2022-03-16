@@ -193,10 +193,6 @@ for _, name in pairs(servers) do
   end
 end
 
-
-require'lspconfig'.diagnosticls.setup{
-}
-
 require "lsp_signature".setup({})
   local cmp_autopairs = require('nvim-autopairs.completion.cmp')
   cmp.event:on( 'confirm_done', cmp_autopairs.on_confirm_done({  map_char = { tex = '' } }))

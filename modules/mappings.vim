@@ -202,6 +202,8 @@ nmap gd :Telescope lsp_definitions<CR>
 nmap gD :Telescope lsp_references<CR>
 nmap gi :Telescope lsp_implementations<CR>
 nmap gt :Telescope lsp_implementations<CR>
+nmap [e <cmd>lua vim.diagnostic.goto_prev()<CR>
+nmap ]e <cmd>lua vim.diagnostic.goto_next()<CR>
 
 nnoremap <expr> gp '`[' . strpart(getregtype(), 0, 1) . '`]'
 
