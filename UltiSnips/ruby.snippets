@@ -30,7 +30,7 @@ endsnippet
 
 snippet defi "def initialize" i
 def initialize(${1:args})
-${2:`!p snip.rv = "\n".join(map(lambda x: snip.mkline("@" + x.strip() + " = " + x.strip(), indent=snip.shift(1)), t[1].split(","))
+  ${2:`!p snip.rv = "\n\t\t".join(map(lambda x: snip.mkline("@" + x.strip() + " = " + x.strip()), t[1].split(","))
 )`}
 end
 endsnippet
