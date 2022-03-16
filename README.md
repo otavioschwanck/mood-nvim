@@ -79,10 +79,13 @@ else
 fi
 ```
 
+8. For Linux only:
+
 7. Run `nvim` on the terminal and then, run `:PackerSync`.
 
 # After install
 
+- Check the `user.vim` for let `g:python_host_prog` part.  Probabily you will need to uncomment.
 - Check if is missing something with `:checkhealth`
 
 # How to learn the keybindings of this configuration?
