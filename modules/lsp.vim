@@ -25,28 +25,28 @@ cmp.setup {
         ["<Tab>"] = cmp.mapping({
             i = function(fallback)
                 if vim.fn["UltiSnips#CanExpandSnippet"]() == 1 and not(vim.fn["UltiSnips#CanJumpForwards"]() == 1) then
-                    vim.cmd(':call UltiSnips#ExpandSnippetOrJump()')
+                    vim.api.nvim_feedkeys(t("<Plug>(cmpu-expand)"), 'm', true)
                 elseif vim.fn["UltiSnips#CanJumpForwards"]() == 1 then
-                    vim.cmd(':call UltiSnips#JumpForwards()')
+                    vim.api.nvim_feedkeys(t("<Plug>(cmpu-jump-forwards)"), 'm', true)
                 end
             end,
             s = function(fallback)
                 if vim.fn["UltiSnips#CanJumpForwards"]() == 1 then
-                    vim.cmd(':call UltiSnips#JumpForwards()')
+                    vim.api.nvim_feedkeys(t("<Plug>(cmpu-jump-forwards)"), 'm', true)
                 end
             end
         }),
         ["<S-Tab>"] = cmp.mapping({
             i = function(fallback)
                 if vim.fn["UltiSnips#CanJumpBackwards"]() == 1 then
-                    vim.cmd(':call UltiSnips#JumpBackwards()')
+                    vim.api.nvim_feedkeys(t("<Plug>(cmpu-jump-backwards)"), 'm', true)
                 else
                     fallback()
                 end
             end,
             s = function(fallback)
                 if vim.fn["UltiSnips#CanJumpBackwards"]() == 1 then
-                    vim.cmd(':call UltiSnips#JumpBackwards()')
+                    vim.api.nvim_feedkeys(t("<Plug>(cmpu-jump-backwards)"), 'm', true)
                 else
                     fallback()
                 end
