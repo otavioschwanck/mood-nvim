@@ -94,7 +94,7 @@ return require('packer').startup(function()
   use 'hrsh7th/cmp-cmdline'
   use 'hrsh7th/nvim-cmp'
   use { 'williamboman/nvim-lsp-installer' }
-  use { 'jose-elias-alvarez/null-ls.nvim' }
+  use { 'iamcco/diagnostic-languageserver' }
 
   use 'quangnguyen30192/cmp-nvim-ultisnips'
   use {'SirVer/ultisnips',
@@ -123,9 +123,7 @@ end)
 LUA
 
 lua <<END
-require('lualine').setup({
-  options = { theme = 'gruvbox' }
-})
+require('lualine').setup()
 END
 
 lua require'terminal'.setup()
