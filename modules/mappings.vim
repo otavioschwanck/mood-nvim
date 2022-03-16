@@ -38,8 +38,6 @@ lua << EOF
        a = { "<Plug>(coc-codeaction-selected)", "Code Action" },
        f = { "<Plug>(coc-format-selected)", "Format" },
      },
-     d = { ":call AddDebugger()", "Add debugger" },
-     D = { ":call ClearDebugger()", "Clear debuggers" },
      r = {
        name = "+Refactor",
        e = { "<Esc><Cmd>lua require('refactoring').refactor('Extract Function')<CR>", "Extract Function" },
@@ -58,6 +56,8 @@ lua << EOF
   ["*"] = { ":Telescope grep_string<CR>", "Search string at point on project" },
   ["<space>"] = { ":Telescope find_files<CR>", "Find Files" },
   e = { ":NvimTreeFindFileToggle<CR>", "Toggle Tree" },
+  d = { ":call AddDebugger()", "Add debugger" },
+  D = { ":call ClearDebugger()", "Clear debuggers" },
   u = { ":UndotreeToggle<CR>", "Undo Tree" },
   a = { ":call OpenTestAlternate()<cr>", "Go to Test" },
   l = {
