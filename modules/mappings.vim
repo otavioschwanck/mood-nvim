@@ -201,6 +201,12 @@ nnoremap gl :SidewaysRight<cr>
 nmap vij vaI
 nmap vaj vaIj
 
+nmap dij daI
+nmap daj vaIjd
+
+nmap cij caI
+nmap caj vaIjc
+
 vnoremap J :m '>+1<CR>gv=gv
 vnoremap K :m '<-2<CR>gv=gv
 
