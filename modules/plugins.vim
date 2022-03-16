@@ -66,6 +66,7 @@ return require('packer').startup(function()
     end
   }
 
+  use 'kana/vim-textobj-user'
   use 'beloglazov/vim-textobj-quotes'
   use 'EdenEast/nightfox.nvim'
   use 'cocopon/iceberg.vim'
