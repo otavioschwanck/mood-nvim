@@ -105,9 +105,6 @@ end)
 LUA
 
 lua <<END
-require('lualine').setup({
-  options = { theme = 'gruvbox' }
-})
 require('telescope').load_extension('projects')
 END
 

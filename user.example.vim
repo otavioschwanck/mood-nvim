@@ -34,6 +34,7 @@ lua << EOF
       a = { ":lua require'telescope.builtin'.find_files({ cwd = 'config/locales' })<CR>", "Find Locales" },
       u = { ":lua require'telescope.builtin'.find_files({ cwd = 'spec/factories' })<CR>", "Find Factories" },
       s = { ":lua require'telescope.builtin'.find_files({ cwd = 'app/services' })<CR>", "Find Services" },
+      v = { ":Eview ", "Find views" }
     }
   }, { prefix = "<leader>" })
 EOF
