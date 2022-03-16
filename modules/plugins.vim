@@ -78,7 +78,6 @@ return require('packer').startup(function()
   use 'folke/which-key.nvim'
   use 'RRethy/nvim-treesitter-endwise'
   use 'editorconfig/editorconfig-vim'
-  use 'rcarriga/vim-ultest'
   use 'preservim/tagbar'
   use 'tpope/vim-abolish'
   use({ "iamcco/markdown-preview.nvim", run = "cd app && npm install", setup = function() vim.g.mkdp_filetypes = { "markdown" } end, ft = { "markdown" }, })
