@@ -159,3 +159,31 @@ augroup END
 let g:yoinkSavePersistently = 1
 let g:yoinkIncludeDeleteOperations = 1
 let g:yoinkMaxItems = 20
+
+let g:ruby_debugger = "byebug"
+
+function AddDebugger()
+  let buftype = getbufvar('', '&filetype', 'ERROR')
+
+  if buftype == "ruby"
+    execute "norm O" . g:ruby_debugger
+  endif
+
+  if buftype == "eruby"
+    execute "norm O<% " . g:ruby_debugger . " %>"
+  endif
+
+  execute "stopinsert"
+endfunction
+
+function ClearDebugger()
+  let buftype = getbufvar('', '&filetype', 'ERROR')
+
+  if buftype == "ruby"
+    execute "%s/.*" . g:ruby_debugger . "\\n//gr"
+  endif
+
+  if buftype == "eruby"
+    execute "%s/.*<% " . g:ruby_debugger . " %>\\n//gr"
+  endif
+endfunction

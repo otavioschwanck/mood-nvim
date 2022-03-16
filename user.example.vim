@@ -3,6 +3,9 @@
 " Select your colorscheme.  To see others: SPC h t
 colorscheme gruvbox
 
+" Whats is your favorite debugger?  Use with SPD d (add) and SPC D (clear all)
+let g:ruby_debugger = "byebug"
+
 " Your private mappings
 lua << EOF
   local wk = require("which-key")
