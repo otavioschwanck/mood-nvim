@@ -105,7 +105,7 @@ command! -nargs=0 OR   :call     CocActionAsync('runCommand', 'editor.action.org
 set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
 
 " Use <C-j> for both expand and jump (make expand higher priority.)
-imap <silent><expr><tab> coc#expandableOrJumpable() ? "\<C-e>\<C-r>=coc#rpc#request('doKeymap', ['snippets-expand-jump',''])\<CR>" : "\<TAB>"
+imap <silent><expr><tab> coc#jumpable() ? "\<C-e>\<C-r>=coc#rpc#request('doKeymap', ['snippets-jump',''])\<CR>" : coc#expandable() ? "\<C-e>\<C-r>=coc#rpc#request('doKeymap', ['snippets-expand',''])\<CR>" : "\<TAB>"
 
 " Use <C-j> for jump to next placeholder, it's default of coc.nvim
 let g:coc_snippet_next = '<tab>'
