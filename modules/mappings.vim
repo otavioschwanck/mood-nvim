@@ -211,3 +211,6 @@ imap <C-v> <C-r>+
 cnoremap <C-v> <C-r>+
 cnoremap <C-a> <C-left>
 cnoremap <C-e> <C-right>
+
+vnoremap < <gv
+vnoremap > >gv
