@@ -56,8 +56,8 @@ lua << EOF
   ["*"] = { ":Telescope grep_string<CR>", "Search string at point on project" },
   ["<space>"] = { ":Telescope find_files<CR>", "Find Files" },
   e = { ":NvimTreeFindFileToggle<CR>", "Toggle Tree" },
-  d = { ":call AddDebugger()", "Add debugger" },
-  D = { ":call ClearDebugger()", "Clear debuggers" },
+  d = { ":call AddDebugger()<CR>", "Add debugger" },
+  D = { ":call ClearDebugger()<CR>", "Clear debuggers" },
   u = { ":UndotreeToggle<CR>", "Undo Tree" },
   a = { ":call OpenTestAlternate()<cr>", "Go to Test" },
   l = {
