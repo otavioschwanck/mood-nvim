@@ -27,6 +27,7 @@ On your personal configuration you can configure stuff like commands to run with
 | H       | Previous Buffer         |
 | L       | Next Buffer             |
 | SPC ,   | Find Buffer             |
+| SPC .   | File Browser               |
 | SPC e   | Open Tree               |
 | SPC k   | Kill current buffer     |
 | SPC A   | Go to Test (and vsplit) |
@@ -134,6 +135,24 @@ To execute some command in all items of the quickfix list, just run `:cfdo S/old
 | gJ      | Join multiline method \ args                                                        |
 | gs      | Toggle thing at point.  `:foo` to `foo =>` to `'foo'` and `do ... end` to `{ ... }` |
 |---------|-------------------------------------------------------------------------------------|
+
+# On the SPC . (file browser)
+
+| Insert  | / Normal	Action                                                            |
+| <A-c>/c | Create file/folder at current path (trailing path separator creates folder) |
+| <A-r>/r | Rename multi-selected files/folders                                         |
+| <A-m>/m | Move multi-selected files/folders to current path                           |
+| <A-y>/y | Copy (multi-)selected files/folders to current path                         |
+| <A-d>/d | Delete (multi-)selected files/folders                                       |
+| <C-o>/o | Open file/folder with default system application                            |
+| <C-g>/g | Go to parent directory                                                      |
+| <C-e>/e | Go to home directory                                                        |
+| <C-w>/w | Go to current working directory (cwd)                                       |
+| <C-t>/t | Change nvim's cwd to selected folder/file(parent)                           |
+| <C-f>/f | Toggle between file and folder browser                                      |
+| <C-h>/h | Toggle hidden files/folders                                                 |
+| <C-s>/s | Toggle all entries ignoring ./ and ../                                      |
+|---------|-----------------------------------------------------------------------------|
 
 # Snippets and autocomplete
 
