@@ -196,6 +196,11 @@ function s:InstallConfigs()
   execute "!sh ~/.config/nvim/setup.sh"
 endfunction
 
+function s:UpdateNvimOnRails()
+  execute "!cd ~/.config/nvim; git pull origin master -f"
+endfunction
+
 command! InstallConfigs :call s:InstallConfigs()
+command! UpdateNvimOnRails :call s:UpdateNvimOnRails()
 
 let g:any_jump_disable_default_keybindings = 1
