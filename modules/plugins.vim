@@ -73,6 +73,7 @@ return require('packer').startup(function()
   use 'kdheepak/lazygit.nvim'
   use 'NLKNguyen/papercolor-theme'
   use 'nicwest/vim-camelsnek'
+  use 'nvim-telescope/telescope-file-browser.nvim'
   use 'AndrewRadev/sideways.vim'
   use 'AndrewRadev/splitjoin.vim'
   use 'AndrewRadev/switch.vim'

@@ -72,7 +72,7 @@ lua << EOF
     h = { ":e ~/.config/nvim/handbook.md<CR>", "Open the Handbook" }
   },
   A = { "<C-w>o <C-w>v :call OpenTestAlternate()<cr>", "Go to Test (split)" },
-  ["."] = { ":NvimTreeFindFileToggle<CR>", "Toggle Tree" },
+  ["."] = { require "telescope".extensions.file_browser.file_browser, "Find File" },
   k = { ":call undoquit#SaveWindowQuitHistory()<cr>:bd!<CR>", "Kill current buffer" },
   p = {
     name = "+Projects",

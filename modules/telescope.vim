@@ -1,5 +1,8 @@
 lua <<EOF
 local _, actions = pcall(require, "telescope.actions")
+
+local fb_actions = require "telescope".extensions.file_browser.actions
+
 require('telescope').setup{
   defaults = {
     file_ignore_patterns = { ".*.git/.*" },
@@ -22,7 +25,19 @@ require('telescope').setup{
     },
     buffers = { path_display = { "tail" }, }
   } ,
-  extensions = {}
+  extensions = {
+    file_browser = {
+      theme = "ivy",
+      mappings = {
+        ["i"] = {
+          ["<C-a>"] = fb_actions.create
+        },
+        ["n"] = {
+          -- your custom normal mode mappings
+        },
+      },
+    },
+  },
 }
 
 local actions = require('telescope.actions')require('telescope').setup{
@@ -38,5 +53,4 @@ require"telescope".load_extension("frecency")
 require"telescope".load_extension("tmux")
 require('telescope').load_extension('coc')
 require('telescope').load_extension('projects')
-
 EOF
