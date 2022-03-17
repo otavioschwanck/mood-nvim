@@ -197,7 +197,7 @@ function s:InstallConfigs()
 endfunction
 
 function s:UpdateNvimOnRails()
-  execute "!cd ~/.config/nvim; git pull origin master -f"
+  execute "!cd ~/.config/nvim; git pull origin main -f"
 endfunction
 
 command! InstallConfigs :call s:InstallConfigs()
