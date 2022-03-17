@@ -191,3 +191,9 @@ endfunction
 function FindInFolder(folder, title)
   execute "lua require'telescope.builtin'.find_files({ cwd = '" . a:folder . "', prompt_title = '" . a:title . "' })"
 endfunction
+
+tnoremap <Esc> <C-\><C-n>
+
+lua << EOF
+require("toggleterm").setup{ }
+EOF

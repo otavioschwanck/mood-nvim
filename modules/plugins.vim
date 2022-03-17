@@ -106,7 +106,9 @@ end)
 LUA
 
 lua <<END
-require('telescope').load_extension('projects')
+require('lualine').setup {
+  extensions = { "quickfix", "nvim-tree", "toggleterm" }
+}
 END
 
 lua require'terminal'.setup()
