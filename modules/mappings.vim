@@ -132,7 +132,7 @@ lua << EOF
     l = { ":GcLog -- %<CR>", "Log this file" },
   },
   [','] = { ":Telescope buffers<CR>", "Find Buffers" },
-  v = { ":ToggleTerm<CR>", "Open a blank terminal" },
+  v = { ":Term<CR>", "Open a blank terminal" },
   q = {
     name = "+Quit and Close",
     q = { ":qall!<CR>", "Quit Vim" },
