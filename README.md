@@ -90,7 +90,7 @@ fi
 
 # For mac Users
 
-On iTerm, remap left option to left command and vice versa.  Some plugins need the command key.
+To use Alt commands, like M-d (multiple-cursors), use Option + key.
 
 # How to learn the keybindings of this configuration?
 
