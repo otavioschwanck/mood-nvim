@@ -191,3 +191,5 @@ endfunction
 function FindInFolder(folder, title)
   execute "lua require'telescope.builtin'.find_files({ cwd = '" . a:folder . "', prompt_title = '" . a:title . "' })"
 endfunction
+
+let g:any_jump_disable_default_keybindings = 1

@@ -34,10 +34,21 @@ nmap <silent> [e <Plug>(coc-diagnostic-prev)
 nmap <silent> ]e <Plug>(coc-diagnostic-next)
 
 " GoTo code navigation.
-nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gt :Telescope coc type_definitions<CR>
 nmap <silent> gi :Telescope coc implementations<CR>
 nmap <silent> gD :Telescope coc references<CR>
+
+function! TelescopeGoToDefinition()
+  let ret = execute("Telescope coc definitions")
+  echom ret
+  if ret =~ "Error" || ret =~ "no definitions found" || ret =~ "server does not support"
+    execute "AnyJump"
+    echo "Cannot find using lsp, falling back to AnyJump."
+  endif
+endfunction
+
+nnoremap <silent> gd :call TelescopeGoToDefinition()<CR>
+vmap <silent> gd :AnyJumpVisual<CR>
 
 " Use K to show documentation in preview window.
 nnoremap <silent> K :call <SID>show_documentation()<CR>

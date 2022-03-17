@@ -91,6 +91,8 @@ return require('packer').startup(function()
   use 'tomasr/molokai'
   use 'honza/vim-snippets'
   use 'skywind3000/asyncrun.vim'
+  use 'pechorin/any-jump.vim'
+  use 'joshdick/onedark.vim'
 
   use {
     'lewis6991/gitsigns.nvim', requires = { 'nvim-lua/plenary.nvim' },
