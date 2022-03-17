@@ -192,4 +192,10 @@ function FindInFolder(folder, title)
   execute "lua require'telescope.builtin'.find_files({ cwd = '" . a:folder . "', prompt_title = '" . a:title . "' })"
 endfunction
 
+function s:InstallConfigs()
+  execute "!sh ~/.config/nvim/setup.sh"
+endfunction
+
+command! InstallConfigs :call s:InstallConfigs()
+
 let g:any_jump_disable_default_keybindings = 1

@@ -21,9 +21,6 @@ documented.
 
 ```sh
 git clone git@github.com:otavioschwanck/nvim-on-rails.git ~/.config/nvim
-
-cp ~/.config/nvim/user.example.vim ~/.config/nvim/user.vim
-cp ~/.config/nvim/.tmux.conf ~/.tmux.conf
 ```
 
 3. Run this: `git config --global push.default current`
@@ -81,7 +78,7 @@ fi
 
 8. For Linux only:
 
-7. Run `nvim` on the terminal and then, run `:PackerSync`.
+7. Run `nvim` on the terminal and then, run `:PackerSync` and `:InstallConfigs`.
 
 # After install
 
