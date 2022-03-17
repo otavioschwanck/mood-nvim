@@ -135,7 +135,7 @@ lua << EOF
   v = { ":Term<CR>", "Open a blank terminal" },
   q = {
     name = "+Quit and Close",
-    q = { ":qall!<CR>", "Quit Vim" },
+    q = { ":qall<CR>", "Quit Vim" },
     c = {":cclose<CR>", "Quick Fix Close"}
   }
 }, { prefix = "<leader>", silent = false })
