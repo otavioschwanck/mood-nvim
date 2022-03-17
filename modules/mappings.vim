@@ -177,8 +177,12 @@ nmap - $
 vmap - $<Left>
 
 nnoremap gr :NvimTreeRefresh<CR>
-nnoremap <TAB> :BufMRUPrev<CR>
-nnoremap <S-TAB> :BufMRUNext<CR>
+
+nnoremap H :BufMRUPrev<CR>
+nnoremap L :BufMRUNext<CR>
+
+nnoremap <TAB> <C-w>w
+nnoremap <S-TAB> <C-w>W
 
 nnoremap <C-s> :lua require("harpoon.mark").add_file()<CR>
 nnoremap <C-space> :lua require("harpoon.ui").toggle_quick_menu()<CR>
@@ -205,8 +209,8 @@ function CopyFullPath()
   echom "Yanked: " . value
 endfunction
 
-nnoremap H :SidewaysLeft<cr>
-nnoremap L :SidewaysRight<cr>
+nnoremap gh :SidewaysLeft<cr>
+nnoremap gl :SidewaysRight<cr>
 
 nmap vij vaI
 nmap vaj vaIj
