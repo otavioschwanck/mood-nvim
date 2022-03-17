@@ -23,11 +23,11 @@ require('telescope').setup{
     find_files = {
       hidden = true
     },
-    buffers = { path_display = { "tail" }, }
+    buffers = { path_display = { "tail" } }
   } ,
   extensions = {
     file_browser = {
-      theme = "ivy",
+      hidden = true,
       mappings = {
         ["i"] = {
           ["<C-a>"] = fb_actions.create
