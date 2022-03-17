@@ -147,7 +147,7 @@ To select, just press ENTER.  To close the suggestions pop-up, press C-e.
 
 | Command | Description                         |
 |---------|-------------------------------------|
-| C-q     | Start multiple cursors / go forward |
+| M-d     | Start multiple cursors / go forward |
 | gq      | Select all occurrences              |
 |---------|-------------------------------------|
 

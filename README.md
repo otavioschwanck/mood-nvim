@@ -88,6 +88,10 @@ fi
 - Check the `user.vim` for let `g:python_host_prog` part.  Probabily you will need to uncomment.
 - Check if is missing something with `:checkhealth`
 
+# For mac Users
+
+On iTerm, remap left option to left command and vice versa.  Some plugins need the command key.
+
 # How to learn the keybindings of this configuration?
 
 Just press `SPC h h` to open the handbook inside vim.
