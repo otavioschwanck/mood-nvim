@@ -117,6 +117,7 @@ lua << EOF
     R = { ":Move ", "Rename Current File" },
     D = { ":Delete<CR>", "Delete the current file" },
     p = { ":e ~/.config/nvim/user.vim<CR>", "Open Your Private Files" },
+    P = { ":e ~/.config/nvim/lua/user-plugins.lua<CR>", "Open Your Plugin" },
     y = { ":call CopyRelativePath()<CR>", "Copy Relative Path" },
     Y = { ":call CopyFullPath()<CR>", "Copy Full Path" },
     C = { ":saveas ", "Copy current file to" }

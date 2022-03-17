@@ -23,3 +23,11 @@ else
   cp ~/.config/nvim/.tmux.conf ~/.tmux.conf
   echo "$TMUX created."
 fi
+
+PLUGINS=~/.config/nvim/lua/user-plugins.lua
+if test -f "$PLUGINS"; then
+  echo "$PLUGINS exists. Ignoring..."
+else
+  cp ~/.config/nvim/lua/user-plugins.example.lua ~/.config/nvim/lua/user-plugins.lua
+  echo "$PLUGINS created."
+fi

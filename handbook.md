@@ -11,7 +11,7 @@ Some ways to learn:
 
 # Customizing
 
-To access your personal configuration, press `SPC f p`
+To access your personal configuration, press `SPC f p`.  To install extra plugins, press `SPC f P`
 
 On your personal configuration you can configure stuff like commands to run with `SPC o`, per folder, theme, etc.
 

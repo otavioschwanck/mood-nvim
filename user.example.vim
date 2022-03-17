@@ -4,6 +4,9 @@
 " I also recommend onedark
 colorscheme gruvbox
 
+" To install some extra plugins, visit
+" ~/.config/nvim/lua/user-plugins.lua (You can press gf from the link)
+
 " Whats is your favorite debugger?  Use with SPD d (add) and SPC D (clear all)
 let g:ruby_debugger = "byebug"
 

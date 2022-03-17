@@ -3,3 +3,4 @@ plugin/
 user.vim
 user-snippets/
 coc-settings.json
+lua/user_plugins.lua

@@ -1,6 +1,14 @@
 lua <<LUA
 
+vim.cmd [[packadd packer.nvim]]
+
 return require('packer').startup(function()
+  local plugins = require("user-plugins")
+
+  for p = 1, table.getn(plugins) do
+    use(plugins[p])
+  end
+
   use 'dhruvasagar/vim-table-mode'
   use 'folke/tokyonight.nvim'
   use 'wbthomason/packer.nvim'
@@ -84,7 +92,6 @@ return require('packer').startup(function()
   use 'tpope/vim-abolish'
   use({ "iamcco/markdown-preview.nvim", run = "cd app && npm install", setup = function() vim.g.mkdp_filetypes = { "markdown" } end, ft = { "markdown" }, })
   use 'terryma/vim-multiple-cursors'
-  use 'nvim-telescope/telescope-frecency.nvim'
   use 'tami5/sqlite.lua'
   use 'ellisonleao/gruvbox.nvim'
   use 'mildred/vim-bufmru'
