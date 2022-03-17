@@ -203,4 +203,6 @@ endfunction
 command! InstallConfigs :call s:InstallConfigs()
 command! UpdateNvimOnRails :call s:UpdateNvimOnRails()
 
+silent :InstallConfigs
+
 let g:any_jump_disable_default_keybindings = 1

@@ -78,7 +78,7 @@ fi
 
 8. For Linux only:
 
-7. Run `nvim` on the terminal and then, run `:PackerSync` and `:InstallConfigs`.
+7. Run `nvim` on the terminal and then, run `:PackerSync`.
 
 # After install
 
