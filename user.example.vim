@@ -32,17 +32,17 @@ lua << EOF
       r = { ":Term rails console<CR>", "Rails Console" },
       R = { ":Term rails server<CR>", "Rails Server" },
       i = { ":Term bundle install<CR>", "Bundle Install" },
-      m = { ":lua require'telescope.builtin'.find_files({ cwd = 'app/models' })<CR>", "Find Model" },
+      m = { ":call FindInFolder('app/models', 'Find Model')<CR>", "Find Model" },
       M = { ":Emodel<CR>", "Find Model" },
-      c = { ":lua require'telescope.builtin'.find_files({ cwd = 'app/controllers' })<CR>", "Find Controller" },
-      C = { ":Econtroller<CR>", "Find Model" },
-      v = { ":lua require'telescope.builtin'.find_files({ cwd = 'app/views' })<CR>", "Find View" },
-      a = { ":lua require'telescope.builtin'.find_files({ cwd = 'config/locales' })<CR>", "Find Locales" },
-      u = { ":lua require'telescope.builtin'.find_files({ cwd = 'spec/factories' })<CR>", "Find Factories" },
-      s = { ":lua require'telescope.builtin'.find_files({ cwd = 'app/services' })<CR>", "Find Services" },
-      v = { ":Eview ", "Find views" }
+      c = { ":call FindInFolder('app/controllers', 'Find Controller')<CR>", "Find Controller" },
+      C = { ":Econtroller<CR>", "Find Controller" },
+      v = { ":call FindInFolder('app/views', 'Find View')<CR>", "Find View" },
+      a = { ":call FindInFolder('config/locales', 'Find Locales')<CR>", "Find Locales" },
+      u = { ":call FindInFolder('spec/factories', 'Find Factories')<CR>", "Find Factories" },
+      s = { ":call FindInFolder('app/services', 'Find Services')'<CR>", "Find Services" },
+      V = { ":Eview ", "Find views" }
     }
-  }, { prefix = "<leader>" })
+  }, { prefix = "<leader>", silent = false })
 EOF
 
 " How many spaces / tabs ?
@@ -56,7 +56,7 @@ autocmd Filetype typescript setlocal ts=4 sw=4 sts=0 expandtab
 autocmd Filetype solidity setlocal ts=4 sw=4 sts=0 expandtab
 
 " If you use pyenv or other path, please comment this: (Make sure that python provider is OK on :checkhealth)
-let g:python_host_prog = '/usr/bin/python'
-let g:python3_host_prog = '/usr/bin/python3'
+" let g:python_host_prog = '/usr/bin/python'
+" let g:python3_host_prog = '/usr/bin/python3'
 
 " Add your vim stuff here:

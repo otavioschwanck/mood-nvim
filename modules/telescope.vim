@@ -2,6 +2,7 @@ lua <<EOF
 local _, actions = pcall(require, "telescope.actions")
 require('telescope').setup{
   defaults = {
+    file_ignore_patterns = { ".*.git/.*" },
     mappings = {
       i = {
         ["<C-j>"] = actions.move_selection_next,
@@ -15,7 +16,11 @@ require('telescope').setup{
       }
     }
   },
-  pickers = {},
+  pickers = {
+    find_files = {
+      hidden = true
+    }
+  } ,
   extensions = {}
 }
 

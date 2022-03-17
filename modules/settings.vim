@@ -187,3 +187,7 @@ function ClearDebugger()
     execute "%s/.*<% " . g:ruby_debugger . " %>\\n//gr"
   endif
 endfunction
+
+function FindInFolder(folder, title)
+  execute "lua require'telescope.builtin'.find_files({ cwd = '" . a:folder . "', prompt_title = '" . a:title . "' })"
+endfunction
