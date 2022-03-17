@@ -19,7 +19,8 @@ require('telescope').setup{
   pickers = {
     find_files = {
       hidden = true
-    }
+    },
+    buffers = { path_display = { "tail" }, }
   } ,
   extensions = {}
 }
