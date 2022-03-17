@@ -210,11 +210,6 @@ nmap caj vaIjc
 vnoremap J :m '>+1<CR>gv=gv
 vnoremap K :m '<-2<CR>gv=gv
 
-nmap <C-j> ]=
-nmap <C-k> [=
-vmap <C-j> ]=
-vmap <C-k> [=
-
 nnoremap <expr> gp '`[' . strpart(getregtype(), 0, 1) . '`]'
 
 nnoremap <c-w>c :call undoquit#SaveWindowQuitHistory()<cr><c-w>c
