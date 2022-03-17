@@ -189,7 +189,11 @@ function ClearDebugger()
 endfunction
 
 function FindInFolder(folder, title)
-  execute "lua require'telescope.builtin'.find_files({ cwd = '" . a:folder . "', prompt_title = '" . a:title . "' })"
+  if isdirectory(a:folder)
+    execute "lua require'telescope.builtin'.find_files({ cwd = '" . a:folder . "', prompt_title = '" . a:title . "' })"
+  else
+    echo "Directory: '" . a:folder . "' not found in this project..."
+  endif
 endfunction
 
 function s:InstallConfigs()
