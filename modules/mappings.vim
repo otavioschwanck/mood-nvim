@@ -117,6 +117,10 @@ lua << EOF
     Y = { ":call CopyFullPath()<CR>", "Copy Full Path" },
     C = { ":saveas ", "Copy current file to" }
   },
+  m = {
+    name = "+Ruby Refact",
+    d = { ":CocCommand rubocop.insert<CR>", "Disable byebug at point" }
+  },
   g = {
     name = "+Git",
     g = { ":LazyGit<CR>", "LazyGit" },
