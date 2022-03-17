@@ -1,6 +1,7 @@
 " To reload your configs, press :so %
 
 " Select your colorscheme.  To see others: SPC h t
+" I also recommend onedark
 colorscheme gruvbox
 
 " Whats is your favorite debugger?  Use with SPD d (add) and SPC D (clear all)
