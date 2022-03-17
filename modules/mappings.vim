@@ -38,6 +38,10 @@ lua << EOF
        a = { "<Plug>(coc-codeaction-selected)", "Code Action" },
        f = { "<Plug>(coc-format-selected)", "Format" },
      },
+     m = {
+       l = { ":RExtractLet<CR>", "Extract Let" },
+       v = { ":RExtractLocalVariable<CR>", "Extract Variable" }
+     },
      r = {
        name = "+Refactor",
        e = { "<Esc><Cmd>lua require('refactoring').refactor('Extract Function')<CR>", "Extract Function" },
@@ -119,7 +123,8 @@ lua << EOF
   },
   m = {
     name = "+Ruby Refact",
-    d = { ":CocCommand rubocop.insert<CR>", "Disable byebug at point" }
+    d = { ":CocCommand rubocop.insert<CR>", "Disable byebug at point" },
+    a = { ":RAddParameter<CR>", "Add Parameter" }
   },
   g = {
     name = "+Git",

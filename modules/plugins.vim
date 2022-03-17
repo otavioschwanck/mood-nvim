@@ -94,6 +94,7 @@ return require('packer').startup(function()
   use 'skywind3000/asyncrun.vim'
   use 'pechorin/any-jump.vim'
   use 'joshdick/onedark.vim'
+  use 'ecomba/vim-ruby-refactoring'
 
   use {
     'lewis6991/gitsigns.nvim', requires = { 'nvim-lua/plenary.nvim' },

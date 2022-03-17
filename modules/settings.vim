@@ -208,5 +208,8 @@ command! InstallConfigs :call s:InstallConfigs()
 command! UpdateNvimOnRails :call s:UpdateNvimOnRails()
 
 silent :InstallConfigs
+:PackerInstall
 
 let g:any_jump_disable_default_keybindings = 1
+
+let g:ruby_refactoring_map_keys=0

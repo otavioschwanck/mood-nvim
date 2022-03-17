@@ -139,6 +139,7 @@ To execute some command in all items of the quickfix list, just run `:cfdo S/old
 # On the SPC . (file browser)
 
 | Insert  | / Normal	Action                                                            |
+|---------|-----------------------------------------------------------------------------|
 | <A-c>/c | Create file/folder at current path (trailing path separator creates folder) |
 | <A-r>/r | Rename multi-selected files/folders                                         |
 | <A-m>/m | Move multi-selected files/folders to current path                           |
@@ -169,6 +170,16 @@ To select, just press ENTER.  To close the suggestions pop-up, press C-e.
 | M-d     | Start multiple cursors / go forward |
 | gq      | Select all occurrences              |
 |---------|-------------------------------------|
+
+# Ruby Stuff
+
+| Commands | Description                                                    |
+|----------|----------------------------------------------------------------|
+| SPC m d  | Disable byebug at point.  use ]e [e to navigate between errors |
+| SPC m l  | Extract let                                                    |
+| SPC m v  | Extract local variable                                         |
+| SPC m a  | Add Parameter                                                  |
+|----------|----------------------------------------------------------------|
 
 # Running stuff
 
