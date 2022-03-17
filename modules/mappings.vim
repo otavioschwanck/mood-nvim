@@ -133,6 +133,18 @@ lua << EOF
   },
   [','] = { ":Telescope buffers<CR>", "Find Buffers" },
   v = { ":Term<CR>", "Open a blank terminal" },
+  w = {
+    name = "+Window",
+    w = { "<C-w>w", "Next Window" },
+    W = { "<C-w>W", "Previous Windows" },
+    o = { "<C-w>o", "Maximize Window" },
+    u = { "<C-w>u", "Restore killed window" },
+    c = { ":call undoquit#SaveWindowQuitHistory()<cr><c-w>c", "Close Window" },
+    q = { ":call undoquit#SaveWindowQuitHistory()<cr><c-w>c", "Kill Window" },
+    x = { "<C-w>x", "Swap windows" },
+    v = { "<C-w>v", "Split Vertical" },
+    s = { "<C-w>s", "Split Horizontal" }
+  },
   q = {
     name = "+Quit and Close",
     q = { ":qall<CR>", "Quit Vim" },
@@ -156,8 +168,6 @@ nnoremap <silent><esc> :noh<return><esc>
 " Quickfix
 nmap ]q :cnext<CR>
 nmap [q :cprevious<CR>
-nnoremap <silent>H :BufMRUPrev<CR>
-nnoremap <silent>L :BufMRUNext<CR>
 
 " Save all
 nmap \ :wall<CR>
@@ -167,8 +177,8 @@ nmap - $
 vmap - $<Left>
 
 nnoremap gr :NvimTreeRefresh<CR>
-nnoremap <TAB> <C-w>w
-nnoremap <S-TAB> <C-w>W
+nnoremap <TAB> :BufMRUPrev<CR>
+nnoremap <S-TAB> :BufMRUNext<CR>
 
 nnoremap <C-s> :lua require("harpoon.mark").add_file()<CR>
 nnoremap <C-space> :lua require("harpoon.ui").toggle_quick_menu()<CR>
@@ -195,8 +205,8 @@ function CopyFullPath()
   echom "Yanked: " . value
 endfunction
 
-nnoremap gh :SidewaysLeft<cr>
-nnoremap gl :SidewaysRight<cr>
+nnoremap H :SidewaysLeft<cr>
+nnoremap L :SidewaysRight<cr>
 
 nmap vij vaI
 nmap vaj vaIj
