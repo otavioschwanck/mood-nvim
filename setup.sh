@@ -15,3 +15,11 @@ else
   cp ~/.config/nvim/coc-settings.example.json ~/.config/nvim/coc-settings.json
   echo "$COC_SETTINGS created."
 fi
+
+TMUX=~/.tmux.conf
+if test -f "$TMUX"; then
+  echo "$TMUX exists. Ignoring..."
+else
+  cp ~/.config/nvim/.tmux.conf ~/.tmux.conf
+  echo "$TMUX created."
+fi
