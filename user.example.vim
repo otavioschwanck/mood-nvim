@@ -38,6 +38,7 @@ lua << EOF
       name = "+Rails",
       r = { ":call OpenTerm('rails c', 'Rails Console', 1, 0)<CR>", "Rails Console" },
       R = { ":call OpenTerm('rails s', 'Rails Server', 1, 1)<CR>", "Rails Server" },
+      S = { ":call OpenTerm('bundle exec sidekiq', 'Sidekiq', 1, 1)<CR>", "Sidekiq" },
       i = { ":call OpenTerm('bundle install', 'Bundle Install', 1, 0)<CR>", "Bundle Install" },
       m = { ":call FindInFolder('app/models', 'Find Model')<CR>", "Find Model" },
       M = { ":Emodel<CR>", "Find Model" },
