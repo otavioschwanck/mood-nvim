@@ -80,7 +80,6 @@ return require('packer').startup(function()
   use 'mildred/vim-bufmru'
   use 'fannheyward/telescope-coc.nvim'
   use 'tomasr/molokai'
-  use 'honza/vim-snippets'
   use 'skywind3000/asyncrun.vim'
   use 'pechorin/any-jump.vim'
   use 'joshdick/onedark.vim'

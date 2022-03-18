@@ -70,7 +70,7 @@ Time.zone.now
 endsnippet
 
 snippet numericality: "numericality: { | }" i
-numericality: { $0 }
+numericality: { ${2|greater_than,greater_than_or_equal_to,less_than,less_than_or_equal_to,equal_to,other_than|}: ${3:100} }
 endsnippet
 
 snippet resc "rescue StandardError => e" i
