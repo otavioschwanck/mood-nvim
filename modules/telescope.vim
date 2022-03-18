@@ -30,10 +30,20 @@ require('telescope').setup{
       hidden = true,
       mappings = {
         ["i"] = {
-          ["<C-a>"] = fb_actions.create
+          ["<C-a>"] = fb_actions.create,
+          ["<C-v>"] = fb_actions.copy,
+          ["<C-e>"] = fb_actions.move,
+          ["<C-space>"] = fb_actions.remove,
+          ["<C-r>"] = fb_actions.rename,
+          ["<C-c>"] = fb_actions.goto_parent_dir,
         },
         ["n"] = {
-          -- your custom normal mode mappings
+          ["<C-a>"] = fb_actions.create,
+          ["<C-v>"] = fb_actions.copy,
+          ["<C-e>"] = fb_actions.move,
+          ["<C-space>"] = fb_actions.remove,
+          ["<C-r>"] = fb_actions.rename,
+          ["<C-c>"] = fb_actions.goto_parent_dir,
         },
       },
     },
