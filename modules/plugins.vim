@@ -98,7 +98,7 @@ return require('packer').startup(function()
 
   use {
     'lewis6991/gitsigns.nvim', requires = { 'nvim-lua/plenary.nvim' },
-    config = function() require('gitsigns').setup() end
+
   }
 
   use 'tomlion/vim-solidity'
@@ -115,6 +115,7 @@ require'hop'.setup { keys = 'etovxqpdygfblzhckisuran' }
 require('lualine').setup {
   extensions = { "quickfix", "nvim-tree", "toggleterm" }
 }
+config = require('gitsigns').setup()
 END
 
 lua require'terminal'.setup()
