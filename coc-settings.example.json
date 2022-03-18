@@ -1,6 +1,8 @@
 {
   "suggest.noselect": false,
   "snippets.userSnippetsDirectory": "~/.config/nvim/user-snippets",
+  "coc.preferences.silentAutoupdate": true,
+  "coc.preferences.extensionUpdateCheck": "daily",
   "snippets.ultisnips.directories": [
     "~/.config/nvim/UltiSnips"
   ],
