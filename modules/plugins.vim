@@ -38,23 +38,13 @@ return require('packer').startup(function()
   use 'vimlab/split-term.vim'
   use 'nvim-lualine/lualine.nvim'
   use 'mbbill/undotree'
-  use {
-    "ahmedkhalf/project.nvim",
-    config = function()
-    require("project_nvim").setup {
-      -- your configuration comes here
-      -- or leave it empty to use the default settings
-      -- refer to the configuration section below
-      }
-  end
-  }
+  use { "ahmedkhalf/project.nvim" }
 
   use {
     'kyazdani42/nvim-tree.lua',
     requires = {
       'kyazdani42/nvim-web-devicons', -- optional, for file icon
-      },
-    config = function() require'nvim-tree'.setup {} end
+    },
   }
 
   -- Editing stuff
@@ -115,7 +105,9 @@ require'hop'.setup { keys = 'etovxqpdygfblzhckisuran' }
 require('lualine').setup {
   extensions = { "quickfix", "nvim-tree", "toggleterm" }
 }
-config = require('gitsigns').setup()
+require('gitsigns').setup()
+require("project_nvim").setup {}
+require('nvim-tree').setup {}
 END
 
 lua require'terminal'.setup()
