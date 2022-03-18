@@ -49,8 +49,10 @@ On your personal configuration you can configure stuff like commands to run with
 
 | Command | Description                                                              |
 |---------|--------------------------------------------------------------------------|
-| C-h     | Focus Window to the left                                                 |
-| C-l     | Focus Window to the right                                                |
+| C-h     | Focus Window in the left                                                 |
+| C-l     | Focus Window in the right                                                |
+| C-j     | Focus Window in the bottom                                               |
+| C-k     | Focus Window in the top                                               |
 | TAB     | Focus next window (Dont works on the tree) (Cool to use on terminal)     |
 | S-TAB   | Focus previous window (Dont works on the tree) (Cool to use on terminal) |
 |---------|--------------------------------------------------------------------------|
