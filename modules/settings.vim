@@ -216,6 +216,7 @@ function OpenTerm(command, name, unique, close_after_create)
     execute "b " . a:name
 
     echo a:name . " exists.  Focusing."
+    startinsert
   else
     if bnr > 0
       let new_number = 0
@@ -239,11 +240,10 @@ function OpenTerm(command, name, unique, close_after_create)
       execute "close"
 
       echo a:name . " is beign executed in background."
+      stopinsert
     else
       echo a:name . " is open!."
     end
-
-    stopinsert
   endif
 endfunction
 
@@ -257,3 +257,10 @@ silent :InstallConfigs
 let g:any_jump_disable_default_keybindings = 1
 
 let g:ruby_refactoring_map_keys=0
+
+function! SplitTermStrategy(cmd)
+  execute "call OpenTerm(a:cmd, 'Tests', 1, 0)"
+endfunction
+
+let g:test#custom_strategies = {'splitterm': function('SplitTermStrategy')}
+let g:test#strategy = 'splitterm'

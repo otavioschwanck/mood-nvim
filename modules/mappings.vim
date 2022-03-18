@@ -137,7 +137,7 @@ lua << EOF
     l = { ":GcLog -- %<CR>", "Log this file" },
   },
   [','] = { ":Telescope buffers<CR>", "Find Buffers" },
-  v = { ":Term<CR>", "Open a blank terminal" },
+  v = { ":call OpenTerm('', 'Quick Term', 1, 0)<CR>", "Open a blank terminal" },
   w = {
     name = "+Window",
     w = { "<C-w>w", "Next Window" },
