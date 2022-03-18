@@ -65,14 +65,7 @@ return require('packer').startup(function()
   use "rafamadriz/friendly-snippets"
   use 'windwp/nvim-ts-autotag'
   use { 'svermeulen/vim-subversive' }
-  use {
-    'phaazon/hop.nvim',
-    branch = 'v1', -- optional but strongly recommended
-    config = function()
-      -- you can configure Hop the way you like here; see :h hop-config
-      require'hop'.setup { keys = 'etovxqpdygfblzhckisuran' }
-    end
-  }
+  use { 'phaazon/hop.nvim' }
 
   use 'kana/vim-textobj-user'
   use 'beloglazov/vim-textobj-quotes'
@@ -117,6 +110,8 @@ end)
 LUA
 
 lua <<END
+
+require'hop'.setup { keys = 'etovxqpdygfblzhckisuran' }
 require('lualine').setup {
   extensions = { "quickfix", "nvim-tree", "toggleterm" }
 }
