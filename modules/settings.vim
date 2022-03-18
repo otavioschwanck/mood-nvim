@@ -242,6 +242,8 @@ function OpenTerm(command, name, unique, close_after_create)
     else
       echo a:name . " is open!."
     end
+
+    stopinsert
   endif
 endfunction
 
