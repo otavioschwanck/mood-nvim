@@ -10,6 +10,8 @@ colorscheme gruvbox
 " Whats is your favorite debugger?  Use with SPD d (add) and SPC D (clear all)
 let g:ruby_debugger = "byebug"
 
+" let test#ruby#rspec#executable = 'foreman run rspec' " Command to run rspec, default is bundle exec rspec
+
 " Your private mappings
 lua << EOF
   local wk = require("which-key")
