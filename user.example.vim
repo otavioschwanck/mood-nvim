@@ -14,18 +14,21 @@ let g:ruby_debugger = "byebug"
 lua << EOF
   local wk = require("which-key")
 
+  -- function OpenTerm receive 4 arguments:
+  -- command, name, unique and close_after_create.
+
   wk.register({
     -- Example of custom terminal commands
     ["="] = { ":silent !bundle exec rubocop -a %<CR>", "Rubocop on current file" },
     o = {
       r = { ":silent !bundle exec rubocop -a %<CR>", "Rubocop on current file" },
       name = "+Term Commands",
-      ["1"] = { ":Term docker-compose up<CR>", "Run Docker Compose" },
+      ["1"] = { ":call OpenTerm('Docker Compose up -d', 'Docker Compose UP', 1, 1)<CR>", "Run Docker Compose" },
       b = {
         name = "+Brownie",
-        t = { ":Term brownie test<CR>", "Run Tests" },
-        c = { ":Term brownie compile<CR>", "Compile" },
-        b = { ":execute 'Term' .. ' brownie test ' .. fnameescape(expand('%:P'))<CR>", "Test Current File" } -- Run a command using the file name.
+        t = { ":call OpenTerm('brownie test', 'Brownie Test', 1, 0)<CR>", "Run Tests" },
+        c = { ":call OpenTerm('brownie compile', 'Brownie Compile', 1, 0)<CR>", "Compile" },
+        v = { ":call OpenTerm('brownie test ' .. fnameescape(expand('%')), 'Brownie Test Current File', 1, 0)<CR>", "Test Current File" } -- Run a command using the file name.
       },
       g = { ":e ~/.gitconfig<CR>", "Open Git Config" },
       z = { ":e ~/.zshrc<CR>", "Open zshrc" }
@@ -33,9 +36,9 @@ lua << EOF
     -- Add your rails folders and commands here
     r = {
       name = "+Rails",
-      r = { ":Term rails console<CR>", "Rails Console" },
-      R = { ":Term rails server<CR>", "Rails Server" },
-      i = { ":Term bundle install<CR>", "Bundle Install" },
+      r = { ":call OpenTerm('rails c', 'Rails Console', 1, 0)<CR>", "Rails Console" },
+      R = { ":call OpenTerm('rails s', 'Rails Server', 1, 1)<CR>", "Rails Server" },
+      i = { ":call OpenTerm('bundle install', 'Bundle Install', 1, 0)<CR>", "Bundle Install" },
       m = { ":call FindInFolder('app/models', 'Find Model')<CR>", "Find Model" },
       M = { ":Emodel<CR>", "Find Model" },
       c = { ":call FindInFolder('app/controllers', 'Find Controller')<CR>", "Find Controller" },

@@ -197,14 +197,56 @@ function FindInFolder(folder, title)
 endfunction
 
 function s:InstallConfigs()
-  execute "!sh ~/.config/nvim/setup.sh"
+  execute "!sh ~/.config/nvim/bin/setup.sh"
 endfunction
+
+function s:CleanConfigs()
+  execute "!sh ~/.config/nvim/bin/clean.sh"
+endfunction
+
 
 function s:UpdateNvimOnRails()
   execute "!cd ~/.config/nvim; git pull origin main -f"
 endfunction
 
+function OpenTerm(command, name, unique, close_after_create)
+  let bnr = bufexists(a:name)
+
+  if bnr > 0 && a:unique == 1
+    execute "b " . a:name
+
+    echo a:name . " exists.  Focusing."
+  else
+    if bnr > 0
+      let new_number = 0
+
+      while bnr > 0
+        let bnr = bufexists(a:name . " - " . new_number)
+
+        if bnr > 0
+          let new_number = new_number + 1
+        endif
+      endwhile
+
+      execute "Term " . a:command
+      execute "file! " . a:name . " - " . new_number
+    else
+      execute "Term " . a:command
+      execute "file! " . a:name
+    end
+
+    if a:close_after_create == 1
+      execute "close"
+
+      echo a:name . " is beign executed in background."
+    else
+      echo a:name . " is open!."
+    end
+  endif
+endfunction
+
 command! InstallConfigs :call s:InstallConfigs()
+command! CleanConfigs :call s:CleanConfigs()
 command! UpdateNvimOnRails :call s:UpdateNvimOnRails()
 
 silent :InstallConfigs
