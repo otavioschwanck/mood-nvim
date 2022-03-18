@@ -23,7 +23,7 @@ require('telescope').setup{
     find_files = {
       hidden = true
     },
-    buffers = { path_display = { "tail" } }
+    buffers = { path_display = { "smart" } }
   } ,
   extensions = {
     file_browser = {
