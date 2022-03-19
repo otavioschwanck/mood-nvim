@@ -85,6 +85,8 @@ return require('packer').startup(function()
   use 'pechorin/any-jump.vim'
   use 'joshdick/onedark.vim'
   use 'ecomba/vim-ruby-refactoring'
+  use 'xolox/vim-notes'
+  use 'xolox/vim-misc'
 
   use {
     'lewis6991/gitsigns.nvim', requires = { 'nvim-lua/plenary.nvim' },
