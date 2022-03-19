@@ -198,7 +198,6 @@ To select, just press ENTER.  To close the suggestions pop-up, press C-e.
 | SPC t v | Run current file     |
 | SPC t s | Run nearest tests    |
 | SPC t a | Run all tests        |
-| jk      | Leave To Normal mode |
 |---------|----------------------|
 
 ## Terminal

@@ -53,6 +53,7 @@ return require('packer').startup(function()
   use 'tmux-plugins/vim-tmux-focus-events'
   use {'neoclide/coc.nvim', branch = 'release'}
   use "rafamadriz/friendly-snippets"
+  use 'nvim-orgmode/orgmode'
   use 'windwp/nvim-ts-autotag'
   use { 'svermeulen/vim-subversive' }
   use { 'phaazon/hop.nvim' }
