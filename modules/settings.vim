@@ -196,10 +196,6 @@ function FindInFolder(folder, title)
   endif
 endfunction
 
-function s:InstallConfigs()
-  execute "!sh ~/.config/nvim/bin/setup.sh"
-endfunction
-
 function s:CleanConfigs()
   execute "!sh ~/.config/nvim/bin/clean.sh"
 endfunction
@@ -250,11 +246,9 @@ function OpenTerm(command, name, unique, close_after_create)
   endif
 endfunction
 
-command! InstallConfigs :call s:InstallConfigs()
 command! CleanConfigs :call s:CleanConfigs()
 command! UpdateMood :call s:UpdateMood()
 
-silent :InstallConfigs
 :PackerInstall
 
 let g:any_jump_disable_default_keybindings = 1
