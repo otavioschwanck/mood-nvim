@@ -285,21 +285,24 @@ let g:dashboard_custom_section={
       \ 'description': [' Open Project                 SPC p p'],
       \ 'command': 'Telescope projects' },
   \ '2': {
+      \ 'description': [' Git status                   SPC s g'],
+      \ 'command': 'Telescope git_status' },
+  \ '3': {
       \ 'description': [' Recent FIles                 SPC f r'],
       \ 'command': 'Telescope find_files' },
-  \ '3': {
+  \ '4': {
       \ 'description': [' Open Handbook (docs)         SPC h h'],
       \ 'command': 'e ~/.config/nvim/handbook.md' },
-  \ '4': {
+  \ '5': {
       \ 'description': [' User Settings                SPC f p'],
       \ 'command': 'e ~/.config/nvim/user.vim' },
-  \ '5': {
+  \ '6': {
       \ 'description': [' User Plugins                 SPC f P'],
       \ 'command': 'e ~/.config/nvim/lua/user-plugins.lua' },
-  \ '6': {
+  \ '7': {
       \ 'description': [' Edit CoC File                SPC h c'],
       \ 'command': 'CocConfig' },
-  \ '7': {
+  \ '8': {
       \ 'description': [' Update Neovim on Rails       SPC h u'],
       \ 'command': 'UpdateNvimOnRails' }
   \ }
