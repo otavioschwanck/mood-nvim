@@ -106,7 +106,7 @@ Check your personal config `SPC f p` at the bottom.  Set the python envs to thei
 
 ## Solargraph asks to install ruby
 
-1. On your user.vim '(SPC f p)', remove coc-solargraph
+1. On your user.vim `(SPC f p)`, remove coc-solargraph
 2. Close and reopen vim
 3. Run :CocUninstall coc-solargraph
 4. On your coc-settings.json `(SPC h h)`, add on inside languageserver key:
