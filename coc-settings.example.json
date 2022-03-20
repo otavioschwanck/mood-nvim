@@ -3,6 +3,7 @@
   "snippets.userSnippetsDirectory": "~/.config/nvim/user-snippets",
   "coc.preferences.silentAutoupdate": true,
   "coc.preferences.extensionUpdateCheck": "daily",
+  "emmet.includeLanguages": { "eruby": "html" },
   "snippets.ultisnips.directories": [
     "~/.config/nvim/UltiSnips"
   ],
