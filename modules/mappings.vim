@@ -186,12 +186,16 @@ function HideTerminalWindowOrNoh()
   let buftype = getbufvar('', '&buftype', 'ERROR')
 
   if buftype == 'terminal'
-    execute "close"
+    if winnr('$') == 1
+      execute "b#"
+    else
+      execute "close"
+    end
   end
 endfunction
 
 " Clear highlight
-nnoremap <silent><esc> :call HideTerminalWindowOrNoh()<CR>
+nnoremap <silent><esc> :call HideTerminalWindowOrNoh()<CR>:noh<CR>
 
 " Quickfix
 nmap ]q :cnext<CR>
@@ -209,8 +213,8 @@ nnoremap gr :NvimTreeRefresh<CR>
 nnoremap H :BufferPrevious<CR>
 nnoremap L :BufferNext<CR>
 
-nnoremap <tab> :BufferPick<CR>
-nnoremap ; <C-^>
+nnoremap ; :BufferPick<CR>
+nnoremap <tab> <C-^>
 
 nnoremap <C-s> :lua require("harpoon.mark").add_file()<CR>
 nnoremap <C-space> :lua require("harpoon.ui").toggle_quick_menu()<CR>
@@ -264,8 +268,6 @@ cnoremap <C-e> <C-right>
 
 vnoremap < <gv
 vnoremap > >gv
-
-noremap <Plug>NohAfter zz
 
 xmap q iq
 omap q iq

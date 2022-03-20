@@ -54,8 +54,8 @@ On your personal configuration you can configure stuff like commands to run with
 | C-l     | Focus Window in the right                       |
 | C-j     | Focus Window in the bottom                      |
 | C-k     | Focus Window in the top                         |
-| TAB     | Pick Window                                     |
-| ;       | Alternative between previous file and next file |
+| ;       | Pick Window                                     |
+| TAB     | Alternative between previous file and next file |
 |---------|-------------------------------------------------|
 | C-w u   | Undo a window closed                            |
 | C-w o   | Maximize window                                 |
