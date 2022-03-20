@@ -148,8 +148,8 @@ lua << EOF
     f = { ":Telescope buffers only_cwd=true<CR>", "Find Buffers in this project" },
     F = { ":Telescope buffers<CR>", "Find all buffers" },
     b = { ":BufferPick<CR>", "Pick Buffer" },
-    o = { ":BufferOrganizeByDirectory<CR>", "Organize tabs by directory" },
-    O = { ":BufferOrganizeByLanguage<CR>", "Organize tabs by directory" },
+    o = { ":BufferOrderByDirectory<CR>", "Order tabs by directory" },
+    O = { ":BufferOrderByLanguage<CR>", "Order tabs by directory" },
   },
   v = { ":call OpenTerm('', 'Quick Term', 1, 0)<CR>", "Open a blank terminal" },
   w = {
