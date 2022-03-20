@@ -4,9 +4,9 @@ mooD Vim is a configuration made for those who wants to install and use, without
 
 # For who is this configuration?
 
-- For those that just install and use.
-- For those that likes Doom Emacs Defaults.
-- For those that likes speed editing.
+- For those who lieks to just install and use.
+- For those who likes Doom Emacs Defaults.
+- For those who likes speed editing.
 - For terminal lovers.
 
 # Features
