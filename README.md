@@ -33,7 +33,7 @@ git clone --depth 1 https://github.com/wbthomason/packer.nvim\
 
 ```sh
 python -m pip install neovim-remote pynvim
-python -m pip3 install neovim-remote pynvim
+python3 -m pip install neovim-remote pynvim # only for ubuntu.
 npm install -g neovim diagnostic-languageserver
 gem install solargraph neovim
 ```
@@ -46,7 +46,7 @@ sudo apt-get update
 
 sudo apt-get install sqlite3 libsqlite3-dev neovim xclip
 
-export VER="0.31.4"
+export VER="0.31.4" # you can search for a more recent one
 wget -O lazygit.tgz https://github.com/jesseduffield/lazygit/releases/download/v${VER}/lazygit_${VER}_Linux_x86_64.tar.gz
 tar xvf lazygit.tgz
 sudo mv lazygit /usr/local/bin/
@@ -76,13 +76,11 @@ else
 fi
 ```
 
-8. For Linux only:
-
-7. Run `nvim` on the terminal and then, run `:PackerSync`.
+8. Run `nvim` on the terminal and then, run `:PackerSync`.
 
 # After install
 
-- Check the `user.vim` for let `g:python_host_prog` part.  Probabily you will need to uncomment.
+- Check the `user.vim` for let `g:python_host_prog` part.  Probabily you will need to comment or change (if on mac ou using pyenv).
 - Check if is missing something with `:checkhealth`
 
 # For mac Users
@@ -91,12 +89,11 @@ To use Alt commands, like M-d (multiple-cursors), use Option + key.
 
 # Updating
 
-Run ':UpdateNvimONRails'.
+Run ':UpdateNvimOnRails'.
 
 # How to learn the keybindings of this configuration?
 
 Just press `SPC h h` to open the handbook inside vim.
-
 
 # Troubleshoot
 
