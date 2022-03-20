@@ -266,6 +266,8 @@ let g:test#custom_strategies = {'splitterm': function('SplitTermStrategy')}
 let g:test#strategy = 'splitterm'
 
 let g:dashboard_default_executive ='telescope'
+let g:table_mode_disable_tableize_mappings = 1
+let g:table_mode_disable_mappings = 1
 
 xmap gl <Plug>(EasyAlign)
 nmap gl <Plug>(EasyAlign)
