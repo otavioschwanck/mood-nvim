@@ -176,8 +176,6 @@ function HideTerminalWindowOrNoh()
 
   if buftype == 'terminal'
     execute "close"
-  else
-    execute "noh"
   end
 endfunction
 
@@ -255,6 +253,8 @@ cnoremap <C-e> <C-right>
 
 vnoremap < <gv
 vnoremap > >gv
+
+noremap <Plug>NohAfter zz
 
 xmap q iq
 omap q iq
