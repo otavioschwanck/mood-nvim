@@ -48,6 +48,8 @@ lua << EOF
       R = { ":call OpenTerm('rails s', 'Rails Server', 1, 1)<CR>", "Rails Server" },
       S = { ":call OpenTerm('bundle exec sidekiq', 'Sidekiq', 1, 1)<CR>", "Sidekiq" },
       i = { ":call OpenTerm('bundle install', 'Bundle Install', 1, 0)<CR>", "Bundle Install" },
+      g = { ":call OpenTerm('rails generate ' . input('rails generate: '), 'Rails Generate', 1, 0)<CR>", "Rails Generate" },
+      d = { ":call OpenTerm('rails destroy ' . input('rails destroy: '), 'Rails Destroy', 1, 0)<CR>", "Rails Destroy" },
       m = { ":call FindInFolder('app/models', 'Find Model')<CR>", "Find Model" },
       M = { ":Emodel<CR>", "Find Model" },
       c = { ":call FindInFolder('app/controllers', 'Find Controller')<CR>", "Find Controller" },

@@ -1,4 +1,4 @@
-## Welcome to the nvim-rails handbook
+## Welcome to the mood handbook
 
 # First of all
 

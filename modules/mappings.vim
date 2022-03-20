@@ -72,7 +72,7 @@ lua << EOF
     t = { ":Telescope colorscheme<CR>", "Change Theme" },
     h = { ":e ~/.config/nvim/handbook.md<CR>", "Open the Handbook" },
     c = { ":e ~/.config/nvim/coc-settings.json<CR>", "Coc Settings" },
-    u = { ":UpdateNvimOnRails<CR>", "Update Nvim On Rails" },
+    u = { ":UpdateMood<CR>", "Update mooD" },
   },
   A = { "<C-w>o <C-w>v :call OpenTestAlternate()<cr>", "Go to Test (split)" },
   ["."] = { ":Telescope file_browser path=%:p:h hidden=true respect_gitignore=false<CR>", "File Browser" },

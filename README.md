@@ -1,7 +1,25 @@
 # Introduction
 
-A neovim configuration for Rails developers.  Also works with Javascript, python and soildity.  Ready to use and well
-documented.
+mooD Vim is a configuration made for those who wants to install and use, without much worries.
+
+# For who is this configuration?
+
+- For those that just install and use.
+- For those that likes Doom Emacs Defaults.
+- For those that likes speed editing.
+- For terminal lovers.
+
+# Features
+
+- CoC for LSP
+- Extra snippets
+- Quick handbook inside vim.  Just press `SPC h h`
+- Test Runner
+- Fully customizable (plugins, settings, CoC)
+- Mini Terminal Framework that can:
+  - You can bind terminal commands in your `user.vim` (`SPC f p`).
+  - You can configure if this command is unique or not, if its unique, when press the mapping again, it will focus instead opening a new.
+  - Useful for commands such as rails console, server, sidekiq, yarn start, generate, etc. (Examples on `user.vim`)
 
 # Demo
 
@@ -20,7 +38,7 @@ documented.
 2. Install the config
 
 ```sh
-git clone git@github.com:otavioschwanck/nvim-on-rails.git ~/.config/nvim
+git clone git@github.com:otavioschwanck/mood-vim.git ~/.config/nvim
 ```
 
 3. Run this: `git config --global push.default current`
@@ -89,7 +107,7 @@ To use Alt commands, like M-d (multiple-cursors), use Option + key.
 
 # Updating
 
-Run ':UpdateNvimOnRails'.
+Run ':UpdateMood'.
 
 # How to learn the keybindings of this configuration?
 
@@ -106,7 +124,7 @@ Check your personal config `SPC f p` at the bottom.  Set the python envs to thei
 1. On your user.vim `(SPC f p)`, remove coc-solargraph
 2. Close and reopen vim
 3. Run :CocUninstall coc-solargraph
-4. On your coc-settings.json `(SPC h h)`, add on inside languageserver key:
+4. On your coc-settings.json `(SPC h c)`, add on inside languageserver key:
 
 ```json
   "languageserver": {

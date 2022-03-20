@@ -205,7 +205,7 @@ function s:CleanConfigs()
 endfunction
 
 
-function s:UpdateNvimOnRails()
+function s:UpdateMood()
   execute "!cd ~/.config/nvim; git pull origin main -f"
 endfunction
 
@@ -252,7 +252,7 @@ endfunction
 
 command! InstallConfigs :call s:InstallConfigs()
 command! CleanConfigs :call s:CleanConfigs()
-command! UpdateNvimOnRails :call s:UpdateNvimOnRails()
+command! UpdateMood :call s:UpdateMood()
 
 silent :InstallConfigs
 :PackerInstall
@@ -276,12 +276,12 @@ xmap gl <Plug>(EasyAlign)
 nmap gl <Plug>(EasyAlign)
 
 let g:dashboard_custom_header = [
-\ ' ███╗   ██╗ ███████╗ ██████╗  ██╗   ██╗ ██╗ ███╗   ███╗',
-\ ' ████╗  ██║ ██╔════╝██╔═══██╗ ██║   ██║ ██║ ████╗ ████║',
-\ ' ██╔██╗ ██║ █████╗  ██║   ██║ ██║   ██║ ██║ ██╔████╔██║',
-\ ' ██║╚██╗██║ ██╔══╝  ██║   ██║ ╚██╗ ██╔╝ ██║ ██║╚██╔╝██║',
-\ ' ██║ ╚████║ ███████╗╚██████╔╝  ╚████╔╝  ██║ ██║ ╚═╝ ██║',
-\ ' ╚═╝  ╚═══╝ ╚══════╝ ╚═════╝    ╚═══╝   ╚═╝ ╚═╝     ╚═╝',
+      \ '███╗   ███╗ ██████╗  ██████╗ ██████╗     ██╗   ██╗██╗███╗   ███╗',
+      \ '████╗ ████║██╔═══██╗██╔═══██╗██╔══██╗    ██║   ██║██║████╗ ████║',
+      \ '██╔████╔██║██║   ██║██║   ██║██║  ██║    ██║   ██║██║██╔████╔██║',
+      \ '██║╚██╔╝██║██║   ██║██║   ██║██║  ██║    ╚██╗ ██╔╝██║██║╚██╔╝██║',
+      \ '██║ ╚═╝ ██║╚██████╔╝╚██████╔╝██████╔╝     ╚████╔╝ ██║██║ ╚═╝ ██║',
+      \ '╚═╝     ╚═╝ ╚═════╝  ╚═════╝ ╚═════╝       ╚═══╝  ╚═╝╚═╝     ╚═╝'
 \]
 
 
@@ -293,7 +293,7 @@ let g:dashboard_custom_section={
       \ 'description': [' Git status                   SPC s g'],
       \ 'command': 'Telescope git_status' },
   \ '3': {
-      \ 'description': [' Recent FIles                 SPC f r'],
+      \ 'description': [' Recent Files                 SPC f r'],
       \ 'command': 'Telescope find_files' },
   \ '4': {
       \ 'description': [' Open Handbook (docs)         SPC h h'],
@@ -308,6 +308,6 @@ let g:dashboard_custom_section={
       \ 'description': [' Edit CoC File                SPC h c'],
       \ 'command': 'CocConfig' },
   \ '8': {
-      \ 'description': [' Update Neovim on Rails       SPC h u'],
-      \ 'command': 'UpdateNvimOnRails' }
+      \ 'description': [' Update Mood                  SPC h u'],
+      \ 'command': 'UpdateMood' }
   \ }
