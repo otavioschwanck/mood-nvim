@@ -49,6 +49,7 @@ lua << EOF
   -- Normal mode:
   wk.register({
   x = { "<C-w>c", "Kill Window" },
+  ["-"] = { "migg=G\'i:w<CR>", "Indent Current File" },
   ["1"] = { ":lua require('harpoon.ui').nav_file(1)<CR>", 'Harpoon to 1' },
   ["2"] = { ":lua require('harpoon.ui').nav_file(2)<CR>", 'Harpoon to 2' },
   ["3"] = { ":lua require('harpoon.ui').nav_file(3)<CR>", 'Harpoon to 3' },
