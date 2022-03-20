@@ -107,7 +107,7 @@ To use Alt commands, like M-d (multiple-cursors), use Option + key.
 
 # Updating
 
-Run ':UpdateMood'.
+Run `:UpdateMood`.
 
 # How to learn the keybindings of this configuration?
 
