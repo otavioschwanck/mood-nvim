@@ -66,6 +66,10 @@ autocmd Filetype coffeescript setlocal ts=4 sw=4 sts=0 expandtab
 autocmd Filetype typescript setlocal ts=4 sw=4 sts=0 expandtab
 autocmd Filetype solidity setlocal ts=4 sw=4 sts=0 expandtab
 
+" Your COC extensions.
+let g:coc_global_extensions = ['coc-html', 'coc-css', 'coc-json', 'coc-prettier', 'coc-tsserver', 'coc-solidity', 'coc-diagnostic', 'coc-solargraph',
+      \ 'coc-emmet', 'coc-yaml', 'coc-snippets', 'coc-pyright', 'coc-solidity']
+
 " If you use pyenv or other path, please comment this: (Make sure that python provider is OK on :checkhealth)
 " To find where is the path of python, run which python
 let g:python_host_prog = '/usr/bin/python'

@@ -127,5 +127,3 @@ vim.g.indent_blankline_filetype_exclude = {
 END
 
 lua require'terminal'.setup()
-let g:coc_global_extensions = ['coc-html', 'coc-css', 'coc-json', 'coc-prettier', 'coc-tsserver', 'coc-solidity', 'coc-diagnostic',
-      \ 'coc-solargraph', 'coc-emmet', 'coc-yaml', 'coc-snippets', 'coc-pyright', 'coc-solidity']
