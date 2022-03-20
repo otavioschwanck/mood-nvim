@@ -48,18 +48,18 @@ On your personal configuration you can configure stuff like commands to run with
 
 # Window Navigation
 
-| Command | Description                                                              |
-|---------|--------------------------------------------------------------------------|
-| C-h     | Focus Window in the left                                                 |
-| C-l     | Focus Window in the right                                                |
-| C-j     | Focus Window in the bottom                                               |
-| C-k     | Focus Window in the top                                               |
-| TAB     | Focus next window (Dont works on the tree) (Cool to use on terminal)     |
-| S-TAB   | Focus previous window (Dont works on the tree) (Cool to use on terminal) |
-|---------|--------------------------------------------------------------------------|
-| C-w u   | Undo a window closed                                                     |
-| C-w o   | Maximize window                                                          |
-|---------|--------------------------------------------------------------------------|
+| Command | Description                                     |
+|---------|-------------------------------------------------|
+| C-h     | Focus Window in the left                        |
+| C-l     | Focus Window in the right                       |
+| C-j     | Focus Window in the bottom                      |
+| C-k     | Focus Window in the top                         |
+| TAB     | Pick Window                                     |
+| ;       | Alternative between previous file and next file |
+|---------|-------------------------------------------------|
+| C-w u   | Undo a window closed                            |
+| C-w o   | Maximize window                                 |
+|---------|-------------------------------------------------|
 
 `<C-w>u` will undo a closed window.
 

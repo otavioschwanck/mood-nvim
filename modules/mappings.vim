@@ -210,7 +210,7 @@ nnoremap H :BufferPrevious<CR>
 nnoremap L :BufferNext<CR>
 
 nnoremap <tab> :BufferPick<CR>
-nnoremap <S-TAB> <C-^>
+nnoremap ; <C-^>
 
 nnoremap <C-s> :lua require("harpoon.mark").add_file()<CR>
 nnoremap <C-space> :lua require("harpoon.ui").toggle_quick_menu()<CR>
