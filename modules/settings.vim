@@ -210,19 +210,22 @@ function s:UpdateNvimOnRails()
 endfunction
 
 function OpenTerm(command, name, unique, close_after_create)
-  let bnr = bufexists(a:name)
+  let p_name = split(finddir('.git/..', expand('%:p:h').';'), "/")
+  let full_name = p_name[-1] . " " . a:name
+
+  let bnr = bufexists(full_name)
 
   if bnr > 0 && a:unique == 1
-    execute "bel sb " . a:name
+    execute "bel sb " . full_name
 
-    echo a:name . " exists.  Focusing."
+    echo full_name . " exists.  Focusing."
     startinsert
   else
     if bnr > 0
       let new_number = 0
 
       while bnr > 0
-        let bnr = bufexists(a:name . " - " . new_number)
+        let bnr = bufexists(full_name . " - " . new_number)
 
         if bnr > 0
           let new_number = new_number + 1
@@ -230,19 +233,19 @@ function OpenTerm(command, name, unique, close_after_create)
       endwhile
 
       execute "Term " . a:command
-      execute "file! " . a:name . " - " . new_number
+      execute "file! " . full_name . " - " . new_number
     else
       execute "Term " . a:command
-      execute "file! " . a:name
+      execute "file! " . full_name
     end
 
     if a:close_after_create == 1
       execute "close"
 
-      echo a:name . " is beign executed in background."
+      echo full_name . " is beign executed in background."
       stopinsert
     else
-      echo a:name . " is open!."
+      echo full_name . " is open!."
     end
   endif
 endfunction
