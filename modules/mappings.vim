@@ -139,7 +139,8 @@ lua << EOF
     d = { ":Gitsigns diffthis<CR>", "Diff this file" },
     l = { ":GcLog -- %<CR>", "Log this file" },
   },
-  [','] = { ":Telescope buffers<CR>", "Find Buffers" },
+  [','] = { ":Telescope buffers only_cwd=true<CR>", "Find Buffers in this project" },
+  [','] = { ":Telescope buffers<CR>", "Find all buffers" },
   v = { ":call OpenTerm('', 'Quick Term', 1, 0)<CR>", "Open a blank terminal" },
   w = {
     name = "+Window",

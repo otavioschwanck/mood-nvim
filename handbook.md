@@ -27,8 +27,9 @@ On your personal configuration you can configure stuff like commands to run with
 |---------|-------------------------|
 | H       | Previous Buffer         |
 | L       | Next Buffer             |
-| SPC ,   | Find Buffer             |
-| SPC .   | File Browser               |
+| SPC ,   | Find Buffer in Project  |
+| SPC <   | Find All Buffers        |
+| SPC .   | File Browser            |
 | SPC e   | Open Tree               |
 | SPC k   | Kill current buffer     |
 | SPC A   | Go to Test (and vsplit) |
