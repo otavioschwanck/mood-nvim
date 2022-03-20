@@ -120,6 +120,10 @@ describe '#call' do
 end
 endsnippet
 
+snippet itiexp "it { is_expected.to be_valid }" i
+it { is_expected.to ${1:be_valid} }
+endsnippet
+
 snippet letm "{ create(:$1${2:, $3}) }" i
 let(:${1:model_name}) { create(:$1${2:, $3}) }
 endsnippet
