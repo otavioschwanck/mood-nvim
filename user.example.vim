@@ -1,8 +1,9 @@
 " To reload your configs, press :so %
 
 " Select your colorscheme.  To see others: SPC h t
-" I also recommend onedark
-colorscheme gruvbox
+" I also recommend gruvbox
+lua require('onedark').setup { style = 'darker' } -- Options: dark, darker, cool, deep, warm, warmer
+colorscheme onedark
 
 " To install some extra plugins, visit
 " ~/.config/nvim/lua/user-plugins.lua (You can press gf from the link)
@@ -71,3 +72,4 @@ let g:python_host_prog = '/usr/bin/python'
 let g:python3_host_prog = '/usr/bin/python3'
 
 " Add your vim stuff here:
+" set mouse=a " Mouse support ?

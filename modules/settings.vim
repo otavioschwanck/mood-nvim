@@ -213,7 +213,7 @@ function OpenTerm(command, name, unique, close_after_create)
   let bnr = bufexists(a:name)
 
   if bnr > 0 && a:unique == 1
-    execute "b " . a:name
+    execute "bel sb " . a:name
 
     echo a:name . " exists.  Focusing."
     startinsert

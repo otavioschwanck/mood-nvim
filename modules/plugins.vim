@@ -83,11 +83,12 @@ return require('packer').startup(function()
   use 'tomasr/molokai'
   use 'skywind3000/asyncrun.vim'
   use 'pechorin/any-jump.vim'
-  use 'joshdick/onedark.vim'
+  use 'navarasu/onedark.nvim'
   use 'ecomba/vim-ruby-refactoring'
   use 'xolox/vim-notes'
   use 'xolox/vim-misc'
   use 'glepnir/dashboard-nvim'
+  use 'lukas-reineke/indent-blankline.nvim'
 
   use {
     'lewis6991/gitsigns.nvim', requires = { 'nvim-lua/plenary.nvim' },
@@ -111,6 +112,18 @@ require('lualine').setup {
 require('gitsigns').setup()
 require("project_nvim").setup {}
 require('nvim-tree').setup {}
+require("indent_blankline").setup {
+    show_end_of_line = true,
+    space_char_blankline = " ",
+    indent_blankline_filetype_exclude = { "dashboard" }
+}
+
+vim.g.indent_blankline_filetype_exclude = {
+  "help",
+  "dashboard",
+  "packer",
+  "NvimTree",
+}
 END
 
 lua require'terminal'.setup()
