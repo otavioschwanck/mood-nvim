@@ -141,6 +141,16 @@ lua << EOF
   },
   [','] = { ":Telescope buffers only_cwd=true<CR>", "Find Buffers in this project" },
   ['<'] = { ":Telescope buffers<CR>", "Find all buffers" },
+  b = {
+    name = "+Buffer",
+    p = { ":BufferPrevious<CR>", "Previous" },
+    n = { ":BufferNext<CR>", "Next" },
+    f = { ":Telescope buffers only_cwd=true<CR>", "Find Buffers in this project" },
+    F = { ":Telescope buffers<CR>", "Find all buffers" },
+    b = { ":BufferPick<CR>", "Pick Buffer" },
+    o = { ":BufferOrganizeByDirectory<CR>", "Organize tabs by directory" },
+    O = { ":BufferOrganizeByLanguage<CR>", "Organize tabs by directory" },
+  },
   v = { ":call OpenTerm('', 'Quick Term', 1, 0)<CR>", "Open a blank terminal" },
   w = {
     name = "+Window",
@@ -195,11 +205,11 @@ vmap - $<Left>
 
 nnoremap gr :NvimTreeRefresh<CR>
 
-nnoremap H :BufMRUPrev<CR>
-nnoremap L :BufMRUNext<CR>
+nnoremap H :BufferPrevious<CR>
+nnoremap L :BufferNext<CR>
 
-nnoremap <TAB> <C-w>w
-nnoremap <S-TAB> <C-w>W
+nnoremap <tab> :BufferPick<CR>
+nnoremap <S-TAB> <C-^>
 
 nnoremap <C-s> :lua require("harpoon.mark").add_file()<CR>
 nnoremap <C-space> :lua require("harpoon.ui").toggle_quick_menu()<CR>
