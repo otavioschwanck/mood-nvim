@@ -110,13 +110,13 @@ endsnippet
 
 snippet contw "context 'when something' do .. end" i
 context 'when ${1:something}' do
-  ${2:}
+  $0
 end
 endsnippet
 
 snippet descc "description '#call' do ... end" i
 describe '#call' do
-  ${2:}
+  $0
 end
 endsnippet
 
@@ -140,7 +140,7 @@ snippet rspec "Rspec.describe Class, type: :model do ... end"
 require 'rails_helper'
 
 RSpec.describe ${1:Class}, type: :${2:model} do
-  ${3:}
+  $0
 end
 endsnippet
 
