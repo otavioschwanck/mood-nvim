@@ -70,9 +70,4 @@ autocmd Filetype solidity setlocal ts=4 sw=4 sts=0 expandtab
 let g:python_host_prog = '/usr/bin/python'
 let g:python3_host_prog = '/usr/bin/python3'
 
-require('orgmode').setup({
-  org_agenda_files = {'~/Dropbox/org/*', '~/my-orgs/**/*'},
-  org_default_notes_file = '~/Dropbox/org/refile.org',
-})
-
 " Add your vim stuff here:

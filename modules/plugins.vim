@@ -53,7 +53,6 @@ return require('packer').startup(function()
   use 'tmux-plugins/vim-tmux-focus-events'
   use {'neoclide/coc.nvim', branch = 'release'}
   use "rafamadriz/friendly-snippets"
-  use 'nvim-orgmode/orgmode'
   use 'windwp/nvim-ts-autotag'
   use { 'svermeulen/vim-subversive' }
   use { 'phaazon/hop.nvim' }
@@ -76,6 +75,7 @@ return require('packer').startup(function()
   use 'tpope/vim-abolish'
   use({ "iamcco/markdown-preview.nvim", run = "cd app && npm install", setup = function() vim.g.mkdp_filetypes = { "markdown" } end, ft = { "markdown" }, })
   use 'terryma/vim-multiple-cursors'
+  use 'junegunn/vim-easy-align'
   use 'tami5/sqlite.lua'
   use 'ellisonleao/gruvbox.nvim'
   use 'mildred/vim-bufmru'
@@ -87,6 +87,7 @@ return require('packer').startup(function()
   use 'ecomba/vim-ruby-refactoring'
   use 'xolox/vim-notes'
   use 'xolox/vim-misc'
+  use 'glepnir/dashboard-nvim'
 
   use {
     'lewis6991/gitsigns.nvim', requires = { 'nvim-lua/plenary.nvim' },

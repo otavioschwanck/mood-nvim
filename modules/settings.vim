@@ -264,3 +264,42 @@ endfunction
 
 let g:test#custom_strategies = {'splitterm': function('SplitTermStrategy')}
 let g:test#strategy = 'splitterm'
+
+let g:dashboard_default_executive ='telescope'
+
+xmap gl <Plug>(EasyAlign)
+nmap gl <Plug>(EasyAlign)
+
+let g:dashboard_custom_header = [
+\ ' ███╗   ██╗ ███████╗ ██████╗  ██╗   ██╗ ██╗ ███╗   ███╗',
+\ ' ████╗  ██║ ██╔════╝██╔═══██╗ ██║   ██║ ██║ ████╗ ████║',
+\ ' ██╔██╗ ██║ █████╗  ██║   ██║ ██║   ██║ ██║ ██╔████╔██║',
+\ ' ██║╚██╗██║ ██╔══╝  ██║   ██║ ╚██╗ ██╔╝ ██║ ██║╚██╔╝██║',
+\ ' ██║ ╚████║ ███████╗╚██████╔╝  ╚████╔╝  ██║ ██║ ╚═╝ ██║',
+\ ' ╚═╝  ╚═══╝ ╚══════╝ ╚═════╝    ╚═══╝   ╚═╝ ╚═╝     ╚═╝',
+\]
+
+
+let g:dashboard_custom_section={
+  \ '1': {
+      \ 'description': [' Open Project                 SPC p p'],
+      \ 'command': 'Telescope projects' },
+  \ '2': {
+      \ 'description': [' Recent FIles                 SPC f r'],
+      \ 'command': 'Telescope find_files' },
+  \ '3': {
+      \ 'description': [' Open Handbook (docs)         SPC h h'],
+      \ 'command': 'e ~/.config/nvim/handbook.md' },
+  \ '4': {
+      \ 'description': [' User Settings                SPC f p'],
+      \ 'command': 'e ~/.config/nvim/user.vim' },
+  \ '5': {
+      \ 'description': [' User Plugins                 SPC f P'],
+      \ 'command': 'e ~/.config/nvim/lua/user-plugins.lua' },
+  \ '6': {
+      \ 'description': [' Edit CoC File                SPC h c'],
+      \ 'command': 'CocConfig' },
+  \ '7': {
+      \ 'description': [' Update Neovim on Rails       SPC h u'],
+      \ 'command': 'UpdateNvimOnRails' }
+  \ }
