@@ -24,6 +24,11 @@ lua << EOF
     -- Example of custom terminal commands
     ["="] = { ":silent !bundle exec rubocop -a %<CR>", "Rubocop on current file" },
     o = {
+      y = {
+        name = "+yarn",
+        i = { ":call OpenTerm('yarn install', 'Yarn Install', 1, 0)<CR>", "Install" },
+        a = { ":call OpenTerm('yarn add ' . input('plugin name: '), 'Yarn Add', 1, 0)<CR>", "Add" }, -- Asking for input
+      },
       r = { ":silent !bundle exec rubocop -a %<CR>", "Rubocop on current file" },
       name = "+Term Commands",
       ["1"] = { ":call OpenTerm('Docker Compose up -d', 'Docker Compose UP', 1, 1)<CR>", "Run Docker Compose" },
