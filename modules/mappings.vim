@@ -140,7 +140,7 @@ lua << EOF
     l = { ":GcLog -- %<CR>", "Log this file" },
   },
   [','] = { ":Telescope buffers only_cwd=true<CR>", "Find Buffers in this project" },
-  ['<'] = { ":Telescope buffers<CR>", "Find all buffers" },
+  ['<tab>'] = { ":Telescope buffers<CR>", "Find all buffers" },
   b = {
     name = "+Buffer",
     p = { ":BufferPrevious<CR>", "Previous" },

@@ -28,7 +28,7 @@ On your personal configuration you can configure stuff like commands to run with
 | H       | Previous Buffer         |
 | L       | Next Buffer             |
 | SPC ,   | Find Buffer in Project  |
-| SPC <   | Find All Buffers        |
+| SPC TAB | Find All Buffers        |
 | SPC .   | File Browser            |
 | SPC e   | Open Tree               |
 | SPC k   | Kill current buffer     |
