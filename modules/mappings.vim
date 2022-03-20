@@ -170,8 +170,18 @@ nmap <C-k> <C-w>k
 nmap ]g <cmd>Gitsigns next_hunk<CR>
 nmap [g <cmd>Gitsigns prev_hunk<CR>
 
+function HideTerminalWindowOrNoh()
+  let buftype = getbufvar('', '&buftype', 'ERROR')
+
+  if buftype == 'terminal'
+    execute "close"
+  else
+    execute "noh"
+  end
+endfunction
+
 " Clear highlight
-nnoremap <silent><esc> :noh<return><esc>
+nnoremap <silent><esc> :call HideTerminalWindowOrNoh()<CR>
 
 " Quickfix
 nmap ]q :cnext<CR>
