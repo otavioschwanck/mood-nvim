@@ -11,11 +11,12 @@ mooD Vim is a configuration made for those who wants to install and use, without
 
 # Features
 
-- CoC for LSP
+- CoC for LSP (go to definition, autocomplete, etc)
 - Extra snippets
 - Quick handbook inside vim.  Just press `SPC h h`
 - Test Runner
 - Fully customizable (plugins, settings, CoC)
+- Find In Folder helpers: Find inside models, controller, etc using keybindngs.  See `user.vim` (`SPC f p`) for more examples.
 - Mini Terminal Framework that can:
   - You can bind terminal commands in your `user.vim` (`SPC f p`).
   - You can configure if this command is unique or not, if its unique, when press the mapping again, it will focus instead opening a new.
@@ -31,6 +32,7 @@ mooD Vim is a configuration made for those who wants to install and use, without
 - ripgrep
 - NerdFonts
 - Python
+- Dependencies
 
 # Installation
 
