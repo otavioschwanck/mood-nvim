@@ -55,7 +55,7 @@ lua << EOF
       v = { ":call FindInFolder('app/views', 'Find View')<CR>", "Find View" },
       a = { ":call FindInFolder('config/locales', 'Find Locales')<CR>", "Find Locales" },
       u = { ":call FindInFolder('spec/factories', 'Find Factories')<CR>", "Find Factories" },
-      s = { ":call FindInFolder('app/services', 'Find Services')'<CR>", "Find Services" },
+      s = { ":call FindInFolder('app/services', 'Find Services')<CR>", "Find Services" },
       V = { ":Eview ", "Find views" }
     }
   }, { prefix = "<leader>", silent = false })
