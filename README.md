@@ -32,7 +32,6 @@ mooD Nvim is a configuration made for those who wants to install and use, withou
 - ripgrep
 - NerdFonts
 - Python
-- Dependencies
 
 # Installation
 
