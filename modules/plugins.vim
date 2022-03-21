@@ -52,6 +52,7 @@ return require('packer').startup(function()
   use 'nvim-treesitter/nvim-treesitter-textobjects'
   use 'tmux-plugins/vim-tmux-focus-events'
   use {'neoclide/coc.nvim', branch = 'release'}
+  use 'tpope/vim-projectionist'
   use "rafamadriz/friendly-snippets"
   use 'romgrk/barbar.nvim'
 

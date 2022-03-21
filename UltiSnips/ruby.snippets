@@ -123,7 +123,7 @@ endsnippet
 snippet minitest "minitest spec file" i
 require 'test_helper'
 
-class ${1:ClassName} < ActiveSupport::TestCase
+class ${1:`!p snip.rv = rb_spec_name(path)`} < ActiveSupport::TestCase
   $0
 end
 endsnippet
@@ -148,15 +148,54 @@ let(:params) do
 end
 endsnippet
 
-snippet rspec "Rspec.describe Class, type: :model do ... end"
+global !p
+def camel_case(s):
+	from re import sub
+
+	s = sub(r"(_|-)+", " ", s).title().replace(" ", "")
+	return "".join([s[0], s[1:]])
+
+
+def rb_spec_name(path):
+	import re
+
+	if "spec/" in str(path):
+		test_path = path.split("spec/")
+		test_path = test_path[len(test_path) - 1]
+
+		file = test_path.split("/")
+		file[len(file) - 1] = re.sub(
+				"_spec$", "", file[len(file) - 1].replace(".rb", "")
+		)
+		file.pop(0)
+
+		camelized = list(map(lambda item: camel_case(item), file))
+
+		return "::".join(camelized)
+	else:
+		test_path = path.split("test/")
+		test_path = test_path[len(test_path) - 1]
+
+		file = test_path.split("/")
+		file[len(file) - 1] = re.sub(
+				"^test_", "", re.sub("_test$", "", file[len(file) - 1].replace(".rb", ""))
+		)
+		file.pop(0)
+
+		camelized = list(map(lambda item: camel_case(item), file))
+
+		return "::".join(camelized)
+endglobal
+
+snippet rspec "Rspec.describe Class, type: :model do ... end" i
 require 'rails_helper'
 
-RSpec.describe ${1:Class}, type: :${2:model} do
+RSpec.describe ${1:`!p snip.rv = rb_spec_name(path)`}, type: :${2:model} do
   $0
 end
 endsnippet
 
-snippet template_test "Rspec.describe Class, type: :model do ... end"
+snippet template_test "Rspec.describe Class, type: :model do ... end" i
 require 'rails_helper'
 
 RSpec.describe ${1:Class}, type: :${2:model} do
