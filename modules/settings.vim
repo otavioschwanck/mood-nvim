@@ -105,7 +105,6 @@ let g:gruvbox_flat_style = "hard"
 
 set background=dark
 set termguicolors
-colorscheme gruvbox
 
 set confirm
 
@@ -127,6 +126,14 @@ let g:nvim_tree_respect_buf_cwd = 1
 lua << EOF
 require("nvim-tree").setup({
   update_cwd = true,
+  view = {
+    mappings = {
+      custom_only = false,
+      list = {
+        { key = "<Tab>", action = "", action_cb = "" },
+      },
+    },
+  },
   update_focused_file = {
     enable = true,
     update_cwd = true
@@ -305,3 +312,48 @@ let g:dashboard_custom_section={
       \ 'description': [' Update Mood                  SPC h u'],
       \ 'command': 'UpdateMood' }
   \ }
+
+let g:machine_gun_regexp = {
+      \ 'ruby': 'def\ \|do$\|do |.*|$\|end$'
+    \ }
+
+let g:machine_gun_regexp.typescriptreact = '=>\|\}\|\function .*'
+let g:machine_gun_regexp.javascript = '=>\|\}\|\function .*'
+let g:machine_gun_regexp.solidity = 'function\|modifier\|}$'
+let g:machine_gun_regexp.default = '{$\|\}'
+let g:machine_gun_regexp.markdown = '^#'
+let g:machine_gun_regexp.python = ':$'
+
+function VimMachineGunDown()
+  let buftype = getbufvar('', '&filetype', 'ERROR')
+  let command = get(g:machine_gun_regexp, buftype, g:machine_gun_regexp.default)
+
+  execute ":normal! /" . command . "\<CR>"
+endfunction
+
+function VimMachineGunUp()
+  let buftype = getbufvar('', '&filetype', 'ERROR')
+  let command = get(g:machine_gun_regexp, buftype, g:machine_gun_regexp.default)
+
+  execute ":normal! ?" . command . "\<CR>"
+endfunction
+
+function VimMachineGunDownVisual()
+  let buftype = getbufvar('', '&filetype', 'ERROR')
+  let command = get(g:machine_gun_regexp, buftype, g:machine_gun_regexp.default)
+
+  execute ":normal! j gv /" . command . "\<CR>j"
+endfunction
+
+function VimMachineGunUpVisual()
+  let buftype = getbufvar('', '&filetype', 'ERROR')
+  let command = get(g:machine_gun_regexp, buftype, g:machine_gun_regexp.default)
+
+  execute ":normal! k gv /" . command . "?<CR>"
+endfunction
+
+noremap <C-j> :call VimMachineGunDown()<CR>
+noremap <C-k> :call VimMachineGunUp()<CR>
+
+vnoremap <C-j> :call VimMachineGunDownVisual()<CR>
+vnoremap <C-k> :call VimMachineGunUpVisual()<CR>

@@ -184,10 +184,10 @@ lua << EOF
 }, { prefix = "<leader>", silent = false })
 EOF
 
-nmap <C-l> <C-w>l
-nmap <C-h> <C-w>h
-nmap <C-j> <C-w>j
-nmap <C-k> <C-w>k
+nmap <M-l> <C-w>l
+nmap <M-h> <C-w>h
+nmap <M-j> <C-w>j
+nmap <M-k> <C-w>k
 
 " Git Signs
 nmap ]g <cmd>Gitsigns next_hunk<CR>
@@ -225,7 +225,8 @@ nnoremap H :BufferPrevious<CR>
 nnoremap L :BufferNext<CR>
 
 nnoremap ; :BufferPick<CR>
-nnoremap <tab> <C-^>
+nnoremap <tab> <C-w>w
+nnoremap <S-tab> <C-w>W
 
 nnoremap <C-s> :lua require("harpoon.mark").add_file()<CR>
 nnoremap <C-space> :lua require("harpoon.ui").toggle_quick_menu()<CR>
@@ -287,3 +288,6 @@ omap aa <Plug>SidewaysArgumentTextobjA
 xmap aa <Plug>SidewaysArgumentTextobjA
 omap ia <Plug>SidewaysArgumentTextobjI
 xmap ia <Plug>SidewaysArgumentTextobjI
+
+nmap  <C-q>  <Plug>(choosewin)
+let g:choosewin_overlay_enable = 1

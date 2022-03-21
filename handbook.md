@@ -49,17 +49,19 @@ On your personal configuration you can configure stuff like commands to run with
 
 # Window Navigation
 
-| Command | Description                                     |
-|---------|-------------------------------------------------|
-| C-h     | Focus Window in the left                        |
-| C-l     | Focus Window in the right                       |
-| C-j     | Focus Window in the bottom                      |
-| C-k     | Focus Window in the top                         |
-| TAB     | Alternative between previous file and next file |
-|---------|-------------------------------------------------|
-| C-w u   | Undo a window closed                            |
-| C-w o   | Maximize window                                 |
-|---------|-------------------------------------------------|
+| Command | Description                |
+|---------|----------------------------|
+| M-h     | Focus Window in the left   |
+| M-l     | Focus Window in the right  |
+| M-j     | Focus Window in the bottom |
+| M-k     | Focus Window in the top    |
+| C-q     | Pick Window                |
+| TAB     | Go to next window          |
+| S-TAB   | Go to prev window          |
+|---------|----------------------------|
+| C-w u   | Undo a window closed       |
+| C-w o   | Maximize window            |
+|---------|----------------------------|
 
 `<C-w>u` will undo a closed window.
 
@@ -77,6 +79,8 @@ On your personal configuration you can configure stuff like commands to run with
 | SPC s p        | Search text on project                           |
 | SPC s P        | Search text on project using CocSearch           |
 | SPC *          | Search text at point on project                  |
+| C-j            | Go to next section                               |
+| C-k            | Go to previous section                           |
 |----------------|--------------------------------------------------|
 | C-SPC          | Toggle Harpoon                                   |
 | C-s            | Add file to harpoon                              |
