@@ -33,7 +33,7 @@ lua << EOF
       },
       r = { ":silent !bundle exec rubocop -a %<CR>", "Rubocop on current file" },
       name = "+Term Commands",
-      ["1"] = { ":call OpenTerm('Docker Compose up -d', 'Docker Compose UP', 1, 1)<CR>", "Run Docker Compose" },
+      ["1"] = { ":call OpenTerm('docker-compose up -d', 'Docker Compose UP', 1, 1)<CR>", "Run Docker Compose" },
       b = {
         name = "+Brownie",
         t = { ":call OpenTerm('brownie test', 'Brownie Test', 1, 0)<CR>", "Run Tests" },
@@ -73,6 +73,7 @@ autocmd Filetype ruby setlocal ts=2 sw=2 expandtab
 autocmd Filetype javascript setlocal ts=4 sw=4 sts=0 expandtab
 autocmd Filetype coffeescript setlocal ts=4 sw=4 sts=0 expandtab
 autocmd Filetype typescript setlocal ts=4 sw=4 sts=0 expandtab
+autocmd Filetype typescriptreact setlocal ts=4 sw=4 sts=0 expandtab
 autocmd Filetype solidity setlocal ts=4 sw=4 sts=0 expandtab
 
 " Your COC extensions.

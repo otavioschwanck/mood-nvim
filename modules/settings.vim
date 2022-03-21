@@ -51,8 +51,6 @@ set ignorecase
 set smarttab
 filetype plugin indent on
 filetype plugin on
-set shiftwidth=2
-set tabstop=2
 set ai "Auto indent
 set si "Smart indent
 set nowrap "No Wrap lines
