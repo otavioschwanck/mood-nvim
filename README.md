@@ -1,6 +1,6 @@
 # Introduction
 
-mooD Vim is a configuration made for those who wants to install and use, without much worries.
+mooD Nvim is a configuration made for those who wants to install and use, without much worries.
 
 # For who is this configuration?
 
@@ -40,7 +40,7 @@ mooD Vim is a configuration made for those who wants to install and use, without
 2. Install the config
 
 ```sh
-git clone git@github.com:otavioschwanck/mood-vim.git ~/.config/nvim
+git clone git@github.com:otavioschwanck/mood-nvim.git ~/.config/nvim
 ```
 
 3. Run this: `git config --global push.default current`
