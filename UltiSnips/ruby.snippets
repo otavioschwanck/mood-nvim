@@ -198,7 +198,7 @@ endsnippet
 snippet template_test "Rspec.describe Class, type: :model do ... end" i
 require 'rails_helper'
 
-RSpec.describe ${1:Class}, type: :${2:model} do
+RSpec.describe ${1:`!p snip.rv = rb_spec_name(path)`}, type: :${2:model} do
   $0
 end
 endsnippet
