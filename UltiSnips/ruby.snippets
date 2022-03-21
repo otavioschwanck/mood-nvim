@@ -120,6 +120,14 @@ describe '#call' do
 end
 endsnippet
 
+snippet minitest "minitest spec file" i
+require 'test_helper'
+
+class ${1:ClassName} < ActiveSupport::TestCase
+  $0
+end
+endsnippet
+
 snippet itiexp "it { is_expected.to be_valid }" i
 it { is_expected.to ${1:be_valid} }
 endsnippet
@@ -141,6 +149,14 @@ end
 endsnippet
 
 snippet rspec "Rspec.describe Class, type: :model do ... end"
+require 'rails_helper'
+
+RSpec.describe ${1:Class}, type: :${2:model} do
+  $0
+end
+endsnippet
+
+snippet template_test "Rspec.describe Class, type: :model do ... end"
 require 'rails_helper'
 
 RSpec.describe ${1:Class}, type: :${2:model} do

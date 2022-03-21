@@ -1,24 +1,34 @@
 let mapleader = " "
 
-function! OpenTestAlternate()
-  let new_file = AlternateForCurrentFile()
-  exec ':e ' . new_file
-endfunction
-function! AlternateForCurrentFile()
-  let current_file = expand("%")
-  let new_file = current_file
-  let in_spec = match(current_file, '^spec/') != -1
-  let going_to_spec = !in_spec
-  if going_to_spec
-    let new_file = substitute(new_file, '^app/', '', '')
-    let new_file = substitute(new_file, '\.e\?rb$', '_spec.rb', '')
-    let new_file = 'spec/' . new_file
-  else
-    let new_file = substitute(new_file, '_spec\.rb$', '.rb', '')
-    let new_file = substitute(new_file, '^spec/', '', '')
-    let new_file = 'app/' . new_file
+function OpenTestAlternateAndSplit()
+  let win_count = winnr()
+  let test_path = eval('rails#buffer().alternate()')
+
+  if winnr() > 1
+    execute "norm \<C-w>o"
   endif
-  return new_file
+
+  execute "norm \<C-w>v"
+
+  execute "call OpenTestAlternate()"
+
+  if test_path =~ 'app/'
+    execute "norm \<C-w>x"
+  endif
+endfunction
+
+function OpenTestAlternate()
+  let test_path = eval('rails#buffer().alternate()')
+
+  execute "e " . test_path
+
+  if !filereadable(test_path) && join(getline(1,'$'), "\n") == ''
+    if test_path =~ "spec/"
+      execute "norm itemplate_test\<Tab>"
+    else
+      execute "norm iminitest\<Tab>"
+    endif
+  endif
 endfunction
 
 lua << EOF
@@ -74,7 +84,7 @@ lua << EOF
     c = { ":e ~/.config/nvim/coc-settings.json<CR>", "Coc Settings" },
     u = { ":UpdateMood<CR>", "Update mooD" },
   },
-  A = { "<C-w>o <C-w>v :call OpenTestAlternate()<cr>", "Go to Test (split)" },
+  A = { ":call OpenTestAlternateAndSplit()<cr>", "Go to Test (split)" },
   ["."] = { ":Telescope file_browser path=%:p:h hidden=true respect_gitignore=false<CR>", "File Browser" },
   k = { ":call undoquit#SaveWindowQuitHistory()<cr>:bd!<CR>", "Kill current buffer" },
   p = {
