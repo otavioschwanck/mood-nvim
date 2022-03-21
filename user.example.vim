@@ -5,6 +5,8 @@
 lua require('onedark').setup { style = 'darker' } -- Options: dark, darker, cool, deep, warm, warmer
 colorscheme onedark
 
+" set relativenumber " Relative numbers?
+
 " To install some extra plugins, visit
 " ~/.config/nvim/lua/user-plugins.lua (You can press gf from the link)
 
