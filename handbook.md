@@ -23,28 +23,29 @@ On your personal configuration you can configure stuff like commands to run with
 
 # Buffer Navigation and Management
 
-| Command | Description             |
-|---------|-------------------------|
-| H       | Previous Buffer         |
-| L       | Next Buffer             |
-| SPC ,   | Find Buffer in Project  |
-| SPC TAB | Find All Buffers        |
-| SPC .   | File Browser            |
-| SPC e   | Open Tree               |
-| SPC k   | Kill current buffer     |
-| SPC A   | Go to Test (and vsplit) |
-| SPC a   | Go to test              |
-| SPC a   | Go to test              |
-|---------|-------------------------|
-| ]g      | Next git hunk           |
-| [g      | Previous git hunk       |
-|---------|-------------------------|
-| ]e      | Next Error              |
-| [e      | Previous Error          |
-|---------|-------------------------|
-| ]q      | Next Quickfix           |
-| [q      | Previous Quickfix       |
-|---------|-------------------------|
+| Command | Description                   |
+|---------|-------------------------------|
+| H       | Previous Buffer               |
+| L       | Next Buffer                   |
+| ;       | Pick Tab by a letter (useful) |
+| SPC ,   | Find Buffer in Project        |
+| SPC TAB | Find All Buffers              |
+| SPC .   | File Browser                  |
+| SPC e   | Open Tree                     |
+| SPC k   | Kill current buffer           |
+| SPC A   | Go to Test (and vsplit)       |
+| SPC a   | Go to test                    |
+| SPC a   | Go to test                    |
+|---------|-------------------------------|
+| ]g      | Next git hunk                 |
+| [g      | Previous git hunk             |
+|---------|-------------------------------|
+| ]e      | Next Error                    |
+| [e      | Previous Error                |
+|---------|-------------------------------|
+| ]q      | Next Quickfix                 |
+| [q      | Previous Quickfix             |
+|---------|-------------------------------|
 
 # Window Navigation
 
@@ -54,7 +55,6 @@ On your personal configuration you can configure stuff like commands to run with
 | C-l     | Focus Window in the right                       |
 | C-j     | Focus Window in the bottom                      |
 | C-k     | Focus Window in the top                         |
-| ;       | Pick Window                                     |
 | TAB     | Alternative between previous file and next file |
 |---------|-------------------------------------------------|
 | C-w u   | Undo a window closed                            |
