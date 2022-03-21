@@ -70,11 +70,10 @@ autocmd Filetype html setlocal ts=2 sw=2 expandtab
 autocmd Filetype ruby setlocal ts=2 sw=2 expandtab
 
 " 4 for javascript and other stuff?
-autocmd Filetype javascript setlocal ts=4 sw=4 sts=0 expandtab
-autocmd Filetype coffeescript setlocal ts=4 sw=4 sts=0 expandtab
-autocmd Filetype typescript setlocal ts=4 sw=4 sts=0 expandtab
-autocmd Filetype typescriptreact setlocal ts=4 sw=4 sts=0 expandtab
-autocmd Filetype solidity setlocal ts=4 sw=4 sts=0 expandtab
+autocmd FileType javascript setlocal shiftwidth=2 softtabstop=2 expandtab
+autocmd FileType solidity setlocal shiftwidth=4 softtabstop=4 expandtab
+autocmd FileType typescript setlocal shiftwidth=2 softtabstop=2 expandtab
+autocmd FileType typescriptreact setlocal shiftwidth=2 softtabstop=2 expandtab
 
 " Your COC extensions.
 let g:coc_global_extensions = ['coc-html', 'coc-css', 'coc-json', 'coc-prettier', 'coc-tsserver', 'coc-solidity', 'coc-diagnostic', 'coc-solargraph',
