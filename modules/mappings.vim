@@ -160,7 +160,7 @@ lua << EOF
     F = { ":Telescope buffers<CR>", "Find all buffers" },
     b = { ":BufferPick<CR>", "Pick Buffer" },
     o = { ":BufferOrderByDirectory<CR>", "Order tabs by directory" },
-    O = { ":BufferOrderByLanguage<CR>", "Order tabs by directory" },
+    O = { ":BufferOrderByLanguage<CR>", "Order tabs by language" },
     c = { ":BufferCloseAllButCurrent<CR>", "Close All But Current" },
   },
   v = { ":call OpenTerm('', 'Quick Term', 1, 0)<CR>", "Open a blank terminal" },
