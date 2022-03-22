@@ -198,7 +198,7 @@ function HideTerminalWindowOrNoh()
   let buftype = getbufvar('', '&buftype', 'ERROR')
 
   if buftype == 'terminal'
-    execute "normal! G{}k"
+    execute "normal! G{}"
 
     if getline('.') == ''
       execute "normal! k"
