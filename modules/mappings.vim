@@ -200,8 +200,8 @@ nmap ]g <cmd>Gitsigns next_hunk<CR>
 nmap [g <cmd>Gitsigns prev_hunk<CR>
 
 xnoremap A <C-v>$A
-xnoremap I <C-v>^I
-xnoremap i <C-v>0I
+xnoremap I <C-v>$^I
+xnoremap i <C-v>$0I
 
 function HideTerminalWindowOrNoh()
   let buftype = getbufvar('', '&buftype', 'ERROR')
