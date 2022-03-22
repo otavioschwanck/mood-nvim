@@ -318,7 +318,7 @@ let g:machine_gun_regexp = {
 
 let g:machine_gun_regexp.typescriptreact = '=>\|\}\|\function .*'
 let g:machine_gun_regexp.javascript = '=>\|\}\|\function .*'
-let g:machine_gun_regexp.solidity = 'function \|modifier '
+let g:machine_gun_regexp.solidity = 'function \|modifier \|constructor(.*'
 let g:machine_gun_regexp.default = '{\|\}'
 let g:machine_gun_regexp.markdown = '^#'
 let g:machine_gun_regexp.python = ':$'
