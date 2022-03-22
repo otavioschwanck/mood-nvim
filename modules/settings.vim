@@ -368,3 +368,5 @@ noremap <silent><C-k> :call VimMachineGunUp()<CR>
 
 vnoremap <silent><C-j> :call VimMachineGunDownVisual()<CR>
 vnoremap <silent><C-k> :call VimMachineGunUpVisual()<CR>
+
+let g:HowMuch_no_mappings = 1

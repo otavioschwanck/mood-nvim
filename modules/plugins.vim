@@ -40,6 +40,7 @@ return require('packer').startup(function()
   use 'nvim-lualine/lualine.nvim'
   use 'mbbill/undotree'
   use { "ahmedkhalf/project.nvim" }
+  use 'sk1418/HowMuch'
 
   use {
     'kyazdani42/nvim-tree.lua',

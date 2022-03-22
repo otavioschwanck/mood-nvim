@@ -37,6 +37,11 @@ lua << EOF
   local wk = require("which-key")
   -- Visual mode:
    wk.register({
+     h = {
+        name = "+Calculate",
+        s = { "<Plug>AutoCalcAppendWithSum", "Sum" },
+        ["?"] = { "<Plug>AutoCalcAppend", "Auto Calculation" },
+     },
      c = {
        name = "+Lsp and CoC",
        s = { "<Plug>(coc-convert-snippet)", "Convert selection into snippet" },
@@ -193,6 +198,10 @@ nmap <M-k> <C-w>k
 " Git Signs
 nmap ]g <cmd>Gitsigns next_hunk<CR>
 nmap [g <cmd>Gitsigns prev_hunk<CR>
+
+xnoremap A <C-v>$A
+xnoremap I <C-v>^I
+xnoremap i <C-v>0I
 
 function HideTerminalWindowOrNoh()
   let buftype = getbufvar('', '&buftype', 'ERROR')
