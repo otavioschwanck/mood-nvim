@@ -58,7 +58,7 @@ local git_root, ret = utils.get_os_command_output({ "git", "rev-parse", "--show-
 local function get_dashboard_git_status()
   local git_cmd = {'git', 'status', '-s', '--', '.'}
   local output = utils.get_os_command_output(git_cmd)
-  local message = 'Git status:'
+  local message = '       Git status:'
 
   if unpack(output) == '' then
     message = 'Welcome!'
