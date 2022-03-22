@@ -129,6 +129,7 @@ require("nvim-tree").setup({
       custom_only = false,
       list = {
         { key = "<Tab>", action = "", action_cb = "" },
+        { key = "f", action = "edit", action_cb = "edit" },
       },
     },
   },
