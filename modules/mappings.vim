@@ -197,10 +197,16 @@ function HideTerminalWindowOrNoh()
   let buftype = getbufvar('', '&buftype', 'ERROR')
 
   if buftype == 'terminal'
-    if winnr('$') == 1
-      execute "b#"
+    execute "normal! G"
+
+    if getline('.') =~ "Process exited"
+      execute "normal! :bd\<CR>"
     else
-      execute "close"
+      if winnr('$') == 1
+        execute "b#"
+      else
+        execute "close"
+      end
     end
   end
 endfunction
