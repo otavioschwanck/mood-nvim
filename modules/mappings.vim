@@ -156,6 +156,7 @@ lua << EOF
     name = "+Buffer",
     p = { ":BufferPrevious<CR>", "Previous" },
     n = { ":BufferNext<CR>", "Next" },
+    N = { ":tabnew<CR>", "New Empty Buffer" },
     f = { ":Telescope buffers only_cwd=true<CR>", "Find Buffers in this project" },
     F = { ":Telescope buffers<CR>", "Find all buffers" },
     b = { ":BufferPick<CR>", "Pick Buffer" },
