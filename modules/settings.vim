@@ -318,7 +318,7 @@ let g:machine_gun_regexp = {
 let g:machine_gun_regexp.typescriptreact = '=>\|\}\|\function .*'
 let g:machine_gun_regexp.javascript = '=>\|\}\|\function .*'
 let g:machine_gun_regexp.solidity = 'function \|modifier '
-let g:machine_gun_regexp.default = '{$\|\}'
+let g:machine_gun_regexp.default = '{\|\}'
 let g:machine_gun_regexp.markdown = '^#'
 let g:machine_gun_regexp.python = ':$'
 
@@ -326,32 +326,44 @@ function VimMachineGunDown()
   let buftype = getbufvar('', '&filetype', 'ERROR')
   let command = get(g:machine_gun_regexp, buftype, g:machine_gun_regexp.default)
 
-  execute ":normal! /" . command . "\<CR>"
+  try
+    execute ":normal! /" . command . "\<CR>"
+  catch
+  endtry
 endfunction
 
 function VimMachineGunUp()
   let buftype = getbufvar('', '&filetype', 'ERROR')
   let command = get(g:machine_gun_regexp, buftype, g:machine_gun_regexp.default)
 
-  execute ":normal! ?" . command . "\<CR>"
+  try
+    execute ":normal! ?" . command . "\<CR>"
+  catch
+  endtry
 endfunction
 
 function VimMachineGunDownVisual()
   let buftype = getbufvar('', '&filetype', 'ERROR')
   let command = get(g:machine_gun_regexp, buftype, g:machine_gun_regexp.default)
 
-  execute ":normal! j gv /" . command . "\<CR>j"
+  try
+    execute ":normal! j gv /" . command . "\<CR>j"
+  catch
+  endtry
 endfunction
 
 function VimMachineGunUpVisual()
   let buftype = getbufvar('', '&filetype', 'ERROR')
   let command = get(g:machine_gun_regexp, buftype, g:machine_gun_regexp.default)
 
-  execute ":normal! k gv /" . command . "?<CR>"
+  try
+    execute ":normal! k gv /" . command . "?<CR>"
+  catch
+  endtry
 endfunction
 
-noremap <C-j> :call VimMachineGunDown()<CR>
-noremap <C-k> :call VimMachineGunUp()<CR>
+noremap <silent><C-j> :call VimMachineGunDown()<CR>
+noremap <silent><C-k> :call VimMachineGunUp()<CR>
 
-vnoremap <C-j> :call VimMachineGunDownVisual()<CR>
-vnoremap <C-k> :call VimMachineGunUpVisual()<CR>
+vnoremap <silent><C-j> :call VimMachineGunDownVisual()<CR>
+vnoremap <silent><C-k> :call VimMachineGunUpVisual()<CR>
