@@ -1,10 +1,11 @@
 " To reload your configs, press :so %
 
 " Select your colorscheme.  To see others: SPC h t
-" I also recommend gruvbox
+" I also recommend gruvbox and onedark
 " SPC h t to see all themes
-lua require('onedark').setup { style = 'darker' } -- Options: dark, darker, cool, deep, warm, warmer
-colorscheme onedark
+" lua require('onedark').setup { style = 'darker' } -- Options: dark, darker, cool, deep, warm, warmer
+
+colorscheme sonokai
 
 " set relativenumber " Relative numbers?
 
