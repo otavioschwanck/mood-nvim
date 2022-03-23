@@ -26,6 +26,7 @@ return require('packer').startup(function()
   use 'farmergreg/vim-lastplace'
   use 'ThePrimeagen/harpoon'
   use 'svermeulen/vim-yoink'
+  use 'p00f/nvim-ts-rainbow'
   use 't9md/vim-choosewin'
   use 'ThePrimeagen/refactoring.nvim'
   use 'psf/black'

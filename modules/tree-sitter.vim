@@ -24,6 +24,7 @@ require'nvim-treesitter.configs'.setup {
         ["[]"] = "@function.outer",
       },
     },
+    rainbow = { enabled = true, extended_mode = true, max_file_lines = 1500 },
     select = {
       enable = true,
 
