@@ -66,6 +66,7 @@ sudo apt-get update
 
 sudo apt-get install sqlite3 libsqlite3-dev neovim xclip
 
+bash
 export VER="0.31.4" # you can search for a more recent one
 wget -O lazygit.tgz https://github.com/jesseduffield/lazygit/releases/download/v${VER}/lazygit_${VER}_Linux_x86_64.tar.gz
 tar xvf lazygit.tgz
