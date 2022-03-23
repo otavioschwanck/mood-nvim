@@ -51,8 +51,6 @@ git clone --depth 1 https://github.com/wbthomason/packer.nvim\
 5. Install some dependencies:
 
 ```sh
-python -m pip install neovim-remote pynvim
-python3 -m pip install neovim-remote pynvim # only for ubuntu.
 npm install -g neovim diagnostic-languageserver
 gem install solargraph neovim
 ```
@@ -60,6 +58,9 @@ gem install solargraph neovim
 6. (a) Ubuntu Steps
 
 ```sh
+sudo apt install python3-pip
+python3 -m pip install neovim-remote pynvim
+
 sudo add-apt-repository ppa:neovim-ppa/unstable
 sudo apt-get update
 
@@ -77,6 +78,8 @@ sudo mv lazygit /usr/local/bin/
 brew install jesseduffield/lazygit/lazygit
 brew install lazygit sqlite
 brew install --HEAD neovim
+
+python -m pip install neovim-remote pynvim # Can be python3 too, maybe you need to install pip
 ```
 
 7. Add to your .zshrc ou .bashrc:
