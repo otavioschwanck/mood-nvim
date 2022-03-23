@@ -379,3 +379,6 @@ vnoremap <silent><C-j> :call VimMachineGunDownVisual()<CR>
 vnoremap <silent><C-k> :call VimMachineGunUpVisual()<CR>
 
 let g:HowMuch_no_mappings = 1
+
+let bufferline = get(g:, 'bufferline', {})
+let bufferline.exclude_ft = ['']
