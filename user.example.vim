@@ -2,6 +2,7 @@
 
 " Select your colorscheme.  To see others: SPC h t
 " I also recommend gruvbox
+" SPC h t to see all themes
 lua require('onedark').setup { style = 'darker' } -- Options: dark, darker, cool, deep, warm, warmer
 colorscheme onedark
 
