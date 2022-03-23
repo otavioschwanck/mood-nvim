@@ -296,25 +296,28 @@ let g:dashboard_custom_section={
       \ 'description': [' Open Project                 SPC p p'],
       \ 'command': 'Telescope projects' },
   \ '2': {
+      \ 'description': ['ﯠ Harpoon                      C-SPC  '],
+      \ 'command': 'lua require("harpoon.mark").toggle_quick_menu()' },
+  \ '3': {
       \ 'description': [' Git status                   SPC s g'],
       \ 'command': 'Telescope git_status' },
-  \ '3': {
+  \ '4': {
       \ 'description': [' Recent Files                 SPC f r'],
       \ 'command': 'Telescope find_files' },
-  \ '4': {
+  \ '5': {
       \ 'description': [' Open Handbook (docs)         SPC h h'],
       \ 'command': 'e ~/.config/nvim/handbook.md' },
-  \ '5': {
+  \ '6': {
       \ 'description': [' User Settings                SPC f p'],
       \ 'command': 'e ~/.config/nvim/user.vim' },
-  \ '6': {
+  \ '7': {
       \ 'description': [' User Plugins                 SPC f P'],
       \ 'command': 'e ~/.config/nvim/lua/user-plugins.lua' },
-  \ '7': {
+  \ '8': {
       \ 'description': [' Edit CoC File                SPC h c'],
       \ 'command': 'CocConfig' },
-  \ '8': {
-      \ 'description': [' Update Mood                  SPC h u'],
+  \ '9': {
+      \ 'description': [' Update mooD                  SPC h u'],
       \ 'command': 'UpdateMood' }
   \ }
 
