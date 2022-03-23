@@ -4,9 +4,7 @@ function OpenTestAlternateAndSplit()
   let win_count = winnr()
   let test_path = eval('rails#buffer().alternate()')
 
-  if winnr() > 1
-    execute "norm \<C-w>o"
-  endif
+  execute "normal! \<C-w>o"
 
   execute "norm \<C-w>v"
 
