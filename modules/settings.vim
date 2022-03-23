@@ -297,7 +297,7 @@ let g:dashboard_custom_section={
       \ 'command': 'Telescope projects' },
   \ '2': {
       \ 'description': ['ﯠ Harpoon                      C-SPC  '],
-      \ 'command': 'lua require("harpoon.mark").toggle_quick_menu()' },
+      \ 'command': 'lua require("harpoon.ui").toggle_quick_menu()' },
   \ '3': {
       \ 'description': [' Git status                   SPC s g'],
       \ 'command': 'Telescope git_status' },
