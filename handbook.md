@@ -206,6 +206,16 @@ To select, just press ENTER.  To close the suggestions pop-up, press C-e.
 | SPC t a | Run all tests        |
 |---------|----------------------|
 
+## Toggle Case
+
+| Command | Description          |
+|---------|----------------------|
+| SPC n s | Toggle snake case    |
+| SPC t s | Toggle CamelCase     |
+| SPC t a | TOggle camelCaseB    |
+|---------|----------------------|
+
+
 ## Terminal
 
 `SPC v` open a blank terminal

@@ -42,6 +42,12 @@ lua << EOF
         s = { "<Plug>AutoCalcAppendWithSum", "Sum" },
         ["?"] = { "<Plug>AutoCalcAppend", "Auto Calculation" },
      },
+     n = {
+       name = "+Toggle Case",
+       s = { ":Snake<CR>", "snake_case" },
+       c = { ":Camel<CR>", "camelCase" },
+       b = { ":CamelB<CR>", "CamelCaseB" }
+     },
      c = {
        name = "+Lsp and CoC",
        s = { "<Plug>(coc-convert-snippet)", "Convert selection into snippet" },
@@ -49,6 +55,7 @@ lua << EOF
        f = { "<Plug>(coc-format-selected)", "Format" },
      },
      m = {
+       name = "+Ruby Extract",
        l = { ":RExtractLet<CR>", "Extract Let" },
        v = { ":RExtractLocalVariable<CR>", "Extract Variable" }
      },
@@ -76,6 +83,12 @@ lua << EOF
   D = { ":call ClearDebugger()<CR>", "Clear debuggers" },
   u = { ":UndotreeToggle<CR>", "Undo Tree" },
   a = { ":call OpenTestAlternate()<cr>", "Go to Test" },
+  n = {
+    name = "+Toggle Case",
+    s = { ":Snake<CR>", "snake_case" },
+    c = { ":Camel<CR>", "camelCase" },
+    b = { ":CamelB<CR>", "CamelCaseB" }
+  },
   l = {
     name = "+Tmux",
     s = { ":Telescope tmux sessions<CR>", "Sessions" },
