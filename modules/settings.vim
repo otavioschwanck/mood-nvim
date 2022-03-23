@@ -222,6 +222,12 @@ function OpenTerm(command, name, unique, close_after_create)
 
     echo full_name . " exists.  Focusing."
     startinsert
+  elseif bnr > 0 && a:unique == 2
+    execute "bel sb " . full_name
+
+    execute "normal! :bd\<CR>"
+
+    execute "call OpenTerm('" . a:command . "', '" . a:name "', '" . a:unique . "', '" . a:close_after_create . "')"
   else
     if bnr > 0
       let new_number = 0
@@ -262,7 +268,7 @@ let g:any_jump_disable_default_keybindings = 1
 let g:ruby_refactoring_map_keys=0
 
 function! SplitTermStrategy(cmd)
-  execute "call OpenTerm(a:cmd, 'Tests', 1, 0)"
+  execute "call OpenTerm(a:cmd, 'Vim Test', 2, 0)"
 endfunction
 
 let g:test#custom_strategies = {'splitterm': function('SplitTermStrategy')}

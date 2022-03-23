@@ -22,6 +22,9 @@ lua << EOF
   -- function OpenTerm receive 4 arguments:
   -- command, name, unique and close_after_create.
 
+  -- close_after_create can be 0 or 1
+  -- unique can be 0 = Create multiple terminals, 1 = Unique, focus when use again. 2 = Unique, destroy and create a new one.
+
   wk.register({
     -- Example of custom terminal commands
     ["="] = { ":silent !bundle exec rubocop -a %<CR>", "Rubocop on current file" },
@@ -50,8 +53,10 @@ lua << EOF
       R = { ":call OpenTerm('rails s', 'Rails Server', 1, 1)<CR>", "Rails Server" },
       S = { ":call OpenTerm('bundle exec sidekiq', 'Sidekiq', 1, 1)<CR>", "Sidekiq" },
       i = { ":call OpenTerm('bundle install', 'Bundle Install', 1, 0)<CR>", "Bundle Install" },
-      g = { ":call OpenTerm('rails generate ' . input('rails generate: '), 'Rails Generate', 1, 0)<CR>", "Rails Generate" },
-      d = { ":call OpenTerm('rails destroy ' . input('rails destroy: '), 'Rails Destroy', 1, 0)<CR>", "Rails Destroy" },
+      g = { ":call OpenTerm('rails generate ' . input('rails generate: '), 'Rails Generate', 2, 0)<CR>", "Rails Generate" },
+      d = { ":call OpenTerm('rails destroy ' . input('rails destroy: '), 'Rails Destroy', 2, 0)<CR>", "Rails Destroy" },
+      i = { ":call OpenTerm('rails db:migrate', 'migrate', 2, 0)<CR>", "Rails DB:Migrate" },
+      I = { ":call OpenTerm('rails db:drop; db:create db:migrate db:seed', 'DB Reset', 2, 0)<CR>", "Rails Reset DB" },
       m = { ":call FindInFolder('app/models', 'Find Model')<CR>", "Find Model" },
       M = { ":Emodel<CR>", "Find Model" },
       c = { ":call FindInFolder('app/controllers', 'Find Controller')<CR>", "Find Controller" },
