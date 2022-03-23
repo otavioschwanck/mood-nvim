@@ -287,6 +287,9 @@ endfunction
 nnoremap gh :SidewaysLeft<cr>
 nnoremap gl :SidewaysRight<cr>
 
+nnoremap <C-h> :SidewaysLeft<cr>
+nnoremap <C-l> :SidewaysRight<cr>
+
 nmap vij vaI
 nmap vaj vaIj
 
