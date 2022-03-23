@@ -56,7 +56,7 @@ lua << EOF
       g = { ":call OpenTerm('rails generate ' . input('rails generate: '), 'Rails Generate', 2, 0)<CR>", "Rails Generate" },
       d = { ":call OpenTerm('rails destroy ' . input('rails destroy: '), 'Rails Destroy', 2, 0)<CR>", "Rails Destroy" },
       i = { ":call OpenTerm('rails db:migrate', 'migrate', 2, 0)<CR>", "Rails DB:Migrate" },
-      I = { ":call OpenTerm('rails db:drop; db:create db:migrate db:seed', 'DB Reset', 2, 0)<CR>", "Rails Reset DB" },
+      I = { ":call OpenTerm('rails db:drop; rails db:create db:migrate db:seed', 'DB Reset', 2, 0)<CR>", "Rails Reset DB" },
       m = { ":call FindInFolder('app/models', 'Find Model')<CR>", "Find Model" },
       M = { ":Emodel<CR>", "Find Model" },
       c = { ":call FindInFolder('app/controllers', 'Find Controller')<CR>", "Find Controller" },
