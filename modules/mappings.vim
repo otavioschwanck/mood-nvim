@@ -212,9 +212,9 @@ nmap <M-k> <C-w>k
 nmap ]g <cmd>Gitsigns next_hunk<CR>
 nmap [g <cmd>Gitsigns prev_hunk<CR>
 
-" xnoremap <expr> A mode() == "v" ? "<C-v>$A" : "A"
-" xnoremap <expr> I mode() == "v" ? "<C-v>$^I" : "I"
-" xnoremap <expr> i mode() == "v" ? "<C-v>$0I" : "i"
+xnoremap <silent><expr> A mode() ==# "V" ? "<C-v>$A" : "A"
+xnoremap <silent><expr> I mode() ==# "V" ? "<C-v>$^I" : "I"
+xnoremap <silent><expr> i mode() ==# "V" ? "<C-v>$0I" : "i"
 
 function HideTerminalWindowOrNoh()
   let buftype = getbufvar('', '&buftype', 'ERROR')
