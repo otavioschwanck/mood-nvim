@@ -5,7 +5,6 @@ local fb_actions = require "telescope".extensions.file_browser.actions
 
 require('telescope').setup{
   defaults = {
-    file_ignore_patterns = { ".*.git/.*" },
     mappings = {
       i = {
         ["<C-j>"] = actions.move_selection_next,
