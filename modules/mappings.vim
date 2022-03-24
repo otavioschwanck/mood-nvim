@@ -29,6 +29,11 @@ function OpenTestAlternate()
   endif
 endfunction
 
+nmap gq yiw:%s/<C-r>"//gr<Left><Left><Left>
+nmap gQ yiw:%S/<C-r>"//gr<Left><Left><Left>
+xnoremap gq y:%s/<C-r>"//gr<Left><Left><Left>
+xnoremap gQ y:%S/<C-r>"//gr<Left><Left><Left>
+
 lua << EOF
   require("which-key").setup {}
 
