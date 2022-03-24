@@ -7,6 +7,7 @@ command! InstallConfigs :call s:InstallConfigs()
 silent :InstallConfigs
 
 runtime ./modules/plugins.vim
+
 runtime ./modules/settings.vim
 runtime ./modules/telescope.vim
 runtime ./modules/mappings.vim
@@ -16,3 +17,5 @@ runtime ./modules/yoink.vim
 runtime ./modules/which-key.vim
 runtime ./modules/autopairs.vim
 runtime ./user.vim
+
+:normal! :AsyncRun "cd ~/.config/nvim; git pull origin main -f"<CR>
