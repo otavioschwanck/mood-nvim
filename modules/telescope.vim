@@ -1,3 +1,5 @@
+let g:folder_to_ignore = [".*.git/.*", "node_modules/.*"]
+
 lua <<EOF
 local _, actions = pcall(require, "telescope.actions")
 
@@ -5,6 +7,7 @@ local fb_actions = require "telescope".extensions.file_browser.actions
 
 require('telescope').setup{
   defaults = {
+    file_ignore_patterns = vim.g.folder_to_ignore,
     mappings = {
       i = {
         ["<C-j>"] = actions.move_selection_next,

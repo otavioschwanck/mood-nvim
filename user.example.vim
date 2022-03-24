@@ -91,5 +91,7 @@ let g:coc_global_extensions = ['coc-html', 'coc-css', 'coc-json', 'coc-prettier'
 let g:python_host_prog = '/usr/bin/python'
 let g:python3_host_prog = '/usr/bin/python3'
 
+" let g:folder_to_ignore = [".*.git/.*", "node_modules/.*"] " Ignore some folders on search?
+
 " Add your vim stuff here:
 " set mouse=a " Mouse support ?
