@@ -263,6 +263,7 @@ nnoremap <C-s> :lua require("harpoon.mark").add_file()<CR>
 nnoremap <C-space> :lua require("harpoon.ui").toggle_quick_menu()<CR>
 
 nmap s :HopChar1<CR>
+nmap S :Telescope current_buffer_fuzzy_find fuzzy=false case_mode=ignore_case<CR>
 
 nnoremap <expr> gp '`[' . strpart(getregtype(), 0, 1) . '`]'
 
