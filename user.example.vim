@@ -83,7 +83,7 @@ autocmd FileType typescript setlocal shiftwidth=2 softtabstop=2 expandtab
 autocmd FileType typescriptreact setlocal shiftwidth=2 softtabstop=2 expandtab
 
 " Your COC extensions.
-let g:coc_global_extensions = ['coc-html', 'coc-css', 'coc-json', 'coc-prettier', 'coc-tsserver', 'coc-solidity', 'coc-diagnostic', 'coc-solargraph',
+let g:coc_global_extensions = ['coc-html', 'coc-css', 'coc-json', 'coc-prettier', 'coc-tsserver', 'coc-diagnostic', 'coc-solargraph',
       \ 'coc-emmet', 'coc-yaml', 'coc-snippets', 'coc-pyright', 'coc-solidity']
 
 " If you use pyenv or other path, please comment this: (Make sure that python provider is OK on :checkhealth)
