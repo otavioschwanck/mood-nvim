@@ -1,5 +1,11 @@
-snippet f "function ..." i
+snippet fu "function ..." i
 function ${1:functionName}(${2:${3:address} ${4:variableName}}) ${5|public,internal|} ${6:returns(${7:uint256}) }{
+	$0
+}
+endsnippet
+
+snippet "if"  "if (condition) { ... }" i
+if (${1:condition}) {
 	$0
 }
 endsnippet

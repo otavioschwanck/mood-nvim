@@ -65,6 +65,7 @@ lua << EOF
      },
      r = {
        name = "+Refactor",
+       c = { ":call GetClassName()<CR>", "Copy Class Name to Clipboard" },
        e = { "<Esc><Cmd>lua require('refactoring').refactor('Extract Function')<CR>", "Extract Function" },
        f = { "<Esc><Cmd>lua require('refactoring').refactor('Extract Function To File')<CR>", "Extract Function To File" },
        v = { "<Esc><Cmd>lua require('refactoring').refactor('Extract Variable')<CR>", "Extract Variable" },
@@ -332,3 +333,41 @@ xmap ia <Plug>SidewaysArgumentTextobjI
 
 nmap  <C-q>  <Plug>(choosewin)
 let g:choosewin_overlay_enable = 1
+
+function GetClassName()
+  let modules = getline(1, '$')->filter({_,line -> line =~ 'module\|class \w'})
+
+  let class_name = ''
+  let keep_while = 1
+  let index = 0
+
+  while keep_while == 1
+    let kind = split(modules[index], ' ')[0]
+    let name = split(modules[index], ' ')[1]
+
+    let class_name = class_name . name
+
+    if kind == 'class' || index >= (len(modules) - 1)
+      let keep_while = 0
+    else
+      let index = index + 1
+      let class_name = class_name . '::'
+    endif
+  endwhile
+
+  call setreg('+', class_name)
+  call setreg('*', class_name)
+
+  echo "Copied to clipboard: " . class_name
+endfunction
+
+function BetterGoToFirst()
+  if (col('.') - 1) == match(getline('.'),'\S')
+    call feedkeys("\<Home>")
+  else
+    call feedkeys("^")
+  end
+endfunction
+
+nmap 0 :call BetterGoToFirst()<CR>
+vmap 0 :call BetterGoToFirst()<CR>
