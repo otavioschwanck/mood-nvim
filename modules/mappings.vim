@@ -335,30 +335,42 @@ nmap  <C-q>  <Plug>(choosewin)
 let g:choosewin_overlay_enable = 1
 
 function GetClassName()
-  let modules = getline(1, '$')->filter({_,line -> line =~ 'module\|class \w'})
+  let filetype = getbufvar('', '&filetype', 'ERROR')
 
-  let class_name = ''
-  let keep_while = 1
-  let index = 0
+  if filetype == 'ruby'
+    let modules = getline(1, '$')->filter({_,line -> line =~ 'module\|class \w'})
 
-  while keep_while == 1
-    let kind = split(modules[index], ' ')[0]
-    let name = split(modules[index], ' ')[1]
+    let class_name = ''
+    let keep_while = 1
+    let index = 0
 
-    let class_name = class_name . name
-
-    if kind == 'class' || index >= (len(modules) - 1)
+    if modules == []
       let keep_while = 0
-    else
-      let index = index + 1
-      let class_name = class_name . '::'
     endif
-  endwhile
 
-  call setreg('+', class_name)
-  call setreg('*', class_name)
+    while keep_while == 1
+      let kind = split(modules[index], ' ')[0]
+      let name = split(modules[index], ' ')[1]
 
-  echo "Copied to clipboard: " . class_name
+      let class_name = class_name . name
+
+      if kind == 'class' || index >= (len(modules) - 1)
+        let keep_while = 0
+      else
+        let index = index + 1
+        let class_name = class_name . '::'
+      endif
+    endwhile
+
+    call setreg('+', class_name)
+    call setreg('*', class_name)
+
+    if class_name != ''
+      echo "Copied to clipboard: " . class_name
+    else
+      echo "No class or module found"
+    endif
+  endif
 endfunction
 
 function BetterGoToFirst()
