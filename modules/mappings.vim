@@ -219,7 +219,7 @@ nmap [g <cmd>Gitsigns prev_hunk<CR>
 
 xnoremap <silent><expr> A mode() ==# "V" ? "<C-v>$A" : "A"
 xnoremap <silent><expr> I mode() ==# "V" ? "<C-v>$^I" : "I"
-xnoremap <silent><expr> i mode() ==# "V" ? "<C-v>$0I" : "i"
+xnoremap <silent><expr> i mode() ==# "V" ? "<C-v>$\<Home>I" : "i"
 
 function HideTerminalWindowOrNoh()
   let buftype = getbufvar('', '&buftype', 'ERROR')
@@ -373,13 +373,5 @@ function GetClassName()
   endif
 endfunction
 
-function BetterGoToFirst()
-  if (col('.') - 1) == match(getline('.'),'\S')
-    call feedkeys("\<Home>")
-  else
-    call feedkeys("^")
-  end
-endfunction
-
-nmap 0 :call BetterGoToFirst()<CR>
-vmap 0 :call BetterGoToFirst()<CR>
+nnoremap <expr> 0 (col('.') - 1) == match(getline('.'),'\S') ? "<Home>" : "^"
+vnoremap <expr> 0 (col('.') - 1) == match(getline('.'),'\S') ? "<Home>" : "^"
