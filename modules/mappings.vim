@@ -65,7 +65,6 @@ lua << EOF
      },
      r = {
        name = "+Refactor",
-       c = { ":call GetClassName()<CR>", "Copy Class Name to Clipboard" },
        e = { "<Esc><Cmd>lua require('refactoring').refactor('Extract Function')<CR>", "Extract Function" },
        f = { "<Esc><Cmd>lua require('refactoring').refactor('Extract Function To File')<CR>", "Extract Function To File" },
        v = { "<Esc><Cmd>lua require('refactoring').refactor('Extract Variable')<CR>", "Extract Variable" },
@@ -157,7 +156,8 @@ lua << EOF
   m = {
     name = "+Ruby Refact",
     d = { ":CocCommand rubocop.insert<CR>", "Disable byebug at point" },
-    a = { ":RAddParameter<CR>", "Add Parameter" }
+    a = { ":RAddParameter<CR>", "Add Parameter" },
+       c = { ":call GetClassName()<CR>", "Copy Class Name to Clipboard" },
   },
   g = {
     name = "+Git",
