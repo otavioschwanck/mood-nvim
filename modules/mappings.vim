@@ -32,7 +32,8 @@ endfunction
 nmap gq yiw:%s/<C-r>"//gr<Left><Left><Left>
 nmap gQ yiw:%S/<C-r>"//gr<Left><Left><Left>
 xnoremap gq y:%s/<C-r>"//gr<Left><Left><Left>
-xnoremap gQ y:%S/<C-r>"//gr<Left><Left><Left>
+xnoremap <expr> gQ mode() ==# "V" ? ':S//gr<Left><Left><Left>' : 'y:%S/<C-r>"//gr<Left><Left><Left>'
+xnoremap <expr> gq mode() ==# "V" ? ':s//gr<Left><Left><Left>' : 'y:%s/<C-r>"//gr<Left><Left><Left>'
 
 lua << EOF
   require("which-key").setup {}

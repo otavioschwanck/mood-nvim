@@ -91,6 +91,7 @@ return require('packer').startup(function()
   use 'D1mon/molokai'
   use 'skywind3000/asyncrun.vim'
   use 'bluz71/vim-moonfly-colors'
+  use 'tommcdo/vim-exchange'
   use 'pechorin/any-jump.vim'
   use 'navarasu/onedark.nvim'
   use 'ecomba/vim-ruby-refactoring'

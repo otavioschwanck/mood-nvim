@@ -89,6 +89,23 @@ On your personal configuration you can configure stuff like commands to run with
 
 Quick Tip: You can come back to any telescope search with `SPC RET`.
 
+## Search and Replace on file
+
+| Command     | Mode            | Description                                                                        |
+|-------------|-----------------|------------------------------------------------------------------------------------|
+| gq          | normal          | Search and replace word at point                                                   |
+| gQ          | normal          | Search and replace word at point keeping case                                      |
+|-------------|-----------------|------------------------------------------------------------------------------------|
+| gq          | visual          | Search and replace selection                                                       |
+| gQ          | visual          | Search and replace selection keeping case                                          |
+|-------------|-----------------|------------------------------------------------------------------------------------|
+| gq          | visual line (V) | Search and replace some word in selected lines                                     |
+| gQ          | visual line (V) | Search and replace some word in selected lines keeping case                        |
+|-------------|-----------------|------------------------------------------------------------------------------------|
+| X           | Visual          | Mark some text to be swap, then, select another text and press X to swap both      |
+| cx + motion | Normal          | Mark motion to be swaped, then, select another text and press X or cx to swap both |
+|-------------|-----------------|------------------------------------------------------------------------------------|
+
 ## Search and Replace on Project
 
 Quick tip:
