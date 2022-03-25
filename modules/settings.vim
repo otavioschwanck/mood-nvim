@@ -212,7 +212,12 @@ endfunction
 
 function OpenTerm(command, name, unique, close_after_create)
   let p_name = split(finddir('.git/..', expand('%:p:h').';'), "/")
-  let full_name = p_name[-1] . " " . a:name
+
+  if len(p_name) > 0
+    let full_name = p_name[-1] . " " . a:name
+  else
+    let full_name = a:name
+  endif
 
   let bnr = bufexists(full_name)
 
