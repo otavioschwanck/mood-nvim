@@ -49,8 +49,8 @@ lua << EOF
      n = {
        name = "+Toggle Case",
        s = { ":Snake<CR>", "snake_case" },
-       c = { ":Camel<CR>", "camelCase" },
-       b = { ":CamelB<CR>", "CamelCaseB" }
+       c = { ":Camel<CR>", "CamelCase" },
+       b = { ":CamelB<CR>", "camelCaseB" }
      },
      c = {
        name = "+Lsp and CoC",
@@ -134,6 +134,7 @@ lua << EOF
   ["<return>"] = { ":Telescope resume<CR>", "Telescope Resume" },
   s = {
     name = "+Search",
+    d = { ":lua require('custom_telescope').live_grep_in_folder()<CR>", 'Grep in some folder' },
     p = { ":Telescope live_grep<CR>", "Grep on Project" },
     P = { ":CocSearch ", "Grep using CoC" },
     g = { ":Telescope git_status<CR>", "Search files modified in git" },
