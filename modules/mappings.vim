@@ -174,7 +174,7 @@ lua << EOF
     b = { ":Gitsigns toggle_current_line_blame<CR>", "Toggle current line blame" },
     d = { ":Gitsigns diffthis<CR>", "Diff this file" },
     l = { ":GcLog -- %<CR>", "Log this file" },
-    b = { ":Telescope git_branches<CR>", "Change Branch" }
+    B = { ":Telescope git_branches<CR>", "Change Branch" }
   },
   [','] = { ":Telescope buffers only_cwd=true<CR>", "Find Buffers in this project" },
   ['<tab>'] = { ":Telescope buffers<CR>", "Find all buffers" },
