@@ -8,7 +8,9 @@ return require('packer').startup(function()
   for p = 1, table.getn(plugins) do
     use(plugins[p])
   end
-  use 'nvim-telescope/telescope-live-grep-raw.nvim'
+  use {'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
+  use 'tpope/vim-repeat'
+  use 'ggandor/lightspeed.nvim'
   use 'dhruvasagar/vim-table-mode'
   use 'folke/tokyonight.nvim'
   use 'wbthomason/packer.nvim'
@@ -34,7 +36,6 @@ return require('packer').startup(function()
   use 'psf/black'
   use 'tpope/vim-fugitive'
   use 'AndrewRadev/undoquit.vim'
-  use 'rhysd/clever-f.vim'
   use 'pseewald/vim-anyfold'
   use 'michaeljsmith/vim-indent-object'
   use 'norcalli/nvim-terminal.lua'

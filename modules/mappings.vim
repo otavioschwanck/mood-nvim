@@ -136,7 +136,7 @@ lua << EOF
     name = "+Search",
     D = { ":lua require('custom_telescope').live_grep_in_folder()<CR>", 'Search text in one or more folders' },
     d = { ":lua require('telescope.builtin').live_grep { search_dirs = {vim.fn.expand('%:p:h')}, prompt_title = 'Live grep inside ' .. vim.fn.expand('%:p:h') }<CR>", 'Search text in some folder' },
-    p = { ":lua require('telescope').extensions.live_grep_raw.live_grep_raw()<CR>", "Searcn text on Project" },
+    p = { ":Telescope live_grep<CR>", "Searcn text on Project" },
     P = { ":CocSearch ", "Search text using CoC (for search and replace)" },
     g = { ":Telescope git_status<CR>", "Search files modified in git" },
     s = { ":Telescope current_buffer_fuzzy_find fuzzy=false case_mode=ignore_case<CR>", "Fuzzy Current Buffer" },
@@ -271,9 +271,6 @@ nnoremap <S-tab> <C-w>W
 
 nnoremap <C-s> :lua require("harpoon.mark").add_file()<CR>
 nnoremap <C-space> :lua require("harpoon.ui").toggle_quick_menu()<CR>
-
-nmap s :HopChar1<CR>
-nmap S :Telescope current_buffer_fuzzy_find fuzzy=false case_mode=ignore_case<CR>
 
 nnoremap <expr> gp '`[' . strpart(getregtype(), 0, 1) . '`]'
 
