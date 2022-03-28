@@ -8,7 +8,7 @@ return require('packer').startup(function()
   for p = 1, table.getn(plugins) do
     use(plugins[p])
   end
-
+  use 'nvim-telescope/telescope-live-grep-raw.nvim'
   use 'dhruvasagar/vim-table-mode'
   use 'folke/tokyonight.nvim'
   use 'wbthomason/packer.nvim'
