@@ -176,8 +176,8 @@ lua << EOF
     l = { ":GcLog -- %<CR>", "Log this file" },
     B = { ":Telescope git_branches<CR>", "Change Branch" }
   },
-  [','] = { ":Telescope buffers only_cwd=true<CR>", "Find Buffers in this project" },
-  ['<tab>'] = { ":Telescope buffers<CR>", "Find all buffers" },
+  [','] = { ":Telescope buffers only_cwd=true ignore_current_buffer=true sort_lastused=true<CR>", "Find Buffers in this project" },
+  ['<tab>'] = { ":Telescope buffers ignore_current_buffer=true sort_lastused=true<CR>", "Find all buffers" },
   b = {
     name = "+Buffer",
     p = { ":BufferPrevious<CR>", "Previous" },
