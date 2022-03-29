@@ -136,7 +136,7 @@ lua << EOF
     name = "+Search",
     D = { ":lua require('custom_telescope').live_grep_in_folder()<CR>", 'Search text in one or more folders' },
     d = { ":lua require('telescope.builtin').live_grep { search_dirs = {vim.fn.expand('%:p:h')}, prompt_title = 'Live grep inside ' .. vim.fn.expand('%:p:h') }<CR>", 'Search text in some folder' },
-    p = { ":Telescope grep_string search=", "Search text on Project" },
+    p = { ":lua require('custom_telescope').ripgrep()<CR>", "Search text on Project" },
     P = { ":CocSearch ", "Search text using CoC (for search and replace)" },
     g = { ":Telescope git_status<CR>", "Search files modified in git" },
     s = { ":Telescope current_buffer_fuzzy_find fuzzy=false case_mode=ignore_case<CR>", "Fuzzy Current Buffer" },
