@@ -114,6 +114,8 @@ Quick tip:
 `:%S/old/new/gr` = Will change all occurrence of old to new and keep the case
 `:%S/bount{y,ies}/prize{,s}/gr` = Will change bounty / bounties to prize / prizes
 
+Extra tip: \0 = text that you searched.
+
 You can:
 
 1. use `SPC s p`, and then, press `C-q` to create a quickfix list.  You can navigate on quickfix with `]q` and `[q`.
