@@ -56,8 +56,8 @@ On your personal configuration you can configure stuff like commands to run with
 | M-j     | Focus Window in the bottom |
 | M-k     | Focus Window in the top    |
 | C-q     | Pick Window                |
-| TAB     | Go to next window          |
-| S-TAB   | Go to prev window          |
+| ;       | Go to next window          |
+| ,       | Go to prev window          |
 |---------|----------------------------|
 | C-w u   | Undo a window closed       |
 | C-w o   | Maximize window            |
@@ -126,7 +126,7 @@ To execute some command in all items of the quickfix list, just run `:cfdo S/old
 
 | Command | Description                                    |
 |---------|------------------------------------------------|
-| f       | Expand Folder / Open File                      |
+| TAB     | Preview / expand                               |
 | P       | Go to parent node (useful)                     |
 | A       | Create new file or folder                      |
 | r       | Rename the file                                |

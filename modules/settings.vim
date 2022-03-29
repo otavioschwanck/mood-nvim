@@ -126,10 +126,6 @@ require("nvim-tree").setup({
   view = {
     mappings = {
       custom_only = false,
-      list = {
-        { key = "<Tab>", action = "", action_cb = "" },
-        { key = "f", action = "edit", action_cb = "edit" },
-      },
     },
   },
   update_focused_file = {

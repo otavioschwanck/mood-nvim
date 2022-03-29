@@ -255,9 +255,10 @@ nnoremap gr :NvimTreeRefresh<CR>
 nnoremap H :BufferPrevious<CR>
 nnoremap L :BufferNext<CR>
 
-nnoremap ; :Telescope current_buffer_fuzzy_find fuzzy=false case_mode=ignore_case<CR>
-nnoremap <tab> <C-w>w
-nnoremap <S-tab> <C-w>W
+nnoremap M :Telescope current_buffer_fuzzy_find fuzzy=false case_mode=ignore_case<CR>
+
+nnoremap , <C-w>W
+nnoremap ; <C-w>w
 
 nnoremap <C-s> :lua require("harpoon.mark").add_file()<CR>
 nnoremap <C-space> :lua require("harpoon.ui").toggle_quick_menu()<CR>
