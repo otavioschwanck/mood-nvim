@@ -265,7 +265,7 @@ nnoremap gr :NvimTreeRefresh<CR>
 nnoremap H :BufferPrevious<CR>
 nnoremap L :BufferNext<CR>
 
-nnoremap ; :BufferPick<CR>
+nnoremap ; :Telescope current_buffer_fuzzy_find fuzzy=false case_mode=ignore_case<CR>
 nnoremap <tab> <C-w>w
 nnoremap <S-tab> <C-w>W
 
