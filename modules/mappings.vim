@@ -129,7 +129,7 @@ lua << EOF
     s = { "<Plug>(coc-convert-snippet)", "Convert selection into snippet" },
     o = { ":OR<CR>", "Organize Imports" },
     f = { ":Format<CR>", "Format File" },
-    i = { ":call TelescopeDocumentSymbols()", "Search Outline Symbols" }
+    i = { ":call TelescopeDocumentSymbols()<CR>", "Search Outline Symbols" }
   },
   ["<return>"] = { ":Telescope resume<CR>", "Telescope Resume" },
   s = {
@@ -140,7 +140,7 @@ lua << EOF
     P = { ":CocSearch ", "Search text using CoC (for search and replace)" },
     g = { ":Telescope git_status<CR>", "Search files modified in git" },
     s = { ":Telescope current_buffer_fuzzy_find fuzzy=false case_mode=ignore_case<CR>", "Fuzzy Current Buffer" },
-    i = { ":call TelescopeDocumentSymbols()", "Search Outline Symbols" },
+    i = { ":call TelescopeDocumentSymbols()<CR>", "Search Outline Symbols" },
     j = { ":Telescope coc workspace_symbols<CR>", "Symbols" },
   },
   f = {
