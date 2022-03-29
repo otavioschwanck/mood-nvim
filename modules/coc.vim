@@ -48,7 +48,7 @@ function! TelescopeGoToDefinition()
 endfunction
 
 let g:symbols_without_lsp_regexp = {}
-let g:symbols_without_lsp_regexp.solidity = 'function  '
+let g:symbols_without_lsp_regexp.solidity = 'function | modifier  '
 let g:symbols_without_lsp_regexp.default = 'def  '
 let g:symbols_without_lsp_regexp.empty = '^> | ^E | Failure/Error'
 
