@@ -128,6 +128,7 @@ require("indent_blankline").setup {
     space_char_blankline = " ",
     indent_blankline_filetype_exclude = { "dashboard" }
 }
+require'lightspeed'.setup {}
 
 vim.g.indent_blankline_filetype_exclude = {
   "help",
