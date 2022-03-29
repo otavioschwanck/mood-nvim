@@ -340,7 +340,7 @@ let g:machine_gun_regexp.empty = '^>\|^E\|Failure\/Error'
 function VimMachineGunDown()
   let buftype = getbufvar('', '&filetype', 'ERROR')
 
-  if buftype == 0
+  if buftype == ''
     let buftype = 'empty'
   endif
 
@@ -355,7 +355,7 @@ endfunction
 function VimMachineGunUp()
   let buftype = getbufvar('', '&filetype', 'ERROR')
 
-  if buftype == 0
+  if buftype == ''
     let buftype = 'empty'
   endif
 
@@ -370,7 +370,7 @@ endfunction
 function VimMachineGunDownVisual()
   let buftype = getbufvar('', '&filetype', 'ERROR')
 
-  if buftype == 0
+  if buftype == ''
     let buftype = 'empty'
   endif
 
@@ -385,7 +385,7 @@ endfunction
 function VimMachineGunUpVisual()
   let buftype = getbufvar('', '&filetype', 'ERROR')
 
-  if buftype == 0
+  if buftype == ''
     let buftype = 'empty'
   endif
 
@@ -407,3 +407,13 @@ let g:HowMuch_no_mappings = 1
 
 let bufferline = get(g:, 'bufferline', {})
 let bufferline.exclude_ft = ['']
+
+function! FilesColonGrep(query, fullscreen)
+  let command_fmt = 'a=%s && rg --with-filename --column --line-number --no-heading --color=always --smart-case -- "${a#*:}" $(rg --files | rg "${a%%:*}") || true'
+  let initial_command = printf(command_fmt, shellescape(a:query))
+  let reload_command = printf(command_fmt, '{q}')
+  let spec = {'options': ['--phony', '--query', a:query, '--bind', 'change:reload:'.reload_command]}
+  call fzf#vim#grep(initial_command, 1, fzf#vim#with_preview(spec), a:fullscreen)
+endfunction
+
+command! -nargs=* -bang FCG call FilesColonGrep(<q-args>, <bang>0)
