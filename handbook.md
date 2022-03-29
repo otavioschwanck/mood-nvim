@@ -27,7 +27,7 @@ On your personal configuration you can configure stuff like commands to run with
 |---------|-------------------------------|
 | H       | Previous Buffer               |
 | L       | Next Buffer                   |
-| ;       | Pick Tab by a letter (useful) |
+| ;       | Search in buffer fuzzy        |
 | SPC ,   | Find Buffer in Project        |
 | SPC TAB | Find All Buffers              |
 | SPC .   | File Browser                  |
