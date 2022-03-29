@@ -10,7 +10,7 @@ return require('packer').startup(function()
   end
   use {'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
   use 'tpope/vim-repeat'
-  use 'ggandor/lightspeed.nvim'
+  use { 'ggandor/lightspeed.nvim', commit = "005320ff9e128de8689c6e675fa64ed5963e2d1c" }
   use 'dhruvasagar/vim-table-mode'
   use 'folke/tokyonight.nvim'
   use 'wbthomason/packer.nvim'
