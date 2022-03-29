@@ -335,9 +335,15 @@ let g:machine_gun_regexp.solidity = 'function \|modifier \|constructor(.*'
 let g:machine_gun_regexp.default = '{\|\}'
 let g:machine_gun_regexp.markdown = '^#'
 let g:machine_gun_regexp.python = ':$'
+let g:machine_gun_regexp.empty = '^>\|^E\|Failure\/Error'
 
 function VimMachineGunDown()
   let buftype = getbufvar('', '&filetype', 'ERROR')
+
+  if buftype == 0
+    let buftype = 'empty'
+  endif
+
   let command = get(g:machine_gun_regexp, buftype, g:machine_gun_regexp.default)
 
   try
@@ -348,6 +354,11 @@ endfunction
 
 function VimMachineGunUp()
   let buftype = getbufvar('', '&filetype', 'ERROR')
+
+  if buftype == 0
+    let buftype = 'empty'
+  endif
+
   let command = get(g:machine_gun_regexp, buftype, g:machine_gun_regexp.default)
 
   try
@@ -358,6 +369,11 @@ endfunction
 
 function VimMachineGunDownVisual()
   let buftype = getbufvar('', '&filetype', 'ERROR')
+
+  if buftype == 0
+    let buftype = 'empty'
+  endif
+
   let command = get(g:machine_gun_regexp, buftype, g:machine_gun_regexp.default)
 
   try
@@ -368,6 +384,11 @@ endfunction
 
 function VimMachineGunUpVisual()
   let buftype = getbufvar('', '&filetype', 'ERROR')
+
+  if buftype == 0
+    let buftype = 'empty'
+  endif
+
   let command = get(g:machine_gun_regexp, buftype, g:machine_gun_regexp.default)
 
   try
