@@ -26,8 +26,8 @@ On your personal configuration you can configure stuff like commands to run with
 | Command | Description                   |
 |---------|-------------------------------|
 | H       | Previous Buffer               |
-| L       | Next Buffer                   |
-| M       | Search in buffer fuzzy        |
+| ;       | Next Buffer                   |
+| ,       | Search in buffer fuzzy        |
 | SPC ,   | Find Buffer in Project        |
 | SPC TAB | Find All Buffers              |
 | SPC .   | File Browser                  |
@@ -56,8 +56,8 @@ On your personal configuration you can configure stuff like commands to run with
 | M-j     | Focus Window in the bottom |
 | M-k     | Focus Window in the top    |
 | C-q     | Pick Window                |
-| ;       | Go to next window          |
-| ,       | Go to prev window          |
+| H       | Go to next window          |
+| L       | Go to prev window          |
 |---------|----------------------------|
 | C-w u   | Undo a window closed       |
 | C-w o   | Maximize window            |
@@ -75,7 +75,7 @@ On your personal configuration you can configure stuff like commands to run with
 | SPC s g        | Git Modified Files                               |
 | SPC s i        | Search Document Symbols (Just love this command) |
 | spc s j        | Search Workspace Symbols                         |
-| SPC s s        | Fuzzy find in current buffer                     |
+| SPC s s or C-s | Fuzzy find in current buffer                     |
 | SPC s p        | Search text on project                           |
 | SPC s P        | Search text on project using CocSearch           |
 | SPC *          | Search text at point on project                  |
@@ -83,7 +83,7 @@ On your personal configuration you can configure stuff like commands to run with
 | C-k            | Go to previous section                           |
 |----------------|--------------------------------------------------|
 | C-SPC          | Toggle Harpoon                                   |
-| C-s            | Add file to harpoon                              |
+| M              | Add file to harpoon                              |
 | SPC 1 to SPC 4 | Change harpoon by order                          |
 |----------------|--------------------------------------------------|
 

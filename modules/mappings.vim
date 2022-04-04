@@ -252,15 +252,15 @@ vmap - $<Left>
 
 nnoremap gr :NvimTreeRefresh<CR>
 
-nnoremap H :BufMRUPrev<CR>
-nnoremap L :BufMRUNext<CR>
+nnoremap , :BufMRUPrev<CR>
+nnoremap ; :BufMRUNext<CR>
 
-nnoremap M :Telescope current_buffer_fuzzy_find fuzzy=false case_mode=ignore_case<CR>
+nnoremap <C-s> :Telescope current_buffer_fuzzy_find fuzzy=false case_mode=ignore_case<CR>
 
-nnoremap , <C-w>W
-nnoremap ; <C-w>w
+nnoremap L <C-w>W
+nnoremap H <C-w>w
 
-nnoremap <C-s> :lua require("harpoon.mark").add_file()<CR>
+nnoremap M :lua require("harpoon.mark").add_file()<CR>
 nnoremap <C-space> :lua require("harpoon.ui").toggle_quick_menu()<CR>
 
 nnoremap <expr> gp '`[' . strpart(getregtype(), 0, 1) . '`]'
