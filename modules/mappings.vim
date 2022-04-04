@@ -257,8 +257,8 @@ nnoremap ; :BufMRUNext<CR>
 
 nnoremap <C-s> :Telescope current_buffer_fuzzy_find fuzzy=false case_mode=ignore_case<CR>
 
-nnoremap L <C-w>W
-nnoremap H <C-w>w
+nnoremap H <C-w>W
+nnoremap L <C-w>w
 
 nnoremap M :lua require("harpoon.mark").add_file()<CR>
 nnoremap <C-space> :lua require("harpoon.ui").toggle_quick_menu()<CR>
