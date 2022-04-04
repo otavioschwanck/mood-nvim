@@ -1,9 +1,3 @@
-# Disclaimer
-
-I build this config from scratch but at the end, i still use Emacs.  Check out my configuration for rails:
-
-https://github.com/otavioschwanck/doom-emacs-on-rails
-
 # Introduction
 
 mooD Nvim is a configuration made for those who wants to install and use, without much worries.

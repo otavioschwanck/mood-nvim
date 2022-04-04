@@ -23,9 +23,12 @@ require('telescope').setup{
   },
   pickers = {
     find_files = {
-      hidden = true
+      hidden = true,
+      theme = "ivy",
     },
-    buffers = { path_display = { "smart" } }
+    grep_string = { theme = "ivy" },
+    oldfiles = { theme = "ivy" },
+    buffers = { path_display = { "smart" }, theme = "ivy" }
   } ,
   extensions = {
     fzf = {
@@ -37,6 +40,7 @@ require('telescope').setup{
     },
     file_browser = {
       hidden = true,
+      theme = "ivy",
       mappings = {
         ["i"] = {
           ["<C-a>"] = fb_actions.create,
