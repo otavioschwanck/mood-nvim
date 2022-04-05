@@ -96,6 +96,7 @@ return require('packer').startup(function()
   use 'pechorin/any-jump.vim'
   use 'navarasu/onedark.nvim'
   use 'ecomba/vim-ruby-refactoring'
+  use 'ton/vim-bufsurf'
   use 'xolox/vim-notes'
   use 'xolox/vim-misc'
   use 'glepnir/dashboard-nvim'
