@@ -161,6 +161,7 @@ lua << EOF
     a = { ":RAddParameter<CR>", "Add Parameter" },
        c = { ":call GetClassName()<CR>", "Copy Class Name to Clipboard" },
   },
+  ["!"] = { ":call RunLastTermCommand()<CR>", "Run Last Terminal Command" },
   g = {
     name = "+Git",
     g = { ":LazyGit<CR>", "LazyGit" },
@@ -185,10 +186,7 @@ lua << EOF
     N = { ":tabnew<CR>", "New Empty Buffer" },
     f = { ":Telescope buffers only_cwd=true<CR>", "Find Buffers in this project" },
     F = { ":Telescope buffers<CR>", "Find all buffers" },
-    b = { ":BufferPick<CR>", "Pick Buffer" },
-    o = { ":BufferOrderByDirectory<CR>", "Order tabs by directory" },
-    O = { ":BufferOrderByLanguage<CR>", "Order tabs by language" },
-    c = { ":BufferCloseAllButCurrent<CR>", "Close All But Current" },
+    c = { ":w <bar> %bd <bar> e# <bar> bd# <CR>", "Close All But Current" },
   },
   v = { ":call OpenTerm('', 'Quick Term', 1, 0)<CR>", "Open a blank terminal" },
   w = {
@@ -252,13 +250,13 @@ vmap - $<Left>
 
 nnoremap gr :NvimTreeRefresh<CR>
 
-nnoremap , :BufMRUPrev<CR>
-nnoremap ; :BufMRUNext<CR>
+nnoremap H :BufMRUPrev<CR>
+nnoremap L :BufMRUNext<CR>
 
 nnoremap <C-s> :Telescope current_buffer_fuzzy_find fuzzy=false case_mode=ignore_case<CR>
 
-nnoremap H <C-w>W
-nnoremap L <C-w>w
+nnoremap , <C-w>W
+nnoremap ; <C-w>w
 
 nnoremap M :lua require("harpoon.mark").add_file()<CR>
 nnoremap <C-space> :lua require("harpoon.ui").toggle_quick_menu()<CR>

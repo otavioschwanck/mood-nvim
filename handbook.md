@@ -26,8 +26,7 @@ On your personal configuration you can configure stuff like commands to run with
 | Command | Description                   |
 |---------|-------------------------------|
 | H       | Previous Buffer               |
-| ;       | Next Buffer                   |
-| ,       | Search in buffer fuzzy        |
+| L       | Next Buffer                   |
 | SPC ,   | Find Buffer in Project        |
 | SPC TAB | Find All Buffers              |
 | SPC .   | File Browser                  |
@@ -56,8 +55,8 @@ On your personal configuration you can configure stuff like commands to run with
 | M-j     | Focus Window in the bottom |
 | M-k     | Focus Window in the top    |
 | C-q     | Pick Window                |
-| H       | Go to next window          |
-| L       | Go to prev window          |
+| ;       | Go to next window          |
+| ,       | Go to prev window          |
 |---------|----------------------------|
 | C-w u   | Undo a window closed       |
 | C-w o   | Maximize window            |
@@ -238,7 +237,10 @@ To select, just press ENTER.  To close the suggestions pop-up, press C-e.
 ## Terminal
 
 `SPC v` open a blank terminal
+`SPC !` rerun last terminal
 `:Term command` open a terminal with the command
+
+Go to your personal settings `SPC f p` and add terminal commands.  There is a bunch of examples there!
 
 # Command mode
 

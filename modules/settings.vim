@@ -206,8 +206,18 @@ function s:UpdateMood()
   execute "!cd ~/.config/nvim; git pull origin main -f"
 endfunction
 
+let g:last_term_command = []
+
+function RunLastTermCommand()
+  execute "call OpenTerm(g:last_term_command[0], g:last_term_command[1], g:last_term_command[2], g:last_term_command[3])"
+endfunction
+
 function OpenTerm(command, name, unique, close_after_create)
   let p_name = split(finddir('.git/..', expand('%:p:h').';'), "/")
+
+  if a:name != 'Quick Term'
+    let g:last_term_command = [a:command, a:name, a:unique, a:close_after_create]
+  end
 
   if len(p_name) > 0
     let full_name = p_name[-1] . " " . a:name
@@ -320,7 +330,6 @@ let g:dashboard_custom_section={
       \ 'description': [' Update mooD                  SPC h u'],
       \ 'command': 'UpdateMood' }
   \ }
-
 let g:machine_gun_regexp = {
       \ 'ruby': 'def\ \|do$\|do |.*|$\|end$'
     \ }
@@ -413,3 +422,8 @@ function! FilesColonGrep(query, fullscreen)
 endfunction
 
 command! -nargs=* -bang FCG call FilesColonGrep(<q-args>, <bang>0)
+
+augroup rc
+au!
+au TermOpen * setlocal nobuflisted
+augroup END
