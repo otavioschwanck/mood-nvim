@@ -79,9 +79,14 @@ local filter = vim.tbl_filter
 custom_pickers.terminals = function(opts)
   opts = opts or {}
   local bufnrs = filter(function(b)
-        if not (vim.fn.getbufvar(b, '&buftype', 'ERROR') == 'terminal') then
-                return false
-        end
+    if not (vim.fn.getbufvar(b, '&buftype', 'ERROR') == 'terminal') then
+            return false
+    end
+
+    if string.find(vim.fn.bufname(b), ':lazygit') then
+            return false
+    end
+
     return true
   end, vim.api.nvim_list_bufs())
 
