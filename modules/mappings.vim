@@ -52,6 +52,7 @@ lua << EOF
        c = { ":Camel<CR>", "CamelCase" },
        b = { ":CamelB<CR>", "camelCaseB" }
      },
+     l = { "<Plug>Send", "Send Text to Term" },
      c = {
        name = "+Lsp and CoC",
        s = { "<Plug>(coc-convert-snippet)", "Convert selection into snippet" },
@@ -94,6 +95,7 @@ lua << EOF
     b = { ":CamelB<CR>", "CamelCaseB" }
   },
   l = { ":lua require('custom_telescope').terminals(require('telescope.themes').get_ivy{})<CR>", "List All Terminals" },
+  L = { ":SendHere<CR>", "List All Terminals" },
   h = {
     name = "+Help",
     t = { ":Telescope colorscheme<CR>", "Change Theme" },

@@ -23,29 +23,31 @@ On your personal configuration you can configure stuff like commands to run with
 
 # Buffer Navigation and Management
 
-| Command | Description                                        |
-|---------|----------------------------------------------------|
-| H       | Previous Buffer                                    |
-| L       | Next Buffer                                        |
-| SPC ,   | Find Buffer in Project                             |
-| SPC TAB | Find All Buffers                                   |
-| SPC .   | File Browser                                       |
-| SPC e   | Open Tree                                          |
-| SPC k   | Kill current buffer                                |
-| SPC A   | Go to Test (and vsplit)                            |
-| SPC a   | Go to test                                         |
-| SPC a   | Go to test                                         |
-| SPC L   | List All Terminals (cool for opening closed tests) |
-|---------|----------------------------------------------------|
-| ]g      | Next git hunk                                      |
-| [g      | Previous git hunk                                  |
-|---------|----------------------------------------------------|
-| ]e      | Next Error                                         |
-| [e      | Previous Error                                     |
-|---------|----------------------------------------------------|
-| ]q      | Next Quickfix                                      |
-| [q      | Previous Quickfix                                  |
-|---------|----------------------------------------------------|
+| Command                | Description                                        |
+|------------------------|----------------------------------------------------|
+| H                      | Previous Buffer                                    |
+| L                      | Next Buffer                                        |
+| SPC ,                  | Find Buffer in Project                             |
+| SPC TAB                | Find All Buffers                                   |
+| SPC .                  | File Browser                                       |
+| SPC e                  | Open Tree                                          |
+| SPC k                  | Kill current buffer                                |
+| SPC A                  | Go to Test (and vsplit)                            |
+| SPC a                  | Go to test                                         |
+| SPC a                  | Go to test                                         |
+| SPC l                  | List All Terminals (cool for opening closed tests) |
+| SPC L                  | Mark Terminal to Send Text                         |
+| SPC l (On visual mode) | Send text to marked terminal                       |
+|------------------------|----------------------------------------------------|
+| ]g                     | Next git hunk                                      |
+| [g                     | Previous git hunk                                  |
+|------------------------|----------------------------------------------------|
+| ]e                     | Next Error                                         |
+| [e                     | Previous Error                                     |
+|------------------------|----------------------------------------------------|
+| ]q                     | Next Quickfix                                      |
+| [q                     | Previous Quickfix                                  |
+|------------------------|----------------------------------------------------|
 
 # Window Navigation
 

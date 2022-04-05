@@ -427,3 +427,5 @@ augroup rc
 au!
 au TermOpen * setlocal nobuflisted
 augroup END
+
+let g:send_disable_mapping = 1
