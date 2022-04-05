@@ -74,5 +74,48 @@ custom_pickers.live_grep_in_folder = function(opts)
   }):find()
 end
 
+local filter = vim.tbl_filter
+
+custom_pickers.terminals = function(opts)
+  opts = opts or {}
+  local bufnrs = filter(function(b)
+        if not (vim.fn.getbufvar(b, '&buftype', 'ERROR') == 'terminal') then
+                return false
+        end
+    return true
+  end, vim.api.nvim_list_bufs())
+  if not next(bufnrs) then
+    return
+  end
+
+  local buffers = {}
+  local default_selection_idx = 1
+  for _, bufnr in ipairs(bufnrs) do
+    local flag = bufnr == vim.fn.bufnr "" and "%" or (bufnr == vim.fn.bufnr "#" and "#" or " ")
+
+    local element = {
+      bufnr = bufnr,
+      flag = flag,
+      info = vim.fn.getbufinfo(bufnr)[1],
+    }
+
+    table.insert(buffers, element)
+  end
+
+  local max_bufnr = math.max(unpack(bufnrs))
+  opts.bufnr_width = #tostring(max_bufnr)
+
+  pickers.new(opts, {
+    prompt_title = "Terminals",
+    finder = finders.new_table {
+      results = buffers,
+      entry_maker = opts.entry_maker or make_entry.gen_from_buffer(opts),
+    },
+    previewer = conf.grep_previewer(opts),
+    sorter = conf.generic_sorter(opts),
+    default_selection_index = default_selection_idx
+  }):find()
+end
+
 return custom_pickers
 

@@ -24,11 +24,13 @@ require('telescope').setup{
   pickers = {
     find_files = {
       hidden = true,
-      theme = "ivy",
     },
     grep_string = { theme = "ivy" },
     oldfiles = { theme = "ivy" },
-    buffers = { path_display = { "smart" }, theme = "ivy" }
+    buffers = { path_display = { "smart" }, theme = "ivy" },
+    live_grep = { path_display = { "smart" }, theme = "ivy" },
+    current_buffer_fuzzy_find = { theme = "ivy" },
+    coc = { theme = "fuzzy" }
   } ,
   extensions = {
     fzf = {

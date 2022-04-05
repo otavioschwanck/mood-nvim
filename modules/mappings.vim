@@ -93,12 +93,7 @@ lua << EOF
     c = { ":Camel<CR>", "camelCase" },
     b = { ":CamelB<CR>", "CamelCaseB" }
   },
-  l = {
-    name = "+Tmux",
-    s = { ":Telescope tmux sessions<CR>", "Sessions" },
-    w = { ":Telescope tmux windows<CR>", "Windows" },
-    p = { ":Telescope tmux pane_contents<CR>", "Pane Contents" },
-  },
+  l = { ":lua require('custom_telescope').terminals(require('telescope.themes').get_ivy{})<CR>", "List All Terminals" },
   h = {
     name = "+Help",
     t = { ":Telescope colorscheme<CR>", "Change Theme" },
@@ -134,7 +129,7 @@ lua << EOF
   ["<return>"] = { ":Telescope resume<CR>", "Telescope Resume" },
   s = {
     name = "+Search",
-    D = { ":lua require('custom_telescope').live_grep_in_folder()<CR>", 'Search text in one or more folders' },
+    D = { ":lua require('custom_telescope').live_grep_in_folder(require('custom_telescope').terminals(require('telescope.themes').get_ivy{}))<CR>", 'Search text in one or more folders' },
     d = { ":lua require('telescope.builtin').live_grep { search_dirs = {vim.fn.expand('%:p:h')}, prompt_title = 'Live grep inside ' .. vim.fn.expand('%:p:h') }<CR>", 'Search text in some folder' },
     p = { ":lua require('custom_telescope').ripgrep()<CR>", "Search text on Project" },
     P = { ":CocSearch ", "Search text using CoC (for search and replace)" },
@@ -177,8 +172,8 @@ lua << EOF
     l = { ":GcLog -- %<CR>", "Log this file" },
     B = { ":Telescope git_branches<CR>", "Change Branch" }
   },
-  [','] = { ":Telescope buffers only_cwd=true ignore_current_buffer=true sort_lastused=true<CR>", "Find Buffers in this project" },
-  ['<tab>'] = { ":Telescope buffers ignore_current_buffer=true sort_lastused=true<CR>", "Find all buffers" },
+  [','] = { ":Telescope buffers only_cwd=true ignore_current_buffer=true sort_mru=true<CR>", "Find Buffers in this project" },
+  ['<tab>'] = { ":Telescope buffers ignore_current_buffer=true sort_mru=true<CR>", "Find all buffers" },
   b = {
     name = "+Buffer",
     p = { ":silent BufSurfBack<CR>", "Previous" },
