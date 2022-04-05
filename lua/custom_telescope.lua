@@ -84,9 +84,15 @@ custom_pickers.terminals = function(opts)
         end
     return true
   end, vim.api.nvim_list_bufs())
+
   if not next(bufnrs) then
+    print("No terminals found.")
     return
   end
+
+  table.sort(bufnrs, function(a, b)
+    return vim.fn.getbufinfo(a)[1].lastused > vim.fn.getbufinfo(b)[1].lastused
+  end)
 
   local buffers = {}
   local default_selection_idx = 1
