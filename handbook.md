@@ -18,7 +18,7 @@ On your personal configuration you can configure stuff like commands to run with
 # Quick Tips
 
 - To navigate on telescope use C-j and C-k.
-- To command history on harpoon, use C-n and C-p.
+- To command history on telescope, use C-n and C-p.
 - M-c means Alt + c or Option + c
 
 # Buffer Navigation and Management
