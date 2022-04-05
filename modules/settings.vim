@@ -340,7 +340,7 @@ let g:machine_gun_regexp.solidity = 'function \|modifier \|constructor(.*'
 let g:machine_gun_regexp.default = '{\|\}'
 let g:machine_gun_regexp.markdown = '^#'
 let g:machine_gun_regexp.python = ':$'
-let g:machine_gun_regexp.empty = '^>\|^E\|Failure\/Error'
+let g:machine_gun_regexp.empty = '^>\|Failure\/Error'
 
 function VimMachineGunDown()
   let buftype = getbufvar('', '&filetype', 'ERROR')
