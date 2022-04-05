@@ -86,7 +86,6 @@ return require('packer').startup(function()
   use 'junegunn/vim-easy-align'
   use 'tami5/sqlite.lua'
   use 'ellisonleao/gruvbox.nvim'
-  use 'mildred/vim-bufmru'
   use 'fannheyward/telescope-coc.nvim'
   use 'tanvirtin/monokai.nvim'
   use 'D1mon/molokai'
