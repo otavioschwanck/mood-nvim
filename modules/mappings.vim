@@ -181,8 +181,8 @@ lua << EOF
   ['<tab>'] = { ":Telescope buffers ignore_current_buffer=true sort_lastused=true<CR>", "Find all buffers" },
   b = {
     name = "+Buffer",
-    p = { "<Plug>(buf-surf-back)", "Previous" },
-    n = { "<Plug>(buf-surf-forward)", "Next" },
+    p = { ":silent BufSurfBack<CR>", "Previous" },
+    n = { ":silent BufSurfForward<CR>", "Next" },
     N = { ":e ~/.nvim-scratch<CR>", "Open Scratch Buffer" },
     f = { ":Telescope buffers only_cwd=true<CR>", "Find Buffers in this project" },
     F = { ":Telescope buffers<CR>", "Find all buffers" },
@@ -250,8 +250,8 @@ vmap - $<Left>
 
 nnoremap gr :NvimTreeRefresh<CR>
 
-nmap L <Plug>(buf-surf-forward)
-nmap H <Plug>(buf-surf-back)
+nmap <silent> H :BufSurfBack<CR>
+nmap <silent> L :BufSurfForward<CR>
 
 nnoremap <C-s> :Telescope current_buffer_fuzzy_find fuzzy=false case_mode=ignore_case<CR>
 
