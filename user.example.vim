@@ -1,12 +1,11 @@
 " To reload your configs, press :so %
 
-" Select your colorscheme.  To see others: SPC h t
 " lua require('onedark').setup { style = 'darker' } -- Options: dark, darker, cool, deep, warm, warmer
 
 " SPC h t to see all themes
-" I also recommend: catppuccin, onedark, gruvbox, melange or everforest
 
 let g:sonokai_style = 'andromeda' " Available: 'default', 'atlantis', 'andromeda', 'shusia', 'maia', 'espresso'
+" I also recommend: catppuccin, onedark, gruvbox, melange, everforest or any fox
 colorscheme sonokai
 
 " set relativenumber " Relative numbers?
