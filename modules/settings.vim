@@ -16,6 +16,8 @@ if !1 | finish | endif
 
 set hidden
 
+set shiftwidth=2
+set tabstop=2
 set nocompatible
 set ic
 set colorcolumn=125
