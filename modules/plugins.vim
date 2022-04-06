@@ -12,7 +12,6 @@ return require('packer').startup(function()
   use 'tpope/vim-repeat'
   use { 'ggandor/lightspeed.nvim', commit = "005320ff9e128de8689c6e675fa64ed5963e2d1c" }
   use 'dhruvasagar/vim-table-mode'
-  use 'LunarVim/Colorschemes'
   use 'catppuccin/nvim'
   use 'folke/tokyonight.nvim'
   use 'wbthomason/packer.nvim'
