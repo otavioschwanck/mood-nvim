@@ -36,12 +36,21 @@ nmap <silent> ]e <Plug>(coc-diagnostic-next)
 " GoTo code navigation.
 nmap <silent> gt :Telescope coc type_definitions<CR>
 nmap <silent> gi :Telescope coc implementations<CR>
-nmap <silent> gD :Telescope coc references<CR>
+nmap <silent> gD :call TelescopeGoToReferences()<CR>
 
 function! TelescopeGoToDefinition()
-  let ret = execute("Telescope coc definitions")
+  let ret = execute("Telescope coc definitions theme=ivy")
   echom ret
   if ret =~ "Error" || ret =~ "no definitions found" || ret =~ "server does not support"
+    execute "AnyJump"
+    echo "Cannot find using lsp, falling back to AnyJump."
+  endif
+endfunction
+
+function! TelescopeGoToReferences()
+  let ret = execute("Telescope coc references theme=ivy")
+  echom ret
+  if ret =~ "Error" || ret =~ "no references found" || ret =~ "server does not support"
     execute "AnyJump"
     echo "Cannot find using lsp, falling back to AnyJump."
   endif

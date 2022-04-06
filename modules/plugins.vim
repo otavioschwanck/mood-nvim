@@ -87,6 +87,7 @@ return require('packer').startup(function()
   use 'tami5/sqlite.lua'
   use 'ellisonleao/gruvbox.nvim'
   use 'fannheyward/telescope-coc.nvim'
+  use 'savq/melange'
   use 'mtikekar/nvim-send-to-term'
   use 'tanvirtin/monokai.nvim'
   use 'D1mon/molokai'
