@@ -1,6 +1,7 @@
 {
   "suggest.noselect": false,
   "snippets.userSnippetsDirectory": "~/.config/nvim/user-snippets",
+  "coc.preferences.formatOnSaveFiletypes": ["typescriptreact"],
   "coc.preferences.silentAutoupdate": true,
   "coc.preferences.extensionUpdateCheck": "daily",
   "emmet.includeLanguages": { "eruby": "html" },
