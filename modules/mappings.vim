@@ -144,13 +144,13 @@ lua << EOF
     name = "+File",
     r = { ":Telescope oldfiles<CR>", "Recent Files" },
     s = { ":w!", "Save" },
-    R = { ":Move ", "Rename Current File" },
+    R = { ":call BetterMove()<CR>", "Rename or Move Current File" },
     D = { ":Delete<CR>", "Delete the current file" },
     p = { ":e ~/.config/nvim/user.vim<CR>", "Open Your Private Files" },
     P = { ":e ~/.config/nvim/lua/user-plugins.lua<CR>", "Open Your Plugin" },
     y = { ":call CopyRelativePath()<CR>", "Copy Relative Path" },
     Y = { ":call CopyFullPath()<CR>", "Copy Full Path" },
-    C = { ":saveas ", "Copy current file to" }
+    C = { ":call BetterCopy()<CR>", "Copy current file to" }
   },
   m = {
     name = "+Ruby Refact",
@@ -357,6 +357,18 @@ function GetClassName()
       echo "No class or module found"
     endif
   endif
+endfunction
+
+function BetterMove()
+    let current_folder = expand('%:p:h')
+
+    call feedkeys(":Move " . current_folder . "/", 'n')
+endfunction
+
+function BetterCopy()
+    let current_folder = expand('%:p:h')
+
+    call feedkeys(":saveas " . current_folder . "/", 'n')
 endfunction
 
 nnoremap <expr> 0 (col('.') - 1) == match(getline('.'),'\S') ? "<Home>" : "^"
