@@ -4,7 +4,7 @@
   "coc.preferences.formatOnSaveFiletypes": ["typescriptreact"],
   "coc.preferences.silentAutoupdate": true,
   "coc.preferences.extensionUpdateCheck": "daily",
-  "emmet.includeLanguages": { "eruby": "html" },
+  "emmet.includeLanguages": { "eruby": "html", "typescriptreact": "react", "javascriptreact": "react" },
   "snippets.ultisnips.directories": [
     "~/.config/nvim/UltiSnips"
   ],
