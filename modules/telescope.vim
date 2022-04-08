@@ -24,6 +24,7 @@ require('telescope').setup{
   pickers = {
     find_files = {
       hidden = true,
+      theme = "ivy"
     },
     grep_string = { theme = "ivy" },
     oldfiles = { theme = "ivy" },
