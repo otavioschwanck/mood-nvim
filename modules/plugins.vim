@@ -108,7 +108,6 @@ return require('packer').startup(function()
 
   }
 
-  use 'tomlion/vim-solidity'
   use {
     'nvim-telescope/telescope.nvim',
     requires = { {'nvim-lua/plenary.nvim'} }
