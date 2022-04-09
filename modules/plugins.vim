@@ -23,7 +23,6 @@ return require('packer').startup(function()
   use 'tpope/vim-rails'
   use 'vim-ruby/vim-ruby'
   use 'jeetsukumaran/vim-indentwise'
-  use 'akinsho/toggleterm.nvim'
   use 'farmergreg/vim-lastplace'
   use 'ThePrimeagen/harpoon'
   use 'svermeulen/vim-yoink'
