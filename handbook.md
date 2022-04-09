@@ -249,9 +249,14 @@ Go to your personal settings `SPC f p` and add terminal commands.  There is a bu
 
 On command mode `:`, you can press C-v to paste, `C-a` to go back one word, and `C-e` to go forward one word.
 
+# Manage projects
+
+- To add current project to projects list, press `SPC p` then `<C-a>`
+- To browse projects, press `SPC p`
+- To just switch the working directory without find file in project, press `<C-l>` while the target project is selected.
+
 ## Additional Lsp Servers
 To install additional servers, look for the plugin CoC
-
 
 ## Some useful plugins
 

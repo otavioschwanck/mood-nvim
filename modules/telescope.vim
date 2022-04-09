@@ -34,6 +34,7 @@ require('telescope').setup{
     coc = { theme = "fuzzy" }
   } ,
   extensions = {
+    project = { base_dirs = vim.g.project_dirs },
     fzf = {
       fuzzy = true,                    -- false will only do exact matching
       override_generic_sorter = true,  -- override the generic sorter
@@ -93,9 +94,8 @@ else
     get_dashboard_git_status()
 end
 
-require"telescope".load_extension("tmux")
+require'telescope'.load_extension('project')
 require('telescope').load_extension('coc')
-require('telescope').load_extension('projects')
 require("telescope").load_extension "file_browser"
 require('telescope').load_extension('fzf')
 EOF

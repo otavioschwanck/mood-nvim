@@ -12,8 +12,6 @@ return require('packer').startup(function()
   use 'tpope/vim-repeat'
   use { 'ggandor/lightspeed.nvim', commit = "005320ff9e128de8689c6e675fa64ed5963e2d1c" }
   use 'dhruvasagar/vim-table-mode'
-  use 'catppuccin/nvim'
-  use 'folke/tokyonight.nvim'
   use 'wbthomason/packer.nvim'
   use 'tpope/vim-commentary'
   use 'machakann/vim-highlightedyank'
@@ -31,20 +29,15 @@ return require('packer').startup(function()
   use 'svermeulen/vim-yoink'
   use 'p00f/nvim-ts-rainbow'
   use 'sainnhe/sonokai'
-  use 'sainnhe/everforest'
   use 't9md/vim-choosewin'
   use 'ThePrimeagen/refactoring.nvim'
   use 'psf/black'
   use 'tpope/vim-fugitive'
   use 'AndrewRadev/undoquit.vim'
-  use 'pseewald/vim-anyfold'
   use 'michaeljsmith/vim-indent-object'
-  use 'norcalli/nvim-terminal.lua'
-  use 'camgraff/telescope-tmux.nvim'
   use 'vimlab/split-term.vim'
   use 'nvim-lualine/lualine.nvim'
   use 'mbbill/undotree'
-  use { "ahmedkhalf/project.nvim" }
   use 'sk1418/HowMuch'
 
   use {
@@ -57,20 +50,17 @@ return require('packer').startup(function()
   -- Editing stuff
   use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
   use 'nvim-treesitter/nvim-treesitter-textobjects'
-  use 'tmux-plugins/vim-tmux-focus-events'
   use {'neoclide/coc.nvim', branch = 'release'}
   use "rafamadriz/friendly-snippets"
+  use 'nvim-telescope/telescope-project.nvim'
 
   use 'windwp/nvim-ts-autotag'
   use { 'svermeulen/vim-subversive' }
-  use { 'phaazon/hop.nvim' }
 
   use 'kana/vim-textobj-user'
   use 'beloglazov/vim-textobj-quotes'
   use 'EdenEast/nightfox.nvim'
-  use 'cocopon/iceberg.vim'
   use 'kdheepak/lazygit.nvim'
-  use 'NLKNguyen/papercolor-theme'
   use 'nicwest/vim-camelsnek'
   use 'nvim-telescope/telescope-file-browser.nvim'
   use 'AndrewRadev/sideways.vim'
@@ -79,20 +69,14 @@ return require('packer').startup(function()
   use 'folke/which-key.nvim'
   use 'RRethy/nvim-treesitter-endwise'
   use 'editorconfig/editorconfig-vim'
-  use 'preservim/tagbar'
   use 'tpope/vim-abolish'
-  use({ "iamcco/markdown-preview.nvim", run = "cd app && npm install", setup = function() vim.g.mkdp_filetypes = { "markdown" } end, ft = { "markdown" }, })
   use 'terryma/vim-multiple-cursors'
   use 'junegunn/vim-easy-align'
   use 'tami5/sqlite.lua'
   use 'ellisonleao/gruvbox.nvim'
   use 'fannheyward/telescope-coc.nvim'
-  use 'savq/melange'
   use 'mtikekar/nvim-send-to-term'
-  use 'tanvirtin/monokai.nvim'
-  use 'D1mon/molokai'
   use 'skywind3000/asyncrun.vim'
-  use 'bluz71/vim-moonfly-colors'
   use 'tommcdo/vim-exchange'
   use 'pechorin/any-jump.vim'
   use 'navarasu/onedark.nvim'
@@ -117,12 +101,10 @@ LUA
 
 lua <<END
 
-require'hop'.setup { keys = 'etovxqpdygfblzhckisuran' }
 require('lualine').setup {
   extensions = { "quickfix", "nvim-tree", "toggleterm" }
 }
 require('gitsigns').setup()
-require("project_nvim").setup {}
 require('nvim-tree').setup {}
 require("indent_blankline").setup {
     show_end_of_line = true,
@@ -140,5 +122,3 @@ vim.g.indent_blankline_filetype_exclude = {
   "NvimTree",
 }
 END
-
-lua require'terminal'.setup()
