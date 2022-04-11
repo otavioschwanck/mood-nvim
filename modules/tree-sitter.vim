@@ -1,7 +1,6 @@
 lua <<EOF
 require'nvim-treesitter.configs'.setup {
-  -- One of "all", "maintained" (parsers with maintainers), or a list of languages
-  ensure_installed = "maintained",
+  ensure_installed = "all",
 
   textobjects = {
     move = {
@@ -43,11 +42,17 @@ require'nvim-treesitter.configs'.setup {
       enable = true,
   },
 
+
+  -- List of parsers to ignore installing
+  ignore_install = { "phpdoc" },
+
   autotag = {
     enable = true,
   },
   -- Install languages synchronously (only applied to `ensure_installed`)
   sync_install = false,
+
+  indent = { enable = true },
 
   highlight = {
     enable = true,
