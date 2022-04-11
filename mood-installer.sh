@@ -8,10 +8,10 @@ export LAZY_VER="0.31.4" # LAZYGIT VERSION
 # SCRIPT QUESTIONAIRE
 ask_question "base packages for neovim" install_packages
 ask_question "Ruby on Rails with Rbenv" install_ruby
+ask_question "LazyGit" install_lazygit
 install_fonts
-install_nvim
 install_gems
-install_lazygit
+install_nvim
 
 ask_question () {
   echo "Do you wish to install $1?"
@@ -37,15 +37,14 @@ install_ruby () {
   cat ruby-build/install.sh
   PREFIX=/usr/local sudo ./ruby-build/install.sh
   echo "gem: --no-document" > ~/.gemrc
-  for i in $RUBY_VERSIONS; do rbenv install $i -s; done
+  for i in $RUBY_VERSIONS; do rbenv install $i -s; echo "Installed ruby version $i"; done
 }
 
 install_fonts () {
   echo "================= INSTALLING FONTES ================="
-  sudo rm -r ~/.fonts
   mkdir ~/.fonts
   wget -q https://github.com/ryanoasis/nerd-fonts/releases/download/v2.1.0/JetBrainsMono.zip
-  unzip -q -o JetBrainsMono.zip -d ./fonts
+  unzip -q -o JetBrainsMono.zip -d ~/.fonts
   cd; rm JetBrainsMono.zip
 }
 
@@ -79,6 +78,5 @@ install_lazygit () {
   tar xf lazygit.tgz
   sudo mv lazygit /usr/local/bin/
 }
-
 
 echo "Script finished!"
