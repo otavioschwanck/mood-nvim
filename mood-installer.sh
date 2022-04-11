@@ -57,7 +57,7 @@ install_ruby_mac () {
 install_fonts () {
   echo "================= INSTALLING FONTES ================="
   mkdir ~/.fonts
-  wget -q https://github.com/ryanoasis/nerd-fonts/releases/download/v2.1.0/JetBrainsMono.zip
+  cd; wget -q https://github.com/ryanoasis/nerd-fonts/releases/download/v2.1.0/JetBrainsMono.zip
   unzip -q -o JetBrainsMono.zip -d ~/.fonts
   cd; rm JetBrainsMono.zip
 }
