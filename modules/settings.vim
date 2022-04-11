@@ -311,7 +311,7 @@ let g:dashboard_custom_section={
       \ 'description': ['ﯠ Harpoon                      C-SPC  '],
       \ 'command': 'lua require("harpoon.ui").toggle_quick_menu()' },
   \ '3': {
-      \ 'description': [' Git status                   SPC s g'],
+      \ 'description': [' Git status                   SPC TAB'],
       \ 'command': 'Telescope git_status' },
   \ '4': {
       \ 'description': [' Recent Files                 SPC f r'],

@@ -80,6 +80,7 @@ lua << EOF
   ["2"] = { ":lua require('harpoon.ui').nav_file(2)<CR>", 'Harpoon to 2' },
   ["3"] = { ":lua require('harpoon.ui').nav_file(3)<CR>", 'Harpoon to 3' },
   ["4"] = { ":lua require('harpoon.ui').nav_file(4)<CR>", 'Harpoon to 4' },
+  [";"] = { ":Telescope buffers ignore_current_buffer=true sort_mru=true<CR>", "Find All Buffers" },
   ["*"] = { ":Telescope grep_string<CR>", "Search string at point on project" },
   ["<space>"] = { ":Telescope find_files<CR>", "Find Files" },
   e = { ":NvimTreeFindFileToggle<CR>", "Toggle Tree" },
@@ -131,7 +132,6 @@ lua << EOF
     d = { ":lua require('telescope.builtin').live_grep { search_dirs = {vim.fn.expand('%:p:h')}, prompt_title = 'Live grep inside ' .. vim.fn.expand('%:p:h') }<CR>", 'Search text in some folder' },
     p = { ":lua require('custom_telescope').ripgrep()<CR>", "Search text on Project" },
     P = { ":CocSearch ", "Search text using CoC (for search and replace)" },
-    g = { ":Telescope git_status<CR>", "Search files modified in git" },
     s = { ":Telescope current_buffer_fuzzy_find fuzzy=false case_mode=ignore_case<CR>", "Fuzzy Current Buffer" },
     i = { ":call TelescopeDocumentSymbols()<CR>", "Search Outline Symbols" },
     j = { ":Telescope coc workspace_symbols<CR>", "Symbols" },
@@ -171,7 +171,7 @@ lua << EOF
     B = { ":Telescope git_branches<CR>", "Change Branch" }
   },
   [','] = { ":Telescope buffers only_cwd=true ignore_current_buffer=true sort_mru=true<CR>", "Find Buffers in this project" },
-  ['<tab>'] = { ":Telescope buffers ignore_current_buffer=true sort_mru=true<CR>", "Find all buffers" },
+  ['<tab>'] = { ":Telescope git_status<CR>", "Git Modified Files" },
   b = {
     name = "+Buffer",
     p = { ":silent BufSurfBack<CR>", "Previous" },
