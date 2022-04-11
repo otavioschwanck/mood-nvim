@@ -1,5 +1,4 @@
 let mapleader = " "
-
 function OpenTestAlternateAndSplit()
   let win_count = winnr()
   let test_path = eval('rails#buffer().alternate()')

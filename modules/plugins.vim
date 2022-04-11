@@ -22,7 +22,6 @@ return require('packer').startup(function()
   use 'alvan/vim-closetag'
   use 'tpope/vim-rails'
   use 'vim-ruby/vim-ruby'
-  use 'jeetsukumaran/vim-indentwise'
   use 'farmergreg/vim-lastplace'
   use 'ThePrimeagen/harpoon'
   use 'svermeulen/vim-yoink'

@@ -122,7 +122,7 @@ You can:
 
 1. use `SPC s p`, and then, press `C-q` to create a quickfix list.  You can navigate on quickfix with `]q` and `[q`.
 
-To execute some command in all items of the quickfix list, just run `:cfdo S/old_text/new_text/gr | :w`
+To execute some command in all items of the quickfix list, just run `:cfdo %S/old_text/new_text/gr | :w`
 
 2. use `SPC s P`, find, and then edit the search result like a file. (i find this way easier)
 
