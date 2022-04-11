@@ -49,11 +49,12 @@ install_fonts () {
 }
 
 install_nvim () {
+  counter=0
   echo "================= INSTALLING NVIM ================="
   NVIM_DIR=".config/nvim"
   if [ -d "$NVIM_DIR" ]; then
     echo "We found an already installed nvim on your computer!"
-    mv ~/.config/nvim ~/.config/nvim-mood-backup
+    mv ~/.config/nvim ~/.config/nvim-mood-backup-$counter
     echo "The files were moved to .config/nvim-mood-backup"
     echo "Now installing mood nvim from main branch."
   fi
@@ -64,6 +65,7 @@ install_nvim () {
   git config --global push.default current
   git clone --quiet --depth 1 https://github.com/wbthomason/packer.nvim ~/.local/share/nvim/site/pack/packer/start/packer.nvim
   cd ~/.local/share/nvim/site/pack/packer/start/packer.nvim; git reset --quiet --hard HEAD; git pull; cd
+  ((counter+=1))
   nvim +PackerSync
 }
 
