@@ -19,6 +19,9 @@ return require('packer').startup(function()
   use 'tpope/vim-surround'
   use 'vim-test/vim-test'
   use 'tpope/vim-eunuch'
+  use { 'yuki-yano/fzf-preview.vim', branch = "release/rpc" }
+	use {'junegunn/fzf', dir = '~/.fzf', run = './install --all' }
+	use {'junegunn/fzf.vim'}
   use 'alvan/vim-closetag'
   use 'tpope/vim-rails'
   use 'vim-ruby/vim-ruby'
