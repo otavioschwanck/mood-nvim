@@ -9,6 +9,8 @@
 " I also recommend: catppuccin, onedark, gruvbox, melange, everforest or any fox
 colorscheme nightfox
 
+let g:notes_directories = ['~/Documents/Notes']
+
 let g:project_dirs = [{ "path": "~/Projetos", "max_depth": "1" }] " Your project dirs to use with SPC p
 
 " set relativenumber " Relative numbers?

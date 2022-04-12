@@ -51,6 +51,9 @@ lua << EOF
        c = { ":Camel<CR>", "CamelCase" },
        b = { ":CamelB<CR>", "camelCaseB" }
      },
+     z = {
+       n = { ":NoteFromSelectedText<CR>", "New Note from Selected Text" }
+     },
      l = { "<Plug>Send", "Send Text to Term" },
      c = {
        name = "+Lsp and CoC",
@@ -112,6 +115,14 @@ lua << EOF
     v = { ":TestFile<CR>", "Test Current File" },
     s = { ":TestNearest<CR>", "Test Nearest Test" },
     a = { ":TestSuite<CR>", "Test Project" },
+  },
+  z = {
+    name = '+Notes',
+    n = { ":Note<CR>", "New Note" },
+    z = { ":Note ", "Find Note" },
+    s = { ":SearchNotes ", "Search inside notes" },
+    d = { ":DeleteNote<CR>", "Delete Current Node" },
+    m = { ":NoteToMarkdown<CR>", "Convert Note do Markdown" },
   },
   c = {
     name = "+Lsp (COC)",
