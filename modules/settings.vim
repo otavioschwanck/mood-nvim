@@ -305,7 +305,7 @@ let g:dashboard_custom_header = [
 
 let g:dashboard_custom_section={
   \ '1': {
-      \ 'description': [' Open Project                 SPC p p'],
+      \ 'description': [' Open Project                 SPC p  '],
       \ 'command': 'Telescope project' },
   \ '2': {
       \ 'description': ['ﯠ Harpoon                      C-SPC  '],
