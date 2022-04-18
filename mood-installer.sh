@@ -3,6 +3,8 @@ APT_PACKAGES=(sqlite3 libsqlite3-dev neovim xclip python3-pip)
 NPM_PACKAGES=(neovim diagnostic-languageserver)
 RUBY_VERSIONS=(2.7.1 2.7.3 3.1.1 3.0.3)
 GEMS=(solargraph neovim bundler)
+MOOD_GIT=(git@github.com:otavioschwanck/mood-nvim.git)
+PACKER_GIT=(https://github.com/wbthomason/packer.nvim)
 export LAZY_VER="0.31.4" # LAZYGIT VERSION
 
 get_machine_type () {
@@ -86,9 +88,9 @@ check_for_previous_nvim () {
 }
 
 clone_nvim_repositories () {
-  git clone --quiet git@github.com:otavioschwanck/mood-nvim.git ~/.config/nvim
+  git clone --quiet $MOOD_GIT ~/.config/nvim
   git config --global push.default current
-  git clone --quiet --depth 1 https://github.com/wbthomason/packer.nvim ~/.local/share/nvim/site/pack/packer/start/packer.nvim
+  git clone --quiet --depth 1 $PACKER_GIT ~/.local/share/nvim/site/pack/packer/start/packer.nvim
   cd ~/.local/share/nvim/site/pack/packer/start/packer.nvim; git reset --quiet --hard HEAD; git pull; cd
 }
 
