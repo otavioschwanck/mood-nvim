@@ -53,7 +53,7 @@ install_ruby_linux () {
 }
 
 install_ruby_mac () {
-  echo "================= TODO: INSTALLING RUBY ON MAC ================="
+  echo "================= INSTALLING RUBY ON MAC ================="
   echo 'if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi' >> ~/.zshrc
   source ~/.zshrc
 }
