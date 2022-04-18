@@ -1,4 +1,4 @@
- #!/bin/bash
+#!/bin/bash
 APT_PACKAGES=(sqlite3 libsqlite3-dev neovim xclip python3-pip)
 NPM_PACKAGES=(neovim diagnostic-languageserver)
 RUBY_VERSIONS=(2.7.1 2.7.3 3.1.1 3.0.3)
@@ -37,7 +37,7 @@ install_packages_linux () {
 
 install_packages_mac () {
   echo "================= INSTALLING PACKAGES ================="
-  brew install sqlite
+  brew install readline openssl zlib pg sqlite rben rbenv
 }
 
 install_ruby_linux () {
@@ -52,6 +52,8 @@ install_ruby_linux () {
 
 install_ruby_mac () {
   echo "================= TODO: INSTALLING RUBY ON MAC ================="
+  echo 'if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi' >> ~/.zshrc
+  source ~/.zshrc
 }
 
 install_fonts () {
@@ -62,24 +64,39 @@ install_fonts () {
   cd; rm JetBrainsMono.zip
 }
 
-install_nvim () {
-  counter=0
-  echo "================= INSTALLING NVIM ================="
+install_pip_with_python () {
+  if [ "$(which python3)" = "" ]
+  then
+    echo "Python3 not found, will look for Python"
+    python -m pip install neovim-remote pynvim --quiet
+  else
+    echo "Python3 found, began installing pip"
+    python3 -m pip install neovim-remote pynvim --quiet
+  fi
+}
+
+check_for_previous_nvim () {
   NVIM_DIR=".config/nvim"
   if [ -d "$NVIM_DIR" ]; then
     echo "We found an already installed nvim on your computer!"
-    mv ~/.config/nvim ~/.config/nvim-mood-backup-$counter
+    mv ~/.config/nvim ~/.config/nvim-mood-backup
     echo "The files were moved to .config/nvim-mood-backup"
     echo "Now installing mood nvim from main branch."
   fi
-  # Install nvim using python3
-  python3 -m pip install neovim-remote pynvim --quiet
-  # Clone NVIM respositories
+}
+
+clone_nvim_repositories () {
   git clone --quiet git@github.com:otavioschwanck/mood-nvim.git ~/.config/nvim
   git config --global push.default current
   git clone --quiet --depth 1 https://github.com/wbthomason/packer.nvim ~/.local/share/nvim/site/pack/packer/start/packer.nvim
   cd ~/.local/share/nvim/site/pack/packer/start/packer.nvim; git reset --quiet --hard HEAD; git pull; cd
-  ((counter+=1))
+}
+
+install_nvim () {
+  echo "================= INSTALLING NVIM ================="
+  install_pip_with_python
+  check_for_previous_nvim
+  clone_nvim_repositories
   nvim +PackerSync
 }
 
