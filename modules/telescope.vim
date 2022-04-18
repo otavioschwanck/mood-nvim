@@ -8,6 +8,8 @@ local fb_actions = require "telescope".extensions.file_browser.actions
 require('telescope').setup{
   defaults = {
     file_ignore_patterns = vim.g.folder_to_ignore,
+    layout_strategy = 'vertical',
+    layout_config = { height = 0.99, preview_cutoff = 10 },
     mappings = {
       i = {
         ["<C-j>"] = actions.move_selection_next,
@@ -23,16 +25,11 @@ require('telescope').setup{
   },
   pickers = {
     find_files = {
-      hidden = true,
-      theme = "ivy"
+      hidden = true
     },
-    grep_string = { theme = "ivy" },
-    oldfiles = { theme = "ivy" },
-    buffers = { path_display = { "smart" }, theme = "ivy" },
-    live_grep = { path_display = { "smart" }, theme = "ivy" },
-    current_buffer_fuzzy_find = { theme = "ivy" },
-    coc = { theme = "fuzzy" }
-  } ,
+    buffers = { path_display = { "smart" } },
+    live_grep = { path_display = { "smart" } },
+  },
   extensions = {
     project = { base_dirs = vim.g.project_dirs },
     fzf = {
