@@ -431,3 +431,5 @@ au TermOpen * setlocal nobuflisted
 augroup END
 
 let g:send_disable_mapping = 1
+
+autocmd BufEnter * ColorizerToggle
