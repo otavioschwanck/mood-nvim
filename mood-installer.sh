@@ -131,7 +131,7 @@ install_nvim () {
 
 install_gems () {
   echo "================= INSTALLING GEMS ================="
-  if [ "$(which rbenv)" = "" ]
+  if [ "$(which rbenv)" = "" ]; then
     echo "Rbenv not found"
   else
     cd ~/.rbenv/versions/; RUBY_VERSION=(*); rbenv global "$RUBY_VERSION"; cd
@@ -169,6 +169,7 @@ mac_workflow () {
 
 # SCRIPT QUESTIONAIRE
 get_machine_type
+get_bash_profile
 case "${machine}" in
   Linux)     linux_workflow;;
   Darwin)    mac_workflow;;
