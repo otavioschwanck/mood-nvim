@@ -432,4 +432,4 @@ augroup END
 
 let g:send_disable_mapping = 1
 
-autocmd BufEnter * ColorizerToggle
+autocmd BufEnter * ColorizerAttachToBuffer

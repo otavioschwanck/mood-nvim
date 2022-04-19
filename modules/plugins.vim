@@ -18,6 +18,7 @@ return require('packer').startup(function()
   use 'machakann/vim-highlightedyank'
   use 'windwp/nvim-autopairs'
   use 'tpope/vim-surround'
+  use 'NLKNguyen/papercolor-theme'
   use 'vim-test/vim-test'
   use 'tpope/vim-eunuch'
   use 'alvan/vim-closetag'
