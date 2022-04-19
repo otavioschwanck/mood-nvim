@@ -33,7 +33,15 @@ mooD Nvim is a configuration made for those who wants to install and use, withou
 - NerdFonts
 - Python
 
-# Installation
+# Automatic Installation
+
+We created a bash script to make your life easier and install Mood Nvim automatically.
+Just run the below command in the terminal on either mac or linux, choose what you want to install and have fun!
+
+```sh
+wget -O - https://raw.githubusercontent.com/otavioschwanck/mood-nvim/main/mood-installer.sh | bash
+```
+# Manual Installation
 
 1. Install a nerd font and configure your terminal to use it.  Nerd fonts [Here](https://www.nerdfonts.com/font-downloads)
 2. Install the config
