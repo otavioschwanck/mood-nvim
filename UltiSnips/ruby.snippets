@@ -39,6 +39,12 @@ def initialize(${1:args})
 end
 endsnippet
 
+snippet cls "class Foo::Bar::Vim::Something ... end" i
+class ${1:`!p snip.rv = class_name_joined(path)`}
+	${0}
+end
+endsnippet
+
 snippet attr "attribute :name, Value" i
 attribute :${column}, ${String}
 endsnippet
@@ -155,6 +161,30 @@ def camel_case(s):
 	s = sub(r"(_|-)+", " ", s).title().replace(" ", "")
 	return "".join([s[0], s[1:]])
 
+
+def class_name_joined(path):
+	if "app/" in path:
+		folder_path = "app/"
+	elif "lib/" in path:
+		folder_path = "lib/"
+	else:
+		folder_path = "/"
+
+	file_path = path.split(folder_path)
+	file_path = file_path[len(file_path) - 1]
+	file = file_path.split("/")
+
+	file[len(file) - 1] = re.sub(
+			"_spec$", "", file[len(file) - 1].replace(".rb", "")
+	)
+
+	camelized = list(map(lambda item: camel_case(item), file))
+
+	del camelized[0]
+
+	return "::".join(camelized)
+
+	return camelized
 
 def rb_spec_name(path):
 	import re

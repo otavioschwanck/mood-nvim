@@ -115,8 +115,8 @@ let g:camelsnek_i_am_an_old_fart_with_no_sense_of_humour_or_internet_culture = 1
 let g:closetag_filenames = '*.html,*.xhtml,*.phtml,*.erb'
 
 let g:multi_cursor_use_default_mapping=0
-let g:multi_cursor_start_word_key      = '<A-d>'
-let g:multi_cursor_next_key            = '<A-d>'
+let g:multi_cursor_start_word_key      = '<C-q>'
+let g:multi_cursor_next_key            = '<C-q>'
 let g:multi_cursor_quit_key            = '<Esc>'
 
 " Vim Script
