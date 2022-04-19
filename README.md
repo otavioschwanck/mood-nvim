@@ -39,7 +39,7 @@ We created a bash script to make your life easier and install Mood Nvim automati
 Just run the below command in the terminal on either mac or linux, choose what you want to install and have fun!
 
 ```sh
-wget -O - https://raw.githubusercontent.com/otavioschwanck/mood-nvim/main/mood-installer.sh | bash
+bash <(curl -Ls https://raw.githubusercontent.com/otavioschwanck/mood-nvim/main/mood-installer.sh)
 ```
 # Manual Installation
 
