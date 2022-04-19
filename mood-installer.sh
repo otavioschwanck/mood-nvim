@@ -80,14 +80,13 @@ install_ruby_mac () {
 
 install_fonts () {
   echo "================= INSTALLING FONTS ================="
-
-  if [ -d ".fonts" ]; then
-    echo ".fonts folder located, proceeding installing fonts"
+  if [ -d ~/$FONTS_LIBRARY ]; then
+    echo "Fonts folder located, proceeding installing fonts"
   else
-    mkdir ~/.fonts
+    mkdir ~/$FONTS_LIBRARY
   fi
   cd; wget -q https://github.com/ryanoasis/nerd-fonts/releases/download/v2.1.0/JetBrainsMono.zip
-  unzip -q -o JetBrainsMono.zip -d ~/.fonts
+  unzip -q -o JetBrainsMono.zip -d ~/$FONTS_LIBRARY
   cd; rm JetBrainsMono.zip
 }
 
@@ -159,12 +158,14 @@ install_lazygit_mac () {
 }
 
 linux_workflow () {
+  FONTS_LIBRARY=".fonts"
   ask_question "base packages for neovim" install_packages_linux
   ask_question "Ruby on Rails with Rbenv" install_ruby_linux
   ask_question "LazyGit" install_lazygit_linux
 }
 
 mac_workflow () {
+  FONTS_LIBRARY="Library/Fonts"
   ask_question "base packages for neovim" install_packages_mac
   ask_question "Ruby on Rails with Rbenv" install_ruby_mac
   ask_question "LazyGit" install_lazygit_mac
