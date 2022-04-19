@@ -1,10 +1,11 @@
 #!/bin/bash
 APT_PACKAGES=(sqlite3 libsqlite3-dev neovim xclip python3-pip)
 NPM_PACKAGES=(neovim diagnostic-languageserver)
-RUBY_VERSIONS=(2.7.1 2.7.3 3.1.1 3.0.3)
 GEMS=(solargraph neovim bundler)
 MOOD_GIT=(git@github.com:otavioschwanck/mood-nvim.git)
 PACKER_GIT=(https://github.com/wbthomason/packer.nvim)
+NVIM_DIR=".config/nvim"
+PACKER_DIR=".local/share/nvim/site/pack/packer/start/packer.nvim"
 export LAZY_VER="0.31.4" # LAZYGIT VERSION
 
 get_machine_type () {
@@ -42,6 +43,15 @@ install_packages_mac () {
   brew install readline openssl zlib pg sqlite rben rbenv
 }
 
+prompt_ruby_versions () {
+  echo "Which ruby versions would you like to install? Use spaces to install more than one"
+  echo "Example: 2.7.1 3.0.1 3.1.1"
+  echo "Leave blank to not install any"
+  IFS= read -rp 'Ruby Verions: ' USER_RUBY_INPUT
+  IFS=' '
+  read -a RUBY_VERSIONS <<< "$USER_RUBY_INPUT"
+}
+
 install_ruby_linux () {
   echo "================= INSTALLING RUBY ================="
   curl -fsSL https://github.com/rbenv/rbenv-installer/raw/HEAD/bin/rbenv-installer | bash
@@ -49,6 +59,7 @@ install_ruby_linux () {
   cat ruby-build/install.sh
   PREFIX=/usr/local sudo ./ruby-build/install.sh
   echo "gem: --no-document" > ~/.gemrc
+  prompt_ruby_versions
   for i in $RUBY_VERSIONS; do rbenv install $i -s; echo "Installed ruby version $i"; done
 }
 
@@ -56,6 +67,9 @@ install_ruby_mac () {
   echo "================= INSTALLING RUBY ON MAC ================="
   echo 'if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi' >> ~/.zshrc
   source ~/.zshrc
+  echo "gem: --no-document" > ~/.gemrc
+  prompt_ruby_versions
+  for i in $RUBY_VERSIONS; do rbenv install $i -s; echo "Installed ruby version $i"; done
 }
 
 install_fonts () {
@@ -78,7 +92,6 @@ install_pip_with_python () {
 }
 
 check_for_previous_nvim () {
-  NVIM_DIR=".config/nvim"
   if [ -d "$NVIM_DIR" ]; then
     echo "We found an already installed nvim on your computer!"
     mv ~/.config/nvim ~/.config/nvim-mood-backup
@@ -90,8 +103,12 @@ check_for_previous_nvim () {
 clone_nvim_repositories () {
   git clone --quiet $MOOD_GIT ~/.config/nvim
   git config --global push.default current
-  git clone --quiet --depth 1 $PACKER_GIT ~/.local/share/nvim/site/pack/packer/start/packer.nvim
-  cd ~/.local/share/nvim/site/pack/packer/start/packer.nvim; git reset --quiet --hard HEAD; git pull; cd
+
+  if [ -d "$PACKER_DIR" ]; then
+    cd ~/.local/share/nvim/site/pack/packer/start/packer.nvim; git reset --quiet --hard HEAD; git pull; cd
+  else
+    git clone --quiet --depth 1 $PACKER_GIT ~/.local/share/nvim/site/pack/packer/start/packer.nvim
+  fi
 }
 
 install_nvim () {
