@@ -131,14 +131,16 @@ install_nvim () {
 
 install_gems () {
   echo "================= INSTALLING GEMS ================="
-  if [ "$(which rbenv)" = "" ]; then
-    echo "Rbenv not found"; else
+  if [ "$(which rbenv)" = "" ]
+  then
+    echo "Rbenv not found"
+  else
     cd ~/.rbenv/versions/; RUBY_VERSION=(*); rbenv global "$RUBY_VERSION"; cd
     echo "Ruby version $RUBY_VERSION was set as global"
     echo 'eval "$(rbenv init -)"' >> ~/$BASH_PROFILE
     source ~/$BASH_PROFILE
   fi
-    for i in $GEMS; do gem install i --silent; done
+  for i in $GEMS; do gem install i --silent; done
 }
 
 install_lazygit_linux () {
