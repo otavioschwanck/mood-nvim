@@ -173,12 +173,12 @@ get_machine_type
 get_bash_profile
 case "${machine}" in
   Linux)     linux_workflow;;
-  Darwin)    mac_workflow;;
+  Mac)       mac_workflow;;
   *)         echo "OS not recognized"
 esac
 
 install_fonts
 install_gems
-# install_nvim
+install_nvim
 
 echo "Script finished!"
