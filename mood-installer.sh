@@ -60,7 +60,7 @@ install_ruby_linux () {
   PREFIX=/usr/local sudo ./ruby-build/install.sh
   echo "gem: --no-document" > ~/.gemrc
   prompt_ruby_versions
-  for i in $RUBY_VERSIONS; do rbenv install $i -s; echo "Installed ruby version $i"; done
+  for i in "${RUBY_VERSIONS[@]}"; do rbenv install $i -s; echo "Installed ruby version $i"; done
 }
 
 install_ruby_mac () {
@@ -69,7 +69,7 @@ install_ruby_mac () {
   source ~/.zshrc
   echo "gem: --no-document" > ~/.gemrc
   prompt_ruby_versions
-  for i in $RUBY_VERSIONS; do rbenv install $i -s; echo "Installed ruby version $i"; done
+  for i in "${RUBY_VERSIONS[@]}"; do rbenv install $i -s; echo "Installed ruby version $i"; done
 }
 
 install_fonts () {
