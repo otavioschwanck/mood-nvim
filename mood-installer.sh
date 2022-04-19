@@ -139,6 +139,7 @@ install_gems () {
     echo "Ruby version $RUBY_VERSION was set as global"
     echo 'eval "$(rbenv init -)"' >> ~/$BASH_PROFILE
     source ~/$BASH_PROFILE
+    exec $SHELL
   fi
   for i in $GEMS; do gem install i --silent; done
 }
