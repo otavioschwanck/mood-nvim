@@ -7,6 +7,7 @@ PACKER_GIT=(https://github.com/wbthomason/packer.nvim)
 NVIM_DIR=".config/nvim"
 PACKER_DIR=".local/share/nvim/site/pack/packer/start/packer.nvim"
 export LAZY_VER="0.31.4" # LAZYGIT VERSION
+TODAY=(date +"%m-%d-%y")
 
 get_bash_profile () {
   if test -f ".zshrc"; then
@@ -104,7 +105,7 @@ install_pip_with_python () {
 check_for_previous_nvim () {
   if [ -d "$NVIM_DIR" ]; then
     echo "We found an already installed nvim on your computer!"
-    mv ~/.config/nvim ~/.config/nvim-mood-backup
+    mv ~/.config/nvim ~/.config/nvim-mood-backup-"$TODAY"
     echo "The files were moved to .config/nvim-mood-backup"
     echo "Now installing mood nvim from main branch."
   fi
