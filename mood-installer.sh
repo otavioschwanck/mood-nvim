@@ -8,6 +8,13 @@ NVIM_DIR=".config/nvim"
 PACKER_DIR=".local/share/nvim/site/pack/packer/start/packer.nvim"
 export LAZY_VER="0.31.4" # LAZYGIT VERSION
 
+get_bash_profile () {
+  if test -f ".zshrc"; then
+    BASH_PROFILE=(.zshrc)
+  else
+    BASH_PROFILE=(.bashrc)
+  fi
+}
 get_machine_type () {
   unameOut="$(uname -s)"
   case "${unameOut}" in
@@ -65,16 +72,19 @@ install_ruby_linux () {
 
 install_ruby_mac () {
   echo "================= INSTALLING RUBY ON MAC ================="
-  echo 'if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi' >> ~/.zshrc
-  source ~/.zshrc
   echo "gem: --no-document" > ~/.gemrc
   prompt_ruby_versions
   for i in "${RUBY_VERSIONS[@]}"; do rbenv install $i -s; echo "Installed ruby version $i"; done
 }
 
 install_fonts () {
-  echo "================= INSTALLING FONTES ================="
-  mkdir ~/.fonts
+  echo "================= INSTALLING FONTS ================="
+
+  if [ -d ".fonts" ]; then
+    echo ".fonts folder located, proceeding installing fonts"
+  else
+    mkdir ~/.fonts
+  fi
   cd; wget -q https://github.com/ryanoasis/nerd-fonts/releases/download/v2.1.0/JetBrainsMono.zip
   unzip -q -o JetBrainsMono.zip -d ~/.fonts
   cd; rm JetBrainsMono.zip
@@ -121,7 +131,15 @@ install_nvim () {
 
 install_gems () {
   echo "================= INSTALLING GEMS ================="
-  for i in $GEMS; do gem install i --silent; done
+  if [ "$(which rbenv)" = "" ]
+    echo "Rbenv not found"
+  else
+    cd ~/.rbenv/versions/; RUBY_VERSION=(*); rbenv global "$RUBY_VERSION"; cd
+    echo "Ruby version $RUBY_VERSION was set as global"
+    echo 'eval "$(rbenv init -)"' >> ~/$BASH_PROFILE
+    source ~/$BASH_PROFILE
+  fi
+    for i in $GEMS; do gem install i --silent; done
 }
 
 install_lazygit_linux () {
@@ -159,6 +177,6 @@ esac
 
 install_fonts
 install_gems
-install_nvim
+# install_nvim
 
 echo "Script finished!"
