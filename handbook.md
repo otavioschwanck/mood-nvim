@@ -57,7 +57,6 @@ On your personal configuration you can configure stuff like commands to run with
 | M-l     | Focus Window in the right  |
 | M-j     | Focus Window in the bottom |
 | M-k     | Focus Window in the top    |
-| C-q     | Pick Window                |
 | ;       | Go to next window          |
 | ,       | Go to prev window          |
 |---------|----------------------------|

@@ -324,7 +324,6 @@ xmap aa <Plug>SidewaysArgumentTextobjA
 omap ia <Plug>SidewaysArgumentTextobjI
 xmap ia <Plug>SidewaysArgumentTextobjI
 
-nmap  <C-q>  <Plug>(choosewin)
 let g:choosewin_overlay_enable = 1
 
 function GetClassName()
