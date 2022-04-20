@@ -47,9 +47,9 @@ lua << EOF
       ["1"] = { ":call OpenTerm('docker-compose up -d', 'Docker Compose UP', 1, 1)<CR>", "Run Docker Compose" },
       b = {
         name = "+Brownie",
-        t = { ":call OpenTerm('brownie test', 'Brownie Test', 1, 0)<CR>", "Run Tests" },
-        c = { ":call OpenTerm('brownie compile', 'Brownie Compile', 1, 0)<CR>", "Compile" },
-        v = { ":call OpenTerm('brownie test ' .. fnameescape(expand('%')), 'Brownie Test Current File', 1, 0)<CR>", "Test Current File" } -- Run a command using the file name.
+        t = { ":call OpenTerm('brownie test', 'Brownie Test', 2, 0)<CR>", "Run Tests" },
+        c = { ":call OpenTerm('brownie compile', 'Brownie Compile', 2, 0)<CR>", "Compile" },
+        v = { ":call OpenTerm('brownie test ' .. fnameescape(expand('%')), 'Brownie Test Current File', 2, 0)<CR>", "Test Current File" } -- Run a command using the file name.
       },
       g = { ":e ~/.gitconfig<CR>", "Open Git Config" },
       z = { ":e ~/.zshrc<CR>", "Open zshrc" }
