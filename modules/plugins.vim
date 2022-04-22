@@ -29,7 +29,6 @@ return require('packer').startup(function()
   use 'svermeulen/vim-yoink'
   use 'p00f/nvim-ts-rainbow'
   use 'sainnhe/sonokai'
-  use 't9md/vim-choosewin'
   use 'ThePrimeagen/refactoring.nvim'
   use 'psf/black'
   use 'tpope/vim-fugitive'

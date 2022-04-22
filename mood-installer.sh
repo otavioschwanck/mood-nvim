@@ -48,7 +48,8 @@ install_packages_linux () {
 
 install_packages_mac () {
   echo "================= INSTALLING PACKAGES ================="
-  brew install readline openssl zlib postgresql sqlite ruby-build rbenv
+  brew install readline openssl zlib postgresql sqlite ruby-build rbenv libffi
+  brew link libpq --force
 }
 
 prompt_ruby_versions () {
