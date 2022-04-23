@@ -83,7 +83,8 @@ On your personal configuration you can configure stuff like commands to run with
 | C-j            | Go to next section                               |
 | C-k            | Go to previous section                           |
 |----------------|--------------------------------------------------|
-| C-SPC          | Toggle Harpoon                                   |
+| C-SPC          | Find Harpoon Files                               |
+| SPC i          | Edit Harpoon File                                |
 | M              | Add file to harpoon                              |
 | SPC 1 to SPC 4 | Change harpoon by order                          |
 |----------------|--------------------------------------------------|

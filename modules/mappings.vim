@@ -83,6 +83,7 @@ lua << EOF
   ["2"] = { ":lua require('harpoon.ui').nav_file(2)<CR>", 'Harpoon to 2' },
   ["3"] = { ":lua require('harpoon.ui').nav_file(3)<CR>", 'Harpoon to 3' },
   ["4"] = { ":lua require('harpoon.ui').nav_file(4)<CR>", 'Harpoon to 4' },
+  i = { ":lua require('harpoon.ui').toggle_quick_menu()<CR>", "Edit Harpoon" },
   [";"] = { ":Telescope buffers ignore_current_buffer=true sort_mru=true<CR>", "Find All Buffers" },
   ["*"] = { ":Telescope grep_string<CR>", "Search string at point on project" },
   ["<space>"] = { ":Telescope find_files<CR>", "Find Files" },
@@ -263,7 +264,7 @@ nnoremap , <C-w>W
 nnoremap ; <C-w>w
 
 nnoremap M :lua require("harpoon.mark").add_file()<CR>
-nnoremap <C-space> :lua require("harpoon.ui").toggle_quick_menu()<CR>
+nnoremap <C-space> :Telescope harpoon marks<CR>
 
 nnoremap <expr> gp '`[' . strpart(getregtype(), 0, 1) . '`]'
 

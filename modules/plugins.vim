@@ -31,6 +31,7 @@ return require('packer').startup(function()
   use 'sainnhe/sonokai'
   use 'ThePrimeagen/refactoring.nvim'
   use 'psf/black'
+  use 'ahmedkhalf/project.nvim'
   use 'tpope/vim-fugitive'
   use 'AndrewRadev/undoquit.vim'
   use 'michaeljsmith/vim-indent-object'
@@ -113,6 +114,8 @@ require("indent_blankline").setup {
 require'lightspeed'.setup {
   ignore_case = true
 }
+
+require("project_nvim").setup { }
 
 vim.g.indent_blankline_filetype_exclude = {
   "help",
