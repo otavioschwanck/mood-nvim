@@ -1,14 +1,14 @@
 " To reload your configs, press :so %
 
-" Sonokai and One Dark variants:
-
 " SPC h t to see all themes
 
 " Light theme?
 " set background=light
 
-" I also recommend nightfox and gruvbox.
-colorscheme one
+" I also recommend nightfox and PaperColor.
+
+let g:gruvbox_contrast_dark="medium" " Can be hard and soft too
+colorscheme gruvbox
 
 " SPC z to access notes commands
 let g:notes_directories = ['~/Documents/Notes']
