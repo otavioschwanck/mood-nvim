@@ -79,7 +79,6 @@ return require('packer').startup(function()
   use 'skywind3000/asyncrun.vim'
   use 'tommcdo/vim-exchange'
   use 'pechorin/any-jump.vim'
-  use 'navarasu/onedark.nvim'
   use 'ecomba/vim-ruby-refactoring'
   use 'ton/vim-bufsurf'
   use 'xolox/vim-notes'

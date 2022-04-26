@@ -1,15 +1,13 @@
 " To reload your configs, press :so %
 
-" Sonokai and One Dark variants:
-" lua require('onedark').setup { style = 'darker' } -- Options: dark, darker, cool, deep, warm, warmer
-" let g:sonokai_style = 'default' " Available: 'default', 'atlantis', 'andromeda', 'shusia', 'maia', 'espresso'
-
 " SPC h t to see all themes
 
 " Light theme?
 " set background=light
 
-" I also recommend nightfox and onedark.
+" I also recommend nightfox and PaperColor.
+
+let g:gruvbox_contrast_dark="medium" " Can be hard and soft too
 colorscheme gruvbox
 
 " SPC z to access notes commands
