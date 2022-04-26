@@ -385,8 +385,6 @@ function BetterRename()
        call feedkeys(":saveas " . current_folder . "/" . new_name . "\<CR>", "n")
        call delete(current_file)
        call feedkeys(":bd #\<CR>")
-    else
-      echo "\nThe name is the same!\n"
     endif
 endfunction
 
