@@ -154,7 +154,8 @@ lua << EOF
     name = "+File",
     r = { ":Telescope oldfiles<CR>", "Recent Files" },
     s = { ":w!", "Save" },
-    R = { ":call BetterMove()<CR>", "Rename or Move Current File" },
+    R = { ":call BetterRename()<CR>", "Rename Current File" },
+    M = { ":call BetterMove()<CR>", "Move Current FIle" },
     D = { ":Delete<CR>", "Delete the current file" },
     p = { ":e ~/.config/nvim/user.vim<CR>", "Open Your Private Files" },
     P = { ":e ~/.config/nvim/lua/user-plugins.lua<CR>", "Open Your Plugin" },
@@ -372,6 +373,21 @@ function BetterMove()
     let current_folder = expand('%:p:h')
 
     call feedkeys(":Move " . current_folder . "/", 'n')
+endfunction
+
+function BetterRename()
+    let current_file = expand("%p")
+    let current_file_name = expand("%:t")
+    let new_name = input("New name for " . current_file_name . ": ", current_file_name)
+    let current_folder = expand('%:p:h')
+
+    if(new_name != '' && new_name != current_file_name)
+       call feedkeys(":saveas " . current_folder . "/" . new_name . "\<CR>", "n")
+       call delete(current_file)
+       call feedkeys(":bd #\<CR>")
+    else
+      echo "\nThe name is the same!\n"
+    endif
 endfunction
 
 function BetterCopy()
