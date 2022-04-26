@@ -389,4 +389,4 @@ nmap <expr> T reg_recording() . reg_executing() == "" ? "<Plug>Lightspeed_T" : "
 imap <C-f> <Right>
 imap <C-a> <C-o>0
 imap <C-e> <C-o>-
-imap <C-b> <Right>
+imap <C-b> <Left>
