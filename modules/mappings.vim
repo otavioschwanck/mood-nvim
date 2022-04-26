@@ -385,3 +385,8 @@ nmap <expr> f reg_recording() . reg_executing() == "" ? "<Plug>Lightspeed_f" : "
 nmap <expr> F reg_recording() . reg_executing() == "" ? "<Plug>Lightspeed_F" : "F"
 nmap <expr> t reg_recording() . reg_executing() == "" ? "<Plug>Lightspeed_t" : "t"
 nmap <expr> T reg_recording() . reg_executing() == "" ? "<Plug>Lightspeed_T" : "T"
+
+imap <C-f> <Right>
+imap <C-a> <C-o>0
+imap <C-e> <C-o>-
+imap <C-b> <Right>
