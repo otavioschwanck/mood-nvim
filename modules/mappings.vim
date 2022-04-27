@@ -265,7 +265,18 @@ nnoremap gr :NvimTreeRefresh<CR>
 nmap <silent> H :BufferPrevious<CR>
 nmap <silent> L :BufferNext<CR>
 
-nnoremap <C-s> :Telescope current_buffer_fuzzy_find fuzzy=false case_mode=ignore_case<CR>
+let bufferline.icon_pinned = '車'
+
+nnoremap <silent> <C-e>1 :BufferGoto 1<CR>
+nnoremap <silent> <C-e>2 :BufferGoto 2<CR>
+nnoremap <silent> <C-e>3 :BufferGoto 3<CR>
+nnoremap <silent> <C-e>4 :BufferGoto 4<CR>
+nnoremap <silent> <C-e>4 :BufferGoto 5<CR>
+nnoremap <silent> <C-e>6 :BufferGoto 6<CR>
+nnoremap <silent> <C-e>7 :BufferGoto 7<CR>
+nnoremap <silent> <C-e>8 :BufferGoto 8<CR>
+nnoremap <silent> <C-e>9 :BufferLast<CR>
+nnoremap <silent> <C-s> :BufferPick<CR>
 
 nnoremap , <C-w>W
 nnoremap ; <C-w>w

@@ -38,6 +38,8 @@ On your personal configuration you can configure stuff like commands to run with
 | SPC l                  | List All Terminals (cool for opening closed tests) |
 | SPC L                  | Mark Terminal to Send Text                         |
 | SPC l (On visual mode) | Send text to marked terminal                       |
+| C-e 1 to C-e 9         | Go to Tab in position                              |
+| C-s                    | Pick a tab by first letter                         |
 |------------------------|----------------------------------------------------|
 | ]g                     | Next git hunk                                      |
 | [g                     | Previous git hunk                                  |
@@ -76,7 +78,7 @@ On your personal configuration you can configure stuff like commands to run with
 | SPC s g        | Git Modified Files                               |
 | SPC s i        | Search Document Symbols (Just love this command) |
 | spc s j        | Search Workspace Symbols                         |
-| SPC s s or C-s | Fuzzy find in current buffer                     |
+| SPC s s        | Fuzzy find in current buffer                     |
 | SPC s p        | Search text on project                           |
 | SPC s P        | Search text on project using CocSearch           |
 | SPC *          | Search text at point on project                  |
