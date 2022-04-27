@@ -82,6 +82,9 @@ On your personal configuration you can configure stuff like commands to run with
 | SPC s p        | Search text on project                           |
 | SPC s P        | Search text on project using CocSearch           |
 | SPC *          | Search text at point on project                  |
+| SPC b b        | Pin Buffer                                       |
+| SPC b c        | Close all buffes except the pinned               |
+| SPC b C        | Close all buffes except the current              |
 | C-j            | Go to next section                               |
 | C-k            | Go to previous section                           |
 |----------------|--------------------------------------------------|
