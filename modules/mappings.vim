@@ -421,3 +421,5 @@ imap <C-f> <Right>
 imap <C-a> <C-o>0
 imap <C-e> <C-o>-
 imap <C-b> <Left>
+
+nmap gF <C-w>f
