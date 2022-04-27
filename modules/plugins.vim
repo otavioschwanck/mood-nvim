@@ -39,6 +39,7 @@ return require('packer').startup(function()
   use 'nvim-lualine/lualine.nvim'
   use 'mbbill/undotree'
   use 'sk1418/HowMuch'
+  use 'romgrk/barbar.nvim'
 
   use {
     'kyazdani42/nvim-tree.lua',
