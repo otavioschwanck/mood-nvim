@@ -124,7 +124,7 @@ lua << EOF
     n = { ":Note<CR>", "New Note" },
     z = { ":Note ", "Find Note" },
     s = { ":SearchNotes ", "Search inside notes" },
-    d = { ":DeleteNote<CR>", "Delete Current Node" },
+    d = { ":DeleteNote<CR>", "Delete Current Note" },
     m = { ":NoteToMarkdown<CR>", "Convert Note do Markdown" },
   },
   c = {
