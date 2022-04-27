@@ -189,12 +189,16 @@ lua << EOF
   ['<tab>'] = { ":Telescope git_status<CR>", "Git Modified Files" },
   b = {
     name = "+Buffer",
-    p = { ":silent BufSurfBack<CR>", "Previous" },
-    n = { ":silent BufSurfForward<CR>", "Next" },
+    p = { ":silent BufferPrevious<CR>", "Previous" },
+    n = { ":silent BufferNext<CR>", "Next" },
     N = { ":e ~/.nvim-scratch<CR>", "Open Scratch Buffer" },
     f = { ":Telescope buffers only_cwd=true<CR>", "Find Buffers in this project" },
     F = { ":Telescope buffers<CR>", "Find all buffers" },
-    c = { ":w <bar> %bd <bar> e# <bar> bd# <CR>", "Close All But Current" },
+    c = { ":BufferCloseAllButCurrent<CR>", "Close All But Current" },
+    C = { ":BufferCloseAllButPinned<CR>", "Close All But Pinned" },
+    b = { ":BufferPin<CR>", "Pin Buffer" },
+    s = { ":BufferOrderByLanguage<CR>", "Sort By Language" },
+    S = { ":BufferOrderByDirectory<CR>", "Sort By Directory" },
   },
   v = { ":call OpenTerm('', 'Quick Term', 1, 0)<CR>", "Open a blank terminal" },
   w = {
@@ -258,8 +262,8 @@ vmap - $<Left>
 
 nnoremap gr :NvimTreeRefresh<CR>
 
-nmap <silent> H :BufSurfBack<CR>
-nmap <silent> L :BufSurfForward<CR>
+nmap <silent> H :BufferPrevious<CR>
+nmap <silent> L :BufferNext<CR>
 
 nnoremap <C-s> :Telescope current_buffer_fuzzy_find fuzzy=false case_mode=ignore_case<CR>
 
