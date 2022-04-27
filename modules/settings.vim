@@ -435,3 +435,5 @@ let g:send_disable_mapping = 1
 autocmd BufEnter * ColorizerAttachToBuffer
 
 let bufferline.icons = "both"
+
+let test#ruby#rspec#options = { 'file': '--format documentation' }
