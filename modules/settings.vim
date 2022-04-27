@@ -433,3 +433,5 @@ augroup END
 let g:send_disable_mapping = 1
 
 autocmd BufEnter * ColorizerAttachToBuffer
+
+let bufferline.icons = "both"
