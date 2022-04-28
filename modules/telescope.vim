@@ -41,7 +41,6 @@ require('telescope').setup{
     },
     file_browser = {
       hidden = true,
-      theme = "ivy",
       mappings = {
         ["i"] = {
           ["<C-a>"] = fb_actions.create,

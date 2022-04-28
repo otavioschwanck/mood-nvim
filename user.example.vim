@@ -102,4 +102,4 @@ let g:python3_host_prog = '/usr/bin/python3'
 " let g:folder_to_ignore = [".*.git/.*", "node_modules/.*"] " Ignore some folders on search?
 
 " Add your vim stuff here:
-" set mouse=a " Mouse support ?
+set mouse=a " Mouse support ?

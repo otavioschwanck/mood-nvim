@@ -124,7 +124,7 @@ lua << EOF
     n = { ":Note<CR>", "New Note" },
     z = { ":Note ", "Find Note" },
     s = { ":SearchNotes ", "Search inside notes" },
-    d = { ":DeleteNote<CR>", "Delete Current Node" },
+    d = { ":DeleteNote<CR>", "Delete Current Note" },
     m = { ":NoteToMarkdown<CR>", "Convert Note do Markdown" },
   },
   c = {
@@ -265,6 +265,9 @@ nnoremap gr :NvimTreeRefresh<CR>
 nmap <silent> H :BufferPrevious<CR>
 nmap <silent> L :BufferNext<CR>
 
+nmap <C-h> :BufSurfBack<CR>
+nmap <C-l> :BufSurfForward<CR>
+
 let bufferline.icon_pinned = '車'
 
 nnoremap <silent> <C-e>1 :BufferGoto 1<CR>
@@ -306,9 +309,6 @@ endfunction
 
 nnoremap gh :SidewaysLeft<cr>
 nnoremap gl :SidewaysRight<cr>
-
-nnoremap <C-h> :SidewaysLeft<cr>
-nnoremap <C-l> :SidewaysRight<cr>
 
 nmap vij vaI
 nmap vaj vaIj
@@ -421,3 +421,5 @@ imap <C-f> <Right>
 imap <C-a> <C-o>0
 imap <C-e> <C-o>-
 imap <C-b> <Left>
+
+nmap gF <C-w>f
