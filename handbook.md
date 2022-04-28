@@ -25,8 +25,10 @@ On your personal configuration you can configure stuff like commands to run with
 
 | Command                | Description                                        |
 |------------------------|----------------------------------------------------|
-| H                      | Previous Buffer                                    |
-| L                      | Next Buffer                                        |
+| H                      | Previous Tab                                       |
+| L                      | Next Tab                                           |
+| C-h                    | Previous Visited Buffer (History)                  |
+| C-l                    | Next Visit Buffer (History)                        |
 | SPC ,                  | Find Buffer in Project                             |
 | SPC TAB                | Find All Buffers                                   |
 | SPC .                  | File Browser                                       |

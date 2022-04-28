@@ -150,9 +150,10 @@ set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
 
 inoremap <silent><expr> <tab>
       \ coc#expandable() && !coc#jumpable() ? "\<C-r>=coc#rpc#request('doKeymap', ['snippets-expand-jump',''])\<CR>" :
-      \ coc#jumpable() ? "\<C-r>=coc#snippet#next()\<CR>" : ""
+      \ coc#jumpable() ? "\<C-r>=coc#snippet#next()\<CR>" : "\<tab>"
 
-let g:coc_snippet_next = '<S-tab>'
+let g:coc_snippet_next = '<tab>'
+let g:coc_snippet_prev = '<S-tab>'
 
 inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm()
                               \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"

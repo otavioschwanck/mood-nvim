@@ -52,7 +52,7 @@ require'nvim-treesitter.configs'.setup {
   -- Install languages synchronously (only applied to `ensure_installed`)
   sync_install = false,
 
-  indent = { enable = true },
+  indent = { enable = true, disable = { "ruby", "python" } },
 
   highlight = {
     enable = true,
