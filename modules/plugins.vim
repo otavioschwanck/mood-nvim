@@ -15,7 +15,6 @@ return require('packer').startup(function()
   use 'dhruvasagar/vim-table-mode'
   use 'wbthomason/packer.nvim'
   use 'tpope/vim-commentary'
-  use 'machakann/vim-highlightedyank'
   use 'gbprod/yanky.nvim'
   use 'windwp/nvim-autopairs'
   use 'tpope/vim-surround'
