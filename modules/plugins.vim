@@ -16,6 +16,7 @@ return require('packer').startup(function()
   use 'wbthomason/packer.nvim'
   use 'tpope/vim-commentary'
   use 'machakann/vim-highlightedyank'
+  use 'gbprod/yanky.nvim'
   use 'windwp/nvim-autopairs'
   use 'tpope/vim-surround'
   use 'NLKNguyen/papercolor-theme'
@@ -116,6 +117,17 @@ require'lightspeed'.setup {
 }
 
 require("project_nvim").setup { }
+
+require("yanky").setup({
+  ring = {
+    history_length = 50,
+    storage = "shada",
+    sync_with_numbered_registers = true,
+  },
+  preserve_cursor_position = {
+    enabled = true,
+  },
+})
 
 vim.g.indent_blankline_filetype_exclude = {
   "help",

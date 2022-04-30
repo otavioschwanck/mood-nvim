@@ -423,3 +423,4 @@ imap <C-e> <C-o>-
 imap <C-b> <Left>
 
 nmap gF <C-w>f
+imap <C-d> <Delete>
