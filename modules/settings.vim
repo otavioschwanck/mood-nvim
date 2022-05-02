@@ -239,6 +239,8 @@ function OpenTerm(command, name, unique, close_after_create)
 
     execute "normal! :bd\<CR>"
 
+    sleep 150m
+
     execute "call OpenTerm('" . a:command . "', '" . a:name "', '" . a:unique . "', '" . a:close_after_create . "')"
   else
     if bnr > 0
