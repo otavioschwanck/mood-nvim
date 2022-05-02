@@ -38,7 +38,7 @@ lua << EOF
   wk.register({
     -- Example of custom terminal commands
     ["="] = { ":w | :silent !bundle exec rubocop -A %<CR>", "Rubocop on current file" },
-    ["+"] = { ":w | :silent !bundle exec rubocop -A<CR>", "Rubocop on entire project" },
+    ["+"] = { ":w | :call OpenTerm('bundle exec rubocop -A', 'rubocop', 1, 0)<CR>", "Rubocop on entire project" },
     o = {
       y = {
         name = "+yarn",
@@ -99,6 +99,11 @@ let g:coc_global_extensions = ['coc-html', 'coc-css', 'coc-json', 'coc-prettier'
 " To find where is the path of python, run which python
 let g:python_host_prog = '/usr/bin/python'
 let g:python3_host_prog = '/usr/bin/python3'
+
+" Change this if ruby host on :checkhealth is not working (you can comment or
+" override its value if you use rvm or asdf).  SPC + (rubocop -A) only works
+" when host is ok
+let g:ruby_host_prog = '~/.rbenv/shims/neovim-ruby-host'
 
 " let g:folder_to_ignore = [".*.git/.*", "node_modules/.*"] " Ignore some folders on search?
 
