@@ -266,7 +266,7 @@ function OpenTerm(command, name, unique, close_after_create)
     if a:close_after_create == 1
       execute "close"
 
-      echo full_name . " is beign executed in background."
+      echo full_name . " is being executed in background."
       stopinsert
     else
       echo full_name . " is open!."
