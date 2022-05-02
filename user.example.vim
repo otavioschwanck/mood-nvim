@@ -37,7 +37,8 @@ lua << EOF
 
   wk.register({
     -- Example of custom terminal commands
-    ["="] = { ":w | :silent !bundle exec rubocop -a %<CR>", "Rubocop on current file" },
+    ["="] = { ":w | :silent !bundle exec rubocop -A %<CR>", "Rubocop on current file" },
+    ["+"] = { ":w | :silent !bundle exec rubocop -A<CR>", "Rubocop on entire project" },
     o = {
       y = {
         name = "+yarn",
