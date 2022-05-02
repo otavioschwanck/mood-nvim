@@ -118,6 +118,7 @@ lua << EOF
     v = { ":TestFile<CR>", "Test Current File" },
     s = { ":TestNearest<CR>", "Test Nearest Test" },
     a = { ":TestSuite<CR>", "Test Project" },
+    r = { ":TestLast<CR>", "Rerun Last Test" },
   },
   z = {
     name = '+Notes',
