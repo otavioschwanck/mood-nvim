@@ -176,6 +176,7 @@ function AddDebugger()
     execute "norm O<% " . g:ruby_debugger . " %>"
   endif
 
+  write
   execute "stopinsert"
 endfunction
 
@@ -189,6 +190,7 @@ function ClearDebugger()
   if buftype == "eruby"
     execute "%s/.*<% " . g:ruby_debugger . " %>\\n//gr"
   endif
+  write
 endfunction
 
 function FindInFolder(folder, title)
