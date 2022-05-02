@@ -21,9 +21,9 @@ function OpenTestAlternate()
 
   if !filereadable(test_path) && join(getline(1,'$'), "\n") == ''
     if test_path =~ "spec/"
-      execute "norm itemplate_test\<Tab>"
+      execute "norm itemplate_test\<C-j>"
     else
-      execute "norm iminitest\<Tab>"
+      execute "norm iminitest\<C-j>"
     endif
   endif
 endfunction
