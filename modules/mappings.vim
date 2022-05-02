@@ -28,6 +28,16 @@ function OpenTestAlternate()
   endif
 endfunction
 
+nmap <leader>1 :BufferGoto 1<CR>
+nmap <leader>2 :BufferGoto 2<CR>
+nmap <leader>3 :BufferGoto 3<CR>
+nmap <leader>4 :BufferGoto 4<CR>
+nmap <leader>5 :BufferGoto 5<CR>
+nmap <leader>6 :BufferGoto 6<CR>
+nmap <leader>7 :BufferGoto 7<CR>
+nmap <leader>8 :BufferGoto 8<CR>
+nmap <leader>9 :BufferGoto 9<CR>
+
 nmap gq "jyiw:%s/<C-r>"//gr<Left><Left><Left>
 nmap gQ "jyiw:%S/<C-r>"//gr<Left><Left><Left>
 xnoremap gq "jy:%s/<C-r>"//gr<Left><Left><Left>
@@ -81,10 +91,15 @@ lua << EOF
   wk.register({
   x = { "<C-w>c", "Kill Window" },
   ["-"] = { "migg=G\'i:w<CR>", "Indent Current File" },
-  ["1"] = { ":lua require('harpoon.ui').nav_file(1)<CR>", 'Harpoon to 1' },
-  ["2"] = { ":lua require('harpoon.ui').nav_file(2)<CR>", 'Harpoon to 2' },
-  ["3"] = { ":lua require('harpoon.ui').nav_file(3)<CR>", 'Harpoon to 3' },
-  ["4"] = { ":lua require('harpoon.ui').nav_file(4)<CR>", 'Harpoon to 4' },
+  ["1"] = "which_key_ignore",
+  ["2"] = "which_key_ignore",
+  ["3"] = "which_key_ignore",
+  ["4"] = "which_key_ignore",
+  ["5"] = "which_key_ignore",
+  ["6"] = "which_key_ignore",
+  ["7"] = "which_key_ignore",
+  ["8"] = "which_key_ignore",
+  ["9"] = "which_key_ignore",
   i = { ":lua require('harpoon.ui').toggle_quick_menu()<CR>", "Edit Harpoon" },
   [";"] = { ":Telescope buffers ignore_current_buffer=true sort_mru=true<CR>", "Find All Buffers" },
   ["*"] = { ":Telescope grep_string<CR>", "Search string at point on project" },
@@ -271,15 +286,15 @@ nmap <C-l> :BufSurfForward<CR>
 
 let bufferline.icon_pinned = '車'
 
-nnoremap <silent> <C-e>1 :BufferGoto 1<CR>
-nnoremap <silent> <C-e>2 :BufferGoto 2<CR>
-nnoremap <silent> <C-e>3 :BufferGoto 3<CR>
-nnoremap <silent> <C-e>4 :BufferGoto 4<CR>
-nnoremap <silent> <C-e>4 :BufferGoto 5<CR>
-nnoremap <silent> <C-e>6 :BufferGoto 6<CR>
-nnoremap <silent> <C-e>7 :BufferGoto 7<CR>
-nnoremap <silent> <C-e>8 :BufferGoto 8<CR>
-nnoremap <silent> <C-e>9 :BufferLast<CR>
+nnoremap <silent> <C-e>1 :lua require('harpoon.ui').nav_file(1)<CR>
+nnoremap <silent> <C-e>2 :lua require('harpoon.ui').nav_file(2)<CR>
+nnoremap <silent> <C-e>3 :lua require('harpoon.ui').nav_file(3)<CR>>
+nnoremap <silent> <C-e>4 :lua require('harpoon.ui').nav_file(4)<CR>>
+nnoremap <silent> <C-e>4 :lua require('harpoon.ui').nav_file(5)<CR>>
+nnoremap <silent> <C-e>6 :lua require('harpoon.ui').nav_file(6)<CR>>
+nnoremap <silent> <C-e>7 :lua require('harpoon.ui').nav_file(7)<CR>>
+nnoremap <silent> <C-e>8 :lua require('harpoon.ui').nav_file(8)<CR>>
+nnoremap <silent> <C-e>9 :lua require('harpoon.ui').nav_file(9)<CR>
 nnoremap <silent> <C-s> :BufferPick<CR>
 
 nnoremap , <C-w>W

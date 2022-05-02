@@ -40,7 +40,7 @@ On your personal configuration you can configure stuff like commands to run with
 | SPC l                  | List All Terminals (cool for opening closed tests) |
 | SPC L                  | Mark Terminal to Send Text                         |
 | SPC l (On visual mode) | Send text to marked terminal                       |
-| C-e 1 to C-e 9         | Go to Tab in position                              |
+| SPC 1 to SPC 9         | Go to Tab in position                              |
 | C-s                    | Pick a tab by first letter                         |
 |------------------------|----------------------------------------------------|
 | ]g                     | Next git hunk                                      |
@@ -93,7 +93,7 @@ On your personal configuration you can configure stuff like commands to run with
 | C-SPC          | Find Harpoon Files                               |
 | SPC i          | Edit Harpoon File                                |
 | M              | Add file to harpoon                              |
-| SPC 1 to SPC 4 | Change harpoon by order                          |
+| C-e 1 to C-e 9 | Change harpoon by order                          |
 |----------------|--------------------------------------------------|
 
 Quick Tip: You can come back to any telescope search with `SPC RET`.
