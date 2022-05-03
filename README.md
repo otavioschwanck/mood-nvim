@@ -27,7 +27,7 @@ mooD Nvim is a configuration made for those who wants to install and use, withou
 ![demo](demo.gif)
 
 # Dependencies
-- Neovim 0.5+
+- Neovim > 0.7 && < 0.8
 - lazygit
 - ripgrep
 - NerdFonts

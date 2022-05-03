@@ -124,16 +124,12 @@ let g:nvim_tree_respect_buf_cwd = 1
 
 lua << EOF
 require("nvim-tree").setup({
-  update_cwd = true,
+  update_cwd = false,
   view = {
     mappings = {
       custom_only = false,
     },
-  },
-  update_focused_file = {
-    enable = true,
-    update_cwd = true
-  },
+  }
 })
 EOF
 
