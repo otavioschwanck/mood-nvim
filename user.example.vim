@@ -51,7 +51,8 @@ lua << EOF
       b = {
         name = "+Brownie",
         t = { ":call OpenTerm('brownie test', 'Brownie Test', 2, 0)<CR>", "Run Tests" },
-        c = { ":call OpenTerm('brownie compile', 'Brownie Compile', 2, 0)<CR>", "Compile" },
+        C = { ":call OpenTerm('brownie compile', 'Brownie Compile', 2, 0)<CR>", "Compile" },
+        c = { ":call OpenTerm('brownie console', 'Brownie Console', 1, 0)<CR>", "Console" },
         v = { ":call OpenTerm('brownie test ' .. fnameescape(expand('%')), 'Brownie Test Current File', 2, 0)<CR>", "Test Current File" } -- Run a command using the file name.
       },
       g = { ":e ~/.gitconfig<CR>", "Open Git Config" },

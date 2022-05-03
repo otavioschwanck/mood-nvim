@@ -204,6 +204,9 @@ endfunction
 
 function s:UpdateMood()
   execute "!cd ~/.config/nvim; git pull origin main -f"
+  execute "PackerClean"
+  execute "PackerInstall"
+  execute "PackerUpdate"
 endfunction
 
 let g:last_term_command = []
