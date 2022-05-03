@@ -117,7 +117,7 @@ lua << EOF
     b = { ":CamelB<CR>", "CamelCaseB" }
   },
   l = { ":lua require('custom_telescope').terminals(require('telescope.themes').get_ivy{})<CR>", "List All Terminals" },
-  L = { ":SendHere<CR>", "List All Terminals" },
+  L = { ":SendHere<CR>", "Mark Terminal to Send Text" },
   h = {
     name = "+Help",
     t = { ":Telescope colorscheme<CR>", "Change Theme" },
