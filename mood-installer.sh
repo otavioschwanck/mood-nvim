@@ -6,7 +6,7 @@ MOOD_GIT=(git@github.com:otavioschwanck/mood-nvim.git)
 PACKER_GIT=(https://github.com/wbthomason/packer.nvim)
 NVIM_DIR=".config/nvim"
 PACKER_DIR=".local/share/nvim/site/pack/packer/start/packer.nvim"
-export LAZY_VER="0.31.4" # LAZYGIT VERSION
+export LAZY_VER="0.34" # LAZYGIT VERSION
 TODAY=(date +"%m-%d-%y")
 
 get_bash_profile () {
