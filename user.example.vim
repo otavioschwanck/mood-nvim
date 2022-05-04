@@ -52,7 +52,7 @@ lua << EOF
         name = "+Brownie",
         t = { ":call OpenTerm('brownie test', 'Brownie Test', 2, 0)<CR>", "Run Tests" },
         C = { ":call OpenTerm('brownie compile', 'Brownie Compile', 2, 0)<CR>", "Compile" },
-        c = { ":call OpenTerm('brownie console', 'Brownie Console', 1, 0)<CR>", "Console" },
+        c = { ":call OpenTerm('brownie console', 'Brownie Console', 2, 0)<CR>", "Console" },
         v = { ":call OpenTerm('brownie test ' .. fnameescape(expand('%')), 'Brownie Test Current File', 2, 0)<CR>", "Test Current File" } -- Run a command using the file name.
       },
       g = { ":e ~/.gitconfig<CR>", "Open Git Config" },
@@ -77,8 +77,11 @@ lua << EOF
       K = { ":call OpenTerm('killall -9 rails ruby spring bundle', 'Kill Ruby Instances', 2, 0)<CR>", "Kill Ruby Instances" },
       a = { ":call FindInFolder('config/locales', 'Find Locales')<CR>", "Find Locales" },
       u = { ":call FindInFolder('spec/factories', 'Find Factories')<CR>", "Find Factories" },
+      U = { ":Efixtures<CR>", "Find Current Fixture" },
       s = { ":call FindInFolder('app/services', 'Find Services')<CR>", "Find Services" },
-      V = { ":Eview ", "Find views" }
+      V = { ":Eview <C-r>=Wildchar()<CR>", "Find views" },
+      n = { ":call FindInFolder('db/migrate', 'Find Migration')<CR>", "Find Migration" },
+      N = { ":Emigration<CR>", "Find Current Migration" }
     }
   }, { prefix = "<leader>", silent = false })
 EOF

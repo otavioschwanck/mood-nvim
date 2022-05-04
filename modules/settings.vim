@@ -443,3 +443,8 @@ let g:send_disable_mapping = 1
 autocmd BufEnter * ColorizerAttachToBuffer
 
 let test#ruby#rspec#options = { 'file': '--format documentation' }
+
+function! Wildchar()
+    call feedkeys("\<Tab>", 'nt')
+    return ''
+endfunction
