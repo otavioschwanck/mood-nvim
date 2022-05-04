@@ -41,6 +41,7 @@ return require('packer').startup(function()
   use 'mbbill/undotree'
   use 'sk1418/HowMuch'
   use 'romgrk/barbar.nvim'
+  use 'LunarVim/onedarker.nvim'
 
   use {
     'kyazdani42/nvim-tree.lua',

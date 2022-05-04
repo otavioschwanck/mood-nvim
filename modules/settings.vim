@@ -1,6 +1,11 @@
 au CursorHold,CursorHoldI * checktime
 au FocusGained,BufEnter * :checktime
 
+set autoread
+autocmd FocusGained,BufEnter,CursorHold,CursorHoldI * if mode() != 'c' | checktime | endif
+autocmd FileChangedShellPost *
+      \ echohl WarningMsg | echo "File changed on disk. Buffer reloaded." | echohl None
+
 au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$") | exe "normal g'\"" | endif
 autocmd SwapExists * let v:swapchoice = "e"
 
