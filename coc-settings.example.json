@@ -1,5 +1,6 @@
 {
   "suggest.noselect": false,
+  "snippets.priority": 0,
   "snippets.userSnippetsDirectory": "~/.config/nvim/user-snippets",
   "coc.preferences.formatOnSaveFiletypes": ["typescriptreact"],
   "coc.preferences.silentAutoupdate": true,
