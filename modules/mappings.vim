@@ -120,6 +120,7 @@ lua << EOF
   L = { ":SendHere<CR>", "Mark Terminal to Send Text" },
   h = {
     name = "+Help",
+    r = { ":CocRestart<CR>", "Restart CoC" },
     t = { ":Telescope colorscheme<CR>", "Change Theme" },
     h = { ":e ~/.config/nvim/handbook.md<CR>", "Open the Handbook" },
     c = { ":e ~/.config/nvim/coc-settings.json<CR>", "Coc Settings" },

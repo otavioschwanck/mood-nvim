@@ -124,6 +124,18 @@ context 'when ${1:something}' do
 end
 endsnippet
 
+snippet desc "describe '' do .. end" i
+context '${1:something}' do
+  $0
+end
+endsnippet
+
+snippet descw "describe 'when something' do .. end" i
+context 'when ${1:something}' do
+  $0
+end
+endsnippet
+
 snippet descc "description '#call' do ... end" i
 describe '#call' do
   $0
