@@ -4,11 +4,14 @@
 
 " Light theme?
 " set background=light
+" colorscheme one-nvim
 
-" I also recommend nightfox and PaperColor.
+" I also recommend gruvbox, nightfox and PaperColor.
+colorscheme onedarker
 
-let g:gruvbox_contrast_dark="medium" " Can be hard and soft too
-colorscheme gruvbox
+" Light theme? Uncomment those two lines
+" set background=light
+" colorscheme one-nvim
 
 " SPC z to access notes commands
 let g:notes_directories = ['~/Documents/Notes']
