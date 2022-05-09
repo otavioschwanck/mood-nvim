@@ -6,12 +6,11 @@
 " set background=light
 " colorscheme one-nvim
 
-" I also recommend gruvbox, nightfox and PaperColor.
+" I also recommend gruvbox, nightfox.
 colorscheme onedarker
 
-" Light theme? Uncomment those two lines
-" set background=light
-" colorscheme one-nvim
+" Light theme? Use this
+" colorscheme github_light_default
 
 " SPC z to access notes commands
 let g:notes_directories = ['~/Documents/Notes']

@@ -42,8 +42,8 @@ return require('packer').startup(function()
   use 'sk1418/HowMuch'
   use 'romgrk/barbar.nvim'
   use 'LunarVim/onedarker.nvim'
-  use 'Th3Whit3Wolf/one-nvim'
   use { 'sindrets/diffview.nvim', requires = 'nvim-lua/plenary.nvim' }
+  use 'projekt0n/github-nvim-theme'
 
   use {
     'kyazdani42/nvim-tree.lua',
