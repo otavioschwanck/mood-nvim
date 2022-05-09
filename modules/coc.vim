@@ -39,7 +39,7 @@ nmap <silent> gI :Telescope coc implementations<CR>
 nmap <silent> gD :call TelescopeGoToReferences()<CR>
 
 function! TelescopeGoToDefinition()
-  let ret = execute("Telescope coc definitions theme=ivy")
+  let ret = execute("Telescope coc definitions")
   echom ret
   if ret =~ "Error" || ret =~ "no definitions found" || ret =~ "server does not support"
     execute "AnyJump"
@@ -48,7 +48,7 @@ function! TelescopeGoToDefinition()
 endfunction
 
 function! TelescopeGoToReferences()
-  let ret = execute("Telescope coc references theme=ivy")
+  let ret = execute("Telescope coc references")
   echom ret
   if ret =~ "Error" || ret =~ "no references found" || ret =~ "server does not support"
     execute "AnyJump"
@@ -62,7 +62,7 @@ let g:symbols_without_lsp_regexp.default = 'def  '
 let g:symbols_without_lsp_regexp.empty = '^> | ^E | Failure/Error'
 
 function! TelescopeDocumentSymbols()
-  let ret = execute("Telescope coc document_symbols theme=ivy")
+  let ret = execute("Telescope coc document_symbols")
   echom ret
   if ret =~ "Error" || ret =~ "server does not support"
     let buftype = getbufvar('', '&filetype', 'ERROR')

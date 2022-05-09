@@ -116,7 +116,7 @@ lua << EOF
     c = { ":Camel<CR>", "camelCase" },
     b = { ":CamelB<CR>", "CamelCaseB" }
   },
-  l = { ":lua require('custom_telescope').terminals(require('telescope.themes').get_ivy{})<CR>", "List All Terminals" },
+  l = { ":lua require('custom_telescope').terminals()<CR>", "List All Terminals" },
   L = { ":SendHere<CR>", "Mark Terminal to Send Text" },
   h = {
     name = "+Help",
@@ -160,7 +160,7 @@ lua << EOF
   ["<return>"] = { ":Telescope resume<CR>", "Telescope Resume" },
   s = {
     name = "+Search",
-    D = { ":lua require('custom_telescope').live_grep_in_folder(require('custom_telescope').terminals(require('telescope.themes').get_ivy{}))<CR>", 'Search text in one or more folders' },
+    D = { ":lua require('custom_telescope').live_grep_in_folder()<CR>", 'Search text in one or more folders' },
     d = { ":lua require('telescope.builtin').live_grep { search_dirs = {vim.fn.expand('%:p:h')}, prompt_title = 'Live grep inside ' .. vim.fn.expand('%:p:h') }<CR>", 'Search text in some folder' },
     p = { ":lua require('custom_telescope').ripgrep()<CR>", "Search text on Project" },
     P = { ":CocSearch ", "Search text using CoC (for search and replace)" },
