@@ -157,3 +157,11 @@ Check your personal config `SPC f p` at the bottom.  Set the python envs to thei
 ## Tmux
 
 I Really recommend you to learn tmux / tmuxinator.  Take a look on tmuxinator on youtube.
+
+To install the tpm (Tmux package manager), run:
+
+```sh
+git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+```
+
+This config creates a tmux config for you (if doesn't exists).  To install the onedark theme, just press `C-x I` inside tmux
