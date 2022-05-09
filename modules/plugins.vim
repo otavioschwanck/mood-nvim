@@ -43,6 +43,7 @@ return require('packer').startup(function()
   use 'romgrk/barbar.nvim'
   use 'LunarVim/onedarker.nvim'
   use 'Th3Whit3Wolf/one-nvim'
+  use { 'sindrets/diffview.nvim', requires = 'nvim-lua/plenary.nvim' }
 
   use {
     'kyazdani42/nvim-tree.lua',
