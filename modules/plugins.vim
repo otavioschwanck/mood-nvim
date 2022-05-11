@@ -44,6 +44,12 @@ return require('packer').startup(function()
   use 'LunarVim/onedarker.nvim'
   use { 'sindrets/diffview.nvim', requires = 'nvim-lua/plenary.nvim' }
   use 'projekt0n/github-nvim-theme'
+  use {'kevinhwang91/nvim-bqf'}
+
+  -- optional
+  use {'junegunn/fzf', run = function()
+  vim.fn['fzf#install']()
+  end }
 
   use {
     'kyazdani42/nvim-tree.lua',
