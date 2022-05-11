@@ -23,7 +23,11 @@ let g:project_dirs = [{ "path": "~/Projetos", "max_depth": "1" }] " Your project
 " ~/.config/nvim/lua/user-plugins.lua (You can press gf from the link)
 
 " Whats is your favorite debugger?  Use with SPD d (add) and SPC D (clear all)
-let g:ruby_debugger = "byebug"
+let g:ruby_debugger = "require 'pry'; binding.pry"
+
+" Use Alt + d instead of m to multiple cursors
+" let g:multi_cursor_start_word_key      = '<A-d>'
+" let g:multi_cursor_next_key            = '<A-d>'
 
 " let test#ruby#rspec#executable = 'foreman run rspec' " Command to run rspec, default is bundle exec rspec
 

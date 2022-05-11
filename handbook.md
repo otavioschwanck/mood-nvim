@@ -207,11 +207,11 @@ To select, just press ENTER.  To close the suggestions pop-up, press C-e.
 
 # Multiple Cursors
 
-| Command | Description                         |
-|---------|-------------------------------------|
-| C-q     | Start multiple cursors / go forward |
-| gq      | Select all occurrences              |
-|---------|-------------------------------------|
+| Command | Description                                                                    |
+|---------|--------------------------------------------------------------------------------|
+| m       | Start multiple cursors / go forward (You can change on the user.vim (SPC f P)) |
+| gq      | Select all occurrences                                                         |
+|---------|--------------------------------------------------------------------------------|
 
 # Ruby Stuff
 
