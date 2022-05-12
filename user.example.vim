@@ -46,6 +46,9 @@ lua << EOF
     ["="] = { ":w | :silent !bundle exec rubocop -A %<CR>", "Rubocop on current file" },
     ["+"] = { ":w | :call OpenTerm('bundle exec rubocop -A', 'rubocop', 2, 0)<CR>", "Rubocop on entire project" },
     o = {
+      t = {
+        ":e ~/.tmux.conf<CR>", "Tmux Config"
+      },
       y = {
         name = "+yarn",
         i = { ":call OpenTerm('yarn install', 'Yarn Install', 1, 0)<CR>", "Install" },
