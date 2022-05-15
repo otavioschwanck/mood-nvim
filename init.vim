@@ -4,8 +4,6 @@ endfunction
 
 command! InstallConfigs :call s:InstallConfigs()
 
-lua require("user_lsp")
-
 silent :InstallConfigs
 
 runtime ./modules/plugins.vim
@@ -17,4 +15,5 @@ runtime ./modules/tree-sitter.vim
 runtime ./modules/yanky.vim
 runtime ./modules/which-key.vim
 runtime ./modules/autopairs.vim
+lua require("user_lsp")
 runtime ./user.vim

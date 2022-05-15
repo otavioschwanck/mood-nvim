@@ -26,8 +26,7 @@ local on_attach = function(client, bufnr)
   vim.api.nvim_buf_set_keymap(bufnr, 'n', '<space>f', '<cmd>lua vim.lsp.buf.formatting()<CR>', opts)
 end
 
-local servers = { 'solargraph' }
--- local servers = { 'pyright', 'solargraph', 'tsserver', 'jsonls', 'html', 'yamlls', 'stylelint_lsp', 'cssls' }
+local servers = { 'pyright', 'solargraph', 'tsserver', 'jsonls', 'html', 'yamlls', 'stylelint_lsp', 'cssls' }
 
 for _, lsp in pairs(servers) do
   require('lspconfig')[lsp].setup {
@@ -89,6 +88,12 @@ cmp.setup({
     ),
   },
 })
+
+local cmp_autopairs = require('nvim-autopairs.completion.cmp')
+cmp.event:on( 'confirm_done', cmp_autopairs.on_confirm_done({  map_char = { tex = '' } }))
+
+-- add a lisp filetype (wrap my-function), FYI: Hardcoded = { "clojure", "clojurescript", "fennel", "janet" }
+cmp_autopairs.lisp[#cmp_autopairs.lisp+1] = "racket"
 
 cmp.setup.cmdline('/', {
   mapping = cmp.mapping.preset.cmdline(),
