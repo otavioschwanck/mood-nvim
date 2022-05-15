@@ -11,11 +11,11 @@ mooD Nvim is a configuration made for those who wants to install and use, withou
 
 # Features
 
-- CoC for LSP (go to definition, autocomplete, etc)
+- Native LSP (go to definition, autocomplete, etc)
 - Extra snippets
 - Quick handbook inside vim.  Just press `SPC h h`
 - Test Runner
-- Fully customizable (plugins, settings, CoC)
+- Fully customizable (plugins, settings, LSP)
 - Find In Folder helpers: Find inside models, controller, etc using keybindngs.  See `user.vim` (`SPC f p`) for more examples.  You can define your own custom finders  You can define your own custom finders.
 - Mini Terminal Framework that can:
   - You can bind terminal commands in your `user.vim` (`SPC f p`).
@@ -131,26 +131,6 @@ Just press `SPC h h` to open the handbook inside vim.
 ## Error on python for some reason.
 
 Check your personal config `SPC f p` at the bottom.  Set the python envs to their real values.
-
-## Solargraph asks to install ruby
-
-1. On your user.vim `(SPC f p)`, remove coc-solargraph
-2. Close and reopen vim
-3. Run :CocUninstall coc-solargraph
-4. On your coc-settings.json `(SPC h c)`, add on inside languageserver key:
-
-```json
-  "languageserver": {
-    "solargraph": {
-        "command": "solargraph",
-        "args": ["stdio"],
-        "trace.server": "verbose",
-        "rootPatterns": [".git/"],
-        "filetypes": ["ruby"]
-    },
-    ...
-  }
-```
 
 # Other tips
 

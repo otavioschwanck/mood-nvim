@@ -68,10 +68,11 @@ lua << EOF
      },
      l = { "<Plug>Send", "Send Text to Term" },
      c = {
-       name = "+Lsp and CoC",
-       s = { "<Plug>(coc-convert-snippet)", "Convert selection into snippet" },
-       a = { "<Plug>(coc-codeaction-selected)", "Code Action" },
-       f = { "<Plug>(coc-format-selected)", "Format" },
+       name = "+Lsp",
+       -- TODO: Lua
+       -- s = { "<Plug>(coc-convert-snippet)", "Convert selection into snippet" },
+       -- a = { "<Plug>(coc-codeaction-selected)", "Code Action" },
+       -- f = { "<Plug>(coc-format-selected)", "Format" },
      },
      m = {
        name = "+Ruby Extract",
@@ -120,10 +121,10 @@ lua << EOF
   L = { ":SendHere<CR>", "Mark Terminal to Send Text" },
   h = {
     name = "+Help",
-    r = { ":CocRestart<CR>", "Restart CoC" },
     t = { ":Telescope colorscheme<CR>", "Change Theme" },
     h = { ":e ~/.config/nvim/handbook.md<CR>", "Open the Handbook" },
-    c = { ":e ~/.config/nvim/coc-settings.json<CR>", "Coc Settings" },
+    -- TODO: Lua
+    -- c = { ":e ~/.config/nvim/coc-settings.json<CR>", "Coc Settings" },
     u = { ":UpdateMood<CR>", "Update mooD" },
   },
   A = { ":call OpenTestAlternateAndSplit()<cr>", "Go to Test (split)" },
@@ -146,16 +147,8 @@ lua << EOF
     m = { ":NoteToMarkdown<CR>", "Convert Note do Markdown" },
   },
   c = {
-    name = "+Lsp (COC)",
-    r = { "<Plug>(coc-rename)", "Rename" },
-    a = { ":Telescope coc code_actions<CR>", "Code Action" },
-    l = { "<Plug>(coc-codelens-action)", "Code Lens" },
-    x = { ":Telescope coc diagnostics<CR>", "Diagnostics" },
-    j = { ":Telescope coc workspace_symbols<CR>", "Symbols" },
-    s = { "<Plug>(coc-convert-snippet)", "Convert selection into snippet" },
-    o = { ":OR<CR>", "Organize Imports" },
-    f = { ":Format<CR>", "Format File" },
-    i = { ":call TelescopeDocumentSymbols()<CR>", "Search Outline Symbols" }
+    -- TODO: Lua
+    name = "+Lsp"
   },
   ["<return>"] = { ":Telescope resume<CR>", "Telescope Resume" },
   s = {
@@ -166,8 +159,9 @@ lua << EOF
     S = { ":lua require('custom_telescope').ripgrep()<CR>", "Advanced Search text on Project" },
     P = { ":CocSearch ", "Search text using CoC (for search and replace)" },
     s = { ":Telescope current_buffer_fuzzy_find fuzzy=false case_mode=ignore_case<CR>", "Fuzzy Current Buffer" },
-    i = { ":call TelescopeDocumentSymbols()<CR>", "Search Outline Symbols" },
-    j = { ":Telescope coc workspace_symbols<CR>", "Symbols" },
+    -- TODO: Lua
+    -- i = { ":call TelescopeDocumentSymbols()<CR>", "Search Outline Symbols" },
+    -- j = { ":Telescope coc workspace_symbols<CR>", "Symbols" },
   },
   f = {
     name = "+File",
@@ -184,6 +178,7 @@ lua << EOF
   },
   m = {
     name = "+Ruby Refact",
+    -- TODO: Lua LSP
     d = { ":CocCommand rubocop.insert<CR>", "Disable byebug at point" },
     a = { ":RAddParameter<CR>", "Add Parameter" },
        c = { ":call GetClassName()<CR>", "Copy Class Name to Clipboard" },

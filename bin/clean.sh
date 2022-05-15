@@ -6,12 +6,6 @@ if test -f "$USER_CONFIG"; then
   echo "$USER_CONFIG Remove successfully..."
 fi
 
-COC_SETTINGS=~/.config/nvim/coc-settings.json
-if test -f "$COC_SETTINGS"; then
-  rm $COC_SETTINGS
-  echo "$COC_SETTINGS Removed successfully..."
-fi
-
 TMUX=~/.tmux.conf
 if test -f "$TMUX"; then
   rm $TMUX

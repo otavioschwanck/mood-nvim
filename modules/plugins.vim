@@ -61,7 +61,6 @@ return require('packer').startup(function()
   -- Editing stuff
   use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
   use 'nvim-treesitter/nvim-treesitter-textobjects'
-  use {'neoclide/coc.nvim', branch = 'release'}
   use "rafamadriz/friendly-snippets"
   use 'nvim-telescope/telescope-project.nvim'
 
@@ -85,7 +84,6 @@ return require('packer').startup(function()
   use 'junegunn/vim-easy-align'
   use 'tami5/sqlite.lua'
   use 'ellisonleao/gruvbox.nvim'
-  use 'fannheyward/telescope-coc.nvim'
   use 'mtikekar/nvim-send-to-term'
   use 'skywind3000/asyncrun.vim'
   use 'tommcdo/vim-exchange'

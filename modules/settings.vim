@@ -334,9 +334,6 @@ let g:dashboard_custom_section={
       \ 'description': [' User Plugins                 SPC f P'],
       \ 'command': 'e ~/.config/nvim/lua/user-plugins.lua' },
   \ '8': {
-      \ 'description': [' Edit CoC File                SPC h c'],
-      \ 'command': 'CocConfig' },
-  \ '9': {
       \ 'description': [' Update mooD                  SPC h u'],
       \ 'command': 'UpdateMood' }
   \ }

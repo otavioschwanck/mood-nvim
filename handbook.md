@@ -82,7 +82,6 @@ On your personal configuration you can configure stuff like commands to run with
 | spc s j        | Search Workspace Symbols                         |
 | SPC s s        | Fuzzy find in current buffer                     |
 | SPC s p        | Search text on project                           |
-| SPC s P        | Search text on project using CocSearch           |
 | SPC *          | Search text at point on project                  |
 | SPC b b        | Pin Buffer                                       |
 | SPC b c        | Close all buffes except the pinned               |
@@ -261,9 +260,6 @@ On command mode `:`, you can press C-v to paste, `C-a` to go back one word, and 
 - To add current project to projects list, press `SPC p` then `<C-a>`
 - To browse projects, press `SPC p`
 - To just switch the working directory without find file in project, press `<C-l>` while the target project is selected.
-
-## Additional Lsp Servers
-To install additional servers, look for the plugin CoC
 
 ## Some useful plugins
 
