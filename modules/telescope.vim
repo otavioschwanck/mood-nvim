@@ -43,7 +43,7 @@ require('telescope').setup{
       hidden = true,
       mappings = {
         ["i"] = {
-          ["<C-a>"] = fb_actions.create_from_prompt,
+          ["<C-b>"] = fb_actions.create_from_prompt,
           ["<C-v>"] = fb_actions.copy,
           ["<C-e>"] = fb_actions.move,
           ["<C-space>"] = fb_actions.remove,

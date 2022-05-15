@@ -4,6 +4,8 @@ endfunction
 
 command! InstallConfigs :call s:InstallConfigs()
 
+lua require("user_lsp")
+
 silent :InstallConfigs
 
 runtime ./modules/plugins.vim

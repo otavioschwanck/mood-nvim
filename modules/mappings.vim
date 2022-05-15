@@ -123,8 +123,7 @@ lua << EOF
     name = "+Help",
     t = { ":Telescope colorscheme<CR>", "Change Theme" },
     h = { ":e ~/.config/nvim/handbook.md<CR>", "Open the Handbook" },
-    -- TODO: Lua
-    -- c = { ":e ~/.config/nvim/coc-settings.json<CR>", "Coc Settings" },
+    l = { ":e ~/.config/nvim/lua/user_lsp.lua<CR>", "LSP Settings" },
     u = { ":UpdateMood<CR>", "Update mooD" },
   },
   A = { ":call OpenTestAlternateAndSplit()<cr>", "Go to Test (split)" },
@@ -148,7 +147,16 @@ lua << EOF
   },
   c = {
     -- TODO: Lua
-    name = "+Lsp"
+    name = "+Lsp",
+    w = {
+      name = "+Workspace",
+      a = { '<cmd>lua vim.lsp.buf.add_workspace_folder()<CR>', '' },
+      r = { '<cmd>lua vim.lsp.buf.remove_workspace_folder()<CR>', '' },
+      l = { '<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<CR>', '' }
+    },
+    r = { '<cmd>lua vim.lsp.buf.rename()<CR>', '' },
+    a = { '<cmd>lua vim.lsp.buf.code_action()<CR>', '' },
+    f = { '<cmd>lua vim.lsp.buf.formatting()<CR>', '' }
   },
   ["<return>"] = { ":Telescope resume<CR>", "Telescope Resume" },
   s = {

@@ -445,3 +445,5 @@ function! Wildchar()
     call feedkeys("\<Tab>", 'nt')
     return ''
 endfunction
+
+autocmd VimEnter * doautocmd FileType
