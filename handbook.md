@@ -204,6 +204,9 @@ Use Tab and S-Tab for go forward and backward on the autocomplete list.  You als
 
 To select, just press ENTER.  To close the suggestions pop-up, press C-e.
 
+# Emmet
+Just press C-e.
+
 # Multiple Cursors
 
 | Command | Description                                                                    |

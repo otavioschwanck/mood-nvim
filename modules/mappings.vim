@@ -445,5 +445,7 @@ imap <C-a> <C-o>0
 imap <C-e> <C-o>-
 imap <C-b> <Left>
 
+imap <C-e> <Plug>(emmet-expand-abbr)
+
 nmap gF <C-w>f
 imap <C-d> <Delete>

@@ -447,3 +447,4 @@ function! Wildchar()
 endfunction
 
 autocmd VimEnter * doautocmd FileType
+set completeopt=menu,menuone,noselect

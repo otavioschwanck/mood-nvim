@@ -3,11 +3,11 @@
 --------------------------
 
 local opts = { noremap=true, silent=true }
-vim.api.nvim_set_keymap('n', ']e', '<cmd>lua vim.diagnostic.goto_prev()<CR>', opts)
+vim.api.nvim_set_keymap('n', '[e', '<cmd>lua vim.diagnostic.goto_prev()<CR>', opts)
 vim.api.nvim_set_keymap('n', ']e', '<cmd>lua vim.diagnostic.goto_next()<CR>', opts)
 
 local on_attach = function(client, bufnr)
-  -- vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
+  vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
 
   vim.api.nvim_buf_set_keymap(bufnr, 'n', 'gR', '<cmd>lua vim.lsp.buf.declaration()<CR>', opts)
   vim.api.nvim_buf_set_keymap(bufnr, 'n', 'gd', '<cmd>lua vim.lsp.buf.definition()<CR>', opts)
@@ -17,25 +17,6 @@ local on_attach = function(client, bufnr)
   vim.api.nvim_buf_set_keymap(bufnr, 'n', 'gD', '<cmd>lua vim.lsp.buf.references()<CR>', opts)
 
   vim.api.nvim_buf_set_keymap(bufnr, 'n', '<C-k>', '<cmd>lua vim.lsp.buf.signature_help()<CR>', opts)
-
-  vim.api.nvim_buf_set_keymap(bufnr, 'n', '<space>wa', '<cmd>lua vim.lsp.buf.add_workspace_folder()<CR>', opts)
-  vim.api.nvim_buf_set_keymap(bufnr, 'n', '<space>wr', '<cmd>lua vim.lsp.buf.remove_workspace_folder()<CR>', opts)
-  vim.api.nvim_buf_set_keymap(bufnr, 'n', '<space>wl', '<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<CR>', opts)
-  vim.api.nvim_buf_set_keymap(bufnr, 'n', '<space>rn', '<cmd>lua vim.lsp.buf.rename()<CR>', opts)
-  vim.api.nvim_buf_set_keymap(bufnr, 'n', '<space>ca', '<cmd>lua vim.lsp.buf.code_action()<CR>', opts)
-  vim.api.nvim_buf_set_keymap(bufnr, 'n', '<space>f', '<cmd>lua vim.lsp.buf.formatting()<CR>', opts)
-end
-
-local servers = { 'pyright', 'solargraph', 'tsserver', 'jsonls', 'html', 'yamlls', 'stylelint_lsp', 'cssls' }
-
-for _, lsp in pairs(servers) do
-  require('lspconfig')[lsp].setup {
-    on_attach = on_attach,
-    flags = {
-      -- This will be the default in neovim 0.7+
-      debounce_text_changes = 150,
-    }
-  }
 end
 
 -------------------------
@@ -45,7 +26,15 @@ end
 local cmp_ultisnips_mappings = require("cmp_nvim_ultisnips.mappings")
 local cmp = require("cmp")
 
+local lspkind = require('lspkind')
+
 cmp.setup({
+  formatting = {
+    format = lspkind.cmp_format({
+      mode = 'symbol_text', -- show only symbol annotations
+      maxwidth = 50, -- prevent the popup from showing more than provided characters (e.g 50 will not show more than 50 characters)
+    })
+  },
   snippet = {
     expand = function(args)
       vim.fn["UltiSnips#Anon"](args.body)
@@ -54,8 +43,12 @@ cmp.setup({
   sources = cmp.config.sources({
     { name = "nvim_lsp" },
     { name = "ultisnips" },
-    { name = "buffer" }
+    { name = "buffer" },
+    { name = "calc" }
   }),
+  completion = {
+    completeopt = 'menu,menuone,noinsert'
+  },
   mapping = {
     ["<Tab>"] = cmp.mapping(
       function(fallback)
@@ -72,7 +65,7 @@ cmp.setup({
     ['<C-d>'] = cmp.mapping(cmp.mapping.scroll_docs(-4), { 'i', 'c' }),
     ['<C-u>'] = cmp.mapping(cmp.mapping.scroll_docs(4), { 'i', 'c' }),
     ['<C-Space>'] = cmp.mapping(cmp.mapping.complete(), { 'i', 'c' }),
-    ['<C-e>'] = cmp.mapping({ i = cmp.mapping.abort(), c = cmp.mapping.close(), }),
+    ['<C-g>'] = cmp.mapping({ i = cmp.mapping.abort(), c = cmp.mapping.close(), }),
     ['<CR>'] = cmp.mapping.confirm({ select = false }),
     ["<C-j>"] = cmp.mapping(
       function(fallback)
@@ -101,3 +94,28 @@ cmp.setup.cmdline('/', {
     { name = 'buffer' }
   }
 })
+
+local servers = { 'pyright', 'solargraph', 'tsserver', 'jsonls', 'html', 'yamlls', 'stylelint_lsp', 'cssls', 'solidity_ls' }
+
+cfg = {
+  bind = true,
+  handler_opts = {
+    border = "rounded"
+  }
+}
+
+require "lsp_signature".setup()
+
+local lspconfig = require('lspconfig')
+
+for _, lsp in pairs(servers) do
+  lspconfig[lsp].setup {
+    on_attach = on_attach,
+
+    flags = {
+      -- This will be the default in neovim 0.7+
+      debounce_text_changes = 50,
+    }
+  }
+end
+

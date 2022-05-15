@@ -63,6 +63,11 @@ return require('packer').startup(function()
   use 'nvim-treesitter/nvim-treesitter-textobjects'
   use "rafamadriz/friendly-snippets"
   use 'nvim-telescope/telescope-project.nvim'
+  use { 'hrsh7th/cmp-calc' }
+  use 'mattn/emmet-vim'
+
+  use { "ray-x/lsp_signature.nvim" }
+  use { 'onsails/lspkind.nvim' }
 
   use 'windwp/nvim-ts-autotag'
   use { 'svermeulen/vim-subversive' }
@@ -129,7 +134,6 @@ return require('packer').startup(function()
 
   use {
     'lewis6991/gitsigns.nvim', requires = { 'nvim-lua/plenary.nvim' },
-
   }
 
   use {
