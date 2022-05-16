@@ -202,7 +202,7 @@ lua << EOF
     s = { ":w!", "Save" },
     R = { ":call BetterRename()<CR>", "Rename Current File" },
     M = { ":call BetterMove()<CR>", "Move Current FIle" },
-    D = { ":Delete<CR>", "Delete the current file" },
+    D = { ":call BetterDelete()<CR>", "Delete the current file" },
     p = { ":e ~/.config/nvim/user.vim<CR>", "Open Your Private Files" },
     P = { ":e ~/.config/nvim/lua/user-plugins.lua<CR>", "Open Your Plugin" },
     y = { ":call CopyRelativePath()<CR>", "Copy Relative Path" },
@@ -451,6 +451,21 @@ function BetterCopy()
     let current_folder = expand('%:p:h')
 
     call feedkeys(":saveas " . current_folder . "/", 'n')
+endfunction
+
+function BetterDelete()
+  echo 'Really want to delete current file? y/n '
+  let l:answer = nr2char(getchar())
+
+  if l:answer ==? 'y'
+    execute "normal! :Delete!\<CR>"
+    echo "Deletado com sucesso"
+  elseif l:answer ==? 'n'
+    return 0
+  else
+    echo 'Please enter "y" or "n"'
+    return BetterDelete()
+  endif
 endfunction
 
 nnoremap <expr> 0 (col('.') - 1) == match(getline('.'),'\S') ? "<Home>" : "^"
