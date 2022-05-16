@@ -1,3 +1,17 @@
+
+--------------------------
+-- DIAGNOSTICS -----------
+--------------------------
+
+local null_ls = require("null-ls")
+
+null_ls.setup({
+    sources = {
+      require("null-ls").builtins.diagnostics.eslint,
+      require("null-ls").builtins.diagnostics.rubocop,
+  }
+})
+
 --------------------------
 -- NVIM_LSPCONFIG (LSP) --
 --------------------------

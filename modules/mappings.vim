@@ -34,7 +34,7 @@ function! TelescopeDocumentSymbols()
 
     let command = get(g:symbols_without_lsp_regexp, buftype, g:symbols_without_lsp_regexp.default)
 
-    execute "normal! :Telescope current_buffer_fuzzy_find fuzzy=false case_mode=ignore_case\<CR>"
+    execute "normal! :Telescope current_buffer_fuzzy_find fuzzy=false case_mode=ignore_case search=" . command . "\<CR> pedrin"
     startinsert
   endif
 endfunction
@@ -171,15 +171,15 @@ lua << EOF
     name = "+Lsp",
     w = {
       name = "+Workspace",
-      a = { '<cmd>lua vim.lsp.buf.add_workspace_folder()<CR>', '' },
-      r = { '<cmd>lua vim.lsp.buf.remove_workspace_folder()<CR>', '' },
-      l = { '<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<CR>', '' },
+      a = { '<cmd>lua vim.lsp.buf.add_workspace_folder()<CR>', 'Add Workspace' },
+      r = { '<cmd>lua vim.lsp.buf.remove_workspace_folder()<CR>', 'Remove Workspace' },
+      l = { '<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<CR>', 'List Workspaces' },
       x = { 'Telescope diagnostics<CR>', 'Diagnostics' },
       X = { 'Telescope diagnostics<CR>', 'Diagnostics' }
     },
-    r = { '<cmd>lua vim.lsp.buf.rename()<CR>', '' },
-    a = { '<cmd>lua vim.lsp.buf.code_action()<CR>', '' },
-    f = { '<cmd>lua vim.lsp.buf.formatting()<CR>', '' },
+    r = { '<cmd>lua vim.lsp.buf.rename()<CR>', 'Rename' },
+    a = { '<cmd>lua vim.lsp.buf.code_action()<CR>', 'Code Action' },
+    f = { '<cmd>lua vim.lsp.buf.formatting()<CR>', 'Format' },
     i = { ':Telescope lsp_document_symbols<CR>', 'Document Symbols' },
     j = { ':Telescope lsp_workspace_symbols<CR>', 'Workspace Symbols' },
   },
@@ -189,8 +189,9 @@ lua << EOF
     D = { ":lua require('custom_telescope').live_grep_in_folder()<CR>", 'Search text in one or more folders' },
     d = { ":lua require('telescope.builtin').live_grep { search_dirs = {vim.fn.expand('%:p:h')}, prompt_title = 'Live grep inside ' .. vim.fn.expand('%:p:h') }<CR>", 'Search text in some folder' },
     p = { ":Telescope live_grep<CR>", "Search text on Project" },
-    S = { ":lua require('custom_telescope').ripgrep()<CR>", "Advanced Search text on Project" },
-    P = { ":CocSearch ", "Search text using CoC (for search and replace)" },
+    o = { ":Telescope live_grep grep_open_files<CR>", "Search on Open Files" },
+    P = { ":lua require('custom_telescope').ripgrep()<CR>", "Advanced Search text on Project" },
+    f = { ":CtrlSF ", "Search text using CoC (for search and replace)" },
     s = { ":Telescope current_buffer_fuzzy_find fuzzy=false case_mode=ignore_case<CR>", "Fuzzy Current Buffer" },
     i = { ":call TelescopeDocumentSymbols()<CR>", "Search Outline Symbols" },
     j = { ":Telescope lsp_workspace_symbols<CR>", "Symbols" },
