@@ -14,6 +14,30 @@ function OpenTestAlternateAndSplit()
   endif
 endfunction
 
+let g:symbols_without_lsp_regexp = {}
+let g:symbols_without_lsp_regexp.solidity = 'function | modifier  '
+let g:symbols_without_lsp_regexp.default = 'def  '
+let g:symbols_without_lsp_regexp.empty = '^> | ^E | Failure/Error'
+
+function! TelescopeDocumentSymbols()
+  let ret = execute("Telescope lsp_document_symbols")
+  echom ret
+  if ret =~ "Error" || ret =~ "no client"
+    let buftype = getbufvar('', '&filetype', 'ERROR')
+
+    if buftype == ''
+      let buftype = 'empty'
+    endif
+
+    echo buftype
+
+    let command = get(g:symbols_without_lsp_regexp, buftype, g:symbols_without_lsp_regexp.default)
+
+    execute "normal! :Telescope current_buffer_fuzzy_find fuzzy=false case_mode=ignore_case \<CR>" . command
+    startinsert
+  endif
+endfunction
+
 function OpenTestAlternate()
   let test_path = eval('rails#buffer().alternate()')
 
@@ -69,10 +93,7 @@ lua << EOF
      l = { "<Plug>Send", "Send Text to Term" },
      c = {
        name = "+Lsp",
-       -- TODO: Lua
-       -- s = { "<Plug>(coc-convert-snippet)", "Convert selection into snippet" },
-       -- a = { "<Plug>(coc-codeaction-selected)", "Code Action" },
-       -- f = { "<Plug>(coc-format-selected)", "Format" },
+       a = { "<cmd>lua vim.lsp.buf.range_code_action()<CR>", "Code Action" }
      },
      m = {
        name = "+Ruby Extract",
@@ -146,17 +167,20 @@ lua << EOF
     m = { ":NoteToMarkdown<CR>", "Convert Note do Markdown" },
   },
   c = {
-    -- TODO: Lua
     name = "+Lsp",
     w = {
       name = "+Workspace",
       a = { '<cmd>lua vim.lsp.buf.add_workspace_folder()<CR>', '' },
       r = { '<cmd>lua vim.lsp.buf.remove_workspace_folder()<CR>', '' },
-      l = { '<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<CR>', '' }
+      l = { '<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<CR>', '' },
+      x = { 'Telescope diagnostics<CR>', 'Diagnostics' },
+      X = { 'Telescope diagnostics<CR>', 'Diagnostics' }
     },
     r = { '<cmd>lua vim.lsp.buf.rename()<CR>', '' },
     a = { '<cmd>lua vim.lsp.buf.code_action()<CR>', '' },
-    f = { '<cmd>lua vim.lsp.buf.formatting()<CR>', '' }
+    f = { '<cmd>lua vim.lsp.buf.formatting()<CR>', '' },
+    i = { ':Telescope lsp_document_symbols<CR>', 'Document Symbols' },
+    j = { ':Telescope lsp_workspace_symbols<CR>', 'Workspace Symbols' },
   },
   ["<return>"] = { ":Telescope resume<CR>", "Telescope Resume" },
   s = {
@@ -167,9 +191,8 @@ lua << EOF
     S = { ":lua require('custom_telescope').ripgrep()<CR>", "Advanced Search text on Project" },
     P = { ":CocSearch ", "Search text using CoC (for search and replace)" },
     s = { ":Telescope current_buffer_fuzzy_find fuzzy=false case_mode=ignore_case<CR>", "Fuzzy Current Buffer" },
-    -- TODO: Lua
-    -- i = { ":call TelescopeDocumentSymbols()<CR>", "Search Outline Symbols" },
-    -- j = { ":Telescope coc workspace_symbols<CR>", "Symbols" },
+    i = { ":call TelescopeDocumentSymbols()<CR>", "Search Outline Symbols" },
+    j = { ":Telescope lsp_workspace_symbols<CR>", "Symbols" },
   },
   f = {
     name = "+File",
@@ -186,10 +209,8 @@ lua << EOF
   },
   m = {
     name = "+Ruby Refact",
-    -- TODO: Lua LSP
-    d = { ":CocCommand rubocop.insert<CR>", "Disable byebug at point" },
     a = { ":RAddParameter<CR>", "Add Parameter" },
-       c = { ":call GetClassName()<CR>", "Copy Class Name to Clipboard" },
+    c = { ":call GetClassName()<CR>", "Copy Class Name to Clipboard" },
   },
   ["!"] = { ":call RunLastTermCommand()<CR>", "Run Last Terminal Command" },
   g = {

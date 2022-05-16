@@ -61,25 +61,6 @@ let g:symbols_without_lsp_regexp.solidity = 'function | modifier  '
 let g:symbols_without_lsp_regexp.default = 'def  '
 let g:symbols_without_lsp_regexp.empty = '^> | ^E | Failure/Error'
 
-function! TelescopeDocumentSymbols()
-  let ret = execute("Telescope coc document_symbols")
-  echom ret
-  if ret =~ "Error" || ret =~ "server does not support"
-    let buftype = getbufvar('', '&filetype', 'ERROR')
-
-    if buftype == ''
-      let buftype = 'empty'
-    endif
-
-    echo buftype
-
-    let command = get(g:symbols_without_lsp_regexp, buftype, g:symbols_without_lsp_regexp.default)
-
-    execute "normal! :Telescope current_buffer_fuzzy_find fuzzy=false case_mode=ignore_case \<CR>" . command
-    startinsert
-  endif
-endfunction
-
 nnoremap <silent> gd :call TelescopeGoToDefinition()<CR>
 vmap <silent> gd :AnyJumpVisual<CR>
 

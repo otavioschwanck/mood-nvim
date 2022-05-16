@@ -1,7 +1,6 @@
 --------------------------
 -- NVIM_LSPCONFIG (LSP) --
 --------------------------
-
 local opts = { noremap=true, silent=true }
 vim.api.nvim_set_keymap('n', '[e', '<cmd>lua vim.diagnostic.goto_prev()<CR>', opts)
 vim.api.nvim_set_keymap('n', ']e', '<cmd>lua vim.diagnostic.goto_next()<CR>', opts)
@@ -44,11 +43,9 @@ cmp.setup({
     { name = "nvim_lsp" },
     { name = "ultisnips" },
     { name = "buffer" },
+    { name = "path" },
     { name = "calc" }
   }),
-  completion = {
-    completeopt = 'menu,menuone,noinsert'
-  },
   mapping = {
     ["<Tab>"] = cmp.mapping(
       function(fallback)
@@ -88,13 +85,6 @@ cmp.event:on( 'confirm_done', cmp_autopairs.on_confirm_done({  map_char = { tex 
 -- add a lisp filetype (wrap my-function), FYI: Hardcoded = { "clojure", "clojurescript", "fennel", "janet" }
 cmp_autopairs.lisp[#cmp_autopairs.lisp+1] = "racket"
 
-cmp.setup.cmdline('/', {
-  mapping = cmp.mapping.preset.cmdline(),
-  sources = {
-    { name = 'buffer' }
-  }
-})
-
 local servers = { 'pyright', 'solargraph', 'tsserver', 'jsonls', 'html', 'yamlls', 'stylelint_lsp', 'cssls', 'solidity_ls' }
 
 cfg = {
@@ -118,4 +108,3 @@ for _, lsp in pairs(servers) do
     }
   }
 end
-
