@@ -218,8 +218,8 @@ lua << EOF
   g = {
     name = "+Git",
     g = { ":LazyGit<CR>", "LazyGit" },
-    T = { ":0GcLog<CR>:echo 'Use ]q and [q to navigate on file history.  SPC q to close.'<CR>", "Git Time Machine" },
-    t = { ":DiffviewFileHistory<CR>:echo 'Use :DiffviewClose to quit.'<CR>", "File History" },
+    t = { ":0GcLog<CR>:echo 'Use ]q and [q to navigate on file history.  SPC q to close.'<CR>", "Git Time Machine" },
+    T = { ":DiffviewFileHistory<CR>:echo 'Use :DiffviewClose to quit.'<CR>", "File History" },
     r = { ":Gitsigns reset_hunk<CR>", "Reset hunk at point" },
     c = { ":Gdiff<CR>", "Diff from HEAD" },
     s = { ":Gitsigns stage_hunk<CR>", "Stage hunk at point" },
