@@ -181,7 +181,7 @@ lua << EOF
     a = { '<cmd>lua vim.lsp.buf.code_action()<CR>', 'Code Action' },
     f = { '<cmd>lua vim.lsp.buf.formatting()<CR>', 'Format' },
     i = { ':Telescope lsp_document_symbols<CR>', 'Document Symbols' },
-    j = { ':Telescope lsp_workspace_symbols<CR>', 'Workspace Symbols' },
+    j = { ':Telescope lsp_dynamic_workspace_symbols<CR>', 'Workspace Symbols' },
   },
   ["<return>"] = { ":Telescope resume<CR>", "Telescope Resume" },
   s = {
@@ -194,7 +194,7 @@ lua << EOF
     f = { ":CtrlSF ", "Search text using CoC (for search and replace)" },
     s = { ":Telescope current_buffer_fuzzy_find fuzzy=false case_mode=ignore_case<CR>", "Fuzzy Current Buffer" },
     i = { ":call TelescopeDocumentSymbols()<CR>", "Search Outline Symbols" },
-    j = { ":Telescope lsp_workspace_symbols<CR>", "Symbols" },
+    j = { ":Telescope lsp_dynamic_workspace_symbols<CR>", "Symbols" },
   },
   f = {
     name = "+File",
@@ -375,8 +375,6 @@ nnoremap <c-w>c :call undoquit#SaveWindowQuitHistory()<cr><c-w>c
 " Big Improvements
 imap <C-v> <C-r>+
 cnoremap <C-v> <C-r>+
-cnoremap <C-a> <C-left>
-cnoremap <C-e> <C-right>
 
 vnoremap < <gv
 vnoremap > >gv
@@ -468,7 +466,13 @@ imap <C-a> <C-o>0
 imap <C-e> <C-o>-
 imap <C-b> <Left>
 
+cnoremap <C-f> <Right>
+cnoremap <C-b> <Left>
+cnoremap <C-a> <Home>
+cnoremap <C-e> <End>
+
 imap <C-e> <Plug>(emmet-expand-abbr)
 
 nmap gF <C-w>f
 imap <C-d> <Delete>
+cmap <C-d> <Delete>

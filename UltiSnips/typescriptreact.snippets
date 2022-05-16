@@ -31,3 +31,21 @@ const ${1:`!p snip.rv = snip.basename`} = (${2:props}: ${3:Any}) => {
 
 export default $1;
 endsnippet
+
+global !p
+def camel_case(s):
+	from re import sub
+
+	s = s.replace(s[0], s[0].upper(), 1)
+
+	return s
+endglobal
+
+snippet ust "useState" b
+const [${1:val}, set`!p snip.rv = camel_case(t[1])`] = useState(${2:initialValue});
+endsnippet
+
+snippet log "console.log()" b
+console.log($0)
+endsnippet
+

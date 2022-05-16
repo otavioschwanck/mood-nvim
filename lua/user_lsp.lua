@@ -1,17 +1,3 @@
-
---------------------------
--- DIAGNOSTICS -----------
---------------------------
-
-local null_ls = require("null-ls")
-
-null_ls.setup({
-    sources = {
-      require("null-ls").builtins.diagnostics.eslint,
-      require("null-ls").builtins.diagnostics.rubocop,
-  }
-})
-
 --------------------------
 -- NVIM_LSPCONFIG (LSP) --
 --------------------------
@@ -56,7 +42,10 @@ cmp.setup({
   sources = cmp.config.sources({
     { name = "nvim_lsp" },
     { name = "ultisnips" },
-    { name = "buffer" },
+    { name = "buffer", option = { get_bufnrs = function()
+      return vim.api.nvim_list_bufs()
+    end
+    }},
     { name = "path" },
     { name = "calc" }
   }),
@@ -99,7 +88,7 @@ cmp.event:on( 'confirm_done', cmp_autopairs.on_confirm_done({  map_char = { tex 
 -- add a lisp filetype (wrap my-function), FYI: Hardcoded = { "clojure", "clojurescript", "fennel", "janet" }
 cmp_autopairs.lisp[#cmp_autopairs.lisp+1] = "racket"
 
-local servers = { 'pyright', 'solargraph', 'tsserver', 'jsonls', 'html', 'yamlls', 'stylelint_lsp', 'cssls', 'solidity_ls' }
+local servers = { 'pyright', 'tsserver', 'jsonls', 'html', 'yamlls', 'stylelint_lsp', 'cssls', 'solidity_ls' }
 
 cfg = {
   bind = true,
@@ -111,6 +100,118 @@ cfg = {
 require "lsp_signature".setup()
 
 local lspconfig = require('lspconfig')
+
+lspconfig.solargraph.setup {
+  settings = {
+    solargraph = {
+      diagnostics = false
+    }
+  }
+}
+
+lspconfig.diagnosticls.setup {
+  filetypes = { "ruby" },
+  init_options = {
+    linters = {
+      rubocop = {
+        command = "bundle",
+        sourceName = "rubocop",
+        debounce = 100,
+        args = { "exec",
+          "rubocop",
+          "--format",
+          "json",
+          "--force-exclusion",
+          "--stdin",
+          "%filepath"
+        },
+        parseJson = {
+          errorsRoot = "files[0].offenses",
+          line = "location.start_line",
+          endLine = "location.last_line",
+          column = "location.start_column",
+          endColumn = "location.end_column",
+          message = "[${cop_name}] ${message}",
+          security = "severity"
+        },
+        securities = {
+          fatal = "error",
+          error = "error",
+          warning = "warning",
+          convention = "info",
+          refactor = "info",
+          info = "info"
+        }
+      },
+      shellcheck = {
+        command = "shellcheck",
+        debounce = 100,
+        args = { "--format=gcc", "-"},
+        offsetLine = 0,
+        offsetColumn = 0,
+        sourceName = "shellcheck",
+        formatLines = 1,
+        formatPattern = {
+          "^[^:]+:(\\d+):(\\d+):\\s+([^:]+):\\s+(.*)$",
+          {
+            line = 1,
+            column = 2,
+            message = 4,
+            security = 3
+          }
+        },
+        securities = {
+          error = "error",
+          warning = "warning",
+          note = "info"
+        }
+      },
+      languagetool = {
+        command = "languagetool",
+        debounce = 200,
+        args = {"-"},
+        offsetLine = 0,
+        offsetColumn = 0,
+        sourceName = "languagetool",
+        formatLines = 2,
+        formatPattern = {
+          "^\\d+?\\.\\)\\s+Line\\s+(\\d+),\\s+column\\s+(\\d+),\\s+([^\\n]+)\nMessage:\\s+(.*)$",
+          {
+            line = 1,
+            column = 2,
+            message = { 4, 3 }
+          }
+        }
+      }
+    },
+    formatters = {
+      dartfmt = {
+        command = "dartfmt",
+        args = { "--fix" }
+      },
+      rubocop = {
+        command = "bundle",
+        args = { "exec",
+          "rubocop",
+          "-a",
+          "%filepath",
+          ">",
+          "tmp/rubocop"
+        }
+      }
+    },
+    filetypes = {
+      sh = "shellcheck",
+      email = "languagetool",
+      ruby = "rubocop"
+    },
+    formatFiletypes = {
+      dart = "dartfmt",
+      ruby = "rubocop"
+    }
+  }
+
+}
 
 for _, lsp in pairs(servers) do
   lspconfig[lsp].setup {

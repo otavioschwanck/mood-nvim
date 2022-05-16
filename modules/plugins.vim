@@ -137,7 +137,6 @@ return require('packer').startup(function()
   }
 
   use {'nvim-telescope/telescope-ui-select.nvim' }
-  use { 'jose-elias-alvarez/null-ls.nvim' }
 
   use {
     'nvim-telescope/telescope.nvim',
