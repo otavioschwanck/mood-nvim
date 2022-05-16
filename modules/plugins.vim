@@ -136,6 +136,8 @@ return require('packer').startup(function()
     'lewis6991/gitsigns.nvim', requires = { 'nvim-lua/plenary.nvim' },
   }
 
+  use {'nvim-telescope/telescope-ui-select.nvim' }
+
   use {
     'nvim-telescope/telescope.nvim',
     requires = { {'nvim-lua/plenary.nvim'} }

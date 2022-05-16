@@ -22,7 +22,8 @@ let g:symbols_without_lsp_regexp.empty = '^> | ^E | Failure/Error'
 function! TelescopeDocumentSymbols()
   let ret = execute("Telescope lsp_document_symbols")
   echom ret
-  if ret =~ "Error" || ret =~ "no client"
+
+  if ret =~ "Error" || ret =~ "no client" || ret =~ "server does not"
     let buftype = getbufvar('', '&filetype', 'ERROR')
 
     if buftype == ''
@@ -33,7 +34,7 @@ function! TelescopeDocumentSymbols()
 
     let command = get(g:symbols_without_lsp_regexp, buftype, g:symbols_without_lsp_regexp.default)
 
-    execute "normal! :Telescope current_buffer_fuzzy_find fuzzy=false case_mode=ignore_case \<CR>" . command
+    execute "normal! :Telescope current_buffer_fuzzy_find fuzzy=false case_mode=ignore_case\<CR>"
     startinsert
   endif
 endfunction

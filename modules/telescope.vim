@@ -31,6 +31,9 @@ require('telescope').setup{
     live_grep = { path_display = { "smart" } },
   },
   extensions = {
+    ["ui-select"] = {
+      require("telescope.themes").get_dropdown { }
+    },
     project = { base_dirs = vim.g.project_dirs },
     fzf = {
       fuzzy = true,                    -- false will only do exact matching
@@ -90,6 +93,7 @@ else
     get_dashboard_git_status()
 end
 
+require("telescope").load_extension("ui-select")
 require'telescope'.load_extension('project')
 require'telescope'.load_extension('harpoon')
 require("telescope").load_extension "file_browser"
