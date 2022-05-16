@@ -174,9 +174,9 @@ lua << EOF
       a = { '<cmd>lua vim.lsp.buf.add_workspace_folder()<CR>', 'Add Workspace' },
       r = { '<cmd>lua vim.lsp.buf.remove_workspace_folder()<CR>', 'Remove Workspace' },
       l = { '<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<CR>', 'List Workspaces' },
-      x = { 'Telescope diagnostics<CR>', 'Diagnostics' },
-      X = { 'Telescope diagnostics<CR>', 'Diagnostics' }
     },
+    x = { ':Telescope diagnostics<CR>', 'Diagnostics' },
+    X = { ':Telescope diagnostics<CR>', 'Diagnostics' },
     r = { '<cmd>lua vim.lsp.buf.rename()<CR>', 'Rename' },
     a = { '<cmd>lua vim.lsp.buf.code_action()<CR>', 'Code Action' },
     f = { '<cmd>lua vim.lsp.buf.formatting()<CR>', 'Format' },
