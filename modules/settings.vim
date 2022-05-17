@@ -189,7 +189,7 @@ function ClearDebugger()
   endif
 
   if buftype == "eruby"
-    execute "%s/.*<% " . g:ruby_debugger . " %>\\n//gr"
+    execute "%s/.*<% " . g:ruby_debugger . " %>\\n//gre"
   endif
   write
 endfunction
