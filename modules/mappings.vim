@@ -63,10 +63,10 @@ nmap <leader>7 :BufferGoto 7<CR>
 nmap <leader>8 :BufferGoto 8<CR>
 nmap <leader>9 :BufferGoto 9<CR>
 
-nmap gq "jyiw:,$s/<C-r>"//gci\|1,''-&&<c-b><left><left><left><left><left><left><left><left><left><left><left>
-nmap gQ "jyiw:,$S/<C-r>"//gc\|1,''-&&<c-b><left><left><left><left><left><left><left><left><left><left>
-xnoremap gq "jy:,$s/<C-r>"//gci\|1,''-&&<c-b><c-e><left><left><left><left><left><left><left><left><left><left><left><left>
-xnoremap gQ "jy:,$S/<C-r>"//gci\|1,''-&&<c-b><c-e><left><left><left><left><left><left><left><left><left><left><left><left>
+nmap gq "jyiwmO:,$s/<C-r>"//gcie\|1,''-&&\|'O<c-b><left><left><left><left><left><left><left><left><left><left><left><left><left><left><left>
+nmap gQ "jyiwmO:,$S/<C-r>"//gcie\|1,''-&&\|'O<c-b><left><left><left><left><left><left><left><left><left><left><left><left><left><left><left>
+xnoremap gq "jymO:,$s/<C-r>"//gcie\|1,''-&&\|'O<c-b><c-e><left><left><left><left><left><left><left><left><left><left><left><left><left><left><left><left>
+xnoremap gQ "jymO:,$S/<C-r>"//gcie\|1,''-&&\|'O<c-b><c-e><left><left><left><left><left><left><left><left><left><left><left><left><left><left><left><left>
 
 lua << EOF
   require("which-key").setup {}
