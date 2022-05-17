@@ -10,11 +10,41 @@ function filter_inplace(arr, func)
     for i = new_index, size_orig do arr[i] = nil end
 end
 
-function add_byebug()
-  local error = vim.diagnostic.get()[1]
-  local line = vim.fn.line(".")
-
-  print(vim.inspect(error))
+function Split(s, delimiter)
+    result = {};
+    for match in (s..delimiter):gmatch("(.-)"..delimiter) do
+        table.insert(result, match);
+    end
+    return result;
 end
 
-return add_byebug()
+function comment_rubocop()
+  local error = vim.diagnostic.get()
+  local line = vim.fn.line(".")
+  local bufnr = vim.fn.bufnr()
+  local current_error
+
+  for x, v in ipairs(error) do
+    if v.lnum + 1 == line and bufnr == v.bufnr then
+      if not current_error then
+        current_error = v
+      end
+    end
+  end
+
+  if current_error then
+    local message = current_error.message
+    local current_line = vim.fn.getline(".")
+    local parsed_message = Split(message, " ")[1]
+    parsed_message = string.gsub(parsed_message, "%[", "")
+    parsed_message = string.gsub(parsed_message, "%]", "")
+
+    if string.match(current_line, "# rubocop:disable") then
+      vim.cmd("normal! A, " .. parsed_message)
+    else
+      vim.cmd("normal! A # rubocop:disable " .. parsed_message)
+    end
+  end
+end
+
+return { comment_rubocop = comment_rubocop }

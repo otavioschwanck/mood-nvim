@@ -189,7 +189,7 @@ lua << EOF
     D = { ":lua require('custom_telescope').live_grep_in_folder()<CR>", 'Search text in one or more folders' },
     d = { ":lua require('telescope.builtin').live_grep { search_dirs = {vim.fn.expand('%:p:h')}, prompt_title = 'Live grep inside ' .. vim.fn.expand('%:p:h') }<CR>", 'Search text in some folder' },
     p = { ":Telescope live_grep<CR>", "Search text on Project" },
-    o = { ":Telescope live_grep grep_open_files<CR>", "Search on Open Files" },
+    o = { ":Telescope live_grep grep_open_files=true<CR>", "Search on Open Files" },
     P = { ":lua require('custom_telescope').ripgrep()<CR>", "Advanced Search text on Project" },
     f = { ":CtrlSF ", "Search text using CoC (for search and replace)" },
     s = { ":Telescope current_buffer_fuzzy_find fuzzy=false case_mode=ignore_case<CR>", "Fuzzy Current Buffer" },
@@ -213,6 +213,7 @@ lua << EOF
     name = "+Ruby Refact",
     a = { ":RAddParameter<CR>", "Add Parameter" },
     c = { ":call GetClassName()<CR>", "Copy Class Name to Clipboard" },
+    d = { ":lua require('mood').comment_rubocop()", "Comment Rubocop Error" },
   },
   ["!"] = { ":call RunLastTermCommand()<CR>", "Run Last Terminal Command" },
   g = {
