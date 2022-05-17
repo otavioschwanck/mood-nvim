@@ -63,13 +63,10 @@ nmap <leader>7 :BufferGoto 7<CR>
 nmap <leader>8 :BufferGoto 8<CR>
 nmap <leader>9 :BufferGoto 9<CR>
 
-nmap gq "jyiw:%s/<C-r>"//gr<Left><Left><Left>
-nmap gQ "jyiw:%S/<C-r>"//gr<Left><Left><Left>
-xnoremap gq "jy:%s/<C-r>"//gr<Left><Left><Left>
-xnoremap <expr> gQ mode() ==# "V" ? ':S//gr<Left><Left><Left><C-r>"/' : '"jy:%S/<C-r>"//gr<Left><Left><Left>'
-xnoremap <expr> gq mode() ==# "V" ? ':s//gr<Left><Left><Left><C-r>"/' : '"jy:%s/<C-r>"//gr<Left><Left><Left>'
-xnoremap <expr> g\!Q mode() ==# "V" ? ':S//gr<Left><Left><Left>' : '"jy:%S/<C-r>"//gr<Left><Left><Left>'
-xnoremap <expr> g\!q mode() ==# "V" ? ':s//gr<Left><Left><Left>' : '"jy:%s/<C-r>"//gr<Left><Left><Left>'
+nmap gq "jyiw:%s/<C-r>"//grc<Left><Left><Left><Left>
+nmap gQ "jyiw:%S/<C-r>"//grc<Left><Left><Left><Left>
+xnoremap gq "jy:%s/<C-r>"//grc<Left><Left><Left><Left>
+xnoremap gQ "jy:%s/<C-r>"//grc<Left><Left><Left><Left>
 
 lua << EOF
   require("which-key").setup {}
