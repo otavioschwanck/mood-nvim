@@ -213,7 +213,7 @@ lua << EOF
     name = "+Ruby Refact",
     a = { ":RAddParameter<CR>", "Add Parameter" },
     c = { ":call GetClassName()<CR>", "Copy Class Name to Clipboard" },
-    d = { ":lua require('mood').comment_rubocop()", "Comment Rubocop Error" },
+    d = { ":lua require('mood').comment_rubocop()<CR>", "Comment Rubocop Error" },
   },
   ["!"] = { ":call RunLastTermCommand()<CR>", "Run Last Terminal Command" },
   g = {
