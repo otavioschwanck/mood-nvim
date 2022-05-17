@@ -63,10 +63,10 @@ nmap <leader>7 :BufferGoto 7<CR>
 nmap <leader>8 :BufferGoto 8<CR>
 nmap <leader>9 :BufferGoto 9<CR>
 
-nmap gq "jyiw:%s/<C-r>"//grc<Left><Left><Left><Left>
-nmap gQ "jyiw:%S/<C-r>"//grc<Left><Left><Left><Left>
-xnoremap gq "jy:%s/<C-r>"//grc<Left><Left><Left><Left>
-xnoremap gQ "jy:%s/<C-r>"//grc<Left><Left><Left><Left>
+nmap gq "jyiw:,$s/<C-r>"//gci\|1,''-&&<c-b><left><left><left><left><left><left><left><left><left><left><left>
+nmap gQ "jyiw:,$S/<C-r>"//gc\|1,''-&&<c-b><left><left><left><left><left><left><left><left><left><left>
+xnoremap gq "jy:,$s/<C-r>"//gci\|1,''-&&<c-b><c-e><left><left><left><left><left><left><left><left><left><left><left><left>
+xnoremap gQ "jy:,$S/<C-r>"//gci\|1,''-&&<c-b><c-e><left><left><left><left><left><left><left><left><left><left><left><left>
 
 lua << EOF
   require("which-key").setup {}
