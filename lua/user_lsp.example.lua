@@ -39,6 +39,10 @@ cmp.setup({
       vim.fn["UltiSnips#Anon"](args.body)
     end,
   },
+  -- Uncomment this to automatically select first occurrence
+  -- completion = {
+  --   completeopt = 'menu,menuone,noinsert'
+  -- },
   sources = cmp.config.sources({
     { name = "nvim_lsp" },
     { name = "ultisnips" },
