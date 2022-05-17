@@ -14,8 +14,6 @@ local on_attach = function(client, bufnr)
   vim.api.nvim_buf_set_keymap(bufnr, 'n', 'gI', ':Telescope lsp_implementation<CR>', opts)
   vim.api.nvim_buf_set_keymap(bufnr, 'n', 'gt', ':Telescope lsp_type_definitions<CR>', opts)
   vim.api.nvim_buf_set_keymap(bufnr, 'n', 'gD', ':Telescope lsp_references<CR>', opts)
-
-  vim.api.nvim_buf_set_keymap(bufnr, 'n', '<C-k>', '<cmd>lua vim.lsp.buf.signature_help()<CR>', opts)
 end
 
 -------------------------
@@ -72,8 +70,8 @@ cmp.setup({
     ['<C-g>'] = cmp.mapping({ i = cmp.mapping.abort(), c = cmp.mapping.close(), }),
     ['<CR>'] = cmp.mapping.confirm({ select = false }),
     ["<C-j>"] = cmp.mapping(
-      function(fallback)
-        cmp_ultisnips_mappings.compose { "jump_forwards", "expand" }(fallback)
+      function()
+        cmp_ultisnips_mappings.compose { "jump_forwards", "expand" }()
       end,
       { "i", "s", --[[ "c" (to enable the mapping in command mode) ]] }
     ),
