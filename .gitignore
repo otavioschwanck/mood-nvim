@@ -4,3 +4,4 @@ user.vim
 user-snippets/
 coc-settings.json
 lua/user-plugins.lua
+lua/user_lsp.lua

@@ -6,6 +6,12 @@ if test -f "$USER_CONFIG"; then
   echo "$USER_CONFIG Remove successfully..."
 fi
 
+USER_LSP=~/.config/nvim/lua/user_lsp.lua
+if test -f "$TMUX"; then
+  rm $TMUX
+  echo "$TMUX Removed successfully..."
+fi
+
 TMUX=~/.tmux.conf
 if test -f "$TMUX"; then
   rm $TMUX

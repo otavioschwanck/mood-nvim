@@ -8,6 +8,14 @@ else
   echo "$USER_CONFIG created."
 fi
 
+USER_LSP=~/.config/nvim/lua/user_lsp.lua
+if test -f "$USER_LSP"; then
+  echo "$USER_LSP exists. Ignoring..."
+else
+  cp ~/.config/nvim/lua/user_lsp.example.lua ~/.config/nvim/lua/user_lsp.lua
+  echo "$USER_LSP created."
+fi
+
 TMUX=~/.tmux.conf
 if test -f "$TMUX"; then
   echo "$TMUX exists. Ignoring..."
