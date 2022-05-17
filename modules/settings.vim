@@ -185,7 +185,7 @@ function ClearDebugger()
   let buftype = getbufvar('', '&filetype', 'ERROR')
 
   if buftype == "ruby"
-    execute "%s/.*" . g:ruby_debugger . "\\n//gr"
+    execute "%s/.*" . g:ruby_debugger . "\\n//gre"
   endif
 
   if buftype == "eruby"
