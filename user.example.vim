@@ -6,8 +6,11 @@
 " set background=light
 " colorscheme one-nvim
 
-" I also recommend gruvbox, nightfox.
+" I also recommend gruvbox
 colorscheme onedarker
+
+" In case you want gruvbox
+" let g:gruvbox_contrast_dark='hard'
 
 " Light theme? Use this
 " colorscheme github_light_default
