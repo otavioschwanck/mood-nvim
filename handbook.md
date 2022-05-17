@@ -89,11 +89,6 @@ On your personal configuration you can configure stuff like commands to run with
 | C-j            | Go to next section                               |
 | C-k            | Go to previous section                           |
 |----------------|--------------------------------------------------|
-| C-SPC          | Find Harpoon Files                               |
-| SPC i          | Edit Harpoon File                                |
-| M              | Add file to harpoon                              |
-| C-e 1 to C-e 9 | Change harpoon by order                          |
-|----------------|--------------------------------------------------|
 
 Quick Tip: You can come back to any telescope search with `SPC RET`.
 

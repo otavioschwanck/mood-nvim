@@ -26,7 +26,6 @@ return require('packer').startup(function()
   use 'tpope/vim-rails'
   use 'vim-ruby/vim-ruby'
   use 'farmergreg/vim-lastplace'
-  use 'ThePrimeagen/harpoon'
   use 'svermeulen/vim-yoink'
   use 'p00f/nvim-ts-rainbow'
   use 'sainnhe/sonokai'

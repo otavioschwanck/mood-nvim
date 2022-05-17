@@ -123,7 +123,6 @@ lua << EOF
   ["7"] = "which_key_ignore",
   ["8"] = "which_key_ignore",
   ["9"] = "which_key_ignore",
-  i = { ":lua require('harpoon.ui').toggle_quick_menu()<CR>", "Edit Harpoon" },
   [";"] = { ":Telescope buffers ignore_current_buffer=true sort_mru=true<CR>", "Find All Buffers" },
   ["*"] = { ":Telescope grep_string<CR>", "Search string at point on project" },
   ["<space>"] = { ":Telescope find_files<CR>", "Find Files" },
@@ -317,21 +316,11 @@ nmap <C-l> :BufSurfForward<CR>
 
 let bufferline.icon_pinned = '車'
 
-nnoremap <silent> <C-e>1 :lua require('harpoon.ui').nav_file(1)<CR>
-nnoremap <silent> <C-e>2 :lua require('harpoon.ui').nav_file(2)<CR>
-nnoremap <silent> <C-e>3 :lua require('harpoon.ui').nav_file(3)<CR>>
-nnoremap <silent> <C-e>4 :lua require('harpoon.ui').nav_file(4)<CR>>
-nnoremap <silent> <C-e>4 :lua require('harpoon.ui').nav_file(5)<CR>>
-nnoremap <silent> <C-e>6 :lua require('harpoon.ui').nav_file(6)<CR>>
-nnoremap <silent> <C-e>7 :lua require('harpoon.ui').nav_file(7)<CR>>
-nnoremap <silent> <C-e>8 :lua require('harpoon.ui').nav_file(8)<CR>>
-nnoremap <silent> <C-e>9 :lua require('harpoon.ui').nav_file(9)<CR>
 nnoremap <silent> <C-s> :BufferPick<CR>
 
 nnoremap , <C-w>W
 nnoremap ; <C-w>w
 
-nnoremap M :lua require("harpoon.mark").add_file()<CR>
 nnoremap <C-space> :Telescope harpoon marks<CR>
 
 nnoremap <expr> gp '`[' . strpart(getregtype(), 0, 1) . '`]'
