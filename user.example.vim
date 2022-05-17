@@ -90,7 +90,9 @@ lua << EOF
       s = { ":call FindInFolder('app/services', 'Find Services')<CR>", "Find Services" },
       V = { ":Eview <C-r>=Wildchar()<CR>", "Find views" },
       n = { ":call FindInFolder('db/migrate', 'Find Migration')<CR>", "Find Migration" },
-      N = { ":Emigration<CR>", "Find Current Migration" }
+      N = { ":Emigration<CR>", "Find Current Migration" },
+      q = { ":call FindInFolder('app/contracts', 'Find Contracts')<CR>", "Find Contracts" },
+      z = { ":call FindInFolder('app/serializers', 'Find Serialiazers')<CR>", "Find Serializers" },
     }
   }, { prefix = "<leader>", silent = false })
 EOF
