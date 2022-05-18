@@ -44,6 +44,7 @@ return require('packer').startup(function()
   use { 'sindrets/diffview.nvim', requires = 'nvim-lua/plenary.nvim' }
   use 'projekt0n/github-nvim-theme'
   use {'kevinhwang91/nvim-bqf'}
+  use 'shaunsingh/nord.nvim'
 
   -- optional
   use {'junegunn/fzf', run = function()
