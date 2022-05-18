@@ -318,8 +318,6 @@ nnoremap <silent> <C-s> :BufferPick<CR>
 nnoremap , <C-w>W
 nnoremap ; <C-w>w
 
-nnoremap <C-space> :Telescope harpoon marks<CR>
-
 nnoremap <expr> gp '`[' . strpart(getregtype(), 0, 1) . '`]'
 
 function Setreg(regname, regval)
