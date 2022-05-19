@@ -461,13 +461,13 @@ nmap <expr> F reg_recording() . reg_executing() == "" ? "<Plug>Lightspeed_F" : "
 nmap <expr> t reg_recording() . reg_executing() == "" ? "<Plug>Lightspeed_t" : "t"
 nmap <expr> T reg_recording() . reg_executing() == "" ? "<Plug>Lightspeed_T" : "T"
 
-imap <C-f> <Right>
+imap <C-l> <Right>
 imap <C-a> <C-o>0
 imap <C-e> <C-o>-
-imap <C-b> <Left>
+imap <C-h> <Left>
 
-cnoremap <C-f> <Right>
-cnoremap <C-b> <Left>
+cnoremap <C-l> <Right>
+cnoremap <C-h> <Left>
 cnoremap <C-a> <Home>
 cnoremap <C-e> <End>
 

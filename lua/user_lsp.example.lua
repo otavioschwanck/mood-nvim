@@ -92,13 +92,6 @@ cmp_autopairs.lisp[#cmp_autopairs.lisp+1] = "racket"
 
 local servers = { 'pyright', 'tsserver', 'jsonls', 'html', 'yamlls', 'stylelint_lsp', 'cssls', 'solidity_ls', 'sumneko_lua' }
 
-cfg = {
-  bind = true,
-  handler_opts = {
-    border = "rounded"
-  }
-}
-
 require "lsp_signature".setup()
 
 local lspconfig = require('lspconfig')
