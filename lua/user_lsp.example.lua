@@ -1,11 +1,11 @@
 --------------------------
--- NVIM_LSPCONFIG (LSP) --
+-- NVIM_LSPCONFIG (KEYMAPS)
 --------------------------
 local opts = { noremap=true, silent=true }
 vim.api.nvim_set_keymap('n', '[e', '<cmd>lua vim.diagnostic.goto_prev()<CR>', opts)
 vim.api.nvim_set_keymap('n', ']e', '<cmd>lua vim.diagnostic.goto_next()<CR>', opts)
 
-local on_attach = function(client, bufnr)
+local on_attach = function(_client, bufnr)
   vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
 
   vim.api.nvim_buf_set_keymap(bufnr, 'n', 'gR', '<cmd>lua vim.lsp.buf.declaration()<CR>', opts)
@@ -25,6 +25,40 @@ local cmp = require("cmp")
 
 local lspkind = require('lspkind')
 
+local mappings = {
+  ["<Tab>"] = cmp.mapping(
+    function(fallback)
+      cmp_ultisnips_mappings.compose { "select_next_item" }(fallback)
+    end,
+    { "i", "s", --[[ "c" (to enable the mapping in command mode) ]] }
+  ),
+  ["<S-Tab>"] = cmp.mapping(
+    function(fallback)
+      cmp_ultisnips_mappings.compose { "select_prev_item" }(fallback)
+    end,
+    { "i", "s", --[[ "c" (to enable the mapping in command mode) ]] }
+  ),
+  ['<C-u>'] = cmp.mapping(cmp.mapping.scroll_docs(-4), { 'i', 'c' }),
+  ['<C-d>'] = cmp.mapping(cmp.mapping.scroll_docs(4), { 'i', 'c' }),
+  ['<C-Space>'] = cmp.mapping(cmp.mapping.complete(), { 'i', 'c' }),
+  ['<C-g>'] = cmp.mapping({ i = cmp.mapping.abort(), c = cmp.mapping.close(), }),
+  ['<CR>'] = cmp.mapping.confirm({ select = false }),
+  ["<C-j>"] = cmp.mapping(
+    function()
+      cmp_ultisnips_mappings.compose { "jump_forwards", "expand" }(function ()
+
+      end)
+    end,
+    { "i", "s", --[[ "c" (to enable the mapping in command mode) ]] }
+  ),
+  ["<C-k>"] = cmp.mapping(
+    function(fallback)
+      cmp_ultisnips_mappings.jump_backwards(fallback)
+    end,
+    { "i", "s", --[[ "c" (to enable the mapping in command mode) ]] }
+  ),
+}
+
 cmp.setup({
   formatting = {
     format = lspkind.cmp_format({
@@ -32,15 +66,14 @@ cmp.setup({
       maxwidth = 50, -- prevent the popup from showing more than provided characters (e.g 50 will not show more than 50 characters)
     })
   },
+  -- completion = {
+  --   completeopt = 'menu,menuone,noinsert'
+  -- },
   snippet = {
     expand = function(args)
       vim.fn["UltiSnips#Anon"](args.body)
     end,
   },
-  -- Uncomment this to automatically select first occurrence
-  -- completion = {
-  --   completeopt = 'menu,menuone,noinsert'
-  -- },
   sources = cmp.config.sources({
     { name = "nvim_lsp" },
     { name = "ultisnips" },
@@ -51,37 +84,7 @@ cmp.setup({
     { name = "path" },
     { name = "calc" }
   }),
-  mapping = {
-    ["<Tab>"] = cmp.mapping(
-      function(fallback)
-        cmp_ultisnips_mappings.compose { "select_next_item" }(fallback)
-      end,
-      { "i", "s", --[[ "c" (to enable the mapping in command mode) ]] }
-    ),
-    ["<S-Tab>"] = cmp.mapping(
-      function(fallback)
-        cmp_ultisnips_mappings.compose { "select_prev_item" }(fallback)
-      end,
-      { "i", "s", --[[ "c" (to enable the mapping in command mode) ]] }
-    ),
-    ['<C-u>'] = cmp.mapping(cmp.mapping.scroll_docs(-4), { 'i', 'c' }),
-    ['<C-d>'] = cmp.mapping(cmp.mapping.scroll_docs(4), { 'i', 'c' }),
-    ['<C-Space>'] = cmp.mapping(cmp.mapping.complete(), { 'i', 'c' }),
-    ['<C-g>'] = cmp.mapping({ i = cmp.mapping.abort(), c = cmp.mapping.close(), }),
-    ['<CR>'] = cmp.mapping.confirm({ select = false }),
-    ["<C-j>"] = cmp.mapping(
-      function()
-        cmp_ultisnips_mappings.compose { "jump_forwards", "expand" }()
-      end,
-      { "i", "s", --[[ "c" (to enable the mapping in command mode) ]] }
-    ),
-    ["<C-k>"] = cmp.mapping(
-      function(fallback)
-        cmp_ultisnips_mappings.jump_backwards(fallback)
-      end,
-      { "i", "s", --[[ "c" (to enable the mapping in command mode) ]] }
-    ),
-  },
+  mapping = mappings,
 })
 
 local cmp_autopairs = require('nvim-autopairs.completion.cmp')
@@ -96,8 +99,11 @@ require "lsp_signature".setup()
 
 local lspconfig = require('lspconfig')
 
+local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
+
 lspconfig.solargraph.setup {
   on_attach = on_attach,
+  capabilities = capabilities,
   settings = {
     solargraph = {
       diagnostics = false
@@ -107,6 +113,7 @@ lspconfig.solargraph.setup {
 
 lspconfig.diagnosticls.setup {
   filetypes = { "ruby" },
+  capabilities = capabilities,
   init_options = {
     linters = {
       rubocop = {
@@ -212,6 +219,7 @@ lspconfig.diagnosticls.setup {
 for _, lsp in pairs(servers) do
   lspconfig[lsp].setup {
     on_attach = on_attach,
+    capabilities = capabilities,
 
     flags = {
       -- This will be the default in neovim 0.7+
@@ -219,3 +227,57 @@ for _, lsp in pairs(servers) do
     }
   }
 end
+
+local misc = require('cmp.utils.misc')
+local feedkeys = require('cmp.utils.feedkeys')
+local keymap = require('cmp.utils.keymap')
+
+local close = function()
+  return function(fallback)
+    if not require('cmp').close() then
+      fallback()
+    end
+  end
+end
+
+local cmdlineMapping = misc.merge({}, {
+  ['<Tab>'] = {
+    c = function()
+      if cmp.visible() then
+        cmp.select_next_item()
+      else
+        feedkeys.call(keymap.t('<C-z>'), 'n')
+      end
+    end,
+  },
+  ['<S-Tab>'] = {
+    c = function()
+      if cmp.visible() then
+        cmp.select_prev_item()
+      else
+        feedkeys.call(keymap.t('<C-z>'), 'n')
+      end
+    end,
+  },
+  ['<C-e>'] = {
+    c = close()
+  },
+})
+
+cmp.setup.cmdline('/', {
+    mapping = cmdlineMapping,
+    sources = {
+        { name = 'buffer', opts = { keyword_pattern = [=[[^[:blank:]].*]=] } }
+    }
+})
+
+cmp.setup.cmdline(':', {
+    mapping = cmdlineMapping,
+    sources = cmp.config.sources({
+        { name = 'path' }
+        },
+    {
+        { name = 'cmdline' },
+        { name = 'buffer' }
+    })
+})
