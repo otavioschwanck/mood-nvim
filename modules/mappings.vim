@@ -464,7 +464,7 @@ cnoremap <C-h> <Left>
 cnoremap <C-a> <Home>
 cnoremap <C-e> <End>
 
-imap <C-e> <Plug>(emmet-expand-abbr)
+imap <C-p> <Plug>(emmet-expand-abbr)
 
 nmap gF <C-w>f
 imap <C-d> <Delete>
