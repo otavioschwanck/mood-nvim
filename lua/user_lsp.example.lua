@@ -267,7 +267,7 @@ local cmdlineMapping = misc.merge({}, {
 cmp.setup.cmdline('/', {
     mapping = cmdlineMapping,
     sources = {
-        { name = 'buffer', opts = { keyword_pattern = [=[[^[:blank:]].*]=] } }
+        { name = 'buffer' }
     }
 })
 
