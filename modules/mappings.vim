@@ -19,26 +19,6 @@ let g:symbols_without_lsp_regexp.solidity = 'function | modifier  '
 let g:symbols_without_lsp_regexp.default = 'def  '
 let g:symbols_without_lsp_regexp.empty = '^> | ^E | Failure/Error'
 
-function! TelescopeDocumentSymbols()
-  let ret = execute("Telescope lsp_document_symbols")
-  echom ret
-
-  if ret =~ "Error" || ret =~ "no client" || ret =~ "server does not"
-    let buftype = getbufvar('', '&filetype', 'ERROR')
-
-    if buftype == ''
-      let buftype = 'empty'
-    endif
-
-    echo buftype
-
-    let command = get(g:symbols_without_lsp_regexp, buftype, g:symbols_without_lsp_regexp.default)
-
-    execute "normal! :Telescope current_buffer_fuzzy_find fuzzy=false case_mode=ignore_case search=" . command . "\<CR> pedrin"
-    startinsert
-  endif
-endfunction
-
 function OpenTestAlternate()
   let test_path = eval('rails#buffer().alternate()')
 
@@ -189,7 +169,7 @@ lua << EOF
     P = { ":lua require('custom_telescope').ripgrep()<CR>", "Advanced Search text on Project" },
     f = { ":CtrlSF ", "Search text using CoC (for search and replace)" },
     s = { ":Telescope current_buffer_fuzzy_find fuzzy=false case_mode=ignore_case<CR>", "Fuzzy Current Buffer" },
-    i = { ":call TelescopeDocumentSymbols()<CR>", "Search Outline Symbols" },
+    i = { ":Telescope lsp_document_symbols<CR>", "Search Outline Symbols" },
     j = { ":Telescope lsp_dynamic_workspace_symbols<CR>", "Symbols" },
   },
   f = {
