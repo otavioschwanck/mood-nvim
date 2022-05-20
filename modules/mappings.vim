@@ -43,10 +43,23 @@ nmap <leader>7 :BufferGoto 7<CR>
 nmap <leader>8 :BufferGoto 8<CR>
 nmap <leader>9 :BufferGoto 9<CR>
 
-nmap gq "jyiwmO:,$s/<C-r>"//gcie\|1,''-&&\|'O<c-b><c-e><left><left><left><left><left><left><left><left><left><left><left><left><left><left><left><left>
-nmap gQ "jyiwmO:,$S/<C-r>"//gcie\|1,''-&&\|'O<c-b><c-e><left><left><left><left><left><left><left><left><left><left><left><left><left><left><left><left>
-xnoremap gq "jymO:,$s/<C-r>"//gcie\|1,''-&&\|'O<c-b><c-e><left><left><left><left><left><left><left><left><left><left><left><left><left><left><left><left>
-xnoremap gQ "jymO:,$S/<C-r>"//gcie\|1,''-&&\|'O<c-b><c-e><left><left><left><left><left><left><left><left><left><left><left><left><left><left><left><left>
+function! WordForGq()
+  let l:word = substitute(getreg('"'), "\\", "\\\\", "gre")
+  let l:word = substitute(l:word, "[", "\\\\[", "gre")
+  let l:word = substitute(l:word, "]", "\\\\]", "gre")
+  let l:word = substitute(l:word, "/", "\\\\/", "gre")
+  let l:word = substitute(l:word, "\\*", "\\\\*", "gre")
+  let l:word = substitute(l:word, "\\$", "\\\\$", "gre")
+  let l:word = substitute(l:word, "\\^", "\\\\^", "gre")
+  let l:word = substitute(l:word, "\\.", "\\\\.", "gre")
+
+  return l:word
+endfunction
+
+nmap gq "jyiwmO:,$s/<C-r>=WordForGq()<CR>//gcie\|1,''-&&\|'O<c-b><c-e><left><left><left><left><left><left><left><left><left><left><left><left><left><left><left><left>
+nmap gQ "jyiwmO:,$S/<C-r>=WordForGq()<CR>//gcie\|1,''-&&\|'O<c-b><c-e><left><left><left><left><left><left><left><left><left><left><left><left><left><left><left><left>
+xnoremap gq "jymO:,$s/<C-r>=WordForGq()<CR>//gcie\|1,''-&&\|'O<c-b><c-e><left><left><left><left><left><left><left><left><left><left><left><left><left><left><left><left>
+xnoremap gQ "jymO:,$S/<C-r>=WordForGq()<CR>//gcie\|1,''-&&\|'O<c-b><c-e><left><left><left><left><left><left><left><left><left><left><left><left><left><left><left><left>
 
 lua << EOF
   require("which-key").setup {}
