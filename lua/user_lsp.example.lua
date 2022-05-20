@@ -228,51 +228,15 @@ for _, lsp in pairs(servers) do
   }
 end
 
-local misc = require('cmp.utils.misc')
-local feedkeys = require('cmp.utils.feedkeys')
-local keymap = require('cmp.utils.keymap')
-
-local close = function()
-  return function(fallback)
-    if not require('cmp').close() then
-      fallback()
-    end
-  end
-end
-
-local cmdlineMapping = misc.merge({}, {
-  ['<Tab>'] = {
-    c = function()
-      if cmp.visible() then
-        cmp.select_next_item()
-      else
-        feedkeys.call(keymap.t('<C-z>'), 'n')
-      end
-    end,
-  },
-  ['<S-Tab>'] = {
-    c = function()
-      if cmp.visible() then
-        cmp.select_prev_item()
-      else
-        feedkeys.call(keymap.t('<C-z>'), 'n')
-      end
-    end,
-  },
-  ['<C-e>'] = {
-    c = close()
-  },
-})
-
 cmp.setup.cmdline('/', {
-    mapping = cmdlineMapping,
+    mapping = cmp.mapping.preset.cmdline(),
     sources = {
         { name = 'buffer' }
     }
 })
 
 cmp.setup.cmdline(':', {
-    mapping = cmdlineMapping,
+    mapping = cmp.mapping.preset.cmdline(),
     sources = cmp.config.sources({
         { name = 'path' }
         },
