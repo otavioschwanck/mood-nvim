@@ -228,15 +228,18 @@ for _, lsp in pairs(servers) do
   }
 end
 
+local empty_function = function(fallback) fallback() end
+
 cmp.setup.cmdline('/', {
-    mapping = cmp.mapping.preset.cmdline(),
+    mapping = cmp.mapping.preset.cmdline({ ['<C-p>'] = empty_function, ['<C-n>'] = empty_function}),
     sources = {
         { name = 'buffer' }
     }
 })
 
+
 cmp.setup.cmdline(':', {
-    mapping = cmp.mapping.preset.cmdline(),
+    mapping = cmp.mapping.preset.cmdline({ ['<C-p>'] = empty_function, ['<C-n>'] = empty_function}),
     sources = cmp.config.sources({
         { name = 'path' }
         },
