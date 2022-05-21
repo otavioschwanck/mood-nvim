@@ -1,5 +1,4 @@
-lua <<LUA
-
+lua << LUA
 vim.cmd [[packadd packer.nvim]]
 
 return require('packer').startup(function()
@@ -114,6 +113,9 @@ return require('packer').startup(function()
   use 'hrsh7th/cmp-nvim-lsp'
   use 'hrsh7th/cmp-buffer'
   use { 'hrsh7th/cmp-cmdline' }
+  use { 'wellle/context.vim' }
+  use { 'camspiers/lens.vim' }
+  use { 'danilamihailov/beacon.nvim' }
   use 'hrsh7th/cmp-path'
   use 'hrsh7th/nvim-cmp'
   use { 'dyng/ctrlsf.vim' }
