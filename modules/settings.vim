@@ -451,5 +451,3 @@ autocmd VimEnter * doautocmd FileType
 set completeopt=menu,preview
 
 let g:UltiSnipsSnippetDirectories = ["UltiSnips", "user-snippets"]
-
-let g:context_add_mappings = 0

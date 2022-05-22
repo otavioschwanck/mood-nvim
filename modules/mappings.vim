@@ -469,11 +469,3 @@ imap <C-p> <Plug>(emmet-expand-abbr)
 nmap gF <C-w>f
 imap <C-d> <Delete>
 cmap <C-d> <Delete>
-
-if !exists('##WinScrolled')
-    nnoremap <silent> <expr> zz context#util#map('zz')
-    nnoremap <silent> <expr> zb context#util#map('zb')
-endif
-
-nnoremap <silent> <expr> zt context#util#map_zt()
-nnoremap <silent> <expr> g<C-k> context#util#map_H()
