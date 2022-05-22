@@ -4,7 +4,7 @@ mooD Nvim is a configuration made for those who wants to install and use, withou
 
 # For who is this configuration?
 
-- For those who lieks to just install and use.
+- For those who likes to just install and use.
 - For those who likes Doom Emacs Defaults.
 - For those who likes speed editing.
 - For terminal lovers.
@@ -13,10 +13,10 @@ mooD Nvim is a configuration made for those who wants to install and use, withou
 
 - Native LSP (go to definition, autocomplete, etc)
 - Extra snippets
-- Quick handbook inside vim.  Just press `SPC h h`
+- Quick handbook inside vim. Just press `SPC h h`
 - Test Runner
 - Fully customizable (plugins, settings, LSP)
-- Find In Folder helpers: Find inside models, controller, etc using keybindngs.  See `user.vim` (`SPC f p`) for more examples.  You can define your own custom finders  You can define your own custom finders.
+- Find In Folder helpers: Find inside models, controller, etc using keybindngs. See `user.vim` (`SPC f p`) for more examples. You can define your own custom finders.
 - Mini Terminal Framework that can:
   - You can bind terminal commands in your `user.vim` (`SPC f p`).
   - You can configure if this command is unique or not, if its unique, when press the mapping again, it will focus instead opening a new.
@@ -41,9 +41,10 @@ Just run the below command in the terminal on either mac or linux, choose what y
 ```sh
 bash <(curl -Ls https://raw.githubusercontent.com/otavioschwanck/mood-nvim/main/mood-installer.sh)
 ```
+
 # Manual Installation
 
-1. Install a nerd font and configure your terminal to use it.  Nerd fonts [Here](https://www.nerdfonts.com/font-downloads)
+1. Install a nerd font and configure your terminal to use it. Nerd fonts [Here](https://www.nerdfonts.com/font-downloads)
 2. Install the config
 
 ```sh
@@ -52,10 +53,12 @@ git clone git@github.com:otavioschwanck/mood-nvim.git ~/.config/nvim
 
 3. Run this: `git config --global push.default current`
 4. Install packer:
+
 ```sh
 git clone --depth 1 https://github.com/wbthomason/packer.nvim\
  ~/.local/share/nvim/site/pack/packer/start/packer.nvim
 ```
+
 5. Install some dependencies:
 
 ```sh
@@ -111,7 +114,7 @@ fi
 
 # After install
 
-- Check the `user.vim` for let `g:python_host_prog` part.  Probabily you will need to comment or change (if on mac ou using pyenv).
+- Check the `user.vim` for let `g:python_host_prog` part. Probabily you will need to comment or change (if on mac ou using pyenv).
 - Check if is missing something with `:checkhealth`
 
 # For mac Users
@@ -130,13 +133,13 @@ Just press `SPC h h` to open the handbook inside vim.
 
 ## Error on python for some reason.
 
-Check your personal config `SPC f p` at the bottom.  Set the python envs to their real values.
+Check your personal config `SPC f p` at the bottom. Set the python envs to their real values.
 
 # Other tips
 
 ## Tmux
 
-I Really recommend you to learn tmux / tmuxinator.  Take a look on tmuxinator on youtube.
+I Really recommend you to learn tmux / tmuxinator. Take a look on tmuxinator on youtube.
 
 To install the tpm (Tmux package manager), run:
 
@@ -144,4 +147,4 @@ To install the tpm (Tmux package manager), run:
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 ```
 
-This config creates a tmux config for you (if doesn't exists).  To install the onedark theme, just press `C-x I` inside tmux
+This config creates a tmux config for you (if doesn't exists). To install the onedark theme, just press `C-x I` inside tmux
