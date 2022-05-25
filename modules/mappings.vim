@@ -189,7 +189,7 @@ lua << EOF
   f = {
     name = "+File",
     r = { ":Telescope oldfiles<CR>", "Recent Files" },
-    s = { ":w!", "Save" },
+    s = { ":w!<CR>", "Save" },
     R = { ":call BetterRename()<CR>", "Rename Current File" },
     M = { ":call BetterMove()<CR>", "Move Current FIle" },
     D = { ":call BetterDelete()<CR>", "Delete the current file" },
@@ -289,10 +289,6 @@ nnoremap <silent><esc> :call HideTerminalWindowOrNoh()<CR>:noh<CR>
 " Quickfix
 nmap ]q :cnext<CR>
 nmap [q :cprevious<CR>
-
-" Save all
-nmap \ :wall<CR>
-nmap ç :wall<CR>
 
 nmap - $
 vmap - $<Left>
@@ -470,3 +466,5 @@ imap <C-p> <Plug>(emmet-expand-abbr)
 nmap gF <C-w>f
 imap <C-d> <Delete>
 cmap <C-d> <Delete>
+
+let g:VM_leader = '\'
