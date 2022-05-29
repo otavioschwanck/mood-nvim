@@ -1,3 +1,12 @@
+# Disclaimer
+
+I am not working in this configuration anymore.  I Created this to see the pros / cons VS emacs.  And the end i will
+stick with emacs (personal preference).
+
+Check my Rails Configuration for Emacs: https://github.com/otavioschwanck/doom-emacs-on-rails
+
+This config is stable and works perfectly, you can use if you want it.
+
 # Introduction
 
 mooD Nvim is a configuration made for those who wants to install and use, without much worries.
