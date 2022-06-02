@@ -62,7 +62,7 @@ nmap gQ "jyiwmo:,$S/<C-r>=WordForGq()<CR>//gcie\|1,''-&&\|:norm `ozz<c-b><c-e><l
 xnoremap gq "jymo:,$s/<C-r>=WordForGq()<CR>//gcie\|1,''-&&\|:norm `ozz<c-b><c-e><left><left><left><left><left><left><left><left><left><left><left><left><left><left><left><left><left><left><left><left><left><left><left><left>
 xnoremap gQ "jymo:,$S/<C-r>=WordForGq()<CR>//gcie\|1,''-&&\|:norm `ozz<c-b><c-e><left><left><left><left><left><left><left><left><left><left><left><left><left><left><left><left><left><left><left><left><left><left><left><left>
 
-nmap , :lua require("harpoon-menu")()<CR>
+nmap ; :lua require("harpoon-menu")()<CR>
 
 lua << EOF
   require("which-key").setup {}
@@ -311,7 +311,7 @@ function HideTerminalWindowOrNoh()
 
     nnoremap <silent> <C-s> :BufferPick<CR>
 
-    nnoremap ; <C-w>w
+    nnoremap , <C-w>w
 
     nnoremap <expr> gp '`[' . strpart(getregtype(), 0, 1) . '`]'
 

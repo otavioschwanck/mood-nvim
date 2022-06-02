@@ -23,7 +23,7 @@ On your personal configuration you can configure stuff like commands to run with
 
 # Harpoon
 
-Just press `,` and follow your heart.
+Just press `;` and follow your heart.
 
 # Buffer Navigation and Management
 
@@ -65,7 +65,7 @@ Just press `,` and follow your heart.
 | M-l     | Focus Window in the right  |
 | M-j     | Focus Window in the bottom |
 | M-k     | Focus Window in the top    |
-| ;       | Go to next window          |
+| ,       | Go to next window          |
 |---------|----------------------------|
 | C-w u   | Undo a window closed       |
 | C-w o   | Maximize window            |
