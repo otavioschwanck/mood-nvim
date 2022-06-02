@@ -21,6 +21,10 @@ On your personal configuration you can configure stuff like commands to run with
 - To command history on telescope, use C-n and C-p.
 - M-c means Alt + c or Option + c
 
+# Harpoon
+
+Just press `,` and follow your heart.
+
 # Buffer Navigation and Management
 
 | Command                | Description                                        |
@@ -62,7 +66,6 @@ On your personal configuration you can configure stuff like commands to run with
 | M-j     | Focus Window in the bottom |
 | M-k     | Focus Window in the top    |
 | ;       | Go to next window          |
-| ,       | Go to prev window          |
 |---------|----------------------------|
 | C-w u   | Undo a window closed       |
 | C-w o   | Maximize window            |
