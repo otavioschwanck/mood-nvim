@@ -118,6 +118,8 @@ return require('packer').startup(function()
   use 'hrsh7th/cmp-path'
   use 'hrsh7th/nvim-cmp'
   use { 'dyng/ctrlsf.vim' }
+  use { 'moll/vim-bbye' }
+  use { 'ThePrimeagen/harpoon' }
 
   use 'quangnguyen30192/cmp-nvim-ultisnips'
 
