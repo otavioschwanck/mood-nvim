@@ -78,7 +78,7 @@ cmp.setup({
     { name = "nvim_lsp" },
     { name = "ultisnips" },
     { name = "buffer", option = { get_bufnrs = function()
-      return vim.api.nvim_list_bufs()
+      return require('valid_listed_buffers')()
     end
     }},
     { name = "path" },
@@ -233,7 +233,9 @@ local empty_function = function(fallback) fallback() end
 cmp.setup.cmdline('/', {
     mapping = cmp.mapping.preset.cmdline({ ['<C-p>'] = empty_function, ['<C-n>'] = empty_function}),
     sources = {
-        { name = 'buffer' }
+    { name = "buffer", option = { get_bufnrs = function()
+      return require('valid_listed_buffers')()
+    end } }
     }
 })
 
@@ -245,6 +247,8 @@ cmp.setup.cmdline(':', {
         },
     {
         { name = 'cmdline' },
-        { name = 'buffer' }
+    { name = "buffer", option = { get_bufnrs = function()
+      return require('valid_listed_buffers')()
+    end } }
     })
 })
