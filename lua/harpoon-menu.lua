@@ -52,11 +52,7 @@ local function toggle_harpoon()
 
       table.remove(filename_full, #filename_full)
 
-      local parsed_filename = ""
-
-      for i=1,#filename_full,1 do
-        parsed_filename = parsed_filename .. "/" .. filename_full[i]
-      end
+      local parsed_filename = "../" .. (filename_full[#filename_full] or "")
 
       file_to_show = filenames[index] .. ' at ' .. parsed_filename
     else
