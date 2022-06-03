@@ -32,7 +32,6 @@ local function toggle_harpoon()
   }
 
   local marks = harpoon.get_mark_config().marks
-  local config = marks[index]
 
   local filenames = {}
 
@@ -42,13 +41,11 @@ local function toggle_harpoon()
     filenames[i] = file_splitted[#file_splitted]
   end
 
-  print(vim.inspect(filenames))
-
-  while config do
+  for i=1,#marks,1 do
     local file_to_show
 
     if count_in_list(filenames, filenames[index]) > 1 then
-      local filename_full = Split(config.filename, "/")
+      local filename_full = Split(marks[i].filename, "/")
 
       table.remove(filename_full, #filename_full)
 
@@ -61,15 +58,12 @@ local function toggle_harpoon()
 
     harpoons[tostring(index)] = { ":lua require'harpoon.ui'.nav_file(" .. index .. ")<CR>", file_to_show }
     index = index + 1
-    config = marks[index]
   end
 
-  local ig_index = 1
   local ignored = {}
 
-  while ig_index < 20 do -- Please, dont do more than 20 harpoon in single project
-    ignored[tostring(ig_index)] = "which_key_ignore"
-    ig_index = ig_index + 1
+  for i=1,20,1 do
+    ignored[tostring(i)] = "which_key_ignore"
   end
 
   wk.register({
