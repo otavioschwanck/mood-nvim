@@ -124,9 +124,6 @@ let g:multi_cursor_start_word_key      = 'M'
 let g:multi_cursor_next_key            = 'M'
 let g:multi_cursor_quit_key            = '<Esc>'
 
-" Vim Script
-let g:nvim_tree_respect_buf_cwd = 1
-
 lua << EOF
 require("nvim-tree").setup({
   update_cwd = false,
