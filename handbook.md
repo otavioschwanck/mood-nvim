@@ -183,7 +183,7 @@ To execute some command in all items of the quickfix list, just run `:cfdo %S/ol
 | C-e                     | Move multi-selected files/folders to current path                           |
 | C-space                 | Create file from prompt                                                     |
 | C-c/c                   | Go to parent directory                                                      |
-| C-d/d                   | Delete select file(s)                                                       |
+| C-o/o                   | Delete select file(s)                                                       |
 |-------------------------|-----------------------------------------------------------------------------|
 | Other commands          |                                                                             |
 |-------------------------|-----------------------------------------------------------------------------|
