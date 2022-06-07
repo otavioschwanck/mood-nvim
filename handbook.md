@@ -178,7 +178,7 @@ To execute some command in all items of the quickfix list, just run `:cfdo %S/ol
 |-------------------------|-----------------------------------------------------------------------------|
 | tab                     | Select item to move / copy / Rename                                         |
 | C-a                     | Create file/folder at current path (from prompt)                            |
-| C-v                     | Paste (multi-)selected files/folders to current path                        |
+| C-p                     | Paste (multi-)selected files/folders to current path                        |
 | C-r                     | Rename multi-selected files/folders                                         |
 | C-e                     | Move multi-selected files/folders to current path                           |
 | C-space                 | Create file from prompt                                                     |
