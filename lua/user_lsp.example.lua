@@ -8,12 +8,13 @@ vim.api.nvim_set_keymap('n', ']e', '<cmd>lua vim.diagnostic.goto_next()<CR>', op
 local on_attach = function(_client, bufnr)
   vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
 
-  vim.api.nvim_buf_set_keymap(bufnr, 'n', 'gR', '<cmd>lua vim.lsp.buf.declaration()<CR>', opts)
-  vim.api.nvim_buf_set_keymap(bufnr, 'n', 'gd', ':Telescope lsp_definitions<CR>', opts)
-  vim.api.nvim_buf_set_keymap(bufnr, 'n', 'K', '<cmd>lua vim.lsp.buf.hover()<CR>', opts)
-  vim.api.nvim_buf_set_keymap(bufnr, 'n', 'gI', ':Telescope lsp_implementation<CR>', opts)
-  vim.api.nvim_buf_set_keymap(bufnr, 'n', 'gt', ':Telescope lsp_type_definitions<CR>', opts)
-  vim.api.nvim_buf_set_keymap(bufnr, 'n', 'gD', ':Telescope lsp_references<CR>', opts)
+  local bufopts = { noremap=true, silent=true, buffer=bufnr }
+  vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, bufopts)
+  vim.keymap.set('n', 'gd', vim.lsp.buf.definition, bufopts)
+  vim.keymap.set('n', 'K', vim.lsp.buf.hover, bufopts)
+  vim.keymap.set('n', 'gI', vim.lsp.buf.implementation, bufopts)
+  vim.keymap.set('n', 'gt', vim.lsp.buf.type_definition, bufopts)
+  vim.keymap.set('n', 'gr', ':Telescope lsp_references<CR>', bufopts)
 end
 
 -------------------------
