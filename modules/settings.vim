@@ -448,3 +448,10 @@ autocmd VimEnter * doautocmd FileType
 set completeopt=menu,preview
 
 let g:UltiSnipsSnippetDirectories = ["UltiSnips", "user-snippets"]
+
+xnoremap @ :<C-u>call ExecuteMacroOverVisualRange()<CR>
+
+function! ExecuteMacroOverVisualRange()
+  echo "@".getcmdline()
+  execute ":'<,'>normal @".nr2char(getchar())
+endfunction

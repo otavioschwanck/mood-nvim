@@ -128,7 +128,9 @@ You can:
 
 To execute some command in all items of the quickfix list, just run `:cfdo %S/old_text/new_text/gr | :w`
 
-2. use `SPC s P`, find, and then edit the search result like a file. (i find this way easier)
+Or your can press `C-q` again to turn quickfix into a editable buffer and edit as you like.
+
+2. use `SPC s f`, find, and then edit the search result like a file. (i find this way easier most of the time)
 
 # Using the tree like a boss
 

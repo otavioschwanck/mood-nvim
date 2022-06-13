@@ -65,43 +65,43 @@ xnoremap gQ "jymo:,$S/<C-r>=WordForGq()<CR>//gcie\|1,''-&&\|:norm `ozz<c-b><c-e>
 nmap ; :lua require("harpoon-menu")()<CR>
 
 lua << EOF
-  require("which-key").setup {}
+require("which-key").setup {}
 
-  local wk = require("which-key")
+local wk = require("which-key")
 
-  wk.register({
-  h = {
-    name = "+Calculate",
-    s = { "<Plug>AutoCalcAppendWithSum", "Sum" },
-    ["?"] = { "<Plug>AutoCalcAppend", "Auto Calculation" },
-    },
-  n = {
-    name = "+Toggle Case",
-    s = { ":Snake<CR>", "snake_case" },
-    c = { ":Camel<CR>", "CamelCase" },
-    b = { ":CamelB<CR>", "camelCaseB" }
-    },
-  z = {
-    n = { ":NoteFromSelectedText<CR>", "New Note from Selected Text" }
-    },
-  l = { "<Plug>Send", "Send Text to Term" },
-  c = {
-    name = "+Lsp",
-    a = { "<cmd>lua vim.lsp.buf.range_code_action()<CR>", "Code Action" }
-    },
-  m = {
-    name = "+Ruby Extract",
-    l = { ":RExtractLet<CR>", "Extract Let" },
-    v = { ":RExtractLocalVariable<CR>", "Extract Variable" }
-    },
-  r = {
-    name = "+Refactor",
-    e = { "<Esc><Cmd>lua require('refactoring').refactor('Extract Function')<CR>", "Extract Function" },
-    f = { "<Esc><Cmd>lua require('refactoring').refactor('Extract Function To File')<CR>", "Extract Function To File" },
-    v = { "<Esc><Cmd>lua require('refactoring').refactor('Extract Variable')<CR>", "Extract Variable" },
-    i = { "<Esc><Cmd>lua require('refactoring').refactor('Inline Variable')<CR>", "Inline Variable" },
-    }
-  }, { mode = "v", prefix = "<leader>" })
+wk.register({
+h = {
+  name = "+Calculate",
+  s = { "<Plug>AutoCalcAppendWithSum", "Sum" },
+  ["?"] = { "<Plug>AutoCalcAppend", "Auto Calculation" },
+  },
+n = {
+  name = "+Toggle Case",
+  s = { ":Snake<CR>", "snake_case" },
+  c = { ":Camel<CR>", "CamelCase" },
+  b = { ":CamelB<CR>", "camelCaseB" }
+  },
+z = {
+  n = { ":NoteFromSelectedText<CR>", "New Note from Selected Text" }
+  },
+l = { "<Plug>Send", "Send Text to Term" },
+c = {
+  name = "+Lsp",
+  a = { "<cmd>lua vim.lsp.buf.range_code_action()<CR>", "Code Action" }
+  },
+m = {
+  name = "+Ruby Extract",
+  l = { ":RExtractLet<CR>", "Extract Let" },
+  v = { ":RExtractLocalVariable<CR>", "Extract Variable" }
+  },
+r = {
+  name = "+Refactor",
+  e = { "<Esc><Cmd>lua require('refactoring').refactor('Extract Function')<CR>", "Extract Function" },
+  f = { "<Esc><Cmd>lua require('refactoring').refactor('Extract Function To File')<CR>", "Extract Function To File" },
+  v = { "<Esc><Cmd>lua require('refactoring').refactor('Extract Variable')<CR>", "Extract Variable" },
+  i = { "<Esc><Cmd>lua require('refactoring').refactor('Inline Variable')<CR>", "Inline Variable" },
+  }
+}, { mode = "v", prefix = "<leader>" })
 
 -- Normal mode:
 wk.register({
@@ -281,193 +281,195 @@ function HideTerminalWindowOrNoh()
       execute "b#"
     else
       execute "close"
-      end
-      end
-    endfunction
+    end
+  end
+endfunction
 
-    " Clear highlight
-    nnoremap <silent><esc> :call HideTerminalWindowOrNoh()<CR>:noh<CR>
+" Clear highlight
+nnoremap <silent><esc> :call HideTerminalWindowOrNoh()<CR>:noh<CR>
 
-    " Quickfix
-    nmap ]q :cnext<CR>
-    nmap [q :cprevious<CR>
+" Quickfix
+nmap ]q :cnext<CR>
+nmap [q :cprevious<CR>
 
-    " Save all
-    nmap \ :wall<CR>
-    nmap ç :wall<CR>
+" Save all
+nmap \ :wall<CR>
+nmap ç :wall<CR>
 
-    nmap - $
-    vmap - $<Left>
+nmap - $
+vmap - $<Left>
 
-    nnoremap gr :NvimTreeRefresh<CR>
+nnoremap gr :NvimTreeRefresh<CR>
 
-    nmap <silent> H :BufferPrevious<CR>
-    nmap <silent> L :BufferNext<CR>
+nmap <silent> H :BufferPrevious<CR>
+nmap <silent> L :BufferNext<CR>
 
-    nmap <C-h> :BufSurfBack<CR>
-    nmap <C-l> :BufSurfForward<CR>
+nmap <C-h> :BufSurfBack<CR>
+nmap <C-l> :BufSurfForward<CR>
 
-    let bufferline.icon_pinned = '車'
+let bufferline.icon_pinned = '車'
 
-    nnoremap <silent> <C-s> :BufferPick<CR>
+nnoremap <silent> <C-s> :BufferPick<CR>
 
-    nnoremap , <C-w>w
+nnoremap , <C-w>w
 
-    nnoremap <expr> gp '`[' . strpart(getregtype(), 0, 1) . '`]'
+nnoremap <expr> gp '`[' . strpart(getregtype(), 0, 1) . '`]'
 
-    function Setreg(regname, regval)
-      exe "let @".a:regname." = '".a:regval."'"
-    endfunction
+function Setreg(regname, regval)
+  exe "let @".a:regname." = '".a:regval."'"
+endfunction
 
-    function CopyRelativePath()
-      let value = expand("%")
-      call Setreg("*", value)
-      call Setreg("+", value)
-      echom "Yanked: " . value
-    endfunction
+function CopyRelativePath()
+  let value = expand("%")
+  call Setreg("*", value)
+  call Setreg("+", value)
+  echom "Yanked: " . value
+endfunction
 
-    function CopyFullPath()
-      let value = expand("%:p")
-      call Setreg("*", value)
-      call Setreg("+", value)
-      echom "Yanked: " . value
-    endfunction
+function CopyFullPath()
+  let value = expand("%:p")
+  call Setreg("*", value)
+  call Setreg("+", value)
+  echom "Yanked: " . value
+endfunction
 
-    nnoremap gh :SidewaysLeft<cr>
-    nnoremap gl :SidewaysRight<cr>
+nnoremap gh :SidewaysLeft<cr>
+nnoremap gl :SidewaysRight<cr>
 
-    nmap vij vaI
-    nmap vaj vaIj
+nmap vij vaI
+nmap vaj vaIj
 
-    nmap dij daI
-    nmap daj vaIjd
+nmap dij daI
+nmap daj vaIjd
 
-    nmap cij caI
-    nmap caj vaIjc
+nmap cij caI
+nmap caj vaIjc
 
-    vnoremap J :m '>+1<CR>gv=gv
-    vnoremap K :m '<-2<CR>gv=gv
+vnoremap J :m '>+1<CR>gv=gv
+vnoremap K :m '<-2<CR>gv=gv
 
-    nnoremap <expr> gp '`[' . strpart(getregtype(), 0, 1) . '`]'
+nnoremap <expr> gp '`[' . strpart(getregtype(), 0, 1) . '`]'
 
-    nnoremap <c-w>c :call undoquit#SaveWindowQuitHistory()<cr><c-w>c
+nnoremap <c-w>c :call undoquit#SaveWindowQuitHistory()<cr><c-w>c
 
-    " Big Improvements
-    imap <C-v> <C-r>+
-    cnoremap <C-v> <C-r>+
+" Big Improvements
+imap <C-v> <C-r>+
+cnoremap <C-v> <C-r>+
 
-    vnoremap < <gv
-    vnoremap > >gv
+vnoremap < <gv
+vnoremap > >gv
 
-    xmap q iq
-    omap q iq
+xmap q iq
+omap q iq
 
-    omap aa <Plug>SidewaysArgumentTextobjA
-    xmap aa <Plug>SidewaysArgumentTextobjA
-    omap ia <Plug>SidewaysArgumentTextobjI
-    xmap ia <Plug>SidewaysArgumentTextobjI
+omap aa <Plug>SidewaysArgumentTextobjA
+xmap aa <Plug>SidewaysArgumentTextobjA
+omap ia <Plug>SidewaysArgumentTextobjI
+xmap ia <Plug>SidewaysArgumentTextobjI
 
-    let g:choosewin_overlay_enable = 1
+let g:choosewin_overlay_enable = 1
 
-    function GetClassName()
-      let filetype = getbufvar('', '&filetype', 'ERROR')
+function GetClassName()
+  let filetype = getbufvar('', '&filetype', 'ERROR')
 
-      if filetype == 'ruby'
-        let modules = getline(1, '$')->filter({_,line -> line =~ 'module\|class \w'})
+  if filetype == 'ruby'
+    let modules = getline(1, '$')->filter({_,line -> line =~ 'module\|class \w'})
 
-        let class_name = ''
-        let keep_while = 1
-        let index = 0
+    let class_name = ''
+    let keep_while = 1
+    let index = 0
 
-        if modules == []
-          let keep_while = 0
-        endif
+    if modules == []
+      let keep_while = 0
+    endif
 
-        while keep_while == 1
-          let kind = split(modules[index], ' ')[0]
-          let name = split(modules[index], ' ')[1]
+    while keep_while == 1
+      let kind = split(modules[index], ' ')[0]
+      let name = split(modules[index], ' ')[1]
 
-          let class_name = class_name . name
+      let class_name = class_name . name
 
-          if kind == 'class' || index >= (len(modules) - 1)
-            let keep_while = 0
-          else
-            let index = index + 1
-            let class_name = class_name . '::'
-          endif
-        endwhile
-
-        call setreg('+', class_name)
-        call setreg('*', class_name)
-
-        if class_name != ''
-          echo "Copied to clipboard: " . class_name
-        else
-          echo "No class or module found"
-        endif
-      endif
-    endfunction
-
-    function BetterMove()
-      let current_folder = expand('%:p:h')
-
-      call feedkeys(":Move " . current_folder . "/", 'n')
-    endfunction
-
-    function BetterRename()
-      let current_file = expand("%p")
-      let current_file_name = expand("%:t")
-      let new_name = input("New name for " . current_file_name . ": ", current_file_name)
-      let current_folder = expand('%:p:h')
-
-      if(new_name != '' && new_name != current_file_name)
-        call feedkeys(":saveas " . current_folder . "/" . new_name . "\<CR>", "n")
-        call delete(current_file)
-        call feedkeys(":bd #\<CR>")
-      endif
-    endfunction
-
-    function BetterCopy()
-      let current_folder = expand('%:p:h')
-
-      call feedkeys(":saveas " . current_folder . "/", 'n')
-    endfunction
-
-    function BetterDelete()
-      echo 'Really want to delete current file? y/n '
-      let l:answer = nr2char(getchar())
-
-      if l:answer ==? 'y'
-        execute "normal! :Delete!\<CR>"
-        echo "Deletado com sucesso"
-      elseif l:answer ==? 'n'
-        return 0
+      if kind == 'class' || index >= (len(modules) - 1)
+        let keep_while = 0
       else
-        echo 'Please enter "y" or "n"'
-        return BetterDelete()
+        let index = index + 1
+        let class_name = class_name . '::'
       endif
-    endfunction
+    endwhile
 
-    nnoremap <expr> 0 (col('.') - 1) == match(getline('.'),'\S') ? "<Home>" : "^"
-    vnoremap <expr> 0 (col('.') - 1) == match(getline('.'),'\S') ? "<Home>" : "^"
+    call setreg('+', class_name)
+    call setreg('*', class_name)
 
-    nmap <expr> f reg_recording() . reg_executing() == "" ? "<Plug>Lightspeed_f" : "f"
-    nmap <expr> F reg_recording() . reg_executing() == "" ? "<Plug>Lightspeed_F" : "F"
-    nmap <expr> t reg_recording() . reg_executing() == "" ? "<Plug>Lightspeed_t" : "t"
-    nmap <expr> T reg_recording() . reg_executing() == "" ? "<Plug>Lightspeed_T" : "T"
+    if class_name != ''
+      echo "Copied to clipboard: " . class_name
+    else
+      echo "No class or module found"
+    endif
+  endif
+endfunction
 
-    imap <C-l> <Right>
-    imap <C-a> <C-o>0
-    imap <C-e> <C-o>-
-    imap <C-h> <Left>
+function BetterMove()
+  let current_folder = expand('%:p:h')
 
-    cnoremap <C-l> <Right>
-    cnoremap <C-h> <Left>
-    cnoremap <C-a> <Home>
-    cnoremap <C-e> <End>
+  call feedkeys(":Move " . current_folder . "/", 'n')
+endfunction
 
-    imap <C-p> <Plug>(emmet-expand-abbr)
+function BetterRename()
+  let current_file = expand("%p")
+  let current_file_name = expand("%:t")
+  let new_name = input("New name for " . current_file_name . ": ", current_file_name)
+  let current_folder = expand('%:p:h')
 
-    nmap gF <C-w>f
-    imap <C-d> <Delete>
-    cmap <C-d> <Delete>
+  if(new_name != '' && new_name != current_file_name)
+    call feedkeys(":saveas " . current_folder . "/" . new_name . "\<CR>", "n")
+    call delete(current_file)
+    call feedkeys(":bd #\<CR>")
+  endif
+endfunction
+
+function BetterCopy()
+  let current_folder = expand('%:p:h')
+
+  call feedkeys(":saveas " . current_folder . "/", 'n')
+endfunction
+
+function BetterDelete()
+  echo 'Really want to delete current file? y/n '
+  let l:answer = nr2char(getchar())
+
+  if l:answer ==? 'y'
+    execute "normal! :Delete!\<CR>"
+    echo "Deletado com sucesso"
+  elseif l:answer ==? 'n'
+    return 0
+  else
+    echo 'Please enter "y" or "n"'
+    return BetterDelete()
+  endif
+endfunction
+
+nnoremap <expr> 0 (col('.') - 1) == match(getline('.'),'\S') ? "<Home>" : "^"
+vnoremap <expr> 0 (col('.') - 1) == match(getline('.'),'\S') ? "<Home>" : "^"
+
+nmap <expr> f reg_recording() . reg_executing() == "" ? "<Plug>Lightspeed_f" : "f"
+nmap <expr> F reg_recording() . reg_executing() == "" ? "<Plug>Lightspeed_F" : "F"
+nmap <expr> t reg_recording() . reg_executing() == "" ? "<Plug>Lightspeed_t" : "t"
+nmap <expr> T reg_recording() . reg_executing() == "" ? "<Plug>Lightspeed_T" : "T"
+
+imap <C-l> <Right>
+imap <C-a> <C-o>0
+imap <C-e> <C-o>-
+imap <C-h> <Left>
+
+cnoremap <C-l> <Right>
+cnoremap <C-h> <Left>
+cnoremap <C-a> <Home>
+cnoremap <C-e> <End>
+
+imap <C-p> <Plug>(emmet-expand-abbr)
+
+nmap gF <C-w>f
+imap <C-d> <Delete>
+cmap <C-d> <Delete>
+
+nmap <C-q> :EnMasse<CR>
