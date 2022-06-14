@@ -98,6 +98,7 @@ return require('packer').startup(function()
   use 'xolox/vim-misc'
   use 'glepnir/dashboard-nvim'
   use 'lukas-reineke/indent-blankline.nvim'
+  use { 'catppuccin/nvim' }
 
   use {
     "williamboman/nvim-lsp-installer",
