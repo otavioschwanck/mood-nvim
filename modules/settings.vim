@@ -106,8 +106,6 @@ au BufEnter * :set signcolumn=yes
 
 autocmd SwapExists * let v:swapchoice = "e"
 
-let g:gruvbox_flat_style = "hard"
-
 set background=dark
 set termguicolors
 
@@ -298,42 +296,33 @@ let g:table_mode_disable_mappings = 1
 xmap gl <Plug>(EasyAlign)
 nmap gl <Plug>(EasyAlign)
 
-let g:dashboard_custom_header = [
-      \ '███╗   ███╗ ██████╗  ██████╗ ██████╗     ███╗   ██╗██╗   ██╗██╗███╗   ███╗',
-      \ '████╗ ████║██╔═══██╗██╔═══██╗██╔══██╗    ████╗  ██║██║   ██║██║████╗ ████║',
-      \ '██╔████╔██║██║   ██║██║   ██║██║  ██║    ██╔██╗ ██║██║   ██║██║██╔████╔██║',
-      \ '██║╚██╔╝██║██║   ██║██║   ██║██║  ██║    ██║╚██╗██║╚██╗ ██╔╝██║██║╚██╔╝██║',
-      \ '██║ ╚═╝ ██║╚██████╔╝╚██████╔╝██████╔╝    ██║ ╚████║ ╚████╔╝ ██║██║ ╚═╝ ██║',
-      \ '╚═╝     ╚═╝ ╚═════╝  ╚═════╝ ╚═════╝     ╚═╝  ╚═══╝  ╚═══╝  ╚═╝╚═╝     ╚═╝'
-\]
+lua <<EOF
+local db = require('dashboard')
+db.custom_header = {
+      '',
+      '███╗   ███╗ ██████╗  ██████╗ ██████╗     ███╗   ██╗██╗   ██╗██╗███╗   ███╗',
+      '████╗ ████║██╔═══██╗██╔═══██╗██╔══██╗    ████╗  ██║██║   ██║██║████╗ ████║',
+      '██╔████╔██║██║   ██║██║   ██║██║  ██║    ██╔██╗ ██║██║   ██║██║██╔████╔██║',
+      '██║╚██╔╝██║██║   ██║██║   ██║██║  ██║    ██║╚██╗██║╚██╗ ██╔╝██║██║╚██╔╝██║',
+      '██║ ╚═╝ ██║╚██████╔╝╚██████╔╝██████╔╝    ██║ ╚████║ ╚████╔╝ ██║██║ ╚═╝ ██║',
+      '╚═╝     ╚═╝ ╚═════╝  ╚═════╝ ╚═════╝     ╚═╝  ╚═══╝  ╚═══╝  ╚═╝╚═╝     ╚═╝',
+      '',
+      'Version 1.1.0',
+      '',
+      ''
+}
 
-
-let g:dashboard_custom_section={
-  \ '1': {
-      \ 'description': [' Open Project                 SPC p  '],
-      \ 'command': 'Telescope project' },
-  \ '2': {
-      \ 'description': [' Git status                   SPC TAB'],
-      \ 'command': 'Telescope git_status' },
-  \ '3': {
-      \ 'description': [' Recent Files                 SPC f r'],
-      \ 'command': 'Telescope find_files' },
-  \ '4': {
-      \ 'description': [' Open Handbook (docs)         SPC h h'],
-      \ 'command': 'e ~/.config/nvim/handbook.md' },
-  \ '5': {
-      \ 'description': [' User Settings                SPC f p'],
-      \ 'command': 'e ~/.config/nvim/user.vim' },
-  \ '6': {
-      \ 'description': [' User Plugins                 SPC f P'],
-      \ 'command': 'e ~/.config/nvim/lua/user-plugins.lua' },
-  \ '7': {
-      \ 'description': [' User LSP                     SPC h l'],
-      \ 'command': 'e ~/.config/nvim/lua/user_lsp.lua' },
-  \ '8': {
-      \ 'description': [' Update mooD                  SPC h u'],
-      \ 'command': 'UpdateMood' }
-  \ }
+db.custom_center = {
+  { desc = ' Git status                   SPC TAB', action = 'Telescope git_status' },
+  { desc = ' Open Project                 SPC p  ', action = 'Telescope project' },
+  { desc = ' Recent Files                 SPC f r', action = 'Telescope oldfiles' },
+  { desc = ' Open Handbook (docs)         SPC h h', action = 'e ~/.config/nvim/handbook.md' },
+  { desc = ' User Settings                SPC f p', action = 'e ~/.config/nvim/user.vim' },
+  { desc = ' User Plugins                 SPC f P', action = 'e ~/.config/nvim/lua/user-plugins.lua' },
+  { desc = ' User LSP                     SPC h l', action = 'e ~/.config/nvim/lua/user_lsp.lua' },
+  { desc = ' Update mooD                  SPC h u', action = 'UpdateMood' },
+}
+EOF
 
 let g:machine_gun_regexp = {
       \ 'ruby': 'def\ \|do$\|do |.*|$\|end$'

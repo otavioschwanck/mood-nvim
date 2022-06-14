@@ -40,7 +40,7 @@ end
 endsnippet
 
 snippet cls "class Foo::Bar::Vim::Something ... end" i
-class ${1:`!p snip.rv = class_name_joined(path)`} ${2:< ${3:ApplicationService}}
+class ${1:`!p snip.rv = class_name_joined(path)`}${2: < ${3:ApplicationService}}
 	${0}
 end
 endsnippet
