@@ -313,14 +313,14 @@ db.custom_header = {
 }
 
 db.custom_center = {
-  { desc = ' Git status                   SPC TAB', action = 'Telescope git_status' },
-  { desc = ' Open Project                 SPC p  ', action = 'Telescope project' },
-  { desc = ' Recent Files                 SPC f r', action = 'Telescope oldfiles' },
-  { desc = ' Open Handbook (docs)         SPC h h', action = 'e ~/.config/nvim/handbook.md' },
-  { desc = ' User Settings                SPC f p', action = 'e ~/.config/nvim/user.vim' },
-  { desc = ' User Plugins                 SPC f P', action = 'e ~/.config/nvim/lua/user-plugins.lua' },
-  { desc = ' User LSP                     SPC h l', action = 'e ~/.config/nvim/lua/user_lsp.lua' },
-  { desc = ' Update mooD                  SPC h u', action = 'UpdateMood' },
+  { desc = ' Git status                   ', shortcut = 'SPC TAB', action = 'Telescope git_status' },
+  { desc = ' Open Project                 ', shortcut = 'SPC h u', action = 'Telescope project' },
+  { desc = ' Recent Files                 ', shortcut = 'SPC f r', action = 'Telescope oldfiles' },
+  { desc = ' Open Handbook (docs)         ', shortcut = 'SPC p  ', action = 'e ~/.config/nvim/handbook.md' },
+  { desc = ' User Settings                ', shortcut = 'SPC f P', action = 'e ~/.config/nvim/user.vim' },
+  { desc = ' User Plugins                 ', shortcut = 'SPC f P', action = 'e ~/.config/nvim/lua/user-plugins.lua' },
+  { desc = ' User LSP                     ', shortcut = 'SPC f p', action = 'e ~/.config/nvim/lua/user_lsp.lua' },
+  { desc = ' Update mooD                  ', shortcut = 'SPC f p', action = 'UpdateMood' },
 }
 EOF
 
