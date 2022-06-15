@@ -2,18 +2,9 @@
 
 " SPC h t to see all themes
 
-" Light theme?
-" set background=light
-" colorscheme one-nvim
-
 " I also recommend gruvbox
-colorscheme onedarker
-
-" In case you want gruvbox
-" let g:gruvbox_contrast_dark='hard'
-
-" Light theme? Use this
-" colorscheme github_light_default
+let g:catppuccin_flavour = "macchiato" " latte, frappe, macchiato, mocha
+colorscheme catppuccin
 
 " SPC z to access notes commands
 let g:notes_directories = ['~/Documents/Notes']
