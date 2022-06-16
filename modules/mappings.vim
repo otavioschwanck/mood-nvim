@@ -278,7 +278,7 @@ function HideTerminalWindowOrNoh()
 
   if buftype == 'terminal'
     if winnr('$') == 1
-      execute "b#"
+      execute "BufSurfBack"
     else
       execute "close"
     end
