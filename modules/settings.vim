@@ -267,9 +267,11 @@ function OpenTerm(command, name, unique, close_after_create)
 
       execute term_command . " " . a:command
       execute "file! " . full_name . " - " . new_number
+      execute "SendHere"
     else
       execute term_command . " " . a:command
       execute "file! " . full_name
+      execute "SendHere"
     end
 
     if a:close_after_create == 1
