@@ -278,7 +278,11 @@ function HideTerminalWindowOrNoh()
 
   if buftype == 'terminal'
     if winnr('$') == 1
-      execute "BufSurfBack"
+      if(g:term_as_full_screen_tabs > 0)
+        execute "tabclose"
+      else
+        execute "b#"
+      end
     else
       execute "close"
     end

@@ -215,8 +215,18 @@ function RunLastTermCommand()
   execute "call OpenTerm(g:last_term_command[0], g:last_term_command[1], g:last_term_command[2], g:last_term_command[3])"
 endfunction
 
+let g:term_as_full_screen_tabs = 0
+
 function OpenTerm(command, name, unique, close_after_create)
   let p_name = split(finddir('.git/..', expand('%:p:h').';'), "/")
+
+  if(g:term_as_full_screen_tabs > 0)
+    let change_buffer_command = "tab sb "
+    let term_command = "TTerm"
+  else
+    let change_buffer_command = "bel sb "
+    let term_command = "Term"
+  end
 
   if a:name != 'Quick Term'
     let g:last_term_command = [a:command, a:name, a:unique, a:close_after_create]
@@ -231,12 +241,12 @@ function OpenTerm(command, name, unique, close_after_create)
   let bnr = bufexists(full_name)
 
   if bnr > 0 && a:unique == 1
-    execute "bel sb " . full_name
+    execute change_buffer_command . " " . full_name
 
     echo full_name . " exists.  Focusing."
     startinsert
   elseif bnr > 0 && a:unique == 2
-    execute "bel sb " . full_name
+    execute change_buffer_command . " " . full_name
 
     execute "normal! :bd\<CR>"
 
@@ -255,10 +265,10 @@ function OpenTerm(command, name, unique, close_after_create)
         endif
       endwhile
 
-      execute "Term " . a:command
+      execute term_command . " " . a:command
       execute "file! " . full_name . " - " . new_number
     else
-      execute "Term " . a:command
+      execute term_command . " " . a:command
       execute "file! " . full_name
     end
 

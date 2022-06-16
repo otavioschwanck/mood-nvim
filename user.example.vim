@@ -13,6 +13,9 @@ let g:project_dirs = [{ "path": "~/Projetos", "max_depth": "1" }] " Your project
 
 " set relativenumber " Relative numbers?
 
+" Terminal full screen instead of windows?
+" let g:term_as_full_screen_tabs = 0
+
 " To install some extra plugins, visit
 " ~/.config/nvim/lua/user-plugins.lua (You can press gf from the link)
 
