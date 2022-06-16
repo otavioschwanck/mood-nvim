@@ -215,6 +215,24 @@ function RunLastTermCommand()
   execute "call OpenTerm(g:last_term_command[0], g:last_term_command[1], g:last_term_command[2], g:last_term_command[3])"
 endfunction
 
+function OpenTermFromLastCommand()
+  let p_name = split(finddir('.git/..', expand('%:p:h').';'), "/")
+
+  if len(p_name) > 0
+    let full_name = p_name[-1] . " " . g:last_term_command[1]
+  else
+    let full_name = g:last_term_command[1]
+  endif
+
+  let bnr = bufexists(full_name)
+
+  if bnr > 0
+    execute "call OpenTerm(g:last_term_command[0], g:last_term_command[1], 1, 0)"
+  else
+    execute "call OpenTerm(g:last_term_command[0], g:last_term_command[1], g:last_term_command[2], g:last_term_command[3])"
+  endif
+endfunction
+
 let g:term_as_full_screen_tabs = 0
 
 function OpenTerm(command, name, unique, close_after_create)
@@ -226,7 +244,7 @@ function OpenTerm(command, name, unique, close_after_create)
   else
     let change_buffer_command = "bel sb "
     let term_command = "Term"
-  end
+  endif
 
   if a:name != 'Quick Term'
     let g:last_term_command = [a:command, a:name, a:unique, a:close_after_create]

@@ -250,7 +250,9 @@ Just press C-p.
 ## Terminal
 
 `SPC v` open a blank terminal
-`SPC !` rerun last terminal
+`SPC i` Open Last Terminal if exists, if not, run again.
+`SPC l` Send text to last opened terminal
+`SPC !` rerun last terminal command
 `:Term command` open a terminal with the command
 
 Go to your personal settings `SPC f p` and add terminal commands.  There is a bunch of examples there!

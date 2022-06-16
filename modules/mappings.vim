@@ -139,6 +139,7 @@ h = {
   h = { ":e ~/.config/nvim/handbook.md<CR>", "Open the Handbook" },
   l = { ":e ~/.config/nvim/lua/user_lsp.lua<CR>", "LSP Settings" },
   u = { ":UpdateMood<CR>", "Update mooD" },
+  d = { ":!rm -rf ~/.local/share/nvim/swap/*<CR>", "Delete SWP files" }
   },
 A = { ":call OpenTestAlternateAndSplit()<cr>", "Go to Test (split)" },
 ["."] = { ":Telescope file_browser path=%:p:h hidden=true respect_gitignore=false<CR>", "File Browser" },
@@ -208,6 +209,7 @@ m = {
   d = { ":lua require('mood').comment_rubocop()<CR>", "Comment Rubocop Error" },
   },
 ["!"] = { ":call RunLastTermCommand()<CR>", "Run Last Terminal Command" },
+["i"] = { ":call OpenTermFromLastCommand()<CR>", "Open Term From Last Command" },
 g = {
   name = "+Git",
   g = { ":LazyGit<CR>", "LazyGit" },
