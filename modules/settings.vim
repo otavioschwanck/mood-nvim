@@ -38,7 +38,6 @@ set updatetime=200
 set laststatus=2
 set scrolloff=10
 set expandtab
-set shell=zsh
 set backupskip=/tmp/*,/private/tmp/*
 set shortmess+=c
 set timeoutlen=400
