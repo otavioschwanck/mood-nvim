@@ -212,7 +212,7 @@ Just press C-p.
 
 | Command | Description                                                                    |
 |---------|--------------------------------------------------------------------------------|
-| m       | Start multiple cursors / go forward (You can change on the user.vim (SPC f P)) |
+| M       | Start multiple cursors / go forward (You can change on the user.vim (SPC f P)) |
 | gq      | Select all occurrences                                                         |
 |---------|--------------------------------------------------------------------------------|
 
