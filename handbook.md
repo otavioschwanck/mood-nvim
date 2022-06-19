@@ -13,7 +13,7 @@ Some ways to learn:
 
 To access your personal configuration, press `SPC f p`.  To install extra plugins, press `SPC f P`
 
-On your personal configuration you can configure stuff like commands to run with `SPC o`, per folder, theme, etc.
+On your personal configuration you can configure stuff like commands to run with `SPC o`, search per folder, theme, etc.
 
 # Quick Tips
 
@@ -174,18 +174,21 @@ Or your can press `C-q` again to turn quickfix into a editable buffer and edit a
 
 # On the SPC . (file browser)
 
+I Consider this way the most efficient way to create files and find files on current file folder.
+
 | Insert / Normal         | / Action                                                                    |
 |-------------------------|-----------------------------------------------------------------------------|
 | Most Important commands |                                                                             |
 |-------------------------|-----------------------------------------------------------------------------|
-| tab                     | Select item to move / copy / Rename                                         |
-| C-a                     | Create file/folder at current path (from prompt)                            |
-| C-p                     | Paste (multi-)selected files/folders to current path                        |
+| tab                     | Mark item to item to move / copy / Rename                                   |
+| C-f                     | Go to a folder on project (super useful to create new files / move)         |
+| C-space                 | Create file/folder from what you typed on prompt                            |
+| C-p                     | Paste Stuff that will marked with tab                                       |
 | C-r                     | Rename multi-selected files/folders                                         |
 | C-e                     | Move multi-selected files/folders to current path                           |
-| C-space                 | Create file from prompt                                                     |
 | C-c/c                   | Go to parent directory                                                      |
-| C-o/o                   | Delete select file(s)                                                       |
+| C-o/o                   | Delete selected file(s)                                                     |
+| C-a                     | Create file/folder at current path                                          |
 |-------------------------|-----------------------------------------------------------------------------|
 | Other commands          |                                                                             |
 |-------------------------|-----------------------------------------------------------------------------|
