@@ -280,7 +280,7 @@ function HideTerminalWindowOrNoh()
 
   if buftype == 'terminal'
     if winnr('$') == 1
-      if(g:term_as_full_screen_tabs > 0)
+      if(g:term_as_full_screen_tabs > 0 && tabpagenr() != tabpagenr('$'))
         execute "tabclose"
       else
         execute "b#"
