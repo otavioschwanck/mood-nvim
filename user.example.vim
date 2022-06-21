@@ -11,6 +11,9 @@ let g:notes_directories = ['~/Documents/Notes']
 
 let g:project_dirs = [{ "path": "~/Projetos", "max_depth": "1" }] " Your project dirs to use with SPC p
 
+" Your Shell?
+" set shell=zsh
+
 " set relativenumber " Relative numbers?
 
 " Terminal full screen instead of windows?
@@ -113,13 +116,4 @@ let g:python3_host_prog = '/usr/bin/python3'
 
 " Add your vim stuff here:
 set mouse=a " Mouse support ?
-
-" Format on save for some languages?
-autocmd BufWritePre *.js lua vim.lsp.buf.formatting_sync(nil, 100)
-autocmd BufWritePre *.jsx lua vim.lsp.buf.formatting_sync(nil, 100)
-autocmd BufWritePre *.tsx lua vim.lsp.buf.formatting_sync(nil, 100)
-autocmd BufWritePre *.ts lua vim.lsp.buf.formatting_sync(nil, 100)
-
-" Your Shell?
-" set shell=zsh
 
