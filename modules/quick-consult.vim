@@ -67,3 +67,4 @@ endfunction
 
 vnoremap <C-g> :<c-u>call SaveSelectionToQuickConsult()<cr>
 nnoremap <C-g> :<c-u>call OpenConsultationWindow()<cr>
+tnoremap <C-g> :<c-u>call OpenConsultationWindow()<cr>
