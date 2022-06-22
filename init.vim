@@ -9,6 +9,7 @@ silent :InstallConfigs
 runtime ./modules/plugins.vim
 
 runtime ./modules/settings.vim
+runtime ./modules/quick-consult.vim
 runtime ./modules/telescope.vim
 runtime ./modules/mappings.vim
 runtime ./modules/tree-sitter.vim

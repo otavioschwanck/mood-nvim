@@ -25,6 +25,16 @@ On your personal configuration you can configure stuff like commands to run with
 
 Just press `;` and follow your heart.
 
+# Quick Consult
+
+| Command            | Description                        |
+|--------------------|------------------------------------|
+| C-g on visual mode | Save selection to quick consult    |
+| C-g on normal mode | Open Saved text from quick consult |
+|--------------------|------------------------------------|
+
+OBS: This list persist between vim sections
+
 # Buffer Navigation and Management
 
 | Command                | Description                                        |
