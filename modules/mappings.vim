@@ -144,7 +144,6 @@ h = {
 A = { ":call OpenTestAlternateAndSplit()<cr>", "Go to Test (split)" },
 ["."] = { ":Telescope file_browser path=%:p:h hidden=true respect_gitignore=false<CR>", "File Browser" },
 k = { ":Bwipeout<CR>", "Kill current buffer" },
-p = { ":lua require'telescope'.extensions.project.project{}<CR>", "Go To Project" },
 t = {
   name = '+Test',
   v = { ":TestFile<CR>", "Test Current File" },

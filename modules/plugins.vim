@@ -7,7 +7,7 @@ return require('packer').startup(function()
   for p = 1, table.getn(plugins) do
     use(plugins[p])
   end
-  use {'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
+  use {'nvim-telescope/telescope-fzf-native.nvim', run = 'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build' }
   use 'tpope/vim-repeat'
   use { 'ggandor/lightspeed.nvim', commit = "005320ff9e128de8689c6e675fa64ed5963e2d1c" }
   use 'norcalli/nvim-colorizer.lua'
@@ -30,7 +30,6 @@ return require('packer').startup(function()
   use 'sainnhe/sonokai'
   use 'ThePrimeagen/refactoring.nvim'
   use 'psf/black'
-  use 'ahmedkhalf/project.nvim'
   use 'tpope/vim-fugitive'
   use 'AndrewRadev/undoquit.vim'
   use 'michaeljsmith/vim-indent-object'
@@ -45,6 +44,11 @@ return require('packer').startup(function()
   use 'shaunsingh/nord.nvim'
   use 'Olical/vim-enmasse'
 
+  -- optional
+  use {'junegunn/fzf', run = function()
+  vim.fn['fzf#install']()
+  end }
+
   use {
     'kyazdani42/nvim-tree.lua',
     requires = {
@@ -56,7 +60,6 @@ return require('packer').startup(function()
   use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
   use 'nvim-treesitter/nvim-treesitter-textobjects'
   use "rafamadriz/friendly-snippets"
-  use 'nvim-telescope/telescope-project.nvim'
   use { 'hrsh7th/cmp-calc' }
   use 'mattn/emmet-vim'
 
@@ -159,8 +162,6 @@ require("indent_blankline").setup {
 require'lightspeed'.setup {
   ignore_case = true
 }
-
-require("project_nvim").setup { }
 
 require("yanky").setup({
   ring = {

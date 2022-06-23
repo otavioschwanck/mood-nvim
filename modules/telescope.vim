@@ -34,7 +34,6 @@ require('telescope').setup{
     ["ui-select"] = {
       require("telescope.themes").get_dropdown { }
     },
-    project = { base_dirs = vim.g.project_dirs },
     fzf = {
       fuzzy = true,                    -- false will only do exact matching
       override_generic_sorter = true,  -- override the generic sorter
@@ -94,7 +93,6 @@ else
 end
 
 require("telescope").load_extension("ui-select")
-require'telescope'.load_extension('project')
 require("telescope").load_extension "file_browser"
 require('telescope').load_extension('fzf')
 EOF

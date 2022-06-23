@@ -9,8 +9,6 @@ colorscheme catppuccin
 " SPC z to access notes commands
 let g:notes_directories = ['~/Documents/Notes']
 
-let g:project_dirs = [{ "path": "~/Projetos", "max_depth": "1" }] " Your project dirs to use with SPC p
-
 " Your Shell?
 " set shell=zsh
 
