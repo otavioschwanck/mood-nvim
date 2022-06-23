@@ -215,24 +215,24 @@ function RunLastTermCommand()
 endfunction
 
 function OpenTermFromLastCommand()
-  let p_name = split(finddir('.git/..', expand('%:p:h').';'), "/")
+  let bnr = bufexists(g:last_term_buffer_name)
 
-  if len(p_name) > 0
-    let full_name = p_name[-1] . " " . g:last_term_command[1]
+  if(g:term_as_full_screen_tabs > 0)
+    let change_buffer_command = "tab sb "
   else
-    let full_name = g:last_term_command[1]
+    let change_buffer_command = "bel sb "
   endif
 
-  let bnr = bufexists(full_name)
-
-  if bnr > 0
-    execute "call OpenTerm(g:last_term_command[0], g:last_term_command[1], 1, 0)"
+  if (bnr > 0)
+    execute change_buffer_command . " " . g:last_term_buffer_name
+    startinsert
   else
-    execute "call OpenTerm(g:last_term_command[0], g:last_term_command[1], g:last_term_command[2], g:last_term_command[3])"
+    echo "Nothing to see here"
   endif
 endfunction
 
 let g:term_as_full_screen_tabs = 0
+let g:last_term_buffer_name = 0
 
 function OpenTerm(command, name, unique, close_after_create)
   let p_name = split(finddir('.git/..', expand('%:p:h').';'), "/")
@@ -260,10 +260,14 @@ function OpenTerm(command, name, unique, close_after_create)
   if bnr > 0 && a:unique == 1
     execute change_buffer_command . " " . full_name
 
+    let g:last_term_buffer_name = full_name
+
     echo full_name . " exists.  Focusing."
     startinsert
   elseif bnr > 0 && a:unique == 2
     execute change_buffer_command . " " . full_name
+
+    let g:last_term_buffer_name = full_name
 
     execute "normal! :bd\<CR>"
 
@@ -284,9 +288,13 @@ function OpenTerm(command, name, unique, close_after_create)
 
       execute term_command . " " . a:command
       execute "file! " . full_name . " - " . new_number
+      let g:last_term_buffer_name = full_name . " - " . new_number
       execute "SendHere"
     else
       execute term_command . " " . a:command
+
+      let g:last_term_buffer_name = full_name
+
       execute "file! " . full_name
       execute "SendHere"
     end

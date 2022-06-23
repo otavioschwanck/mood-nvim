@@ -280,10 +280,21 @@ function HideTerminalWindowOrNoh()
 
   if buftype == 'terminal'
     if winnr('$') == 1
-      if(g:term_as_full_screen_tabs > 0 && tabpagenr() != tabpagenr('$'))
+      if(g:term_as_full_screen_tabs > 0 && tabpagenr() != 1)
         execute "tabclose"
       else
-        execute "b#"
+        let go_back = 1
+        let count = 0
+
+        while go_back
+          execute "BufSurfBack"
+
+          let count = count + 1
+
+          if &filetype != "" || count > 3
+            let go_back = 0
+          endif
+        endwhile
       end
     else
       execute "close"
