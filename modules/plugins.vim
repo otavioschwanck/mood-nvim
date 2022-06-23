@@ -45,11 +45,6 @@ return require('packer').startup(function()
   use 'shaunsingh/nord.nvim'
   use 'Olical/vim-enmasse'
 
-  -- optional
-  use {'junegunn/fzf', run = function()
-  vim.fn['fzf#install']()
-  end }
-
   use {
     'kyazdani42/nvim-tree.lua',
     requires = {
