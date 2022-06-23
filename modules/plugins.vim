@@ -43,7 +43,9 @@ return require('packer').startup(function()
   use 'projekt0n/github-nvim-theme'
   use 'shaunsingh/nord.nvim'
   use 'Olical/vim-enmasse'
-
+  use {
+    "AckslD/nvim-neoclip.lua",
+    }
   -- optional
   use {'junegunn/fzf', run = function()
   vim.fn['fzf#install']()

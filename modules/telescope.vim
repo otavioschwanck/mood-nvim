@@ -95,4 +95,31 @@ end
 require("telescope").load_extension("ui-select")
 require("telescope").load_extension "file_browser"
 require('telescope').load_extension('fzf')
+require('telescope').load_extension('neoclip')
+
+require('neoclip').setup({
+  enable_persistent_history = true,
+  keys = {
+    telescope = {
+      i = {
+        select = '<cr>',
+        paste = '<c-n>',
+        paste_behind = '<C-p>',
+        replay = '<c-q>',  -- replay a macro
+        delete = '<c-d>',  -- delete an entry
+        custom = {},
+        },
+      n = {
+        select = '<cr>',
+        paste = 'p',
+        paste_behind = 'P',
+        replay = 'q',
+        delete = 'd',
+        custom = {},
+        },
+      },
+    }
+  })
 EOF
+
+

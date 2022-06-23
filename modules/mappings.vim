@@ -144,6 +144,7 @@ h = {
 A = { ":call OpenTestAlternateAndSplit()<cr>", "Go to Test (split)" },
 ["."] = { ":Telescope file_browser path=%:p:h hidden=true respect_gitignore=false<CR>", "File Browser" },
 k = { ":Bwipeout<CR>", "Kill current buffer" },
+p = { ":Telescope neoclip<CR><ESC>:echo 'Press ENTER to select, C-p to paste before or C-n to paste after.'<CR>", "Yank History" },
 t = {
   name = '+Test',
   v = { ":TestFile<CR>", "Test Current File" },
