@@ -1,7 +1,5 @@
 local wk = require("which-key")
 
-vim.g.disable_harpoon_menu = 0
-
 local function Split(s, delimiter)
   result = {};
 
