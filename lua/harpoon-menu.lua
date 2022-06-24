@@ -33,7 +33,11 @@ local function toggle_harpoon()
   }
 
   if vim.g.disable_harpoon_menu == 1 then
-    harpoons = {}
+    harpoons = {
+      s = { ':lua require("harpoon.mark").add_file()<CR>', "" },
+      f = { ':lua require("harpoon.ui").toggle_quick_menu()<CR>', "" },
+      c = { ':lua require("harpoon.mark").clear_all()<CR>', "" }
+    }
   end
 
   local marks = harpoon.get_mark_config().marks
