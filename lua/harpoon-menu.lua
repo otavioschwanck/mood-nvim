@@ -1,5 +1,7 @@
 local wk = require("which-key")
 
+vim.g.disable_harpoon_menu = 0
+
 local function Split(s, delimiter)
   result = {};
 
@@ -24,12 +26,17 @@ end
 local function toggle_harpoon()
   local harpoon = require("harpoon")
   local index = 1
+
   local harpoons = {
     name = "Harpoon",
     s = { ':lua require("harpoon.mark").add_file()<CR>', "Add File to Harpoon" },
     f = { ':lua require("harpoon.ui").toggle_quick_menu()<CR>', "Open Quick Menu" },
     c = { ':lua require("harpoon.mark").clear_all()<CR>', "Clear Harpoon" }
   }
+
+  if vim.g.disable_harpoon_menu == 1 then
+    harpoons = {}
+  end
 
   local marks = harpoon.get_mark_config().marks
 

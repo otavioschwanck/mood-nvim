@@ -24,35 +24,12 @@
 #
 # Online reference: https://github.com/SirVer/ultisnips/blob/master/doc/UltiSnips.txt
 
-snippet cn "className=''" i
-className=\{$0\}
-endsnippet
-
-snippet uf "useEffect(..)" i
-useEffect(() => {
-  $1
-}, [$0])
-endsnippet
-
-
 snippet ar "() => { ... }" i
 (${1:}) => { $0 }
 endsnippet
 
 snippet arr "() => ..." i
 (${1:}) => $0
-endsnippet
-
-snippet cnn "className=''" i
-className="$0"
-endsnippet
-
-snippet rc "const Components ..." b
-const ${1:`!p snip.rv = snip.basename`} = (${2:props}: ${3:Any}) => {
-	return(<${4:div}>$0</$4>)
-}
-
-export default $1;
 endsnippet
 
 global !p
@@ -63,10 +40,6 @@ def camel_case(s):
 
 	return s
 endglobal
-
-snippet ust "useState" b
-const [${1:val}, set`!p snip.rv = camel_case(t[1])`] = useState(${2:initialValue});
-endsnippet
 
 snippet log "console.log()" b
 console.log($0)
