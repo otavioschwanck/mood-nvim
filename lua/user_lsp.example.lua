@@ -1,6 +1,10 @@
 --------------------------
 -- NVIM_LSPCONFIG (KEYMAPS)
 --------------------------
+
+-- What LSP servers do you want?
+local servers = { 'pyright', 'tsserver', 'jsonls', 'html', 'yamlls', 'cssls', 'solidity_ls', 'sumneko_lua' }
+
 local opts = { noremap=true, silent=true }
 vim.api.nvim_set_keymap('n', '[e', '<cmd>lua vim.diagnostic.goto_prev()<CR>', opts)
 vim.api.nvim_set_keymap('n', ']e', '<cmd>lua vim.diagnostic.goto_next()<CR>', opts)
@@ -29,6 +33,16 @@ local on_attach = function(_client, bufnr)
   vim.keymap.set('n', 'gt', vim.lsp.buf.type_definition, bufopts)
   vim.keymap.set('n', 'gr', ':Telescope lsp_references<CR>', bufopts)
 end
+
+-- Disable virtual text
+vim.diagnostic.config({
+  virtual_text = false,
+  -- underline = false
+})
+
+-- -- Show line diagnostics automatically in hover window
+vim.o.updatetime = 250
+vim.cmd [[autocmd CursorHold,CursorHoldI * lua vim.diagnostic.open_float(nil, {focus=false})]]
 
 -------------------------
 -- NVIM CMP (SNIPPETS) --
@@ -114,8 +128,6 @@ cmp.setup({
 
 local cmp_autopairs = require('nvim-autopairs.completion.cmp')
 cmp.event:on( 'confirm_done', cmp_autopairs.on_confirm_done({  map_char = { tex = '' } }))
-
-local servers = { 'pyright', 'tsserver', 'jsonls', 'html', 'yamlls', 'cssls', 'solidity_ls', 'sumneko_lua' }
 
 require "lsp_signature".setup()
 
@@ -275,13 +287,50 @@ cmp.setup.cmdline(':', {
     })
 })
 
--- Uncomment bellow to change your diagnostics apparence settings
---
--- vim.diagnostic.config({
---   virtual_text = false,
---   underline = false
--- })
+local function lspSymbol(name, icon)
+   local hl = "DiagnosticSign" .. name
+   vim.fn.sign_define(hl, { text = icon, numhl = hl, texthl = hl })
+end
 
--- -- Show line diagnostics automatically in hover window
--- vim.o.updatetime = 250
--- vim.cmd [[autocmd CursorHold,CursorHoldI * lua vim.diagnostic.open_float(nil, {focus=false})]]
+lspSymbol("Error", "")
+lspSymbol("Info", "")
+lspSymbol("Hint", "")
+lspSymbol("Warn", "")
+
+vim.diagnostic.config {
+   virtual_text = {
+      prefix = "",
+   },
+   signs = true,
+   underline = true,
+   update_in_insert = false,
+}
+
+vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
+   border = "single",
+})
+vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, {
+   border = "single",
+})
+
+-- suppress error messages from lang servers
+vim.notify = function(msg, log_level)
+   if msg:match "exit code" then
+      return
+   end
+   if log_level == vim.log.levels.ERROR then
+      vim.api.nvim_err_writeln(msg)
+   else
+      vim.api.nvim_echo({ { msg } }, true, {})
+   end
+end
+
+-- Borders for LspInfo winodw
+local win = require "lspconfig.ui.windows"
+local _default_opts = win.default_opts
+
+win.default_opts = function(options)
+   local opts = _default_opts(options)
+   opts.border = "single"
+   return opts
+end
