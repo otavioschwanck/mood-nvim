@@ -20,6 +20,7 @@ On your personal configuration you can configure stuff like commands to run with
 - To navigate on telescope use C-j and C-k.
 - To command history on telescope, use C-n and C-p.
 - C-c means Ctrl + c
+- SPC = Space
 - M-c means Alt + c or Option + c
 
 # Harpoon
@@ -28,11 +29,14 @@ Just press `;` and follow your heart.
 
 # Quick Consult
 
-| Command            | Description                        |
-|--------------------|------------------------------------|
-| C-g on visual mode | Save selection to quick consult    |
-| C-g on normal mode | Open Saved text from quick consult |
-|--------------------|------------------------------------|
+| Command   | MODE   | Description                                 |
+|-----------|--------|---------------------------------------------|
+| C-g       | Visual | Save selection to quick consult             |
+| C-g       | Normal | Open Saved text from quick consult          |
+| SPC C-g   | Visual | Append Selection to quick consult           |
+| SPC C-g a | Normal | Append Text from clipboard to quick consult |
+| SPC C-g s | Normal | Save Text from clpiboard to quick consult   |
+|-----------|--------|---------------------------------------------|
 
 OBS: This list persist between vim sections
 

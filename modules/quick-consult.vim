@@ -42,27 +42,61 @@ function! OpenConsultationWindow() abort
 endfunction
 
 function! GetVisualSelection()
-  let [line_start, column_start] = getpos("'<")[1:2]
-  let [line_end, column_end] = getpos("'>")[1:2]
-  let lines = getline(line_start, line_end)
-
-  if len(lines) == 0
-    return ''
-  endif
-
-  let lines[-1] = lines[-1][: column_end - 2]
-  let lines[0] = lines[0][column_start - 1:]
-  return join(lines, "\n")
+    let [line_start, column_start] = getpos("'<")[1:2]
+    let [line_end, column_end] = getpos("'>")[1:2]
+    let lines = getline(line_start, line_end)
+    if len(lines) == 0
+        return ''
+    endif
+    let lines[-1] = lines[-1][: column_end - (&selection == 'inclusive' ? 1 : 2)]
+    let lines[0] = lines[0][column_start - 1:]
+    return join(lines, "\n")
 endfunction
 
 function SaveSelectionToQuickConsult()
+  echo 'Overwrite current consult? y/n '
+  let l:answer = nr2char(getchar())
+
+  if l:answer ==? 'y'
+    let filepath = shellescape(fnamemodify('~/.nvim-quick-consult', ':p'))[1:-2]
+    let filepath_of_filetype = shellescape(fnamemodify('~/.nvim-quick-consult-filetype', ':p'))[1:-2]
+
+    let selected_text = GetVisualSelection()
+    call writefile(split(selected_text, "\n"), filepath)
+    call writefile([&filetype], filepath_of_filetype)
+    echo "Saved!"
+  elseif l:answer ==? 'n'
+    return 0
+  else
+    echo 'Please enter "y" or "n"'
+    return SaveSelectionToQuickConsult()
+  endif
+endfunction
+
+function AppendSelectionToQuickConsult()
   let filepath = shellescape(fnamemodify('~/.nvim-quick-consult', ':p'))[1:-2]
-  let filepath_of_filetype = shellescape(fnamemodify('~/.nvim-quick-consult-filetype', ':p'))[1:-2]
 
   let selected_text = GetVisualSelection()
-  call writefile(split(selected_text, "\n"), filepath)
-  call writefile([&filetype], filepath_of_filetype)
+  call writefile(split(selected_text, "\n"), filepath, "a")
+  echo "Text added to quick consult!"
+endfunction
+
+function SaveClipboardToQuickConsult()
+  let filepath = shellescape(fnamemodify('~/.nvim-quick-consult', ':p'))[1:-2]
+
+  let text = getreg("\"")
+
+  call writefile(split(text, "\n"), filepath)
   echo "Saved!"
+endfunction
+
+function AppendClipboardToQuickConsult()
+  let filepath = shellescape(fnamemodify('~/.nvim-quick-consult', ':p'))[1:-2]
+
+  let text = getreg("\"")
+
+  call writefile(split(text, "\n"), filepath, "a")
+  echo "Text Added to quick consult!"
 endfunction
 
 vnoremap <C-g> :<c-u>call SaveSelectionToQuickConsult()<cr>

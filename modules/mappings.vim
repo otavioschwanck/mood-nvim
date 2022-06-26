@@ -75,6 +75,7 @@ h = {
   s = { "<Plug>AutoCalcAppendWithSum", "Sum" },
   ["?"] = { "<Plug>AutoCalcAppend", "Auto Calculation" },
   },
+["<C-g>"] = { ":<c-u>call AppendSelectionToQuickConsult()<CR>", "Append Selection" },
 n = {
   name = "+Toggle Case",
   s = { ":Snake<CR>", "snake_case" },
@@ -145,6 +146,11 @@ A = { ":call OpenTestAlternateAndSplit()<cr>", "Go to Test (split)" },
 ["."] = { ":Telescope file_browser path=%:p:h hidden=true respect_gitignore=false<CR>", "File Browser" },
 k = { ":Bwipeout<CR>", "Kill current buffer" },
 p = { ":Telescope neoclip<CR><ESC>:echo 'Press ENTER to select, C-p to paste before or C-n to paste after.'<CR>", "Yank History" },
+ ["<C-g>"] = {
+   name = "+QuickConsult",
+   a = { ":call AppendClipboardToQuickConsult()<CR>", "Append Text From Clipboard to Quick Consult" },
+   s = { ":call SaveClipboardToQuickConsult()<CR>", "Save Text From Clipboard to Quick Consult" }
+ },
 t = {
   name = '+Test',
   v = { ":TestFile<CR>", "Test Current File" },
