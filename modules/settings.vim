@@ -10,6 +10,7 @@ au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$") | exe "normal g'
 autocmd SwapExists * let v:swapchoice = "e"
 
 set undofile
+set cmdheight=1
 
 set nu
 
