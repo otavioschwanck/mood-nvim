@@ -34,7 +34,6 @@ set title
 set autoindent
 set hlsearch
 set showcmd
-set cmdheight=2
 set updatetime=200
 set laststatus=2
 set scrolloff=10

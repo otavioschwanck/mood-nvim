@@ -17,4 +17,5 @@ runtime ./modules/yanky.vim
 runtime ./modules/which-key.vim
 runtime ./modules/autopairs.vim
 lua require("user_lsp")
+lua require("lualine_config")
 runtime ./user.vim

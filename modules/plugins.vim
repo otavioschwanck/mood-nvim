@@ -152,9 +152,6 @@ LUA
 
 lua <<END
 
-require('lualine').setup {
-  extensions = { "quickfix", "nvim-tree", "toggleterm" }
-}
 require('gitsigns').setup()
 require("indent_blankline").setup {
     show_end_of_line = true,
