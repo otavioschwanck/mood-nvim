@@ -34,11 +34,13 @@ local on_attach = function(_client, bufnr)
   vim.keymap.set('n', 'gr', ':Telescope lsp_references<CR>', bufopts)
 end
 
--- Disable virtual text
-vim.diagnostic.config({
-  virtual_text = false,
-  -- underline = false
-})
+-- Disable virtual text and update on insert
+vim.diagnostic.config {
+   virtual_text = false,
+   signs = true,
+   underline = true,
+   update_in_insert = true,
+}
 
 -- -- Show line diagnostics automatically in hover window
 vim.o.updatetime = 250
@@ -296,15 +298,6 @@ lspSymbol("Error", "")
 lspSymbol("Info", "")
 lspSymbol("Hint", "")
 lspSymbol("Warn", "")
-
-vim.diagnostic.config {
-   virtual_text = {
-      prefix = "",
-   },
-   signs = true,
-   underline = true,
-   update_in_insert = false,
-}
 
 vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
    border = "single",
