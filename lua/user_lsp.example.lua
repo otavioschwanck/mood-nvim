@@ -61,6 +61,17 @@ local mappings = {
 }
 
 cmp.setup({
+  window = {
+    completion = {
+      border = {'╭', '─', '╮', '│', '╯', '─', '╰', '│'},
+      scrollbar = '║',
+      winhighlight = 'Normal:CmpPmenu,FloatBorder:CmpPmenuBorder,CursorLine:PmenuSel,Search:None',
+    },
+    documentation = {
+      border = {'╭', '─', '╮', '│', '╯', '─', '╰', '│'},
+      scrollbar = '║',
+    },
+  },
   formatting = {
     format = lspkind.cmp_format({
       mode = 'symbol_text', -- show only symbol annotations
