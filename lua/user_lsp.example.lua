@@ -38,7 +38,7 @@ vim.diagnostic.config {
    virtual_text = true, -- Change to false if you dislike the virtual text (diagnostic at right)
    signs = true,
    underline = true,
-   update_in_insert = true,
+   update_in_insert = false,
 }
 
 -- -- Show line diagnostics automatically in hover window (Uncomment if you set virtual_text to false)
