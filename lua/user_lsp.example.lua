@@ -34,17 +34,16 @@ local on_attach = function(_client, bufnr)
   vim.keymap.set('n', 'gr', ':Telescope lsp_references<CR>', bufopts)
 end
 
--- Disable virtual text and update on insert
 vim.diagnostic.config {
-   virtual_text = false,
+   virtual_text = true, -- Change to false if you dislike the virtual text (diagnostic at right)
    signs = true,
    underline = true,
    update_in_insert = true,
 }
 
--- -- Show line diagnostics automatically in hover window
-vim.o.updatetime = 250
-vim.cmd [[autocmd CursorHold,CursorHoldI * lua vim.diagnostic.open_float(nil, {focus=false})]]
+-- -- Show line diagnostics automatically in hover window (Uncomment if you set virtual_text to false)
+-- vim.o.updatetime = 250
+-- vim.cmd [[autocmd CursorHold,CursorHoldI * lua vim.diagnostic.open_float(nil, {focus=false})]]
 
 -------------------------
 -- NVIM CMP (SNIPPETS) --
