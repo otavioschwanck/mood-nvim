@@ -173,6 +173,10 @@ require("yanky").setup({
   },
 })
 
+require("nvim-lsp-installer").setup {
+  automatic_installation = true,
+}
+
 vim.g.indent_blankline_filetype_exclude = {
   "help",
   "dashboard",
