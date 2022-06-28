@@ -84,7 +84,7 @@ lua << EOF
       c = { ":call FindInFolder('app/controllers', 'Find Controller')<CR>", "Find Controller" },
       C = { ":Econtroller<CR>", "Find Controller" },
       v = { ":call FindInFolder('app/views', 'Find View')<CR>", "Find View" },
-      K = { ":call OpenTerm('killall -9 rails ruby spring bundle', 'Kill Ruby Instances', 2, 0)<CR>", "Kill Ruby Instances" },
+      K = { ":call OpenTerm('killall -9 rails ruby spring bundle', 'Kill Ruby Instances', 2, 0) | sleep 300m | LspStart solargraph<CR>", "Kill Ruby Instances" },
       a = { ":call FindInFolder('config/locales', 'Find Locales')<CR>", "Find Locales" },
       u = { ":call FindInFolder('spec/factories', 'Find Factories')<CR>", "Find Factories" },
       U = { ":Efixtures<CR>", "Find Current Fixture" },
