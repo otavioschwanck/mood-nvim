@@ -78,6 +78,7 @@ local filter = vim.tbl_filter
 
 custom_pickers.terminals = function(opts)
   opts = opts or {}
+
   local bufnrs = filter(function(b)
     if not (vim.fn.getbufvar(b, '&buftype', 'ERROR') == 'terminal') then
             return false

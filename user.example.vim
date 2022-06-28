@@ -96,6 +96,23 @@ lua << EOF
       z = { ":call FindInFolder('app/serializers', 'Find Serialiazers')<CR>", "Find Serializers" },
     }
   }, { prefix = "<leader>", silent = false })
+
+-- Add some especial buffers to the bottom line.  Cool for servers, etc.
+-- vim.g.servers_on_lualine = {
+--   {
+--     buffer_name = 'Rails Console',
+--     text = ' Console',
+--   },
+--   {
+--     buffer_name = 'Rails Server',
+--     text = ' Server',
+--   },
+--   {
+--     buffer_name = 'Yarn Dev',
+--     text = ' Yarn',
+--   }
+-- }
+
 EOF
 
 " How many spaces / tabs ?
