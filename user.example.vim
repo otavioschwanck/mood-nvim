@@ -115,9 +115,10 @@ lua << EOF
 -- }
 
 -- Run Vim Command at Project Start.  If a shortcut exists at top, please use same Name. Examples:
+-- UNCOMMENT BELLOW:
 -- local rails_project_startup = { "call OpenTerm('rails s', 'Rails Server', 1, 1)", "call OpenTerm('rails c', 'Rails Console', 1, 1)" }
---   | Project                         | List of Commands |
 -- vim.g.commands_for_autostart = {
+--   -- project folder name            -- commands to run
 --   ["my-api-folder-name"]          = rails_project_startup,
 --   ["my-second-rails-folder-name"] = rails_project_startup,
 --   ["my-front-folder-name"]        = { "call OpenTerm('yarn dev', 'Yarn Dev', 1, 1)" }
