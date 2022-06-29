@@ -43,6 +43,7 @@ require('telescope').setup{
     },
     file_browser = {
       hidden = true,
+      layout_config = { height = 0.99, width = 0.8, preview_cutoff = 20, preview_height = 8 },
       mappings = {
         ["i"] = {
           ["<C-o>"] = fb_actions.remove,

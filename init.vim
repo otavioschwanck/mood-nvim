@@ -6,7 +6,9 @@ command! InstallConfigs :call s:InstallConfigs()
 
 silent :InstallConfigs
 
-runtime ./modules/plugins.vim
+lua <<EOF
+require('plugins')
+EOF
 
 runtime ./modules/settings.vim
 runtime ./modules/quick-consult.vim
@@ -16,6 +18,10 @@ runtime ./modules/tree-sitter.vim
 runtime ./modules/yanky.vim
 runtime ./modules/which-key.vim
 runtime ./modules/autopairs.vim
+
 lua require("user_lsp")
 lua require("lualine_config")
+
 runtime ./user.vim
+
+call timer_start(2000, {-> execute(" lua require('command-on-start')()") })

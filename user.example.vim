@@ -54,6 +54,7 @@ lua << EOF
         name = "+yarn",
         i = { ":call OpenTerm('yarn install', 'Yarn Install', 1, 0)<CR>", "Install" },
         a = { ":call OpenTerm('yarn add ' . input('plugin name: '), 'Yarn Add', 1, 0)<CR>", "Add" }, -- Asking for input
+        d = { ":call OpenTerm('yarn dev', 'Yarn Dev', 1, 1)<CR>", "Yarn Dev" },
       },
       r = { ":silent !bundle exec rubocop -a %<CR>", "Rubocop on current file" },
       name = "+Term Commands",
@@ -113,6 +114,11 @@ lua << EOF
 --   }
 -- }
 
+-- Run Vim Command at Project Start
+-- vim.g.commands_for_autostart = {
+--   ["my-api"] = { "call OpenTerm('rails s', 'Rails Server', 1, 1)", "call OpenTerm('brownie console', 'Brownie Console', 2, 0)<CR>" }
+--   ["my-front"] = { "call OpenTerm('yarn dev', 'Yarn Dev', 1, 1)<CR>" }
+-- }
 EOF
 
 " How many spaces / tabs ?

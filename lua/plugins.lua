@@ -1,7 +1,6 @@
-lua << LUA
 vim.cmd [[packadd packer.nvim]]
 
-return require('packer').startup(function()
+require('packer').startup(function()
   local plugins = require("user-plugins")
 
   for p = 1, table.getn(plugins) do
@@ -148,9 +147,6 @@ return require('packer').startup(function()
     requires = { {'nvim-lua/plenary.nvim'} }
   }
 end)
-LUA
-
-lua <<END
 
 require('gitsigns').setup()
 require("indent_blankline").setup {
@@ -183,4 +179,5 @@ vim.g.indent_blankline_filetype_exclude = {
   "packer",
   "NvimTree",
 }
-END
+
+return packer
