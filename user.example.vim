@@ -63,7 +63,7 @@ lua << EOF
         name = "+Brownie",
         t = { ":call OpenTerm('brownie test', 'Brownie Test', 2, 0)<CR>", "Run Tests" },
         C = { ":call OpenTerm('brownie compile', 'Brownie Compile', 2, 0)<CR>", "Compile" },
-        c = { ":call OpenTerm('brownie console', 'Brownie Console', 2, 0)<CR>", "Console" },
+        c = { ":call OpenTerm('brownie console', 'Brownie Console', 1, 0)<CR>", "Console" },
         v = { ":call OpenTerm('brownie test ' .. fnameescape(expand('%')), 'Brownie Test Current File', 2, 0)<CR>", "Test Current File" } -- Run a command using the file name.
       },
       g = { ":e ~/.gitconfig<CR>", "Open Git Config" },
@@ -114,10 +114,10 @@ lua << EOF
 --   }
 -- }
 
--- Run Vim Command at Project Start
+-- Run Vim Command at Project Start.  If a shortcut exists at top, please use same Name. Examples:
 --   | Project                   | List of Commands |
 -- vim.g.commands_for_autostart = {
---   ["my-api-folder-name"]   = { "call OpenTerm('rails s', 'Rails Server', 1, 1)", "call OpenTerm('brownie console', 'Brownie Console', 2, 1)" },
+--   ["my-api-folder-name"]   = { "call OpenTerm('rails s', 'Rails Server', 1, 1)", "call OpenTerm('rails c', 'Rails Console', 1, 1)" },
 --   ["my-front-folder-name"] = { "call OpenTerm('yarn dev', 'Yarn Dev', 1, 1)" }
 -- }
 EOF
