@@ -115,8 +115,9 @@ lua << EOF
 -- }
 
 -- Run Vim Command at Project Start
+--   | Project | List of Commands |
 -- vim.g.commands_for_autostart = {
---   ["my-api"] = { "call OpenTerm('rails s', 'Rails Server', 1, 1)", "call OpenTerm('brownie console', 'Brownie Console', 2, 0)<CR>" }
+--   ["my-api"]   = { "call OpenTerm('rails s', 'Rails Server', 1, 1)", "call OpenTerm('brownie console', 'Brownie Console', 2, 0)<CR>" },
 --   ["my-front"] = { "call OpenTerm('yarn dev', 'Yarn Dev', 1, 1)<CR>" }
 -- }
 EOF
