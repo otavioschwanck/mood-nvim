@@ -23,3 +23,11 @@ lua require("user_lsp")
 lua require("lualine_config")
 
 runtime ./user.vim
+
+function OpenCommand()
+  if &filetype == 'dashboard'
+    lua require('command-on-start')()
+  endif
+endfunction
+
+call timer_start(4000, {-> execute("call OpenCommand()") })
