@@ -27,22 +27,16 @@ local function quit_neovim()
 
   local all_closed = false
 
-  if #bufnrs == 0 then
-    vim.cmd("qall")
-  end
-
   repeat
     all_closed = true
 
     for key, buf in pairs(bufnrs) do
       local channel = vim.fn.getbufvar(buf, '&channel')
 
-      if not vim.fn.jobwait({channel}, 0)[1] == -3 then
+      if vim.fn.jobwait({channel}, 0)[1] == -3 then
+        vim.cmd("bdelete! " .. buf)
+      else
         all_closed = false
-      end
-
-      if all_closed then
-        vim.cmd("qall")
       end
     end
   until all_closed

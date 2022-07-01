@@ -480,3 +480,5 @@ function! ExecuteMacroOverVisualRange()
   echo "@".getcmdline()
   execute ":'<,'>normal @".nr2char(getchar())
 endfunction
+
+autocmd VimLeavePre * lua require('quit_neovim')()
