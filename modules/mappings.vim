@@ -262,7 +262,7 @@ w = {
   },
 q = {
   name = "+Quit and Close",
-  q = { ":qall<CR>", "Quit Vim" },
+  q = { ":lua require('quit_neovim')()<CR>", "Quit Vim" },
   c = {":cclose<CR>", "Quick Fix Close"}
   }
 }, { prefix = "<leader>", silent = false })
