@@ -23,5 +23,3 @@ lua require("user_lsp")
 lua require("lualine_config")
 
 runtime ./user.vim
-
-call timer_start(2000, {-> execute(" lua require('command-on-start')()") })

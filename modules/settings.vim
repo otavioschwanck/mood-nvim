@@ -482,3 +482,4 @@ function! ExecuteMacroOverVisualRange()
 endfunction
 
 autocmd VimLeavePre * lua require('quit_neovim')()
+autocmd BufReadPost * lua require('command-on-start')()
