@@ -322,8 +322,6 @@ nmap ç :wall<CR>
 nmap - $
 vmap - $<Left>
 
-nnoremap gr :NvimTreeRefresh<CR>
-
 nmap <silent> H :BufferPrevious<CR>
 nmap <silent> L :BufferNext<CR>
 
