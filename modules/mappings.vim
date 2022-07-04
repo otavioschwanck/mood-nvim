@@ -220,7 +220,7 @@ g = {
   name = "+Git",
   g = { ":LazyGit<CR>", "LazyGit" },
   T = { ":0GcLog<CR>:echo 'Use ]q and [q to navigate on file history.  SPC q to close.'<CR>", "Git Time Machine" },
-  t = { ":DiffviewFileHistory %<CR>:echo 'Use SPC q c or :DiffviewClose to quit.'<CR>", "File History" },
+  t = { ":DiffviewFileHistory %<CR>:echo 'Use SPC q d or :DiffviewClose to quit.'<CR>", "File History" },
   r = { ":Gitsigns reset_hunk<CR>", "Reset hunk at point" },
   c = { ":Gdiff<CR>", "Diff from HEAD" },
   s = { ":Gitsigns stage_hunk<CR>", "Stage hunk at point" },
@@ -229,7 +229,7 @@ g = {
   p = { ":Gitsigns preview_hunk<CR>", "Preview Hunk" },
   b = { ":Gitsigns toggle_current_line_blame<CR>", "Toggle current line blame" },
   d = { ":Gitsigns diffthis<CR>", "Diff this file" },
-  l = { ":GcLog -- %<CR>", "Log this file" },
+  l = { ":DiffviewFileHistory<CR>", "Log Commits" },
   B = { ":Telescope git_branches<CR>", "Change Branch" }
   },
 [','] = { ":Telescope buffers only_cwd=true ignore_current_buffer=true sort_mru=true<CR>", "Find Buffers in this project" },
