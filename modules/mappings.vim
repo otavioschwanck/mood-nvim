@@ -219,8 +219,8 @@ m = {
 g = {
   name = "+Git",
   g = { ":LazyGit<CR>", "LazyGit" },
-  t = { ":0GcLog<CR>:echo 'Use ]q and [q to navigate on file history.  SPC q to close.'<CR>", "Git Time Machine" },
-  T = { ":DiffviewFileHistory<CR>:echo 'Use :DiffviewClose to quit.'<CR>", "File History" },
+  T = { ":0GcLog<CR>:echo 'Use ]q and [q to navigate on file history.  SPC q to close.'<CR>", "Git Time Machine" },
+  t = { ":DiffviewFileHistory %<CR>:echo 'Use SPC q c or :DiffviewClose to quit.'<CR>", "File History" },
   r = { ":Gitsigns reset_hunk<CR>", "Reset hunk at point" },
   c = { ":Gdiff<CR>", "Diff from HEAD" },
   s = { ":Gitsigns stage_hunk<CR>", "Stage hunk at point" },
@@ -260,10 +260,11 @@ w = {
   v = { "<C-w>v", "Split Vertical" },
   s = { "<C-w>s", "Split Horizontal" }
   },
-q = {
-  name = "+Quit and Close",
-  q = { ":qall<CR>", "Quit Vim" },
-  c = {":cclose<CR>", "Quick Fix Close"}
+  q = {
+    name = "+Quit and Close",
+    q = { ":qall<CR>", "Quit Vim" },
+    c = {":cclose<CR>", "Quick Fix Close"},
+    d = { ":DiffviewClose<CR>", "Close Diffview" }
   }
 }, { prefix = "<leader>", silent = false })
 EOF
