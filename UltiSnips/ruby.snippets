@@ -84,13 +84,13 @@ numericality: { ${2|greater_than,greater_than_or_equal_to,less_than,less_than_or
 endsnippet
 
 snippet resc "rescue StandardError => e" i
-rescue ${StandardError} => ${1:e}
+rescue ${1:StandardError} => ${1:e}
   ${2:}
 endsnippet
 
-snippet rescb "rescue StandardError => e ... byebug" i
+snippet rescb "rescue StandardError => e ... require 'pry'; binding.pry" i
 rescue StandardError => e
-  byebug
+  require 'pry'; binding.pry
 endsnippet
 
 snippet rescr "rescue StandardError => e ... Rollbar.error(e)" i
