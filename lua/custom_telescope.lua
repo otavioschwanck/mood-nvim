@@ -92,7 +92,7 @@ custom_pickers.terminals = function(opts)
   end, vim.api.nvim_list_bufs())
 
   if not next(bufnrs) then
-    print("No terminals found.")
+    require('notify')("No terminals found.", 'info', { title='Terminal Management'  })
     return
   end
 

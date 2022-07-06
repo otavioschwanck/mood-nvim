@@ -227,7 +227,7 @@ function OpenTermFromLastCommand()
     execute change_buffer_command . " " . g:last_term_buffer_name
     startinsert
   else
-    echo "Nothing to see here"
+    lua require('notify')("Last Terminal not found.  Maybe its closed?", 'warn', { title='Terminal Management' })
   endif
 endfunction
 
@@ -269,7 +269,7 @@ function OpenTerm(command, name, unique, close_after_create)
 
     let g:last_term_buffer_name = full_name
 
-    execute "normal! :bd\<CR>"
+    execute "normal! :bd!\<CR>"
 
     sleep 150m
 
@@ -302,10 +302,8 @@ function OpenTerm(command, name, unique, close_after_create)
     if a:close_after_create == 1
       execute "close"
 
-      echo full_name . " is being executed in background."
+      lua require('notify')(vim.api.nvim_eval('full_name') .. " is being executed in background.", 'info', { title='Terminal Management' })
       stopinsert
-    else
-      echo full_name . " is open!."
     end
   endif
 endfunction

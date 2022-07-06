@@ -27,6 +27,8 @@ local function quit_neovim()
 
   local all_closed = false
 
+  require('notify')('Closing Terminals...  Good Bye!', 'info', { title='mooD' })
+
   repeat
     all_closed = true
 

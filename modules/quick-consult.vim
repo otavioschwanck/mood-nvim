@@ -35,9 +35,8 @@ function! OpenConsultationWindow() abort
     let win = nvim_open_win(buf, 1, opts)
 
     execute "set filetype=" . readfile(filepath_of_filetype)[0]
-    echo "set filetype=" . readfile(filepath_of_filetype)[0]
   else
-    echo "Nothing to consult."
+    lua require('notify')("Nothing to consult.", 'warn', { title='' })
   endif
 endfunction
 
@@ -64,11 +63,11 @@ function SaveSelectionToQuickConsult()
     let selected_text = GetVisualSelection()
     call writefile(split(selected_text, "\n"), filepath)
     call writefile([&filetype], filepath_of_filetype)
-    echo "Saved!"
+    lua require('notify')("Saved!", 'info', { title='Quick Consult' })
   elseif l:answer ==? 'n'
     return 0
   else
-    echo 'Please enter "y" or "n"'
+    lua require('notify')('Please enter "y" or "n"', 'info', { title='Quick Consult' })
     return SaveSelectionToQuickConsult()
   endif
 endfunction
@@ -78,7 +77,7 @@ function AppendSelectionToQuickConsult()
 
   let selected_text = GetVisualSelection()
   call writefile(split(selected_text, "\n"), filepath, "a")
-  echo "Text added to quick consult!"
+  lua require('notify')("Text added to quick consult!", 'info', { title='Quick Consult' })
 endfunction
 
 function SaveClipboardToQuickConsult()
@@ -87,7 +86,7 @@ function SaveClipboardToQuickConsult()
   let text = getreg("\"")
 
   call writefile(split(text, "\n"), filepath)
-  echo "Saved!"
+  lua require('notify')("Saved!", 'info', { title='Quick Consult' })
 endfunction
 
 function AppendClipboardToQuickConsult()
@@ -96,7 +95,8 @@ function AppendClipboardToQuickConsult()
   let text = getreg("\"")
 
   call writefile(split(text, "\n"), filepath, "a")
-  echo "Text Added to quick consult!"
+
+  lua require('notify')("Text Added to quick consult!", 'info', { title='Quick Consult' })
 endfunction
 
 vnoremap <C-g> :<c-u>call SaveSelectionToQuickConsult()<cr>

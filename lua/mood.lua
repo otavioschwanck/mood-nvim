@@ -1,3 +1,5 @@
+vim.notify = require("notify")
+
 function filter_inplace(arr, func)
     local new_index = 1
     local size_orig = #arr

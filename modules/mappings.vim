@@ -214,7 +214,7 @@ m = {
   c = { ":call GetClassName()<CR>", "Copy Class Name to Clipboard" },
   d = { ":lua require('mood').comment_rubocop()<CR>", "Comment Rubocop Error" },
   },
-["#"] = { ":lua require('command-on-start').start()<CR>", "Re-execute start commands" },
+["#"] = { ":lua require('command-on-start').restart()<CR>", "Re-execute start commands" },
 ["!"] = { ":call RunLastTermCommand()<CR>", "Run Last Terminal Command" },
 ["i"] = { ":call OpenTermFromLastCommand()<CR>", "Open Term From Last Command" },
 g = {

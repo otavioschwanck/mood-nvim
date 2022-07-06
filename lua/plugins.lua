@@ -42,6 +42,7 @@ require('packer').startup(function()
   use 'projekt0n/github-nvim-theme'
   use 'shaunsingh/nord.nvim'
   use 'Olical/vim-enmasse'
+  use { 'rcarriga/nvim-notify' }
   use {
     "AckslD/nvim-neoclip.lua",
     }
