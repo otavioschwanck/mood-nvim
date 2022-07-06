@@ -302,7 +302,7 @@ function OpenTerm(command, name, unique, close_after_create)
     if a:close_after_create == 1
       execute "close"
 
-      lua require('notify')(vim.api.nvim_eval('full_name') .. " is being executed in background.", 'info', { title='Terminal Management' })
+      lua require('notify')(vim.api.nvim_eval('a:name') .. " is being executed in background.", 'info', { title='Terminal Management' })
       stopinsert
     end
   endif

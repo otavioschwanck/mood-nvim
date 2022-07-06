@@ -446,7 +446,11 @@ function BetterRename()
   if(new_name != '' && new_name != current_file_name)
     call feedkeys(":saveas " . current_folder . "/" . new_name . "\<CR>", "n")
     call delete(current_file)
-    call feedkeys(":bd #\<CR>")
+    call feedkeys(":bd! #\<CR>")
+
+    lua require('notify')("File renamed from " .. vim.api.nvim_eval('current_file_name') .. " to " .. vim.api.nvim_eval('new_name'), 'info', { title='File Management' })
+
+    call timer_start(500, {-> execute("doautocmd BufNew") })
   endif
 endfunction
 
@@ -462,7 +466,7 @@ function BetterDelete()
 
   if l:answer ==? 'y'
     execute "normal! :Delete!\<CR>"
-    echo "Deletado com sucesso"
+    lua require('notify')("File deleted.", 'info', { title='File Management' })
   elseif l:answer ==? 'n'
     return 0
   else
