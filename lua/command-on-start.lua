@@ -27,6 +27,4 @@ local function autostart()
   end
 end
 
-kill_terminals()
-
 return { autostart = autostart, start = start }
