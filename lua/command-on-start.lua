@@ -14,8 +14,8 @@ local function start()
     return
   end
 
-  for index, value in ipairs(commands_for_project) do
-    vim.cmd(value)
+  for _index, value in ipairs(commands_for_project) do
+    vim.cmd("call OpenTerm('" .. value[1] .. "', '" .. value[2] .. "', 2, 1)")
   end
 end
 

@@ -39,8 +39,8 @@ lua << EOF
   -- function OpenTerm receive 4 arguments:
   -- command, name, unique and close_after_create.
 
-  -- close_after_create can be 0 or 1
   -- unique can be 0 = Create multiple terminals, 1 = Unique, focus when use again. 2 = Unique, destroy and create a new one.
+  -- close_after_create can be 0 or 1
 
   wk.register({
     -- Example of custom terminal commands
@@ -115,13 +115,14 @@ lua << EOF
 -- }
 
 -- Run Vim Command at Project Start.  If a shortcut exists at top, please use same Name. Examples:
--- UNCOMMENT BELLOW:
--- local rails_project_startup = { "call OpenTerm('rails s', 'Rails Server', 1, 1)", "call OpenTerm('rails c', 'Rails Console', 1, 1)" }
+--                            --    |command 1 | Name 1       |   |command 2 | Name 2       |       | command 3 |                    | Name 3 |
+-- local rails_project_startup = { { "rails s", "Rails Server" }, { "rails c", "Rails Console" }, { "docker compose up -d postgres", "Start Db" } }
+
 -- vim.g.commands_for_autostart = {
 --   -- project folder name            -- commands to run
 --   ["my-api-folder-name"]          = rails_project_startup,
 --   ["my-second-rails-folder-name"] = rails_project_startup,
---   ["my-front-folder-name"]        = { "call OpenTerm('yarn dev', 'Yarn Dev', 1, 1)" }
+--   ["my-front-folder-name"]        = { { 'yarn dev', 'Yarn Dev' } }
 -- }
 EOF
 
