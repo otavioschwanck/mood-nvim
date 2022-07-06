@@ -270,6 +270,7 @@ Just press C-p.
 `SPC v` open a blank terminal
 `SPC i` Open Last Terminal if exists, if not, run again.
 `SPC l` Send text to last opened terminal
+`SPC #` Rerun terminal commands configured on project startup.
 `SPC !` rerun last terminal command
 `:Term command` open a terminal with the command
 

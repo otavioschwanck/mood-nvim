@@ -26,7 +26,7 @@ runtime ./user.vim
 
 function OpenCommand()
   if &filetype == 'dashboard'
-    lua require('command-on-start')()
+    lua require('command-on-start').autostart()
   endif
 endfunction
 

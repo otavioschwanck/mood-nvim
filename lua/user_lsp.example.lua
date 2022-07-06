@@ -268,12 +268,9 @@ local empty_function = function(fallback) fallback() end
 cmp.setup.cmdline('/', {
     mapping = cmp.mapping.preset.cmdline({ ['<C-p>'] = empty_function, ['<C-n>'] = empty_function}),
     sources = {
-    { name = "buffer", option = { get_bufnrs = function()
-      return require('valid_listed_buffers')()
-    end } }
-    }
+    { name = "buffer" }
+  }
 })
-
 
 cmp.setup.cmdline(':', {
     mapping = cmp.mapping.preset.cmdline({ ['<C-p>'] = empty_function, ['<C-n>'] = empty_function}),

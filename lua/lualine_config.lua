@@ -176,11 +176,11 @@ local default_servers = {
   },
   {
     buffer_name = 'Brownie Console',
-    text = ' Console',
+    text = ' Brownie Console',
   },
   {
     buffer_name = 'Brownie Server',
-    text = ' Server',
+    text = ' Brownie Server',
   },
 }
 
