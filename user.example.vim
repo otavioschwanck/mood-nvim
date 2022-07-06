@@ -136,10 +136,11 @@ autocmd FileType solidity setlocal shiftwidth=4 softtabstop=4 expandtab
 autocmd FileType typescript setlocal shiftwidth=2 softtabstop=2 expandtab
 autocmd FileType typescriptreact setlocal shiftwidth=2 softtabstop=2 expandtab
 
-" If you use pyenv or other path, please comment this: (Make sure that python provider is OK on :checkhealth)
-" To find where is the path of python, run which python
-let g:python_host_prog = '/usr/bin/python'
-let g:python3_host_prog = '/usr/bin/python3'
+" If you don't use pyenv or other path, please uncomment this: (Make sure that python provider is OK on :checkhealth)
+" To find where is the path of python, run which python and which python3.
+
+" let g:python_host_prog = '/usr/bin/python'
+" let g:python3_host_prog = '/usr/bin/python3'
 
 " let g:folder_to_ignore = [".*.git/.*", "node_modules/.*"] " Ignore some folders on search?
 
