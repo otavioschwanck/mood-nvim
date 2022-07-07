@@ -7,7 +7,9 @@ local function return_listed_valid_buffers()
     local buf = buffers[i]
     local byte_size = vim.api.nvim_buf_get_offset(buf, vim.api.nvim_buf_line_count(buf))
 
-    if not (byte_size > 1024 * 128) and (vim.fn.buflisted(buf) == 1 or vim.fn.getbufvar(buf, '&buftype', 'ERROR') == 'terminal') then -- 1 Megabyte max
+    local buf_type = vim.fn.getbufvar(buf, '&buftype', 'ERROR')
+
+    if not (byte_size > 1024 * 128) and (vim.fn.buflisted(buf) == 1 or buf_type == 'terminal' or buf_type == 'nofile') then -- 1 Megabyte max
       buffersToUse[bufferIndex] = buf
       bufferIndex = bufferIndex + 1
     end

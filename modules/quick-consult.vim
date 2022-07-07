@@ -31,12 +31,13 @@ function! OpenConsultationWindow() abort
           \ 'row': 3,
           \ 'anchor': 'NW',
           \ 'style': 'minimal',
+          \ 'border': 'single'
           \ }
     let win = nvim_open_win(buf, 1, opts)
 
     execute "set filetype=" . readfile(filepath_of_filetype)[0]
   else
-    lua require('notify')("Nothing to consult.", 'warn', { title='' })
+    lua require('notify')("Nothing to consult.", 'warn', { title='Quick Consult' })
   endif
 endfunction
 
