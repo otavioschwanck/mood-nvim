@@ -306,7 +306,11 @@ function HideTerminalWindowOrNoh()
         endwhile
       end
     else
-      execute "close"
+      try
+        execute "close"
+      catch /.*/
+        call timer_start(300, {-> execute("call HideTerminalWindowOrNoh()") })
+      endtry
     end
   end
 endfunction
