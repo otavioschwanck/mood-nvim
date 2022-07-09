@@ -308,6 +308,20 @@ function OpenTerm(command, name, unique, close_after_create)
   endif
 endfunction
 
+function ResetRailsDb(command)
+  call KillRubyInstances()
+
+  execute "call OpenTerm('" . a:command  . "', 'DB Reset', 2, 0)"
+endfunction
+
+function KillRubyInstances()
+  execute "silent !killall -9 rails ruby spring bundle"
+
+  lua require('notify')('Ruby Instances killed.', 'info', { title='mooD' })
+
+  call timer_start(2000, {-> execute("LspStart solargraph") })
+endfunction
+
 command! CleanConfigs :call s:CleanConfigs()
 command! UpdateMood :call s:UpdateMood()
 
