@@ -1,5 +1,3 @@
-vim.g.disable_autostart_commands = 0
-
 local notify = require('notify')
 
 local function start()
