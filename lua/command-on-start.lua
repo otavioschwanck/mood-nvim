@@ -1,4 +1,4 @@
-vim.g.started = 0
+vim.g.disable_autostart_commands = 0
 
 local notify = require('notify')
 
@@ -130,8 +130,8 @@ local function restart()
 end
 
 local function autostart()
-  if vim.g.started == 0 then
-    vim.g.started = 1
+  if vim.g.disable_autostart_commands == 0 then
+    vim.g.disable_autostart_commands = 1
 
     start()
   end

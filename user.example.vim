@@ -124,6 +124,9 @@ lua << EOF
 --   ["my-second-rails-folder-name"] = rails_project_startup,
 --   ["my-front-folder-name"]        = { { 'yarn dev', 'Yarn Dev' } }
 -- }
+
+-- You can also disable the autostart commands  by uncommenting:
+-- vim.g.disable_autostart_commands = 1 -- With this, you ahve to press SPC # to open the autostart terminals
 EOF
 
 " How many spaces / tabs ?
