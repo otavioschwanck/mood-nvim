@@ -126,7 +126,7 @@ lua << EOF
 -- }
 
 -- You can also disable the autostart commands  by uncommenting:
--- vim.g.disable_autostart_commands = 1 -- With this, you ahve to press SPC # to open the autostart terminals
+-- vim.g.disable_autostart_commands = 1 -- With this, you have to press SPC # to open the autostart terminals.  I personally prefer this option.
 EOF
 
 " How many spaces / tabs ?

@@ -2,7 +2,7 @@ local notify = require('notify')
 
 local function start()
   local commands = vim.g.commands_for_autostart or {}
-  local p_name = vim.fn.split(vim.fn.finddir('.git/..', vim.fn.expand('%:p:h') .. ';'), "/")
+  local p_name = vim.fn.split(vim.fn.getcwd(), "/")
 
   if vim.fn.len(p_name) > 0 then
     p_name = p_name[vim.fn.len(p_name)]
@@ -82,7 +82,7 @@ end
 
 local function restart()
   local commands = vim.g.commands_for_autostart or {}
-  local p_name = vim.fn.split(vim.fn.finddir('.git/..', vim.fn.expand('%:p:h') .. ';'), "/")
+  local p_name = vim.fn.split(vim.fn.getcwd(), "/")
 
   if vim.fn.len(p_name) > 0 then
     p_name = p_name[vim.fn.len(p_name)]

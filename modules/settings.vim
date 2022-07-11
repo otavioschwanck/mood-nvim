@@ -235,7 +235,7 @@ let g:term_as_full_screen_tabs = 0
 let g:last_term_buffer_name = 0
 
 function OpenTerm(command, name, unique, close_after_create)
-  let p_name = split(finddir('.git/..', expand('%:p:h').';'), "/")
+  let p_name = split(getcwd(), "/")
 
   if(g:term_as_full_screen_tabs > 0)
     let change_buffer_command = "tab sb "
