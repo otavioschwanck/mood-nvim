@@ -203,12 +203,11 @@ I Consider this way the most efficient way to create files and find files on cur
 | C-e                     | Move multi-selected files/folders to current path                           |
 | C-c/c                   | Go to parent directory                                                      |
 | C-o/o                   | Delete selected file(s)                                                     |
-| C-a                     | Create file/folder at current path                                          |
+| C-g                     | Go to current working directory (cwd)                                       |
 |-------------------------|-----------------------------------------------------------------------------|
 | Other commands          |                                                                             |
 |-------------------------|-----------------------------------------------------------------------------|
 | C-o/o                   | Open file/folder with default system application                            |
-| C-w/w                   | Go to current working directory (cwd)                                       |
 | C-t/t                   | Change nvim's cwd to selected folder/file(parent)                           |
 | C-f/f                   | Toggle between file and folder browser                                      |
 | C-h/h                   | Toggle hidden files/folders                                                 |

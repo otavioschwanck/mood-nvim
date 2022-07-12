@@ -50,6 +50,8 @@ require('telescope').setup{
           ["<C-space>"] = fb_actions.create_from_prompt,
           ["<C-r>"] = fb_actions.rename,
           ["<C-c>"] = fb_actions.goto_parent_dir,
+          ["<C-w>"] = nil,
+          ["<C-g>"] = fb_actions.goto_cwd
         },
         ["n"] = {
           ["<C-o>"] = fb_actions.remove,
@@ -57,7 +59,7 @@ require('telescope').setup{
           ["<C-e>"] = fb_actions.move,
           ["<C-space>"] = fb_actions.create_from_prompt,
           ["<C-r>"] = fb_actions.rename,
-          ["<C-c>"] = fb_actions.goto_parent_dir,
+          ["<C-c>"] = fb_actions.goto_parent_dir
         },
       },
     },
