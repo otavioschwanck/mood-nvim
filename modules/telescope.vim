@@ -9,7 +9,7 @@ require('telescope').setup{
   defaults = {
     file_ignore_patterns = vim.g.folder_to_ignore,
     layout_strategy = 'vertical',
-    layout_config = { height = 0.99, preview_cutoff = 10 },
+    layout_config = { height = 0.95, preview_cutoff = 10 },
     mappings = {
       i = {
         ["<C-j>"] = actions.move_selection_next,
