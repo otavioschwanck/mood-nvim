@@ -272,6 +272,7 @@ Just press C-p.
 `SPC l` Send text to last opened terminal
 `SPC #` Rerun terminal commands configured on project startup.
 `SPC !` rerun last terminal command
+`SPC %` Rerun terminal commands configured on project startup on all tmux windows.
 `:Term command` open a terminal with the command
 
 Go to your personal settings `SPC f p` and add terminal commands.  There is a bunch of examples there!
