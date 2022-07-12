@@ -2,9 +2,9 @@
 
 " SPC h t to see all themes
 
-" I also recommend gruvbox
-let g:catppuccin_flavour = "mocha" " latte, frappe, macchiato, mocha
-colorscheme catppuccin
+" I also recommend gruvbox and catppuccin
+let g:onedark_config = {  'style': 'dark', } " 'dark', 'darker', 'cool', 'deep', 'warm', 'warmer' and 'light'
+colorscheme onedark
 
 " SPC z to access notes commands
 let g:notes_directories = ['~/Documents/Notes']

@@ -3,9 +3,10 @@ vim.cmd [[packadd packer.nvim]]
 require('packer').startup(function()
   local plugins = require("user-plugins")
 
-  for p = 1, table.getn(plugins) do
+  for p = 1, #plugins do
     use(plugins[p])
   end
+  use 'navarasu/onedark.nvim'
   use {'nvim-telescope/telescope-fzf-native.nvim', run = 'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build' }
   use 'tpope/vim-repeat'
   use { 'ggandor/lightspeed.nvim', commit = "005320ff9e128de8689c6e675fa64ed5963e2d1c" }
@@ -42,6 +43,7 @@ require('packer').startup(function()
   use 'projekt0n/github-nvim-theme'
   use 'shaunsingh/nord.nvim'
   use 'Olical/vim-enmasse'
+  use 'tanvirtin/monokai.nvim'
   use { 'rcarriga/nvim-notify' }
   use {
     "AckslD/nvim-neoclip.lua",
