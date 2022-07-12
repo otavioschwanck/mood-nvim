@@ -6,6 +6,7 @@ require('packer').startup(function()
   for p = 1, table.getn(plugins) do
     use(plugins[p])
   end
+  use { 'tomlion/vim-solidity' }
   use {'nvim-telescope/telescope-fzf-native.nvim', run = 'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build' }
   use 'tpope/vim-repeat'
   use { 'ggandor/lightspeed.nvim', commit = "005320ff9e128de8689c6e675fa64ed5963e2d1c" }
