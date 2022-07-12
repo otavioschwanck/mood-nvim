@@ -3,7 +3,7 @@
 " SPC h t to see all themes
 
 " I also recommend gruvbox
-let g:catppuccin_flavour = "mocha" " latte, frappe, macchiato, mocha
+let g:catppuccin_flavour = "frappe" " latte, frappe, macchiato, mocha
 colorscheme catppuccin
 
 " SPC z to access notes commands
