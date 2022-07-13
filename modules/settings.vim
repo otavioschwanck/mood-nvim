@@ -101,6 +101,7 @@ autocmd FileType yaml setlocal shiftwidth=2 tabstop=2
 set splitright
 set splitbelow
 au BufEnter * :set signcolumn=yes
+au! BufEnter * let b:visit_time = localtime()
 
 autocmd SwapExists * let v:swapchoice = "e"
 
@@ -214,7 +215,7 @@ function RunLastTermCommand()
 endfunction
 
 function OpenTermFromLastCommand()
-  let bnr = bufexists(g:last_term_buffer_name)
+  let bnr = v:lua.require('last_open_terminal')()
 
   if(g:term_as_full_screen_tabs > 0)
     let change_buffer_command = "tab sb "

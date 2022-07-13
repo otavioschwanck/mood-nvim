@@ -5,6 +5,8 @@ local _, actions = pcall(require, "telescope.actions")
 
 local fb_actions = require "telescope".extensions.file_browser.actions
 
+local vertical_search = { path_display = { "smart" }, layout_strategy = "vertical", layout_config = { preview_cutoff = 10, height = 0.92 } }
+
 require('telescope').setup{
   defaults = {
     file_ignore_patterns = vim.g.folder_to_ignore,
@@ -27,7 +29,8 @@ require('telescope').setup{
       hidden = true, path_display = { "smart" }
     },
     buffers = { path_display = { "smart" } },
-    live_grep = { path_display = { "smart" }, layout_strategy = "vertical", layout_config = { preview_cutoff = 10, height = 0.92 } },
+    live_grep = vertical_search,
+    grep_string = vertical_search
   },
   extensions = {
     ["ui-select"] = {
