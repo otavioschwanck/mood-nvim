@@ -209,7 +209,7 @@ f = {
   C = { ":call BetterCopy()<CR>", "Copy current file to" }
   },
 m = {
-  name = "+Ruby Refact",
+  name = "+Ruby",
   a = { ":RAddParameter<CR>", "Add Parameter" },
   c = { ":call GetClassName()<CR>", "Copy Class Name to Clipboard" },
   d = { ":lua require('mood').comment_rubocop()<CR>", "Comment Rubocop Error" },
@@ -250,6 +250,14 @@ b = {
   S = { ":BufferOrderByDirectory<CR>", "Sort By Directory" },
   },
 v = { ":call OpenTerm('', 'Quick Term', 1, 0)<CR>", "Open a blank terminal" },
+j = {
+  name = "+Rest",
+  r = { "<Plug>RestNvim<CR>", "Run" },
+  R = { "<Plug>RestNvimLast<CR>", "Run Last" },
+  p = { "<Plug>RestNvimPreview<CR>", "Preview" },
+  m = { ":set filetype=http<CR>", "Set Current File as HTTP" },
+  h = { ":!open https://github.com/NTBBloodbath/rest.nvim/tree/main/tests", "See Examples of usages" },
+},
 w = {
   name = "+Window",
   w = { "<C-w>w", "Next Window" },

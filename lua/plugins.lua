@@ -8,6 +8,7 @@ require('packer').startup(function()
   end
   use { 'tomlion/vim-solidity' }
   use {'nvim-telescope/telescope-fzf-native.nvim', run = 'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build' }
+  use { 'NTBBloodbath/rest.nvim' }
   use 'tpope/vim-repeat'
   use { 'ggandor/lightspeed.nvim', commit = "005320ff9e128de8689c6e675fa64ed5963e2d1c" }
   use 'norcalli/nvim-colorizer.lua'
@@ -174,6 +175,8 @@ require("yanky").setup({
 require("nvim-lsp-installer").setup {
   automatic_installation = true,
 }
+
+require("rest-nvim").setup()
 
 vim.g.indent_blankline_filetype_exclude = {
   "help",

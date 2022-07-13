@@ -9,6 +9,8 @@ colorscheme catppuccin
 " SPC z to access notes commands
 let g:notes_directories = ['~/Documents/Notes']
 
+" set nowrap " Disable wrap lines
+
 " If you are used to harpoon shortcuts, you can disable the tips (press ; to see harrpon stuff)
 " let g:disable_harpoon_menu = 1
 
