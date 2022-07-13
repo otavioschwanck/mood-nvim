@@ -124,10 +124,52 @@ custom_pickers.terminals = function(opts)
       entry_maker = opts.entry_maker or make_entry.gen_from_buffer(opts),
     },
     previewer = conf.grep_previewer(opts),
+    attach_mappings = function(_, map)
+      map('i', '<CR>',
+        function()
+          local result = action_state.get_selected_entry().value
+
+          local command = ""
+
+          if vim.g.term_as_full_screen_tabs then
+            command = "tab sb "
+          else
+            command = "bel sb "
+          end
+
+          vim.cmd(command .. result .. " | norm! GA")
+        end
+      )
+
+      map('i', '<C-v>',
+        function(prompt_bufnr)
+          local current_picker = action_state.get_current_picker(prompt_bufnr)
+          local result = action_state.get_selected_entry().value
+
+          actions._close(prompt_bufnr, current_picker.initial_mode == "insert")
+
+          vim.cmd("vert sb " .. result .. " | norm! GA")
+        end
+      )
+
+      map('i', '<C-s>',
+        function(prompt_bufnr)
+          local current_picker = action_state.get_current_picker(prompt_bufnr)
+          local result = action_state.get_selected_entry().value
+
+          actions._close(prompt_bufnr, current_picker.initial_mode == "insert")
+
+          vim.cmd("bel sb " .. result .. " | norm! GA")
+        end
+      )
+
+      return true
+    end,
     sorter = conf.generic_sorter(opts),
     default_selection_index = default_selection_idx
   }):find()
 end
 
 return custom_pickers
+
 
