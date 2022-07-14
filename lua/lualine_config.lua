@@ -229,5 +229,36 @@ ins_right {
   padding = { left = 1 },
 }
 
+require("catppuccin").setup({ integrations = {
+	notify = true,
+	dashboard = true,
+	which_key = true,
+	neotree = {
+		enabled = true,
+		show_root = false,
+		transparent_panel = false,
+	},
+	gitgutter = true,
+  telescope = true,
+  cmp = true,
+	native_lsp = {
+		enabled = true,
+		virtual_text = {
+			errors = "italic",
+			hints = "italic",
+			warnings = "italic",
+			information = "italic",
+		},
+		underlines = {
+			errors = "underline",
+			hints = "underline",
+			warnings = "underline",
+			information = "underline",
+		},
+	},
+}})
+
 -- Now don't forget to initialize lualine
 lualine.setup(config)
+
+
