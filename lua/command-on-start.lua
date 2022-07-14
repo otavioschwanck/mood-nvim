@@ -128,6 +128,8 @@ local function restart()
 end
 
 local function autostart()
+  vim.cmd("call OpenTerm('', 'Quick Term', 1, 1)")
+
   if vim.g.disable_autostart_commands == 0 then
     vim.g.disable_autostart_commands = 1
 
