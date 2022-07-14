@@ -128,7 +128,7 @@ local function restart()
 end
 
 local function autostart()
-  if vim.g.disable_autostart_commands == 0 then
+  if vim.g.disable_autostart_commands ~= 1 then
     vim.g.disable_autostart_commands = 1
 
     start()
