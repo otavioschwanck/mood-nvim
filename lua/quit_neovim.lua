@@ -22,6 +22,7 @@ local function quit_neovim()
   for key, buf in pairs(bufnrs) do
     local channel = vim.fn.getbufvar(buf, '&channel')
 
+    vim.cmd("call chansend(" .. channel  .. ', "\\<C-c>")')
     vim.fn.jobstop(channel)
   end
 
