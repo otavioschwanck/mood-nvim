@@ -54,7 +54,8 @@ require('telescope').setup{
           ["<C-r>"] = fb_actions.rename,
           ["<C-c>"] = fb_actions.goto_parent_dir,
           ["<C-w>"] = nil,
-          ["<C-g>"] = fb_actions.goto_cwd
+          ["<C-g>"] = fb_actions.goto_cwd,
+          ["<C-w>"] = function() vim.cmd('normal vbd') end,
         },
         ["n"] = {
           ["<C-o>"] = fb_actions.remove,
