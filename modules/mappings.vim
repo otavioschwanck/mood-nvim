@@ -296,7 +296,7 @@ function HideTerminalWindowOrNoh()
     if b:common_open == 1 && win_count
       execute "norm! \<C-w>W"
     else
-      if win_count
+      if win_count == 1
         if(g:term_as_full_screen_tabs > 0 && tabpagenr() != 1)
           execute "tabclose"
         else
