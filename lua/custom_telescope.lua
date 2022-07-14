@@ -129,15 +129,8 @@ custom_pickers.terminals = function(opts)
         function()
           local result = action_state.get_selected_entry().value
 
-          local command = ""
-
-          if vim.g.term_as_full_screen_tabs then
-            command = "tab sb "
-          else
-            command = "bel sb "
-          end
-
-          vim.cmd(command .. result .. " | norm! GA")
+          vim.cmd("b! " .. result .. " | norm! GA")
+          vim.b.common_open = 1
         end
       )
 
@@ -149,6 +142,7 @@ custom_pickers.terminals = function(opts)
           actions._close(prompt_bufnr, current_picker.initial_mode == "insert")
 
           vim.cmd("vert sb " .. result .. " | norm! GA")
+          vim.b.common_open = 1
         end
       )
 
@@ -159,7 +153,8 @@ custom_pickers.terminals = function(opts)
 
           actions._close(prompt_bufnr, current_picker.initial_mode == "insert")
 
-          vim.cmd("bel sb " .. result .. " | norm! GA")
+          vim.cmd("b! " .. result .. " | norm! GA")
+          vim.b.common_open = 1
         end
       )
 

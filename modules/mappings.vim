@@ -296,34 +296,38 @@ function HideTerminalWindowOrNoh()
   let buftype = getbufvar('', '&buftype', 'ERROR')
 
   if buftype == 'terminal'
-    if winnr('$') == 1
-      if(g:term_as_full_screen_tabs > 0 && tabpagenr() != 1)
-        execute "tabclose"
-      else
-        let go_back = 1
-        let count = 0
-
-        while go_back
-          execute "BufSurfBack"
-
-          let count = count + 1
-
-          if &filetype != "" || count > 3
-            let go_back = 0
-          endif
-        endwhile
-      end
+    if b:common_open == 1 && winnr('$') > 1
+      execute "norm! \<C-w>W"
     else
-      try
-        execute "close"
-      catch /.*/
-        call timer_start(300, {-> execute("call HideTerminalWindowOrNoh()") })
-      endtry
-    end
-  end
-endfunction
+      if winnr('$') == 1
+        if(g:term_as_full_screen_tabs > 0 && tabpagenr() != 1)
+          execute "tabclose"
+        else
+          let go_back = 1
+          let count = 0
 
-" Clear highlight
+          while go_back
+            execute "BufSurfBack"
+
+            let count = count + 1
+
+            if &filetype != "" || count > 3
+              let go_back = 0
+            endif
+          endwhile
+          end
+        else
+          try
+            execute "close"
+          catch /.*/
+            call timer_start(10, {-> execute("call HideTerminalWindowOrNoh()") })
+          endtry
+        endif
+      endif
+    endif
+  endfunction
+
+  " Clear highlight
 nnoremap <silent><esc> :call HideTerminalWindowOrNoh()<CR>:noh<CR>
 
 " Quickfix

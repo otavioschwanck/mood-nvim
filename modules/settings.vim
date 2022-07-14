@@ -226,6 +226,9 @@ function OpenTermFromLastCommand()
   if (bnr > 0)
     execute change_buffer_command . " " . g:last_term_buffer_name
     startinsert
+
+    let b:common_open = 0
+    execute "SendHere"
   else
     lua require('notify')("Last Terminal not found.  Maybe its closed?", 'warn', { title='Terminal Management' })
   endif
@@ -240,9 +243,13 @@ function OpenTerm(command, name, unique, close_after_create)
   if(g:term_as_full_screen_tabs > 0)
     let change_buffer_command = "tab sb "
     let term_command = "TTerm"
+
+    let b:common_open = 0
   else
     let change_buffer_command = "bel sb "
     let term_command = "Term"
+
+    let b:common_open = 0
   endif
 
   if a:name != 'Quick Term'
@@ -264,6 +271,8 @@ function OpenTerm(command, name, unique, close_after_create)
 
     echo full_name . " exists.  Focusing."
     startinsert
+
+    let b:common_open = 0
   elseif bnr > 0 && a:unique == 2
     execute change_buffer_command . " " . full_name
 
@@ -271,9 +280,9 @@ function OpenTerm(command, name, unique, close_after_create)
 
     execute "normal! :bd!\<CR>"
 
-    sleep 150m
+    let command_to_run = "call OpenTerm('" . a:command . "', '" . a:name . "', '" . a:unique . "', '" . a:close_after_create . "')"
 
-    execute "call OpenTerm('" . a:command . "', '" . a:name "', '" . a:unique . "', '" . a:close_after_create . "')"
+    call timer_start(50, {-> execute(command_to_run) })
   else
     if bnr > 0
       let new_number = 0
@@ -290,6 +299,8 @@ function OpenTerm(command, name, unique, close_after_create)
       execute "file! " . full_name . " - " . new_number
       let g:last_term_buffer_name = full_name . " - " . new_number
       execute "SendHere"
+
+      let b:common_open = 0
     else
       execute term_command . " " . a:command
 
@@ -297,6 +308,8 @@ function OpenTerm(command, name, unique, close_after_create)
 
       execute "file! " . full_name
       execute "SendHere"
+
+      let b:common_open = 0
     end
 
     if a:close_after_create == 1
