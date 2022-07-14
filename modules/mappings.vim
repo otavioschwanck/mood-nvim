@@ -288,41 +288,28 @@ xnoremap <silent><expr> I mode() ==# "V" ? "<C-v>$^I" : "I"
 xnoremap <silent><expr> i mode() ==# "V" ? "<C-v>$\<Home>I" : "i"
 
 function HideTerminalWindowOrNoh()
-  let buftype = getbufvar('', '&buftype', 'ERROR')
+  if &buftype == 'terminal'
+    let win_count = luaeval('require("utils.buf_count")()')
 
-  let win_count = luaeval('require("utils.buf_count")()')
-
-  if buftype == 'terminal'
-    if b:common_open == 1 && win_count
-      execute "norm! \<C-w>W"
+    if win_count <= 1
+      if(g:term_as_full_screen_tabs > 0 && tabpagenr() != 1)
+        execute "tabclose"
+      else
+        lua require("utils.goto_last_file_buffer")()
+      endif
     else
-      if win_count == 1
-        if(g:term_as_full_screen_tabs > 0 && tabpagenr() != 1)
-          execute "tabclose"
-        else
-          let go_back = 1
-          let count = 0
-
-          while go_back
-            execute "BufSurfBack"
-
-            let count = count + 1
-
-            if &filetype != "" || count > 3
-              let go_back = 0
-            endif
-          endwhile
-          end
-        else
-          try
-            execute "close"
-          catch /.*/
-            call timer_start(10, {-> execute("call HideTerminalWindowOrNoh()") })
-          endtry
-        endif
+      if b:common_open == 1
+        execute "norm! \<C-w>W"
+      else
+        try
+          execute "close"
+        catch /.*/
+          call timer_start(10, {-> execute("call HideTerminalWindowOrNoh()") })
+        endtry
       endif
     endif
-  endfunction
+  endif
+endfunction
 
   " Clear highlight
 nnoremap <silent><esc> :call HideTerminalWindowOrNoh()<CR>:noh<CR>

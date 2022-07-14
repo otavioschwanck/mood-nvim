@@ -147,8 +147,6 @@ custom_pickers.terminals = function(opts)
 
             vim.b.common_open = 1
           end
-
-          print('aberto com ' .. open_command)
         end
       )
 

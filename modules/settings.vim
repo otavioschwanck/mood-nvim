@@ -224,7 +224,7 @@ function OpenTermFromLastCommand()
   endif
 
   if (bnr > 0)
-    execute change_buffer_command . " " . g:last_term_buffer_name
+    execute change_buffer_command . " " . bufname(bnr)
     startinsert
 
     let b:common_open = 0
@@ -235,7 +235,6 @@ function OpenTermFromLastCommand()
 endfunction
 
 let g:term_as_full_screen_tabs = 0
-let g:last_term_buffer_name = 0
 
 function OpenTerm(command, name, unique, close_after_create)
   let p_name = split(getcwd(), "/")
@@ -267,16 +266,12 @@ function OpenTerm(command, name, unique, close_after_create)
   if bnr > 0 && a:unique == 1
     execute change_buffer_command . " " . full_name
 
-    let g:last_term_buffer_name = full_name
-
     echo full_name . " exists.  Focusing."
     startinsert
 
     let b:common_open = 0
   elseif bnr > 0 && a:unique == 2
     execute change_buffer_command . " " . full_name
-
-    let g:last_term_buffer_name = full_name
 
     execute "normal! :bd!\<CR>"
 
@@ -297,14 +292,11 @@ function OpenTerm(command, name, unique, close_after_create)
 
       execute term_command . " " . a:command
       execute "file! " . full_name . " - " . new_number
-      let g:last_term_buffer_name = full_name . " - " . new_number
       execute "SendHere"
 
       let b:common_open = 0
     else
       execute term_command . " " . a:command
-
-      let g:last_term_buffer_name = full_name
 
       execute "file! " . full_name
       execute "SendHere"

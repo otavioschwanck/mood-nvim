@@ -9,18 +9,22 @@ local function map(tbl, f)
     return t
 end
 
-local function last_visited_terminal()
+local function goto_last_file_buffer()
   local bufnrs = filter(function(b)
-    if not (vim.fn.getbufvar(b, '&buftype', 'ERROR') == 'terminal') then
-            return false
+    if vim.fn.getbufvar(b, '&filetype', 'ERROR') == '' then
+      return false
     end
 
-    if string.find(vim.fn.bufname(b), ':lazygit') then
-            return false
+    if not vim.fn.buflisted(b) == 1 then
+      return false
+    end
+
+    if vim.fn.bufname(b) == '' then
+      return false
     end
 
     return true
-  end, vim.api.nvim_list_bufs())
+  end, require('valid_listed_buffers')())
 
   local times = map(bufnrs, function(item) return vim.fn.getbufvar(item, 'visit_time') or nil end)
 
@@ -37,10 +41,10 @@ local function last_visited_terminal()
       end
     end
 
-    return bufnrs[higherId]
+    vim.cmd("b " .. bufnrs[higherId])
   else
-    return 0
+    vim.cmd("bp")
   end
 end
 
-return last_visited_terminal
+return goto_last_file_buffer
