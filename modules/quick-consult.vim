@@ -18,7 +18,9 @@ function! OpenConsultationWindow() abort
       call nvim_buf_set_keymap(buf, 'n', closingKey, ':close<CR>', {'silent': v:true, 'nowait': v:true, 'noremap': v:true})
     endfor
 
-    if winnr() == 1
+    let win_count = luaeval('require("utils.buf_count")()')
+
+    if win_count
       let col = (ui.width/2)
     else
       let col = 2

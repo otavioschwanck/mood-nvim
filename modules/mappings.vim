@@ -1,6 +1,6 @@
 let mapleader = " "
 function OpenTestAlternateAndSplit()
-  let win_count = winnr()
+  let win_count = luaeval('require("utils.buf_count")()')
   let test_path = eval('rails#buffer().alternate()')
 
   execute "normal! \<C-w>o"
@@ -13,11 +13,6 @@ function OpenTestAlternateAndSplit()
     execute "norm \<C-w>x"
   endif
 endfunction
-
-let g:symbols_without_lsp_regexp = {}
-let g:symbols_without_lsp_regexp.solidity = 'function | modifier  '
-let g:symbols_without_lsp_regexp.default = 'def  '
-let g:symbols_without_lsp_regexp.empty = '^> | ^E | Failure/Error'
 
 function OpenTestAlternate()
   let test_path = eval('rails#buffer().alternate()')
@@ -295,11 +290,13 @@ xnoremap <silent><expr> i mode() ==# "V" ? "<C-v>$\<Home>I" : "i"
 function HideTerminalWindowOrNoh()
   let buftype = getbufvar('', '&buftype', 'ERROR')
 
+  let win_count = luaeval('require("utils.buf_count")()')
+
   if buftype == 'terminal'
-    if b:common_open == 1 && winnr('$') > 1
+    if b:common_open == 1 && win_count
       execute "norm! \<C-w>W"
     else
-      if winnr('$') == 1
+      if win_count
         if(g:term_as_full_screen_tabs > 0 && tabpagenr() != 1)
           execute "tabclose"
         else
@@ -452,6 +449,11 @@ function BetterMove()
   let current_folder = expand('%:p:h')
 
   call feedkeys(":Move " . current_folder . "/", 'n')
+
+  call feedkeys(":bd! #\<CR>")
+  call feedkeys(":e #\<CR>")
+
+  call timer_start(500, {-> execute("doautocmd BufNew") })
 endfunction
 
 function BetterRename()
@@ -464,6 +466,7 @@ function BetterRename()
     call feedkeys(":saveas " . current_folder . "/" . new_name . "\<CR>", "n")
     call delete(current_file)
     call feedkeys(":bd! #\<CR>")
+    call feedkeys(":e #\<CR>")
 
     lua require('notify')("File renamed from " .. vim.api.nvim_eval('current_file_name') .. " to " .. vim.api.nvim_eval('new_name'), 'info', { title='File Management' })
 

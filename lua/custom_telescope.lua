@@ -129,8 +129,26 @@ custom_pickers.terminals = function(opts)
         function()
           local result = action_state.get_selected_entry().value
 
-          vim.cmd("b! " .. result .. " | norm! GA")
-          vim.b.common_open = 1
+          local open_command = ''
+
+          if require('utils.buf_count')() <= 1 then
+            if vim.g.term_as_full_screen_tabs > 0 then
+              open_command = 'tab sb '
+            else
+              open_command = 'bel sb '
+            end
+
+            vim.cmd(open_command .. result .. " | norm! GA")
+
+            vim.b.common_open = 0
+          else
+            open_command = "b! "
+            vim.cmd(open_command .. result .. " | norm! GA")
+
+            vim.b.common_open = 1
+          end
+
+          print('aberto com ' .. open_command)
         end
       )
 
