@@ -31,3 +31,5 @@ function OpenCommand()
 endfunction
 
 call timer_start(4000, {-> execute("call OpenCommand()") })
+call timer_start(2000, {-> execute("call OpenTerm('', 'Quick Term', 1, 1)") })
+
