@@ -153,6 +153,17 @@ ins_left {
   cond = conditions.hide_in_width,
 }
 
+ins_left {
+  function()
+    if vim.g.maximized then
+      return " Window Maximized"
+    end
+
+    return ""
+  end,
+  color = { fg = colors.orange }
+}
+
 -- Insert mid section. You can make any number of sections in neovim :)
 -- for lualine it's any number greater then 2
 ins_left {

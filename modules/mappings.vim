@@ -311,6 +311,12 @@ function HideTerminalWindowOrNoh()
   endif
 endfunction
 
+function Maximize()
+  if expand('%') != '' && (&buftype != '' || &filetype != '') && &buftype != 'nofile'
+    lua require('utils.maximize')()
+  endif
+endfunction
+
   " Clear highlight
 nnoremap <silent><esc> :call HideTerminalWindowOrNoh()<CR>:noh<CR>
 
@@ -506,3 +512,5 @@ imap <C-d> <Delete>
 cmap <C-d> <Delete>
 
 nmap <C-q> :EnMasse<CR>
+
+nmap <CR> :call Maximize()<CR>
