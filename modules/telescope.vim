@@ -9,6 +9,7 @@ local vertical_search = { path_display = { "smart" }, layout_strategy = "vertica
 
 require('telescope').setup{
   defaults = {
+    prompt_prefix = " ",
     file_ignore_patterns = vim.g.folder_to_ignore,
     layout_config = { width = 0.95 },
     mappings = {
