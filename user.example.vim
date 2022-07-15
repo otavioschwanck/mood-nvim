@@ -19,8 +19,8 @@ let g:notes_directories = ['~/Documents/Notes']
 
 " set relativenumber " Relative numbers?
 
-" Terminal full screen instead of windows?
-" let g:term_as_full_screen_tabs = 1
+" Terminal full screen instead of windows? Change to 0 to use popups instead.
+let g:term_as_full_screen_tabs = 1
 
 " To install some extra plugins, visit
 " ~/.config/nvim/lua/user-plugins.lua (You can press gf from the link)
@@ -100,6 +100,20 @@ lua << EOF
     }
   }, { prefix = "<leader>", silent = false })
 
+-- Run Vim Command at Project Start.  If a shortcut exists at top, please use same Name. Examples:
+--                            --    |command 1 | Name 1       |   |command 2 | Name 2       |       | command 3 |                    | Name 3 |
+-- local rails_project_startup = { { "rails s", "Rails Server" }, { "rails c", "Rails Console" }, { "docker compose up -d postgres", "Start Db" } }
+
+-- vim.g.commands_for_autostart = {
+--   -- project folder name            -- commands to run
+--   ["my-api-folder-name"]          = rails_project_startup,
+--   ["my-second-rails-folder-name"] = rails_project_startup,
+--   ["my-front-folder-name"]        = { { 'yarn dev', 'Yarn Dev' } }
+-- }
+
+-- You can also enable those commands on vim startup by commenting:
+vim.g.disable_autostart_commands = 1 -- With this, you have to press SPC # to open the autostart terminals.  I personally prefer this option.
+
 -- Add some especial buffers to the bottom line.  Cool for servers, etc.
 -- vim.g.servers_on_lualine = {
 --   {
@@ -116,19 +130,6 @@ lua << EOF
 --   }
 -- }
 
--- Run Vim Command at Project Start.  If a shortcut exists at top, please use same Name. Examples:
---                            --    |command 1 | Name 1       |   |command 2 | Name 2       |       | command 3 |                    | Name 3 |
--- local rails_project_startup = { { "rails s", "Rails Server" }, { "rails c", "Rails Console" }, { "docker compose up -d postgres", "Start Db" } }
-
--- vim.g.commands_for_autostart = {
---   -- project folder name            -- commands to run
---   ["my-api-folder-name"]          = rails_project_startup,
---   ["my-second-rails-folder-name"] = rails_project_startup,
---   ["my-front-folder-name"]        = { { 'yarn dev', 'Yarn Dev' } }
--- }
-
--- You can also disable the autostart commands  by uncommenting:
-vim.g.disable_autostart_commands = 1 -- With this, you have to press SPC # to open the autostart terminals.  I personally prefer this option.
 EOF
 
 " How many spaces / tabs ?

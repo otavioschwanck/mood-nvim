@@ -437,9 +437,6 @@ function BetterMove()
 
   call feedkeys(":Move " . current_folder . "/", 'n')
 
-  call feedkeys(":bd! #\<CR>")
-  call feedkeys(":e #\<CR>")
-
   call timer_start(500, {-> execute("doautocmd BufNew") })
 endfunction
 
@@ -465,6 +462,8 @@ function BetterCopy()
   let current_folder = expand('%:p:h')
 
   call feedkeys(":saveas " . current_folder . "/", 'n')
+
+  call timer_start(500, {-> execute("doautocmd BufNew") })
 endfunction
 
 function BetterDelete()
