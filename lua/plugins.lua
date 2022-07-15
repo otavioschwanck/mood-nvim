@@ -185,4 +185,16 @@ vim.g.indent_blankline_filetype_exclude = {
   "NvimTree",
 }
 
+require'nvim-web-devicons'.setup {
+  override = {
+    rb = {
+      icon = "",
+      color = "#ff8587",
+      cterm_color = "65",
+      name = "Ruby"
+    }
+  }
+}
+
 return packer
+
