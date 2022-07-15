@@ -17,6 +17,12 @@ local function start()
   for _index, value in ipairs(commands_for_project) do
     vim.cmd("call OpenTerm('" .. value[1] .. "', '" .. value[2] .. "', 2, 1)")
   end
+
+  if vim.g.first_terminal_started ~= 1 then
+    vim.g.first_terminal_started = 1
+
+    vim.cmd("call OpenTerm('', 'Quick Term', 1, 1)")
+  end
 end
 
 local filter = vim.tbl_filter
@@ -128,6 +134,12 @@ local function restart()
 end
 
 local function autostart()
+  if vim.g.first_terminal_started ~= 1 then
+    vim.g.first_terminal_started = 1
+
+    vim.cmd("call OpenTerm('', 'Quick Term', 1, 1)")
+  end
+
   if vim.g.disable_autostart_commands ~= 1 then
     vim.g.disable_autostart_commands = 1
 

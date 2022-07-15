@@ -29,7 +29,11 @@ local function last_visited_terminal()
     local higherId = 0
 
     for i = 1, #times, 1 do
-      local cur_time = times[i] or 1
+      local cur_time = times[i]
+
+      if cur_time == '' or not cur_time then
+        cur_time = 1
+      end
 
       if cur_time > higherTime then
         higherTime = cur_time
