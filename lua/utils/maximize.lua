@@ -8,6 +8,7 @@ local toggleMaximize = function()
 
     vim.cmd("tabnew %")
     vim.cmd("" .. currentLine)
+    vim.cmd("zz")
 
     vim.g.maximized = true
   end
