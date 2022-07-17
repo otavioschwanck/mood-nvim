@@ -312,7 +312,7 @@ function HideTerminalWindowOrNoh()
 endfunction
 
 function Maximize()
-  if expand('%') != '' && (&buftype != '' || &filetype != '') && &buftype != 'nofile' && &buftype != 'qf'
+  if expand('%') != '' && (&buftype != '' || &filetype != '') && &buftype != 'nofile' && &buftype != 'qf'  && &buftype != 'quickfix'
     lua require('utils.maximize')()
   endif
 endfunction
