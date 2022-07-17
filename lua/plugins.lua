@@ -105,12 +105,7 @@ require('packer').startup(function()
   use {
     "williamboman/nvim-lsp-installer",
     {
-        "neovim/nvim-lspconfig",
-        config = function()
-        require("nvim-lsp-installer").setup {
-          automatic_installation = true,
-        }
-        end
+        "neovim/nvim-lspconfig"
     }
   }
   use 'hrsh7th/cmp-nvim-lsp'
@@ -172,10 +167,6 @@ require("yanky").setup({
   },
 })
 
-require("nvim-lsp-installer").setup {
-  automatic_installation = true,
-}
-
 require("rest-nvim").setup()
 
 vim.g.indent_blankline_filetype_exclude = {
@@ -195,6 +186,17 @@ require'nvim-web-devicons'.setup {
     }
   }
 }
+
+require("nvim-lsp-installer").setup({
+    automatic_installation = true, -- automatically detect which servers to install (based on which servers are set up via lspconfig)
+    ui = {
+        icons = {
+            server_installed = "✓",
+            server_pending = "➜",
+            server_uninstalled = "✗"
+        }
+    }
+})
 
 return packer
 
