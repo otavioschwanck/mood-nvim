@@ -2,9 +2,8 @@
 
 " SPC h t to see all themes
 
-" I also recommend gruvbox
-let g:catppuccin_flavour = "frappe" " latte, frappe, macchiato, mocha
-colorscheme catppuccin
+" I also recommend gruvbox-material
+colorscheme edge
 
 " SPC z to access notes commands
 let g:notes_directories = ['~/Documents/Notes']

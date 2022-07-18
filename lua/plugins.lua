@@ -6,10 +6,12 @@ require('packer').startup(function()
   for p = 1, table.getn(plugins) do
     use(plugins[p])
   end
+  use { 'sainnhe/gruvbox-material' }
   use { 'tomlion/vim-solidity' }
   use {'nvim-telescope/telescope-fzf-native.nvim', run = 'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build' }
   use { 'NTBBloodbath/rest.nvim' }
   use 'tpope/vim-repeat'
+  use { 'sainnhe/edge' }
   use { 'ggandor/lightspeed.nvim', commit = "005320ff9e128de8689c6e675fa64ed5963e2d1c" }
   use 'norcalli/nvim-colorizer.lua'
   use 'dhruvasagar/vim-table-mode'
@@ -89,7 +91,6 @@ require('packer').startup(function()
   use 'terryma/vim-multiple-cursors'
   use 'junegunn/vim-easy-align'
   use 'tami5/sqlite.lua'
-  use 'ellisonleao/gruvbox.nvim'
   use 'mtikekar/nvim-send-to-term'
   use 'skywind3000/asyncrun.vim'
   use 'tommcdo/vim-exchange'
