@@ -129,6 +129,11 @@ Run `:UpdateMood`.
 
 Just press `SPC h h` to open the handbook inside vim.
 
+# Breaking Changes
+
+## 19/07/2022
+Catppuccin is no longer supported.  Please change your default theme to `onedarkpro`.
+
 # Troubleshoot
 
 ## Error on python for some reason.

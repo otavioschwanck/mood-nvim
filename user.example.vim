@@ -3,7 +3,12 @@
 " SPC h t to see all themes
 
 " I also recommend gruvbox-material
-colorscheme edge
+lua <<EOF
+require("onedarkpro").setup({
+  dark_theme = "onedark" -- There is also onedark_vivid and onedark_dark
+})
+EOF
+colorscheme onedarkpro
 
 " SPC z to access notes commands
 let g:notes_directories = ['~/Documents/Notes']

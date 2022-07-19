@@ -1,16 +1,26 @@
+local maximize = function()
+  local currentLine = vim.fn.line('.')
+
+  vim.cmd("tabnew %")
+  vim.cmd("" .. currentLine)
+  vim.cmd("norm! zz")
+
+  vim.g.maximized = true
+end
+
 local toggleMaximize = function()
   if vim.g.maximized then
-    vim.cmd("tabclose")
+    if vim.fn.tabpagenr() ~= 1 then
+      vim.cmd("tabclose")
 
-    vim.g.maximized = false
+      vim.g.maximized = false
+    else
+      vim.g.maximized = false
+
+      maximize()
+    end
   else
-    local currentLine = vim.fn.line('.')
-
-    vim.cmd("tabnew %")
-    vim.cmd("" .. currentLine)
-    vim.cmd("norm! zz")
-
-    vim.g.maximized = true
+    maximize()
   end
 end
 

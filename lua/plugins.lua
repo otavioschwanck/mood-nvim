@@ -12,6 +12,7 @@ require('packer').startup(function()
   use { 'NTBBloodbath/rest.nvim' }
   use 'tpope/vim-repeat'
   use { 'sainnhe/edge' }
+  use { 'olimorris/onedarkpro.nvim' }
   use { 'ggandor/lightspeed.nvim', commit = "005320ff9e128de8689c6e675fa64ed5963e2d1c" }
   use 'norcalli/nvim-colorizer.lua'
   use 'dhruvasagar/vim-table-mode'
@@ -41,7 +42,6 @@ require('packer').startup(function()
   use 'mbbill/undotree'
   use 'sk1418/HowMuch'
   use 'romgrk/barbar.nvim'
-  use 'LunarVim/onedarker.nvim'
   use { 'sindrets/diffview.nvim', requires = 'nvim-lua/plenary.nvim' }
   use 'projekt0n/github-nvim-theme'
   use 'shaunsingh/nord.nvim'
@@ -101,7 +101,6 @@ require('packer').startup(function()
   use 'xolox/vim-misc'
   use 'glepnir/dashboard-nvim'
   use 'lukas-reineke/indent-blankline.nvim'
-  use { 'catppuccin/nvim' }
 
   use {
     "williamboman/nvim-lsp-installer",
