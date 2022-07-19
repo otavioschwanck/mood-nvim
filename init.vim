@@ -32,3 +32,5 @@ endfunction
 
 call timer_start(4000, {-> execute("call OpenCommand()") })
 
+lua require('notices')()
+
