@@ -164,7 +164,7 @@ Or your can press `C-q` again to turn quickfix into a editable buffer and edit a
 | s       | Open with default system application or folder |
 | C-v     | Open in a vertical split                       |
 | I       | Toggle Ignored Files                           |
-| H       | Toggle Hidden FIles                            |
+| H       | Toggle Hidden Files                            |
 | R       | Refresh tree                                   |
 | S       | Prompt a path and go to path                   |
 |---------|------------------------------------------------|
