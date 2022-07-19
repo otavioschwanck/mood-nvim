@@ -370,7 +370,7 @@ db.custom_header = {
       ''
 }
 
-db.custom_footer = { "" }
+db.custom_footer = { "Breaking Changes:  Catppuccin theme is no longer supported.  Please change to onedarkpro on your User Settings." }
 
 db.custom_center = {
   { desc = ' Git status                   ', shortcut = 'SPC TAB', action = 'Telescope git_status' },
