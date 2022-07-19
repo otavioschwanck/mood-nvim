@@ -20,7 +20,9 @@ local toggleMaximize = function()
       maximize()
     end
   else
-    maximize()
+    if require('utils.buf_count')() > 1 then
+      maximize()
+    end
   end
 end
 
