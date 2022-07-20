@@ -10,6 +10,8 @@ lua <<EOF
 require('plugins')
 EOF
 
+let g:epic_fisherman_mode = 0
+
 runtime ./modules/settings.vim
 runtime ./modules/quick-consult.vim
 runtime ./modules/telescope.vim
@@ -23,6 +25,8 @@ lua require("user_lsp")
 lua require("lualine_config")
 
 runtime ./user.vim
+
+runtime ./modules/tabs.vim
 
 function OpenCommand()
   if &filetype == 'dashboard'

@@ -15,9 +15,6 @@ let g:notes_directories = ['~/Documents/Notes']
 
 set nowrap " Disable wrap lines
 
-" If you are used to harpoon shortcuts, you can disable the tips (press ; to see harrpon stuff)
-" let g:disable_harpoon_menu = 1
-
 " Your Shell?
 " set shell=zsh
 
@@ -25,6 +22,10 @@ set nowrap " Disable wrap lines
 
 " Terminal full screen instead of windows? Change to 0 to use popups instead.
 let g:term_as_full_screen_tabs = 1
+
+" Uncomment if you want to disable tabs and improve your harpoon use (with ;) (Advanced).
+" Also changes the H and L to next / prev harpoon and remove tabs.
+" let g:epic_fisherman_mode = 1
 
 " To install some extra plugins, visit
 " ~/.config/nvim/lua/user-plugins.lua (You can press gf from the link)

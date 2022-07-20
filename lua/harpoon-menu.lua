@@ -1,12 +1,40 @@
 local wk = require("which-key")
 
+local common_words = {
+  "create",
+  "Create",
+  "update",
+  "Update",
+  "Delete",
+  "delete",
+  "Destroy",
+  "destroy",
+  "index",
+  "Index",
+  "find",
+  "Find",
+  "read",
+  "Read",
+  "init",
+  "Init"
+}
+
 local function Split(s, delimiter)
-  result = {};
+  local result = {};
 
   for match in (s..delimiter):gmatch("(.-)"..delimiter) do
     table.insert(result, match);
   end
   return result;
+end
+
+local function SplitWithDot(s)
+  local lines = {}
+  for line in s:gsub("%f[.]%.%f[^.]", "\0"):gmatch"%Z+" do
+    table.insert(lines, line)
+  end
+
+  return lines
 end
 
 local function count_in_list(list, element)
@@ -27,18 +55,10 @@ local function toggle_harpoon()
 
   local harpoons = {
     name = "Harpoon",
-    s = { ':lua require("harpoon.mark").add_file()<CR>', "Add File to Harpoon" },
-    f = { ':lua require("harpoon.ui").toggle_quick_menu()<CR>', "Open Quick Menu" },
-    c = { ':lua require("harpoon.mark").clear_all()<CR>', "Clear Harpoon" }
+    s = { ':lua require("harpoon.mark").add_file()<CR>', "+Add File to Harpoon" },
+    f = { ':lua require("harpoon.ui").toggle_quick_menu()<CR>', "+Open Quick Menu" },
+    c = { ':lua require("harpoon.mark").clear_all()<CR>', "+Clear Harpoon" }
   }
-
-  if vim.g.disable_harpoon_menu == 1 then
-    harpoons = {
-      s = { ':lua require("harpoon.mark").add_file()<CR>', "" },
-      f = { ':lua require("harpoon.ui").toggle_quick_menu()<CR>', "" },
-      c = { ':lua require("harpoon.mark").clear_all()<CR>', "" }
-    }
-  end
 
   local marks = harpoon.get_mark_config().marks
 
@@ -52,6 +72,7 @@ local function toggle_harpoon()
 
   for i=1,#marks,1 do
     local file_to_show
+    local extension
 
     if count_in_list(filenames, filenames[index]) > 1 then
       local filename_full = Split(marks[i].filename, "/")
@@ -64,18 +85,57 @@ local function toggle_harpoon()
         parsed_filename = parsed_filename .. "/" .. filename_full[j]
       end
 
+      extension = SplitWithDot(filenames[index])
+      extension = extension[#extension]
+
       file_to_show = filenames[index] .. ' at ' .. parsed_filename
     else
-      file_to_show = filenames[index]
+      extension = SplitWithDot(filenames[index])
+      extension = extension[#extension]
+
+      local show_path = false
+
+      for _index, value in pairs(common_words) do
+        if string.find(filenames[index], value, 1, false) then
+          show_path = true
+        end
+      end
+
+      if show_path then
+        local filename_full = Split(marks[i].filename, "/")
+
+        table.remove(filename_full, #filename_full)
+
+        local parsed_filename = ""
+
+        for j=1,#filename_full,1 do
+          parsed_filename = parsed_filename .. "/" .. filename_full[j]
+        end
+
+        if parsed_filename ~= '' then
+          local splitted = Split(parsed_filename, '/')
+
+          file_to_show = splitted[#splitted] .. '/' .. filenames[index]
+        else
+          file_to_show = filenames[index]
+        end
+      else
+        file_to_show = filenames[index]
+      end
     end
 
-    harpoons[tostring(index)] = { ":lua require'harpoon.ui'.nav_file(" .. index .. ")<CR>", file_to_show }
+    local icon = ''
+
+    if file_to_show and extension then
+      icon = require'nvim-web-devicons'.get_icon(file_to_show, extension, { default = true })
+    end
+
+    harpoons[tostring(index)] = { ":lua require'harpoon.ui'.nav_file(" .. index .. ")<CR>", icon .. ' ' .. file_to_show }
     index = index + 1
   end
 
   local ignored = {}
-
-  for i=1,20,1 do
+for i=1,20,1 do
     ignored[tostring(i)] = "which_key_ignore"
   end
 
