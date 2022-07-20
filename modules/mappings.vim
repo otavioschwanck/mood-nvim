@@ -200,6 +200,7 @@ f = {
   p = { ":e ~/.config/nvim/user.vim<CR>", "Open Your Private Files" },
   P = { ":e ~/.config/nvim/lua/user-plugins.lua<CR>", "Open Your Plugin" },
   y = { ":call CopyRelativePath()<CR>", "Copy Relative Path" },
+  l = { ":call CopyRelativePathWithLine()<CR>", "Copy Path With Line" },
   Y = { ":call CopyFullPath()<CR>", "Copy Full Path" },
   C = { ":call BetterCopy()<CR>", "Copy current file to" }
   },
@@ -353,6 +354,17 @@ endfunction
 
 function CopyRelativePath()
   let value = expand("%")
+  call Setreg("*", value)
+  call Setreg("+", value)
+  echom "Yanked: " . value
+endfunction
+
+function CopyRelativePathWithLine()
+  let file = expand("%")
+  let line = line(".")
+
+  let value = file . ":" . line
+
   call Setreg("*", value)
   call Setreg("+", value)
   echom "Yanked: " . value
