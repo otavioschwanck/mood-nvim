@@ -11,7 +11,6 @@ require('packer').startup(function()
   use {'nvim-telescope/telescope-fzf-native.nvim', run = 'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build' }
   use { 'NTBBloodbath/rest.nvim' }
   use 'tpope/vim-repeat'
-  use { 'sainnhe/edge' }
   use { 'olimorris/onedarkpro.nvim' }
   use { 'ggandor/lightspeed.nvim', commit = "005320ff9e128de8689c6e675fa64ed5963e2d1c" }
   use 'norcalli/nvim-colorizer.lua'
@@ -23,7 +22,6 @@ require('packer').startup(function()
   use 'gbprod/yanky.nvim'
   use 'windwp/nvim-autopairs'
   use 'tpope/vim-surround'
-  use 'NLKNguyen/papercolor-theme'
   use 'vim-test/vim-test'
   use 'tpope/vim-eunuch'
   use 'alvan/vim-closetag'
@@ -44,7 +42,6 @@ require('packer').startup(function()
   use 'sk1418/HowMuch'
   use 'romgrk/barbar.nvim'
   use { 'sindrets/diffview.nvim', requires = 'nvim-lua/plenary.nvim' }
-  use 'projekt0n/github-nvim-theme'
   use 'shaunsingh/nord.nvim'
   use 'Olical/vim-enmasse'
   use { 'rcarriga/nvim-notify' }
