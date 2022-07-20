@@ -267,11 +267,13 @@ Just press C-p.
 ## Terminal
 
 `SPC v` open a blank terminal
-`SPC i` Open Last Terminal if exists, if not, run again.
 `SPC l` Send text to last opened terminal
-`SPC #` Rerun terminal commands configured on project startup.
-`SPC !` rerun last terminal command
+`SPC i` Open Last visit terminal.
+`SPC !` re-run last terminal command
+`SPC #` Re-run terminal commands configured on project startup.
 `SPC %` Rerun terminal commands configured on project startup on all tmux windows.
+`SPC q s` Close startup terminal
+`SPC q S` Close startup terminal on all tmux windows.
 `:Term command` open a terminal with the command
 
 Go to your personal settings `SPC f p` and add terminal commands.  There is a bunch of examples there!

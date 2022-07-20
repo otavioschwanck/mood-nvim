@@ -86,7 +86,17 @@ local function restart_all()
   end
 end
 
-local function restart()
+local function kill_all()
+  local tmux_windows = Split(osExecute('tmux list-window -F "#I"'), "\n")
+  table.remove(tmux_windows, #tmux_windows)
+
+  for index, number in ipairs(tmux_windows) do
+    osExecute('tmux send-keys -t ' .. number .. ' C-\\\\ C-n')
+    osExecute('tmux send-keys -t ' .. number .. ' " qs"')
+  end
+end
+
+local function restart(start_servers)
   local commands = vim.g.commands_for_autostart or {}
   local p_name = vim.fn.split(vim.fn.getcwd(), "/")
 
@@ -124,7 +134,7 @@ local function restart()
         end
       end
 
-      if all_closed then
+      if all_closed and start_servers then
         start()
       end
     until all_closed
@@ -147,4 +157,4 @@ local function autostart()
   end
 end
 
-return { autostart = autostart, restart = restart, restart_all = restart_all }
+return { autostart = autostart, restart = restart, restart_all = restart_all, kill_all = kill_all }
