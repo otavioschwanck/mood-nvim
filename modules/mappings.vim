@@ -330,14 +330,14 @@ function Setreg(regname, regval)
 endfunction
 
 function CopyRelativePath()
-  let value = expand("%")
+  let value = fnamemodify(expand("%"), ":~:.")
   call Setreg("*", value)
   call Setreg("+", value)
   echom "Yanked: " . value
 endfunction
 
 function CopyRelativePathWithLine()
-  let file = expand("%")
+  let file = fnamemodify(expand("%"), ":~:.")
   let line = line(".")
 
   let value = file . ":" . line
