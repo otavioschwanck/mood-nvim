@@ -126,6 +126,25 @@ ins_left {
   color = { fg = colors.magenta, gui = 'bold' },
 }
 
+ins_left {
+  function()
+    local harpoon_number = require('harpoon.mark').get_index_of(vim.fn.bufname())
+    if harpoon_number then
+      return "ﯠ " .. harpoon_number
+    else
+      return "ﯡ "
+    end
+  end,
+  color = function()
+    if require('harpoon.mark').get_index_of(vim.fn.bufname()) then
+      return { fg = colors.green, gui = 'bold' }
+    else
+      return { fg = colors.red }
+    end
+  end
+}
+
+
 ins_left { 'location' }
 
 ins_left { 'progress', color = { fg = colors.fg, gui = 'bold' } }
@@ -151,24 +170,6 @@ ins_left {
     removed = { fg = colors.red },
   },
   cond = conditions.hide_in_width,
-}
-
-ins_left {
-  function()
-    local harpoon_number = require('harpoon.mark').get_index_of(vim.fn.bufname())
-    if harpoon_number then
-      return "ﯠ " .. harpoon_number
-    else
-      return "ﯡ "
-    end
-  end,
-  color = function()
-    if require('harpoon.mark').get_index_of(vim.fn.bufname()) then
-      return { fg = colors.green, gui = 'bold' }
-    else
-      return { fg = colors.red }
-    end
-  end
 }
 
 ins_left {
