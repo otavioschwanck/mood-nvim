@@ -155,6 +155,24 @@ ins_left {
 
 ins_left {
   function()
+    local harpoon_number = require('harpoon.mark').get_index_of(vim.fn.bufname())
+    if harpoon_number then
+      return " " .. harpoon_number
+    else
+      return " "
+    end
+  end,
+  color = function()
+    if require('harpoon.mark').get_index_of(vim.fn.bufname()) then
+      return { fg = colors.green, gui = 'bold' }
+    else
+      return { fg = colors.red }
+    end
+  end
+}
+
+ins_left {
+  function()
     if vim.g.maximized then
       return " Window Maximized"
     end
