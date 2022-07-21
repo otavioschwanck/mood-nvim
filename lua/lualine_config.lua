@@ -157,9 +157,9 @@ ins_left {
   function()
     local harpoon_number = require('harpoon.mark').get_index_of(vim.fn.bufname())
     if harpoon_number then
-      return " " .. harpoon_number
+      return "ﯠ " .. harpoon_number
     else
-      return " "
+      return "ﯡ "
     end
   end,
   color = function()
