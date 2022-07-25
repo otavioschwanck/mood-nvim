@@ -37,7 +37,9 @@ local function quit_neovim()
       local channel = vim.fn.getbufvar(buf, '&channel')
 
       if vim.fn.jobwait({channel}, 0)[1] == -3 then
-        vim.cmd("bdelete! " .. buf)
+        if (vim.fn.bufexists(buf)) then
+          vim.cmd("bdelete! " .. buf)
+        end
       else
         all_closed = false
       end

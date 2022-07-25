@@ -121,26 +121,59 @@ local function restart(start_servers)
       notify('Closing Initial Terminals...', 'info', { title='Terminal Management' })
     end
 
+    local count = 0
+
     repeat
       all_closed = true
 
-      for key, buf in pairs(terminals) do
+      for __, buf in pairs(terminals) do
         local channel = vim.fn.getbufvar(buf, '&channel')
 
-        if vim.fn.jobwait({channel}, 0)[1] == -3 then
-          vim.cmd("bdelete! " .. buf)
+        if vim.fn.jobwait({channel}, 0)[1] == -3  then
+          if (vim.fn.bufexists(buf)) then
+            vim.cmd("bdelete! " .. buf)
+          end
         else
           all_closed = false
         end
       end
 
-      if all_closed and start_servers then
+      count = count + 1
+
+      print("contador: " .. count)
+
+      if (all_closed and start_servers) or count > 1000 then
         start()
       end
     until all_closed
   else
     notify("This project doesn't have any startup terminals configured...", 'warn', { title='Terminal Management' })
   end
+end
+
+local function kill_single_terminal(buf)
+  local channel = vim.fn.getbufvar(buf, '&channel')
+
+  vim.fn.jobstop(channel)
+
+  local closed = true
+  local count = 0
+
+  repeat
+    if vim.fn.jobwait({channel}, 0)[1] == -3  then
+      if (vim.fn.bufexists(buf)) then
+        vim.cmd("bdelete! " .. buf)
+      end
+    else
+      closed = false
+    end
+
+    count = count + 1
+
+    if count > 100 then
+      closed = true
+    end
+  until closed
 end
 
 local function autostart()
@@ -157,4 +190,10 @@ local function autostart()
   end
 end
 
-return { autostart = autostart, restart = restart, restart_all = restart_all, kill_all = kill_all }
+return {
+  autostart = autostart,
+  restart = restart,
+  restart_all = restart_all,
+  kill_all = kill_all,
+  kill_single_terminal = kill_single_terminal
+}

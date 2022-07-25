@@ -274,11 +274,11 @@ function OpenTerm(command, name, unique, close_after_create)
   elseif bnr > 0 && a:unique == 2
     execute change_buffer_command . " " . full_name
 
-    execute "normal! :bd!\<CR>"
+    lua require('command-on-start).kill_single_terminal(bufnr(full_name))
 
     let command_to_run = "call OpenTerm('" . a:command . "', '" . a:name . "', '" . a:unique . "', '" . a:close_after_create . "')"
 
-    call timer_start(50, {-> execute(command_to_run) })
+    call timer_start(300, {-> execute(command_to_run) })
   else
     if bnr > 0
       let new_number = 0

@@ -3,7 +3,7 @@
 --------------------------
 
 -- What LSP servers do you want?
-local servers = { 'pyright', 'tsserver', 'jsonls', 'html', 'yamlls', 'cssls', 'solidity_ls', 'sumneko_lua' }
+local servers = { 'jedi_language_server', 'tsserver', 'jsonls', 'html', 'yamlls', 'cssls', 'solidity_ls', 'sumneko_lua' }
 
 local opts = { noremap=true, silent=true }
 vim.api.nvim_set_keymap('n', '[e', '<cmd>lua vim.diagnostic.goto_prev()<CR>', opts)
@@ -27,7 +27,7 @@ local on_attach = function(_client, bufnr)
 
   local bufopts = { noremap=true, silent=true, buffer=bufnr }
   vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, bufopts)
-  vim.keymap.set('n', 'gd', vim.lsp.buf.definition, bufopts)
+  vim.keymap.set('n', 'gd', ':Telescope lsp_definitions<CR>', bufopts)
   vim.keymap.set('n', 'K', vim.lsp.buf.hover, bufopts)
   vim.keymap.set('n', 'gI', vim.lsp.buf.implementation, bufopts)
   vim.keymap.set('n', 'gt', vim.lsp.buf.type_definition, bufopts)
