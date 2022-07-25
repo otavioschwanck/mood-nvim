@@ -274,7 +274,7 @@ function OpenTerm(command, name, unique, close_after_create)
   elseif bnr > 0 && a:unique == 2
     execute change_buffer_command . " " . full_name
 
-    lua require('command-on-start').kill_single_terminal(vim.fn.bufnr(full_name))
+    lua require('command-on-start').kill_single_terminal(vim.fn.bufnr(vim.api.nvim_eval('full_name')))
 
     let command_to_run = "call OpenTerm('" . a:command . "', '" . a:name . "', '" . a:unique . "', '" . a:close_after_create . "')"
 
