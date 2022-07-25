@@ -140,8 +140,6 @@ local function restart(start_servers)
 
       count = count + 1
 
-      print("contador: " .. count)
-
       if (all_closed and start_servers) or count > 1000 then
         start()
       end
