@@ -119,6 +119,16 @@ lua << EOF
 -- You can also enable those commands on vim startup by commenting:
 vim.g.disable_autostart_commands = 1 -- With this, you have to press SPC # to open the autostart terminals.  I personally prefer this option.
 
+
+-- Your project alternates. See more at: https://github.com/rgroli/other.nvim
+-- Use with :Other or SPC f a
+require("other-nvim").setup({
+  mappings = {
+    { pattern = "app/services/(.*)_services/(.*).rb", target = "app/contracts/%1_contracts/%2.rb" },
+    { pattern = "app/contracts/(.*)_contracts/(.*).rb", target = "app/services/%1_services/%2.rb" }
+  },
+})
+
 -- Add some especial buffers to the bottom line.  Cool for servers, etc.
 -- vim.g.servers_on_lualine = {
 --   {

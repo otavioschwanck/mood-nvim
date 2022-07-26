@@ -8,6 +8,7 @@ require('packer').startup(function()
   end
   use { 'sainnhe/gruvbox-material' }
   use { 'tomlion/vim-solidity' }
+  use { 'rgroli/other.nvim' }
   use {'nvim-telescope/telescope-fzf-native.nvim', run = 'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build' }
   use { 'NTBBloodbath/rest.nvim' }
   use 'tpope/vim-repeat'
