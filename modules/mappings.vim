@@ -183,8 +183,8 @@ s = {
   },
 f = {
   name = "+File",
-  a = { ":Other", "Alternate File" },
-  A = { ":OtherVSplit", "Alternate File Split" },
+  a = { ":Other<CR>", "Alternate File" },
+  A = { ":OtherVSplit<CR>", "Alternate File Split" },
   r = { ":Telescope oldfiles<CR>", "Recent Files" },
   s = { ":w!", "Save" },
   R = { ":call BetterRename()<CR>", "Rename Current File" },
