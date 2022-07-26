@@ -183,6 +183,7 @@ s = {
   },
 f = {
   name = "+File",
+  o = { ":AerialToggle", "Show Window Symbols" },
   a = { ":Other<CR>", "Alternate File" },
   A = { ":OtherVSplit<CR>", "Alternate File Split" },
   r = { ":Telescope oldfiles<CR>", "Recent Files" },

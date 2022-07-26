@@ -6,6 +6,7 @@ require('packer').startup(function()
   for p = 1, table.getn(plugins) do
     use(plugins[p])
   end
+  use { 'stevearc/aerial.nvim' }
   use { 'sainnhe/gruvbox-material' }
   use { 'tomlion/vim-solidity' }
   use { 'rgroli/other.nvim' }
@@ -268,8 +269,6 @@ onedarkpro.setup({
     },
   },
   hlgroups = {
-    ModeMsg = { link = "LineNr" }, -- Make command line text darker
-
     -- Highlight brackets with a custom color
     TSPunctBracket = { fg = "${brackets}" },
     TSPunctSpecial = { fg = "${brackets}" },
@@ -359,6 +358,6 @@ onedarkpro.setup({
     TelescopeSelection = { bg = "${telescope_prompt}" },
   },
 })
-
+require('aerial').setup({})
 return packer
 
