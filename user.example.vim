@@ -125,7 +125,9 @@ vim.g.disable_autostart_commands = 1 -- With this, you have to press SPC # to op
 require("other-nvim").setup({
   mappings = {
     { pattern = "app/services/(.*)_services/(.*).rb", target = "app/contracts/%1_contracts/%2.rb" },
-    { pattern = "app/contracts/(.*)_contracts/(.*).rb", target = "app/services/%1_services/%2.rb" }
+    { pattern = "app/contracts/(.*)_contracts/(.*).rb", target = "app/services/%1_services/%2.rb" },
+    { pattern = "app/contracts/(.*)_contracts/base.rb", target = "app/services/%1_services/" },
+    { pattern = "app/models/(.*).rb", target = { "app/services/%1_services/" } }
   },
 })
 
