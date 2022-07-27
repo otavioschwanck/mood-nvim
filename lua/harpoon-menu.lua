@@ -56,7 +56,7 @@ local function toggle_harpoon()
   local harpoons = {
     name = "Harpoon",
     s = { ':lua require("harpoon.mark").add_file()<CR>', "+Add File to Harpoon" },
-    f = { ':lua require("harpoon.ui").toggle_quick_menu()<CR>', "+Open Quick Menu" },
+    f = { ':lua require("harpoon.ui").toggle_quick_menu()<CR>', "+Edit Harpoon File" },
     c = { ':lua require("harpoon.mark").clear_all()<CR>', "+Clear Harpoon" }
   }
 
@@ -81,14 +81,16 @@ local function toggle_harpoon()
 
       local parsed_filename = ""
 
-      for j=1,#filename_full,1 do
-        parsed_filename = parsed_filename .. "/" .. filename_full[j]
-      end
-
       extension = SplitWithDot(filenames[index])
       extension = extension[#extension]
 
-      file_to_show = filenames[index] .. ' at ' .. parsed_filename
+      local parsed_filename = ''
+
+      if #filename_full > 1 then
+        parsed_filename = parsed_filename .. "/" .. filename_full[#filename_full]
+      end
+
+      file_to_show = parsed_filename .. '/' .. filenames[index]
     else
       extension = SplitWithDot(filenames[index])
       extension = extension[#extension]
@@ -108,8 +110,8 @@ local function toggle_harpoon()
 
         local parsed_filename = ""
 
-        for j=1,#filename_full,1 do
-          parsed_filename = parsed_filename .. "/" .. filename_full[j]
+        if #filename_full > 1 then
+          parsed_filename = parsed_filename .. "/" .. filename_full[#filename_full]
         end
 
         if parsed_filename ~= '' then
