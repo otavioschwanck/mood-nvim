@@ -142,14 +142,14 @@ for i=1,20,1 do
   end
 
   wk.register({
-    y = ignored,
+    ["&"] = ignored,
   }, { prefix = "<leader>", silent = false })
 
   wk.register({
-    y = harpoons,
+    ["&"] = harpoons,
   }, { prefix = "<leader>", silent = false })
 
-  vim.cmd('WhichKey <leader>y')
+  vim.cmd('WhichKey <leader>&')
 end
 
 return toggle_harpoon
