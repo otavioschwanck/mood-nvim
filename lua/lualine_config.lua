@@ -19,6 +19,13 @@ local colors = {
   red      = '#ec5f67',
 }
 
+local default_options = {
+  symbols = { modified = '[+]', readonly = '[-]', unnamed = '[No Name]' },
+  file_status = true,
+  path = 0,
+  shorting_target = 40,
+}
+
 local conditions = {
   buffer_not_empty = function()
     return vim.fn.empty(vim.fn.expand('%:t')) ~= 1
@@ -78,6 +85,27 @@ local function ins_right(component)
   table.insert(config.sections.lualine_x, component)
 end
 
+local options = vim.tbl_deep_extend('keep', {}, default_options)
+
+local function has_space(space)
+  local windwidth = options.globalstatus and vim.go.columns or vim.fn.winwidth(0)
+  local estimated_space_available = windwidth - options.shorting_target
+
+  return estimated_space_available > space
+end
+
+local function has_50_space()
+  return has_space(50)
+end
+
+local function has_30_space()
+  return has_space(30)
+end
+
+local function has_80_space()
+  return has_space(80)
+end
+
 ins_left {
   function()
     return '▊'
@@ -121,10 +149,47 @@ ins_left {
 ins_left {
   'filename',
   file_status = true,
-  path = 1,
+  path = 0,
   cond = conditions.buffer_not_empty,
   color = { fg = colors.magenta, gui = 'bold' },
 }
+
+local function shorten_path(path, sep)
+  -- ('([^/])[^/]+%/', '%1/', 1)
+  return path:gsub(string.format('([^%s])[^%s]+%%%s', sep, sep, sep), '%1' .. sep, 1)
+end
+
+local function count(base, pattern)
+  return select(2, string.gsub(base, pattern, ''))
+end
+
+ins_left {
+  function()
+    local dir = vim.fn.expand("%:p:h")
+
+    if dir == vim.fn.getcwd() then
+      return " Project Root"
+    else
+      local windwidth = options.globalstatus and vim.go.columns or vim.fn.winwidth(0)
+      local estimated_space_available = windwidth - options.shorting_target
+
+      local data = vim.fn.fnamemodify(dir, ":~:.")
+      for _ = 0, count(data, '/') do
+        if windwidth <= 84 or #data > estimated_space_available then
+          data = shorten_path(data, '/')
+        end
+      end
+
+      return " " .. data
+    end
+  end,
+  cond = conditions.buffer_not_empty,
+  color = { fg = colors.violet },
+}
+
+local function harpoon_cond()
+  return has_30_space() and conditions.buffer_not_empty()
+end
 
 ins_left {
   function()
@@ -141,13 +206,21 @@ ins_left {
     else
       return { fg = colors.red }
     end
-  end
+  end,
+  cond = harpoon_cond,
 }
 
 
-ins_left { 'location' }
+ins_left {
+  'location',
+  cond = has_50_space
+}
 
-ins_left { 'progress', color = { fg = colors.fg, gui = 'bold' } }
+ins_left {
+  'progress',
+  color = { fg = colors.fg, gui = 'bold' },
+  cond = has_50_space
+}
 
 ins_left {
   'diagnostics',
@@ -158,6 +231,7 @@ ins_left {
     color_warn = { fg = colors.yellow },
     color_info = { fg = colors.cyan },
   },
+  cond = has_30_space
 }
 
 ins_left {
@@ -169,13 +243,17 @@ ins_left {
     modified = { fg = colors.orange },
     removed = { fg = colors.red },
   },
-  cond = conditions.hide_in_width,
+  cond = has_30_space,
 }
 
 ins_left {
   function()
     if vim.g.maximized then
-      return " Window Maximized"
+      if(has_50_space) then
+        return " Window Maximized"
+      else
+        return ""
+      end
     end
 
     return ""
@@ -235,13 +313,26 @@ end
 ins_right {
   is_server_running,
   color = { fg = colors.green },
+  cond = has_50_space
+}
+
+local function filetype_cond()
+  return conditions.buffer_not_empty() and has_80_space()
+end
+
+ins_right {
+  'filetype',
+  colored = true,
+  icon_only = false,
+  cond = filetype_cond,
+  color = { fg = colors.blue, gui = 'bold' },
 }
 
 -- Add components to right sections
 ins_right {
   'o:encoding', -- option component same as &encoding in viml
   fmt = string.upper, -- I'm not sure why it's upper case either ;)
-  cond = conditions.hide_in_width,
+  cond = has_80_space,
   color = { fg = colors.green, gui = 'bold' },
 }
 
@@ -249,6 +340,7 @@ ins_right {
   'branch',
   icon = '',
   color = { fg = colors.violet, gui = 'bold' },
+  cond = has_80_space
 }
 
 ins_right {
