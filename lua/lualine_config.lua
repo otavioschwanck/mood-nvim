@@ -210,18 +210,6 @@ ins_left {
   cond = harpoon_cond,
 }
 
-
-ins_left {
-  'location',
-  cond = has_50_space
-}
-
-ins_left {
-  'progress',
-  color = { fg = colors.fg, gui = 'bold' },
-  cond = has_50_space
-}
-
 ins_left {
   'diagnostics',
   sources = { 'nvim_diagnostic' },
@@ -243,7 +231,7 @@ ins_left {
     modified = { fg = colors.orange },
     removed = { fg = colors.red },
   },
-  cond = has_30_space,
+  cond = has_50_space,
 }
 
 ins_left {
@@ -326,14 +314,6 @@ ins_right {
   icon_only = false,
   cond = filetype_cond,
   color = { fg = colors.blue, gui = 'bold' },
-}
-
--- Add components to right sections
-ins_right {
-  'o:encoding', -- option component same as &encoding in viml
-  fmt = string.upper, -- I'm not sure why it's upper case either ;)
-  cond = has_80_space,
-  color = { fg = colors.green, gui = 'bold' },
 }
 
 ins_right {
