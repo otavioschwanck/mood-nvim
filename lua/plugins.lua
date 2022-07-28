@@ -349,9 +349,8 @@ onedarkpro.setup({
     },
     TelescopeResultsTitle = {
       fg = "${telescope_results}",
-      bg = "${telescope_results}",
+      bg = "${green}",
     },
-
     TelescopeMatching = { fg = "${purple}" },
     TelescopeNormal = { bg = "${telescope_results}" },
     TelescopeSelection = { bg = "${telescope_prompt}" },
