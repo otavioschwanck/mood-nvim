@@ -309,6 +309,13 @@ local function filetype_cond()
 end
 
 ins_right {
+  function()
+    return 'ﴵ %-2v'
+  end,
+  cond = has_50_space
+}
+
+ins_right {
   'filetype',
   colored = true,
   icon_only = false,

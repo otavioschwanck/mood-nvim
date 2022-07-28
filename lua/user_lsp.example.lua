@@ -3,7 +3,7 @@
 --------------------------
 
 -- What LSP servers do you want?
-local servers = { 'jedi_language_server', 'tsserver', 'jsonls', 'html', 'yamlls', 'cssls', 'solidity_ls', 'sumneko_lua' }
+local servers = { 'jedi_language_server', 'tsserver', 'jsonls', 'yamlls', 'cssls', 'solidity_ls', 'sumneko_lua' }
 
 local opts = { noremap=true, silent=true }
 vim.api.nvim_set_keymap('n', '[e', '<cmd>lua vim.diagnostic.goto_prev()<CR>', opts)
@@ -137,6 +137,20 @@ require "lsp_signature".setup()
 local lspconfig = require('lspconfig')
 
 local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
+
+require'lspconfig'.html.setup {
+  filetypes = { "eruby", "html" },
+  capabilities = capabilities,
+  on_attach = on_attach,
+  init_options = {
+    configurationSection = { "html", "css", "javascript", "eruby" },
+    embeddedLanguages = {
+      css = true,
+      javascript = true
+    },
+    provideFormatter = true
+  }
+}
 
 lspconfig.solargraph.setup {
   on_attach = on_attach,
