@@ -299,6 +299,13 @@ local function is_server_running()
 end
 
 ins_right {
+  function()
+    return 'ﴵ %-2v'
+  end,
+  cond = has_50_space
+}
+
+ins_right {
   is_server_running,
   color = { fg = colors.green },
   cond = has_50_space
@@ -307,13 +314,6 @@ ins_right {
 local function filetype_cond()
   return conditions.buffer_not_empty() and has_80_space()
 end
-
-ins_right {
-  function()
-    return 'ﴵ %-2v'
-  end,
-  cond = has_50_space
-}
 
 ins_right {
   'filetype',
