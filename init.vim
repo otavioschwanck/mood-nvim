@@ -10,7 +10,7 @@ lua <<EOF
 require('plugins')
 EOF
 
-let g:epic_fisherman_mode = 0
+let g:enable_tabs = 0
 
 runtime ./modules/settings.vim
 runtime ./modules/quick-consult.vim

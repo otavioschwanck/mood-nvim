@@ -42,35 +42,35 @@ OBS: This list persist between vim sections
 
 # Buffer Navigation and Management
 
-| Command                | Description                                        |
-|------------------------|----------------------------------------------------|
-| H                      | Previous Tab                                       |
-| L                      | Next Tab                                           |
-| C-h                    | Previous Visited Buffer (History)                  |
-| C-l                    | Next Visit Buffer (History)                        |
-| SPC ,                  | Find Buffer in Project                             |
-| SPC TAB                | Find All Buffers                                   |
-| SPC .                  | File Browser                                       |
-| SPC e                  | Open Tree                                          |
-| SPC k                  | Kill current buffer                                |
-| SPC A                  | Go to Test (and vsplit)                            |
-| SPC a                  | Go to test                                         |
-| SPC a                  | Go to test                                         |
-| SPC l                  | List All Terminals (cool for opening closed tests) |
-| SPC L                  | Mark Terminal to Send Text                         |
-| SPC l (On visual mode) | Send text to marked terminal                       |
-| SPC 1 to SPC 9         | Go to Tab in position                              |
-| C-s                    | Pick a tab by first letter                         |
-|------------------------|----------------------------------------------------|
-| ]g                     | Next git hunk                                      |
-| [g                     | Previous git hunk                                  |
-|------------------------|----------------------------------------------------|
-| ]e                     | Next Error                                         |
-| [e                     | Previous Error                                     |
-|------------------------|----------------------------------------------------|
-| ]q                     | Next Quickfix                                      |
-| [q                     | Previous Quickfix                                  |
-|------------------------|----------------------------------------------------|
+| Command                | Description                                               |
+|------------------------|-----------------------------------------------------------|
+| H                      | Previous Harpoon / Previous Tab (Depends of tabs enabled) |
+| L                      | Next Harpoon / Next Tab (Depends of tabs enabled)         |
+| C-h                    | Previous Visited Buffer (History)                         |
+| C-l                    | Next Visit Buffer (History)                               |
+| SPC ,                  | Find Buffer in Project                                    |
+| SPC TAB                | Find All Buffers                                          |
+| SPC .                  | File Browser                                              |
+| SPC e                  | Open Tree                                                 |
+| SPC k                  | Kill current buffer                                       |
+| SPC A                  | Go to Test (and vsplit)                                   |
+| SPC a                  | Go to test                                                |
+| SPC a                  | Go to test                                                |
+| SPC l                  | List All Terminals (cool for opening closed tests)        |
+| SPC L                  | Mark Terminal to Send Text                                |
+| SPC l (On visual mode) | Send text to marked terminal                              |
+| SPC 1 to SPC 9         | Go to Tab in position                                     |
+| C-s                    | Pick a tab by first letter                                |
+|------------------------|-----------------------------------------------------------|
+| ]g                     | Next git hunk                                             |
+| [g                     | Previous git hunk                                         |
+|------------------------|-----------------------------------------------------------|
+| ]e                     | Next Error                                                |
+| [e                     | Previous Error                                            |
+|------------------------|-----------------------------------------------------------|
+| ]q                     | Next Quickfix                                             |
+| [q                     | Previous Quickfix                                         |
+|------------------------|-----------------------------------------------------------|
 
 # Window Navigation
 

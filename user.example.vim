@@ -23,9 +23,10 @@ set nowrap " Disable wrap lines
 " Terminal full screen instead of windows? Change to 0 to use popups instead.
 let g:term_as_full_screen_tabs = 1
 
-" Uncomment if you want to disable tabs and improve your harpoon use (with ;) (Advanced).
-" Also changes the H and L to next / prev harpoon and remove tabs.
-" let g:epic_fisherman_mode = 1
+" Uncomment if you want to enable tabs.  I really recommend harpoon (with ;)
+" and SPC , to switch from other buffers, but if you like, just active this!
+" Also changes the H and L to next / prev tab instead next / prev harpoon.
+" let g:enable_tabs = 1
 
 " To install some extra plugins, visit
 " ~/.config/nvim/lua/user-plugins.lua (You can press gf from the link)
