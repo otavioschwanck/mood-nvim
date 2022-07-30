@@ -29,7 +29,7 @@ require('telescope').setup{
     find_files = {
       hidden = true, path_display = { "smart" }
     },
-    buffers = { path_display = { "smart" } },
+    buffers = { path_display = require('utils.buffer_path_display') },
     live_grep = vertical_search,
     grep_string = vertical_search
   },
