@@ -6,6 +6,7 @@ local _, actions = pcall(require, "telescope.actions")
 local fb_actions = require "telescope".extensions.file_browser.actions
 
 local vertical_search = { path_display = { "smart" }, layout_strategy = "vertical", layout_config = { preview_cutoff = 10, height = 0.92 } }
+local small_window = { path_display = { "smart" }, layout_strategy = "horizontal", layout_config = { preview_cutoff = 10, height = 0.92 } }
 
 require('telescope').setup{
   defaults = {
@@ -29,7 +30,7 @@ require('telescope').setup{
     find_files = {
       hidden = true, path_display = { "smart" }
     },
-    buffers = { path_display = require('utils.buffer_path_display') },
+    buffers = { path_display = require('utils.buffer_path_display'), layout_config = { preview_cutoff = 10, width = 0.92 } },
     live_grep = vertical_search,
     grep_string = vertical_search
   },
