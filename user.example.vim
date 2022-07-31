@@ -134,18 +134,26 @@ require("other-nvim").setup({
 
 -- Add some especial buffers to the bottom line.  Cool for servers, etc.
 -- vim.g.servers_on_lualine = {
---   {
---     buffer_name = 'Rails Console',
---     text = ' Console',
---   },
---   {
---     buffer_name = 'Rails Server',
---     text = ' Server',
---   },
---   {
---     buffer_name = 'Yarn Dev',
---     text = ' Yarn',
---   }
+--  {
+--      buffer_name = 'Rails Console',
+--      text = ' Console',
+--  },
+--  {
+--      buffer_name = 'Rails Server',
+--      text = ' Server',
+--  },
+--  {
+--      buffer_name = 'Yarn Dev',
+--      text = ' Server',
+--  },
+--  {
+--      buffer_name = 'Brownie Console',
+--      text = ' Console',
+--  },
+--  {
+--      buffer_name = 'Brownie Server',
+--      text = ' Console',
+--  },
 -- }
 
 EOF

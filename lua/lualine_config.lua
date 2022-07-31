@@ -260,23 +260,23 @@ ins_left {
 local default_servers = {
   {
     buffer_name = 'Rails Console',
-    text = ' Console',
+    text = ' Console',
   },
   {
     buffer_name = 'Rails Server',
-    text = ' Server',
+    text = ' Server',
   },
   {
     buffer_name = 'Yarn Dev',
-    text = ' Yarn',
+    text = ' Server',
   },
   {
     buffer_name = 'Brownie Console',
-    text = ' Brownie Console',
+    text = ' Console',
   },
   {
     buffer_name = 'Brownie Server',
-    text = ' Brownie Server',
+    text = ' Console',
   },
 }
 
