@@ -46,6 +46,7 @@ local config = {
     -- Disable sections and component separators
     component_separators = '',
     section_separators = '',
+    globalstatus = false,
     theme = {
       -- We are going to use lualine_c an lualine_x as left and
       -- right section. Both are highlighted by c theme .  So we
@@ -80,9 +81,19 @@ local function ins_left(component)
   table.insert(config.sections.lualine_c, component)
 end
 
+local function ins_left_both(component)
+  table.insert(config.sections.lualine_c, component)
+  table.insert(config.inactive_sections.lualine_c, component)
+end
+
 -- Inserts a component in lualine_x ot right section
 local function ins_right(component)
   table.insert(config.sections.lualine_x, component)
+end
+
+local function ins_right_both(component)
+  table.insert(config.sections.lualine_x, component)
+  table.insert(config.inactive_sections.lualine_x, component)
 end
 
 local options = vim.tbl_deep_extend('keep', {}, default_options)
@@ -106,7 +117,7 @@ local function has_80_space()
   return has_space(80)
 end
 
-ins_left {
+ins_left_both {
   function()
     return '▊'
   end,
@@ -146,13 +157,14 @@ ins_left {
   padding = { right = 1 },
 }
 
-ins_left {
+ins_left_both {
   'filename',
   file_status = true,
   path = 0,
   cond = conditions.buffer_not_empty,
   color = { fg = colors.magenta, gui = 'bold' },
 }
+
 
 local function shorten_path(path, sep)
   -- ('([^/])[^/]+%/', '%1/', 1)
@@ -163,7 +175,7 @@ local function count(base, pattern)
   return select(2, string.gsub(base, pattern, ''))
 end
 
-ins_left {
+ins_left_both {
   function()
     local dir = vim.fn.expand("%:p:h")
 
@@ -191,7 +203,7 @@ local function harpoon_cond()
   return has_30_space() and conditions.buffer_not_empty()
 end
 
-ins_left {
+ins_left_both {
   function()
     local harpoon_number = require('harpoon.mark').get_index_of(vim.fn.bufname())
     if harpoon_number then
@@ -210,7 +222,7 @@ ins_left {
   cond = harpoon_cond,
 }
 
-ins_left {
+ins_left_both {
   'diagnostics',
   sources = { 'nvim_diagnostic' },
   symbols = { error = ' ', warn = ' ', info = ' ' },
@@ -330,7 +342,7 @@ ins_right {
   cond = has_80_space
 }
 
-ins_right {
+ins_right_both {
   function()
     return '▊'
   end,
