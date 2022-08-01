@@ -17,9 +17,6 @@ set nu
 autocmd!
 scriptencoding utf-8
 
-" stop loading config if it's on tiny or small
-if !1 | finish | endif
-
 set hidden
 
 set shiftwidth=2
@@ -116,7 +113,7 @@ let g:camelsnek_i_am_an_old_fart_with_no_sense_of_humour_or_internet_culture = 1
 
 let g:closetag_filenames = '*.html,*.xhtml,*.phtml,*.erb'
 
-let g:multi_cursor_use_default_mapping=0
+let g:multi_cursor_use_default_mapping = 0
 let g:multi_cursor_start_word_key      = 'M'
 let g:multi_cursor_next_key            = 'M'
 let g:multi_cursor_quit_key            = '<Esc>'
@@ -211,30 +208,6 @@ endfunction
 
 let g:last_term_command = []
 
-function RunLastTermCommand()
-  execute "call OpenTerm(g:last_term_command[0], g:last_term_command[1], g:last_term_command[2], g:last_term_command[3])"
-endfunction
-
-function OpenTermFromLastCommand()
-  let bnr = v:lua.require('last_open_terminal')()
-
-  if(g:term_as_full_screen_tabs > 0)
-    let change_buffer_command = "tab sb "
-  else
-    let change_buffer_command = "bel sb "
-  endif
-
-  if (bnr > 0)
-    execute change_buffer_command . " " . bufname(bnr)
-    startinsert
-
-    let b:common_open = 0
-    execute "SendHere"
-  else
-    lua require('notify')("Last Terminal not found.  Maybe its closed?", 'warn', { title='Terminal Management' })
-  endif
-endfunction
-
 let g:term_as_full_screen_tabs = 0
 
 function OpenTerm(command, name, unique, close_after_create)
@@ -274,7 +247,7 @@ function OpenTerm(command, name, unique, close_after_create)
   elseif bnr > 0 && a:unique == 2
     execute change_buffer_command . " " . full_name
 
-    lua require('command-on-start').kill_single_terminal(vim.fn.bufnr(vim.api.nvim_eval('full_name')))
+    lua require('mood-scripts.command-on-start').kill_single_terminal(vim.fn.bufnr(vim.api.nvim_eval('full_name')))
 
     let command_to_run = "call OpenTerm('" . a:command . "', '" . a:name . "', '" . a:unique . "', '" . a:close_after_create . "')"
 
@@ -346,7 +319,6 @@ endfunction
 
 let g:test#custom_strategies = {'splitterm': function('SplitTermStrategy')}
 let g:test#strategy = 'splitterm'
-
 let g:dashboard_default_executive ='telescope'
 let g:table_mode_disable_tableize_mappings = 1
 let g:table_mode_disable_mappings = 1
@@ -386,7 +358,6 @@ EOF
 let g:machine_gun_regexp = {
       \ 'ruby': 'def\ \|do$\|do |.*|$\|end$'
     \ }
-
 let g:machine_gun_regexp.typescriptreact = '=>\|\}\|\function .*'
 let g:machine_gun_regexp.javascript = '=>\|\}\|\function .*'
 let g:machine_gun_regexp.solidity = 'function \|modifier \|constructor(.*'
@@ -505,4 +476,4 @@ function! ExecuteMacroOverVisualRange()
 endfunction
 
 autocmd VimLeavePre * lua require('quit_neovim')()
-autocmd BufReadPost * lua require('command-on-start').autostart()
+autocmd BufReadPost * lua require('mood-scripts.command-on-start').autostart()

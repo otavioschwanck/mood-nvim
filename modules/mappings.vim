@@ -204,8 +204,8 @@ m = {
   c = { ":call GetClassName()<CR>", "Copy Class Name to Clipboard" },
   d = { ":lua require('mood').comment_rubocop()<CR>", "Comment Rubocop Error" },
   },
-["#"] = { ":lua require('command-on-start').restart(true)<CR>", "Execute / Re-excute project terminals" },
-["%"] = { ":lua require('command-on-start').restart_all()<CR>", "TMUX: Execute / Re-execute project terminal all" },
+["#"] = { ":lua require('mood-scripts.command-on-start').restart(true)<CR>", "Execute / Re-excute project terminals" },
+["%"] = { ":lua require('mood-scripts.command-on-start').restart_all()<CR>", "TMUX: Execute / Re-execute project terminal all" },
 ["!"] = { ":call RunLastTermCommand()<CR>", "Run Last Terminal Command" },
 ["i"] = { ":call OpenTermFromLastCommand()<CR>", "Open Term From Last Command" },
 g = {
@@ -249,8 +249,8 @@ w = {
   },
   q = {
     name = "+Quit and Close",
-    s = { ":lua require('command-on-start').restart(false)<CR>", "Kill all servers terminals" },
-    S = { ":lua require('command-on-start').kill_all()<CR>", "TMUX: Kill all servers terminals" },
+    s = { ":lua require('mood-scripts.command-on-start').restart(false)<CR>", "Kill all servers terminals" },
+    S = { ":lua require('mood-scripts.command-on-start').kill_all()<CR>", "TMUX: Kill all servers terminals" },
     q = { ":qall<CR>", "Quit Vim" },
     c = {":cclose<CR>", "Quick Fix Close"},
     d = { ":DiffviewClose<CR>", "Close Diffview" }
@@ -319,8 +319,6 @@ vmap - $<Left>
 
 nmap <C-h> :BufSurfBack<CR>
 nmap <C-l> :BufSurfForward<CR>
-
-let bufferline.icon_pinned = '車'
 
 nnoremap <silent> <C-s> :BufferPick<CR>
 
@@ -508,3 +506,8 @@ cmap <C-d> <Delete>
 nmap <C-q> :EnMasse<CR>
 
 nmap <CR> :call Maximize()<CR>
+
+xmap gl <Plug>(EasyAlign)
+nmap gl <Plug>(EasyAlign)
+
+xnoremap @ :<C-u>call ExecuteMacroOverVisualRange()<CR>

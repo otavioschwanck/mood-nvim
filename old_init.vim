@@ -30,7 +30,7 @@ runtime ./modules/tabs.vim
 
 function OpenCommand()
   if &filetype == 'dashboard'
-    lua require('command-on-start').autostart()
+    lua require('mood-scripts.command-on-start').autostart()
   endif
 endfunction
 
