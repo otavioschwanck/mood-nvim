@@ -28,14 +28,7 @@ function M.setup_which_key()
     name = "+Ruby Extract",
     l = { ":RExtractLet<CR>", "Extract Let" },
     v = { ":RExtractLocalVariable<CR>", "Extract Variable" }
-    },
-  r = {
-    name = "+Refactor",
-    e = { "<Esc><Cmd>lua require('refactoring').refactor('Extract Function')<CR>", "Extract Function" },
-    f = { "<Esc><Cmd>lua require('refactoring').refactor('Extract Function To File')<CR>", "Extract Function To File" },
-    v = { "<Esc><Cmd>lua require('refactoring').refactor('Extract Variable')<CR>", "Extract Variable" },
-    i = { "<Esc><Cmd>lua require('refactoring').refactor('Inline Variable')<CR>", "Inline Variable" },
-    }
+  },
   }, { mode = "v", prefix = "<leader>" })
 
   -- Normal mode:

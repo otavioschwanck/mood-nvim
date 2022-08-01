@@ -97,7 +97,7 @@ require("other-nvim").setup({
   },
 })
 
-local two_space_languages = { "ruby", "yaml", "javascript", "typescript", "typescriptreact", "javascriptreact", "eruby" }
+local two_space_languages = { "ruby", "yaml", "javascript", "typescript", "typescriptreact", "javascriptreact", "eruby", "lua" }
 local four_space_languages = { "solidity" }
 
 -- autocmd array(AutoCmd, pattern, callback)

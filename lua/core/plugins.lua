@@ -36,8 +36,6 @@ function M.setup()
 	  use 'farmergreg/vim-lastplace'
 	  use 'svermeulen/vim-yoink'
 	  use 'p00f/nvim-ts-rainbow'
-	  use 'sainnhe/sonokai'
-	  use 'ThePrimeagen/refactoring.nvim'
 	  use 'psf/black'
 	  use 'tpope/vim-fugitive'
 	  use 'AndrewRadev/undoquit.vim'
