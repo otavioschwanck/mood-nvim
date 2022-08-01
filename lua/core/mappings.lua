@@ -262,7 +262,6 @@ function M.setup_mappings()
   vim.keymap.set('c', '<C-d>', '<Delete>')
   vim.keymap.set('n', '<CR>', ':call Maximize()<CR>')
   vim.keymap.set('x', 'gl', '<Plug>(EasyAlign)')
-  vim.keymap.set('n', 'gl', '<Plug>(EasyAlign)')
 
   vim.keymap.set('n', 'H', ':lua require("harpoon.ui").nav_prev()<CR>')
   vim.keymap.set('n', 'L', ':lua require("harpoon.ui").nav_next()<CR>')
