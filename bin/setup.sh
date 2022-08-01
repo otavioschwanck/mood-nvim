@@ -1,5 +1,7 @@
 #!/bin/bash
 
+mkdir -p ~/.config/nvim/lua/user/
+
 USER_CONFIG=~/.config/nvim/lua/user/config.lua
 if test -f "$USER_CONFIG"; then
   echo "$USER_CONFIG exists. Ignoring..."
