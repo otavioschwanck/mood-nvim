@@ -15,14 +15,14 @@ vim.cmd [[autocmd! ColorScheme * highlight NormalFloat guibg=#1f2335]]
 vim.cmd [[autocmd! ColorScheme * highlight FloatBorder guifg=white guibg=#1f2335]]
 
 local orig_util_open_floating_preview = vim.lsp.util.open_floating_preview
-function vim.lsp.util.open_floating_preview(contents, syntax, opts, ...)
+function vim.lsp.util.open_floating_preview(contents, syntax, __, ...)
   opts = opts or {}
   opts.border = border
   return orig_util_open_floating_preview(contents, syntax, opts, ...)
 end
 
 
-local on_attach = function(_client, bufnr)
+local on_attach = function(client, bufnr)
   vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
 
   require("aerial").on_attach(client, bufnr)

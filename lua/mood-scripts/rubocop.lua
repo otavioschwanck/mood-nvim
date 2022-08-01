@@ -1,6 +1,6 @@
 vim.notify = require("notify")
 
-function filter_inplace(arr, func)
+local function filter_inplace(arr, func)
     local new_index = 1
     local size_orig = #arr
     for old_index, v in ipairs(arr) do
@@ -13,20 +13,21 @@ function filter_inplace(arr, func)
 end
 
 function Split(s, delimiter)
-    result = {};
+    local result = {};
     for match in (s..delimiter):gmatch("(.-)"..delimiter) do
         table.insert(result, match);
     end
     return result;
 end
 
-function comment_rubocop()
+local function comment_rubocop()
   local error = vim.diagnostic.get()
   local line = vim.fn.line(".")
   local bufnr = vim.fn.bufnr()
   local current_error
 
-  for x, v in ipairs(error) do
+---@diagnostic disable-next-line: unused-local
+  for __, v in ipairs(error) do
     if v.lnum + 1 == line and bufnr == v.bufnr then
       if not current_error then
         current_error = v
