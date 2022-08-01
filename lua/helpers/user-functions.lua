@@ -7,7 +7,7 @@ function M.call_term(command, title, unique, close_after_create, term_opts)
   local pos = opts.pos_command or ''
 
   if opts.input then
-    command = command .. "' . " .. 'input("' .. opts.input ..  '")'
+    command = command .. " ' . " .. 'input("' .. opts.input ..  '")'
   else
     command = command .. "'"
   end
