@@ -23,9 +23,9 @@ function M.setup()
     { desc = ' Git status                   ', shortcut = 'SPC TAB', action = 'Telescope git_status' },
     { desc = ' Recent Files                 ', shortcut = 'SPC f r', action = 'Telescope oldfiles' },
     { desc = ' Open Handbook (docs)         ', shortcut = 'SPC h h', action = 'e ~/.config/nvim/handbook.md' },
-    { desc = ' User Settings                ', shortcut = 'SPC f p', action = 'e ~/.config/nvim/user.vim' },
-    { desc = ' User Plugins                 ', shortcut = 'SPC f P', action = 'e ~/.config/nvim/lua/user-plugins.lua' },
-    { desc = ' User LSP                     ', shortcut = 'SPC h l', action = 'e ~/.config/nvim/lua/user_lsp.lua' },
+    { desc = ' User Settings                ', shortcut = 'SPC f p', action = 'e ~/.config/nvim/lua/user/config.lua' },
+    { desc = ' User Plugins                 ', shortcut = 'SPC f P', action = 'e ~/.config/nvim/lua/user/plugins.lua' },
+    { desc = ' User LSP                     ', shortcut = 'SPC f L', action = 'e ~/.config/nvim/lua/user/lsp.lua' },
     { desc = ' Update mooD                  ', shortcut = 'SPC h u', action = 'UpdateMood' },
   }
 end

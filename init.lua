@@ -24,6 +24,10 @@ require('plugins.nvim-tree').setup()
 require('plugins.lualine').setup()
 require('plugins.onedarkpro').setup()
 
+-- user
+require('user.lsp')
+require('user.config')
+
 -- startup
 require('core.start').setup()
 

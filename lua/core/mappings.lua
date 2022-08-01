@@ -80,7 +80,6 @@ function M.setup_which_key()
     name = "+Help",
     t = { ":Telescope colorscheme<CR>", "Change Theme" },
     h = { ":e ~/.config/nvim/handbook.md<CR>", "Open the Handbook" },
-    l = { ":e ~/.config/nvim/lua/user_lsp.lua<CR>", "LSP Settings" },
     u = { ":UpdateMood<CR>", "Update mooD" },
     d = { ":!rm -rf ~/.local/share/nvim/swap/*<CR>", "Delete SWP files" },
     r = { ":LspRestart<CR>", "Restart LSP" }
@@ -141,6 +140,7 @@ function M.setup_which_key()
   f = {
     name = "+File",
     o = { ":AerialToggle<CR>", "Show Window Symbols" },
+    L = { ":e ~/.config/nvim/lua/user/lsp.lua<CR>", "LSP Settings" },
     a = { ":OtherClear<CR>:Other<CR>", "Alternate File" },
     A = { ":OTherClear<CR>:OtherVSplit<CR>", "Alternate File Split" },
     r = { ":Telescope oldfiles<CR>", "Recent Files" },
@@ -148,8 +148,8 @@ function M.setup_which_key()
     R = { ":call BetterRename()<CR>", "Rename Current File" },
     M = { ":call BetterMove()<CR>", "Move Current File" },
     D = { ":call BetterDelete()<CR>", "Delete the current file" },
-    p = { ":e ~/.config/nvim/user.vim<CR>", "Open Your Private Files" },
-    P = { ":e ~/.config/nvim/lua/user-plugins.lua<CR>", "Open Your Plugin" },
+    p = { ":e ~/.config/nvim/lua/user/config.lua<CR>", "Open Your Private Files" },
+    P = { ":e ~/.config/nvim/lua/user/plugins.lua<CR>", "Open Your Plugin" },
     y = { ":call CopyRelativePath()<CR>", "Copy Relative Path" },
     l = { ":call CopyRelativePathWithLine()<CR>", "Copy Path With Line" },
     Y = { ":call CopyFullPath()<CR>", "Copy Full Path" },
