@@ -157,17 +157,6 @@ function M.setup()
 	  ignore_case = true
 	}
 
-	require("yanky").setup({
-	  ring = {
-	    history_length = 50,
-	    storage = "shada",
-	    sync_with_numbered_registers = true,
-	  },
-	  preserve_cursor_position = {
-	    enabled = true,
-	  },
-	})
-
 	require("rest-nvim").setup()
 
 	vim.g.indent_blankline_filetype_exclude = {
@@ -198,8 +187,6 @@ function M.setup()
 		}
 	    }
 	})
-
-	local onedarkpro = require("onedarkpro")
 
 	require('aerial').setup({})
 end
