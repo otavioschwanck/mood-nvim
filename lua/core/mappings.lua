@@ -223,8 +223,8 @@ function M.setup_mappings()
   vim.keymap.set('n', '<M-k>', '<C-w>k', bufopts)
   vim.keymap.set('n', '<M-j>', '<C-w>j', bufopts)
   vim.keymap.set('n', ';', require("mood-scripts.harpoon-menu"), bufopts)
-  vim.keymap.set('n', ']g', 'Gitsigns next_hunk', bufopts)
-  vim.keymap.set('n', '[g', 'Gitsigns prev_hunk', bufopts)
+  vim.keymap.set('n', ']g', ':Gitsigns next_hunk<CR>', bufopts)
+  vim.keymap.set('n', '[g', ':Gitsigns prev_hunk<CR>', bufopts)
 
   vim.keymap.set('n', ']q', ':cnext<CR>')
   vim.keymap.set('n', '[q', ':cprevious<CR>')
@@ -235,12 +235,6 @@ function M.setup_mappings()
   vim.keymap.set('n', ',', '<C-w>w')
   vim.keymap.set('n', 'gh', ':SidewaysLeft<cr>')
   vim.keymap.set('n', 'gl', ':SidewaysRight<cr>')
-  vim.keymap.set('n', 'vij', 'vaI')
-  vim.keymap.set('n', 'vaj', 'vaIj')
-  vim.keymap.set('n', 'dij', 'daI')
-  vim.keymap.set('n', 'daj', 'vaIjd')
-  vim.keymap.set('n', 'cij', 'caI')
-  vim.keymap.set('n', 'caj', 'vaIjc')
   vim.keymap.set('v', 'J', ":m '>+1<CR>gv=gv")
   vim.keymap.set('v', 'K', ":m '<-2<CR>gv=gv")
   vim.keymap.set('n', '<c-w>c', ':call undoquit#SaveWindowQuitHistory()<cr><c-w>c')
@@ -270,8 +264,8 @@ function M.setup_mappings()
   vim.keymap.set('x', 'gl', '<Plug>(EasyAlign)')
   vim.keymap.set('n', 'gl', '<Plug>(EasyAlign)')
 
-  vim.keymap.set('n', '<silent>', 'H :lua require("harpoon.ui").nav_prev()<CR>')
-  vim.keymap.set('n', '<silent>', 'L :lua require("harpoon.ui").nav_next()<CR>')
+  vim.keymap.set('n', 'H', ':lua require("harpoon.ui").nav_prev()<CR>')
+  vim.keymap.set('n', 'L', ':lua require("harpoon.ui").nav_next()<CR>')
 
   vim.keymap.set('n', '<leader>1', ':lua require("harpoon.ui").nav_file(1)<CR>')
   vim.keymap.set('n', '<leader>2', ':lua require("harpoon.ui").nav_file(2)<CR>')
@@ -293,6 +287,13 @@ function M.setup_mappings()
   vim.cmd([[
     nnoremap <expr> 0 (col('.') - 1) == match(getline('.'),'\S') ? "<Home>" : "^"
     vnoremap <expr> 0 (col('.') - 1) == match(getline('.'),'\S') ? "<Home>" : "^"
+
+    nmap vij vaI
+    nmap vaj vaIj
+    nmap dij daI
+    nmap daj vaIjd
+    nmap cij caI
+    nmap caj vaIjc
 
     nmap <expr> f reg_recording() . reg_executing() == "" ? "<Plug>Lightspeed_f" : "f"
     nmap <expr> F reg_recording() . reg_executing() == "" ? "<Plug>Lightspeed_F" : "F"
