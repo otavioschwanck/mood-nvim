@@ -24,7 +24,7 @@ mooD Nvim is a configuration made for those who wants to install and use, withou
 
 # Demo
 
-![demo](demo.gif)
+![demo](extra/demo.gif)
 
 # Dependencies
 - Neovim > 0.7 && < 0.8
