@@ -287,6 +287,9 @@ function M.setup_mappings()
     nnoremap <expr> 0 (col('.') - 1) == match(getline('.'),'\S') ? "<Home>" : "^"
     vnoremap <expr> 0 (col('.') - 1) == match(getline('.'),'\S') ? "<Home>" : "^"
 
+    nmap vq viq
+    nmap dq diq
+    nmap yq yiq
     nmap vij vaI
     nmap vaj vaIj
     nmap dij daI
