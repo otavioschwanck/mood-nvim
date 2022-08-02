@@ -16,6 +16,15 @@ function M.start(ignore_notification)
   vim.cmd('norm! gg')
 end
 
+function M.jump()
+  local exercise_count = vim.fn.input('Jump to exercise (input the number): ')
+
+---@diagnostic disable-next-line: unused-local
+  for __ = 1, exercise_count, 1 do
+    M.next_exercise()
+  end
+end
+
 function M.define_mappings()
   local bufnr = vim.fn.bufnr('.tutorial.rb')
 
@@ -25,7 +34,8 @@ function M.define_mappings()
   vim.keymap.set('n', '<C-K>', M.prev_exercise, bufopts)
 
   vim.keymap.set('n', 'zj', M.next_exercise, bufopts)
-  vim.keymap.set('n', 'ck', M.prev_exercise, bufopts)
+  vim.keymap.set('n', 'zk', M.prev_exercise, bufopts)
+  vim.keymap.set('n', 'zJ', M.jump, bufopts)
 
   vim.keymap.set('n', 'zr', M.reset_exercise, bufopts)
 end

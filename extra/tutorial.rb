@@ -13,7 +13,8 @@
 # Commands to navigate use this tutorial:
 # Ctrl + j or zj = Next exercise
 # C-k or zk = Previous exercise
-# zr = Reset exercise code
+# zj = jump to specific exercise by number
+# zr = Reset exercise code (you will use this a lot)
 
 # I recommended to do each exercise at least 10 times before move to the next.  Use zr to keep reseting.
 
