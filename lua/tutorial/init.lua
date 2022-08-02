@@ -19,6 +19,8 @@ end
 function M.jump()
   local exercise_count = vim.fn.input('Jump to exercise (input the number): ')
 
+  vim.cmd("norm gg")
+
 ---@diagnostic disable-next-line: unused-local
   for __ = 1, exercise_count, 1 do
     M.next_exercise()
