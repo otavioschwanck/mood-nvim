@@ -75,7 +75,8 @@ function M.setup_which_key()
     h = { ":e ~/.config/nvim/handbook.md<CR>", "Open the Handbook" },
     u = { ":UpdateMood<CR>", "Update mooD" },
     d = { ":!rm -rf ~/.local/share/nvim/swap/*<CR>", "Delete SWP files" },
-    r = { ":LspRestart<CR>", "Restart LSP" }
+    r = { ":LspRestart<CR>", "Restart LSP" },
+    T = { ":lua require('tutorial').start()<CR>", "Start Tutorial" }
     },
   A = { ":call OpenTestAlternateAndSplit()<cr>", "Go to Test (split)" },
   ["."] = { ":Telescope file_browser path=%:p:h hidden=true respect_gitignore=false<CR>", "File Browser" },
@@ -283,6 +284,7 @@ function M.setup_mappings()
     nmap vq viq
     nmap dq diq
     nmap yq yiq
+    nmap cq ciq
     nmap vij vaI
     nmap vaj vaIj
     nmap dij daI
