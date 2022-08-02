@@ -306,7 +306,7 @@ local function lspSymbol(name, icon)
    vim.fn.sign_define(hl, { text = icon, numhl = hl, texthl = hl })
 end
 
-lspSymbol("Error", "ﮊ")
+lspSymbol("Error", "")
 lspSymbol("Info", "")
 lspSymbol("Hint", "")
 lspSymbol("Warn", "")
@@ -317,6 +317,12 @@ vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
 vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, {
    border = "single",
 })
+
+vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
+    vim.lsp.diagnostic.on_publish_diagnostics, {
+        severity_sort = true
+    }
+)
 
 -- suppress error messages from lang servers
 vim.notify = function(msg, log_level)
