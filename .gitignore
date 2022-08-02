@@ -6,3 +6,4 @@ coc-settings.json
 lua/user-plugins.lua
 lua/user_lsp.lua
 databases/
+lua/user/*

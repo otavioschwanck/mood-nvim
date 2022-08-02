@@ -1,4 +1,6 @@
-lua << EOF
+local M = {}
+
+function M.setup()
   require('nvim-autopairs').setup({
     disable_filetype = { "TelescopePrompt" , "vim" },
   })
@@ -31,4 +33,6 @@ lua << EOF
         end)
         :use_key(']')
   }
-EOF
+end
+
+return M

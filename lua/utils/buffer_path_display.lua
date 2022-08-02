@@ -15,7 +15,7 @@ local buffer_path_display = function(opts, path)
       end
     end
   else
-    path_name = path
+    path_name = '/'
   end
 
   return string.format("%s |  %s", tail, path_name)

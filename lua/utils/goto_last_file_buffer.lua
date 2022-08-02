@@ -24,7 +24,7 @@ local function goto_last_file_buffer()
     end
 
     return true
-  end, require('valid_listed_buffers')())
+ end, require('utils.valid_listed_buffers')())
 
   local times = map(bufnrs, function(item) return vim.fn.getbufvar(item, 'visit_time') or nil end)
 

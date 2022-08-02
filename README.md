@@ -24,7 +24,7 @@ mooD Nvim is a configuration made for those who wants to install and use, withou
 
 # Demo
 
-![demo](demo.gif)
+![demo](extra/demo.gif)
 
 # Dependencies
 - Neovim > 0.7 && < 0.8
@@ -39,7 +39,7 @@ We created a bash script to make your life easier and install Mood Nvim automati
 Just run the below command in the terminal on either mac or linux, choose what you want to install and have fun!
 
 ```sh
-bash <(curl -Ls https://raw.githubusercontent.com/otavioschwanck/mood-nvim/main/mood-installer.sh)
+bash <(curl -Ls https://raw.githubusercontent.com/otavioschwanck/mood-nvim/main/bin/mood-installer.sh)
 ```
 
 # Manual Installation

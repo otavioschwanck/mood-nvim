@@ -21,8 +21,7 @@ function vim.lsp.util.open_floating_preview(contents, syntax, opts, ...)
   return orig_util_open_floating_preview(contents, syntax, opts, ...)
 end
 
-
-local on_attach = function(_client, bufnr)
+local on_attach = function(client, bufnr)
   vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
 
   require("aerial").on_attach(client, bufnr)
@@ -120,7 +119,7 @@ cmp.setup({
     { name = "nvim_lsp" },
     { name = "ultisnips" },
     { name = "buffer", option = { get_bufnrs = function()
-      return require('valid_listed_buffers')()
+      return require('utils.valid_listed_buffers')()
     end
     }},
     { name = "path" },
@@ -140,8 +139,8 @@ local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protoco
 
 require'lspconfig'.html.setup {
   filetypes = { "eruby", "html" },
-  capabilities = capabilities,
   on_attach = on_attach,
+  capabilities = capabilities,
   init_options = {
     configurationSection = { "html", "css", "javascript", "eruby" },
     embeddedLanguages = {
@@ -288,6 +287,7 @@ cmp.setup.cmdline('/', {
   }
 })
 
+
 cmp.setup.cmdline(':', {
     mapping = cmp.mapping.preset.cmdline({ ['<C-p>'] = empty_function, ['<C-n>'] = empty_function}),
     sources = cmp.config.sources({
@@ -296,7 +296,7 @@ cmp.setup.cmdline(':', {
     {
         { name = 'cmdline' },
     { name = "buffer", option = { get_bufnrs = function()
-      return require('valid_listed_buffers')()
+      return require('utils.valid_listed_buffers')()
     end } }
     })
 })
@@ -306,9 +306,9 @@ local function lspSymbol(name, icon)
    vim.fn.sign_define(hl, { text = icon, numhl = hl, texthl = hl })
 end
 
-lspSymbol("Error", "")
+lspSymbol("Error", "")
 lspSymbol("Info", "")
-lspSymbol("Hint", "")
+lspSymbol("Hint", "")
 lspSymbol("Warn", "")
 
 vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
@@ -317,6 +317,12 @@ vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
 vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, {
    border = "single",
 })
+
+vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
+    vim.lsp.diagnostic.on_publish_diagnostics, {
+        severity_sort = true
+    }
+)
 
 -- suppress error messages from lang servers
 vim.notify = function(msg, log_level)
@@ -330,7 +336,7 @@ vim.notify = function(msg, log_level)
    end
 end
 
--- Borders for LspInfo winodw
+-- Borders for LspInfo Window
 local win = require "lspconfig.ui.windows"
 local _default_opts = win.default_opts
 
