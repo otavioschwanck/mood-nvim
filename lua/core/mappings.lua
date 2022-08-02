@@ -271,8 +271,6 @@ function M.setup_mappings()
 
   vim.keymap.set('n', '<C-h>', ':BufSurfBack<CR>')
   vim.keymap.set('n', '<C-l>', ':BufSurfForward<CR>')
-  vim.keymap.set('n', '<C-j>', ']m')
-  vim.keymap.set('n', '<C-k>', '[m')
 
   vim.keymap.set('v', '<C-g>', ':<c-u>call SaveSelectionToQuickConsult()<cr>')
   vim.keymap.set('n', '<C-g>', ':<c-u>call OpenConsultationWindow()<cr>')
