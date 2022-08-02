@@ -32,7 +32,8 @@ function M.setup()
       },
       buffers = { path_display = require('utils.buffer_path_display'), layout_config = { preview_cutoff = 10, width = 0.92 } },
       live_grep = vertical_search,
-      grep_string = vertical_search
+      grep_string = vertical_search,
+      diagnostics = vertical_search
     },
     extensions = {
       ["ui-select"] = {

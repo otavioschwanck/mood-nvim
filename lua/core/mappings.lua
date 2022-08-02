@@ -209,7 +209,7 @@ function M.setup_which_key()
 end
 
 function M.setup_mappings()
-  local bufopts = { noremap=true, silent=true, buffer=bufnr }
+  local bufopts = { noremap=true, silent=true }
 
   vim.keymap.set('n', '<M-l>', '<C-w>l', bufopts)
   vim.keymap.set('n', '<M-h>', '<C-w>h', bufopts)

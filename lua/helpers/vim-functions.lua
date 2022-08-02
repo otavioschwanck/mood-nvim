@@ -4,6 +4,20 @@ function M.setup()
   -- TODO: Migrate this functions to lua
 
   vim.cmd([[
+    function! WordForGq()
+      let l:word = substitute(getreg('"'), "\\", "\\\\", "gre")
+      let l:word = substitute(l:word, "[", "\\\\[", "gre")
+      let l:word = substitute(l:word, "]", "\\\\]", "gre")
+      let l:word = substitute(l:word, "/", "\\\\/", "gre")
+      let l:word = substitute(l:word, "\\*", "\\\\*", "gre")
+      let l:word = substitute(l:word, "\\$", "\\\\$", "gre")
+      let l:word = substitute(l:word, "\\~", "\\\\~", "gre")
+      let l:word = substitute(l:word, "\\^", "\\\\^", "gre")
+      let l:word = substitute(l:word, "\\.", "\\\\.", "gre")
+
+      return l:word
+    endfunction
+
     function OpenCommand()
       if &filetype == 'dashboard'
         lua require('mood-scripts.command-on-start').autostart()
