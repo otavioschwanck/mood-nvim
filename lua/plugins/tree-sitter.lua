@@ -9,20 +9,20 @@ function M.setup()
         enable = true,
         set_jumps = true, -- whether to set jumps in the jumplist
         goto_next_start = {
-          ["]c"] = "@class.outer",
-          ["]]"] = "@function.outer",
+          ["]m"] = "@function.outer",
+          ["]]"] = "@class.outer"
         },
         goto_next_end = {
-          ["]C"] = "@class.outer",
-          ["]["] = "@function.outer",
+          ["]M"] = "@function.outer",
+          ["]["] = "@class.outer",
         },
         goto_previous_start = {
-          ["[c"] = "@class.outer",
-          ["[["] = "@function.outer",
+          ["[m"] = "@function.outer",
+          ["[["] = "@class.outer",
         },
         goto_previous_end = {
-          ["[C"] = "@class.outer",
-          ["[]"] = "@function.outer",
+          ["[M"] = "@function.outer",
+          ["[]"] = "@class.outer",
         },
       },
       rainbow = { enabled = true, extended_mode = true, max_file_lines = 1500 },
