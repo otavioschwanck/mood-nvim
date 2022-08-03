@@ -19,6 +19,8 @@ function M.setup()
 
   db.custom_footer = { "" }
 
+  db.hide_statusline = false
+
   db.custom_center = {
     { desc = ' Git status                   ', shortcut = 'SPC TAB', action = 'Telescope git_status' },
     { desc = ' Recent Files                 ', shortcut = 'SPC f r', action = 'Telescope oldfiles' },
