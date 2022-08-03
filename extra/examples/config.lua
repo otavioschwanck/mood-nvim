@@ -103,7 +103,15 @@ local four_space_languages = { "solidity" }
 -- autocmd array(AutoCmd, pattern, callback)
 local autocommands = {
   { {"FileType"}, two_space_languages, function() vim.cmd('setlocal shiftwidth=2 tabstop=2') end },
-  { {"FileType"}, four_space_languages, function() vim.cmd('setlocal shiftwidth=2 tabstop=2') end }
+  { {"FileType"}, four_space_languages, function() vim.cmd('setlocal shiftwidth=2 tabstop=2') end },
+  -- { -- Format on save for javascript (i really like, requires eslint)
+  --   {'BufWritePre'},
+  --   {"*.tsx", "*.ts", "*.jsx", "*.js"},
+  --   function()
+  --     vim.cmd("EslintFixAll")
+  --     vim.lsp.buf.formatting()
+  --   end,
+  -- }
 }
 
 for i = 1, #autocommands, 1 do
