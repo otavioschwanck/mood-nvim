@@ -3,7 +3,7 @@
 --------------------------
 
 -- What LSP servers do you want?
-local servers = { 'jedi_language_server', 'tsserver', 'jsonls', 'yamlls', 'cssls', 'solidity_ls', 'sumneko_lua' }
+local servers = { 'jedi_language_server', 'tsserver', 'jsonls', 'yamlls', 'cssls', 'solidity_ls', 'sumneko_lua', 'eslint' }
 
 local opts = { noremap=true, silent=true }
 vim.api.nvim_set_keymap('n', '[e', '<cmd>lua vim.diagnostic.goto_prev()<CR>', opts)
