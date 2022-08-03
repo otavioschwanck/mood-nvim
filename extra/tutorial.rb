@@ -337,6 +337,36 @@ end
 
 
 
+# Exercise 7 - Split / Join
+# Commands:
+# This basically joins or split anything, can be tags, blocks, ternay
+# gS = Split
+# gJ
+
+# Tip: go see the goal with j, then press zr to come to the top again
+# commands gS/block<ENTER>gJj-gJj0f[gS
+mood? ? 'awesome, best editor' : 'please, install mood nvim!' # << STart
+block_to_be_joined.each do |b|
+  b.save
+end
+must_be_joined = {
+  one: 'one',
+  two: 'two'
+}
+must_be_splitted = ["one", "two"]
+
+# Goal:
+if mood?
+  'awesome, best editor'
+else
+  'please, install mood nvim!'
+end
+block_to_be_joined.each(&:save)
+must_be_joined = { one: 'one', two: 'two' }
+must_be_splitted = [
+  "one",
+  "two"
+]
 
 
 
@@ -345,7 +375,14 @@ end
 
 
 
-# Exercise 7 - Just a warning
+
+
+
+
+
+
+
+# Exercise 8 - Just a warning
 # This exercise is just to remember you:  DONT USE ARROWS ON INSERT MODE (or any more) (this is for you Thiago!),
 # use w, e, b, f, t, s, etc..
 # to select stuff, use v, or V and the text objects
