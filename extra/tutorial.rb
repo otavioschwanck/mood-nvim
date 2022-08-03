@@ -390,12 +390,49 @@ must_be_splitted = [
 
 
 
+# Exercise 8 - Snippets and more snippets!
+# Snippets are awesome. Lets learn how to do in mooD.
+# Unlike other editor, to expand a snippet (and go forward), is <Ctrl + j>
+# TIP: Too see snippets list, just press SPC h s
+# <C-j> = Expand / Go forward on snippets
+# <C-k> = Go back on snippets
+# <Delete> = Delete highlighted text on snippets
+# Commands; jidesc<C-j>#mood<C-j>letm<C-j>mood<C-j><C-j>name:<SPACE>'true'<C-j><Enter><Enter>contw<C-j>valid<C-j>itiexp<C-j><ESC>
+
+# << Start Here
+
+# Goal:
+describe '#mood' do
+  let(:mood) { create(:mood, name: 'true') }
+
+  context 'when valid' do
+    it { is_expected.to be_valid }
+  end
+end
 
 
 
 
 
-# Exercise 8 - Just a warning
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# Exercise 9 - Just a warning
 # This exercise is just to remember you:  DONT USE ARROWS ON INSERT MODE (or any more) (this is for you Thiago!),
 # use w, e, b, f, t, s, etc..
 # to select stuff, use v, or V and the text objects

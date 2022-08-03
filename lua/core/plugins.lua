@@ -84,6 +84,7 @@ function M.setup()
     use 'AndrewRadev/sideways.vim'
     use 'AndrewRadev/splitjoin.vim'
     use 'AndrewRadev/switch.vim'
+    use 'fhill2/telescope-ultisnips.nvim'
     use 'folke/which-key.nvim'
     use 'RRethy/nvim-treesitter-endwise'
     use 'editorconfig/editorconfig-vim'
