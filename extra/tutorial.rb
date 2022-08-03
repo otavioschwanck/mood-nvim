@@ -99,10 +99,11 @@ end
 # ca' or caq = Change around quotes (text object)
 # ds[ = Delete surround [
 # di{ = Delete inside keys (text object)
+# df = Delete until and
 
-# Commands to run: f'ca'first_name<SPACE><ESC>f[ds[di{
+# Commands to run: df_f'ca'first_name<SPACE><ESC>f[ds[di{
 
-my_array = [{ name: 'otavio schwanck' }, [{ name: 'thiago ribeiro' }]] # << Start
+array = [{ name: 'otavio schwanck' }, [{ name: 'thiago ribeiro' }]] # << Start
 
 # Code Goal:
 array = [{ name: first_name, {} }]
