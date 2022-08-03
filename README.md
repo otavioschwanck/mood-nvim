@@ -2,25 +2,20 @@
 
 mooD Nvim is a configuration made for those who wants to install and use, without much worries.
 
-# For who is this configuration?
-
-- For those who likes to just install and use.
-- For those who likes Doom Emacs Defaults.
-- For those who likes speed editing.
-- For terminal lovers.
-
 # Features
 
-- Native LSP (go to definition, autocomplete, etc)
+- 100% on Lua
 - Extra snippets
-- Quick handbook inside vim. Just press `SPC h h`
+- Handbook (SPC h h) and Tutorial (SPC h T) natively.  Most of cool feature are listed there.
 - Test Runner
-- Fully customizable (plugins, settings, LSP)
-- Find In Folder helpers: Find inside models, controller, etc using keybindngs. See `user.vim` (`SPC f p`) for more examples. You can define your own custom finders.
-- Mini Terminal Framework that can:
-  - You can bind terminal commands in your `user.vim` (`SPC f p`).
+- Fully customizable by user (plugins, settings, LSP)
+- Find In Folder helpers: Find inside models, controller, etc using keybindngs. See `config.lua` (`SPC f p`) for more examples. You can define your own custom finders.
+- Terminal Framework that can:
+  - You can bind terminal commands in your `config.lua` (`SPC f p`).
   - You can configure if this command is unique or not, if its unique, when press the mapping again, it will focus instead opening a new.
   - Useful for commands such as rails console, server, sidekiq, yarn start, generate, etc. (Examples on `user.vim`)
+  - You can define server terminal commands for each project and run with a single command.
+  - You can run the terminal server command in all tmux windows (awesome to start server in multiple projects at same time)
 
 # Demo
 

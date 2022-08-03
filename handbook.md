@@ -227,11 +227,11 @@ Just press C-p.
 
 # Multiple Cursors
 
-| Command | Description                                                                    |
-|---------|--------------------------------------------------------------------------------|
-| M       | Start multiple cursors / go forward (You can change on the user.vim (SPC f P)) |
-| gq      | Select all occurrences                                                         |
-|---------|--------------------------------------------------------------------------------|
+| Command | Description                                                                      |
+|---------|----------------------------------------------------------------------------------|
+| M       | Start multiple cursors / go forward (You can change on the config.lua (SPC f o)) |
+| gq      | Select all occurrences                                                           |
+|---------|----------------------------------------------------------------------------------|
 
 # Ruby Stuff
 
