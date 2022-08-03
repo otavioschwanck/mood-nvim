@@ -382,6 +382,19 @@ must_be_splitted = [
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
 # Exercise 8 - Just a warning
 # This exercise is just to remember you:  DONT USE ARROWS ON INSERT MODE (or any more) (this is for you Thiago!),
 # use w, e, b, f, t, s, etc..
