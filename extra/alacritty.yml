@@ -33,3 +33,45 @@ colors:
     magenta: '#c678dd'
     cyan:    '#56b6c2'
     white:   '#ffffff'
+
+key_bindings:
+  - { key: V,        mods: Command, action: Paste                        }
+  - { key: C,        mods: Command, action: Copy                         }
+  - { key: Q,        mods: Command, action: Quit                         }
+  - { key: W,        mods: Command, action: Quit                         }
+  - { key: Home,                    chars: "\x1bOH",   mode: AppCursor   }
+  - { key: Home,                    chars: "\x1b[H",   mode: ~AppCursor  }
+  - { key: End,                     chars: "\x1bOF",   mode: AppCursor   }
+  - { key: End,                     chars: "\x1b[F",   mode: ~AppCursor  }
+  - { key: Key0,     mods: Command, action: ResetFontSize                }
+  - { key: Equals,   mods: Command, action: IncreaseFontSize             }
+  - { key: Minus,    mods: Command, action: DecreaseFontSize             }
+  - { key: PageUp,   mods: Shift,   chars: "\x1b[5;2~"                   }
+  - { key: PageUp,   mods: Control, chars: "\x1b[5;5~"                   }
+  - { key: PageUp,                  chars: "\x1b[5~"                     }
+  - { key: PageDown, mods: Shift,   chars: "\x1b[6;2~"                   }
+  - { key: Comma,     mods: Command,      command:
+      {program: "sh", args: ["-c","open ~/.config/alacritty/alacritty.yml"]}     }
+  - { key: N,         mods: Command,      action: SpawnNewInstance       }
+  - { key: Space,     mods: Alt,          chars: " "                     }
+  - { key: Back, mods: Super, chars: "\x15" } # delete word/line
+  - { key: Left,     mods: Alt,     chars: "\x1bb"                       } # one word left
+  - { key: Right,    mods: Alt,     chars: "\x1bf"                       } # one word right
+  - { key: Left,     mods: Control,     chars: "\x1bb"                       } # one word left
+  - { key: Right,    mods: Control,     chars: "\x1bf"                       } # one word right
+  - { key: Left,     mods: Command,     chars: "\x1bb"                       } # one word left
+  - { key: Right,    mods: Command,     chars: "\x1bf"                       } # one word right
+  - { key: H,        mods: Command,     chars: "\x1bb"                       } # one word left
+  - { key: L,        mods: Command,     chars: "\x1bf"                       } # one word right
+  # tmux - select window 1
+  - { key: Key1, mods: Command, chars: "\x18\x31" }
+  - { key: Key2, mods: Command, chars: "\x18\x32" }
+  - { key: Key3, mods: Command, chars: "\x18\x33" }
+  - { key: Key4, mods: Command, chars: "\x18\x34" }
+  - { key: Key5, mods: Command, chars: "\x18\x35" }
+  - { key: Key6, mods: Command, chars: "\x18\x36" }
+  - { key: Key7, mods: Command, chars: "\x18\x37" }
+  - { key: Key8, mods: Command, chars: "\x18\x38" }
+  - { key: Key9, mods: Command, chars: "\x18\x39" }
+  - { key: T, mods: Command, chars: "\x18\x63" }
+  - { key: X, mods: Command, chars: "\x18\x78" }
