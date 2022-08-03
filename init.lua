@@ -30,5 +30,3 @@ require('user.config')
 
 -- startup
 require('core.start').setup()
-
-vim.cmd('colorscheme onedarkpro')
