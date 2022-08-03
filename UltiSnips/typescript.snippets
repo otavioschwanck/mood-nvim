@@ -24,12 +24,12 @@
 #
 # Online reference: https://github.com/SirVer/ultisnips/blob/master/doc/UltiSnips.txt
 
-snippet ar "() => { ... }" i
-(${1:}) => { $0 }
+snippet af "() => { ... }" w
+(${1:}) => ${2:{ $0 }}
 endsnippet
 
-snippet arr "() => ..." i
-(${1:}) => $0
+snippet caf "const () => { ... }" w
+const ${1:name} = (${2:}) => ${3:{ $0 }}
 endsnippet
 
 global !p
