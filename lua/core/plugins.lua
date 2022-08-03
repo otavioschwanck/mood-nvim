@@ -18,7 +18,7 @@ function M.setup()
     use { 'NTBBloodbath/rest.nvim' }
     use 'tpope/vim-repeat'
     use { 'olimorris/onedarkpro.nvim' }
-    use { 'ggandor/lightspeed.nvim', commit = "005320ff9e128de8689c6e675fa64ed5963e2d1c" }
+    use { 'ggandor/lightspeed.nvim' }
     use 'norcalli/nvim-colorizer.lua'
     use { 'emmanueltouzery/agitator.nvim' }
     use 'dhruvasagar/vim-table-mode'
@@ -153,7 +153,7 @@ function M.setup()
   }
   require'lightspeed'.setup {
     ignore_case = true,
-    jump_to_unique_chars = { safety_timeout = 1300 },
+    jump_to_unique_chars = { safety_timeout = nil },
   }
 
   require("rest-nvim").setup()
