@@ -26,6 +26,16 @@ else
   echo "$TMUX created."
 fi
 
+ALACRITTY=~/.config/alacritty/alacritty.yml
+if test -f "$ALACRITTY"; then
+  echo "$ALACRITTY exists. Ignoring..."
+else
+  mkdir ~/.config/alacritty
+  cp ~/.config/nvim/extra/alacritty.yml ~/.config/alacritty/alacritty.yml
+
+  echo "$ALACRITTY created."
+fi
+
 PLUGINS=~/.config/nvim/lua/user/plugins.lua
 if test -f "$PLUGINS"; then
   echo "$PLUGINS exists. Ignoring..."
