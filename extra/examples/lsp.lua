@@ -74,10 +74,8 @@ local mappings = {
   ['<C-g>'] = cmp.mapping({ i = cmp.mapping.abort(), c = cmp.mapping.close(), }),
   ['<CR>'] = cmp.mapping.confirm({ select = false }),
   ["<C-j>"] = cmp.mapping(
-    function()
-      cmp_ultisnips_mappings.compose { "jump_forwards", "expand" }(function ()
-
-      end)
+    function(fallback)
+      cmp_ultisnips_mappings.compose { "expand", "jump_forwards" }(fallback)
     end,
     { "i", "s", --[[ "c" (to enable the mapping in command mode) ]] }
   ),
