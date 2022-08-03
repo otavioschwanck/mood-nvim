@@ -39,9 +39,11 @@ key_bindings:
   - { key: C,        mods: Command, action: Copy                         }
   - { key: Q,        mods: Command, action: Quit                         }
   - { key: W,        mods: Command, action: Quit                         }
+  - { key: A, mods: Command,  chars: "\x1bOH",   mode: AppCursor   }
   - { key: Home,                    chars: "\x1bOH",   mode: AppCursor   }
   - { key: Home,                    chars: "\x1b[H",   mode: ~AppCursor  }
   - { key: End,                     chars: "\x1bOF",   mode: AppCursor   }
+  - { key: E, mods: Command,                    chars: "\x1bOF",   mode: AppCursor   }
   - { key: End,                     chars: "\x1b[F",   mode: ~AppCursor  }
   - { key: Key0,     mods: Command, action: ResetFontSize                }
   - { key: Equals,   mods: Command, action: IncreaseFontSize             }
@@ -50,28 +52,46 @@ key_bindings:
   - { key: PageUp,   mods: Control, chars: "\x1b[5;5~"                   }
   - { key: PageUp,                  chars: "\x1b[5~"                     }
   - { key: PageDown, mods: Shift,   chars: "\x1b[6;2~"                   }
-  - { key: Comma,     mods: Command,      command:
-      {program: "sh", args: ["-c","open ~/.config/alacritty/alacritty.yml"]}     }
   - { key: N,         mods: Command,      action: SpawnNewInstance       }
   - { key: Space,     mods: Alt,          chars: " "                     }
-  - { key: Back, mods: Super, chars: "\x15" } # delete word/line
+  - { key: Back,     mods: Command, chars: "\x15" } # delete word/line
+  - { key: Back,     mods: Alt,     chars: "\x1b\x7f"                    } # Delete word
   - { key: Left,     mods: Alt,     chars: "\x1bb"                       } # one word left
   - { key: Right,    mods: Alt,     chars: "\x1bf"                       } # one word right
   - { key: Left,     mods: Control,     chars: "\x1bb"                       } # one word left
   - { key: Right,    mods: Control,     chars: "\x1bf"                       } # one word right
-  - { key: Left,     mods: Command,     chars: "\x1bb"                       } # one word left
-  - { key: Right,    mods: Command,     chars: "\x1bf"                       } # one word right
-  - { key: H,        mods: Command,     chars: "\x1bb"                       } # one word left
-  - { key: L,        mods: Command,     chars: "\x1bf"                       } # one word right
-  # tmux - select window 1
+  - { key: J,        mods: Command,     chars: "\x1bb"                       } # one word left
+  - { key: K,        mods: Command,     chars: "\x1bf"                       } # one word right
+  - { key: D, mods: Shift|Command, chars: "\x18\x64" }
+  - { key: Delete,   mods: Shift,   chars: "\x7f" }
+  - { key: D, mods: Command, chars: "\x1b\x5b\x33\x3b\x35\x7e" }
+
+  # TMUX
   - { key: Key1, mods: Command, chars: "\x18\x31" }
   - { key: Key2, mods: Command, chars: "\x18\x32" }
   - { key: Key3, mods: Command, chars: "\x18\x33" }
   - { key: Key4, mods: Command, chars: "\x18\x34" }
   - { key: Key5, mods: Command, chars: "\x18\x35" }
   - { key: Key6, mods: Command, chars: "\x18\x36" }
-  - { key: Key7, mods: Command, chars: "\x18\x37" }
+  - { key: Key7, mods: Command, chars: "\x18\x36" }
   - { key: Key8, mods: Command, chars: "\x18\x38" }
   - { key: Key9, mods: Command, chars: "\x18\x39" }
   - { key: T, mods: Command, chars: "\x18\x63" }
   - { key: X, mods: Command, chars: "\x18\x78" }
+  - { key: S, mods: Command, chars: "\x18\x77" }
+  - { key: S, mods: Command, chars: "\x18\x77" }
+
+  - { key: Key1, mods: Alt, chars: "\x18\x31" }
+  - { key: Key2, mods: Alt, chars: "\x18\x32" }
+  - { key: Key3, mods: Alt, chars: "\x18\x33" }
+  - { key: Key4, mods: Alt, chars: "\x18\x34" }
+  - { key: Key5, mods: Alt, chars: "\x18\x35" }
+  - { key: Key6, mods: Alt, chars: "\x18\x36" }
+  - { key: Key7, mods: Alt, chars: "\x18\x36" }
+  - { key: Key8, mods: Alt, chars: "\x18\x38" }
+  - { key: Key9, mods: Alt, chars: "\x18\x39" }
+  - { key: T, mods: Alt, chars: "\x18\x63" }
+  - { key: X, mods: Alt, chars: "\x18\x78" }
+  - { key: S, mods: Alt, chars: "\x18\x77" }
+  - { key: S, mods: Alt, chars: "\x18\x77" }
+  - { key: Back,     mods: Shift,     chars: "\x1b\x7f"                    } # Delete word
