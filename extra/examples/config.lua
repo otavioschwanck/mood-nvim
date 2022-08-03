@@ -28,6 +28,9 @@ wk.register({
     t = {
       ":e ~/.tmux.conf<CR>", "Tmux Config"
     },
+    a = {
+      ":e ~/.config/alacritty/alacritty.yml<CR>", "Alacritty Config"
+    },
     y = {
       name = "+yarn",
       i = call_term('yarn install', 'Yarn Install', 1, 0),
