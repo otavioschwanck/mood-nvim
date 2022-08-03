@@ -286,11 +286,14 @@ function M.setup_mappings()
     nmap yq yiq
     nmap cq ciq
     nmap vij vaI
+    nmap vai vaI
     nmap vaj vaIj
     nmap dij daI
+    nmap daI daI
     nmap daj vaIjd
     nmap cij caI
-    nmap caj vaIjc
+    nmap caj vaI
+    nmap cai caI
 
     nmap <expr> f reg_recording() . reg_executing() == "" ? "<Plug>Lightspeed_f" : "f"
     nmap <expr> F reg_recording() . reg_executing() == "" ? "<Plug>Lightspeed_F" : "F"

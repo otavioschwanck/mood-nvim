@@ -293,6 +293,32 @@ args = [one, two, three, four]
 
 
 
+# Exercise 6 - The indentation text object (i just love it)
+# dii = delete inside identation (text object) (you can use viic too)
+# dai = delete around identation (you can use vaic too)
+# cii = change inside identation
+# K (while in visual mode) = move selection up (can use J to move down)
+# [m = go to previous method definition
+# Commands: [m3jciitrue<ESC>vaiK<ESC>jjcai<ENTER>for_the_win(true<ESC>
+def my_code
+  if sometuing
+    mood do
+      # do 2
+      # do 3
+    end
+    # do 2
+    # do 3
+  end # << Start
+end
+
+# Code Goal:
+def my_code
+  mood do
+    true
+  end
+
+  for_the_win(true)
+end
 
 
 
@@ -302,7 +328,24 @@ args = [one, two, three, four]
 
 
 
-# Exercise 6 - Just a warning
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# Exercise 7 - Just a warning
 # This exercise is just to remember you:  DONT USE ARROWS ON INSERT MODE (or any more) (this is for you Thiago!),
 # use w, e, b, f, t, s, etc..
 # to select stuff, use v, or V and the text objects
