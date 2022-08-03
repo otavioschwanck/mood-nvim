@@ -4,6 +4,9 @@ font:
     family: JetBrainsMono NF
     style: Regular
 
+env:
+  TERM: xterm-256color
+
 colors:
   primary:
     background: '0x1e2127'
