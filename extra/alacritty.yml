@@ -65,6 +65,13 @@ key_bindings:
   - { key: D, mods: Shift|Command, chars: "\x18\x64" }
   - { key: Delete,   mods: Shift,   chars: "\x7f" }
   - { key: D, mods: Command, chars: "\x1b\x5b\x33\x3b\x35\x7e" }
+  - { key: V, mods: Shift|Command, chars: "\x18\x76" }
+  - { key: S, mods: Shift|Command, chars: "\x18\x73" }
+  - { key: H, mods: Shift|Command, chars: "\x18\x68" }
+  - { key: J, mods: Shift|Command, chars: "\x18\x6a" }
+  - { key: K, mods: Shift|Command, chars: "\x18\x6b" }
+  - { key: L, mods: Shift|Command, chars: "\x18\x6c" }
+  - { key: O, mods: Shift|Command, chars: "\x18\x7a" }
 
   # TMUX
   - { key: Key1, mods: Command, chars: "\x18\x31" }
@@ -78,7 +85,6 @@ key_bindings:
   - { key: Key9, mods: Command, chars: "\x18\x39" }
   - { key: T, mods: Command, chars: "\x18\x63" }
   - { key: X, mods: Command, chars: "\x18\x78" }
-  - { key: S, mods: Command, chars: "\x18\x77" }
   - { key: S, mods: Command, chars: "\x18\x77" }
 
   - { key: Key1, mods: Alt, chars: "\x18\x31" }
@@ -96,3 +102,4 @@ key_bindings:
   - { key: S, mods: Alt, chars: "\x18\x77" }
   - { key: Back,     mods: Shift,     chars: "\x1b\x7f"                    }
   - { key: R,     mods: Command,     chars: "\x18\x2c"                    }
+  - { key: R,     mods: Alt,     chars: "\x18\x2c"                    }
