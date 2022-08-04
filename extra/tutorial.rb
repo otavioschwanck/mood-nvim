@@ -153,7 +153,7 @@ array = [{ name: first_name, {} }]
 # p while in visual mode (selecting something) = Will substitute selected text with last yank
 # <Ctrl + p> (after paste) = Navigate in yank history, you can also use <Ctrl + n> to go back
 
-# Commands to run: df=xct.Mood<ESC>f,yi(lvf,fdjvi(p<C-p>
+# Commands to run: df=xct.Mood<ESC>f,yi(lvf,fdjvi(p<C-p><C-p>
 
 value = Charge::Name.new(name, last_name, email, document_number) # << Start
 old_args(invalid_args)
