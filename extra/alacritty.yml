@@ -18,9 +18,9 @@ colors:
     red:     '#e06c75'
     green:   '#98c379'
     yellow:  '#d19a66'
-    blue:    '#61afef'
+    blue:    '#2a4f70'
     magenta: '#c678dd'
-    cyan:    '#56b6c2'
+    cyan:    '#296a73'
     white:   '#abb2bf'
 
   # Bright colors
@@ -94,4 +94,5 @@ key_bindings:
   - { key: X, mods: Alt, chars: "\x18\x78" }
   - { key: S, mods: Alt, chars: "\x18\x77" }
   - { key: S, mods: Alt, chars: "\x18\x77" }
-  - { key: Back,     mods: Shift,     chars: "\x1b\x7f"                    } # Delete word
+  - { key: Back,     mods: Shift,     chars: "\x1b\x7f"                    }
+  - { key: R,     mods: Command,     chars: "\x18\x2c"                    }
