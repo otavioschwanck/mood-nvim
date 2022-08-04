@@ -103,7 +103,7 @@ end
 
 # Commands to run: df_f'ca'first_name<SPACE><ESC>f[ds[di{
 
-array = [{ name: 'otavio schwanck' }, [{ name: 'thiago ribeiro' }]] # << Start
+my_array = [{ name: 'otavio schwanck' }, [{ name: 'thiago ribeiro' }]] # << Start
 
 # Code Goal:
 array = [{ name: first_name, {} }]
