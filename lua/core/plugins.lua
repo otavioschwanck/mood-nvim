@@ -146,6 +146,9 @@ function M.setup()
     }
   end)
 
+  vim.cmd("PackerInstall")
+  vim.cmd("PackerClean")
+
   require('gitsigns').setup()
   require("indent_blankline").setup {
     show_end_of_line = true,
