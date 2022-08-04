@@ -86,6 +86,7 @@ key_bindings:
   - { key: T, mods: Command, chars: "\x18\x63" }
   - { key: X, mods: Command, chars: "\x18\x78" }
   - { key: S, mods: Command, chars: "\x18\x77" }
+  - { key: Slash, mods: Command, chars: "\x18\x2f" }
 
   - { key: Key1, mods: Alt, chars: "\x18\x31" }
   - { key: Key2, mods: Alt, chars: "\x18\x32" }
