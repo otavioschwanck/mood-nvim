@@ -289,3 +289,10 @@ On command mode `:`, you can press C-v to paste, `C-a` to go back one word, and 
 `:markdownPreview` is awesome to create markdown files.
 
 ### For additional commands, just press SPC and follow your heart.
+
+# Alacritty + Tmux + Tmuxinator
+Use tmuxinator to start one or more projects.
+Use tmux + alacritty (terminal) to work with terminal.
+
+Install alacritty in your system.  Use Alt (or command) + 1 to 9 to change tmux window, Alt + t to create new Tmux Tab, etc.
+Alt + x to close the tab.
