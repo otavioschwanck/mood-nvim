@@ -56,20 +56,20 @@ function M.reset_exercise()
 
   M.define_mappings()
 
-  vim.cmd("norm zb")
+  vim.cmd("norm zb\\<C-e>\\<C-e>")
 end
 
 function M.next_exercise()
   vim.fn.search(exerciseComment)
   vim.fn.search(exerciseStart)
-  vim.cmd("norm zb")
+  vim.cmd("norm zb\\<C-e>\\<C-e>")
   vim.cmd("norm 0")
 end
 
 function M.prev_exercise()
   vim.fn.search(exerciseComment, 'b')
   vim.fn.search(exerciseStart, 'b')
-  vim.cmd("norm zb")
+  vim.cmd("norm zb\\<C-e>\\<C-e>")
   vim.cmd("norm 0")
 end
 

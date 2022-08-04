@@ -10,7 +10,7 @@
 # This tutorial is recommended only after vimtutor.
 # To access vimtutor, type vimtutor on terminal.
 
-# Commands to navigate use this tutorial:
+# Commands to navigate use in this tutorial:
 # Ctrl + j or zj = Next exercise
 # C-k or zk = Previous exercise
 # zj = jump to specific exercise by number
@@ -439,3 +439,136 @@ end
 # to select stuff, use v, or V and the text objects
 #
 # # << Start
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# Exercise 10 - Search and Replace on block
+# Commands: vij = select block
+#           s/old_text/new_text/gr = changes texts from the block. If you type \0 on old, it will get the current text
+# Commands to execute: vij:s/john/new_\0_is_awesome/gr<ENTER>
+{
+  name: john, last_name: john, # << Start
+  email: john, cpf: john,
+  cnpj: john
+}
+
+# Code Goal:
+{
+  name: new_john_is_awesome, last_name: new_john_is_awesome,
+  email: new_john_is_awesome, cpf: new_john_is_awesome,
+  cnpj: new_john_is_awesome
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# Exercise 11: Macros (Boss Fight)
+#
+# Commands:
+
+# q + key = Start recording macro
+# q = stop macro (when macro running)
+# @ + key = Execute macro saved on key
+# SPC m n = turn selection (or word) to snake case
+# %s/old_new/gre = The letter `e` at the end is very important, it prevent catch errors on substitute (not all lines need in this code)
+# This is very useful to when you copy some CSVs, tables, etc from a website to your code and need to parse!
+# Commands to execute: jqqxxv-:s/ /_/gre<ENTER><SPACE>nsI:<ESC>A,<ESC>j0q@q@q@q
+# IMPORTANT: Is good practice to end macros in the place that needs to be executed later!
+# << Start
+# Rio Grande do Sul
+# Rio GrandeDo Norte
+# Bahia
+# Brasilia
+
+# Goal:
+:rio_grande_do_sul,
+:rio_grandedo_norte,
+:bahia
+:brasil
