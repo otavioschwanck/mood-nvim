@@ -291,8 +291,18 @@ On command mode `:`, you can press C-v to paste, `C-a` to go back one word, and 
 ### For additional commands, just press SPC and follow your heart.
 
 # Alacritty + Tmux + Tmuxinator
+
 Use tmuxinator to start one or more projects.
 Use tmux + alacritty (terminal) to work with terminal.
 
 Install alacritty in your system.  Use Alt (or command) + 1 to 9 to change tmux window, Alt + t to create new Tmux Tab, etc.
 Alt + x to close the tab.
+
+The prefix for tmux is C-x.
+
+Mood install automatically the configuration for tmux and alacritty for you, matching the neovim theme.
+
+If you want to use tmux, install the plugin manager for IT:
+git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+
+And after the first start, press C-x I to install the plugins from mood configuration.
