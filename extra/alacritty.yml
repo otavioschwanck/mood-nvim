@@ -104,3 +104,4 @@ key_bindings:
   - { key: Back,     mods: Shift,     chars: "\x1b\x7f"                    }
   - { key: R,     mods: Command,     chars: "\x18\x2c"                    }
   - { key: R,     mods: Alt,     chars: "\x18\x2c"                    }
+  - { key: Space,     mods: Control,     action: ReceiveChar }
