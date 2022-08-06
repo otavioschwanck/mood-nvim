@@ -6,7 +6,6 @@ function M.setup()
   local fb_actions = require "telescope".extensions.file_browser.actions
 
   local vertical_search = { path_display = { "smart" }, layout_strategy = "vertical", layout_config = { preview_cutoff = 10, height = 0.92 } }
-  local small_window = { path_display = { "smart" }, layout_strategy = "horizontal", layout_config = { preview_cutoff = 10, height = 0.92 } }
 
   require('telescope').setup{
     defaults = {
@@ -33,7 +32,8 @@ function M.setup()
       buffers = { path_display = require('utils.buffer_path_display'), layout_config = { preview_cutoff = 10, width = 0.92 } },
       live_grep = vertical_search,
       grep_string = vertical_search,
-      diagnostics = vertical_search
+      diagnostics = vertical_search,
+      current_buffer_fuzzy_find = vertical_search
     },
     extensions = {
       ["ui-select"] = {
