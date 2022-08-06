@@ -120,7 +120,7 @@ end
 -- vim.g.python_host_prog = '/usr/bin/python'
 -- vim.g.python3_host_prog = '/usr/bin/python3'
 
--- vim.g.folder_to_ignore = [".*.git/.*", "node_modules/.*"] -- Ignore some folders on search?
+-- vim.g.folder_to_ignore = { ".*.git/.*", "node_modules/.*" } -- Ignore some folders on search?
 
 -- Mouse?
 vim.api.nvim_set_option('mouse', 'a')
