@@ -27,6 +27,7 @@ require('plugins.onedarkpro').setup()
 -- user
 require('user.lsp')
 require('user.config')
+require('user.debugger')
 
 -- startup
 require('core.start').setup()

@@ -10,6 +10,18 @@ function M.setup()
       use(plugins[p])
     end
 
+    -- Debug
+    use { 'mfussenegger/nvim-dap' }
+    use { 'rcarriga/nvim-dap-ui' }
+    use { 'theHamsta/nvim-dap-virtual-text' }
+    use { 'nvim-telescope/telescope-dap.nvim' }
+    use { "mxsdev/nvim-dap-vscode-js" }
+    use {
+      "microsoft/vscode-js-debug",
+      opt = true,
+      run = "npm install --legacy-peer-deps && npm run compile"
+    }
+
     use { 'stevearc/aerial.nvim' }
     use { 'sainnhe/gruvbox-material' }
     use { 'tomlion/vim-solidity' }
