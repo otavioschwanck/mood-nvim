@@ -159,6 +159,7 @@ function M.setup_which_key()
     D = { ":call BetterDelete()<CR>", "Delete the current file" },
     p = { ":e ~/.config/nvim/lua/user/config.lua<CR>", "Open Your Private Files" },
     P = { ":e ~/.config/nvim/lua/user/plugins.lua<CR>", "Open Your Plugin" },
+    u = { ":e ~/.config/nvim/lua/user/debugger.lua<CR>", "Open Your Plugin" },
     y = { ":call CopyRelativePath()<CR>", "Copy Relative Path" },
     l = { ":call CopyRelativePathWithLine()<CR>", "Copy Path With Line" },
     Y = { ":call CopyFullPath()<CR>", "Copy Full Path" },
