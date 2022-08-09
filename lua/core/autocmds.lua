@@ -16,6 +16,7 @@ local autocommands = {
   { {"BufWritePre"}, {"*"}, function() vim.cmd('call mkdir(expand("<afile>:p:h"), "p")') end },
   { {"TermOpen"}, {"*"}, function() vim.cmd('setlocal nobuflisted') end },
   { {"BufEnter"}, {"*"}, function() vim.cmd('ColorizerAttachToBuffer') end },
+  { {"FileType"}, {"ruby", "eruby"}, function() vim.keymap.set('n', '<leader>d', ":call AddDebugger()<CR>", { buffer = vim.fn.bufnr()}) end },
   { {"VimLeavePre"}, {"*"}, function() require('mood-scripts.quit_neovim')() end },
   { {"BufReadPost"}, {"*"}, function() require('mood-scripts.command-on-start').autostart() end },
 }
