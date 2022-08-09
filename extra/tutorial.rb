@@ -106,7 +106,7 @@ end
 my_array = [{ name: 'otavio schwanck' }, [{ name: 'thiago ribeiro' }]] # << Start
 
 # Code Goal:
-array = [{ name: first_name, {} }]
+array = [{ name: first_name }, {}]
 
 
 

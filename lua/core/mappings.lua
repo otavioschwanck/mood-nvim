@@ -1,5 +1,15 @@
 local M = {}
 
+local call_right_debugger = function()
+  local ft = vim.bo.filetype
+
+  if ft == 'ruby' or ft == 'eruby' then
+    vim.cmd("call AddDebugger()")
+  else
+    vim.cmd('WhichKey <leader><F12>')
+  end
+end
+
 function M.setup_which_key()
   local wk = require("which-key")
 
@@ -57,8 +67,9 @@ function M.setup_which_key()
   ["<space>"] = { ":Telescope find_files<CR>", "Find Files" },
   e = { ":NvimTreeToggle<CR>", "Toggle Tree" },
   E = { ":NvimTreeFindFileToggle<CR>", "Tree Find File" },
-  d = {
-    name = "Debugger",
+  d = { call_right_debugger, "+Debug" },
+  ["<F12>"] = {
+    name = "+Dap Debugger",
     c = { "<Cmd>lua require'dap'.continue()<CR>", "Continue"  },
     o = { "<Cmd>lua require'dap'.step_over()<CR>", "Step Over"  },
     i = { "<Cmd>lua require'dap'.step_into()<CR>", "Step Into"  },
