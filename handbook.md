@@ -225,13 +225,17 @@ To select, just press ENTER.  To close the suggestions pop-up, press C-e.
 # Emmet
 Just press C-p.
 
-# Multiple Cursors
+# Multiple Cursors (Cool Substitute)
 
-| Command | Description                                                                      |
-|---------|----------------------------------------------------------------------------------|
-| M       | Start multiple cursors / go forward (You can change on the config.lua (SPC f o)) |
-| gq      | Select all occurrences                                                           |
-|---------|----------------------------------------------------------------------------------|
+| Command  | Description                                         |
+|----------|-----------------------------------------------------|
+| gm       | start multiple cursor and edit current word         |
+| gM       | start multiple cursor but doesn't edit current word |
+| M        | finish multiple cursor / Apply and go to next       |
+| Ctrl + b | Same as M but backwards                             |
+| n        | Skip current editing and go next                    |
+| ga       | Apply editing to all                                |
+|----------|-----------------------------------------------------|
 
 # Ruby Stuff
 

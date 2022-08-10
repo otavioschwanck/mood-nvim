@@ -232,6 +232,11 @@ if windwidth <= 84 or #data > estimated_space_available then
     cond = has_30_space
   }
 
+  ins_left_both {
+    require('cool-substitute.status').status_with_icons,
+    color = function() return { fg = require('cool-substitute.status').status_color() } end
+  }
+
   ins_left {
     'diff',
     -- Is it me or the symbol for modified us really weird

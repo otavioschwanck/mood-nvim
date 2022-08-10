@@ -11,6 +11,7 @@ function M.setup()
     end
 
     -- Debug
+    use { 'AndrewRadev/bufferize.vim' }
     use { 'mfussenegger/nvim-dap' }
     use { 'rcarriga/nvim-dap-ui' }
     use { 'nvim-telescope/telescope-dap.nvim' }
@@ -62,6 +63,7 @@ function M.setup()
     use {
       "AckslD/nvim-neoclip.lua",
     }
+    use { 'otavioschwanck/cool-substitute.nvim' }
 
     use {'junegunn/fzf', run = function()
       vim.fn['fzf#install']()
@@ -179,6 +181,8 @@ function M.setup()
     "packer",
     "NvimTree",
   }
+
+  require'cool-substitute'.setup({ setup_keybindings = true })
 
   require'nvim-web-devicons'.setup {
     override = {

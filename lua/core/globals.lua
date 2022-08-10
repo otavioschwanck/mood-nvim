@@ -4,9 +4,6 @@ function M.setup()
   vim.g.camelsnek_i_am_an_old_fart_with_no_sense_of_humour_or_internet_culture = 1
   vim.g.closetag_filenames = '*.html,*.xhtml,*.phtml,*.erb'
   vim.g.multi_cursor_use_default_mapping = 0
-  vim.g.multi_cursor_start_word_key      = 'M'
-  vim.g.multi_cursor_next_key            = 'M'
-  vim.g.multi_cursor_quit_key            = '<Esc>'
   vim.g.yoinkSavePersistently = 1
   vim.g.yoinkIncludeDeleteOperations = 1
   vim.g.yoinkMaxItems = 20
