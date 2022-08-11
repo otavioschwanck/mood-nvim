@@ -94,7 +94,7 @@ key_bindings:
   - { key: Key4, mods: Alt, chars: "\x18\x34" }
   - { key: Key5, mods: Alt, chars: "\x18\x35" }
   - { key: Key6, mods: Alt, chars: "\x18\x36" }
-  - { key: Key7, mods: Alt, chars: "\x18\x36" }
+  - { key: Key7, mods: Alt, chars: "\x18\x37" }
   - { key: Key8, mods: Alt, chars: "\x18\x38" }
   - { key: Key9, mods: Alt, chars: "\x18\x39" }
   - { key: T, mods: Alt, chars: "\x18\x63" }
