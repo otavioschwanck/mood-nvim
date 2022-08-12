@@ -227,17 +227,17 @@ Just press C-p.
 
 # Multiple Cursors (Cool Substitute)
 
-| Command  | Description                                                              |
-|----------|--------------------------------------------------------------------------|
-| gM       | start multiple cursor and edit current word                              |
-| gm       | start multiple cursor but doesn't edit current word                      |
-| g!M      | start multiple cursor and edit current word, only edit full word         |
-| g!m      | start multiple cursor but doesn't edit current word, only edit full word |
-| M        | finish multiple cursor / Apply and go to next                            |
-| Ctrl + b | Same as M but backwards                                                  |
-| n        | Skip current editing and go next                                         |
-| ga       | Apply editing to all                                                     |
-|----------|--------------------------------------------------------------------------|
+| Command  | Description                                                                        |
+|----------|------------------------------------------------------------------------------------|
+| gM       | start multiple cursor and edit current word                                        |
+| gm       | start multiple cursor but doesn't edit current word                                |
+| g!M      | start multiple cursor and edit current word, only edit full word                   |
+| g!m      | start multiple cursor but doesn't edit current word, only edit full word           |
+| M        | start multiple cursors and edit cw / finish multiple cursor / Apply and go to next |
+| Ctrl + b | Same as M but backwards                                                            |
+| n        | Skip current editing and go next                                                   |
+| ga       | Apply editing to all                                                               |
+|----------|------------------------------------------------------------------------------------|
 
 # Ruby Stuff
 
