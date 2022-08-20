@@ -81,7 +81,7 @@ function M.setup()
         call feedkeys(":saveas " . current_folder . "/" . new_name . "\<CR>", "n")
         call delete(current_file)
         call feedkeys(":bd! #\<CR>")
-        call feedkeys(":e #\<CR>")
+        call feedkeys(":e\<CR>")
 
         lua require('notify')("File renamed from " .. vim.api.nvim_eval('current_file_name') .. " to " .. vim.api.nvim_eval('new_name'), 'info', { title='File Management' })
 
