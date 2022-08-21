@@ -49,7 +49,7 @@ function M.setup()
         telescope_results = "#eeeeee",
       },
     },
-    filetype_hlgroups = {
+    ft_highlights = {
       lua = {
         Hlargs = { fg = "${red}", style = "italic" },
       },
@@ -71,7 +71,7 @@ function M.setup()
         TSType = { fg = "${red}" },
       },
     },
-    hlgroups = {
+    highlights = {
       -- Highlight brackets with a custom color
       TSPunctBracket = { fg = "${brackets}" },
       TSPunctSpecial = { fg = "${brackets}" },
