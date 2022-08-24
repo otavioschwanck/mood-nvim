@@ -26,7 +26,6 @@ function M.setup()
     use { 'sainnhe/gruvbox-material' }
     use { 'tomlion/vim-solidity' }
     use { 'rgroli/other.nvim' }
-    use {'nvim-telescope/telescope-fzf-native.nvim', run = 'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build' }
     use { 'NTBBloodbath/rest.nvim' }
     use 'tpope/vim-repeat'
     use { 'olimorris/onedarkpro.nvim' }
@@ -65,10 +64,6 @@ function M.setup()
     }
     use { 'otavioschwanck/cool-substitute.nvim' }
     use "nvim-treesitter/nvim-treesitter-context"
-
-    use {'junegunn/fzf', run = function()
-      vim.fn['fzf#install']()
-    end }
 
     use {
       'kyazdani42/nvim-tree.lua',
