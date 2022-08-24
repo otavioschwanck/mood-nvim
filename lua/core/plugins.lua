@@ -64,6 +64,7 @@ function M.setup()
       "AckslD/nvim-neoclip.lua",
     }
     use { 'otavioschwanck/cool-substitute.nvim' }
+    use "nvim-treesitter/nvim-treesitter-context"
 
     use {'junegunn/fzf', run = function()
       vim.fn['fzf#install']()

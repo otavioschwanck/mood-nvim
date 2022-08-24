@@ -22,7 +22,6 @@ require('plugins.yanky').setup()
 require('plugins.dashboard_plugin').setup()
 require('plugins.nvim-tree').setup()
 require('plugins.lualine').setup()
-require('plugins.onedarkpro').setup()
 
 -- user
 require('user.lsp')
