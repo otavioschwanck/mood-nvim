@@ -1,12 +1,12 @@
 #!/bin/bash
-APT_PACKAGES=(sqlite3 libsqlite3-dev neovim xclip python3-pip)
+APT_PACKAGES=(sqlite3 libsqlite3-dev neovim xclip python3-pip tmux)
 NPM_PACKAGES=(neovim diagnostic-languageserver)
 GEMS=(solargraph neovim bundler)
 MOOD_GIT=(git@github.com:otavioschwanck/mood-nvim.git)
 PACKER_GIT=(https://github.com/wbthomason/packer.nvim)
 NVIM_DIR=".config/nvim"
 PACKER_DIR=".local/share/nvim/site/pack/packer/start/packer.nvim"
-export LAZY_VER="0.34" # LAZYGIT VERSION
+export LAZY_VER="0.35" # LAZYGIT VERSION
 TODAY=(date +"%m-%d-%y")
 
 get_bash_profile () {
@@ -38,18 +38,30 @@ ask_question () {
   done
 }
 
+# Install tmux stuff
+install_tmux_package_manager() {
+  echo "================= INSTALLING TMUX STUFF ==============="
+  if [ -d ~/.tmux/plugins/tpm ]; then
+    echo "~/.tmux/plugins/tpm folder already exists, skipping installation of tpm."
+  else
+    git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+  fi
+}
+
 # Install base packages
 install_packages_linux () {
   echo "================= INSTALLING PACKAGES ================="
   sudo apt-get -qq update
   sudo apt-get -qq install ${APT_PACKAGES[*]} -y
   sudo npm install -s -g ${NPM_PACKAGES[*]} -y
+  install_tmux_package_manager
 }
 
 install_packages_mac () {
   echo "================= INSTALLING PACKAGES ================="
-  brew install readline openssl zlib postgresql sqlite ruby-build rbenv libffi ripgrep
+  brew install readline openssl zlib postgresql sqlite ruby-build rbenv libffi ripgrep tmux tmuxinator alacritty
   brew link libpq --force
+  install_tmux_package_manager
 }
 
 prompt_ruby_versions () {
