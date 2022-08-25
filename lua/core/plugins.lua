@@ -83,6 +83,7 @@ function M.setup()
 
     use 'windwp/nvim-ts-autotag'
     use { 'svermeulen/vim-subversive' }
+    use { 'prettier/vim-prettier', run = "yarn install --frozen-lockfile --production" }
 
     use 'kana/vim-textobj-user'
     use 'beloglazov/vim-textobj-quotes'

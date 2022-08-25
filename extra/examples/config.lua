@@ -107,7 +107,7 @@ local four_space_languages = { "solidity" }
 local autocommands = {
   { {"FileType"}, two_space_languages, function() vim.cmd('setlocal shiftwidth=2 tabstop=2') end },
   { {"FileType"}, four_space_languages, function() vim.cmd('setlocal shiftwidth=2 tabstop=2') end },
-  -- { {'BufWritePre'}, {"*.tsx", "*.ts", "*.jsx", "*.js"}, function() vim.cmd("EslintFixAll") end, } -- Use ESLINT on save
+  -- { {'BufWritePre'}, {"*.tsx", "*.ts", "*.jsx", "*.js"}, function() vim.cmd("PrettierAsync") end, } -- Run Command before save (can be any command)
 }
 
 for i = 1, #autocommands, 1 do
