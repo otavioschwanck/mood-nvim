@@ -48,7 +48,7 @@ install_packages_linux () {
 
 install_packages_mac () {
   echo "================= INSTALLING PACKAGES ================="
-  brew install readline openssl zlib postgresql sqlite ruby-build rbenv libffi
+  brew install readline openssl zlib postgresql sqlite ruby-build rbenv libffi ripgrep
   brew link libpq --force
 }
 
@@ -166,10 +166,11 @@ linux_workflow () {
 }
 
 mac_workflow () {
-  FONTS_LIBRARY="Library/Fonts"
+  FONTS_LIBRARY="/Library/Fonts"
   ask_question "base packages for neovim" install_packages_mac
   ask_question "Ruby on Rails with Rbenv" install_ruby_mac
   ask_question "LazyGit" install_lazygit_mac
+  ulimit -S -n 200048
 }
 
 # SCRIPT QUESTIONAIRE
