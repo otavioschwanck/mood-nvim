@@ -1,5 +1,7 @@
 -- Theme?
-vim.cmd('colorscheme onedarkpro')
+vim.cmd('colorscheme catppuccin')
+
+vim.g.catppuccin_flavour = "macchiato" -- latte, frappe, macchiato, mocha
 
 vim.g.term_as_full_screen_tabs = 1 -- full screen terminals?
 

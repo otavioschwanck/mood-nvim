@@ -55,7 +55,7 @@
 # f = go to character (next that you input)
 # M = start multiple cursors
 
-# Command to run: f,ldaajyyplgmemail<ESC>MM
+# Command to run: f,ldaajyyplMemail<ESC>MM
 def my_method(name, last_name, email) # << Start
   @name = name
 end

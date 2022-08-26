@@ -22,6 +22,7 @@ function M.setup()
       run = "npm install --legacy-peer-deps && npm run compile"
     }
 
+    use { "catppuccin/nvim", as = "catppuccin" }
     use { 'stevearc/aerial.nvim' }
     use { 'sainnhe/gruvbox-material' }
     use { 'tomlion/vim-solidity' }

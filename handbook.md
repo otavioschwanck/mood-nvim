@@ -42,49 +42,46 @@ OBS: This list persist between vim sections
 
 # Buffer Navigation and Management
 
-| Command                | Description                                               |
-|------------------------|-----------------------------------------------------------|
-| H                      | Previous Harpoon / Previous Tab (Depends of tabs enabled) |
-| L                      | Next Harpoon / Next Tab (Depends of tabs enabled)         |
-| C-h                    | Previous Visited Buffer (History)                         |
-| C-l                    | Next Visit Buffer (History)                               |
-| SPC ,                  | Find Buffer in Project                                    |
-| SPC TAB                | Find All Buffers                                          |
-| SPC .                  | File Browser                                              |
-| SPC e                  | Open Tree                                                 |
-| SPC k                  | Kill current buffer                                       |
-| SPC A                  | Go to Test (and vsplit)                                   |
-| SPC a                  | Go to test                                                |
-| SPC a                  | Go to test                                                |
-| SPC l                  | List All Terminals (cool for opening closed tests)        |
-| SPC L                  | Mark Terminal to Send Text                                |
-| SPC l (On visual mode) | Send text to marked terminal                              |
-| SPC 1 to SPC 9         | Go to Tab in position                                     |
-| C-s                    | Pick a tab by first letter                                |
-|------------------------|-----------------------------------------------------------|
-| ]g                     | Next git hunk                                             |
-| [g                     | Previous git hunk                                         |
-|------------------------|-----------------------------------------------------------|
-| ]e                     | Next Error                                                |
-| [e                     | Previous Error                                            |
-|------------------------|-----------------------------------------------------------|
-| ]q                     | Next Quickfix                                             |
-| [q                     | Previous Quickfix                                         |
-|------------------------|-----------------------------------------------------------|
+| Command                | Description                                        |
+|------------------------|----------------------------------------------------|
+| H                      | Previous Harpoon                                   |
+| L                      | Next Harpoon                                       |
+| C-h                    | Previous Visited Buffer (History)                  |
+| C-l                    | Next Visit Buffer (History)                        |
+| SPC ,                  | Find Buffer in Project                             |
+| SPC TAB                | Git Status                                         |
+| SPC .                  | File Browser                                       |
+| SPC e                  | Open Tree                                          |
+| SPC k                  | Kill current buffer                                |
+| SPC A                  | Go to Test (and vsplit)                            |
+| SPC a                  | Go to test                                         |
+| SPC l                  | List All Terminals (cool for opening closed tests) |
+| SPC L                  | Mark Terminal to Send Text                         |
+| SPC l (On visual mode) | Send text to marked terminal                       |
+| SPC 1 to SPC 9         | Go to harpoons                                     |
+|------------------------|----------------------------------------------------|
+| ]g                     | Next git hunk                                      |
+| [g                     | Previous git hunk                                  |
+|------------------------|----------------------------------------------------|
+| ]e                     | Next Error                                         |
+| [e                     | Previous Error                                     |
+|------------------------|----------------------------------------------------|
+| ]q                     | Next Quickfix                                      |
+| [q                     | Previous Quickfix                                  |
+|------------------------|----------------------------------------------------|
 
 # Window Navigation
 
-| Command | Description                |
-|---------|----------------------------|
-| M-h     | Focus Window in the left   |
-| M-l     | Focus Window in the right  |
-| M-j     | Focus Window in the bottom |
-| M-k     | Focus Window in the top    |
-| ,       | Go to next window          |
-|---------|----------------------------|
-| C-w u   | Undo a window closed       |
-| C-w o   | Maximize window            |
-|---------|----------------------------|
+| Command | Description                                              |
+|---------|----------------------------------------------------------|
+| M-h     | Focus Window in the left                                 |
+| M-l     | Focus Window in the right                                |
+| M-j     | Focus Window in the bottom                               |
+| M-k     | Focus Window in the top                                  |
+| ,       | Go to next window                                        |
+|---------|----------------------------------------------------------|
+| C-w o   | Maximize window                                          |
+| ENTER   | Maximize window temporary (press ENTER again to restore)
 
 `<C-w>u` will undo a closed window.
 
@@ -95,37 +92,15 @@ OBS: This list persist between vim sections
 | Command        | Description                                      |
 |----------------|--------------------------------------------------|
 | SPC SPC        | Find Files in Project                            |
-| SPC s g        | Git Modified Files                               |
+| SPC TAB        | Git Modified Files                               |
 | SPC s i        | Search Document Symbols (Just love this command) |
 | spc s j        | Search Workspace Symbols                         |
 | SPC s s        | Fuzzy find in current buffer                     |
 | SPC s p        | Search text on project                           |
 | SPC *          | Search text at point on project                  |
-| SPC b b        | Pin Buffer                                       |
-| SPC b c        | Close all buffes except the pinned               |
-| SPC b C        | Close all buffes except the current              |
-| C-j            | Go to next section                               |
-| C-k            | Go to previous section                           |
 |----------------|--------------------------------------------------|
 
 Quick Tip: You can come back to any telescope search with `SPC RET`.
-
-## Search and Replace on file
-
-| Command     | Mode            | Description                                                                        |
-|-------------|-----------------|------------------------------------------------------------------------------------|
-| gq          | normal          | Search and replace word at point                                                   |
-| gQ          | normal          | Search and replace word at point keeping case                                      |
-|-------------|-----------------|------------------------------------------------------------------------------------|
-| gq          | visual          | Search and replace selection                                                       |
-| gQ          | visual          | Search and replace selection keeping case                                          |
-|-------------|-----------------|------------------------------------------------------------------------------------|
-| gq          | visual line (V) | Search and replace some word in selected lines                                     |
-| gQ          | visual line (V) | Search and replace some word in selected lines keeping case                        |
-|-------------|-----------------|------------------------------------------------------------------------------------|
-| X           | Visual          | Mark some text to be swap, then, select another text and press X to swap both      |
-| cx + motion | Normal          | Mark motion to be swaped, then, select another text and press X or cx to swap both |
-|-------------|-----------------|------------------------------------------------------------------------------------|
 
 ## Search and Replace on Project
 
@@ -141,9 +116,7 @@ You can:
 
 1. use `SPC s p`, and then, press `C-q` to create a quickfix list.  You can navigate on quickfix with `]q` and `[q`.
 
-To execute some command in all items of the quickfix list, just run `:cfdo %S/old_text/new_text/gr | :w`
-
-Or your can press `C-q` again to turn quickfix into a editable buffer and edit as you like.
+To execute some command in all items of the quickfix list, just run `:cfdo S/old_text/new_text/gr | :wq`
 
 2. use `SPC s f`, find, and then edit the search result like a file. (i find this way easier most of the time)
 
