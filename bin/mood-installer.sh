@@ -10,7 +10,7 @@ export LAZY_VER="0.35" # LAZYGIT VERSION
 TODAY=(date +"%m-%d-%y")
 
 get_bash_profile () {
-  if test -f ".zshrc"; then
+  if test -f ~/.zshrc; then
     BASH_PROFILE=(.zshrc)
   else
     BASH_PROFILE=(.bashrc)
@@ -182,6 +182,7 @@ mac_workflow () {
   ask_question "base packages for neovim" install_packages_mac
   ask_question "Ruby on Rails with Rbenv" install_ruby_mac
   ask_question "LazyGit" install_lazygit_mac
+  echo "ulimit -S -n 200048 # Fix Packer for neovim" >> ~/$BASH_PROFILE
   ulimit -S -n 200048
 }
 
