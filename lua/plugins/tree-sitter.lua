@@ -77,7 +77,8 @@ function M.setup()
         'if',
         'switch',
         'case',
-        'element'
+        'element',
+        'call'
       },
     },
     exact_patterns = { },
