@@ -5,6 +5,11 @@ vim.g.catppuccin_flavour = "macchiato" -- latte, frappe, macchiato, mocha
 
 vim.g.term_as_full_screen_tabs = 1 -- full screen terminals?
 
+-- See all coc exntensiosn at: https://github.com/neoclide/coc.nvim/wiki/Using-coc-extensions#implemented-coc-extensions
+vim.g.coc_global_extensions = {
+  'coc-html', 'coc-css', 'coc-json', 'coc-prettier', 'coc-tsserver', 'coc-diagnostic', 'coc-solargraph',
+  'coc-emmet', 'coc-yaml', 'coc-snippets', 'coc-pyright', 'coc-solidity', 'coc-calc' }
+
 -- Directory to store your notes (SPC z z)
 vim.g.notes_directories = { '~/Documents/Notes' }
 vim.g.ruby_debugger = "require 'pry'; binding.pry"
@@ -92,24 +97,13 @@ wk.register({
 -- You can also enable those commands on vim startup by commenting:
 vim.g.disable_autostart_commands = 1 -- With this, you have to press SPC # to open the autostart terminals.  I personally prefer this option.
 
--- Alternate file with SPC f a
-require("other-nvim").setup({
-  mappings = {
-    { pattern = "app/services/(.*)_services/(.*).rb", target = "app/contracts/%1_contracts/%2.rb" },
-    { pattern = "app/contracts/(.*)_contracts/(.*).rb", target = "app/services/%1_services/%2.rb" },
-    { pattern = "app/contracts/(.*)_contracts/base.rb", target = "app/services/%1_services/" },
-    { pattern = "app/models/(.*).rb", target = { "app/services/%1_services/" } }
-  },
-})
-
 local two_space_languages = { "ruby", "yaml", "javascript", "typescript", "typescriptreact", "javascriptreact", "eruby", "lua" }
 local four_space_languages = { "solidity" }
 
 -- autocmd array(AutoCmd, pattern, callback)
 local autocommands = {
   { {"FileType"}, two_space_languages, function() vim.cmd('setlocal shiftwidth=2 tabstop=2') end },
-  { {"FileType"}, four_space_languages, function() vim.cmd('setlocal shiftwidth=2 tabstop=2') end },
-  -- { {'BufWritePre'}, {"*.tsx", "*.ts", "*.jsx", "*.js"}, function() vim.cmd("PrettierAsync") end, } -- Run Command before save (can be any command)
+  { {"FileType"}, four_space_languages, function() vim.cmd('setlocal shiftwidth=2 tabstop=2') end }
 }
 
 for i = 1, #autocommands, 1 do
@@ -129,4 +123,4 @@ vim.api.nvim_set_option('mouse', 'a')
 
 -- set('background', 'light') -- enable light theme instead dark
 -- set('shell', 'zsh') -- Your shell?
--- set('relativenumber', true) -- relative numbers?
+set('relativenumber', true) -- relative numbers?

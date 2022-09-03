@@ -170,7 +170,7 @@ function M.setup()
 
       lua require('notify')('Ruby Instances killed.', 'info', { title='mooD' })
 
-      call timer_start(2000, {-> execute("LspStart solargraph") })
+      call timer_start(2000, {-> execute("CocRestart") })
     endfunction
   ]])
 end

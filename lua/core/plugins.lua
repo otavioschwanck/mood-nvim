@@ -76,15 +76,13 @@ function M.setup()
     use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
     use 'nvim-treesitter/nvim-treesitter-textobjects'
     use "rafamadriz/friendly-snippets"
-    use { 'hrsh7th/cmp-calc' }
     use 'mattn/emmet-vim'
-
-    use { "ray-x/lsp_signature.nvim" }
-    use { 'onsails/lspkind.nvim' }
 
     use 'windwp/nvim-ts-autotag'
     use { 'svermeulen/vim-subversive' }
-    use { 'prettier/vim-prettier', run = "yarn install --frozen-lockfile --production" }
+
+    use { 'neoclide/coc.nvim', branch = 'release' }
+    use 'fannheyward/telescope-coc.nvim'
 
     use 'kana/vim-textobj-user'
     use 'beloglazov/vim-textobj-quotes'
@@ -114,23 +112,9 @@ function M.setup()
     use 'glepnir/dashboard-nvim'
     use 'lukas-reineke/indent-blankline.nvim'
 
-    use {
-      "williamboman/nvim-lsp-installer",
-      {
-        "neovim/nvim-lspconfig"
-      }
-    }
-    use 'hrsh7th/cmp-nvim-lsp'
-    use 'hrsh7th/cmp-buffer'
-    use { 'hrsh7th/cmp-cmdline' }
     use { 'danilamihailov/beacon.nvim' }
-    use 'hrsh7th/cmp-path'
-    use 'hrsh7th/nvim-cmp'
-    use { 'dyng/ctrlsf.vim' }
     use { 'moll/vim-bbye' }
     use { 'ThePrimeagen/harpoon' }
-
-    use 'quangnguyen30192/cmp-nvim-ultisnips'
 
     -- within packer init {{{
     use {'SirVer/ultisnips',
@@ -195,17 +179,6 @@ function M.setup()
       }
     }
   }
-
-  require("nvim-lsp-installer").setup({
-    automatic_installation = { exclude = { "solargraph", "sorbet" } },
-    ui = {
-      icons = {
-        server_installed = "✓",
-        server_pending = "➜",
-        server_uninstalled = "✗"
-      }
-    }
-  })
 
   require('aerial').setup({})
 end

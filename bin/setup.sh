@@ -18,12 +18,12 @@ else
   echo "$USER_CONFIG created."
 fi
 
-USER_LSP=~/.config/nvim/lua/user/lsp.lua
-if test -f "$USER_LSP"; then
-  echo "$USER_LSP exists. Ignoring..."
+USER_COC=~/.config/nvim/coc-settings.json
+if test -f "$USER_COC"; then
+  echo "$USER_COC exists. Ignoring..."
 else
-  cp ~/.config/nvim/extra/examples/lsp.lua ~/.config/nvim/lua/user/lsp.lua
-  echo "$USER_LSP created."
+  cp ~/.config/nvim/extra/examples/coc-settings.example.json ~/.config/nvim/coc-settings.json
+  echo "$USER_COC created."
 fi
 
 TMUX=~/.tmux.conf

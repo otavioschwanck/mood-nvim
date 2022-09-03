@@ -14,10 +14,10 @@ if test -f "$DEBUGGER"; then
 fi
 
 
-USER_LSP=~/.config/nvim/lua/user/lsp.lua
-if test -f "$USER_LSP"; then
-  rm $USER_LSP
-  echo "$USER_LSP Removed successfully..."
+USER_COC=~/.config/nvim/coc-settings.json
+if test -f "$USER_COC"; then
+  rm $USER_COC
+  echo "$USER_COC Removed successfully..."
 fi
 
 TMUX=~/.tmux.conf

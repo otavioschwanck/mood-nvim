@@ -32,7 +32,7 @@ function M.setup_which_key()
   l = { "<Plug>Send", "Send Text to Term" },
   c = {
     name = "+Lsp",
-    a = { "<cmd>lua vim.lsp.buf.range_code_action()<CR>", "Code Action" }
+    a = { "<Plug>(coc-codeaction-selected)", "Code Action" }
     },
   m = {
     name = "+Ruby Extract",
@@ -129,20 +129,14 @@ function M.setup_which_key()
     m = { ":NoteToMarkdown<CR>", "Convert Note do Markdown" },
     },
   c = {
-    name = "+Lsp",
-    w = {
-      name = "+Workspace",
-      a = { '<cmd>lua vim.lsp.buf.add_workspace_folder()<CR>', 'Add Workspace' },
-      r = { '<cmd>lua vim.lsp.buf.remove_workspace_folder()<CR>', 'Remove Workspace' },
-      l = { '<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<CR>', 'List Workspaces' },
-      },
-    x = { ':Telescope diagnostics<CR>', 'Diagnostics' },
-    X = { ':Telescope diagnostics<CR>', 'Diagnostics' },
-    r = { '<cmd>lua vim.lsp.buf.rename()<CR>', 'Rename' },
-    a = { '<cmd>lua vim.lsp.buf.code_action()<CR>', 'Code Action' },
-    f = { '<cmd>lua vim.lsp.buf.formatting()<CR>', 'Format' },
-    i = { ':Telescope lsp_document_symbols<CR>', 'Document Symbols' },
-    j = { ':Telescope lsp_dynamic_workspace_symbols<CR>', 'Workspace Symbols' },
+    name = "+Coc and LSP",
+    x = { ':Telescope coc diagnostics<CR>', 'Diagnostics' },
+    X = { ':Telescope coc workspace_diagnostics<CR>', 'Workspace Diagnostics' },
+    r = { '<Plug>(coc-rename)', 'Rename' },
+    a = { '<Plug>(coc-codeaction)', 'Code Action' },
+    f = { ':Format<CR>', 'Format' },
+    i = { ':call TelescopeDocumentSymbols()<CR>', 'Document Symbols' },
+    j = { ':Telescope coc workspace_symbols<CR>', 'Workspace Symbols' },
     },
   ["<return>"] = { ":Telescope resume<CR>", "Telescope Resume" },
   s = {
@@ -152,15 +146,14 @@ function M.setup_which_key()
     p = { ":Telescope live_grep<CR>", "Search text on Project" },
     o = { ":Telescope live_grep grep_open_files=true<CR>", "Search on Open Files" },
     P = { ":lua require('plugins.telescope.custom_telescope').ripgrep()<CR>", "Advanced Search text on Project" },
-    f = { ":CtrlSF ", "Search text using CoC (for search and replace)" },
+    f = { ":CocSearch ", "Search text using CoC (for search and replace)" },
     s = { ":Telescope current_buffer_fuzzy_find fuzzy=false case_mode=ignore_case<CR>", "Fuzzy Current Buffer" },
-    i = { ":Telescope lsp_document_symbols<CR>", "Search Outline Symbols" },
-    j = { ":Telescope lsp_dynamic_workspace_symbols<CR>", "Symbols" },
+    i = { ":call TelescopeDocumentSymbols()<CR>", "Search Outline Symbols" }
     },
   f = {
     name = "+File",
     o = { ":AerialToggle<CR>", "Show Window Symbols" },
-    L = { ":e ~/.config/nvim/lua/user/lsp.lua<CR>", "LSP Settings" },
+    L = { ":e ~/.config/nvim/coc-settings.json<CR>", "CoC Settings" },
     a = { ":OtherClear<CR>:Other<CR>", "Alternate File" },
     A = { ":OTherClear<CR>:OtherVSplit<CR>", "Alternate File Split" },
     r = { ":Telescope oldfiles<CR>", "Recent Files" },
