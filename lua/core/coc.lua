@@ -8,12 +8,6 @@ function M.setup()
       set signcolumn=yes
     endif
 
-    inoremap <silent><expr> <TAB>
-          \ coc#pum#visible() ? coc#pum#next(1) :
-          \ CheckBackspace() ? "\<Tab>" :
-          \ coc#refresh()
-    inoremap <expr><S-TAB> coc#pum#visible() ? coc#pum#prev(1) : "\<C-h>"
-
     inoremap <silent><expr> <CR> coc#pum#visible() ? coc#pum#confirm()
                                   \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
 
@@ -126,10 +120,40 @@ function M.setup()
     command! -nargs=? Fold :call     CocAction('fold', <f-args>)
 
     command! -nargs=0 OR   :call     CocActionAsync('runCommand', 'editor.action.organizeImport')
+  ]])
+end
+
+function M.tabToSnippet()
+  vim.g.setted_autocomplete = true
+
+  vim.cmd([[
+    inoremap <silent><expr> <C-j>
+          \ coc#pum#visible() ? coc#pum#next(1) :
+          \ CheckBackspace() ? "\<C-k>" :
+          \ coc#refresh()
+    inoremap <expr><C-k> coc#pum#visible() ? coc#pum#prev(1) : "\<C-k>"
+
+    inoremap <silent><expr> <tab>
+    \ coc#expandable() && !coc#jumpable() ? "\<C-r>=coc#rpc#request('doKeymap', ['snippets-expand-jump',''])\<CR>" :
+    \ coc#jumpable() ? "\<C-r>=coc#snippet#next()\<CR>" : "\<tab>"
+
+    let g:coc_snippet_next = '<tab>'
+  ]])
+end
+
+function M.tabToAutocomplete()
+  vim.g.setted_autocomplete = true
+
+  vim.cmd([[
+    inoremap <silent><expr> <TAB>
+          \ coc#pum#visible() ? coc#pum#next(1) :
+          \ CheckBackspace() ? "\<Tab>" :
+          \ coc#refresh()
+    inoremap <expr><S-TAB> coc#pum#visible() ? coc#pum#prev(1) : "\<C-h>"
 
     inoremap <silent><expr> <C-j>
-          \ coc#expandable() && !coc#jumpable() ? "\<C-r>=coc#rpc#request('doKeymap', ['snippets-expand-jump',''])\<CR>" :
-          \ coc#jumpable() ? "\<C-r>=coc#snippet#next()\<CR>" : "\<C-j>"
+    \ coc#expandable() && !coc#jumpable() ? "\<C-r>=coc#rpc#request('doKeymap', ['snippets-expand-jump',''])\<CR>" :
+    \ coc#jumpable() ? "\<C-r>=coc#snippet#next()\<CR>" : "\<C-j>"
   ]])
 end
 
@@ -137,8 +161,12 @@ function M.setupPlugins()
   if vim.g.coc_global_extensions == nil or vim.g.coc_global_extensions == {} then
     vim.g.coc_global_extensions = {
       'coc-html', 'coc-css', 'coc-json', 'coc-prettier', 'coc-tsserver', 'coc-diagnostic', 'coc-solargraph',
-      'coc-emmet', 'coc-yaml', 'coc-snippets', 'coc-jedi', 'coc-solidity', 'coc-calc', 'coc-cssmodules', 'coc-lightbulb',
+      'coc-emmet', 'coc-yaml', 'coc-snippets', 'coc-jedi', 'coc-solidity', 'coc-calc', 'coc-cssmodules',
       'coc-markdown-preview-enhanced', 'coc-sh', 'coc-sql', '@yaegassy/coc-tailwindcss3' }
+  end
+
+  if not vim.g.setted_autocomplete then
+    M.tabToSnippet()
   end
 end
 

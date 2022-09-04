@@ -8,16 +8,20 @@ vim.g.term_as_full_screen_tabs = 1 -- full screen terminals?
 -- See all coc exntensiosn at: https://github.com/neoclide/coc.nvim/wiki/Using-coc-extensions#implemented-coc-extensions
 vim.g.coc_global_extensions = {
   'coc-html', 'coc-css', 'coc-json', 'coc-prettier', 'coc-tsserver', 'coc-diagnostic', 'coc-solargraph',
-  'coc-emmet', 'coc-yaml', 'coc-snippets', 'coc-jedi', 'coc-solidity', 'coc-calc', 'coc-cssmodules', 'coc-lightbulb',
+  'coc-emmet', 'coc-yaml', 'coc-snippets', 'coc-jedi', 'coc-solidity', 'coc-calc', 'coc-cssmodules',
   'coc-markdown-preview-enhanced', 'coc-sh', 'coc-sql', '@yaegassy/coc-tailwindcss3' }
 
 -- Directory to store your notes (SPC z z)
 vim.g.notes_directories = { '~/Documents/Notes' }
 vim.g.ruby_debugger = "require 'pry'; binding.pry"
 
--- Use Alt + d instead of M to multiple cursors (only linux)
--- vim.g.multi_cursor_start_word_key      = '<A-d>'
--- vim.g.multi_cursor_next_key            = '<A-d>'
+---- Autocomplete + Snipept style
+
+-- use tab to expand / go forward on snippet and ctrl + j and ctrl + j to navigate on autocompletes.
+require('core.coc').tabToSnippet()
+
+-- use tab to go up and down on autocomplete and Ctrl + j to expand / go forward on snippet
+-- require('core.coc').tabToAutocomplete()
 
 -- Function Helpers
 local set = vim.api.nvim_set_option
