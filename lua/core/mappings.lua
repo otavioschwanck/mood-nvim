@@ -100,7 +100,7 @@ function M.setup_which_key()
     h = { ":e ~/.config/nvim/handbook.md<CR>", "Open the Handbook" },
     u = { ":UpdateMood<CR>", "Update mooD" },
     d = { ":!rm -rf ~/.local/share/nvim/swap/*<CR>", "Delete SWP files" },
-    r = { ":LspRestart<CR>", "Restart LSP" },
+    r = { ":CocRestart<CR>", "Restart LSP" },
     s = { ":Telescope ultisnips<CR>", "Snippets List" },
     T = { ":lua require('tutorial').start()<CR>", "Start Tutorial" }
     },
