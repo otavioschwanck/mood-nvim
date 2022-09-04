@@ -138,6 +138,7 @@ function M.tabToSnippet()
     \ coc#jumpable() ? "\<C-r>=coc#snippet#next()\<CR>" : "\<tab>"
 
     let g:coc_snippet_next = '<tab>'
+    let g:coc_snippet_prev = '<S-tab>'
   ]])
 end
 
@@ -149,7 +150,6 @@ function M.tabToAutocomplete()
           \ coc#pum#visible() ? coc#pum#next(1) :
           \ CheckBackspace() ? "\<Tab>" :
           \ coc#refresh()
-    inoremap <expr><S-TAB> coc#pum#visible() ? coc#pum#prev(1) : "\<C-h>"
 
     inoremap <silent><expr> <C-j>
     \ coc#expandable() && !coc#jumpable() ? "\<C-r>=coc#rpc#request('doKeymap', ['snippets-expand-jump',''])\<CR>" :

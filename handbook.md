@@ -189,9 +189,9 @@ I Consider this way the most efficient way to create files and find files on cur
 
 # Snippets and autocomplete
 
-To use snippets, just press <C-j> to expand and <C-j> to move forward and <C-k> to move backwards.
+To use snippets, just press <Tab> to expand and <Tab> to move forward and <S-Tab> to move backwards.
 
-Use Tab and S-Tab for go forward and backward on the autocomplete list.  You also can use C-n and C-p.
+Use C-j and C-k for go forward and backward on the autocomplete list.  You also can use C-n and C-p.
 
 To select, just press ENTER.  To close the suggestions pop-up, press C-e.
 
