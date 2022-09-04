@@ -76,7 +76,6 @@ function M.setup()
     use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
     use 'nvim-treesitter/nvim-treesitter-textobjects'
     use "rafamadriz/friendly-snippets"
-    use 'mattn/emmet-vim'
 
     use 'windwp/nvim-ts-autotag'
     use { 'svermeulen/vim-subversive' }

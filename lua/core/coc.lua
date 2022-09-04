@@ -129,7 +129,7 @@ function M.setup()
 
     inoremap <silent><expr> <C-j>
           \ coc#expandable() && !coc#jumpable() ? "\<C-r>=coc#rpc#request('doKeymap', ['snippets-expand-jump',''])\<CR>" :
-          \ coc#jumpable() ? "\<C-r>=coc#snippet#next()\<CR>" : ""
+          \ coc#jumpable() ? "\<C-r>=coc#snippet#next()\<CR>" : "\<C-j>"
   ]])
 end
 

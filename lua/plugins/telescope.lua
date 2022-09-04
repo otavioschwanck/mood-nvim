@@ -82,11 +82,10 @@ function M.setup()
     keys = {
       telescope = {
         i = {
-          select = '<cr>',
-          paste = '<c-n>',
+          paste = '<cr>',
           paste_behind = '<C-p>',
-          replay = '<c-q>',  -- replay a macro
-          delete = '<c-d>',  -- delete an entry
+          replay = '<c-q>',
+          delete = '<c-d>',
           custom = {},
           },
         n = {

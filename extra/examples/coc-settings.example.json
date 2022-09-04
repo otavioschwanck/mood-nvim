@@ -7,8 +7,9 @@
   "coc.preferences.extensionUpdateCheck": "daily",
   "emmet.includeLanguages": { "eruby": "html", "typescriptreact": "react", "javascriptreact": "react" },
   "solidity.remapping": {
-    "@OpenZeppelin": "dependencies/OpenZeppelin/openzeppelin-contracts@4.6.0"
+    "@OpenZeppelin": "OpenZeppelin/openzeppelin-contracts@4.6.0"
   },
+  "solidity.includePath": "/Users/otavio/.brownie/packages/",
   "snippets.ultisnips.directories": [
     "~/.config/nvim/UltiSnips"
   ],
