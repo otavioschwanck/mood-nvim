@@ -8,7 +8,8 @@ vim.g.term_as_full_screen_tabs = 1 -- full screen terminals?
 -- See all coc exntensiosn at: https://github.com/neoclide/coc.nvim/wiki/Using-coc-extensions#implemented-coc-extensions
 vim.g.coc_global_extensions = {
   'coc-html', 'coc-css', 'coc-json', 'coc-prettier', 'coc-tsserver', 'coc-diagnostic', 'coc-solargraph',
-  'coc-emmet', 'coc-yaml', 'coc-snippets', 'coc-pyright', 'coc-solidity', 'coc-calc' }
+  'coc-emmet', 'coc-yaml', 'coc-snippets', 'coc-jedi', 'coc-solidity', 'coc-calc', 'coc-cssmodules', 'coc-lightbulb',
+  'coc-markdown-preview-enhanced', 'coc-sh', 'coc-sql', '@yaegassy/coc-tailwindcss3' }
 
 -- Directory to store your notes (SPC z z)
 vim.g.notes_directories = { '~/Documents/Notes' }

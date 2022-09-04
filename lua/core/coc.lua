@@ -137,8 +137,8 @@ function M.setupPlugins()
   if vim.g.coc_global_extensions == nil or vim.g.coc_global_extensions == {} then
     vim.g.coc_global_extensions = {
       'coc-html', 'coc-css', 'coc-json', 'coc-prettier', 'coc-tsserver', 'coc-diagnostic', 'coc-solargraph',
-      'coc-emmet', 'coc-yaml', 'coc-snippets', 'coc-jedi', 'coc-solidity', 'coc-calc'
-    }
+      'coc-emmet', 'coc-yaml', 'coc-snippets', 'coc-jedi', 'coc-solidity', 'coc-calc', 'coc-cssmodules', 'coc-lightbulb',
+      'coc-markdown-preview-enhanced', 'coc-sh', 'coc-sql', '@yaegassy/coc-tailwindcss3' }
   end
 end
 
