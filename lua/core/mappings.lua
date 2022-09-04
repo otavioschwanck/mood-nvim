@@ -173,7 +173,7 @@ function M.setup_which_key()
     name = "+Ruby",
     a = { ":RAddParameter<CR>", "Add Parameter" },
     c = { ":call GetClassName()<CR>", "Copy Class Name to Clipboard" },
-    d = { ":lua require('mood-scripts.rubocop').comment_rubocop()<CR>", "Comment Rubocop Error" },
+    d = { ":CocCommand rubocop.insert<CR>", "Disable byebug at point" },
     },
   ["#"] = { ":lua require('mood-scripts.command-on-start').restart(true)<CR>", "Execute / Re-excute project terminals" },
   ["%"] = { ":lua require('mood-scripts.command-on-start').restart_all()<CR>", "TMUX: Execute / Re-execute project terminal all" },
