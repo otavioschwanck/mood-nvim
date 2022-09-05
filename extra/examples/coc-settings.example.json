@@ -1,4 +1,5 @@
 {
+  "tsserver.ignoreLocalTsserver": true,
   "suggest.noselect": false,
   "snippets.priority": 0,
   "snippets.userSnippetsDirectory": "~/.config/nvim/user-snippets",
