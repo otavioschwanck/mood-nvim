@@ -26,7 +26,7 @@ end
 vim.diagnostic.config {
    virtual_text = true, -- Change to false if you dislike the virtual text (diagnostic at right)
    signs = true,
-   underline = true,
+   underline = false,
    update_in_insert = false,
 }
 
