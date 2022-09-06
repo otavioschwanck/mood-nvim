@@ -27,11 +27,14 @@ wk.register({
   ["="] = { ":w | :silent !bundle exec rubocop -A %<CR>", "Rubocop on current file" },
   ["+"] = call_term('bundle exec rubocop -A', 'rubocop', 2, 0, { pre_command = ':w |' }),
   o = {
-    t = {
-      ":e ~/.tmux.conf<CR>", "Tmux Config"
-    },
-    a = {
-      ":e ~/.config/alacritty/alacritty.yml<CR>", "Alacritty Config"
+    d = {
+      name = "+Dotfiles",
+      a = { ":e ~/.config/alacritty/alacritty.yml<CR>", "Alacritty Config" },
+      t = { ":e ~/.tmux.conf<CR>", "Tmux Config" },
+      y = { ":e ~/Library/Application Support/lazygit/config.yml<CR>", "LazyGit Config" }, -- (For MAC)
+      -- y = { ":e ~/.config/lazygit/config.yml<CR>" }, -- (For Linux)
+      g = { ":e ~/.gitconfig<CR>", "Open Git Config" },
+      z = { ":e ~/.zshrc<CR>", "Open zshrc" }
     },
     y = {
       name = "+yarn",
@@ -48,8 +51,6 @@ wk.register({
       C = call_term('brownie compile', 'Brownie Compile', 2, 0),
       c = call_term('brownie console', 'Brownie Console', 1, 0),
     },
-    g = { ":e ~/.gitconfig<CR>", "Open Git Config" },
-    z = { ":e ~/.zshrc<CR>", "Open zshrc" }
   },
   r = { -- Add your rails folders and commands here.  SPC r + key
     name = "+Rails",

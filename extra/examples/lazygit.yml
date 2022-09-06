@@ -1,0 +1,7 @@
+gui:
+  showIcons: true
+  showFileTree: false
+
+keybinding:
+  files:
+    toggleTreeView: 't'
