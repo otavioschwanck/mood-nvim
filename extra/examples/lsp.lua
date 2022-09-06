@@ -9,18 +9,6 @@ local opts = { noremap=true, silent=true }
 vim.api.nvim_set_keymap('n', '[e', '<cmd>lua vim.diagnostic.goto_prev()<CR>', opts)
 vim.api.nvim_set_keymap('n', ']e', '<cmd>lua vim.diagnostic.goto_next()<CR>', opts)
 
-local border = {'╭', '─', '╮', '│', '╯', '─', '╰', '│'}
-
-vim.cmd [[autocmd! ColorScheme * highlight NormalFloat guibg=#1f2335]]
-vim.cmd [[autocmd! ColorScheme * highlight FloatBorder guifg=white guibg=#1f2335]]
-
-local orig_util_open_floating_preview = vim.lsp.util.open_floating_preview
-function vim.lsp.util.open_floating_preview(contents, syntax, opts, ...)
-  opts = opts or {}
-  opts.border = border
-  return orig_util_open_floating_preview(contents, syntax, opts, ...)
-end
-
 local on_attach = function(client, bufnr)
   vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
 
@@ -90,12 +78,10 @@ local mappings = {
 cmp.setup({
   window = {
     completion = {
-      border = border,
       scrollbar = '║',
       winhighlight = 'Normal:CmpPmenu,FloatBorder:CmpPmenuBorder,CursorLine:PmenuSel,Search:None',
     },
     documentation = {
-      border = border,
       scrollbar = '║',
     },
   },
@@ -309,13 +295,6 @@ lspSymbol("Info", "")
 lspSymbol("Hint", "")
 lspSymbol("Warn", "")
 
-vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
-   border = "single",
-})
-vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, {
-   border = "single",
-})
-
 vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
     vim.lsp.diagnostic.on_publish_diagnostics, {
         severity_sort = true
@@ -332,14 +311,4 @@ vim.notify = function(msg, log_level)
    else
       vim.api.nvim_echo({ { msg } }, true, {})
    end
-end
-
--- Borders for LspInfo Window
-local win = require "lspconfig.ui.windows"
-local _default_opts = win.default_opts
-
-win.default_opts = function(options)
-   local opts = _default_opts(options)
-   opts.border = "single"
-   return opts
 end
