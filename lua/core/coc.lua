@@ -171,7 +171,7 @@ function M.setupPlugins()
   end
 
   if not vim.g.setted_autocomplete then
-    M.tabToAutocomplete()
+    M.tabToSnippet()
   end
 end
 
