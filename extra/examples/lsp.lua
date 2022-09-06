@@ -91,9 +91,7 @@ cmp.setup({
       maxwidth = 50, -- prevent the popup from showing more than provided characters (e.g 50 will not show more than 50 characters)
     })
   },
-  -- completion = {
-  --   completeopt = 'menu,menuone,noinsert'
-  -- },
+  -- completion = { completeopt = 'menu,menuone,noinsert' }, -- uncomment this to highlight first item by default
   snippet = {
     expand = function(args)
       vim.fn["UltiSnips#Anon"](args.body)
