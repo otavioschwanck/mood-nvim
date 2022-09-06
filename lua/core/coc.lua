@@ -129,9 +129,11 @@ function M.tabToSnippet()
   vim.cmd([[
     inoremap <silent><expr> <C-j>
           \ coc#pum#visible() ? coc#pum#next(1) :
-          \ CheckBackspace() ? "\<C-k>" :
+          \ pumvisible() ? "\<C-n>" :
+          \ CheckBackspace() ? "\<C-j>" :
           \ coc#refresh()
-    inoremap <expr><C-k> coc#pum#visible() ? coc#pum#prev(1) : "\<C-k>"
+
+    inoremap <expr><C-k> coc#pum#visible() ? coc#pum#prev(1) : pumvisible() ? "\<C-p>" : "\<C-h>"
 
     inoremap <silent><expr> <tab>
     \ coc#expandable() && !coc#jumpable() ? "\<C-r>=coc#rpc#request('doKeymap', ['snippets-expand-jump',''])\<CR>" :
@@ -148,12 +150,15 @@ function M.tabToAutocomplete()
   vim.cmd([[
     inoremap <silent><expr> <TAB>
           \ coc#pum#visible() ? coc#pum#next(1) :
+          \ pumvisible() ? "\<C-n>" :
           \ CheckBackspace() ? "\<Tab>" :
           \ coc#refresh()
 
+    inoremap <expr><S-TAB> coc#pum#visible() ? coc#pum#prev(1) : pumvisible() ? "\<C-p>" : "\<C-h>"
+
     inoremap <silent><expr> <C-j>
-    \ coc#expandable() && !coc#jumpable() ? "\<C-r>=coc#rpc#request('doKeymap', ['snippets-expand-jump',''])\<CR>" :
-    \ coc#jumpable() ? "\<C-r>=coc#snippet#next()\<CR>" : "\<C-j>"
+      \ coc#expandable() && !coc#jumpable() ? "\<C-r>=coc#rpc#request('doKeymap', ['snippets-expand-jump',''])\<CR>" :
+      \ coc#jumpable() ? "\<C-r>=coc#snippet#next()\<CR>" : "\<C-j>"
   ]])
 end
 

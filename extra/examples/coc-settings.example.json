@@ -1,5 +1,6 @@
 {
   "tsserver.ignoreLocalTsserver": true,
+  "prettier.formatterPriority": 100,
   "suggest.noselect": false,
   "snippets.priority": 0,
   "snippets.userSnippetsDirectory": "~/.config/nvim/user-snippets",
