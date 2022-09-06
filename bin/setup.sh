@@ -18,12 +18,12 @@ else
   echo "$USER_CONFIG created."
 fi
 
-USER_COC=~/.config/nvim/coc-settings.json
-if test -f "$USER_COC"; then
-  echo "$USER_COC exists. Ignoring..."
+USER_LSP=~/.config/nvim/lua/user/lsp.lua
+if test -f "$USER_LSP"; then
+  echo "$USER_LSP exists. Ignoring..."
 else
-  cp ~/.config/nvim/extra/examples/coc-settings.example.json ~/.config/nvim/coc-settings.json
-  echo "$USER_COC created."
+  cp ~/.config/nvim/extra/examples/lsp.lua ~/.config/nvim/lua/user/lsp.lua
+  echo "$USER_LSP created."
 fi
 
 TMUX=~/.tmux.conf
@@ -51,44 +51,3 @@ else
   cp ~/.config/nvim/extra/examples/plugins.lua ~/.config/nvim/lua/user/plugins.lua
   echo "$PLUGINS created."
 fi
-
-get_machine_type () {
-  unameOut="$(uname -s)"
-  case "${unameOut}" in
-    Linux*)     machine=Linux;;
-    Darwin*)    machine=Mac;;
-    CYGWIN*)    machine=Cygwin;;
-    MINGW*)     machine=MinGw;;
-    *)          machine="UNKNOWN:${unameOut}"
-  esac
-  echo "Proceeding instalation for OS ${machine}"
-}
-
-linux_workflow () {
-  LAZYGIT=~/.config/lazygit/config.yml
-  if test -f "$LAZYGIT"; then
-    echo "$LAZYGIT exists. Ignoring..."
-  else
-    cp ~/.config/nvim/extra/examples/lazygit.yml ~/.config/lazygit/config.yml
-    echo "$LAZYGIT created."
-  fi
-}
-
-mac_workflow () {
-  LAZYGIT=~/Library/Application\ Support/lazygit/config.yml
-  if test -f "$LAZYGIT"; then
-    echo "$LAZYGIT exists. Ignoring..."
-  else
-    cp ~/.config/nvim/extra/examples/lazygit.yml ~/Library/Application\ Support/lazygit/config.yml
-    echo "$LAZYGIT created."
-  fi
-}
-
-get_machine_type
-
-case "${machine}" in
-  Linux)     linux_workflow;;
-  Mac)       mac_workflow;;
-  *)         echo "OS not recognized"
-esac
-

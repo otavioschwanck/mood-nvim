@@ -222,7 +222,7 @@ if windwidth <= 84 or #data > estimated_space_available then
 
   ins_left_both {
     'diagnostics',
-    sources = { 'coc' },
+    sources = { 'nvim_diagnostic' },
     symbols = { error = ' ', warn = ' ', info = ' ' },
     diagnostics_color = {
       color_error = { fg = colors.red },

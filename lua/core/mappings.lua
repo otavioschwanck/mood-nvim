@@ -32,7 +32,7 @@ function M.setup_which_key()
   l = { "<Plug>Send", "Send Text to Term" },
   c = {
     name = "+Lsp",
-    a = { "<Plug>(coc-codeaction-selected)", "Code Action" }
+    a = { "<cmd>lua vim.lsp.buf.range_code_action()<CR>", "Code Action" }
     },
   m = {
     name = "+Ruby Extract",
@@ -100,7 +100,7 @@ function M.setup_which_key()
     h = { ":e ~/.config/nvim/handbook.md<CR>", "Open the Handbook" },
     u = { ":UpdateMood<CR>", "Update mooD" },
     d = { ":!rm -rf ~/.local/share/nvim/swap/*<CR>", "Delete SWP files" },
-    r = { ":CocRestart<CR>", "Restart LSP" },
+    r = { ":LspRestart<CR>", "Restart LSP" },
     s = { ":Telescope ultisnips<CR>", "Snippets List" },
     T = { ":lua require('tutorial').start()<CR>", "Start Tutorial" }
     },
@@ -129,14 +129,20 @@ function M.setup_which_key()
     m = { ":NoteToMarkdown<CR>", "Convert Note do Markdown" },
     },
   c = {
-    name = "+Coc and LSP",
-    x = { ':Telescope coc diagnostics<CR>', 'Diagnostics' },
-    X = { ':Telescope coc workspace_diagnostics<CR>', 'Workspace Diagnostics' },
-    r = { '<Plug>(coc-rename)', 'Rename' },
-    a = { '<Plug>(coc-codeaction)', 'Code Action' },
-    f = { ':Format<CR>', 'Format' },
-    i = { ':call TelescopeDocumentSymbols()<CR>', 'Document Symbols' },
-    j = { ':Telescope coc workspace_symbols<CR>', 'Workspace Symbols' },
+    name = "+Lsp",
+    w = {
+      name = "+Workspace",
+      a = { '<cmd>lua vim.lsp.buf.add_workspace_folder()<CR>', 'Add Workspace' },
+      r = { '<cmd>lua vim.lsp.buf.remove_workspace_folder()<CR>', 'Remove Workspace' },
+      l = { '<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<CR>', 'List Workspaces' },
+      },
+    x = { ':Telescope diagnostics<CR>', 'Diagnostics' },
+    X = { ':Telescope diagnostics<CR>', 'Diagnostics' },
+    r = { '<cmd>lua vim.lsp.buf.rename()<CR>', 'Rename' },
+    a = { '<cmd>lua vim.lsp.buf.code_action()<CR>', 'Code Action' },
+    f = { '<cmd>lua vim.lsp.buf.formatting()<CR>', 'Format' },
+    i = { ':Telescope lsp_document_symbols<CR>', 'Document Symbols' },
+    j = { ':Telescope lsp_dynamic_workspace_symbols<CR>', 'Workspace Symbols' },
     },
   ["<return>"] = { ":Telescope resume<CR>", "Telescope Resume" },
   s = {
@@ -146,14 +152,15 @@ function M.setup_which_key()
     p = { ":Telescope live_grep<CR>", "Search text on Project" },
     o = { ":Telescope live_grep grep_open_files=true<CR>", "Search on Open Files" },
     P = { ":lua require('plugins.telescope.custom_telescope').ripgrep()<CR>", "Advanced Search text on Project" },
-    f = { ":CocSearch ", "Search text using CoC (for search and replace)" },
+    f = { ":CtrlSF ", "Search text using CoC (for search and replace)" },
     s = { ":Telescope current_buffer_fuzzy_find fuzzy=false case_mode=ignore_case<CR>", "Fuzzy Current Buffer" },
-    i = { ":call TelescopeDocumentSymbols()<CR>", "Search Outline Symbols" }
+    i = { ":Telescope lsp_document_symbols<CR>", "Search Outline Symbols" },
+    j = { ":Telescope lsp_dynamic_workspace_symbols<CR>", "Symbols" },
     },
   f = {
     name = "+File",
     o = { ":AerialToggle<CR>", "Show Window Symbols" },
-    L = { ":e ~/.config/nvim/coc-settings.json<CR>", "CoC Settings" },
+    L = { ":e ~/.config/nvim/lua/user/lsp.lua<CR>", "LSP Settings" },
     a = { ":OtherClear<CR>:Other<CR>", "Alternate File" },
     A = { ":OTherClear<CR>:OtherVSplit<CR>", "Alternate File Split" },
     r = { ":Telescope oldfiles<CR>", "Recent Files" },
@@ -173,7 +180,7 @@ function M.setup_which_key()
     name = "+Ruby",
     a = { ":RAddParameter<CR>", "Add Parameter" },
     c = { ":call GetClassName()<CR>", "Copy Class Name to Clipboard" },
-    d = { ":CocCommand rubocop.insert<CR>", "Disable byebug at point" },
+    d = { ":lua require('mood-scripts.rubocop').comment_rubocop()<CR>", "Comment Rubocop Error" },
     },
   ["#"] = { ":lua require('mood-scripts.command-on-start').restart(true)<CR>", "Execute / Re-excute project terminals" },
   ["%"] = { ":lua require('mood-scripts.command-on-start').restart_all()<CR>", "TMUX: Execute / Re-execute project terminal all" },
@@ -264,6 +271,7 @@ function M.setup_mappings()
   vim.keymap.set('x', 'ia', '<Plug>SidewaysArgumentTextobjI')
   vim.keymap.set('i', '<C-l>', '<Right>')
   vim.keymap.set('i', '<C-a>', '<C-o>0')
+  vim.keymap.set('i', '<C-e>', '<C-o>-')
   vim.keymap.set('i', '<C-h>', '<Left>')
   vim.keymap.set('c', '<C-l>', '<Right>')
   vim.keymap.set('c', '<C-h>', '<Left>')
@@ -271,6 +279,7 @@ function M.setup_mappings()
   vim.keymap.set('c', '<C-e>', '<End>')
   vim.keymap.set('c', '<C-j>', '<C-left>')
   vim.keymap.set('c', '<C-k>', '<C-right>')
+  vim.keymap.set('i', '<C-p>', '<Plug>(emmet-expand-abbr)')
   vim.keymap.set('n', 'gF', '<C-w>f')
   vim.keymap.set('i', '<C-d>', '<Delete>')
   vim.keymap.set('c', '<C-d>', '<Delete>')

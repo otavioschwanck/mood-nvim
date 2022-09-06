@@ -8,7 +8,7 @@ mooD Nvim is a configuration made for those who wants to install and use, withou
 - Extra snippets
 - Handbook (SPC h h) and Tutorial (SPC h T) natively.  Most of cool feature are listed there.
 - Test Runner
-- Fully customizable by user (plugins, settings, CoC)
+- Fully customizable by user (plugins, settings, LSP)
 - Find In Folder helpers: Find inside models, controller, etc using keybindngs. See `config.lua` (`SPC f p`) for more examples. You can define your own custom finders.
 - Terminal Framework that can:
   - You can bind terminal commands in your `config.lua` (`SPC f p`).
@@ -134,27 +134,6 @@ Catppuccin is no longer supported.  Please change your default theme to `onedark
 ## Error on python for some reason.
 
 Check your personal config `SPC f p` at the bottom. Set the python envs to their real values.
-
-## Solargraph asks to install ruby
-
-1. On your user.vim `(SPC f p)`, remove coc-solargraph
-2. Close and reopen vim
-3. Run :CocUninstall coc-solargraph
-4. On your coc-settings.json `(SPC h c)`, add on inside languageserver key:
-
-```json
-  "languageserver": {
-    "solargraph": {
-        "command": "solargraph",
-        "args": ["stdio"],
-        "trace.server": "verbose",
-        "rootPatterns": [".git/"],
-        "filetypes": ["ruby"]
-    },
-    ...
-  }
-```
-
 
 # Other tips
 

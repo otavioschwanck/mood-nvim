@@ -5,23 +5,13 @@ vim.g.catppuccin_flavour = "macchiato" -- latte, frappe, macchiato, mocha
 
 vim.g.term_as_full_screen_tabs = 1 -- full screen terminals?
 
--- See all coc exntensiosn at: https://github.com/neoclide/coc.nvim/wiki/Using-coc-extensions#implemented-coc-extensions
-vim.g.coc_global_extensions = {
-  'coc-html', 'coc-css', 'coc-json', 'coc-prettier', 'coc-tsserver', 'coc-diagnostic', 'coc-solargraph',
-  'coc-emmet', 'coc-yaml', 'coc-snippets', 'coc-jedi', 'coc-solidity', 'coc-calc', 'coc-cssmodules',
-  'coc-markdown-preview-enhanced', 'coc-sh', 'coc-sql', '@yaegassy/coc-tailwindcss3' }
-
 -- Directory to store your notes (SPC z z)
 vim.g.notes_directories = { '~/Documents/Notes' }
 vim.g.ruby_debugger = "require 'pry'; binding.pry"
 
----- Autocomplete + Snipept style
-
--- use tab to expand / go forward on snippet and ctrl + j and ctrl + k to navigate on autocompletes.
-require('core.coc').tabToSnippet()
-
--- use tab to go up and down on autocomplete and Ctrl + j to expand / go forward on snippet
--- require('core.coc').tabToAutocomplete()
+-- Use Alt + d instead of M to multiple cursors (only linux)
+-- vim.g.multi_cursor_start_word_key      = '<A-d>'
+-- vim.g.multi_cursor_next_key            = '<A-d>'
 
 -- Function Helpers
 local set = vim.api.nvim_set_option
@@ -37,14 +27,11 @@ wk.register({
   ["="] = { ":w | :silent !bundle exec rubocop -A %<CR>", "Rubocop on current file" },
   ["+"] = call_term('bundle exec rubocop -A', 'rubocop', 2, 0, { pre_command = ':w |' }),
   o = {
-    d = {
-      name = "+Dotfiles",
-      a = { ":e ~/.config/alacritty/alacritty.yml<CR>", "Alacritty Config" },
-      t = { ":e ~/.tmux.conf<CR>", "Tmux Config" },
-      y = { ":e ~/Library/Application Support/lazygit/config.yml<CR>", "LazyGit Config" }, -- (For MAC)
-      -- y = { ":e ~/.config/lazygit/config.yml<CR>" }, -- (For Linux)
-      g = { ":e ~/.gitconfig<CR>", "Open Git Config" },
-      z = { ":e ~/.zshrc<CR>", "Open zshrc" }
+    t = {
+      ":e ~/.tmux.conf<CR>", "Tmux Config"
+    },
+    a = {
+      ":e ~/.config/alacritty/alacritty.yml<CR>", "Alacritty Config"
     },
     y = {
       name = "+yarn",
@@ -61,6 +48,8 @@ wk.register({
       C = call_term('brownie compile', 'Brownie Compile', 2, 0),
       c = call_term('brownie console', 'Brownie Console', 1, 0),
     },
+    g = { ":e ~/.gitconfig<CR>", "Open Git Config" },
+    z = { ":e ~/.zshrc<CR>", "Open zshrc" }
   },
   r = { -- Add your rails folders and commands here.  SPC r + key
     name = "+Rails",
@@ -103,13 +92,24 @@ wk.register({
 -- You can also enable those commands on vim startup by commenting:
 vim.g.disable_autostart_commands = 1 -- With this, you have to press SPC # to open the autostart terminals.  I personally prefer this option.
 
+-- Alternate file with SPC f a
+require("other-nvim").setup({
+  mappings = {
+    { pattern = "app/services/(.*)_services/(.*).rb", target = "app/contracts/%1_contracts/%2.rb" },
+    { pattern = "app/contracts/(.*)_contracts/(.*).rb", target = "app/services/%1_services/%2.rb" },
+    { pattern = "app/contracts/(.*)_contracts/base.rb", target = "app/services/%1_services/" },
+    { pattern = "app/models/(.*).rb", target = { "app/services/%1_services/" } }
+  },
+})
+
 local two_space_languages = { "ruby", "yaml", "javascript", "typescript", "typescriptreact", "javascriptreact", "eruby", "lua" }
 local four_space_languages = { "solidity" }
 
 -- autocmd array(AutoCmd, pattern, callback)
 local autocommands = {
   { {"FileType"}, two_space_languages, function() vim.cmd('setlocal shiftwidth=2 tabstop=2') end },
-  { {"FileType"}, four_space_languages, function() vim.cmd('setlocal shiftwidth=2 tabstop=2') end }
+  { {"FileType"}, four_space_languages, function() vim.cmd('setlocal shiftwidth=2 tabstop=2') end },
+  -- { {'BufWritePre'}, {"*.tsx", "*.ts", "*.jsx", "*.js"}, function() vim.cmd("PrettierAsync") end, } -- Run Command before save (can be any command)
 }
 
 for i = 1, #autocommands, 1 do
@@ -129,4 +129,4 @@ vim.api.nvim_set_option('mouse', 'a')
 
 -- set('background', 'light') -- enable light theme instead dark
 -- set('shell', 'zsh') -- Your shell?
-set('relativenumber', true) -- relative numbers?
+-- set('relativenumber', true) -- relative numbers?

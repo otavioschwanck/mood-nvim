@@ -1,7 +1,5 @@
 local M = {}
 
-local telescope = require("telescope")
-
 function M.setup()
   local _, actions = pcall(require, "telescope.actions")
 
@@ -9,7 +7,7 @@ function M.setup()
 
   local vertical_search = { path_display = { "smart" }, layout_strategy = "vertical", layout_config = { preview_cutoff = 10, height = 0.92 } }
 
-  telescope.setup{
+  require('telescope').setup{
     defaults = {
       prompt_prefix = " ",
       file_ignore_patterns = vim.g.folder_to_ignore,
@@ -35,9 +33,6 @@ function M.setup()
       live_grep = vertical_search,
       grep_string = vertical_search,
       diagnostics = vertical_search,
-      coc = {
-        diagnostics = vertical_search,
-      },
       current_buffer_fuzzy_find = vertical_search
     },
     extensions = {
@@ -54,6 +49,7 @@ function M.setup()
             ["<C-space>"] = fb_actions.create_from_prompt,
             ["<C-r>"] = fb_actions.rename,
             ["<C-c>"] = fb_actions.goto_parent_dir,
+            ["<C-w>"] = nil,
             ["<C-g>"] = fb_actions.goto_cwd,
             ["<C-w>"] = function() vim.cmd('normal vbd') end,
           },
@@ -70,22 +66,49 @@ function M.setup()
     },
   }
 
-  telescope.load_extension("ui-select")
-  telescope.load_extension "file_browser"
-  telescope.load_extension('neoclip')
-  telescope.load_extension('ultisnips')
-  telescope.load_extension('dap')
-  telescope.load_extension('coc')
+  local utils = require('telescope.utils')
+  local set_var = vim.api.nvim_set_var
+
+  local git_root, ret = utils.get_os_command_output({ "git", "rev-parse", "--show-toplevel" }, vim.loop.cwd())
+
+  local function get_dashboard_git_status()
+    local git_cmd = {'git', 'status', '-s', '--', '.'}
+    local output = utils.get_os_command_output(git_cmd)
+    local message = '       Git status:'
+
+    if unpack(output) == '' then
+      message = 'Welcome!'
+    end
+    set_var('dashboard_custom_footer', {message, '', unpack(output)})
+  end
+
+  if ret ~= 0 then
+    local is_worktree = utils.get_os_command_output({ "git", "rev-parse", "--is-inside-work-tree" }, vim.loop.cwd())
+    if is_worktree[1] == "true" then
+      get_dashboard_git_status()
+    else
+      set_var('dashboard_custom_footer', {'Welcome!'})
+    end
+  else
+      get_dashboard_git_status()
+  end
+
+  require("telescope").load_extension("ui-select")
+  require("telescope").load_extension "file_browser"
+  require('telescope').load_extension('neoclip')
+  require('telescope').load_extension('ultisnips')
+  require('telescope').load_extension('dap')
 
   require('neoclip').setup({
     enable_persistent_history = true,
     keys = {
       telescope = {
         i = {
-          paste = '<cr>',
+          select = '<cr>',
+          paste = '<c-n>',
           paste_behind = '<C-p>',
-          replay = '<c-q>',
-          delete = '<c-d>',
+          replay = '<c-q>',  -- replay a macro
+          delete = '<c-d>',  -- delete an entry
           custom = {},
           },
         n = {
@@ -100,7 +123,5 @@ function M.setup()
       }
     })
 end
-
-M.setup()
 
 return M

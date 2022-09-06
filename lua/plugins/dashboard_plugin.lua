@@ -28,7 +28,7 @@ function M.setup()
     { desc = 'ﲉ Open Tutorial for mooD       ', shortcut = 'SPC h T', action = 'lua require("tutorial").start()' },
     { desc = ' User Settings                ', shortcut = 'SPC f p', action = 'e ~/.config/nvim/lua/user/config.lua' },
     { desc = ' User Plugins                 ', shortcut = 'SPC f P', action = 'e ~/.config/nvim/lua/user/plugins.lua' },
-    { desc = ' User CoC                     ', shortcut = 'SPC f L', action = 'e ~/.config/nvim/coc-settings.json' },
+    { desc = ' User LSP                     ', shortcut = 'SPC f L', action = 'e ~/.config/nvim/lua/user/lsp.lua' },
     { desc = ' Update mooD                  ', shortcut = 'SPC h u', action = 'UpdateMood' },
   }
 end
