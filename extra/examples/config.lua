@@ -17,11 +17,11 @@ vim.g.ruby_debugger = "require 'pry'; binding.pry"
 
 ---- Autocomplete + Snipept style
 
--- use tab to expand / go forward on snippet and ctrl + j and ctrl + j to navigate on autocompletes.
-require('core.coc').tabToSnippet()
-
 -- use tab to go up and down on autocomplete and Ctrl + j to expand / go forward on snippet
--- require('core.coc').tabToAutocomplete()
+require('core.coc').tabToAutocomplete()
+
+-- use tab to expand / go forward on snippet and ctrl + j and ctrl + k to navigate on autocompletes.
+-- require('core.coc').tabToSnippet()
 
 -- Function Helpers
 local set = vim.api.nvim_set_option
