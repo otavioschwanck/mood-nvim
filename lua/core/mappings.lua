@@ -97,7 +97,7 @@ function M.setup_which_key()
   h = {
     name = "+Help",
     t = { ":Telescope colorscheme<CR>", "Change Theme" },
-    h = { ":e ~/.config/nvim/handbook.md<CR>", "Open the Handbook" },
+    h = { ":e ~/.config/nvim/handbook.md<CR>:AerialToggle<CR><C-w>h", "Open the Handbook" },
     u = { ":UpdateMood<CR>", "Update mooD" },
     d = { ":!rm -rf ~/.local/share/nvim/swap/*<CR>", "Delete SWP files" },
     r = { ":LspRestart<CR>", "Restart LSP" },

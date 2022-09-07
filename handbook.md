@@ -1,4 +1,4 @@
-## Welcome to the mood handbook
+# Welcome to the mood handbook
 
 # First of all
 
@@ -22,6 +22,7 @@ On your personal configuration you can configure stuff like commands to run with
 - C-c means Ctrl + c
 - SPC = Space
 - M-c means Alt + c or Option + c
+- To open / close the panel at right, press SPC f o
 
 # Harpoon
 
