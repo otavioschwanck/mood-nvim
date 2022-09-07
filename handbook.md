@@ -197,7 +197,7 @@ Use Tab and S-Tab for go forward and backward on the autocomplete list.  You als
 To select, just press ENTER.  To close the suggestions pop-up, press C-e.
 
 # Emmet
-Just press C-p.
+Just press C-p to expand.
 
 # Multiple Cursors (Cool Substitute)
 
@@ -209,7 +209,7 @@ Just press C-p.
 | g!m      | start multiple cursor but doesn't edit current word, only edit full word           |
 | M        | start multiple cursors and edit cw / finish multiple cursor / Apply and go to next |
 | Ctrl + b | Same as M but backwards                                                            |
-| n        | Skip current editing and go next                                                   |
+| ENTER    | Skip current editing and go next                                                   |
 | ga       | Apply editing to all                                                               |
 |----------|------------------------------------------------------------------------------------|
 
@@ -247,7 +247,7 @@ Just press C-p.
 ## Terminal
 
 `SPC v` open a blank terminal
-`SPC l` Send text to last opened terminal
+`SPC l` List All terminals
 `SPC i` Open Last visit terminal.
 `SPC !` re-run last terminal command
 `SPC #` Re-run terminal commands configured on project startup.
@@ -260,7 +260,7 @@ Go to your personal settings `SPC f p` and add terminal commands.  There is a bu
 
 # Command mode
 
-On command mode `:`, you can press C-v to paste, `C-a` to go back one word, and `C-e` to go forward one word.
+On command mode `:`, you can press C-v to paste, `C-j` to go back one word, and `C-k` to go forward one word.
 
 ## Some useful plugins
 
