@@ -120,6 +120,14 @@ local lspconfig = require('lspconfig')
 
 local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
 
+lspconfig.solidity.setup({
+  on_attach = on_attach,
+  capabilities = capabilities,
+  settings = {
+    solidity = { includePath = '', remapping = { ["@OpenZeppelin/"] = 'OpenZeppelin/openzeppelin-contracts@4.6.0/' } }
+  },
+})
+
 require'lspconfig'.html.setup {
   filetypes = { "eruby", "html" },
   on_attach = on_attach,
