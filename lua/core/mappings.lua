@@ -118,7 +118,7 @@ function M.setup_which_key()
     v = { ":TestFile<CR>", "Test Current File" },
     s = { ":TestNearest<CR>", "Test Nearest Test" },
     a = { ":TestSuite<CR>", "Test Project" },
-    f = { ":TestLast --only-failures<CR>", "Test Only Failed Tests" },
+    f = { ":RSpec --only-failures --format documentation<CR>", "Test Only Failed Tests" },
     r = { ":TestLast<CR>", "Rerun Last Test" },
     },
   z = {
