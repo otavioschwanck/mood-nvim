@@ -10,9 +10,7 @@ function M.setup()
       use(plugins[p])
     end
 
-    -- Debug
     use { 'AndrewRadev/bufferize.vim' }
-    use 'karb94/neoscroll.nvim'
     use { 'mfussenegger/nvim-dap' }
     use { 'rcarriga/nvim-dap-ui' }
     use { 'nvim-telescope/telescope-dap.nvim' }

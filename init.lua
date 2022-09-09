@@ -23,7 +23,6 @@ require('plugins.dashboard_plugin').setup()
 require('plugins.nvim-tree').setup()
 require('plugins.lualine').setup()
 require('plugins.ctrlsf').setup()
-require('plugins.neoscroll').setup()
 
 -- user
 require('user.lsp')
