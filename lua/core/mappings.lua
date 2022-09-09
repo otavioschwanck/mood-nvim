@@ -118,6 +118,7 @@ function M.setup_which_key()
     v = { ":TestFile<CR>", "Test Current File" },
     s = { ":TestNearest<CR>", "Test Nearest Test" },
     a = { ":TestSuite<CR>", "Test Project" },
+    f = { ":TestSuite --only-failures<CR>", "Test Project" },
     r = { ":TestLast<CR>", "Rerun Last Test" },
     },
   z = {
@@ -161,8 +162,7 @@ function M.setup_which_key()
     name = "+File",
     o = { ":AerialToggle<CR>", "Show Window Symbols" },
     L = { ":e ~/.config/nvim/lua/user/lsp.lua<CR>", "LSP Settings" },
-    a = { ":OtherClear<CR>:Other<CR>", "Alternate File" },
-    A = { ":OTherClear<CR>:OtherVSplit<CR>", "Alternate File Split" },
+    a = { ":lua require('telescope-alternate.telescope').alternate()<CR>", "Alternate File" },
     r = { ":Telescope oldfiles<CR>", "Recent Files" },
     s = { ":w!", "Save" },
     R = { ":call BetterRename()<CR>", "Rename Current File" },
