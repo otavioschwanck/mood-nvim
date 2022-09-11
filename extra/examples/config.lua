@@ -20,6 +20,9 @@ local call_term = require('helpers.user-functions').call_term
 local find_in_folder = require('helpers.user-functions').find_in_folder
 local wk = require("which-key")
 
+-- Disable arrow keys?  (Recommended, learn to use w, W, e, E, b, f, t, }, {)
+require('core.settings').remove_bicycle_small_whells({ includeNormalMode = true })
+
 -- Here you can set your mappings to SPC
 -- Examples o = { r = { "command", "description" } } = SPC o r to call
 wk.register({
@@ -130,4 +133,4 @@ vim.api.nvim_set_option('mouse', 'a')
 
 -- set('background', 'light') -- enable light theme instead dark
 -- set('shell', 'zsh') -- Your shell?
--- set('relativenumber', true) -- relative numbers?
+set('relativenumber', true) -- relative numbers?
