@@ -111,8 +111,9 @@ cmp.setup({
   mapping = mappings,
 })
 
-local cmp_autopairs = require('nvim-autopairs.completion.cmp')
-cmp.event:on( 'confirm_done', cmp_autopairs.on_confirm_done({  map_char = { tex = '' } }))
+-- Add automatically () at methods
+-- local cmp_autopairs = require('nvim-autopairs.completion.cmp')
+-- cmp.event:on( 'confirm_done', cmp_autopairs.on_confirm_done({  map_char = { tex = '' } }))
 
 require "lsp_signature".setup()
 
