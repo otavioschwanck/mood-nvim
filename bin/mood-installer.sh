@@ -180,6 +180,7 @@ linux_workflow () {
 install_vi_mode () {
   echo 'bindkey -v # Vi Mode' >> ~/$BASH_PROFILE
   echo 'KEYTIMEOUT=5 # vi mode timeout improvement' >> ~/$BASH_PROFILE
+  echo "set editing-mode vi" >> ~/.inputrc
 
   echo "Configuring vi-mode on terminal.  Is recommended to also install vi-mode plugin"
   echo "[IMPORTANT] You can found it here: https://github.com/jeffreytse/zsh-vi-mode"
