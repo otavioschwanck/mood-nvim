@@ -148,7 +148,7 @@ function M.setup()
       endif
     endfunction
 
-    function! SplitTermStrategy(cmd)
+    function! TermStrategy(cmd)
       execute "call OpenTerm(a:cmd, 'Vim Test', 2, 0)"
     endfunction
 

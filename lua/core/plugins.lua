@@ -51,7 +51,6 @@ function M.setup()
     use 'tpope/vim-fugitive'
     use 'AndrewRadev/undoquit.vim'
     use 'michaeljsmith/vim-indent-object'
-    use 'vimlab/split-term.vim'
     use 'nvim-lualine/lualine.nvim'
     use 'mbbill/undotree'
     use 'sk1418/HowMuch'

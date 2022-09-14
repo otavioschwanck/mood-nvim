@@ -86,6 +86,27 @@ OBS: This list persist between vim sections
 
 `<C-w>u` will undo a closed window.
 
+## Terminal
+
+Is recommended to install the https://github.com/jeffreytse/zsh-vi-mode extension.
+
+With this extension, you can edit like vim in terminal.
+
+`Ctrl + k` Hide terminal and go back to code
+`Ctrl + g`  Go to normal mode inside terminal
+
+`SPC v` open a blank terminal
+`SPC l` List All terminals
+`SPC i` Open Last visit terminal.
+`SPC !` re-run last terminal command
+`SPC #` Re-run terminal commands configured on project startup.
+`SPC %` Rerun terminal commands configured on project startup on all tmux windows.
+`SPC q s` Close startup terminal
+`SPC q S` Close startup terminal on all tmux windows.
+`:Term command` open a terminal with the command
+
+Go to your personal settings `SPC f p` and add terminal commands.  There is a bunch of examples there!
+
 # Searching
 
 ## Common search
@@ -243,20 +264,6 @@ Just press C-p to expand.
 | SPC t a | TOggle camelCaseB    |
 |---------|----------------------|
 
-
-## Terminal
-
-`SPC v` open a blank terminal
-`SPC l` List All terminals
-`SPC i` Open Last visit terminal.
-`SPC !` re-run last terminal command
-`SPC #` Re-run terminal commands configured on project startup.
-`SPC %` Rerun terminal commands configured on project startup on all tmux windows.
-`SPC q s` Close startup terminal
-`SPC q S` Close startup terminal on all tmux windows.
-`:Term command` open a terminal with the command
-
-Go to your personal settings `SPC f p` and add terminal commands.  There is a bunch of examples there!
 
 # Command mode
 

@@ -3,8 +3,6 @@ vim.cmd('colorscheme catppuccin')
 
 vim.g.catppuccin_flavour = "macchiato" -- latte, frappe, macchiato, mocha
 
-vim.g.term_as_full_screen_tabs = 1 -- full screen terminals?
-
 -- Directory to store your notes (SPC z z)
 vim.g.notes_directories = { '~/Documents/Notes' }
 vim.g.ruby_debugger = "require 'pry'; binding.pry"

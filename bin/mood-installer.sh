@@ -177,6 +177,14 @@ linux_workflow () {
   ask_question "LazyGit" install_lazygit_linux
 }
 
+install_vi_mode () {
+  echo 'bindkey -v # Vi Mode' >> ~/$BASH_PROFILE
+  echo 'KEYTIMEOUT=5 # vi mode timeout improvement' >> ~/$BASH_PROFILE
+
+  echo "Configuring vi-mode on terminal.  Is recommended to also install vi-mode plugin"
+  echo "[IMPORTANT] You can found it here: https://github.com/jeffreytse/zsh-vi-mode"
+}
+
 mac_workflow () {
   FONTS_LIBRARY="/Library/Fonts"
   ask_question "base packages for neovim" install_packages_mac
@@ -197,6 +205,7 @@ esac
 
 install_fonts
 install_gems
+install_vi_mode
 install_nvim
 
 echo "Script finished!"

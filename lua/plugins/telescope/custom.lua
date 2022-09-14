@@ -132,11 +132,7 @@ custom_pickers.terminals = function(opts)
           local open_command = ''
 
           if require('utils.buf_count')() <= 1 then
-            if vim.g.term_as_full_screen_tabs > 0 then
-              open_command = 'tab sb '
-            else
-              open_command = 'bel sb '
-            end
+            open_command = 'tab sb '
 
             vim.cmd(open_command .. result .. " | norm! GA")
 

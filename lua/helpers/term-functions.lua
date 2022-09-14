@@ -31,24 +31,24 @@ function M.setup()
       endif
     endfunction
 
-    function HideTerminalWindowOrNoh()
+    function CloseTerminal()
       if &buftype == 'terminal'
         let win_count = luaeval('require("utils.buf_count")()')
 
         if win_count <= 1
-          if(g:term_as_full_screen_tabs > 0 && tabpagenr() != 1)
+          if(tabpagenr() != 1)
             execute "tabclose"
           else
             lua require("utils.goto_last_file_buffer")()
           endif
         else
           if b:common_open == 1
-            execute "norm! \<C-w>W"
+            execute "wincmd W"
           else
             try
               execute "close"
             catch /.*/
-              call timer_start(10, {-> execute("call HideTerminalWindowOrNoh()") })
+              call timer_start(2000, {-> execute("call CloseTerminal()") })
             endtry
           endif
         endif
@@ -62,11 +62,7 @@ function M.setup()
     function OpenTermFromLastCommand()
       let bnr = v:lua.require('mood-scripts.last_open_terminal')()
 
-      if(g:term_as_full_screen_tabs > 0)
-        let change_buffer_command = "tab sb "
-      else
-        let change_buffer_command = "bel sb "
-      endif
+      let change_buffer_command = "tab sb "
 
       if (bnr > 0)
         execute change_buffer_command . " " . bufname(bnr)
@@ -82,17 +78,10 @@ function M.setup()
     function OpenTerm(command, name, unique, close_after_create)
       let p_name = split(getcwd(), "/")
 
-      if(g:term_as_full_screen_tabs > 0)
-        let change_buffer_command = "tab sb "
-        let term_command = "TTerm"
+      let change_buffer_command = "tab sb "
+      let term_command = "tabnew | term"
 
-        let b:common_open = 0
-      else
-        let change_buffer_command = "bel sb "
-        let term_command = "Term"
-
-        let b:common_open = 0
-      endif
+      let b:common_open = 0
 
       if a:name != 'Quick Term'
         let g:last_term_command = [a:command, a:name, a:unique, a:close_after_create]
@@ -136,6 +125,7 @@ function M.setup()
           execute term_command . " " . a:command
           execute "file! " . full_name . " - " . new_number
           execute "SendHere"
+          execute "norm! a"
 
           let b:common_open = 0
         else
@@ -143,6 +133,7 @@ function M.setup()
 
           execute "file! " . full_name
           execute "SendHere"
+          execute "norm! a"
 
           let b:common_open = 0
         end
