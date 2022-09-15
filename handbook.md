@@ -86,7 +86,7 @@ OBS: This list persist between vim sections
 
 `<C-w>u` will undo a closed window.
 
-## Terminal
+# Terminal Management
 
 Is recommended to add vi-mode to your plugins in `oh-my-zsh`, like that:
 
