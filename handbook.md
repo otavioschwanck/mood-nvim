@@ -88,7 +88,9 @@ OBS: This list persist between vim sections
 
 ## Terminal
 
-Is recommended to install the https://github.com/jeffreytse/zsh-vi-mode extension.
+Is recommended to add vi-mode to your plugins in `oh-my-zsh`, like that:
+
+`plugins=(git rails git ruby zsh-autosuggestions vi-mode)`
 
 With this extension, you can edit like vim in terminal.
 
