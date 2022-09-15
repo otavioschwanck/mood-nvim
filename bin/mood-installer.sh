@@ -180,6 +180,8 @@ linux_workflow () {
 install_vi_mode () {
   echo 'bindkey -v # Vi Mode' >> ~/$BASH_PROFILE
   echo 'KEYTIMEOUT=5 # vi mode timeout improvement' >> ~/$BASH_PROFILE
+  echo 'export VISUAL="nvim -u ~/.config/nvim/visual.lua"' >> ~/$BASH_PROFILE
+  echo 'export EDITOR="nvim -u ~/.config/nvim/visual.lua"' >> `/$BASH_PROFILE
   echo "set editing-mode vi" >> ~/.inputrc
   echo "set keymap vi-command" >> ~/.inputrc
   echo "Control-l: clear-screen" >> ~/.inputrc

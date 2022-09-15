@@ -95,7 +95,10 @@ Is recommended to add vi-mode to your plugins in `oh-my-zsh`, like that:
 Also, verify if your ~/.zshrc or ~/.bashrc has:
 
 ```
-bindkey -v # Vi Modee
+export VISUAL="nvim -u ~/.config/nvim/visual.lua"
+export EDITOR="nvim -u ~/.config/nvim/visual.lua"
+
+bindkey -v # Vi Mode
 set -o vi
 KEYTIMEOUT=5
 ```

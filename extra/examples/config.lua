@@ -7,10 +7,6 @@ vim.g.catppuccin_flavour = "macchiato" -- latte, frappe, macchiato, mocha
 vim.g.notes_directories = { '~/Documents/Notes' }
 vim.g.ruby_debugger = "require 'pry'; binding.pry"
 
--- Use Alt + d instead of M to multiple cursors (only linux)
--- vim.g.multi_cursor_start_word_key      = '<A-d>'
--- vim.g.multi_cursor_next_key            = '<A-d>'
-
 -- Function Helpers
 local set = vim.api.nvim_set_option
 local au = vim.api.nvim_create_autocmd
