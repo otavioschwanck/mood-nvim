@@ -92,7 +92,23 @@ Is recommended to add vi-mode to your plugins in `oh-my-zsh`, like that:
 
 `plugins=(git rails git ruby zsh-autosuggestions vi-mode)`
 
-With this extension, you can edit like vim in terminal.
+Also, verify if your ~/.zshrc or ~/.bashrc has:
+
+```
+bindkey -v # Vi Modee
+set -o vi
+KEYTIMEOUT=5
+```
+
+and your .inputrc has:
+
+```
+set editing-mode vi
+set keymap vi-insert
+Control-l: clear-screen
+```
+
+With this extension and settings, you can edit like vim in terminal.
 
 `Ctrl + k` Hide terminal and go back to code
 `Ctrl + g`  Go to normal mode inside terminal
