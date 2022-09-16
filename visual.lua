@@ -16,16 +16,13 @@ require('plugins.autopairs').setup()
 require('plugins.yanky').setup()
 
 -- user
-require('user.lsp')
 require('user.config')
-require('user.debugger')
 
-require('notify')('Press C-c or :wq to save and exit.', 'info', { title = 'mooD', timeout = 20000 })
-require('notify')('Press C-k or :cq! to quit without saving..', 'info', { title = 'mooD', timeout = 20000 })
+vim.cmd(":set statusline=Press\\ C-c\\ or\\ :w\\ to\\ save\\ and\\ close\\ \\|\\ Press\\ C-q\\ or\\ :cq!\\ to\\ close\\ and\\ not\\ save.")
 
-vim.keymap.set('n', '<C-c>', '<c-o>:wq<cr>')
-vim.keymap.set('v', '<C-c>', ':wq<cr>')
-vim.keymap.set('n', '<C-k>', '<c-o>:cq!<cr>')
-vim.keymap.set('v', '<C-k>', ':cq!<cr>')
+vim.keymap.set('n', '<C-c>', '<c-o>:wall | q!<cr>')
+vim.keymap.set('v', '<C-c>', ':wall | q!<cr>')
+vim.keymap.set('n', '<C-q>', '<c-o>:cq!<cr>')
+vim.keymap.set('v', '<C-q>', ':cq!<cr>')
 
 vim.cmd("setlocal shiftwidth=2 tabstop=2")
