@@ -16,6 +16,7 @@ require('plugins.autopairs').setup()
 require('plugins.yanky').setup()
 
 -- user
+require('user.lsp')
 require('user.config')
 
 vim.cmd(":set statusline=Press\\ C-c\\ or\\ :w\\ to\\ save\\ and\\ close\\ \\|\\ Press\\ C-q\\ or\\ :cq!\\ to\\ close\\ and\\ not\\ save.")
