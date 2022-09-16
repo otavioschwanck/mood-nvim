@@ -18,6 +18,17 @@ function M.setup()
       return l:word
     endfunction
 
+    function! RemoveQFItem()
+      let curqfidx = line('.') - 1
+      let qfall = getqflist()
+      call remove(qfall, curqfidx)
+      call setqflist(qfall, 'r')
+      execute curqfidx + 1 . "cfirst"
+      :copen
+    endfunction
+
+    command! RemoveQFItem :call RemoveQFItem()
+
     function OpenCommand()
       if &filetype == 'dashboard'
         lua require('mood-scripts.command-on-start').autostart()

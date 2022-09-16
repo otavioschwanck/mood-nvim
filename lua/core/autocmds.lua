@@ -18,6 +18,10 @@ local autocommands = {
   { {"BufEnter"}, {"*"}, function() vim.cmd('ColorizerAttachToBuffer') end },
   { {"VimLeavePre"}, {"*"}, function() require('mood-scripts.quit_neovim')() end },
   { {"BufReadPost"}, {"*"}, function() require('mood-scripts.command-on-start').autostart() end },
+  { {"FileType"}, {"qf"}, function() vim.cmd('map <buffer> dd :RemoveQFItem<CR>') end },
+
+
+  -- autocmd FileType qf map <buffer> dd :RemoveQFItem<cr>
 }
 
 function M.setup()

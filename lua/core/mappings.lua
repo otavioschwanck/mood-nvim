@@ -197,7 +197,7 @@ function M.setup_which_key()
     S = { ":Gitsigns stage_buffer<CR>", "Stage buffer" },
     R = { ":Gitsigns reset_buffer<CR>", "Reset buffer" },
     p = { ":Gitsigns preview_hunk<CR>", "Preview Hunk" },
-    b = { ":lua require('agitator').git_blame_toggle()<CR>", "Toggle current line blame" },
+    b = { ":Git blame<CR>", "Blame" },
     d = { ":DiffviewOpen<CR>:echo 'Use SPC q d or :DiffviewClose to quit.'<CR>", "Git Diff" },
     l = { ":DiffviewFileHistory<CR>:echo 'Use SPC q d or :DiffviewClose to quit.'<CR>", "Log Commits" },
     B = { ":Telescope git_branches<CR>", "Change Branch" }
