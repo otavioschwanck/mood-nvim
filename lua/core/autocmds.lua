@@ -19,6 +19,7 @@ local autocommands = {
   { {"VimLeavePre"}, {"*"}, function() require('mood-scripts.quit_neovim')() end },
   { {"BufReadPost"}, {"*"}, function() require('mood-scripts.command-on-start').autostart() end },
   { {"FileType"}, {"qf"}, function() vim.cmd('map <buffer> dd :RemoveQFItem<CR>') end },
+  { {"TermOpen"}, {"*"}, function() vim.cmd('setlocal nonumber norelativenumber') end },
 
 
   -- autocmd FileType qf map <buffer> dd :RemoveQFItem<cr>

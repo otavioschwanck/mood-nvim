@@ -129,3 +129,4 @@ vim.api.nvim_set_option('mouse', 'a')
 -- set('background', 'light') -- enable light theme instead dark
 -- set('shell', 'zsh') -- Your shell?
 set('relativenumber', true) -- relative numbers?
+vim.cmd("highlight LineNr guifg=#c6a0f6") -- Brighter line colors?
