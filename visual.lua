@@ -22,7 +22,7 @@ require('user.config')
 vim.cmd(":set statusline=Press\\ C-c\\ or\\ :w\\ to\\ save\\ and\\ close\\ \\|\\ Press\\ C-q\\ or\\ :cq!\\ to\\ close\\ and\\ not\\ save.")
 
 vim.keymap.set('n', '<C-c>', '<c-o>:wall | q!<cr>')
-vim.keymap.set('v', '<C-c>', ':wall | q!<cr>')
+vim.keymap.set('v', '<C-c>', ':w! | q!<cr>')
 vim.keymap.set('n', '<C-q>', '<c-o>:cq!<cr>')
 vim.keymap.set('v', '<C-q>', ':cq!<cr>')
 
