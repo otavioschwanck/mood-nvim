@@ -98,6 +98,7 @@ function M.setup()
   require('telescope').load_extension('neoclip')
   require('telescope').load_extension('ultisnips')
   require('telescope').load_extension('dap')
+  require('telescope').load_extension('telescope-alternate')
 
   require('neoclip').setup({
     enable_persistent_history = true,

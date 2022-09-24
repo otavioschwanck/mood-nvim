@@ -90,13 +90,15 @@ wk.register({
 vim.g.disable_autostart_commands = 1 -- With this, you have to press SPC # to open the autostart terminals.  I personally prefer this option.
 
 -- Alternate file with SPC f a
-require("other-nvim").setup({
+-- se more at https://github.com/otavioschwanck/telescope-alternate.nvim
+require('telescope-alternate').setup({
   mappings = {
-    { pattern = "app/services/(.*)_services/(.*).rb", target = "app/contracts/%1_contracts/%2.rb" },
-    { pattern = "app/contracts/(.*)_contracts/(.*).rb", target = "app/services/%1_services/%2.rb" },
-    { pattern = "app/contracts/(.*)_contracts/base.rb", target = "app/services/%1_services/" },
-    { pattern = "app/models/(.*).rb", target = { "app/services/%1_services/" } }
+    { 'app/services/(.*)_services/(.*).rb', {
+      { 'app/contracts/[1]_contracts/[2].rb', 'Contract' }
+    } },
+    { 'app/contracts/(.*)_contracts/(.*).rb', { { 'app/services/[1]_services/[2].rb', 'Service' } } },
   },
+  presets = { 'rails' }
 })
 
 local two_space_languages = { "ruby", "yaml", "javascript", "typescript", "typescriptreact", "javascriptreact", "eruby", "lua" }
