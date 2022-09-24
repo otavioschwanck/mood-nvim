@@ -28,26 +28,28 @@ local function goto_last_file_buffer()
 
   local times = map(bufnrs, function(item) return vim.fn.getbufvar(item, 'visit_time') or nil end)
 
-  if #times > 0 then
-    local higherTime = 0
-    local higherId = 0
+  if #bufnrs > 0 then
+    if #times > 0 then
+      local higherTime = 0
+      local higherId = 0
 
-    for i = 1, #times, 1 do
-      local cur_time = times[i]
+      for i = 1, #times, 1 do
+        local cur_time = times[i]
 
-      if cur_time == '' or not cur_time then
-        cur_time = 1
+        if cur_time == '' or not cur_time then
+          cur_time = 1
+        end
+
+        if cur_time > higherTime then
+          higherTime = cur_time
+          higherId = i
+        end
       end
 
-      if cur_time > higherTime then
-        higherTime = cur_time
-        higherId = i
-      end
+      vim.cmd("b " .. bufnrs[higherId])
     end
-
-    vim.cmd("b " .. bufnrs[higherId])
   else
-    vim.cmd("bp")
+    vim.cmd("tabnew")
   end
 end
 

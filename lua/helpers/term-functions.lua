@@ -139,11 +139,9 @@ function M.setup()
         end
 
         if a:close_after_create == 1
-          execute "close"
+          lua require("utils.goto_last_file_buffer")()
 
-          if a:name != 'Quick Term'
-            lua require('notify')(vim.api.nvim_eval('a:name') .. " is being executed in background.", 'info', { title='Terminal Management' })
-          endif
+          lua require('notify')(vim.api.nvim_eval('a:name') .. " is being executed in background.", 'info', { title='Terminal Management' })
 
           stopinsert
         end
