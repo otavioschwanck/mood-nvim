@@ -10,7 +10,7 @@ function M.setup()
       use(plugins[p])
     end
 
-    use 'otavioschwanck/telescope-alternate.nvim'
+    use { 'otavioschwanck/telescope-alternate.nvim' }
     use { 'AndrewRadev/bufferize.vim' }
     use { 'mfussenegger/nvim-dap' }
     use { 'rcarriga/nvim-dap-ui' }
