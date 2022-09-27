@@ -155,14 +155,16 @@ function M.setup()
     padding = { right = 1 },
   }
 
+  local filename_with_icon = require('lualine.components.filename'):extend()
+  filename_with_icon.apply_icon = require('lualine.components.filetype').apply_icon
+  filename_with_icon.icon_hl_cache = {}
+
   ins_left_both {
-    'filename',
-    file_status = true,
-    path = 0,
+    filename_with_icon,
     cond = conditions.buffer_not_empty,
+    colored = true,
     color = { fg = colors.magenta, gui = 'bold' },
   }
-
 
   local function shorten_path(path, sep)
     -- ('([^/])[^/]+%/', '%1/', 1)
