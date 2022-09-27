@@ -14,9 +14,6 @@ function M.setup()
 	set('compatible', false)
 	set('ic', true)
 
-	-- TODO: Move to user
-	set('colorcolumn', '125')
-
 	vim.cmd('syntax enable')
 	set('fileencodings', 'utf-8,sjis,euc-jp,latin')
 	set('encoding', 'utf-8')
