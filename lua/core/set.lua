@@ -4,10 +4,8 @@ local set = vim.api.nvim_set_option
 
 function M.setup()
   set('undofile', true)
-  set('cmdheight', 1)
   set('nu', true)
 
-  set('cmdheight', 1)
 	set('hidden', true)
 	set('shiftwidth', 2)
 	set('tabstop', 2)
