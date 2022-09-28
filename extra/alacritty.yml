@@ -221,8 +221,8 @@ color_schemes:
       red:     '#ED8796' # red
       green:   '#A6DA95' # green
       yellow:  '#EED49F' # yellow
-      blue:    '#3a4b6e' # blue
-      magenta: '#F5BDE6' # pink
+      blue:    '#4f8aff' # blue
+      magenta: '#cc47a5' # pink
       cyan:    '#5c968e' # teal
       white:   '#B8C0E0' # subtext1
 
@@ -232,8 +232,8 @@ color_schemes:
       red:     '#ED8796' # red
       green:   '#A6DA95' # green
       yellow:  '#EED49F' # yellow
-      blue:    '#3a4b6e' # blue
-      magenta: '#F5BDE6' # pink
+      blue:    '#4f8aff' # blue
+      magenta: '#cc47a5' # pink
       cyan:    '#5c968e' # teal
       white:   '#A5ADCB' # subtext0
 
@@ -243,8 +243,8 @@ color_schemes:
       red:     '#ED8796' # red
       green:   '#A6DA95' # green
       yellow:  '#EED49F' # yellow
-      blue:    '#3a4b6e' # blue
-      magenta: '#F5BDE6' # pink
+      blue:    '#4f8aff' # blue
+      magenta: '#cc47a5' # pink
       cyan:    '#5c968e' # teal
       white:   '#B8C0E0' # subtext1
 
@@ -304,7 +304,7 @@ color_schemes:
       red:     '#F38BA8' # red
       green:   '#A6E3A1' # green
       yellow:  '#F9E2AF' # yellow
-      blue:    '#3a4b6e' # blue
+      blue:    '#4f8aff' # blue
       magenta: '#F5C2E7' # pink
       cyan:    '#94E2D5' # teal
       white:   '#BAC2DE' # subtext1
@@ -315,7 +315,7 @@ color_schemes:
       red:     '#F38BA8' # red
       green:   '#A6E3A1' # green
       yellow:  '#F9E2AF' # yellow
-      blue:    '#3a4b6e' # blue
+      blue:    '#4f8aff' # blue
       magenta: '#F5C2E7' # pink
       cyan:    '#94E2D5' # teal
       white:   '#A6ADC8' # subtext0
@@ -326,7 +326,7 @@ color_schemes:
       red:     '#F38BA8' # red
       green:   '#A6E3A1' # green
       yellow:  '#F9E2AF' # yellow
-      blue:    '#3a4b6e' # blue
+      blue:    '#4f8aff' # blue
       magenta: '#F5C2E7' # pink
       cyan:    '#94E2D5' # teal
       white:   '#BAC2DE' # subtext1
@@ -337,6 +337,7 @@ color_schemes:
 
 colors: *macchiato
 
+# To get keybinding, just run: xxd -psd
 key_bindings:
   - { key: Home,                    chars: "\x1bOH",   mode: AppCursor   }
   - { key: Home,                    chars: "\x1b[H",   mode: ~AppCursor  }
@@ -381,6 +382,7 @@ key_bindings:
   - { key: J, mods: Shift|Command, chars: "\x18\x6a" }
   - { key: K, mods: Shift|Command, chars: "\x18\x6b" }
   - { key: L, mods: Shift|Command, chars: "\x18\x6c" }
+  - { key: O, mods: Command, chars: "\x18\x7a" }
   - { key: O, mods: Shift|Command, chars: "\x18\x7a" }
   - { key: Key1, mods: Command, chars: "\x18\x31" }
   - { key: Key2, mods: Command, chars: "\x18\x32" }
@@ -396,6 +398,7 @@ key_bindings:
   - { key: S, mods: Command, chars: "\x18\x77" }
   - { key: Slash, mods: Command, chars: "\x18\x2f" }
   - { key: R,     mods: Command,     chars: "\x18\x2c"                    }
+  - { key: Comma,     mods: Command,     chars: "\x18\x09"                    }
 
   # Linux
   - { key: A, mods: Alt,  chars: "\x1bOH",   mode: AppCursor   }
@@ -420,6 +423,7 @@ key_bindings:
   - { key: J, mods: Shift|Alt, chars: "\x18\x6a" }
   - { key: K, mods: Shift|Alt, chars: "\x18\x6b" }
   - { key: L, mods: Shift|Alt, chars: "\x18\x6c" }
+  - { key: O, mods: Alt, chars: "\x18\x7a" }
   - { key: O, mods: Shift|Alt, chars: "\x18\x7a" }
   - { key: Key1, mods: Alt, chars: "\x18\x31" }
   - { key: Key2, mods: Alt, chars: "\x18\x32" }
@@ -435,4 +439,5 @@ key_bindings:
   - { key: S, mods: Alt, chars: "\x18\x77" }
   - { key: Slash, mods: Alt, chars: "\x18\x2f" }
   - { key: R,     mods: Alt,     chars: "\x18\x2c"                    }
+  - { key: Comma,     mods: Alt,     chars: "\x18\x09"                    }
 
