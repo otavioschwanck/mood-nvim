@@ -316,6 +316,10 @@ if windwidth <= 84 or #data > estimated_space_available then
   end
 
   ins_right {
+    'progress',
+  }
+
+  ins_right {
     function()
       return 'ﴵ %-2v'
     end,
@@ -334,8 +338,7 @@ if windwidth <= 84 or #data > estimated_space_available then
 
   ins_right {
     'filetype',
-    colored = true,
-    icon_only = false,
+    icons_enabled = false,
     cond = filetype_cond,
     color = { fg = colors.blue, gui = 'bold' },
   }
