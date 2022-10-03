@@ -298,7 +298,6 @@ function M.setup_mappings()
   set('n', 'gF', '<C-w>f')
   set('i', '<C-d>', '<Delete>')
   set('c', '<C-d>', '<Delete>')
-  set('n', '<CR>', ':call Maximize()<CR>')
   set('x', 'gl', '<Plug>(EasyAlign)')
 
   set('n', 'H', ':lua require("harpoon.ui").nav_prev()<CR>')
