@@ -35,6 +35,14 @@ function M.setup()
       endif
     endfunction
 
+    function SearchClassName()
+      let class_name = GetClassName()
+
+      if class_name != ""
+        execute ":Telescope grep_string search=" . class_name
+      endif
+    endfunction
+
     function GetClassName()
       let filetype = getbufvar('', '&filetype', 'ERROR')
 
@@ -68,8 +76,12 @@ function M.setup()
 
         if class_name != ''
           echo "Copied to clipboard: " . class_name
+
+          return class_name
         else
           echo "No class or module found"
+
+          return ""
         endif
       endif
     endfunction
