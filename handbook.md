@@ -110,7 +110,7 @@ Control-l: clear-screen
 
 With this extension and settings, you can edit like vim in terminal.
 
-`Ctrl + k` Hide terminal and go back to code
+`Ctrl + o` Hide terminal and go back to code
 `Ctrl + g`  Go to normal mode inside terminal
 
 `SPC v` open a blank terminal
