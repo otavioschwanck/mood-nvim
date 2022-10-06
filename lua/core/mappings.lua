@@ -253,11 +253,11 @@ function M.setup_mappings()
   set('n', '<Esc>', ':noh<CR><esc>', bufopts)
 
   -- term stuff
-  set('t', '<C-o>', function()
+  set('t', '<C-k>', function()
     vim.cmd(':call CloseTerminal()')
   end)
 
-  set('n', '<C-o>', function()
+  set('n', '<C-k>', function()
     vim.cmd(':call CloseTerminal()')
   end)
 
