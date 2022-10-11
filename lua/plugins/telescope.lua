@@ -36,6 +36,9 @@ function M.setup()
       current_buffer_fuzzy_find = vertical_search
     },
     extensions = {
+      fzf = {
+        fuzzy = false,
+      },
       ["ui-select"] = {
         require("telescope.themes").get_dropdown { }
       },
@@ -99,6 +102,7 @@ function M.setup()
   require('telescope').load_extension('ultisnips')
   require('telescope').load_extension('dap')
   require('telescope').load_extension('telescope-alternate')
+  require('telescope').load_extension('fzf')
 
   require('neoclip').setup({
     enable_persistent_history = true,
