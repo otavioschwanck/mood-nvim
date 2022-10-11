@@ -37,7 +37,7 @@ function M.setup()
     },
     extensions = {
       fzf = {
-        fuzzy = false,
+        fuzzy = true,
       },
       ["ui-select"] = {
         require("telescope.themes").get_dropdown { }
