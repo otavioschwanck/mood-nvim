@@ -119,11 +119,8 @@ require "lsp_signature".setup()
 
 local lspconfig = require('lspconfig')
 
-local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
-
 lspconfig.solidity.setup({
   on_attach = on_attach,
-  capabilities = capabilities,
   settings = {
     solidity = { includePath = '', remapping = { ["@OpenZeppelin/"] = 'OpenZeppelin/openzeppelin-contracts@4.6.0/' } }
   },
@@ -132,7 +129,6 @@ lspconfig.solidity.setup({
 require'lspconfig'.html.setup {
   filetypes = { "eruby", "html" },
   on_attach = on_attach,
-  capabilities = capabilities,
   init_options = {
     configurationSection = { "html", "css", "javascript", "eruby" },
     embeddedLanguages = {
@@ -145,7 +141,6 @@ require'lspconfig'.html.setup {
 
 lspconfig.solargraph.setup {
   on_attach = on_attach,
-  capabilities = capabilities,
   settings = {
     solargraph = {
       diagnostics = false
@@ -155,7 +150,6 @@ lspconfig.solargraph.setup {
 
 lspconfig.diagnosticls.setup {
   filetypes = { "ruby" },
-  capabilities = capabilities,
   init_options = {
     linters = {
       rubocop = {
@@ -261,8 +255,6 @@ lspconfig.diagnosticls.setup {
 for _, lsp in pairs(servers) do
   lspconfig[lsp].setup {
     on_attach = on_attach,
-    capabilities = capabilities,
-
     flags = {
       -- This will be the default in neovim 0.7+
       debounce_text_changes = 50,
