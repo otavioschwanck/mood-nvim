@@ -293,6 +293,14 @@ On command mode `:`, you can press C-v to paste, `C-j` to go back one word, and 
 
 `:markdownPreview` is awesome to create markdown files.
 
+### Reseting configs
+
+After while, i add some new features on the base configs (like tmux, alacritty, lsp, etc).  You can:
+
+:CleanConfigsExceptBaseConfig = Clean everything, except config.lua (recommended)
+:CleanConfigs = Clean everything, including config.lua
+:CleanConfigsExceptUsers = Clean tmux, alacritty and lazygit.
+
 ### For additional commands, just press SPC and follow your heart.
 
 # Alacritty + Tmux + Tmuxinator

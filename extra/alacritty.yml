@@ -357,7 +357,15 @@ key_bindings:
 
   - { key: Back,     mods: Shift,     chars: "\x1b\x7f"                    }
   - { key: R,     mods: Alt,     chars: "\x18\x2c"                    }
-  - { key: Space,     mods: Control,     chars: "\0" }
+  - { key: Space,     mods: Control,     chars: "\x00" }
+  - { key: N,     mods: Shift|Command,     chars: "\x18\x29" }
+  - { key: N,     mods: Shift|Alt,     chars: "\x18\x29" }
+  - { key: P,     mods: Shift|Command,     chars: "\x18\x28" }
+  - { key: P,     mods: Shift|Alt,     chars: "\x18\x28" }
+  - { key: T,     mods: Shift|Command,     chars: "\x18\x43" }
+  - { key: T,     mods: Shift|Alt,     chars: "\x18\x43" }
+  - { key: R,     mods: Shift|Command,     chars: "\x18\x24" }
+  - { key: R,     mods: Shift|Alt,     chars: "\x18\x24" }
 
   # Mac
   - { key: A, mods: Command,  chars: "\x1bOH",   mode: AppCursor   }

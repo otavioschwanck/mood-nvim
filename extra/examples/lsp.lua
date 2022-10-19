@@ -31,8 +31,6 @@ vim.diagnostic.config {
 }
 
 -- -- Show line diagnostics automatically in hover window (Uncomment if you set virtual_text to false)
--- vim.o.updatetime = 250
--- vim.cmd [[autocmd CursorHold,CursorHoldI * lua vim.diagnostic.open_float(nil, {focus=false})]]
 
 -------------------------
 -- NVIM CMP (SNIPPETS) --
@@ -141,6 +139,9 @@ require'lspconfig'.html.setup {
 
 lspconfig.solargraph.setup {
   on_attach = on_attach,
+  flags = {
+    debounce_text_changes = 50,
+  },
   settings = {
     solargraph = {
       diagnostics = false
@@ -150,6 +151,7 @@ lspconfig.solargraph.setup {
 
 lspconfig.diagnosticls.setup {
   filetypes = { "ruby" },
+  single_file_support = false,
   init_options = {
     linters = {
       rubocop = {

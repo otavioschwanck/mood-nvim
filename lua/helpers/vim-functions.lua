@@ -217,6 +217,14 @@ function M.setup()
       execute "!sh ~/.config/nvim/bin/clean.sh"
     endfunction
 
+    function s:CleanBasicConfigs()
+      execute "!sh ~/.config/nvim/bin/basic_clean.sh"
+    endfunction
+
+    function s:CleanAllExceptConfig()
+      execute "!sh ~/.config/nvim/bin/clean_all_except_config.sh"
+    endfunction
+
 
     function s:UpdateMood()
       execute "!cd ~/.config/nvim; git pull origin main -f"
@@ -226,6 +234,8 @@ function M.setup()
     endfunction
 
     command! CleanConfigs :call s:CleanConfigs()
+    command! CleanConfigsExceptUsers :call s:CleanBasicConfigs()
+    command! CleanConfigsExceptBaseConfig :call s:CleanAllExceptConfig()
     command! UpdateMood :call s:UpdateMood()
 
     function! ExecuteMacroOverVisualRange()
