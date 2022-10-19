@@ -11,10 +11,3 @@ if test -f "$ALACRITTY"; then
   rm $ALACRITTY
   echo "$ALACRITTY Removed successfully..."
 fi
-
-
-PLUGINS=~/.config/nvim/lua/user/plugins.lua
-if test -f "$PLUGINS"; then
-  rm $PLUGINS
-  echo "$PLUGINS Removed successfully..."
-fi
