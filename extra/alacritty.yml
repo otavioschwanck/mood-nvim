@@ -357,7 +357,10 @@ key_bindings:
 
   - { key: Back,     mods: Shift,     chars: "\x1b\x7f"                    }
   - { key: R,     mods: Alt,     chars: "\x18\x2c"                    }
+  - { key: Return,     mods: Shift,     chars: "\x00" }
   - { key: Space,     mods: Control,     chars: "\x00" }
+  - { key: Space,     mods: Alt,     chars: "\x00" }
+  - { key: Space,     mods: Command,     chars: "\x00" }
   - { key: N,     mods: Shift|Command,     chars: "\x18\x29" }
   - { key: N,     mods: Shift|Alt,     chars: "\x18\x29" }
   - { key: P,     mods: Shift|Command,     chars: "\x18\x28" }
