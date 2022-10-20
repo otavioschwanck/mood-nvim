@@ -204,28 +204,28 @@ To execute some command in all items of the quickfix list, just run `:cfdo S/old
 
 I Consider this way the most efficient way to create files and find files on current file folder.
 
-| Insert / Normal         | / Action                                                                    |
-|-------------------------|-----------------------------------------------------------------------------|
-| Most Important commands |                                                                             |
-|-------------------------|-----------------------------------------------------------------------------|
-| tab                     | Mark item to item to move / copy / Rename                                   |
-| C-f                     | Go to a folder on project (super useful to create new files / move)         |
-| C-space                 | Create file/folder from what you typed on prompt                            |
-| C-p                     | Paste Stuff that will marked with tab                                       |
-| C-r                     | Rename multi-selected files/folders                                         |
-| C-e                     | Move multi-selected files/folders to current path                           |
-| C-c/c                   | Go to parent directory                                                      |
-| C-o/o                   | Delete selected file(s)                                                     |
-| C-g                     | Go to current working directory (cwd)                                       |
-|-------------------------|-----------------------------------------------------------------------------|
-| Other commands          |                                                                             |
-|-------------------------|-----------------------------------------------------------------------------|
-| C-o/o                   | Open file/folder with default system application                            |
-| C-t/t                   | Change nvim's cwd to selected folder/file(parent)                           |
-| C-f/f                   | Toggle between file and folder browser                                      |
-| C-h/h                   | Toggle hidden files/folders                                                 |
-| C-s/s                   | Toggle all entries ignoring ./ and ../                                      |
-|-------------------------|-----------------------------------------------------------------------------|
+| Insert / Normal              | / Action                                                            |
+|------------------------------|---------------------------------------------------------------------|
+| Most Important commands      |                                                                     |
+|------------------------------|---------------------------------------------------------------------|
+| tab                          | Mark item to item to move / copy / Rename                           |
+| C-f                          | Go to a folder on project (super useful to create new files / move) |
+| C-space or S-RET (alacritty) | Create file/folder from what you typed on prompt                    |
+| C-p                          | Paste Stuff that will marked with tab                               |
+| C-r                          | Rename multi-selected files/folders                                 |
+| C-e                          | Move multi-selected files/folders to current path                   |
+| C-c/c                        | Go to parent directory                                              |
+| C-o/o                        | Delete selected file(s)                                             |
+| C-g                          | Go to current working directory (cwd)                               |
+|------------------------------|---------------------------------------------------------------------|
+| Other commands               |                                                                     |
+|------------------------------|---------------------------------------------------------------------|
+| C-o/o                        | Open file/folder with default system application                    |
+| C-t/t                        | Change nvim's cwd to selected folder/file(parent)                   |
+| C-f/f                        | Toggle between file and folder browser                              |
+| C-h/h                        | Toggle hidden files/folders                                         |
+| C-s/s                        | Toggle all entries ignoring ./ and ../                              |
+|------------------------------|---------------------------------------------------------------------|
 
 # Snippets and autocomplete
 
