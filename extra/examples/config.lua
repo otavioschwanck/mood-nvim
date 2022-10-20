@@ -108,6 +108,7 @@ local four_space_languages = { "solidity" }
 local autocommands = {
   { {"FileType"}, two_space_languages, function() vim.cmd('setlocal shiftwidth=2 tabstop=2') end },
   { {"FileType"}, four_space_languages, function() vim.cmd('setlocal shiftwidth=2 tabstop=2') end },
+  -- { {'BufWritePre'}, {"*.rb"}, function() vim.lsp.buf.formatting() end, }, -- rubocop on save
   -- Prettier for TS/JS:
   -- { {'BufWritePre'}, {"*.tsx", "*.ts", "*.jsx", "*.js"}, function() vim.cmd("PrettierAsync") end, } -- Run Command before save (can be any command)
 }
