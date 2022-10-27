@@ -11,6 +11,7 @@ function M.setup()
     end
 
     use {'nvim-telescope/telescope-fzf-native.nvim', run = 'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build' }
+    use 'weizheheng/ror.nvim'
     use { 'otavioschwanck/telescope-alternate.nvim' }
     use { 'AndrewRadev/bufferize.vim' }
     use { 'mfussenegger/nvim-dap' }
@@ -195,6 +196,8 @@ function M.setup()
       }
     }
   }
+
+  require("ror").setup({})
 
   require("nvim-lsp-installer").setup({
     automatic_installation = { exclude = { "solargraph", "sorbet" } },
