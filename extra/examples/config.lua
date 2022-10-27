@@ -1,6 +1,5 @@
 -- Theme?
-vim.g.catppuccin_flavour = "macchiato" -- latte, frappe, macchiato, mocha
-vim.cmd('colorscheme catppuccin')
+vim.cmd('colorscheme catppuccin-macchiato')
 
 -- Directory to store your notes (SPC z z)
 vim.g.notes_directories = { '~/Documents/Notes' }
