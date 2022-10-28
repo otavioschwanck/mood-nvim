@@ -410,6 +410,7 @@ key_bindings:
   - { key: Slash, mods: Command, chars: "\x18\x2f" }
   - { key: R,     mods: Command,     chars: "\x18\x2c"                    }
   - { key: Comma,     mods: Command,     chars: "\x18\x09"                    }
+  - { key: LBracket,     mods: Command,     chars: "\x18\x5b" }
 
   # Linux
   - { key: A, mods: Alt,  chars: "\x1bOH",   mode: AppCursor   }
@@ -451,4 +452,5 @@ key_bindings:
   - { key: Slash, mods: Alt, chars: "\x18\x2f" }
   - { key: R,     mods: Alt,     chars: "\x18\x2c"                    }
   - { key: Comma,     mods: Alt,     chars: "\x18\x09"                    }
+  - { key: LBracket,     mods: Alt,     chars: "\x18\x5b" }
 
