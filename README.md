@@ -22,7 +22,7 @@ mooD Nvim is a configuration made for those who wants to install and use, withou
 ![demo](extra/demo.gif)
 
 # Dependencies
-- Neovim > 0.7 && < 0.8
+- Neovim >= 0.8 <= 0.9
 - lazygit
 - ripgrep
 - NerdFonts
@@ -124,16 +124,15 @@ Run `:UpdateMood`.
 
 Just press `SPC h h` to open the handbook inside vim.
 
-# Breaking Changes
-
-## 19/07/2022
-Catppuccin is no longer supported.  Please change your default theme to `onedarkpro`.
-
 # Troubleshoot
 
 ## Error on python for some reason.
 
 Check your personal config `SPC f p` at the bottom. Set the python envs to their real values.
+
+(which python3 or which python) to see the host directory
+
+vim.g.python3_host_prog = '/Users/otavio/.pyenv/shims/python3'
 
 # Other tips
 
