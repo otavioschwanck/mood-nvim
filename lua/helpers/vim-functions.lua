@@ -163,6 +163,14 @@ function M.setup()
       echom "Yanked: " . value
     endfunction
 
+    function Maximize()
+      if expand('%') != '' && (&buftype != '' || &filetype != '') && &buftype != 'nofile' && &buftype != 'qf' && &buftype != 'quickfix'
+        lua require('utils.maximize')()
+      else
+        execute "norm! \<CR>"
+      endif
+    endfunction
+
     function! TermStrategy(cmd)
       execute "call OpenTerm(a:cmd, 'Vim Test', 2, 0)"
     endfunction

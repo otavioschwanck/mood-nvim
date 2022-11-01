@@ -251,6 +251,21 @@ if windwidth <= 84 or #data > estimated_space_available then
     cond = has_50_space,
   }
 
+  ins_left {
+    function()
+      if vim.g.maximized then
+        if(has_50_space) then
+          return " Window Maximized"
+        else
+          return ""
+        end
+      end
+
+      return ""
+    end,
+    color = { fg = colors.orange }
+  }
+
   -- Insert mid section. You can make any number of sections in neovim :)
   -- for lualine it's any number greater then 2
   ins_left {

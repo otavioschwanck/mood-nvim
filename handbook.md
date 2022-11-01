@@ -80,6 +80,9 @@ OBS: This list persist between vim sections
 | M-j     | Focus Window in the bottom                               |
 | M-k     | Focus Window in the top                                  |
 | ,       | Go to next window                                        |
+|---------|----------------------------------------------------------|
+| C-w o   | Maximize window                                          |
+| ENTER   | Maximize window temporary (press ENTER again to restore)
 
 `<C-w>u` will undo a closed window.
 
