@@ -255,7 +255,7 @@ if windwidth <= 84 or #data > estimated_space_available then
     function()
       if vim.g.maximized then
         if(has_50_space) then
-          return " Window Maximized"
+          return "  Maximized"
         else
           return ""
         end
