@@ -159,13 +159,6 @@ function M.setup()
   filename_with_icon.apply_icon = require('lualine.components.filetype').apply_icon
   filename_with_icon.icon_hl_cache = {}
 
-  ins_left_both {
-    filename_with_icon,
-    cond = conditions.buffer_not_empty,
-    colored = true,
-    color = { fg = colors.magenta, gui = 'bold' },
-  }
-
   local function shorten_path(path, sep)
     -- ('([^/])[^/]+%/', '%1/', 1)
     return path:gsub(string.format('([^%s])[^%s]+%%%s', sep, sep, sep), '%1' .. sep, 1)
@@ -181,13 +174,13 @@ function M.setup()
 
       if dir == vim.fn.getcwd() then
         return " Project Root"
-    else
-local windwidth = options.globalstatus and vim.go.columns or vim.fn.winwidth(0)
-local estimated_space_available = windwidth - options.shorting_target
+      else
+        local windwidth = options.globalstatus and vim.go.columns or vim.fn.winwidth(0)
+        local estimated_space_available = windwidth - options.shorting_target
 
-local data = vim.fn.fnamemodify(dir, ":~:.")
-for _ = 0, count(data, '/') do
-if windwidth <= 84 or #data > estimated_space_available then
+        local data = vim.fn.fnamemodify(dir, ":~:.")
+        for _ = 0, count(data, '/') do
+          if windwidth <= 84 or #data > estimated_space_available then
             data = shorten_path(data, '/')
           end
         end
@@ -197,6 +190,13 @@ if windwidth <= 84 or #data > estimated_space_available then
     end,
     cond = conditions.buffer_not_empty,
     color = { fg = colors.violet },
+  }
+
+  ins_left_both {
+    filename_with_icon,
+    cond = conditions.buffer_not_empty,
+    colored = true,
+    color = { fg = colors.magenta, gui = 'bold' },
   }
 
   local function harpoon_cond()
@@ -254,7 +254,7 @@ if windwidth <= 84 or #data > estimated_space_available then
   ins_left {
     function()
       if vim.g.maximized then
-        if(has_50_space) then
+        if (has_50_space) then
           return "  Maximized"
         else
           return ""

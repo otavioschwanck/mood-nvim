@@ -20,7 +20,6 @@ require('plugins.tree-sitter').setup()
 require('plugins.autopairs').setup()
 require('plugins.yanky').setup()
 require('plugins.dashboard_plugin').setup()
-require('plugins.nvim-tree').setup()
 require('plugins.lualine').setup()
 require('plugins.ctrlsf').setup()
 
@@ -28,6 +27,8 @@ require('plugins.ctrlsf').setup()
 require('user.lsp')
 require('user.config')
 require('user.debugger')
+
+require('plugins.nvim-tree').setup()
 
 -- startup
 require('core.start').setup()
