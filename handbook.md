@@ -88,29 +88,6 @@ OBS: This list persist between vim sections
 
 # Terminal Management
 
-Is recommended to add vi-mode to your plugins in `oh-my-zsh`, like that:
-
-`plugins=(git rails git ruby zsh-autosuggestions vi-mode)`
-
-Also, verify if your ~/.zshrc or ~/.bashrc has:
-
-```
-export VISUAL="nvim -u ~/.config/nvim/visual.lua"
-export EDITOR="nvim -u ~/.config/nvim/visual.lua"
-
-bindkey -v # Vi Mode
-set -o vi
-KEYTIMEOUT=5
-```
-
-and your .inputrc has:
-
-```
-set editing-mode vi
-set keymap vi-insert
-Control-l: clear-screen
-```
-
 With this extension and settings, you can edit like vim in terminal.
 
 `Ctrl + k` Hide terminal and go back to code

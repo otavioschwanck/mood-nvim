@@ -9,6 +9,8 @@ PACKER_DIR=".local/share/nvim/site/pack/packer/start/packer.nvim"
 export LAZY_VER="0.35" # LAZYGIT VERSION
 TODAY=(date +"%m-%d-%y")
 
+cd ~/
+
 get_bash_profile () {
   if test -f ~/.zshrc; then
     BASH_PROFILE=(.zshrc)
@@ -177,19 +179,6 @@ linux_workflow () {
   ask_question "LazyGit" install_lazygit_linux
 }
 
-install_vi_mode () {
-  echo 'bindkey -v # Vi Mode' >> ~/$BASH_PROFILE
-  echo 'KEYTIMEOUT=5 # vi mode timeout improvement' >> ~/$BASH_PROFILE
-  echo 'export VISUAL="nvim -u ~/.config/nvim/visual.lua"' >> ~/$BASH_PROFILE
-  echo 'export EDITOR="nvim -u ~/.config/nvim/visual.lua"' >> ~/$BASH_PROFILE
-  echo "bindkey -M vicmd 'V' edit-command-line" >> ~/$BASH_PROFILE
-  echo "set editing-mode vi" >> ~/.inputrc
-  echo "set keymap vi-command" >> ~/.inputrc
-  echo "Control-l: clear-screen" >> ~/.inputrc
-  echo "Configuring vi-mode on terminal.  Is recommended to also install vi-mode plugin"
-  echo "[IMPORTANT] You can found it here: https://github.com/jeffreytse/zsh-vi-mode"
-}
-
 mac_workflow () {
   FONTS_LIBRARY="/Library/Fonts"
   ask_question "base packages for neovim" install_packages_mac
@@ -210,7 +199,6 @@ esac
 
 install_fonts
 install_gems
-install_vi_mode
 install_nvim
 
 echo "Script finished!"
