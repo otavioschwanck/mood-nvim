@@ -19,7 +19,7 @@ require('core.settings').remove_bicycle_small_whells({ includeNormalMode = true 
 -- Examples o = { r = { "command", "description" } } = SPC o r to call
 wk.register({
   -- Example of custom terminal commands
-  ["="] = { ":w | :silent !bundle exec rubocop -A %<CR>", "Rubocop on current file" },
+  ["="] = { ":w | :silent !bundle exec rubocop -A %<CR>:e %<CR>", "Rubocop on current file" },
   ["+"] = call_term('bundle exec rubocop -A', 'rubocop', 2, 0, { pre_command = ':w |' }),
   o = {
     d = {
