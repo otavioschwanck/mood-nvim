@@ -169,6 +169,13 @@ function M.setup()
   end
 
   ins_left_both {
+    filename_with_icon,
+    cond = conditions.buffer_not_empty,
+    colored = true,
+    color = { fg = colors.magenta, gui = 'bold' },
+  }
+
+  ins_left_both {
     function()
       local dir = vim.fn.expand("%:p:h")
 
@@ -190,13 +197,6 @@ function M.setup()
     end,
     cond = conditions.buffer_not_empty,
     color = { fg = colors.violet },
-  }
-
-  ins_left_both {
-    filename_with_icon,
-    cond = conditions.buffer_not_empty,
-    colored = true,
-    color = { fg = colors.magenta, gui = 'bold' },
   }
 
   local function harpoon_cond()
