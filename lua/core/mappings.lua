@@ -10,6 +10,8 @@ local call_right_debugger = function()
   end
 end
 
+local tmux = require("tmux-awesome-manager")
+
 function M.setup_which_key()
   local wk = require("which-key")
 
@@ -29,7 +31,10 @@ function M.setup_which_key()
   z = {
     n = { ":NoteFromSelectedText<CR>", "New Note from Selected Text" }
     },
-  l = { "<Plug>Send", "Send Text to Term" },
+  l = {
+    tmux.send_text_to,
+    "Send selection to tmux window / pane",
+  },
   c = {
     name = "+Lsp",
     a = { "<cmd>lua vim.lsp.buf.range_code_action()<CR>", "Code Action" }
@@ -92,8 +97,6 @@ function M.setup_which_key()
     c = { ":Camel<CR>", "camelCase" },
     b = { ":CamelB<CR>", "CamelCaseB" }
     },
-  l = { ":lua require('plugins.telescope.custom').terminals()<CR>", "List All Terminals" },
-  L = { ":SendHere<CR>", "Mark Terminal to Send Text" },
   h = {
     name = "+Help",
     t = { ":Telescope colorscheme<CR>", "Change Theme" },
@@ -113,6 +116,14 @@ function M.setup_which_key()
      a = { ":call AppendClipboardToQuickConsult()<CR>", "Append Text From Clipboard to Quick Consult" },
      s = { ":call SaveClipboardToQuickConsult()<CR>", "Save Text From Clipboard to Quick Consult" }
    },
+  l = {
+    name = '+TMUX Terminals',
+    o = { tmux.switch_orientation, 'Switch Orientation' },
+    p = { tmux.switch_open_as, 'Switch Open As to Pane / Window' },
+    f = { ':Telescope tmux-awesome-manager list_terms<CR>', 'List all Terms' },
+    l = { ':Telescope tmux-awesome-manager list_open_terms<CR>', 'List Open Terms' },
+    k = { tmux.kill_all_terms, 'Kill all Terms' }
+  },
   t = {
     name = '+Test',
     v = { ":TestFile<CR>", "Test Current File" },
@@ -183,10 +194,8 @@ function M.setup_which_key()
     C = { ":call SearchClassName()<CR>", "Search current class on project" },
     d = { ":lua require('mood-scripts.rubocop').comment_rubocop()<CR>", "Comment Rubocop Error" },
     },
-  ["#"] = { ":lua require('mood-scripts.command-on-start').restart(true)<CR>", "Execute / Re-excute project terminals" },
+  ["#"] = { tmux.run_project_terms, "Execute / Re-excute project terminals" },
   ["%"] = { ":lua require('mood-scripts.command-on-start').restart_all()<CR>", "TMUX: Execute / Re-execute project terminal all" },
-  ["!"] = { ":call RunLastTermCommand()<CR>", "Run Last Terminal Command" },
-  ["i"] = { ":call OpenTermFromLastCommand()<CR>", "Open Term From Last Command" },
   g = {
     name = "+Git",
     g = { ":LazyGit<CR>", "LazyGit" },
@@ -205,7 +214,6 @@ function M.setup_which_key()
     },
   [','] = { ":Telescope buffers only_cwd=true ignore_current_buffer=true sort_mru=true<CR>", "Find Buffers in this project" },
   ['<tab>'] = { ":Telescope git_status<CR>", "Git Modified Files" },
-  v = { ":call OpenTerm('', 'Quick Term', 1, 0)<CR>", "Open a blank terminal" },
   j = {
     name = "+Rest",
     r = { "<Plug>RestNvim<CR>", "Run" },
@@ -228,8 +236,6 @@ function M.setup_which_key()
     },
     q = {
       name = "+Quit and Close",
-      s = { ":lua require('mood-scripts.command-on-start').restart(false)<CR>", "Kill all servers terminals" },
-      S = { ":lua require('mood-scripts.command-on-start').kill_all()<CR>", "TMUX: Kill all servers terminals" },
       q = { ":qall<CR>", "Quit Vim" },
       c = {":cclose<CR>", "Quick Fix Close"},
       d = { ":DiffviewClose<CR>", "Close Diffview" }
@@ -251,15 +257,6 @@ function M.setup_mappings()
   set('n', '[g', ':Gitsigns prev_hunk<CR>', bufopts)
   set('n', 'yb', ':%y+<CR>', bufopts)
   set('n', '<Esc>', ':noh<CR><esc>', bufopts)
-
-  -- term stuff
-  set('t', '<C-k>', function()
-    vim.cmd(':call CloseTerminal()')
-  end)
-
-  set('n', '<C-k>', function()
-    vim.cmd(':call CloseTerminal()')
-  end)
 
   set('t', '<C-g>', '<C-\\><C-n>')
   set('t', '<C-v>', '<C-\\><C-N>pi')

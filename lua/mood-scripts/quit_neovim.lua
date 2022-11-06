@@ -1,50 +1,23 @@
 local filter = vim.tbl_filter
 
-local function find_terminals()
-  local bufnrs = filter(function(b)
-    if not (vim.fn.getbufvar(b, '&buftype', 'ERROR') == 'terminal') then
-    return false
-  end
-
-    if string.find(vim.fn.bufname(b), ':lazygit') then
-    return false
-  end
-
-    return true
-  end, vim.api.nvim_list_bufs())
-
-  return bufnrs
-end
-
 local function quit_neovim()
-  local bufnrs = find_terminals()
+  local term = require('tmux-awesome-manager')
 
-  for key, buf in pairs(bufnrs) do
-    local channel = vim.fn.getbufvar(buf, '&channel')
+  local keyset = {}
+  local n = 0
 
-    vim.cmd("call chansend(" .. channel  .. ', "\\<C-c>")')
-    vim.fn.jobstop(channel)
+  for k, v in pairs(vim.g.tmux_open_terms) do
+    n = n + 1
+    keyset[n] = k
   end
 
-  local all_closed = false
+  if n > 0 then
+    local response = vim.fn.input("There is some terminals open.  Close then before exit? y/n  ")
 
-  require('notify')('Closing Terminals...  Good Bye!', 'info', { title='mooD' })
-
-  repeat
-    all_closed = true
-
-    for key, buf in pairs(bufnrs) do
-      local channel = vim.fn.getbufvar(buf, '&channel')
-
-      if vim.fn.jobwait({channel}, 0)[1] == -3 then
-        if (vim.fn.bufexists(buf)) then
-          vim.cmd("bdelete! " .. buf)
-        end
-      else
-        all_closed = false
-      end
+    if response == 'y' or response == 's' or response == 'Y' then
+      term.kill_all_terms()
     end
-  until all_closed
+  end
 end
 
 return quit_neovim

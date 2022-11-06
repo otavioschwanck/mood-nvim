@@ -18,6 +18,35 @@ function M.setup()
       return l:word
     endfunction
 
+    function OpenTestAlternateAndSplit()
+      let win_count = luaeval('require("utils.buf_count")()')
+      let test_path = eval('rails#buffer().alternate()')
+
+      execute "normal! \<C-w>o"
+
+      execute "norm \<C-w>v"
+
+      execute "call OpenTestAlternate()"
+
+      if test_path =~ 'app/'
+        execute "norm \<C-w>x"
+      endif
+    endfunction
+
+    function OpenTestAlternate()
+      let test_path = eval('rails#buffer().alternate()')
+
+      execute "e " . test_path
+
+      if !filereadable(test_path) && join(getline(1,'$'), "\n") == ''
+        if test_path =~ "spec/"
+          execute "norm itemplate_test\<C-j>"
+        else
+          execute "norm iminitest\<C-j>"
+        endif
+      endif
+    endfunction
+
     function! RemoveQFItem()
       let curqfidx = line('.') - 1
       let qfall = getqflist()
@@ -28,12 +57,6 @@ function M.setup()
     endfunction
 
     command! RemoveQFItem :call RemoveQFItem()
-
-    function OpenCommand()
-      if &filetype == 'dashboard'
-        lua require('mood-scripts.command-on-start').autostart()
-      endif
-    endfunction
 
     function SearchClassName()
       let class_name = GetClassName()

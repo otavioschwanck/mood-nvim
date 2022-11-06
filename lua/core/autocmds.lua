@@ -16,8 +16,6 @@ local autocommands = {
   { {"BufWritePre"}, {"*"}, function() vim.cmd('call mkdir(expand("<afile>:p:h"), "p")') end },
   { {"TermOpen"}, {"*"}, function() vim.cmd('setlocal nobuflisted') end },
   { {"BufEnter"}, {"*"}, function() vim.cmd('ColorizerAttachToBuffer') end },
-  { {"VimLeavePre"}, {"*"}, function() require('mood-scripts.quit_neovim')() end },
-  { {"BufReadPost"}, {"*"}, function() require('mood-scripts.command-on-start').autostart() end },
   { {"FileType"}, {"qf"}, function() vim.cmd('map <buffer> dd :RemoveQFItem<CR>') end },
   { {"TermOpen"}, {"*"}, function() vim.cmd('setlocal nonumber norelativenumber') end },
 

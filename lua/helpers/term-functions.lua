@@ -2,156 +2,19 @@ local M = {}
 
 function M.setup()
   vim.cmd([[
-    function OpenTestAlternateAndSplit()
-      let win_count = luaeval('require("utils.buf_count")()')
-      let test_path = eval('rails#buffer().alternate()')
-
-      execute "normal! \<C-w>o"
-
-      execute "norm \<C-w>v"
-
-      execute "call OpenTestAlternate()"
-
-      if test_path =~ 'app/'
-        execute "norm \<C-w>x"
-      endif
-    endfunction
-
-    function OpenTestAlternate()
-      let test_path = eval('rails#buffer().alternate()')
-
-      execute "e " . test_path
-
-      if !filereadable(test_path) && join(getline(1,'$'), "\n") == ''
-        if test_path =~ "spec/"
-          execute "norm itemplate_test\<C-j>"
-        else
-          execute "norm iminitest\<C-j>"
-        endif
-      endif
-    endfunction
-
-    function CloseTerminal()
-      if &buftype == 'terminal'
-        let win_count = luaeval('require("utils.buf_count")()')
-
-        if win_count <= 1
-          if(tabpagenr() != 1)
-            execute "tabclose"
-          else
-            lua require("utils.goto_last_file_buffer")()
-          endif
-        else
-          if b:common_open == 1
-            execute "wincmd W"
-          else
-            try
-              execute "close"
-            catch /.*/
-              call timer_start(2000, {-> execute("call CloseTerminal()") })
-            endtry
-          endif
-        endif
-      endif
-    endfunction
-
-    function RunLastTermCommand()
-      execute "call OpenTerm(g:last_term_command[0], g:last_term_command[1], g:last_term_command[2], g:last_term_command[3])"
-    endfunction
-
-    function OpenTermFromLastCommand()
-      let bnr = v:lua.require('mood-scripts.last_open_terminal')()
-
-      let change_buffer_command = "tab sb "
-
-      if (bnr > 0)
-        execute change_buffer_command . " " . bufname(bnr)
-        startinsert
-
-        let b:common_open = 0
-        execute "SendHere"
-      else
-        lua require('notify')("Last Terminal not found.  Maybe its closed?", 'warn', { title='Terminal Management' })
-      endif
-    endfunction
-
     function OpenTerm(command, name, unique, close_after_create)
-      let p_name = split(getcwd(), "/")
+      lua vim.notify("You mood config.lua is outated.  Fixing for you.")
 
-      let change_buffer_command = "tab sb "
-      let term_command = "tabnew | term"
+      lua vim.fn.system("mv ~/.config/nvim/lua/user/config.lua ~/.config/nvim/lua/user/config.lua.bak")
 
-      let b:common_open = 0
-
-      if a:name != 'Quick Term'
-        let g:last_term_command = [a:command, a:name, a:unique, a:close_after_create]
-      end
-
-      if len(p_name) > 0
-        let full_name = p_name[-1] . " " . a:name
-      else
-        let full_name = a:name
-      endif
-
-      let bnr = bufexists(full_name)
-
-      if bnr > 0 && a:unique == 1
-        execute change_buffer_command . " " . full_name
-
-        echo full_name . " exists.  Focusing."
-        startinsert
-
-        let b:common_open = 0
-      elseif bnr > 0 && a:unique == 2
-        execute change_buffer_command . " " . full_name
-
-        lua require('mood-scripts.command-on-start').kill_single_terminal(vim.fn.bufnr(vim.api.nvim_eval('full_name')))
-
-        let command_to_run = "call OpenTerm('" . a:command . "', '" . a:name . "', '" . a:unique . "', '" . a:close_after_create . "')"
-
-        call timer_start(300, {-> execute(command_to_run) })
-      else
-        if bnr > 0
-          let new_number = 0
-
-          while bnr > 0
-            let bnr = bufexists(full_name . " - " . new_number)
-
-            if bnr > 0
-              let new_number = new_number + 1
-            endif
-          endwhile
-
-          execute term_command . " " . a:command
-          execute "file! " . full_name . " - " . new_number
-          execute "SendHere"
-          execute "norm! a"
-
-          let b:common_open = 0
-        else
-          execute term_command . " " . a:command
-
-          execute "file! " . full_name
-          execute "SendHere"
-          execute "norm! a"
-
-          let b:common_open = 0
-        end
-
-        if a:close_after_create == 1
-          lua require("utils.goto_last_file_buffer")()
-
-          lua require('notify')(vim.api.nvim_eval('a:name') .. " is being executed in background.", 'info', { title='Terminal Management' })
-
-          stopinsert
-        end
-      endif
+      lua vim.notify("Moved your old config to ~/.config/nvim/lua/user/config.lua")
+      lua vim.notify("IMPORTANT: Please restart your neovim.")
     endfunction
 
     function ResetRailsDb(command)
       call KillRubyInstances()
 
-      execute "call OpenTerm('" . a:command  . "', 'DB Reset', 2, 0)"
+      lua require('telescope-awesome-runner').execute_command({ cmd = command, name = 'db:reset', open_as = 'pane', focus_when_call = false, visit_first_call = false, close_on_timer = 10, size='25%' })
     endfunction
 
     function KillRubyInstances()

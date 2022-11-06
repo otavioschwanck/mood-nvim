@@ -24,6 +24,8 @@ function M.setup()
       run = "npm install --legacy-peer-deps && npm run compile"
     }
 
+    use 'otavioschwanck/tmux-awesome-manager.nvim'
+
     use { "catppuccin/nvim", as = "catppuccin" }
     use { 'stevearc/aerial.nvim' }
     use { 'sainnhe/gruvbox-material' }

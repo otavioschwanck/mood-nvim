@@ -56,9 +56,6 @@ OBS: This list persist between vim sections
 | SPC k                  | Kill current buffer                                |
 | SPC A                  | Go to Test (and vsplit)                            |
 | SPC a                  | Go to test                                         |
-| SPC l                  | List All Terminals (cool for opening closed tests) |
-| SPC L                  | Mark Terminal to Send Text                         |
-| SPC l (On visual mode) | Send text to marked terminal                       |
 | SPC 1 to SPC 9         | Go to harpoons                                     |
 |------------------------|----------------------------------------------------|
 | ]g                     | Next git hunk                                      |
@@ -85,25 +82,6 @@ OBS: This list persist between vim sections
 | ENTER   | Maximize window temporary (press ENTER again to restore)
 
 `<C-w>u` will undo a closed window.
-
-# Terminal Management
-
-With this extension and settings, you can edit like vim in terminal.
-
-`Ctrl + k` Hide terminal and go back to code
-`Ctrl + g`  Go to normal mode inside terminal
-
-`SPC v` open a blank terminal
-`SPC l` List All terminals
-`SPC i` Open Last visit terminal.
-`SPC !` re-run last terminal command
-`SPC #` Re-run terminal commands configured on project startup.
-`SPC %` Rerun terminal commands configured on project startup on all tmux windows.
-`SPC q s` Close startup terminal
-`SPC q S` Close startup terminal on all tmux windows.
-`:Term command` open a terminal with the command
-
-Go to your personal settings `SPC f p` and add terminal commands.  There is a bunch of examples there!
 
 # Searching
 

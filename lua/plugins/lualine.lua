@@ -344,6 +344,14 @@ function M.setup()
   }
 
   ins_right {
+    function()
+      return require('tmux-awesome-manager.src.integrations.status').status_with_icons()
+    end,
+    cond = has_50_space,
+    color = { fg = colors.magenta, gui = 'bold' },
+  }
+
+  ins_right {
     'branch',
     icon = '',
     color = { fg = colors.violet, gui = 'bold' },
