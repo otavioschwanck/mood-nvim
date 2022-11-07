@@ -1,14 +1,15 @@
--- Theme?
-
 -- Configure your per project commands.  See more at: https://github.com/otavioschwanck/tmux-awesome-manager.nvim
 -- Run the per project with SPC #
 require('tmux-awesome-manager').setup({
   per_project_commands = {
     api = { { cmd = 'rails s', name = 'rails server' } },
     front = { { cmd = 'yarn start', name = 'react server' } }
-  }
+  },
+  default_size = '30%',
+  -- open_new_as = 'panel' -- uncomment this if you want to split
 })
 
+-- Theme?
 vim.cmd('colorscheme catppuccin-macchiato')
 
 -- Directory to store your notes (SPC z z)
@@ -21,6 +22,15 @@ local au = vim.api.nvim_create_autocmd
 local find_in_folder = require('helpers.user-functions').find_in_folder
 local wk = require("which-key")
 local tmux = require('tmux-awesome-manager.src.term')
+
+-- Arguments for tmux.run_wk:
+--  opts.focus_when_call -- Focus terminal instead opening a enw one - default = true
+--  opts.visit_first_call -- Focus the new opened window / pane. default = true
+--  opts.size -- If open_as = pane, split with this size. default = 50%
+--  opts.open_as -- Open as window or pane? Default: what is setted on setup (window)
+--  opts.use_cwd -- Use current cwd on new window / pane? Default: what is setted on setup (true)
+--  opts.close_on_timer -- When the command completed, sleep for some seconds - default = what is setted on setup: 0
+--  opts.read_after_cmd -- When the command completed, wait for enter to close the window. default = true
 
 -- Here you can set your mappings to SPC
 -- Examples o = { r = { "command", "description" } } = SPC o r to call
@@ -41,7 +51,7 @@ wk.register({
     y = {
       name = "+yarn",
       i = tmux.run_wk({ cmd = 'yarn install', name = 'Yarn Install'}),
-      a = tmux.run_wk({ cmd = 'yarn add %1', name = 'Yarn Add', questions = { { question = 'package name', required = true } } }),
+      a = tmux.run_wk({ cmd = 'yarn add %1', name = 'Yarn Add', questions = { { question = 'package name: ', required = true } } }),
       d = tmux.run_wk({ cmd = 'yarn dev', name = 'Yarn Dev'}),
     },
     r = { ":silent !bundle exec rubocop -a %<CR>", "Rubocop on current file" },
@@ -58,9 +68,9 @@ wk.register({
     name = "+Rails",
     r = tmux.run_wk({ cmd = 'rails c', name = 'rails console', close_on_timer = 3 }),
     R = tmux.run_wk({ cmd = 'rails s', name = 'Rails Server'}),
-    b = tmux.run_wk({ cmd = 'bundle install', name = 'Bundle Install'}),
-    g = tmux.run_wk({ cmd = 'rails generate %1', name = 'Rails Generate', questions = { { question = "Rails generate: ", required = true } }}),
-    d = tmux.run_wk({ cmd = 'rails destroy %1', name = 'Rails Destroy', questions = { { question = "Rails destroy: ", required = true } }}),
+    b = tmux.run_wk({ cmd = 'bundle install', name = 'Bundle Install', open_as = 'pane', close_on_timer = 2, visit_first_call = false, focus_when_call = false }),
+    g = tmux.run_wk({ cmd = 'rails generate %1', name = 'Rails Generate',  questions = { { question = "Rails generate: ", required = true, open_as = 'pane', close_on_timer = 4, visit_first_call = false, focus_when_call = false } }}),
+    d = tmux.run_wk({ cmd = 'rails destroy %1', name = 'Rails Destroy', questions = { { question = "Rails destroy: ", required = true } }, open_as = 'pane', close_on_timer = 4, visit_first_call = false, focus_when_call = false}),
     i = tmux.run_wk({ cmd = 'rails db:migrate', name = 'migrate'}),
     I = { ":call ResetRailsDb('bin/rails db:environment:set RAILS_ENV=development; rails db:drop db:create db:migrate;rails db:seed')<CR>", "Rails Reset DB" },
     m = find_in_folder('app/models', 'Find Model'),
@@ -120,7 +130,3 @@ require('core.settings').remove_bicycle_small_whells({ includeNormalMode = true 
 
 vim.cmd("highlight LineNr guifg=#8087a2") -- Brighter line colors?
 -- set('colorcolumn', '125') -- column length helper
-
--- If you don't use pyenv or other path, please uncomment this: (Make sure that python provider is OK on :checkhealth)
--- To find where is the path of python, run which python and which python3.
-vim.g.python3_host_prog = '/Users/otavio/.pyenv/shims/python3'

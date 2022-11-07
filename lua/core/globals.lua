@@ -22,6 +22,14 @@ function M.setup()
   vim.g.UltiSnipsSnippetDirectories = {"UltiSnips", "user-snippets"}
   vim.g.choosewin_overlay_enable = 1
 
+  local host = string.gsub(vim.fn.system("which python3"), "\n", "")
+
+  if(string.match(host, "not found")) then
+    host = string.gsub(vim.fn.system("which python"), "\n", "")
+  end
+
+  vim.g.python3_host_prog = host
+
   vim.cmd("let test#ruby#rspec#options = { 'file': '--format documentation' }")
   vim.cmd("let g:test#custom_strategies = {'mood-term': function('TermStrategy')}")
 

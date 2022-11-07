@@ -371,9 +371,12 @@ key_bindings:
   - { key: R,     mods: Shift|Alt,     chars: "\x18\x24" }
 
   # Mac
-  - { key: A, mods: Command,  chars: "\x1bOH",   mode: AppCursor   }
   - { key: E, mods: Command,                    chars: "\x1bOF",   mode: AppCursor   }
   - { key: V,        mods: Command, action: Paste                        }
+  - { key: F,        mods: Command, chars: "\x1b\x66"                      }
+  - { key: B,        mods: Command, chars: "\x1b\x62"                      }
+  - { key: J,        mods: Command, chars: "\x18\x6d"                      }
+  - { key: K,        mods: Command, chars: "\x18\x62"                      }
   - { key: C,        mods: Command, action: Copy                         }
   - { key: Q,        mods: Command, action: Quit                         }
   - { key: W,        mods: Command, action: Quit                         }
@@ -383,25 +386,20 @@ key_bindings:
   - { key: N,         mods: Command,      action: SpawnNewInstance       }
   - { key: Back,     mods: Command, chars: "\x15" } # delete word/line
   - { key: D, mods: Shift|Command, chars: "\x18\x64" }
-  - { key: D, mods: Command, chars: "\x1b\x5b\x33\x3b\x35\x7e" }
-  - { key: J,        mods: Command,     chars: "\x1bb"                       } # one word left
-  - { key: K,        mods: Command,     chars: "\x1bf"                       } # one word right
   - { key: V, mods: Shift|Command, chars: "\x18\x76" }
   - { key: A, mods: Shift|Command, chars: "\x18\x73" }
   - { key: S, mods: Shift|Command, chars: "\x18\x22" }
-  - { key: H, mods: Shift|Command, chars: "\x18\x68" }
-  - { key: J, mods: Shift|Command, chars: "\x18\x6a" }
-  - { key: K, mods: Shift|Command, chars: "\x18\x6b" }
-  - { key: L, mods: Shift|Command, chars: "\x18\x6c" }
-  - { key: O, mods: Command, chars: "\x18\x7a" }
-  - { key: O, mods: Shift|Command, chars: "\x18\x7a" }
+  - { key: H, mods: Shift|Command, chars: "\x18\x08" }
+  - { key: J, mods: Shift|Command, chars: "\x18\x0a" }
+  - { key: K, mods: Shift|Command, chars: "\x18\x0b" }
+  - { key: L, mods: Shift|Command, chars: "\x18\x0c" }
   - { key: Key1, mods: Command, chars: "\x18\x31" }
   - { key: Key2, mods: Command, chars: "\x18\x32" }
   - { key: Key3, mods: Command, chars: "\x18\x33" }
   - { key: Key4, mods: Command, chars: "\x18\x34" }
   - { key: Key5, mods: Command, chars: "\x18\x35" }
   - { key: Key6, mods: Command, chars: "\x18\x36" }
-  - { key: Key7, mods: Command, chars: "\x18\x36" }
+  - { key: Key7, mods: Command, chars: "\x18\x37" }
   - { key: Key8, mods: Command, chars: "\x18\x38" }
   - { key: Key9, mods: Command, chars: "\x18\x39" }
   - { key: T, mods: Command, chars: "\x18\x63" }
@@ -411,11 +409,20 @@ key_bindings:
   - { key: R,     mods: Command,     chars: "\x18\x2c"                    }
   - { key: Comma,     mods: Command,     chars: "\x18\x09"                    }
   - { key: LBracket,     mods: Command,     chars: "\x18\x5b" }
+  - { key: A,     mods: Command,     chars: "\x18\x3d" }
+  - { key: O, mods: Command, chars: "\x18\x6f" }
+  - { key: O, mods: Shift|Command, chars: "\x18\x7a" }
+  - { key: Return, mods: Command, chars: "\x18\x7a" }
+  - { key: Escape, mods: Command, chars: "\x18\x01" }
+  - { key: Semicolon, mods: Command, chars: "\x18\x20" }
 
   # Linux
-  - { key: A, mods: Alt,  chars: "\x1bOH",   mode: AppCursor   }
   - { key: E, mods: Alt,                    chars: "\x1bOF",   mode: AppCursor   }
   - { key: V,        mods: Alt, action: Paste                        }
+  - { key: F,        mods: Alt, chars: "\x1b\x66"                      }
+  - { key: B,        mods: Alt, chars: "\x1b\x62"                      }
+  - { key: J,        mods: Alt, chars: "\x18\x6d"                      }
+  - { key: K,        mods: Alt, chars: "\x18\x62"                      }
   - { key: C,        mods: Alt, action: Copy                         }
   - { key: Q,        mods: Alt, action: Quit                         }
   - { key: W,        mods: Alt, action: Quit                         }
@@ -425,18 +432,13 @@ key_bindings:
   - { key: N,         mods: Alt,      action: SpawnNewInstance       }
   - { key: Back,     mods: Alt, chars: "\x15" } # delete word/line
   - { key: D, mods: Shift|Alt, chars: "\x18\x64" }
-  - { key: D, mods: Alt, chars: "\x1b\x5b\x33\x3b\x35\x7e" }
-  - { key: J,        mods: Alt,     chars: "\x1bb"                       } # one word left
-  - { key: K,        mods: Alt,     chars: "\x1bf"                       } # one word right
   - { key: V, mods: Shift|Alt, chars: "\x18\x76" }
   - { key: A, mods: Shift|Alt, chars: "\x18\x73" }
   - { key: S, mods: Shift|Alt, chars: "\x18\x22" }
-  - { key: H, mods: Shift|Alt, chars: "\x18\x68" }
-  - { key: J, mods: Shift|Alt, chars: "\x18\x6a" }
-  - { key: K, mods: Shift|Alt, chars: "\x18\x6b" }
-  - { key: L, mods: Shift|Alt, chars: "\x18\x6c" }
-  - { key: O, mods: Alt, chars: "\x18\x7a" }
-  - { key: O, mods: Shift|Alt, chars: "\x18\x7a" }
+  - { key: H, mods: Shift|Alt, chars: "\x18\x08" }
+  - { key: J, mods: Shift|Alt, chars: "\x18\x0a" }
+  - { key: K, mods: Shift|Alt, chars: "\x18\x0b" }
+  - { key: L, mods: Shift|Alt, chars: "\x18\x0c" }
   - { key: Key1, mods: Alt, chars: "\x18\x31" }
   - { key: Key2, mods: Alt, chars: "\x18\x32" }
   - { key: Key3, mods: Alt, chars: "\x18\x33" }
@@ -453,4 +455,9 @@ key_bindings:
   - { key: R,     mods: Alt,     chars: "\x18\x2c"                    }
   - { key: Comma,     mods: Alt,     chars: "\x18\x09"                    }
   - { key: LBracket,     mods: Alt,     chars: "\x18\x5b" }
-
+  - { key: A,     mods: Alt,     chars: "\x18\x3d" }
+  - { key: O, mods: Alt, chars: "\x18\x6f" }
+  - { key: O, mods: Shift|Alt, chars: "\x18\x7a" }
+  - { key: Return, mods: Alt, chars: "\x18\x7a" }
+  - { key: Escape, mods: Alt, chars: "\x18\x01" }
+  - { key: Semicolon, mods: Alt, chars: "\x18\x20" }
