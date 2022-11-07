@@ -54,6 +54,7 @@ M-S-v = Alt or command + shift + v
 
 Explaining tmux structure:
 
+Tmux: has many sessions
 Session = has many windows
 Window = is like a tab on common terminals
 Pane = A split inside a window
