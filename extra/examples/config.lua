@@ -37,7 +37,7 @@ local tmux = require('tmux-awesome-manager.src.term')
 wk.register({
   -- Example of custom terminal commands
   ["="] = { ":w | :silent !bundle exec rubocop -A %<CR>:e %<CR>", "Rubocop on current file" },
-  ["+"] = tmux.run_wk({ cmd = 'bundle exec rubocop -A', name = 'rubocop' }),
+  ["+"] = tmux.run_wk({ cmd = 'bundle exec rubocop -A', name = 'rubocop', open_as = 'pane', close_on_timer = 2, visit_first_call = false, focus_when_call = false  }),
   o = {
     d = {
       name = "+Dotfiles",
