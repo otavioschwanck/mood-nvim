@@ -52,6 +52,12 @@ Explaining the commands (keybindings):
 M-o = Alt or Command + o
 M-S-v = Alt or command + shift + v
 
+Explaining tmux structure:
+
+Session = has many windows
+Window = is like a tab on common terminals
+Pane = A split inside a window
+
 Moviment:
 
 | Command         | Description                             |
