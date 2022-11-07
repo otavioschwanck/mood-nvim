@@ -25,7 +25,7 @@ function M.setup()
     }
 
     use 'otavioschwanck/tmux-awesome-manager.nvim'
-
+    use { 'andersevenrud/cmp-tmux' }
     use { "catppuccin/nvim", as = "catppuccin" }
     use { 'stevearc/aerial.nvim' }
     use { 'sainnhe/gruvbox-material' }
