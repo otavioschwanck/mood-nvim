@@ -71,7 +71,7 @@ wk.register({
     b = tmux.run_wk({ cmd = 'bundle install', name = 'Bundle Install', open_as = 'pane', close_on_timer = 2, visit_first_call = false, focus_when_call = false }),
     g = tmux.run_wk({ cmd = 'rails generate %1', name = 'Rails Generate',  questions = { { question = "Rails generate: ", required = true, open_as = 'pane', close_on_timer = 4, visit_first_call = false, focus_when_call = false } }}),
     d = tmux.run_wk({ cmd = 'rails destroy %1', name = 'Rails Destroy', questions = { { question = "Rails destroy: ", required = true } }, open_as = 'pane', close_on_timer = 4, visit_first_call = false, focus_when_call = false}),
-    i = tmux.run_wk({ cmd = 'rails db:migrate', name = 'migrate'}),
+    i = tmux.run_wk({ cmd = 'rails db:migrate', name = 'Rails db:migrate', open_as = 'pane', close_on_timer = 4, visit_first_call = false, focus_when_call = false}),
     I = { ":call ResetRailsDb('bin/rails db:environment:set RAILS_ENV=development; rails db:drop db:create db:migrate;rails db:seed')<CR>", "Rails Reset DB" },
     m = find_in_folder('app/models', 'Find Model'),
     q = find_in_folder('app/contracts', 'Find Contracts'),
