@@ -2,7 +2,7 @@
 -- Run the per project with SPC #
 require('tmux-awesome-manager').setup({
   per_project_commands = {
-    api = { { cmd = 'rails s', name = 'rails server' } },
+    api = { { cmd = 'rails s', name = 'Rails Server' } },
     front = { { cmd = 'yarn start', name = 'react server' } }
   },
   default_size = '30%',
@@ -67,7 +67,7 @@ wk.register({
   r = { -- Add your rails folders and commands here.  SPC r + key
     name = "+Rails",
     r = tmux.run_wk({ cmd = 'rails c', name = 'rails console', close_on_timer = 3 }),
-    R = tmux.run_wk({ cmd = 'rails s', name = 'Rails Server'}),
+    R = tmux.run_wk({ cmd = 'rails s', name = 'Rails Server', visit_first_call = false }),
     b = tmux.run_wk({ cmd = 'bundle install', name = 'Bundle Install', open_as = 'pane', close_on_timer = 2, visit_first_call = false, focus_when_call = false }),
     g = tmux.run_wk({ cmd = 'rails generate %1', name = 'Rails Generate',  questions = { { question = "Rails generate: ", required = true, open_as = 'pane', close_on_timer = 4, visit_first_call = false, focus_when_call = false } }}),
     d = tmux.run_wk({ cmd = 'rails destroy %1', name = 'Rails Destroy', questions = { { question = "Rails destroy: ", required = true } }, open_as = 'pane', close_on_timer = 4, visit_first_call = false, focus_when_call = false}),
