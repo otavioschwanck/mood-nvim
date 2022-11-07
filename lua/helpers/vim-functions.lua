@@ -195,7 +195,7 @@ function M.setup()
     endfunction
 
     function! TermStrategy(cmd)
-      execute "call OpenTerm(a:cmd, 'Vim Test', 2, 0)"
+      lua require("tmux-awesome-manager").execute_command({ cmd = vim.api.nvim_eval("a:cmd"), name = "Tests...", open_as = 'pane', size = '50%', focus_when_call = false })
     endfunction
 
     function! StripTrailingWhitespaces()
