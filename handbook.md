@@ -31,13 +31,14 @@ To see the already configured commands, press `SPC l f`.
 
 ## Tmux Awesome Manager
 
-| Command | Description |
-|-|
-| SPC l l | List open terminals |
-| SPC l f | List all mapped commands |
-| SPC l k | Kill all terminals |
-| SPC l p | Switch: Open new terminals at window / pane |
-| SPC l o | Swich: Orientation of new panes to horizontal / vertical |
+| Command              | Description                                              |
+|----------------------|----------------------------------------------------------|
+| SPC l l              | List open terminals                                      |
+| SPC l f              | List all mapped commands                                 |
+| SPC l k              | Kill all terminals                                       |
+| SPC l p              | Switch: Open new terminals at window / pane              |
+| SPC l o              | Swich: Orientation of new panes to horizontal / vertical |
+| SPC l on visual mode | Send text to on of the terminal windows                  |
 
 ## TMUX + Alacritty
 
