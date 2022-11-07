@@ -59,15 +59,17 @@ Session = has many windows
 Window = is like a tab on common terminals
 Pane = A split inside a window
 
-Moviment:
+Movimentation and Navigation:
 
-| Command         | Description                             |
-|-----------------|-----------------------------------------|
-| M-o             | Go to next pane                         |
-| M-1 to M-9      | Switch window                           |
-| M-S-a           | See all sessions (Press x to close one) |
-| M-S-n and M-S-p | Next / Previous session                 |
-| M-Esc           | Go to next pane and maximize            |
+| Command         | Description                                      |
+|-----------------|--------------------------------------------------|
+| M-o             | Go to next pane                                  |
+| M-1 to M-9      | Switch window                                    |
+| M-S-a           | See all sessions (Press x to close one)          |
+| M-S-n and M-S-p | Next / Previous session                          |
+| M-Esc           | Go to next pane and maximize                     |
+| M-Esc           | Go to next pane and maximize                     |
+| M-a             | Alternate between current window and last window |
 
 Management:
 
