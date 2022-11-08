@@ -14,7 +14,7 @@ function M.setup()
     function ResetRailsDb(command)
       call KillRubyInstances()
 
-      lua require('telescope-awesome-runner').execute_command({ cmd = command, name = 'db:reset', open_as = 'pane', focus_when_call = false, visit_first_call = false, close_on_timer = 10, size='25%' })
+      lua require('tmux-awesome-manager').execute_command({ cmd = vim.api.nvim_eval('a:command'), name = 'db:reset', open_as = 'pane', focus_when_call = false, visit_first_call = false, close_on_timer = 10, size='25%' })
     endfunction
 
     function KillRubyInstances()
