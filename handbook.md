@@ -37,10 +37,10 @@ To see the already configured commands, press `SPC l f`.
 | SPC l f              | List all mapped commands                                 |
 | SPC l k              | Kill all terminals                                       |
 | SPC l p              | Switch: Open new terminals at window / pane              |
-| SPC l o              | Swich: Orientation of new panes to horizontal / vertical |
+| SPC l o              | Switch: Orientation of new panes to horizontal / vertical |
 | SPC l on visual mode | Send text to on of the terminal windows                  |
 
-## TMUX + Alacritty
+## TMUX integration with alacritty
 
 Tmux prefix: C-x.  See more of tmux pressing `SPC o d t`
 Alacritty Configuration: `SPC o d a`.  (You can change here your font size, terminal theme, etc)

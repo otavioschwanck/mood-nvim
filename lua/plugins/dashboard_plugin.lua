@@ -12,12 +12,17 @@ function M.setup()
         '██║ ╚═╝ ██║╚██████╔╝╚██████╔╝██████╔╝    ██║ ╚████║ ╚████╔╝ ██║██║ ╚═╝ ██║',
         '╚═╝     ╚═╝ ╚═════╝  ╚═════╝ ╚═════╝     ╚═╝  ╚═══╝  ╚═══╝  ╚═╝╚═╝     ╚═╝',
         '',
-        'Version 2.0.1',
+        'Version 3.0.1',
         '',
         ''
   }
 
-  db.custom_footer = { "" }
+  local no_tmux = vim.fn.system("echo $TMUX"):gsub("\n", "") == ""
+
+  if(no_tmux) then
+    table.insert(db.custom_header, "[WARNING] You are not using tmux.  Some terminals features will not work.")
+    table.insert(db.custom_header, "See the handbook (SPC h h) to learn about TMUX and Alacritty.")
+  end
 
   db.hide_statusline = false
 
