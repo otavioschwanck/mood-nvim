@@ -10,12 +10,10 @@ mooD Nvim is a configuration made for those who wants to install and use, withou
 - Test Runner
 - Fully customizable by user (plugins, settings, LSP)
 - Find In Folder helpers: Find inside models, controller, etc using keybindngs. See `config.lua` (`SPC f p`) for more examples. You can define your own custom finders.
-- Terminal Framework that can:
+- TMUX Framework with `tmux-awesome-manager` that can:
   - You can bind terminal commands in your `config.lua` (`SPC f p`).
-  - You can configure if this command is unique or not, if its unique, when press the mapping again, it will focus instead opening a new.
-  - Useful for commands such as rails console, server, sidekiq, yarn start, generate, etc. (Examples on `user.vim`)
+  - Useful for commands such as rails console, server, sidekiq, yarn start, generate, etc. (Examples on `config.lua`)
   - You can define server terminal commands for each project and run with a single command.
-  - You can run the terminal server command in all tmux windows (awesome to start server in multiple projects at same time)
 
 # Demo
 
@@ -123,16 +121,6 @@ Run `:UpdateMood`.
 # How to learn the keybindings of this configuration?
 
 Just press `SPC h h` to open the handbook inside vim.
-
-# Troubleshoot
-
-## Error on python for some reason.
-
-Check your personal config `SPC f p` at the bottom. Set the python envs to their real values.
-
-(which python3 or which python) to see the host directory
-
-vim.g.python3_host_prog = '/Users/otavio/.pyenv/shims/python3'
 
 # Other tips
 
