@@ -17,6 +17,7 @@ local autocommands = {
 	{ {"InsertLeave"}, {"*"}, function() vim.cmd('set nopaste') end },
 	{ {"FileType"},  {"*"}, function() vim.cmd('setlocal shiftwidth=2 tabstop=2') end },
 	{ {"BufEnter"}, {"*"}, function() vim.cmd('set signcolumn=yes') end },
+	{ {"BufEnter"}, {"*.html.erb"}, function() vim.cmd('TSDisable highlight') end }, -- temporary disable tree-sitter for erb files
 	{ {"BufEnter"}, {"*"}, function() vim.cmd('let b:visit_time = localtime()') end },
 	{ {"SwapExists"}, {"*"}, function() vim.cmd('let v:swapchoice = "e"') end },
   { {"BufWritePre"}, {"*"}, function() vim.cmd("call StripTrailingWhitespaces()") end },
