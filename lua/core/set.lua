@@ -7,6 +7,7 @@ function M.setup()
   set('nu', true)
 
 	set('hidden', true)
+	set('autoread', true)
 	set('shiftwidth', 2)
 	set('tabstop', 2)
 	set('compatible', false)

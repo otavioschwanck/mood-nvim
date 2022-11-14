@@ -2,8 +2,16 @@ local M = {}
 
 local cmd = vim.api.nvim_create_autocmd
 local autocommands = {
-	{ {"CursorHold", "CursorHoldI", "FocusGained", "BufEnter"}, "*", function() if not vim.fn.bufexists('[Command Line]') then pcall(vim.cmd("checktime")) end end },
-	{ {"FileChangedShellPost"}, {"*"}, function() vim.cmd('echohl WarningMsg | echo "File changed on disk. Buffer reloaded." | echohl None')end },
+	{ {"CursorHold", "CursorHoldI", "FocusGained", "BufEnter"}, {"*"}, function() if not vim.fn.bufexists('[Command Line]') then pcall(vim.cmd("checktime")) end end },
+  {
+    {"FileChangedShellPost"},
+    {"*"},
+    function()
+      vim.cmd('e %')
+      vim.cmd('echohl WarningMsg | echo "File changed on disk. Buffer reloaded." | echohl None')
+      vim.cmd('Gitsigns refresh')
+    end,
+  },
 	{ {"BufReadPost"}, {"*"}, function() vim.cmd([[if line("'\"") > 0 && line("'\"") <= line("$") | exe "normal g'\"" | endif]])end },
 	{ {"SwapExists"}, {"*"}, function() vim.cmd([[let v:swapchoice = "e"]])end },
 	{ {"InsertLeave"}, {"*"}, function() vim.cmd('set nopaste') end },
