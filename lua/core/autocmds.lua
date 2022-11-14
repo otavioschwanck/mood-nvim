@@ -7,9 +7,9 @@ local autocommands = {
     {"FileChangedShellPost"},
     {"*"},
     function()
-      vim.cmd('e %')
+      pcall(vim.cmd("e %"))
       vim.cmd('echohl WarningMsg | echo "File changed on disk. Buffer reloaded." | echohl None')
-      vim.cmd('Gitsigns refresh')
+      pcall(vim.cmd('Gitsigns refresh'))
     end,
   },
 	{ {"BufReadPost"}, {"*"}, function() vim.cmd([[if line("'\"") > 0 && line("'\"") <= line("$") | exe "normal g'\"" | endif]])end },
