@@ -22,6 +22,7 @@ require('plugins.yanky').setup()
 require('plugins.dashboard_plugin').setup()
 require('plugins.lualine').setup()
 require('plugins.ctrlsf').setup()
+require('plugins.ror').setup()
 
 -- user
 require('user.lsp')

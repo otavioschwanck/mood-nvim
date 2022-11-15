@@ -128,5 +128,8 @@ set('relativenumber', true) -- relative numbers?
 
 require('core.settings').remove_bicycle_small_whells({ includeNormalMode = true })
 
+-- Use tmux for run tests
+-- vim.g.use_tmux_for_tests = true
+
 vim.cmd("highlight LineNr guifg=#8087a2") -- Brighter line colors?
 -- set('colorcolumn', '125') -- column length helper
