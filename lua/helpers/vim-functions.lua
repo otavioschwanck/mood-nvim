@@ -1,5 +1,11 @@
 local M = {}
 
+function M.close_term()
+  if vim.o.buftype == 'terminal' then
+    vim.cmd("close")
+  end
+end
+
 function M.setup()
   -- TODO: Migrate this functions to lua
 
