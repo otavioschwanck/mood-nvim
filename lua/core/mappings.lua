@@ -131,7 +131,7 @@ function M.setup_which_key()
     a = { ":TestSuite<CR>", "Test Project" },
     k = { ":lua require('ror.test').clear()<CR>", "Clear Tests" },
     c = { ":lua require('ror.coverage').show()<CR>", "Show Coverage" },
-    C = { ":lua require('ror.coverage').hide()<CR>", "Hide Coverage" },
+    C = { ":lua require('ror.coverage').clear()<CR>", "Hide Coverage" },
     t = { ":lua require('ror.test').attach_terminal()<CR>", "Show Terminal"  },
     f = { ":RSpec --only-failures --format documentation<CR>", "Test Only Failed Tests" },
     r = { ":TestLast<CR>", "Rerun Last Test" },
