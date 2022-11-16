@@ -11,6 +11,9 @@ function M.setup()
         up = "DiffAdd",
         down = "DiffDelete",
       },
+      notification = {
+        timeout = 5000
+      },
       pass_icon = "✅",
       fail_icon = "❌"
     }
