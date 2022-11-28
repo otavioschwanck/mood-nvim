@@ -133,8 +133,8 @@ function M.setup_which_key()
     c = { ":lua require('ror.coverage').show()<CR>", "Show Coverage" },
     C = { ":lua require('ror.coverage').clear()<CR>", "Hide Coverage" },
     t = { ":lua require('ror.test').attach_terminal()<CR>", "Show Terminal"  },
-    f = { ":RSpec --only-failures --format documentation<CR>", "Test Only Failed Tests" },
-    r = { ":TestLast<CR>", "Rerun Last Test" },
+    f = { ":lua require('mood-scripts.mood-test').only_failures()<CR>", "Test Only Failed Tests" },
+    r = { ":lua require('mood-scripts.mood-test').rerun()<CR>", "Rerun Last Test" },
     },
   z = {
     name = '+Notes',
