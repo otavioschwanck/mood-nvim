@@ -60,7 +60,7 @@ function M.rerun()
 
     vim.g.last_is_tmux = nil
   else
-    vim.cmd("RSpec --only-failures --format documentation")
+    vim.cmd("TestLast")
 
     vim.g.last_is_tmux = true
   end
