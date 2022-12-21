@@ -5,13 +5,18 @@ function M.setup()
 
   local fb_actions = require "telescope".extensions.file_browser.actions
 
-  local vertical_search = { path_display = { "smart" }, layout_strategy = "vertical", layout_config = { preview_cutoff = 10, height = 0.92 } }
+  local vertical_search = {
+    path_display = { "smart" },
+    layout_strategy = "vertical",
+    layout_config = { preview_cutoff = 10, height = 0.92, prompt_position = 'top', mirror = true },
+  }
 
   require('telescope').setup{
     defaults = {
       prompt_prefix = " ",
       file_ignore_patterns = vim.g.folder_to_ignore,
-      layout_config = { width = 0.95 },
+      layout_config = { width = 0.95, prompt_position = "top" },
+      sorting_strategy = "ascending",
       mappings = {
         i = {
           ["<C-j>"] = actions.move_selection_next,
@@ -52,7 +57,6 @@ function M.setup()
             ["<C-space>"] = fb_actions.create_from_prompt,
             ["<C-r>"] = fb_actions.rename,
             ["<C-c>"] = fb_actions.goto_parent_dir,
-            ["<C-w>"] = nil,
             ["<C-g>"] = fb_actions.goto_cwd,
             ["<C-w>"] = function() vim.cmd('normal vbd') end,
           },
@@ -73,28 +77,6 @@ function M.setup()
   local set_var = vim.api.nvim_set_var
 
   local git_root, ret = utils.get_os_command_output({ "git", "rev-parse", "--show-toplevel" }, vim.loop.cwd())
-
-  local function get_dashboard_git_status()
-    local git_cmd = {'git', 'status', '-s', '--', '.'}
-    local output = utils.get_os_command_output(git_cmd)
-    local message = '       Git status:'
-
-    if unpack(output) == '' then
-      message = 'Welcome!'
-    end
-    set_var('dashboard_custom_footer', {message, '', unpack(output)})
-  end
-
-  if ret ~= 0 then
-    local is_worktree = utils.get_os_command_output({ "git", "rev-parse", "--is-inside-work-tree" }, vim.loop.cwd())
-    if is_worktree[1] == "true" then
-      get_dashboard_git_status()
-    else
-      set_var('dashboard_custom_footer', {'Welcome!'})
-    end
-  else
-      get_dashboard_git_status()
-  end
 
   require("telescope").load_extension("ui-select")
   require("telescope").load_extension "file_browser"

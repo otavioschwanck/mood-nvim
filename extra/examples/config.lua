@@ -69,7 +69,7 @@ wk.register({
   },
   r = { -- Add your rails folders and commands here.  SPC r + key
     name = "+Rails",
-    r = tmux.run_wk({ cmd = 'rails c', name = 'rails console', close_on_timer = 3 }),
+    r = tmux.run_wk({ cmd = 'rails c', name = 'Rails Console', close_on_timer = 3 }),
     R = tmux.run_wk({ cmd = 'rails s', name = 'Rails Server', visit_first_call = false, open_as = 'window' }),
     b = tmux.run_wk({ cmd = 'bundle install', name = 'Bundle Install', open_as = 'pane', close_on_timer = 2, visit_first_call = false, focus_when_call = false }),
     g = tmux.run_wk({ cmd = 'rails generate %1', name = 'Rails Generate',  questions = { { question = "Rails generate: ", required = true, open_as = 'pane', close_on_timer = 4, visit_first_call = false, focus_when_call = false } }}),
