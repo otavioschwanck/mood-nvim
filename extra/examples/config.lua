@@ -3,7 +3,7 @@
 require('tmux-awesome-manager').setup({
   -- Open in separated session?
   -- project_open_as = 'separated_session',
-  -- session_name = 'Neovim Terinals',
+  -- session_name = 'Neovim Terms',
   per_project_commands = {
     api = { { cmd = 'rails s', name = 'Rails Server' } },
     front = { { cmd = 'yarn start', name = 'react server' } }
