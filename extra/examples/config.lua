@@ -1,12 +1,15 @@
 -- Configure your per project commands.  See more at: https://github.com/otavioschwanck/tmux-awesome-manager.nvim
 -- Run the per project with SPC #
 require('tmux-awesome-manager').setup({
+  -- Open in separated session?
+  -- project_open_as = 'separated_session',
+  -- session_name = 'Neovim Terinals',
   per_project_commands = {
     api = { { cmd = 'rails s', name = 'Rails Server' } },
     front = { { cmd = 'yarn start', name = 'react server' } }
   },
   default_size = '30%',
-  open_new_as = 'panel' -- change to window to open terms in new tab
+  open_new_as = 'panel', -- change to window to open terms in new tab
 })
 
 -- Theme?
