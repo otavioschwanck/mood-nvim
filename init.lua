@@ -1,6 +1,8 @@
 -- setup user files
 require('mood-scripts.install-config').setup()
 
+require('impatient')
+
 -- vim script functions
 require('helpers.vim-functions').setup()
 require('helpers.term-functions').setup()

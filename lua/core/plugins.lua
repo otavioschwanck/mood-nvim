@@ -14,6 +14,7 @@ function M.setup()
     use { 'otavioschwanck/telescope-alternate.nvim' }
     use { 'AndrewRadev/bufferize.vim' }
     use { 'otavioschwanck/tmux-awesome-manager.nvim' }
+    use 'lewis6991/impatient.nvim'
     use { 'andersevenrud/cmp-tmux' }
     use { "catppuccin/nvim", as = "catppuccin" }
     use { 'stevearc/aerial.nvim' }
