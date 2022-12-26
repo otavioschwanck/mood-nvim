@@ -2,14 +2,6 @@
 
 mkdir -p ~/.config/nvim/lua/user/
 
-DEBUGGER=~/.config/nvim/lua/user/debugger.lua
-if test -f "$DEBUGGER"; then
-  echo "$DEBUGGER exists. Ignoring..."
-else
-  cp ~/.config/nvim/extra/examples/debugger.lua ~/.config/nvim/lua/user/debugger.lua
-  echo "$DEBUGGER created."
-fi
-
 USER_CONFIG=~/.config/nvim/lua/user/config.lua
 if test -f "$USER_CONFIG"; then
   echo "$USER_CONFIG exists. Ignoring..."

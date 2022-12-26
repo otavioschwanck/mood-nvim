@@ -225,8 +225,27 @@ function M.setup()
         execute "norm O<% " . g:ruby_debugger . " %>"
       endif
 
-      write
-      execute "stopinsert"
+      if buftype == "javascript" || buftype == "javascriptreact" || buftype == "typescript" || buftype == "typescriptreact"
+        echo "j = down. k = up: "
+        let direction = nr2char(getchar())
+
+        execute 'norm 0\"dY'
+
+        call setreg("d", substitute(getreg("d"), "'", "\\\\'", "g"))
+
+        if direction == "j"
+          execute "norm! oconsole.log('DEBUGGER', '\<esc>\"dpa', );\<esc>h"
+          execute "startinsert"
+        elseif direction == "k"
+          execute "norm! Oconsole.log('DEBUGGER', '\<esc>\"dpa', );\<esc>h"
+          execute "startinsert"
+        else
+          lua require('vim-notify')('Wrong Direction!', 'error', { title = 'mooD' })
+        end
+      else
+        write
+        execute "stopinsert"
+      endif
     endfunction
 
     function ClearDebugger()
@@ -234,6 +253,10 @@ function M.setup()
 
       if buftype == "ruby"
         execute "%s/.*" . g:ruby_debugger . "\\n//gre"
+      endif
+
+      if buftype == "javascript" || buftype == "javascriptreact" || buftype == "typescript" || buftype == "typescriptreact"
+        execute "%s/.*console.log(\\_.\\{-\\});\\n//gre"
       endif
 
       if buftype == "eruby"

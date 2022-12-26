@@ -1,12 +1,5 @@
 #!/bin/bash
 
-DEBUGGER=~/.config/nvim/lua/user/debugger.lua
-if test -f "$DEBUGGER"; then
-  rm $DEBUGGER
-  echo "$DEBUGGER Remove successfully..."
-fi
-
-
 USER_LSP=~/.config/nvim/lua/user/lsp.lua
 if test -f "$USER_LSP"; then
   rm $USER_LSP

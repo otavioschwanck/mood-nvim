@@ -1,15 +1,5 @@
 local M = {}
 
-local call_right_debugger = function()
-  local ft = vim.bo.filetype
-
-  if ft == 'ruby' or ft == 'eruby' then
-    vim.cmd("call AddDebugger()")
-  else
-    vim.cmd('WhichKey <leader><F12>')
-  end
-end
-
 local tmux = require("tmux-awesome-manager")
 
 function M.setup_which_key()
@@ -72,7 +62,7 @@ function M.setup_which_key()
   ["<space>"] = { ":Telescope find_files<CR>", "Find Files" },
   e = { ":NvimTreeToggle<CR>", "Toggle Tree" },
   E = { ":NvimTreeFindFileToggle<CR>", "Tree Find File" },
-  d = { call_right_debugger, "+Debug" },
+  d = { ":call AddDebugger()<CR>", "+Debug" },
   ["<F12>"] = {
     name = "+Dap Debugger",
     c = { "<Cmd>lua require'dap'.continue()<CR>", "Continue"  },
@@ -185,7 +175,6 @@ function M.setup_which_key()
     D = { ":call BetterDelete()<CR>", "Delete the current file" },
     p = { ":e ~/.config/nvim/lua/user/config.lua<CR>", "Open Your Private Files" },
     P = { ":e ~/.config/nvim/lua/user/plugins.lua<CR>", "Open Your Plugin" },
-    u = { ":e ~/.config/nvim/lua/user/debugger.lua<CR>", "Open Your Plugin" },
     y = { ":call CopyRelativePath()<CR>", "Copy Relative Path" },
     l = { ":call CopyRelativePathWithLine()<CR>", "Copy Path With Line" },
     Y = { ":call CopyFullPath()<CR>", "Copy Full Path" },
