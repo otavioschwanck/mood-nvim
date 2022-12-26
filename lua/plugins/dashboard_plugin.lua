@@ -28,6 +28,8 @@ function M.setup()
 
   db.custom_center = {
     { desc = ' Git status                   ', shortcut = 'SPC TAB', action = 'Telescope git_status' },
+    { desc = ' Harpoon                      ', shortcut = '   ;   ',       action = 'lua require("mood-scripts.harpoon-menu")()' },
+    { desc = ' Find Files                   ', shortcut = 'SPC SPC',       action = 'Telescope find_files' },
     { desc = ' Recent Files                 ', shortcut = 'SPC f r', action = 'Telescope oldfiles' },
     { desc = ' Open Handbook (docs)         ', shortcut = 'SPC h h', action = 'e ~/.config/nvim/handbook.md' },
     { desc = 'ﲉ Open Tutorial for mooD       ', shortcut = 'SPC h T', action = 'lua require("tutorial").start()' },

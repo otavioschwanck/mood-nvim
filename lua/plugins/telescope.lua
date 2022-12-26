@@ -8,14 +8,14 @@ function M.setup()
   local vertical_search = {
     path_display = { "smart" },
     layout_strategy = "vertical",
-    layout_config = { preview_cutoff = 10, height = 0.90, prompt_position = 'top', mirror = true },
+    layout_config = { preview_cutoff = 10, height = 0.85, prompt_position = 'top', mirror = true },
   }
 
   require('telescope').setup{
     defaults = {
       prompt_prefix = " ",
       file_ignore_patterns = vim.g.folder_to_ignore,
-      layout_config = { width = 0.90, prompt_position = "top" },
+      layout_config = { width = 0.85, prompt_position = "top" },
       sorting_strategy = "ascending",
       mappings = {
         i = {
