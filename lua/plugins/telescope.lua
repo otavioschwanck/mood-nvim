@@ -8,14 +8,14 @@ function M.setup()
   local vertical_search = {
     path_display = { "smart" },
     layout_strategy = "vertical",
-    layout_config = { preview_cutoff = 10, height = 0.92, prompt_position = 'top', mirror = true },
+    layout_config = { preview_cutoff = 10, height = 0.90, prompt_position = 'top', mirror = true },
   }
 
   require('telescope').setup{
     defaults = {
       prompt_prefix = " ",
       file_ignore_patterns = vim.g.folder_to_ignore,
-      layout_config = { width = 0.95, prompt_position = "top" },
+      layout_config = { width = 0.90, prompt_position = "top" },
       sorting_strategy = "ascending",
       mappings = {
         i = {
@@ -32,7 +32,7 @@ function M.setup()
     },
     pickers = {
       find_files = {
-        hidden = true, path_display = { "smart" }
+        hidden = true
       },
       buffers = { path_display = require('utils.buffer_path_display'), layout_config = { preview_cutoff = 10, width = 0.92 } },
       live_grep = vertical_search,

@@ -5,6 +5,8 @@
     ],
     "Lua.diagnostics.globals": [
         "vim",
-        "use"
+        "use",
+        "require",
+        "table"
     ]
 }
