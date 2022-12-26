@@ -13,11 +13,7 @@ function M.setup()
     use {'nvim-telescope/telescope-fzf-native.nvim', run = 'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build' }
     use { 'otavioschwanck/telescope-alternate.nvim' }
     use { 'AndrewRadev/bufferize.vim' }
-    use { 'mfussenegger/nvim-dap' }
-    use { 'rcarriga/nvim-dap-ui' }
-    use { 'nvim-telescope/telescope-dap.nvim' }
-
-    use 'otavioschwanck/tmux-awesome-manager.nvim'
+    use { 'otavioschwanck/tmux-awesome-manager.nvim' }
     use { 'andersevenrud/cmp-tmux' }
     use { "catppuccin/nvim", as = "catppuccin" }
     use { 'stevearc/aerial.nvim' }

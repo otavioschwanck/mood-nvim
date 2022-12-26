@@ -27,7 +27,6 @@ require('plugins.ror').setup()
 -- user
 require('user.lsp')
 require('user.config')
-require('user.debugger')
 
 require('plugins.nvim-tree').setup()
 
