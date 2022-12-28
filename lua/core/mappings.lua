@@ -102,6 +102,7 @@ function M.setup_which_key()
   t = {
     name = '+Test',
     v = { ":lua require('mood-scripts.mood-test').run_file()<CR>", "Test Current File" },
+    w = { ":lua vim.diagnostic.open_float(); vim.diagnostic.open_float()<CR>", "Focus Error Window" },
     s = { ":lua require('mood-scripts.mood-test').run_nearest()<CR>", "Test Nearest Test" },
     a = { ":TestSuite<CR>", "Test Project" },
     k = { ":lua require('ror.test').clear()<CR>", "Clear Tests" },

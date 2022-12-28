@@ -304,12 +304,18 @@ Just press C-p to expand.
 
 ## Test
 
-| Command | Description          |
-|---------|----------------------|
-| SPC t v | Run current file     |
-| SPC t s | Run nearest tests    |
-| SPC t a | Run all tests        |
-|---------|----------------------|
+| Command | Description                                                                                   |
+|---------|-----------------------------------------------------------------------------------------------|
+| SPC t v | Run current file                                                                              |
+| SPC t s | Run nearest tests                                                                             |
+| SPC t a | Run all tests                                                                                 |
+| ]e      | Go to next test                                                                               |
+| [e      | Go to prev test                                                                               |
+| SPC t w | Focus test window (after ]e and [e, SUPER USEFUL to copy the test result. Use SPC k to close. |
+| SPC t r | Rerun last test                                                                               |
+| SPC t f | Rerun only failures                                                                           |
+| SPC t k | Clear tests from buffer                                                                       |
+|---------|-----------------------------------------------------------------------------------------------|
 
 ## Toggle Case
 
