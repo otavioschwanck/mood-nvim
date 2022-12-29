@@ -151,11 +151,11 @@ function M.setup_which_key()
     },
   f = {
     name = "+File",
+    s = { ":UltiSnipsEdit<CR>", "Snippets List" },
     o = { ":AerialToggle<CR>", "Show Window Symbols" },
     L = { ":e ~/.config/nvim/lua/user/lsp.lua<CR>", "LSP Settings" },
     a = { ":lua require('telescope-alternate.telescope').alternate()<CR>", "Alternate File" },
     r = { ":Telescope oldfiles<CR>", "Recent Files" },
-    s = { ":w!", "Save" },
     R = { ":call BetterRename()<CR>", "Rename Current File" },
     M = { ":call BetterMove()<CR>", "Move Current File" },
     D = { ":call BetterDelete()<CR>", "Delete the current file" },
