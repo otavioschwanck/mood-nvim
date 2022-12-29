@@ -53,8 +53,6 @@ function M.setup()
 	vim.cmd('set wildignore+=*/node_modules/*')
 	vim.cmd('set formatoptions+=r')
 
-	set('cursorline', true)
-
 	vim.cmd('highlight Visual cterm=NONE ctermbg=236 ctermfg=NONE guibg=Grey40')
 
 	vim.cmd('highlight LineNr cterm=none ctermfg=240 guifg=#2b506e guibg=#000000')

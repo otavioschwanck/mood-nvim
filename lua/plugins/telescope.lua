@@ -16,6 +16,7 @@ function M.setup()
       prompt_prefix = " ",
       file_ignore_patterns = vim.g.folder_to_ignore,
       layout_config = { width = 0.85, prompt_position = "top" },
+      borderchars = { '─', '│', '─', '│', '┌', '┐', '┘', '└' },
       sorting_strategy = "ascending",
       mappings = {
         i = {

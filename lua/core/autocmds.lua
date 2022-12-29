@@ -27,7 +27,7 @@ local autocommands = {
   { {"BufEnter"}, {"*"}, function() vim.cmd('ColorizerAttachToBuffer') end },
   { {"FileType"}, {"qf"}, function() vim.cmd('map <buffer> dd :RemoveQFItem<CR>') end },
   { {"TermOpen"}, {"*"}, function() vim.cmd('setlocal nonumber norelativenumber') end },
-
+  { {"FileType"}, {"TelescopePrompt"}, function() vim.cmd('set nocursorline') end },
 
   -- autocmd FileType qf map <buffer> dd :RemoveQFItem<cr>
 }
