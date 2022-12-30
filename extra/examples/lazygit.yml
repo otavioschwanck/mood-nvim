@@ -1,6 +1,9 @@
 gui:
   showIcons: true
   showFileTree: false
+  theme:
+    selectedLineBgColor:
+      - reverse
 
 keybinding:
   files:

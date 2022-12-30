@@ -1,7 +1,8 @@
 local M = {}
 
 function M.setup()
-  vim.cmd([[ highlight NvimTreeIndentMarker guifg=#3FC5FF ]])
+  vim.cmd([[ highlight NvimTreeIndentMarker guifg=#957FB8 ]])
+  vim.cmd([[highlight Beacon guibg=#957FB8 ctermbg=15]])
 
   require("nvim-tree").setup({
     update_cwd = false,

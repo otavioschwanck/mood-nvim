@@ -15,7 +15,9 @@ function M.setup()
     use { 'AndrewRadev/bufferize.vim' }
     use { 'otavioschwanck/tmux-awesome-manager.nvim' }
     use 'lewis6991/impatient.nvim'
+    use 'nyoom-engineering/oxocarbon.nvim'
     use { 'andersevenrud/cmp-tmux' }
+    use "rebelot/kanagawa.nvim"
     use { "catppuccin/nvim", as = "catppuccin" }
     use { 'stevearc/aerial.nvim' }
     use { 'sainnhe/gruvbox-material' }

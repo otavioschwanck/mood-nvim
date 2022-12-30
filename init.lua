@@ -27,8 +27,9 @@ require('plugins.ctrlsf').setup()
 require('plugins.ror').setup()
 
 -- user
-require('user.lsp')
-require('user.config')
+pcall(require, 'user.lsp')
+pcall(require, 'user.config')
+pcall(require, 'user.keybindings')
 
 require('plugins.nvim-tree').setup()
 

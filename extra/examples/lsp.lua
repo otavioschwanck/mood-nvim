@@ -1,6 +1,6 @@
---------------------------
--- NVIM_LSPCONFIG (KEYMAPS)
---------------------------
+-- LSP ---------------------------
+-- Configure your LSP servers here
+----------------------------------
 
 -- What LSP servers do you want?
 local servers = { 'jedi_language_server', 'tsserver', 'jsonls', 'yamlls', 'cssls', 'solidity_ls', 'sumneko_lua', 'eslint' }

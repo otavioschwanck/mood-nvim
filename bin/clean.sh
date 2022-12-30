@@ -7,6 +7,12 @@ if test -f "$USER_CONFIG"; then
   echo "$USER_CONFIG Remove successfully..."
 fi
 
+KEYBINDINGS=~/.config/nvim/lua/user/keybindings.lua
+if test -f "$KEYBINDINGS"; then
+  rm $KEYBINDINGS
+  echo "$KEYBINDINGS Remove successfully..."
+fi
+
 USER_LSP=~/.config/nvim/lua/user/lsp.lua
 if test -f "$USER_LSP"; then
   rm $USER_LSP

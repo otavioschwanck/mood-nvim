@@ -10,6 +10,14 @@ else
   echo "$USER_CONFIG created."
 fi
 
+USER_KEYBINDINGS=~/.config/nvim/lua/user/keybindings.lua
+if test -f "$USER_KEYBINDINGS"; then
+  echo "$USER_KEYBINDINGS exists. Ignoring..."
+else
+  cp ~/.config/nvim/extra/examples/keybindings.lua ~/.config/nvim/lua/user/keybindings.lua
+  echo "$USER_KEYBINDINGS created."
+fi
+
 USER_LSP=~/.config/nvim/lua/user/lsp.lua
 if test -f "$USER_LSP"; then
   echo "$USER_LSP exists. Ignoring..."
