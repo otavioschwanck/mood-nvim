@@ -162,16 +162,16 @@ OBS: This list persist between vim sections
 
 ## Common search
 
-| Command        | Description                                      |
-|----------------|--------------------------------------------------|
-| SPC SPC        | Find Files in Project                            |
-| SPC TAB        | Git Modified Files                               |
-| SPC s i        | Search Document Symbols (Just love this command) |
-| spc s j        | Search Workspace Symbols                         |
-| SPC s s        | Fuzzy find in current buffer                     |
-| SPC s p        | Search text on project                           |
-| SPC *          | Search text at point on project                  |
-|----------------|--------------------------------------------------|
+| Command | Description                                                                                     |
+|---------|-------------------------------------------------------------------------------------------------|
+| SPC SPC | Find Files in Project                                                                           |
+| SPC TAB | Git Modified Files                                                                              |
+| SPC s i | Search Document Symbols (Just love this command)                                                |
+| spc s j | Search Workspace Symbols                                                                        |
+| SPC s s | Fuzzy find in current buffer                                                                    |
+| SPC s p | Search text on project, keep pressing shift + enter (requires tmux + alacritty) to chain search |
+| SPC *   | Search text at point on project                                                                 |
+|---------|-------------------------------------------------------------------------------------------------|
 
 Quick Tip: You can come back to any telescope search with `SPC RET`.
 
