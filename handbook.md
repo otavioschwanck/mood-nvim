@@ -15,7 +15,7 @@ Some ways to learn:
 - To command history on telescope, use C-n and C-p.
 - C-c means Ctrl + c
 - SPC = Space
-- M-c means Alt + c or Option + c
+- M-c means Alt + c or Command + c
 - To open / close the panel at right, press SPC f o
 
 
