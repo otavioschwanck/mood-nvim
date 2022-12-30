@@ -337,13 +337,6 @@ function M.setup()
   end
 
   ins_right {
-    'filetype',
-    icons_enabled = false,
-    cond = filetype_cond,
-    color = { fg = colors.blue, gui = 'bold' },
-  }
-
-  ins_right {
     function()
       return require('tmux-awesome-manager.src.integrations.status').open_terms()
     end,
