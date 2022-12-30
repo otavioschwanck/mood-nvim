@@ -9,11 +9,15 @@ Some ways to learn:
 - https://www.youtube.com/watch?v=RZ4p-saaQkc
 - Type vimtutor on terminal
 
-# Customizing
+# Quick Tips
 
-To access your personal configuration, press `SPC f p`.  To install extra plugins, press `SPC f P`
+- To navigate on telescope use ]] and [[
+- To command history on telescope, use C-n and C-p.
+- C-c means Ctrl + c
+- SPC = Space
+- M-c means Alt + c or Option + c
+- To open / close the panel at right, press SPC f o
 
-On your personal configuration you can configure stuff like commands to run with `SPC o`, search per folder, theme, etc.
 
 # TMUX & Alacritty [!important]
 
@@ -94,15 +98,6 @@ Copy / search / Navigate:
 | M-,     | Copy a text from the terminal                                                                            |
 | M-;     | Switch orientation of panes                                                                              |
 | M-[     | Go to normal mode inside terminal                                                                        |
-
-# Quick Tips
-
-- To navigate on telescope use C-j and C-k.
-- To command history on telescope, use C-n and C-p.
-- C-c means Ctrl + c
-- SPC = Space
-- M-c means Alt + c or Option + c
-- To open / close the panel at right, press SPC f o
 
 # Harpoon
 

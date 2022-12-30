@@ -35,6 +35,8 @@ Just run the below command in the terminal on either mac or linux, choose what y
 bash <(curl -Ls https://raw.githubusercontent.com/otavioschwanck/mood-nvim/main/bin/mood-installer.sh)
 ```
 
+If you will use tmux, after the first open, press `C-x I` to install the packages.
+
 # Manual Installation
 
 1. Install a nerd font and configure your terminal to use it. Nerd fonts [Here](https://www.nerdfonts.com/font-downloads)
@@ -127,11 +129,3 @@ Just press `SPC h h` to open the handbook inside vim.
 ## Tmux
 
 I Really recommend you to learn tmux / tmuxinator. Take a look on tmuxinator on youtube.
-
-To install the tpm (Tmux package manager), run:
-
-```sh
-git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
-```
-
-This config creates a tmux config for you (if doesn't exists). To install the onedark theme, just press `C-x I` inside tmux
