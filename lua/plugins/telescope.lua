@@ -6,7 +6,6 @@ function M.setup()
   local fb_actions = require "telescope".extensions.file_browser.actions
 
   local vertical_search = {
-    path_display = { "smart" },
     layout_strategy = "vertical",
     layout_config = { preview_cutoff = 10, height = 0.90, width = 0.95, prompt_position = 'top', mirror = true },
   }
