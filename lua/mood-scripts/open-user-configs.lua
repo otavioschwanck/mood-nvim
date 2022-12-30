@@ -36,7 +36,7 @@ function M.call()
     finder = finders.new_table {
       results = results,
       entry_maker = function(entry)
-        return { value = entry.path, display = entry.display, ordinal = entry.order }
+        return { value = entry.path, display = entry.display, ordinal = entry.order .. entry.display .. entry.path }
       end
     },
     sorter = conf.generic_sorter({}),
