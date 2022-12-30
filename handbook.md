@@ -330,8 +330,6 @@ On command mode `:`, you can press C-v to paste, `C-j` to go back one word, and 
 
 `:TableModeEnable` will facilitate your life when creating tables
 
-`:markdownPreview` is awesome to create markdown files.
-
 ### Reseting configs
 
 After while, i add some new features on the base configs (like tmux, alacritty, lsp, etc).  You can:
