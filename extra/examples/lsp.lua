@@ -104,7 +104,7 @@ cmp.setup({
     end
     }},
     { name = "path" },
-    { name = 'tmux', option = { all_panes = true } },
+    -- { name = 'tmux', option = { all_panes = true } },
     { name = "calc" }
   }),
   mapping = mappings,
