@@ -7,6 +7,15 @@ local find_in_folder = require('helpers.user-functions').find_in_folder
 local wk = require("which-key")
 local tmux = require('tmux-awesome-manager.src.term')
 
+-- Arguments for tmux.run_wk:
+--  opts.focus_when_call -- Focus terminal instead opening a enw one - default = true
+--  opts.visit_first_call -- Focus the new opened window / pane. default = true
+--  opts.size -- If open_as = pane, split with this size. default = 50%
+--  opts.open_as -- Open as window or pane? Default: what is setted on setup (window)
+--  opts.use_cwd -- Use current cwd on new window / pane? Default: what is setted on setup (true)
+--  opts.close_on_timer -- When the command completed, sleep for some seconds - default = what is setted on setup: 0
+--  opts.read_after_cmd -- When the command completed, wait for enter to close the window. default = true
+
 -- Registering your keybindings for SPC key.
 wk.register({
   -- Example of custom terminal commands
