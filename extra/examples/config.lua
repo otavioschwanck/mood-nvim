@@ -16,7 +16,7 @@ require('tmux-awesome-manager').setup({
     front = { { cmd = 'yarn start', name = 'react server' } }
   },
   default_size = '30%',
-  open_new_as = 'panel', -- change to window to open terms in new tab
+  open_new_as = 'pane', -- change to window to open terms in new tab
 })
 
 -- Directory to store your notes (SPC z z)
