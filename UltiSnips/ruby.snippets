@@ -177,6 +177,16 @@ def camel_case(s):
 	s = sub(r"(_|-)+", " ", s).title().replace(" ", "")
 	return "".join([s[0], s[1:]])
 
+def file_type(path):
+	from re import sub
+	known_types = ['Job', 'Controller', 'Mailer', 'Helper']
+
+	s = re.sub('([a-z])([A-Z])', r'\1 \2', rb_spec_name(path)).split()[-1]
+
+	type = s.lower() if s in str(known_types) else 'model'
+
+	return type
+
 
 def class_name_joined(path):
 	if "app/" in path:
@@ -244,7 +254,7 @@ endsnippet
 snippet template_test "Rspec.describe Class, type: :model do ... end" i
 require 'rails_helper'
 
-RSpec.describe ${1:`!p snip.rv = rb_spec_name(path)`}, type: :${2:model} do
+RSpec.describe ${1:`!p snip.rv = rb_spec_name(path)`}, type: :${2:`!p snip.rv = file_type(path)`} do
   $0
 end
 endsnippet
