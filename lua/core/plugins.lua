@@ -17,7 +17,7 @@ function M.setup()
     use 'lewis6991/impatient.nvim'
     use 'nyoom-engineering/oxocarbon.nvim'
     use { 'andersevenrud/cmp-tmux' }
-    use { "otavioschwanck/kanagawa_fixed.nvim", branch = "fixed" }
+    use { "rebelot/kanagawa.nvim" }
     use { "catppuccin/nvim", as = "catppuccin" }
     use { 'stevearc/aerial.nvim' }
     use { 'sainnhe/gruvbox-material' }
