@@ -62,7 +62,4 @@ set('relativenumber', true) -- relative numbers?
 
 require('core.settings').remove_bicycle_small_whells({ includeNormalMode = true })
 
--- Use tmux to run tests
--- vim.g.use_tmux_for_tests = true
-
 -- set('colorcolumn', '125') -- column length helper

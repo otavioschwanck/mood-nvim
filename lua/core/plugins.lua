@@ -41,7 +41,6 @@ function M.setup()
     use 'alvan/vim-closetag'
     use 'tpope/vim-rails'
     use 'vim-ruby/vim-ruby'
-    use 'otavioschwanck/ror.nvim'
     use 'farmergreg/vim-lastplace'
     use 'svermeulen/vim-yoink'
     use 'p00f/nvim-ts-rainbow'
