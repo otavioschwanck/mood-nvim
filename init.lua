@@ -42,7 +42,6 @@ setup('plugins.yanky')
 setup('plugins.dashboard_plugin')
 setup('plugins.lualine')
 setup('plugins.ctrlsf')
-setup('plugins.ror')
 
 -- user
 pcall(require, 'user.lsp')
