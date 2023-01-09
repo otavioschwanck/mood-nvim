@@ -22,15 +22,6 @@ wk.register({
   ["="] = { ":w | :silent !bundle exec rubocop -A %<CR>:e %<CR>", "Rubocop on current file" },
   ["+"] = tmux.run_wk({ cmd = 'bundle exec rubocop -A', name = 'rubocop', open_as = 'pane', close_on_timer = 2, visit_first_call = false, focus_when_call = false  }),
   o = { -- SPC o
-    d = {
-      name = "+Dotfiles",
-      a = { ":e ~/.config/alacritty/alacritty.yml<CR>","Alacritty Config" },
-      t = { ":e ~/.tmux.conf<CR>", "Tmux Config" },
-      y = { ":e ~/Library/Application Support/lazygit/config.yml<CR>", "LazyGit Config" }, -- (For MAC)
-      -- y = { ":e ~/.config/lazygit/config.yml<CR>" }, -- (For Linux)
-      g = { ":e ~/.gitconfig<CR>", "Open Git Config" },
-      z = { ":e ~/.zshrc<CR>", "Open zshrc" }
-    },
     y = {
       name = "+yarn",
       i = tmux.run_wk({ cmd = 'yarn install', name = 'Yarn Install'}),

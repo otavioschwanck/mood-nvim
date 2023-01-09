@@ -5,6 +5,29 @@ local tmux = require("tmux-awesome-manager")
 function M.setup_which_key()
   local wk = require("which-key")
 
+  local mood_dotfiles = {
+    {
+      path = "~/.config/nvim/lua/user/config.lua",
+      display = "User Configuration | Configure your neovim plugins, themes, etc.",
+      order = "1"
+    },
+    {
+      path = "~/.config/nvim/lua/user/keybindings.lua",
+      display = "Keybindings        | Configure your personal keybindings.",
+      order = "2"
+    },
+    {
+      path = "~/.config/nvim/lua/user/lsp.lua",
+      display = "LSP                | Configure the LSP (Language server protocol)",
+      order = "3"
+    },
+    {
+      path = "~/.config/nvim/lua/user/plugins.lua",
+      display = "Plugins            | Add more plugins to your neovim.",
+      order = "4"
+    },
+  }
+
   wk.register({
   h = {
     name = "+Calculate",
@@ -153,7 +176,8 @@ function M.setup_which_key()
     R = { ":call BetterRename()<CR>", "Rename Current File" },
     M = { ":call BetterMove()<CR>", "Move Current File" },
     D = { ":call BetterDelete()<CR>", "Delete the current file" },
-    p = { ":lua require('mood-scripts.open-user-configs').call()<CR>", "Open Your Private Files" },
+    p = { function() require('mood-scripts.open-files').call(mood_dotfiles) end, "User Mood Files" },
+    d = { function() require('mood-scripts.open-files').call(vim.g.dotfiles) end, "Dotfiles" },
     y = { ":call CopyRelativePath()<CR>", "Copy Relative Path" },
     l = { ":call CopyRelativePathWithLine()<CR>", "Copy Path With Line" },
     Y = { ":call CopyFullPath()<CR>", "Copy Full Path" },

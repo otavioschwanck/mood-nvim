@@ -39,6 +39,16 @@ for i = 1, #autocommands, 1 do
   vim.api.nvim_create_autocmd(autocommands[i][1], { pattern = autocommands[i][2], callback = autocommands[i][3] })
 end
 
+-- Use SPC f d to navigate to your dotfiles, configure then here.
+vim.g.dotfiles = {
+  { path = "~/.zshrc", display = "zshrc" },
+  { path = "~/.config/alacritty/alacritty.yml", display = "Alacritty" },
+  { path = "~/.tmux.conf", display = "TMUX" },
+  { path = "~/Library/Application Support/lazygit/config.yml", display = "Lazygit" },
+  -- { path = "~/.config/lazygit/config.yml", display = "Lazygit" }, -- (for Linux)
+  { path = "~/.gitconfig", display = "GitConfig" }
+}
+
 -- see more at https://github.com/otavioschwanck/telescope-alternate.nvim
 require('telescope-alternate').setup({
   mappings = {
