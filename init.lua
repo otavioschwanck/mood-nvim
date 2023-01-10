@@ -42,6 +42,7 @@ setup('plugins.yanky')
 setup('plugins.dashboard_plugin')
 setup('plugins.lualine')
 setup('plugins.ctrlsf')
+setup('mood-scripts.bg-color')
 
 -- user
 pcall(require, 'user.lsp')
