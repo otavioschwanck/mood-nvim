@@ -1,5 +1,5 @@
 font:
-  size: 15.0
+  size: 14.0
   normal:
     family: JetBrainsMono NF
     style: Regular
@@ -14,7 +14,7 @@ colors:
     red:     '0xc34043'
     green:   '0x76946a'
     yellow:  '0xc0a36e'
-    blue:    '0x7e9cd8'
+    blue:    '0x957fb8'
     magenta: '0x957fb8'
     cyan:    '0x6a9589'
     white:   '0xc8c093'
@@ -34,8 +34,8 @@ colors:
     foreground: '0xc8c093'
 
   indexed_colors:
-    - { index: 16, color: '0xffa066' }
-    - { index: 17, color: '0xff5d62' }
+    - { index: 16, color: '0x2d4f67' }
+    - { index: 17, color: '0x2d4f67' }
 
 # To get keybinding, just run: xxd -psd
 key_bindings:
@@ -93,7 +93,7 @@ key_bindings:
   - { key: D, mods: Shift|Command, chars: "\x18\x64" }
   - { key: V, mods: Shift|Command, chars: "\x18\x76" }
   - { key: A, mods: Shift|Command, chars: "\x18\x73" }
-  - { key: S, mods: Shift|Command, chars: "\x18\x22" }
+  - { key: S, mods: Shift|Command, chars: "\x18\x56" }
   - { key: H, mods: Shift|Command, chars: "\x18\x08" }
   - { key: J, mods: Shift|Command, chars: "\x18\x0a" }
   - { key: K, mods: Shift|Command, chars: "\x18\x0b" }
@@ -140,7 +140,7 @@ key_bindings:
   - { key: D, mods: Shift|Alt, chars: "\x18\x64" }
   - { key: V, mods: Shift|Alt, chars: "\x18\x76" }
   - { key: A, mods: Shift|Alt, chars: "\x18\x73" }
-  - { key: S, mods: Shift|Alt, chars: "\x18\x22" }
+  - { key: S, mods: Shift|Alt, chars: "\x18\x56" }
   - { key: H, mods: Shift|Alt, chars: "\x18\x08" }
   - { key: J, mods: Shift|Alt, chars: "\x18\x0a" }
   - { key: K, mods: Shift|Alt, chars: "\x18\x0b" }
