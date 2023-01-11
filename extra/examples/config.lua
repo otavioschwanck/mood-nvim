@@ -64,6 +64,15 @@ require('telescope-alternate').setup({
 
 vim.g.folder_to_ignore = { ".*.git/.*", "node_modules/.*", "sorbet/.*" } -- Ignore some folders on search?
 
+vim.g.dotfiles = {
+  { path = "~/.zshrc", display = "zshrc" },
+  { path = "~/.config/alacritty/alacritty.yml", display = "Alacritty" },
+  { path = "~/.tmux.conf", display = "TMUX" },
+  { path = "~/Library/Application Support/lazygit/config.yml", display = "Lazygit" },
+  -- { path = "~/.config/lazygit/config.yml", display = "Lazygit" }, -- (for Linux)
+  { path = "~/.gitconfig", display = "GitConfig" }
+}
+
 -- Mouse?
 vim.api.nvim_set_option('mouse', 'a')
 
