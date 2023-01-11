@@ -64,6 +64,7 @@ require('telescope-alternate').setup({
 
 vim.g.folder_to_ignore = { ".*.git/.*", "node_modules/.*", "sorbet/.*" } -- Ignore some folders on search?
 
+-- access your dotfiles with SPC f d
 vim.g.dotfiles = {
   { path = "~/.zshrc", display = "zshrc" },
   { path = "~/.config/alacritty/alacritty.yml", display = "Alacritty" },
