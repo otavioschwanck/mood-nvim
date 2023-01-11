@@ -32,14 +32,15 @@ end
 
 function M.current_is_the_active()
   local count_cmd = Split(vim.fn.system("tmux list-panes -t " .. M.window_id() .. " -F '#{pane_active} #{pane_id}'"), "\n")
+  local focused
 
   for i=1,#count_cmd, 1 do
-    if string.gmatch(count_cmd[i], vim.g.tmux_pane_id) then
-      return string.sub(count_cmd[i], 1, 1) == "1"
+    if string.sub(count_cmd[i], 1, 1) == "1" then
+      focused = count_cmd[i]
     end
   end
 
-  return false
+  return string.sub(focused, 3, #focused) == vim.g.tmux_pane_id
 end
 
 local function change()
