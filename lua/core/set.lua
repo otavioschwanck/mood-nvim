@@ -3,8 +3,8 @@ local M = {}
 local set = vim.api.nvim_set_option
 
 function M.setup()
-  set('undofile', true)
-  set('nu', true)
+	set('undofile', true)
+	set('nu', true)
 
 	set('hidden', true)
 	set('autoread', true)
@@ -47,7 +47,7 @@ function M.setup()
 	set('si', true)
 
 	set('backspace', 'start,eol,indent')
-  set('showtabline', 0)
+	set('showtabline', 0)
 
 	vim.cmd('set path+=**')
 	vim.cmd('set wildignore+=*/node_modules/*')
@@ -59,11 +59,11 @@ function M.setup()
 
 	vim.cmd([[
 	  augroup BgHighlight
-	  	autocmd!
-	  	autocmd WinEnter * set cul
-	  	autocmd WinLeave * set nocul
+	  autocmd!
+	  autocmd WinEnter * set cul
+	  autocmd WinLeave * set nocul
 	  augroup END
-	]])
+	  ]])
 
 	set('suffixesadd', '.js,.es,.jsx,.json,.css,.less,.sass,.styl,.php,.py,.md')
 

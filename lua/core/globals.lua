@@ -30,8 +30,8 @@ function M.setup()
 
   vim.g.python3_host_prog = host
 
-  vim.cmd("let test#ruby#rspec#options = { 'file': '--format documentation' }")
-  vim.cmd("let g:test#custom_strategies = {'mood-term': function('TermStrategy')}")
+--   vim.cmd("let test#ruby#rspec#options = { 'file': '--format documentation' }")
+--   vim.cmd("let g:test#custom_strategies = {'mood-term': function('TermStrategy')}")
 
 end
 

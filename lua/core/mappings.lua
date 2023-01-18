@@ -157,11 +157,11 @@ function M.setup_which_key()
   ["<return>"] = { ":Telescope resume<CR>", "Telescope Resume" },
   s = {
     name = "+Search",
-    D = { ":lua require('plugins.telescope.custom').live_grep_in_folder()<CR>", 'Search text in one or more folders' },
+    D = { ":lua require('mood-scripts.custom_telescope').live_grep_in_folder()<CR>", 'Search text in one or more folders' },
     d = { ":lua require('telescope.builtin').live_grep { search_dirs = {vim.fn.expand('%:p:h')}, prompt_title = 'Live grep inside ' .. vim.fn.expand('%:p:h') }<CR>", 'Search text in some folder' },
     p = { ":Telescope live_grep<CR>", "Search text on Project" },
     o = { ":Telescope live_grep grep_open_files=true<CR>", "Search on Open Files" },
-    P = { ":lua require('plugins.telescope.custom_telescope').ripgrep()<CR>", "Advanced Search text on Project" },
+    P = { ":lua require('mood-scripts.custom_telescope').ripgrep()<CR>", "Advanced Search text on Project" },
     f = { ":CtrlSF ", "Search text using CoC (for search and replace)" },
     s = { ":Telescope current_buffer_fuzzy_find fuzzy=false case_mode=ignore_case<CR>", "Fuzzy Current Buffer" },
     i = { ":Telescope lsp_document_symbols<CR>", "Search Outline Symbols" },
@@ -355,8 +355,6 @@ function M.setup_mappings()
 end
 
 function M.setup()
-  vim.g.mapleader = " "
-
   M.setup_which_key()
   M.setup_mappings()
 end

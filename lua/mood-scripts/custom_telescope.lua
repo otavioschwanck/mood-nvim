@@ -13,27 +13,26 @@ local scan = require "plenary.scandir"
 local custom_pickers = {}
 
 custom_pickers.ripgrep = function()
+  vim.ui.input({ prompt = 'Enter something to query: ' }, function(input)
 
-vim.ui.input({ prompt = 'Enter something to query: ' }, function(input)
-
-        builtin.grep_string({
-                find_command = {
-                        "rg",
-                        "-g", "!.git",
-                        "-g", "!node_modules",
-                        "-g", "!package-lock.json",
-                        "-g", "!yarn.lock",
-                        "--hidden",
-                        "--no-ignore-global",
-                        "--color=never",
-                        "--no-heading",
-                        "--with-filename",
-                        "--line-number",
-                        "--column",
-                },
-                search = input,
-        })
-end)
+    builtin.grep_string({
+      find_command = {
+        "rg",
+        "-g", "!.git",
+        "-g", "!node_modules",
+        "-g", "!package-lock.json",
+        "-g", "!yarn.lock",
+        "--hidden",
+        "--no-ignore-global",
+        "--color=never",
+        "--no-heading",
+        "--with-filename",
+        "--line-number",
+        "--column",
+      },
+      search = input,
+    })
+  end)
 end
 
 custom_pickers.live_grep_in_folder = function(opts)
