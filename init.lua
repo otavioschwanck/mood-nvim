@@ -37,7 +37,7 @@ vim.g.mapleader = " "
 
    setup('core.set')
    setup('core.globals')
-
+   setup('mood-scripts.bg-color')
    -- mood
    setup('mood-scripts.quick-consult')
 

@@ -1,5 +1,29 @@
 return {
   'fhill2/telescope-ultisnips.nvim',
+  { "AckslD/nvim-neoclip.lua", cmd = "Telescope neoclip", config = function()
+    require('neoclip').setup({
+      enable_persistent_history = true,
+      keys = {
+        telescope = {
+          i = {
+            paste = '<cr>',
+            paste_behind = '<C-p>',
+            replay = '<c-q>',  -- replay a macro
+            delete = '<c-d>',  -- delete an entry
+            custom = {},
+          },
+          n = {
+            select = '<cr>',
+            paste = 'p',
+            paste_behind = 'P',
+            replay = 'q',
+            delete = 'd',
+            custom = {},
+          },
+        },
+      }
+    })
+  end},
   { 'nvim-telescope/telescope-fzf-native.nvim',
     build = 'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build' },
   'otavioschwanck/telescope-alternate.nvim',
@@ -80,6 +104,14 @@ return {
           },
         },
       }
+
+      require("telescope").load_extension("ui-select")
+      require("telescope").load_extension "file_browser"
+      require('telescope').load_extension('neoclip')
+      require('telescope').load_extension('ultisnips')
+      require('telescope').load_extension('telescope-alternate')
+      require('telescope').load_extension('fzf')
+      require('telescope').load_extension('tmux-awesome-manager')
     end
   }
 }
