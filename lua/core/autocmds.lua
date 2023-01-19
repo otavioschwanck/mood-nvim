@@ -29,11 +29,19 @@ function M.setup()
     { {"FileType"}, {"qf"}, function() vim.cmd('map <buffer> dd :RemoveQFItem<CR>') end },
     { {"TermOpen"}, {"*"}, function() vim.cmd('setlocal nonumber norelativenumber') end },
     { {"FileType"}, {"TelescopePrompt"}, function() vim.cmd('setlocal nocursorline') end },
-
-    -- autocmd FileType qf map <buffer> dd :RemoveQFItem<cr>
   }
 
-	-- vim.cmd([[autocmd!]])
+  vim.api.nvim_create_autocmd('User', {
+    once = true,
+    pattern = { 'LazyVimStarted' },
+    callback = function()
+      require('core.mappings').setup()
+      require('mood-scripts.bg-color').setup()
+      require('user.keybindings')
+      require('user.lsp')
+      require('user.config')
+    end,
+  })
 
   for i = 1, #autocommands, 1 do
     cmd(autocommands[i][1], { pattern = autocommands[i][2], callback = autocommands[i][3] })

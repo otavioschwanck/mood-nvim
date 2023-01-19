@@ -1,6 +1,6 @@
 return {
   { 'nvim-lualine/lualine.nvim',
-    dependencies = { 'ThePrimeagen/harpoon', 'nvim-lua/plenary.nvim' },
+    dependencies = { 'ThePrimeagen/harpoon', 'nvim-lua/plenary.nvim', 'rebelot/kanagawa.nvim' },
     config = function()
       vim.cmd("colorscheme kanagawa")
 

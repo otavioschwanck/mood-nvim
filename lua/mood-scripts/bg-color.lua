@@ -85,6 +85,8 @@ function M.setup()
     pattern = '*',
     callback = change_func,
   })
+
+  change_func()
 end
 
 return M

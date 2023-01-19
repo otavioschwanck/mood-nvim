@@ -1,23 +1,22 @@
 local plugins = {
   { 'AndrewRadev/bufferize.vim', cmd = "Bufferize" },
   { 'otavioschwanck/tmux-awesome-manager.nvim' },
-   'nyoom-engineering/oxocarbon.nvim',
-   { 'andersevenrud/cmp-tmux', dependencies = { 'hrsh7th/nvim-cmp' } },
-  { "rebelot/kanagawa.nvim" },
-   { "catppuccin/nvim", name = "catppuccin" },
-   { 'stevearc/aerial.nvim', config = function() require('aerial').setup({}) end },
-   { 'sainnhe/gruvbox-material' },
-   { 'tomlion/vim-solidity' },
-   { 'rgroli/other.nvim' },
-   'tpope/vim-repeat',
-   { 'olimorris/onedarkpro.nvim' },
-   { 'ggandor/lightspeed.nvim', config = function()
-     require('lightspeed').setup({ ignore_case = true, jump_to_unique_chars = { safety_timeout = nil } })
-   end},
-   'norcalli/nvim-colorizer.lua',
-   { 'emmanueltouzery/agitator.nvim' },
-   'dhruvasagar/vim-table-mode',
-   { 'tpope/vim-commentary', keys = "gc" },
+  'nyoom-engineering/oxocarbon.nvim',
+  { 'andersevenrud/cmp-tmux', dependencies = { 'hrsh7th/nvim-cmp' } },
+  { "catppuccin/nvim", name = "catppuccin" },
+  { 'stevearc/aerial.nvim', config = function() require('aerial').setup({}) end },
+  { 'sainnhe/gruvbox-material' },
+  { 'tomlion/vim-solidity' },
+  { 'rgroli/other.nvim' },
+  'tpope/vim-repeat',
+  { 'olimorris/onedarkpro.nvim' },
+  { 'ggandor/lightspeed.nvim', config = function()
+    require('lightspeed').setup({ ignore_case = true, jump_to_unique_chars = { safety_timeout = nil } })
+  end },
+  'norcalli/nvim-colorizer.lua',
+  { 'emmanueltouzery/agitator.nvim' },
+  'dhruvasagar/vim-table-mode',
+  { 'tpope/vim-commentary', keys = "gc" },
   'machakann/vim-highlightedyank',
   'tpope/vim-surround',
   'vim-test/vim-test',
@@ -38,7 +37,8 @@ local plugins = {
   'shaunsingh/nord.nvim',
   'Olical/vim-enmasse',
   { 'rcarriga/nvim-notify' },
-   { 'otavioschwanck/cool-substitute.nvim', config = function() require('cool-substitute').setup({ setup_keybindings = true }) end },
+  { 'otavioschwanck/cool-substitute.nvim',
+    config = function() require('cool-substitute').setup({ setup_keybindings = true }) end },
   "rafamadriz/friendly-snippets",
   { 'hrsh7th/cmp-calc' },
   { 'mattn/emmet-vim', keys = "<C-p>" },
@@ -57,13 +57,9 @@ local plugins = {
   'AndrewRadev/sideways.vim',
   'AndrewRadev/splitjoin.vim',
   'AndrewRadev/switch.vim',
-	{
-		'folke/which-key.nvim',
-		config = function()
-			require('core.mappings').setup()
-			pcall(require, 'user.keybindings')
-		end,
-	},
+  {
+    'folke/which-key.nvim'
+  },
   'editorconfig/editorconfig-vim',
   'tpope/vim-abolish',
   'terryma/vim-multiple-cursors',
@@ -91,10 +87,8 @@ local plugins = {
   { 'hrsh7th/cmp-cmdline' },
   { 'danilamihailov/beacon.nvim' },
   'hrsh7th/cmp-path',
-  'hrsh7th/nvim-cmp',
   { 'moll/vim-bbye' },
   { 'ThePrimeagen/harpoon' },
-  'quangnguyen30192/cmp-nvim-ultisnips',
   { 'SirVer/ultisnips',
     dependencies = { { 'honza/vim-snippets', config = function() vim.opt.rtp:append('.') end, } }, config = function()
       vim.g.UltiSnipsExpandTrigger = '<Plug>(ultisnips_expand)'
@@ -104,7 +98,8 @@ local plugins = {
       vim.g.UltiSnipsRemoveSelectModeMappings = 0
     end
   },
-  { 'lewis6991/gitsigns.nvim', config = function() require('gitsigns').setup() end, dependencies = { 'nvim-lua/plenary.nvim' } },
+  { 'lewis6991/gitsigns.nvim', config = function() require('gitsigns').setup() end,
+    dependencies = { 'nvim-lua/plenary.nvim' } },
 }
 
 local user_plugins = require("user.plugins")
