@@ -3,9 +3,7 @@ APT_PACKAGES=(sqlite3 libsqlite3-dev neovim xclip python3-pip tmux)
 NPM_PACKAGES=(neovim diagnostic-languageserver)
 GEMS=(solargraph neovim bundler)
 MOOD_GIT=(git@github.com:otavioschwanck/mood-nvim.git)
-PACKER_GIT=(https://github.com/wbthomason/packer.nvim)
 NVIM_DIR=".config/nvim"
-PACKER_DIR=".local/share/nvim/site/pack/packer/start/packer.nvim"
 export LAZY_VER="0.35" # LAZYGIT VERSION
 TODAY=(date +"%m-%d-%y")
 
@@ -128,12 +126,6 @@ check_for_previous_nvim () {
 clone_nvim_repositories () {
   git clone --quiet $MOOD_GIT ~/.config/nvim
   git config --global push.default current
-
-  if [ -d "$PACKER_DIR" ]; then
-    cd ~/.local/share/nvim/site/pack/packer/start/packer.nvim; git reset --quiet --hard HEAD; git pull; cd
-  else
-    git clone --quiet --depth 1 $PACKER_GIT ~/.local/share/nvim/site/pack/packer/start/packer.nvim
-  fi
 }
 
 install_nvim () {
@@ -141,7 +133,7 @@ install_nvim () {
   install_pip_with_python
   check_for_previous_nvim
   clone_nvim_repositories
-  nvim +PackerSync
+  nvim --headless "+Lazy! sync" +qa
 }
 
 install_gems () {
@@ -184,7 +176,7 @@ mac_workflow () {
   ask_question "base packages for neovim" install_packages_mac
   ask_question "Ruby on Rails with Rbenv" install_ruby_mac
   ask_question "LazyGit" install_lazygit_mac
-  echo "ulimit -S -n 200048 # Fix Packer for neovim" >> ~/$BASH_PROFILE
+  echo "ulimit -S -n 200048 # Fix Lazy (Package Manager) for neovim" >> ~/$BASH_PROFILE
   ulimit -S -n 200048
 }
 

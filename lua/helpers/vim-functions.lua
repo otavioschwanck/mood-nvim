@@ -288,9 +288,6 @@ function M.setup()
 
     function s:UpdateMood()
       execute "!cd ~/.config/nvim; git pull origin main -f"
-      execute "PackerClean"
-      execute "PackerInstall"
-      execute "PackerUpdate"
     endfunction
 
     command! CleanConfigs :call s:CleanConfigs()
