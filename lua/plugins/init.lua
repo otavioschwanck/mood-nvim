@@ -2,7 +2,6 @@ local plugins = {
   { 'AndrewRadev/bufferize.vim', cmd = "Bufferize" },
   { 'otavioschwanck/tmux-awesome-manager.nvim' },
   'nyoom-engineering/oxocarbon.nvim',
-  { 'andersevenrud/cmp-tmux', dependencies = { 'hrsh7th/nvim-cmp' } },
   { "catppuccin/nvim", name = "catppuccin" },
   { 'stevearc/aerial.nvim', config = function() require('aerial').setup({}) end },
   { 'sainnhe/gruvbox-material' },
@@ -41,10 +40,9 @@ local plugins = {
     config = function() require('cool-substitute').setup({ setup_keybindings = true }) end },
   "rafamadriz/friendly-snippets",
   { 'hrsh7th/cmp-calc' },
-  { 'mattn/emmet-vim', keys = "<C-p>" },
+  { 'mattn/emmet-vim' },
 
   { "ray-x/lsp_signature.nvim" },
-  { 'onsails/lspkind.nvim' },
 
   'windwp/nvim-ts-autotag',
   { 'svermeulen/vim-subversive' },
@@ -82,22 +80,9 @@ local plugins = {
       show_current_context_start = true,
     }
   end },
-  'hrsh7th/cmp-nvim-lsp',
-  'hrsh7th/cmp-buffer',
-  { 'hrsh7th/cmp-cmdline' },
   { 'danilamihailov/beacon.nvim' },
-  'hrsh7th/cmp-path',
   { 'moll/vim-bbye' },
   { 'ThePrimeagen/harpoon' },
-  { 'SirVer/ultisnips',
-    dependencies = { { 'honza/vim-snippets', config = function() vim.opt.rtp:append('.') end, } }, config = function()
-      vim.g.UltiSnipsExpandTrigger = '<Plug>(ultisnips_expand)'
-      vim.g.UltiSnipsJumpForwardTrigger = '<Plug>(ultisnips_jump_forward)'
-      vim.g.UltiSnipsJumpBackwardTrigger = '<Plug>(ultisnips_jump_backward)'
-      vim.g.UltiSnipsListSnippets = '<c-x><c-s>'
-      vim.g.UltiSnipsRemoveSelectModeMappings = 0
-    end
-  },
   { 'lewis6991/gitsigns.nvim', config = function() require('gitsigns').setup() end,
     dependencies = { 'nvim-lua/plenary.nvim' } },
 }

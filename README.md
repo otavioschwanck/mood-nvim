@@ -21,6 +21,24 @@ mooD Nvim is a configuration made for those who wants to install and use, withou
   - Useful for commands such as rails console, server, sidekiq, yarn start, generate, open production stuff, etc. (Examples on `keybindings.lua`)
   - You can define server terminal commands separated by project and run with a single command.
 
+# Disclaimer
+
+This configuration is made to use with Alacritty and Tmux.  Please install it and learn before use it.
+
+# Breaking Changes
+
+After last upgrade (21/01/2023), you need to do some stuff:
+
+Run at your terminal:
+
+```sh
+rm -rf ~/.config/nvim/lua/user/lsp.lua
+
+rm -rf ~/.config/nvim/plugin/packer_compiled.lua
+
+rm -rf ~/.local/share/nvim
+```
+
 # Dependencies
 
 - Neovim >= 0.8 <= 0.9
@@ -49,7 +67,3 @@ To install manually, check the page: https://github.com/otavioschwanck/mood-nvim
 # How to learn the keybindings of this configuration?
 
 Just press `SPC h h` to open the handbook inside vim.
-
-## Tmux + Alacritty
-
-I Really recommend you to learn tmux / tmuxinator. Check the handbook inside the neovim.

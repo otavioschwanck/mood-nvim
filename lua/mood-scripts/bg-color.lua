@@ -1,6 +1,7 @@
 local M = {}
 
 local fn = vim.fn
+local setup_lualine = require('mood-scripts.statusline')
 
 local function get_color(group, attr)
   return fn.synIDattr(fn.synIDtrans(fn.hlID(group)), attr)
@@ -57,6 +58,7 @@ local function change()
     callback = function()
       M.set_variables()
       vim.cmd("highlight Normal guibg=" .. bg)
+      vim.cmd("highlight NormalNC guibg=" .. bg)
     end,
     group = 'BgColorChange'
   })
@@ -70,10 +72,13 @@ local function change()
 
       if (tonumber(count_cmd) or 1) > 1 and not(string.match(maximizedCmd, "Z")) and not(M.current_is_the_active()) then
         vim.cmd("highlight Normal guibg=black")
+        vim.cmd("highlight NormalNC guibg=black")
       end
     end,
     group = 'BgColorChange'
   })
+
+  setup_lualine()
 end
 
 local function change_func()

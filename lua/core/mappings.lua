@@ -83,8 +83,8 @@ function M.setup_which_key()
   [";"] = { ":Telescope buffers ignore_current_buffer=true sort_mru=true<CR>", "Find All Buffers" },
   ["*"] = { ":Telescope grep_string<CR>", "Search string at point on project" },
   ["<space>"] = { ":Telescope find_files<CR>", "Find Files" },
-  e = { ":NvimTreeToggle<CR>", "Toggle Tree" },
-  E = { ":NvimTreeFindFileToggle<CR>", "Tree Find File" },
+  e = { ":Neotree toggle<CR>", "Toggle Tree" },
+  E = { ":Neotree git_status<CR>", "Tree Git Status" },
   d = { ":call AddDebugger()<CR>", "+Debug" },
   D = { ":call ClearDebugger()<CR>", "Clear debuggers" },
   u = { ":UndotreeToggle<CR>", "Undo Tree" },
@@ -102,7 +102,6 @@ function M.setup_which_key()
     u = { ":UpdateMood<CR>", "Update mooD" },
     d = { ":!rm -rf ~/.local/share/nvim/swap/*<CR>", "Delete SWP files" },
     r = { ":LspRestart<CR>", "Restart LSP" },
-    s = { ":Telescope ultisnips<CR>", "Snippets List" },
     T = { ":lua require('tutorial').start()<CR>", "Start Tutorial" }
     },
   A = { ":call OpenTestAlternateAndSplit()<cr>", "Go to Test (split)" },
@@ -169,7 +168,6 @@ function M.setup_which_key()
     },
   f = {
     name = "+File",
-    s = { ":UltiSnipsEdit<CR>", "Snippets List" },
     o = { ":AerialToggle<CR>", "Show Window Symbols" },
     a = { ":lua require('telescope-alternate.telescope').alternate()<CR>", "Alternate File" },
     r = { ":Telescope oldfiles<CR>", "Recent Files" },

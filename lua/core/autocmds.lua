@@ -36,10 +36,9 @@ function M.setup()
     pattern = { 'LazyVimStarted' },
     callback = function()
       require('core.mappings').setup()
-      require('mood-scripts.bg-color').setup()
       require('user.keybindings')
-      require('user.lsp')
       require('user.config')
+      require('mood-scripts.bg-color').setup()
     end,
   })
 

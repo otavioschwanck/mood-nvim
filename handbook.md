@@ -262,11 +262,11 @@ I Consider this way the most efficient way to create files and find files on cur
 
 # Snippets and autocomplete
 
-To use snippets, just press <C-j> to expand and <C-j> to move forward and <C-k> to move backwards.
+See: https://vonheikemen.github.io/devlog/tools/setup-nvim-lspconfig-plus-nvim-cmp/#snippets
 
-Use Tab and S-Tab for go forward and backward on the autocomplete list.  You also can use C-n and C-p.
+But just press C-d after a snippet and you go forward! trust me.
 
-To select, just press ENTER.  To close the suggestions pop-up, press C-e.
+To open / close the autocomplete, just press C-e
 
 # Emmet
 Just press C-p to expand.

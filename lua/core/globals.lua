@@ -19,7 +19,6 @@ function M.setup()
   vim.g.send_disable_mapping = 1
   vim.g.folder_to_ignore = {".*.git/.*", "node_modules/.*"}
   vim.g['test#runner_commands'] = { 'RSpec' }
-  vim.g.UltiSnipsSnippetDirectories = {"UltiSnips", "user-snippets"}
   vim.g.choosewin_overlay_enable = 1
 
   local host = string.gsub(vim.fn.system("which python3"), "\n", "")
@@ -30,8 +29,8 @@ function M.setup()
 
   vim.g.python3_host_prog = host
 
---   vim.cmd("let test#ruby#rspec#options = { 'file': '--format documentation' }")
---   vim.cmd("let g:test#custom_strategies = {'mood-term': function('TermStrategy')}")
+  vim.cmd("let test#ruby#rspec#options = { 'file': '--format documentation' }")
+  vim.cmd("let g:test#custom_strategies = {'mood-term': function('TermStrategy')}")
 
 end
 
