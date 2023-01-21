@@ -266,7 +266,7 @@ See: https://vonheikemen.github.io/devlog/tools/setup-nvim-lspconfig-plus-nvim-c
 
 But just press C-d after a snippet and you go forward! trust me.
 
-To open / close the autocomplete, just press C-e
+To open / close the autocomplete, just press C-e.
 
 # Emmet
 Just press C-p to expand.
