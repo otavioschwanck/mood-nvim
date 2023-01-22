@@ -46,9 +46,7 @@ function M.setup()
 
       if !filereadable(test_path) && join(getline(1,'$'), "\n") == ''
         if test_path =~ "spec/"
-          execute "norm itemplate_test\<C-j>"
-        else
-          execute "norm iminitest\<C-j>"
+          lua require("utils.insert_rspec")()
         endif
       endif
     endfunction
