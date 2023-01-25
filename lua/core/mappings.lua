@@ -315,6 +315,7 @@ function M.setup_mappings()
 
   set('v', '<C-g>', ':<c-u>call SaveSelectionToQuickConsult()<cr>')
   set('n', '<C-g>', ':<c-u>call OpenConsultationWindow()<cr>')
+  set('n', '<Tab>', ':Telescope buffers ignore_current_buffer=true sort_mru=true<CR>')
 
   vim.cmd([[
     nnoremap <expr> 0 (col('.') - 1) == match(getline('.'),'\S') ? "<Home>" : "^"
