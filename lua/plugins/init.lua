@@ -18,7 +18,9 @@ local plugins = {
   { 'tpope/vim-commentary', keys = "gc" },
   'machakann/vim-highlightedyank',
   'tpope/vim-surround',
-  'vim-test/vim-test',
+  { 'vim-test/vim-test', init = function ()
+    vim.g['test#runner_commands'] = { 'RSpec' }
+  end },
   'tpope/vim-eunuch',
   'alvan/vim-closetag',
   'tpope/vim-rails',
