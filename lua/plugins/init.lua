@@ -62,7 +62,6 @@ local plugins = {
   'tpope/vim-abolish',
   'terryma/vim-multiple-cursors',
   'junegunn/vim-easy-align',
-  'tami5/sqlite.lua',
   'tommcdo/vim-exchange',
   'ecomba/vim-ruby-refactoring',
   'ton/vim-bufsurf',
