@@ -85,6 +85,21 @@ local plugins = {
   { 'ThePrimeagen/harpoon' },
   { 'lewis6991/gitsigns.nvim', config = function() require('gitsigns').setup() end,
     dependencies = { 'nvim-lua/plenary.nvim' } },
+  {
+    'prochri/telescope-all-recent.nvim',
+    dependencies = { 'kkharji/sqlite.lua' },
+    config = function()
+      require 'telescope-all-recent'.setup {
+        pickers = {
+          find_files = {
+            disable = false,
+            use_cwd = true,
+            sorting = 'recent',
+          }
+        }
+      }
+    end
+  },
 }
 
 local user_plugins = require("user.plugins")
