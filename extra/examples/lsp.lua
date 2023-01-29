@@ -33,92 +33,104 @@
     }
   })
 
-  -- If rubocop for some reason doesn't works by default, uncomment the lsp.configure below and do:
-  -- :MasonInstall diagnostic-languageserver
-  -- Make sure to remove rubocop from linter/formatter tab from :Mason (press X on it)
-  -- lsp.configure('diagnosticls', {
-  --   filetypes = { "ruby" },
-  --   single_file_support = false,
-  --   init_options = {
-  --     linters = {
-  --       rubocop = {
-  --         command = "bundle",
-  --         sourceName = "rubocop",
-  --         debounce = 100,
-  --         args = { "exec",
-  --           "rubocop",
-  --           "--format",
-  --           "json",
-  --           "--force-exclusion",
-  --           "--stdin",
-  --           "%filepath"
-  --         },
-  --         parseJson = {
-  --           errorsRoot = "files[0].offenses",
-  --           line = "location.start_line",
-  --           endLine = "location.last_line",
-  --           column = "location.start_column",
-  --           endColumn = "location.end_column",
-  --           message = "[${cop_name}] ${message}",
-  --           security = "severity"
-  --         },
-  --         securities = {
-  --           fatal = "error",
-  --           error = "error",
-  --           warning = "warning",
-  --           convention = "info",
-  --           refactor = "info",
-  --           info = "info"
-  --         }
-  --       },
-  --       shellcheck = {
-  --         command = "shellcheck",
-  --         debounce = 100,
-  --         args = { "--format=gcc", "-"},
-  --         offsetLine = 0,
-  --         offsetColumn = 0,
-  --         sourceName = "shellcheck",
-  --         formatLines = 1,
-  --         formatPattern = {
-  --           "^[^:]+:(\\d+):(\\d+):\\s+([^:]+):\\s+(.*)$",
-  --           {
-  --             line = 1,
-  --             column = 2,
-  --             message = 4,
-  --             security = 3
-  --           }
-  --         },
-  --         securities = {
-  --           error = "error",
-  --           warning = "warning",
-  --           note = "info"
-  --         }
-  --       },
-  --       languagetool = {
-  --         command = "languagetool",
-  --         debounce = 200,
-  --         args = {"-"},
-  --         offsetLine = 0,
-  --         offsetColumn = 0,
-  --         sourceName = "languagetool",
-  --         formatLines = 2,
-  --         formatPattern = {
-  --           "^\\d+?\\.\\)\\s+Line\\s+(\\d+),\\s+column\\s+(\\d+),\\s+([^\\n]+)\nMessage:\\s+(.*)$",
-  --           {
-  --             line = 1,
-  --             column = 2,
-  --             message = { 4, 3 }
-  --           }
-  --         }
-  --       }
-  --     },
-  --     filetypes = {
-  --       sh = "shellcheck",
-  --       email = "languagetool",
-  --       ruby = "rubocop"
-  --     }
-  --   }
-  -- })
+  -- the reason to configure solargraph here and use diagnosticsls, is because if handles better the rubocop, specially for big projects.
+  -- Just comment lsp.configure(solargraph) and lsp.configure(diagnosticsls) if you want the default stuff.
+  lsp.configure('solargraph', {
+    flags = {
+      debounce_text_changes = 50,
+    },
+    settings = {
+      solargraph = {
+        diagnostics = false,
+        formatting = true,
+        useBundler = true
+      }
+    }
+  })
+
+  lsp.configure('diagnosticls', {
+    filetypes = { "ruby" },
+    single_file_support = false,
+    init_options = {
+      linters = {
+        rubocop = {
+          command = "bundle",
+          sourceName = "rubocop",
+          debounce = 100,
+          args = { "exec",
+            "rubocop",
+            "--format",
+            "json",
+            "--force-exclusion",
+            "--stdin",
+            "%filepath"
+          },
+          parseJson = {
+            errorsRoot = "files[0].offenses",
+            line = "location.start_line",
+            endLine = "location.last_line",
+            column = "location.start_column",
+            endColumn = "location.end_column",
+            message = "[${cop_name}] ${message}",
+            security = "severity"
+          },
+          securities = {
+            fatal = "error",
+            error = "error",
+            warning = "warning",
+            convention = "info",
+            refactor = "info",
+            info = "info"
+          }
+        },
+        shellcheck = {
+          command = "shellcheck",
+          debounce = 100,
+          args = { "--format=gcc", "-"},
+          offsetLine = 0,
+          offsetColumn = 0,
+          sourceName = "shellcheck",
+          formatLines = 1,
+          formatPattern = {
+            "^[^:]+:(\\d+):(\\d+):\\s+([^:]+):\\s+(.*)$",
+            {
+              line = 1,
+              column = 2,
+              message = 4,
+              security = 3
+            }
+          },
+          securities = {
+            error = "error",
+            warning = "warning",
+            note = "info"
+          }
+        },
+        languagetool = {
+          command = "languagetool",
+          debounce = 200,
+          args = {"-"},
+          offsetLine = 0,
+          offsetColumn = 0,
+          sourceName = "languagetool",
+          formatLines = 2,
+          formatPattern = {
+            "^\\d+?\\.\\)\\s+Line\\s+(\\d+),\\s+column\\s+(\\d+),\\s+([^\\n]+)\nMessage:\\s+(.*)$",
+            {
+              line = 1,
+              column = 2,
+              message = { 4, 3 }
+            }
+          }
+        }
+      },
+      filetypes = {
+        sh = "shellcheck",
+        email = "languagetool",
+        ruby = "rubocop"
+      }
+    }
+  })
 
   lsp.nvim_workspace()
 
