@@ -8,16 +8,6 @@
   local cmp = require('cmp')
   local luasnip = require("luasnip")
 
-  local cmp_mappings = lsp.defaults.cmp_mappings({
-    ['<C-d>'] = cmp.mapping(function (fallback)
-      if luasnip.expand_or_jumpable() then
-        luasnip.expand_or_jump()
-      else
-        fallback()
-      end
-    end),
-  })
-
   lsp.ensure_installed({
     'tsserver',
     'eslint',
@@ -134,9 +124,22 @@
 
   lsp.nvim_workspace()
 
-  local sources = require('lsp-zero').defaults.cmp_sources()
+  local cmp_mappings = lsp.defaults.cmp_mappings({
+    ['<C-d>'] = cmp.mapping(function (fallback)
+      if luasnip.expand_or_jumpable() then
+        luasnip.expand_or_jump()
+      else
+        fallback()
+      end
+    end),
+  })
 
-  table.insert(sources, { name = "calc" })
+  local sources = { { name = "path" },
+    { keyword_length = 2, name = "nvim_lsp" },
+    { name = "buffer", option = { get_bufnrs = require('utils.valid_listed_buffers') } },
+    { name = "luasnip", keyword_length = 2 },
+    { name = "calc" }
+  }
 
   lsp.setup_nvim_cmp({
     sources = sources,

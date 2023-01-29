@@ -3,7 +3,7 @@ local function return_listed_valid_buffers()
   local buffersToUse = {}
   local bufferIndex = 1
 
-  for i=1,table.getn(buffers),1 do
+  for i=1,#buffers,1 do
     local buf = buffers[i]
     local byte_size = vim.api.nvim_buf_get_offset(buf, vim.api.nvim_buf_line_count(buf))
 
