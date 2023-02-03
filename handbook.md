@@ -195,25 +195,13 @@ To execute some command in all items of the quickfix list, just run `:cfdo S/old
 
 # Using the tree like a boss
 
-| Command | Description                                    |
-|---------|------------------------------------------------|
-| TAB     | Preview / expand                               |
-| P       | Go to parent node (useful)                     |
-| A       | Create new file or folder                      |
-| r       | Rename the file                                |
-| x       | Add or Remove current file to cut clipboard    |
-| c       | Add or Remove current file to copy clipboard   |
-| y       | Copy name to system clipboard                  |
-| p       | Paste itens from the clipboard                 |
-| d       | Delete file                                    |
-| -       | Navigate to parent directory                   |
-| s       | Open with default system application or folder |
-| C-v     | Open in a vertical split                       |
-| I       | Toggle Ignored Files                           |
-| H       | Toggle Hidden Files                            |
-| R       | Refresh tree                                   |
-| S       | Prompt a path and go to path                   |
-|---------|------------------------------------------------|
+| Command | Description               |
+|---------|---------------------------|
+| TAB     | Preview / expand          |
+| SPC e   | Open the tree             |
+| SPC E   | Git Status on tree        |
+| ?       | See all possible commands |
+|---------|---------------------------|
 
 # Editing
 
