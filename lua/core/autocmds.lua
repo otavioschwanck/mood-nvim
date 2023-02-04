@@ -28,8 +28,7 @@ function M.setup()
     { {"BufEnter"}, {"*"}, function() vim.cmd('ColorizerAttachToBuffer') end },
     { {"FileType"}, {"qf"}, function() vim.cmd('map <buffer> dd :RemoveQFItem<CR>') end },
     { {"TermOpen"}, {"*"}, function() vim.cmd('setlocal nonumber norelativenumber') end },
-    { {"FileType"}, {"TelescopePrompt"}, function() vim.cmd('setlocal nocursorline') end },
-  }
+    { {"FileType"}, {"TelescopePrompt"}, function() vim.cmd('setlocal nocursorline') end }, }
 
   vim.api.nvim_create_autocmd('User', {
     once = true,
@@ -39,6 +38,8 @@ function M.setup()
       require('user.keybindings')
       require('user.config')
       require('mood-scripts.bg-color').setup()
+
+      vim.cmd('call timer_start(200, {-> execute("colorscheme ' .. vim.g.colors_name .. '") })')
     end,
   })
 
