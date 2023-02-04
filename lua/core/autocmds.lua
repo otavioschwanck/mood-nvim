@@ -39,7 +39,7 @@ function M.setup()
       require('user.config')
       require('mood-scripts.bg-color').setup()
 
-      vim.cmd('call timer_start(200, {-> execute("colorscheme ' .. vim.g.colors_name .. '") })')
+      vim.cmd('call timer_start(50, {-> execute("colorscheme ' .. vim.g.colors_name .. '") })')
     end,
   })
 

@@ -3,7 +3,7 @@
 ---------------------------------------------------
 
 -- Theme?
-vim.cmd('colorscheme kanagawa') -- SPC h t to see more themes
+vim.cmd('colorscheme nightfox') -- SPC h t to see more themes
 
 -- Configure your per project commands.  See more at: https://github.com/otavioschwanck/tmux-awesome-manager.nvim
 -- Run the per project with SPC #
