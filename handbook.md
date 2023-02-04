@@ -143,6 +143,24 @@ OBS: This list persist between vim sections
 | [q                     | Previous Quickfix                                  |
 |------------------------|----------------------------------------------------|
 
+# LSP (Language Server Protocol)
+
+| Command                | Description                                        |
+|------------------------|----------------------------------------------------|
+| gd                     | Go to definition                                   |
+| gr                     | See references                                     |
+| gt                     | Type Definition                                    |
+| SPC c x                | List all diagnostics                               |
+| SPC c a                | Code Actions (Awesome for JS/TS)                   |
+| SPC c f                | Format document with LSP                           |
+| SPC s i                | Document Symbols                                   |
+| SPC s j                | Workspace Symbols                                  |
+
+To learn more about the LSP used on mooD:
+https://github.com/VonHeikemen/lsp-zero.nvim
+
+To configure your LSP: SPC f p + lsp
+
 # Window Navigation
 
 | Command | Description                                              |
@@ -187,9 +205,9 @@ Extra tip: \0 = text that you searched.
 
 You can:
 
-1. use `SPC s p`, and then, press `C-q` to create a quickfix list.  You can navigate on quickfix with `]q` and `[q`.
+1. use `SPC s p`, and then, press `C-q` to create a quickfix list from all results or `C-e` to create from the selected only (press tab to select).  You can navigate on quickfix with `]q` and `[q`.
 
-To execute some command in all items of the quickfix list, just run `:cfdo S/old_text/new_text/gr | :wq`
+To execute some command in all items of the quickfix list, just run `:cfdo S/old_text/new_text/gr | :wq` (or /grc if you want confirmation)
 
 2. use `SPC s f`, find, and then edit the search result like a file. (i find this way easier most of the time)
 

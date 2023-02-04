@@ -54,6 +54,10 @@ return {
               ["<C-k>"] = actions.move_selection_previous,
               ["<C-n>"] = actions.cycle_history_next,
               ["<C-p>"] = actions.cycle_history_prev,
+              ["<C-e>"] = function (picker)
+                actions.send_selected_to_qflist(picker)
+                vim.cmd("copen")
+              end,
             },
             n = {
               ["<C-j>"] = actions.move_selection_next,
