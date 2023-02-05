@@ -5,6 +5,15 @@
 
   lsp.preset('recommended')
 
+  lsp.on_attach(function(_, bufnr)
+    local opts = {buffer = bufnr}
+
+    vim.keymap.set('n', 'gd', '<cmd>Telescope lsp_definitions<cr>', opts)
+    vim.keymap.set('n', 'gr', '<cmd>Telescope lsp_references<cr>', opts)
+    vim.keymap.set('n', 'gi', '<cmd>Telescope lsp_implementations<cr>', opts)
+    vim.keymap.set('n', 'gt', '<cmd>Telescope lsp_type_definitions<cr>', opts)
+  end)
+
   local cmp = require('cmp')
   local luasnip = require("luasnip")
 
@@ -125,6 +134,8 @@
   lsp.nvim_workspace()
 
   local cmp_mappings = lsp.defaults.cmp_mappings({
+    ['<Tab>'] = cmp.mapping.select_next_item({ select = true }),
+    ['<S-Tab>'] = cmp.mapping.select_prev_item({ select = true }),
     ['<C-d>'] = cmp.mapping(function (fallback)
       if luasnip.expand_or_jumpable() then
         luasnip.expand_or_jump()
@@ -143,7 +154,11 @@
 
   lsp.setup_nvim_cmp({
     sources = sources,
-    mapping = cmp_mappings
+    mapping = cmp_mappings,
+    preselect = 'none',
+    completion = {
+        completeopt = 'menu,menuone,noinsert,noselect'
+    },
   })
 
   lsp.setup()
