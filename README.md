@@ -34,6 +34,8 @@ Run at your terminal:
 ```sh
 rm -rf ~/.config/nvim/lua/user/lsp.lua
 
+rm -rf ~/.config/nvim/lua/user/plugins.lua
+
 rm -rf ~/.config/nvim/plugin/packer_compiled.lua
 
 rm -rf ~/.local/share/nvim
