@@ -63,9 +63,9 @@ local plugins = {
   'editorconfig/editorconfig-vim',
   'tpope/vim-abolish',
   'terryma/vim-multiple-cursors',
-  'junegunn/vim-easy-align',
   'tommcdo/vim-exchange',
   'ecomba/vim-ruby-refactoring',
+  'christoomey/vim-tmux-navigator',
   'ton/vim-bufsurf',
   { 'xolox/vim-notes', dependencies = { 'xolox/vim-misc', } },
   { 'lukas-reineke/indent-blankline.nvim', config = function()

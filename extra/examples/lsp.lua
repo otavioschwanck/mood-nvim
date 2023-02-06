@@ -8,10 +8,16 @@
   lsp.on_attach(function(_, bufnr)
     local opts = {buffer = bufnr}
 
-    vim.keymap.set('n', 'gd', '<cmd>Telescope lsp_definitions<cr>', opts)
-    vim.keymap.set('n', 'gr', '<cmd>Telescope lsp_references<cr>', opts)
-    vim.keymap.set('n', 'gi', '<cmd>Telescope lsp_implementations<cr>', opts)
-    vim.keymap.set('n', 'gt', '<cmd>Telescope lsp_type_definitions<cr>', opts)
+    local noremap = {buffer = bufnr, remap = false}
+    local bind = vim.keymap.set
+
+    bind('n', 'gd', '<cmd>Telescope lsp_definitions<cr>', opts)
+    bind('n', 'gr', '<cmd>Telescope lsp_references<cr>', opts)
+    bind('n', 'gi', '<cmd>Telescope lsp_implementations<cr>', opts)
+    bind('n', 'gt', '<cmd>Telescope lsp_type_definitions<cr>', opts)
+    bind('n', 'g<C-k>', '<cmd>lua vim.lsp.buf.signature_help()<cr>', opts)
+
+    bind('n', '<C-k>', '<cmd>TmuxNavigateUp<cr>', noremap)
   end)
 
   local cmp = require('cmp')
@@ -134,8 +140,9 @@
   lsp.nvim_workspace()
 
   local cmp_mappings = lsp.defaults.cmp_mappings({
-    ['<Tab>'] = cmp.mapping.select_next_item({ select = true }),
-    ['<S-Tab>'] = cmp.mapping.select_prev_item({ select = true }),
+    -- Uncomment to input on select in autocomplete
+    -- ['<Tab>'] = cmp.mapping.select_next_item({ select = true }),
+    -- ['<S-Tab>'] = cmp.mapping.select_prev_item({ select = true }),
     ['<C-d>'] = cmp.mapping(function (fallback)
       if luasnip.expand_or_jumpable() then
         luasnip.expand_or_jump()
@@ -155,10 +162,10 @@
   lsp.setup_nvim_cmp({
     sources = sources,
     mapping = cmp_mappings,
-    preselect = 'none',
-    completion = {
-        completeopt = 'menu,menuone,noinsert,noselect'
-    },
+    -- preselect = 'none', -- Uncomment those 4 lines to not select first on autocomplete.
+    -- completion = {
+    --     completeopt = 'menu,menuone,noinsert,noselect'
+    -- },
   })
 
   lsp.setup()

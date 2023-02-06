@@ -74,6 +74,12 @@ Movimentation and Navigation:
 | M-Esc           | Go to next pane and maximize                     |
 | M-Esc           | Go to next pane and maximize                     |
 | M-a             | Alternate between current window and last window |
+| C-j             | Go to pane (up)                                  |
+| C-k             | Go to pane (down)                                |
+| C-h             | Go to pane (left)                                |
+| C-l             | Go to pane (right)                               |
+
+Obs: C-h C-j C-k C-l works for neovim splits too (thanks for a plugin)
 
 Management:
 
@@ -120,10 +126,8 @@ OBS: This list persist between vim sections
 
 | Command                | Description                                        |
 |------------------------|----------------------------------------------------|
-| H                      | Previous Harpoon                                   |
-| L                      | Next Harpoon                                       |
-| C-h                    | Previous Visited Buffer (History)                  |
-| C-l                    | Next Visit Buffer (History)                        |
+| H                      | Previous Visited Buffer (History)                  |
+| L                      | Next Visit Buffer (History)                        |
 | SPC ,                  | Find Buffer in Project                             |
 | SPC TAB                | Git Status                                         |
 | SPC .                  | File Browser                                       |
@@ -165,10 +169,10 @@ To configure your LSP: SPC f p + lsp
 
 | Command | Description                                              |
 |---------|----------------------------------------------------------|
-| M-h     | Focus Window in the left                                 |
-| M-l     | Focus Window in the right                                |
-| M-j     | Focus Window in the bottom                               |
-| M-k     | Focus Window in the top                                  |
+| C-h     | Focus Window in the left                                 |
+| C-l     | Focus Window in the right                                |
+| C-j     | Focus Window in the bottom                               |
+| C-k     | Focus Window in the top                                  |
 | ,       | Go to next window                                        |
 |---------|----------------------------------------------------------|
 | C-w o   | Maximize window                                          |

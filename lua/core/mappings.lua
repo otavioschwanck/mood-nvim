@@ -253,9 +253,6 @@ function M.setup_mappings()
 
   set('n', '<Esc>', ':noh<CR><esc>', bufopts)
 
-  set('n', '<C-k>', require("helpers.vim-functions").close_term)
-  set('t', '<C-k>', require("helpers.vim-functions").close_term)
-
   set('t', '<C-g>', '<C-\\><C-n>')
   set('t', '<C-v>', '<C-\\><C-N>pi')
 
@@ -295,10 +292,6 @@ function M.setup_mappings()
   set('i', '<C-d>', '<Delete>')
   set('c', '<C-d>', '<Delete>')
   set('n', '<CR>', ':call Maximize()<CR>')
-  set('x', 'gl', '<Plug>(EasyAlign)')
-
-  set('n', 'H', ':lua require("harpoon.ui").nav_prev()<CR>')
-  set('n', 'L', ':lua require("harpoon.ui").nav_next()<CR>')
 
   set('n', '<leader>1', ':lua require("harpoon.ui").nav_file(1)<CR>')
   set('n', '<leader>2', ':lua require("harpoon.ui").nav_file(2)<CR>')
@@ -310,8 +303,8 @@ function M.setup_mappings()
   set('n', '<leader>8', ':lua require("harpoon.ui").nav_file(8)<CR>')
   set('n', '<leader>9', ':lua require("harpoon.ui").nav_file(9)<CR>')
 
-  set('n', '<C-h>', ':BufSurfBack<CR>')
-  set('n', '<C-l>', ':BufSurfForward<CR>')
+  set('n', 'H', ':BufSurfBack<CR>')
+  set('n', 'L', ':BufSurfForward<CR>')
 
   set('v', '<C-g>', ':<c-u>call SaveSelectionToQuickConsult()<cr>')
   set('n', '<C-g>', ':<c-u>call OpenConsultationWindow()<cr>')
