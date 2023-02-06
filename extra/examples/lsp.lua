@@ -8,16 +8,12 @@
   lsp.on_attach(function(_, bufnr)
     local opts = {buffer = bufnr}
 
-    local noremap = {buffer = bufnr, remap = false}
     local bind = vim.keymap.set
 
     bind('n', 'gd', '<cmd>Telescope lsp_definitions<cr>', opts)
     bind('n', 'gr', '<cmd>Telescope lsp_references<cr>', opts)
     bind('n', 'gi', '<cmd>Telescope lsp_implementations<cr>', opts)
     bind('n', 'gt', '<cmd>Telescope lsp_type_definitions<cr>', opts)
-    bind('n', 'g<C-k>', '<cmd>lua vim.lsp.buf.signature_help()<cr>', opts)
-
-    bind('n', '<C-k>', '<cmd>TmuxNavigateUp<cr>', noremap)
   end)
 
   local cmp = require('cmp')
