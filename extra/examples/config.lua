@@ -30,7 +30,7 @@ local four_space_languages = { "solidity" }
 local autocommands = {
   { {"FileType"}, two_space_languages, function() vim.cmd('setlocal shiftwidth=2 tabstop=2') end },
   { {"FileType"}, four_space_languages, function() vim.cmd('setlocal shiftwidth=4 tabstop=4') end },
-  -- { {'BufWritePre'}, {"*.tsx", "*.ts", "*.jsx", "*.js"}, function() vim.cmd("Prettier") end, }, -- prettifer on save
+  -- { {'BufWritePre'}, {"*.tsx", "*.ts", "*.jsx", "*.js"}, function() vim.cmd("LspZeroFormat") end, }, -- prettifer on save (Install using :MasonInstall prettier)
   -- { {'BufWritePre'}, {"*.rb"}, function() vim.lsp.buf.format { async = false, filter = function(client) return client.name == "solargraph" end } end, } -- rubocop on save
 }
 

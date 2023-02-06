@@ -48,7 +48,6 @@ local plugins = {
 
   'windwp/nvim-ts-autotag',
   { 'svermeulen/vim-subversive' },
-  { 'prettier/vim-prettier', build = "yarn install --frozen-lockfile --production" },
 
   { 'beloglazov/vim-textobj-quotes', dependencies = { 'kana/vim-textobj-user', } },
   'EdenEast/nightfox.nvim',
