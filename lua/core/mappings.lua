@@ -311,8 +311,9 @@ function M.setup_mappings()
 
   local tmux_win = require("mood-scripts.tmux-integration")
 
-  set('n', '<C-w>;', tmux_win.go_to_next, {})
-  set('n', '<C-w>,', tmux_win.go_to_prev, {})
+  set({'n', 'i', 'v', 'c'}, '<C-w>;', tmux_win.go_to_next, {})
+  set({'n', 'i', 'v', 'c'}, '<C-w>,', tmux_win.go_to_prev, {})
+
 
   vim.cmd([[
     nnoremap <expr> 0 (col('.') - 1) == match(getline('.'),'\S') ? "<Home>" : "^"
