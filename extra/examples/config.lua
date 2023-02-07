@@ -9,13 +9,13 @@ vim.cmd('colorscheme nightfox') -- SPC h t to see more themes
 -- Run the per project with SPC #
 require('tmux-awesome-manager').setup({
   -- Open in separated session?
-  -- project_open_as = 'separated_session',
-  -- session_name = 'Neovim Terms',
+  project_open_as = 'pane', --  can be 'separated_session' and 'window'
+  session_name = 'Neovim Terms',
   per_project_commands = {
     api = { { cmd = 'rails s', name = 'Rails Server' } },
     front = { { cmd = 'yarn start', name = 'react server' } }
   },
-  default_size = '30%',
+  default_size = '25%', -- use Alt + , and Alt + ; to switch between neovim and tmux panes
   open_new_as = 'pane', -- change to window to open terms in new tab
 })
 
