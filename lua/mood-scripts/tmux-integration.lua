@@ -13,7 +13,8 @@ function M.normalize_return(str)
 end
 
 function M.go_to_next()
-  local is_last_window = vim.fn.winnr() == vim.fn.winnr("$")
+  local is_last_window = vim.fn.winnr() == #vim.api.nvim_list_wins()
+
   local pane_count = tonumber(vim.fn.system("tmux display-message -p '#{window_panes}' "))
   local window_id = M.normalize_return(vim.fn.system("tmux display-message -p '#I'"))
   local is_maximized = M.normalize_return(vim.fn.system("tmux list-panes -t " .. window_id .. " -F '#F'"))

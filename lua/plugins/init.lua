@@ -78,7 +78,6 @@ local plugins = {
       show_current_context = true,
     }
   end },
-  { 'danilamihailov/beacon.nvim' },
   { 'moll/vim-bbye' },
   { 'ThePrimeagen/harpoon' },
   { 'lewis6991/gitsigns.nvim', config = function() require('gitsigns').setup() end,
