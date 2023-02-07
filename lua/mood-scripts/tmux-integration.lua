@@ -12,8 +12,23 @@ function M.normalize_return(str)
   return str
 end
 
+function M.real_window_count()
+  local wins = vim.api.nvim_list_wins()
+  local count = 0
+
+  for i=1,#wins do
+    local cfg = vim.api.nvim_win_get_config(wins[i])
+
+    if cfg.focusable then
+      count = count + 1
+    end
+  end
+
+  return count
+end
+
 function M.go_to_next()
-  local is_last_window = vim.fn.winnr() == #vim.api.nvim_list_wins()
+  local is_last_window = vim.fn.winnr() == M.real_window_count()
 
   local pane_count = tonumber(vim.fn.system("tmux display-message -p '#{window_panes}' "))
   local window_id = M.normalize_return(vim.fn.system("tmux display-message -p '#I'"))
@@ -40,4 +55,3 @@ function M.go_to_prev()
 end
 
 return M
-
