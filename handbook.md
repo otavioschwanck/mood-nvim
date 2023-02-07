@@ -74,12 +74,11 @@ Movimentation and Navigation:
 | M-Esc           | Go to next pane and maximize                     |
 | M-Esc           | Go to next pane and maximize                     |
 | M-a             | Alternate between current window and last window |
-| C-j             | Go to pane (up)                                  |
-| C-k             | Go to pane (down)                                |
-| C-h             | Go to pane (left)                                |
-| C-l             | Go to pane (right)                               |
+| C-,             | Go to previous pane / nvim pane                  |
+| C-;             | Go to next pane / nvim pane                      |
 
-Obs: C-h C-j C-k C-l works for neovim splits too (thanks for a plugin)
+Obs: C-; C-, works for neovim splits too (thanks for a script)
+Obs2: Maybe you need to upgrade your alacritty.yml and tmux.conf.  Press SPC f d and delete those files.
 
 Management:
 
@@ -169,11 +168,8 @@ To configure your LSP: SPC f p + lsp
 
 | Command | Description                                              |
 |---------|----------------------------------------------------------|
-| C-h     | Focus Window in the left                                 |
-| C-l     | Focus Window in the right                                |
-| C-j     | Focus Window in the bottom                               |
-| C-k     | Focus Window in the top                                  |
-| ,       | Go to next window                                        |
+| C-,     | Focus Previous Window                                    |
+| C-;     | Focus Next window                                        |
 |---------|----------------------------------------------------------|
 | C-w o   | Maximize window                                          |
 | ENTER   | Maximize window temporary (press ENTER again to restore)

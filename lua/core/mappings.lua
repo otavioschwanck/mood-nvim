@@ -309,6 +309,11 @@ function M.setup_mappings()
   set('v', '<C-g>', ':<c-u>call SaveSelectionToQuickConsult()<cr>')
   set('n', '<C-g>', ':<c-u>call OpenConsultationWindow()<cr>')
 
+  local tmux_win = require("scripts.tmux-integration")
+
+  set('n', '<C-w>;', tmux_win.go_to_next, {})
+  set('n', '<C-w>,', tmux_win.go_to_prev, {})
+
   vim.cmd([[
     nnoremap <expr> 0 (col('.') - 1) == match(getline('.'),'\S') ? "<Home>" : "^"
     vnoremap <expr> 0 (col('.') - 1) == match(getline('.'),'\S') ? "<Home>" : "^"

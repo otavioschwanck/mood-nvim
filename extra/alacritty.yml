@@ -112,14 +112,14 @@ key_bindings:
   - { key: S, mods: Command, chars: "\x18\x77" }
   - { key: Slash, mods: Command, chars: "\x18\x2f" }
   - { key: R,     mods: Command,     chars: "\x18\x2c"                    }
-  - { key: Comma,     mods: Command,     chars: "\x18\x09"                    }
   - { key: LBracket,     mods: Command,     chars: "\x18\x5b" }
   - { key: A,     mods: Command,     chars: "\x18\x3d" }
   - { key: O, mods: Command, chars: "\x18\x6f" }
   - { key: O, mods: Shift|Command, chars: "\x18\x7a" }
   - { key: Return, mods: Command, chars: "\x18\x7a" }
   - { key: Escape, mods: Command, chars: "\x18\x01" }
-  - { key: Semicolon, mods: Command, chars: "\x18\x20" }
+  - { key: Comma,    mods: Command, chars: "\x18\x10"                      }
+  - { key: Semicolon,    mods: Command, chars: "\x18\x0e"                      }
 
   # Linux
   - { key: E, mods: Alt,                    chars: "\x1bOF",   mode: AppCursor   }
@@ -159,13 +159,13 @@ key_bindings:
   - { key: S, mods: Alt, chars: "\x18\x77" }
   - { key: Slash, mods: Alt, chars: "\x18\x2f" }
   - { key: R,     mods: Alt,     chars: "\x18\x2c"                    }
-  - { key: Comma,     mods: Alt,     chars: "\x18\x09"                    }
   - { key: LBracket,     mods: Alt,     chars: "\x18\x5b" }
   - { key: A,     mods: Alt,     chars: "\x18\x3d" }
   - { key: O, mods: Alt, chars: "\x18\x6f" }
   - { key: O, mods: Shift|Alt, chars: "\x18\x7a" }
   - { key: Return, mods: Alt, chars: "\x18\x7a" }
   - { key: Escape, mods: Alt, chars: "\x18\x01" }
-  - { key: Semicolon, mods: Alt, chars: "\x18\x20" }
   - { key: Comma,     mods: Shift|Command,     chars: "\x18<" }
   - { key: Period,     mods: Shift|Command,     chars: "\x18>" }
+  - { key: Comma,    mods: Alt, chars: "\x18\x10"                      }
+  - { key: Semicolon,    mods: Alt, chars: "\x18\x0e"                      }
