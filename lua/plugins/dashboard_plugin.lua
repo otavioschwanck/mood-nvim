@@ -28,10 +28,10 @@ return {
       end
 
       local items = {
-        { desc = ' Git status                   ', key = 'SPC TAB', action = 'Telescope git_status' },
-        { desc = ' Harpoon                      ', key = '   ;   ',
+        { desc = ' Git status                   ', key = 'SPC TAB', action = 'Telescope git_status' },
+        { desc = ' Harpoon                      ', key = '   ;   ',
           action = 'lua require("mood-scripts.harpoon-menu")()' },
-        { desc = ' Find Files                   ', key = 'SPC SPC', action = 'Telescope find_files' },
+        { desc = ' Find Files                   ', key = 'SPC SPC', action = 'Telescope find_files' },
         { desc = ' Recent Files                 ', key = 'SPC f r', action = 'Telescope oldfiles' },
         { desc = ' User Settings                ', key = 'SPC f p',
           action = "lua require('mood-scripts.open-user-configs').call()" },
