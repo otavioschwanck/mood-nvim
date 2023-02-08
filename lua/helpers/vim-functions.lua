@@ -283,9 +283,9 @@ function M.setup()
       execute "!sh ~/.config/nvim/bin/clean_all_except_config.sh"
     endfunction
 
-
     function s:UpdateMood()
       execute "!cd ~/.config/nvim; git pull origin main -f"
+      execute "Lazy sync"
     endfunction
 
     command! CleanConfigs :call s:CleanConfigs()
