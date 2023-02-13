@@ -3,13 +3,13 @@
 ---------------------------------------------------
 
 -- Theme?
-vim.cmd('colorscheme nightfox') -- SPC h t to see more themes
+vim.cmd('colorscheme tokyonight-storm') -- SPC h t to see more themes
 
 -- Configure your per project commands.  See more at: https://github.com/otavioschwanck/tmux-awesome-manager.nvim
 -- Run the per project with SPC #
 require('tmux-awesome-manager').setup({
   -- Open in separated session?
-  project_open_as = 'pane', --  can be 'separated_session' and 'window'
+  project_open_as = 'window', --  can be 'separated_session' and 'window'
   session_name = 'Neovim Terms',
   per_project_commands = {
     api = { { cmd = 'rails s', name = 'Rails Server' } },

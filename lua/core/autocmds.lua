@@ -1,51 +1,83 @@
 local M = {}
 
 function M.setup()
-  local cmd = vim.api.nvim_create_autocmd
   local autocommands = {
-    { {"CursorHold", "CursorHoldI", "FocusGained", "BufEnter"}, {"*"}, function() if not vim.fn.bufexists('[Command Line]') then pcall(vim.cmd("checktime")) end end },
-    {
-      {"FileChangedShellPost"},
-      {"*"},
-      function()
-        pcall(vim.cmd("e %"))
-        vim.cmd('echohl WarningMsg | echo "File changed on disk. Buffer reloaded." | echohl None')
-        pcall(vim.cmd('Gitsigns refresh'))
-      end,
-    },
-    { {"BufReadPost"}, {"*"}, function() vim.cmd([[if line("'\"") > 0 && line("'\"") <= line("$") | exe "normal g'\"" | endif]])end },
-    { {"SwapExists"}, {"*"}, function() vim.cmd([[let v:swapchoice = "e"]])end },
-    { {"InsertLeave"}, {"*"}, function() vim.cmd('set nopaste') end },
-    { {"FileType"},  {"*"}, function() vim.cmd('setlocal shiftwidth=2 tabstop=2') end },
-    { {"BufEnter"}, {"*"}, function() vim.cmd('set signcolumn=yes') end },
-    { {"BufEnter"}, {"*.html.erb"}, function() vim.cmd('TSBufDisable highlight') end }, -- temporary disable tree-sitter for erb files
-    { {"BufEnter"}, {"*"}, function() vim.cmd('let b:visit_time = localtime()') end },
-    { {"SwapExists"}, {"*"}, function() vim.cmd('let v:swapchoice = "e"') end },
-    { {"BufWritePre"}, {"*"}, function() vim.cmd("call StripTrailingWhitespaces()") end },
-    { {"BufWritePre"}, {"python"}, function() vim.cmd("Black") end },
-    { {"BufWritePre"}, {"*"}, function() vim.cmd('call mkdir(expand("<afile>:p:h"), "p")') end },
-    { {"TermOpen"}, {"*"}, function() vim.cmd('setlocal nobuflisted') end },
-    { {"BufEnter"}, {"*"}, function() vim.cmd('ColorizerAttachToBuffer') end },
-    { {"FileType"}, {"qf"}, function() vim.cmd('map <buffer> dd :RemoveQFItem<CR>') end },
-    { {"TermOpen"}, {"*"}, function() vim.cmd('setlocal nonumber norelativenumber') end },
-    { {"FileType"}, {"TelescopePrompt"}, function() vim.cmd('setlocal nocursorline') end }, }
+    { { "FileType" },    { "qf" },              function() vim.cmd('map <buffer> dd :RemoveQFItem<CR>') end },
+    { { "FileType" },    { "TelescopePrompt" }, function() vim.cmd('setlocal nocursorline') end },
+    { { "BufWritePre" }, { "*" },               function() vim.cmd('call mkdir(expand("<afile>:p:h"), "p")') end },
+  }
 
-  vim.api.nvim_create_autocmd('User', {
-    once = true,
-    pattern = { 'LazyVimStarted' },
+  for i = 1, #autocommands, 1 do
+    vim.api.nvim_create_autocmd(autocommands[i][1], { pattern = autocommands[i][2], callback = autocommands[i][3] })
+  end
+
+  local function augroup(name)
+    return vim.api.nvim_create_augroup("otavioschwanck_" .. name, { clear = true })
+  end
+
+  -- Check if we need to reload the file when it changed
+  vim.api.nvim_create_autocmd({ "FocusGained", "TermClose", "TermLeave" }, {
+    group = augroup("checktime"),
+    command = "checktime",
+  })
+
+  -- Highlight on yank
+  vim.api.nvim_create_autocmd("TextYankPost", {
+    group = augroup("highlight_yank"),
     callback = function()
-      require('core.mappings').setup()
-      require('user.keybindings')
-      require('user.config')
-      require('mood-scripts.bg-color').setup()
-
-      vim.cmd('call timer_start(50, {-> execute("colorscheme ' .. vim.g.colors_name .. '") })')
+      vim.highlight.on_yank()
     end,
   })
 
-  for i = 1, #autocommands, 1 do
-    cmd(autocommands[i][1], { pattern = autocommands[i][2], callback = autocommands[i][3] })
-  end
+  -- resize splits if window got resized
+  vim.api.nvim_create_autocmd({ "VimResized" }, {
+    group = augroup("resize_splits"),
+    callback = function()
+      vim.cmd("tabdo wincmd =")
+    end,
+  })
+
+  -- go to last loc when opening a buffer
+  vim.api.nvim_create_autocmd("BufReadPost", {
+    group = augroup("last_loc"),
+    callback = function()
+      local mark = vim.api.nvim_buf_get_mark(0, '"')
+      local lcount = vim.api.nvim_buf_line_count(0)
+      if mark[1] > 0 and mark[1] <= lcount then
+        pcall(vim.api.nvim_win_set_cursor, 0, mark)
+      end
+    end,
+  })
+
+  -- close some filetypes with <q>
+  vim.api.nvim_create_autocmd("FileType", {
+    group = augroup("close_with_q"),
+    pattern = {
+      "qf",
+      "help",
+      "man",
+      "notify",
+      "lspinfo",
+      "spectre_panel",
+      "startuptime",
+      "tsplayground",
+      "PlenaryTestPopup",
+    },
+    callback = function(event)
+      vim.bo[event.buf].buflisted = false
+      vim.keymap.set("n", "q", "<cmd>close<cr>", { buffer = event.buf, silent = true })
+    end,
+  })
+
+  -- wrap and check for spell in text filetypes
+  vim.api.nvim_create_autocmd("FileType", {
+    group = augroup("wrap_spell"),
+    pattern = { "gitcommit", "markdown" },
+    callback = function()
+      vim.opt_local.wrap = true
+      vim.opt_local.spell = true
+    end,
+  })
 end
 
 return M

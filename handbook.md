@@ -108,6 +108,8 @@ Copy / search / Navigate:
 
 Just press `;` and follow your heart.
 
+(You can switch between marks with with C-j and C-k too)
+
 # Quick Consult
 
 | Command   | MODE   | Description                                 |
@@ -123,28 +125,28 @@ OBS: This list persist between vim sections
 
 # Buffer Navigation and Management
 
-| Command                | Description                                        |
-|------------------------|----------------------------------------------------|
-| H                      | Previous Visited Buffer (History)                  |
-| L                      | Next Visit Buffer (History)                        |
-| SPC ,                  | Find Buffer in Project                             |
-| SPC TAB                | Git Status                                         |
-| SPC .                  | File Browser                                       |
-| SPC e                  | Open Tree                                          |
-| SPC k                  | Kill current buffer                                |
-| SPC A                  | Go to Test (and vsplit)                            |
-| SPC a                  | Go to test                                         |
-| SPC 1 to SPC 9         | Go to harpoons                                     |
-|------------------------|----------------------------------------------------|
-| ]g                     | Next git hunk                                      |
-| [g                     | Previous git hunk                                  |
-|------------------------|----------------------------------------------------|
-| ]e                     | Next Error                                         |
-| [e                     | Previous Error                                     |
-|------------------------|----------------------------------------------------|
-| ]q                     | Next Quickfix                                      |
-| [q                     | Previous Quickfix                                  |
-|------------------------|----------------------------------------------------|
+| Command                  | Description                                          |
+| ------------------------ | ---------------------------------------------------- |
+| H or [b                  | Previous Buffer (History)                            |
+| L or ]b                  | Next Buffer (History)                                |
+| SPC ,                    | Find Buffer in Project                               |
+| SPC TAB                  | Git Status                                           |
+| SPC .                    | File Browser                                         |
+| SPC e                    | Open Tree                                            |
+| SPC k                    | Kill current buffer                                  |
+| SPC A                    | Go to Test (and vsplit)                              |
+| SPC a                    | Go to test                                           |
+| SPC 1 to SPC 9           | Go to harpoons                                       |
+| ------------------------ | ---------------------------------------------------- |
+| ]g                       | Next git hunk                                        |
+| [g                       | Previous git hunk                                    |
+| ------------------------ | ---------------------------------------------------- |
+| ]e                       | Next Error                                           |
+| [e                       | Previous Error                                       |
+| ------------------------ | ---------------------------------------------------- |
+| ]q                       | Next Quickfix                                        |
+| [q                       | Previous Quickfix                                    |
+| ------------------------ | ---------------------------------------------------- |
 
 # LSP (Language Server Protocol)
 
@@ -205,11 +207,13 @@ Extra tip: \0 = text that you searched.
 
 You can:
 
-1. use `SPC s p`, and then, press `C-q` to create a quickfix list from all results or `C-e` to create from the selected only (press tab to select).  You can navigate on quickfix with `]q` and `[q`.
+1. Just type SPC s r
+
+2. use `SPC s p`, and then, press `C-q` to create a quickfix list from all results or `C-e` to create from the selected only (press tab to select).  You can navigate on quickfix with `]q` and `[q`.
 
 To execute some command in all items of the quickfix list, just run `:cfdo S/old_text/new_text/gr | :wq` (or /grc if you want confirmation)
 
-2. use `SPC s f`, find, and then edit the search result like a file. (i find this way easier most of the time)
+1. use `SPC s f`, find, and then edit the search result like a file. (i find this way easier most of the time)
 
 # Using the tree like a boss
 

@@ -98,9 +98,9 @@ install_fonts () {
   else
     mkdir ~/$FONTS_LIBRARY
   fi
-  cd; wget -q https://github.com/ryanoasis/nerd-fonts/releases/download/v2.1.0/JetBrainsMono.zip
-  unzip -q -o JetBrainsMono.zip -d ~/$FONTS_LIBRARY
-  cd; rm JetBrainsMono.zip
+  cd; wget -q https://github.com/ryanoasis/nerd-fonts/releases/download/v2.3.3/FiraCode.zip
+  unzip -q -o FiraCode.zip -d ~/$FONTS_LIBRARY
+  cd; rm FiraCode.zip
 }
 
 install_pip_with_python () {

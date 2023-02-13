@@ -106,7 +106,6 @@ function M.setup_which_key()
     },
   A = { ":call OpenTestAlternateAndSplit()<cr>", "Go to Test (split)" },
   ["."] = { ":Telescope file_browser path=%:p:h hidden=true respect_gitignore=false<CR>", "File Browser" },
-  k = { ":Bwipeout<CR>", "Kill current buffer" },
   p = { ":Telescope yank_history<CR>", "Yank History" },
    ["<C-g>"] = {
      name = "+QuickConsult",
@@ -303,8 +302,8 @@ function M.setup_mappings()
   set('n', '<leader>8', ':lua require("harpoon.ui").nav_file(8)<CR>')
   set('n', '<leader>9', ':lua require("harpoon.ui").nav_file(9)<CR>')
 
-  set('n', 'H', ':BufSurfBack<CR>')
-  set('n', 'L', ':BufSurfForward<CR>')
+  set('n', 'H', '<cmd>BufferLineCyclePrev<cr><CR>')
+  set('n', 'L', '<cmd>BufferLineCycleNext<CR>')
 
   set('v', '<C-g>', ':<c-u>call SaveSelectionToQuickConsult()<cr>')
   set('n', '<C-g>', ':<c-u>call OpenConsultationWindow()<cr>')
@@ -314,6 +313,10 @@ function M.setup_mappings()
   set({'n', 'i', 'v', 'c'}, '<C-w>;', tmux_win.go_to_next, {})
   set({'n', 'i', 'v', 'c'}, '<C-w>,', tmux_win.go_to_prev, {})
 
+  set({ "n", "v" }, "<C-s>", require("harpoon.mark").add_file)
+
+  set({'n', 'v'}, '<C-j>', require("harpoon.ui").nav_prev, {})
+  set({'n', 'v'}, '<C-k>', require("harpoon.ui").nav_next, {})
 
   vim.cmd([[
     nnoremap <expr> 0 (col('.') - 1) == match(getline('.'),'\S') ? "<Home>" : "^"
