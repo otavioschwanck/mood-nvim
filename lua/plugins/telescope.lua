@@ -80,7 +80,6 @@ return {
       require("telescope").load_extension("yank_history")
       require("telescope").load_extension("ui-select")
       require("telescope").load_extension "file_browser"
-      require('telescope').load_extension('neoclip')
       require('telescope').load_extension('ultisnips')
       require('telescope').load_extension('telescope-alternate')
       require('telescope').load_extension('fzf')
