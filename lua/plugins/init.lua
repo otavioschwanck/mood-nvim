@@ -97,6 +97,12 @@ local plugins = {
   'tpope/vim-abolish',
   'terryma/vim-multiple-cursors',
   'tommcdo/vim-exchange',
+  { 'ray-x/lsp_signature.nvim', opts = {
+    bind = true, -- This is mandatory, otherwise border config won't get registered.
+    handler_opts = {
+      border = "rounded"
+    }
+  } },
   'ecomba/vim-ruby-refactoring',
   { "MunifTanjim/nui.nvim", lazy = true },
   'nvim-tree/nvim-web-devicons',
