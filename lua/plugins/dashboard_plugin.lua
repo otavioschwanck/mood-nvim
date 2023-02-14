@@ -1,52 +1,62 @@
-return {
-  {
-    'glepnir/dashboard-nvim',
-    config = function()
+return { {
+  "goolord/alpha-nvim",
+  event = "VimEnter",
+  opts = function()
+    local dashboard = require("alpha.themes.dashboard")
+    local logo = [[
+    ███╗   ███╗ ██████╗  ██████╗ ██████╗     ███╗   ██╗██╗   ██╗██╗███╗   ███╗
+    ████╗ ████║██╔═══██╗██╔═══██╗██╔══██╗    ████╗  ██║██║   ██║██║████╗ ████║
+    ██╔████╔██║██║   ██║██║   ██║██║  ██║    ██╔██╗ ██║██║   ██║██║██╔████╔██║
+    ██║╚██╔╝██║██║   ██║██║   ██║██║  ██║    ██║╚██╗██║╚██╗ ██╔╝██║██║╚██╔╝██║
+    ██║ ╚═╝ ██║╚██████╔╝╚██████╔╝██████╔╝    ██║ ╚████║ ╚████╔╝ ██║██║ ╚═╝ ██║
+    ╚═╝     ╚═╝ ╚═════╝  ╚═════╝ ╚═════╝     ╚═╝  ╚═══╝  ╚═══╝  ╚═╝╚═╝     ╚═╝
+    ]]
 
-      local header = {
-        '',
-        '',
-        '',
-        '',
-        '███╗   ███╗ ██████╗  ██████╗ ██████╗     ███╗   ██╗██╗   ██╗██╗███╗   ███╗',
-        '████╗ ████║██╔═══██╗██╔═══██╗██╔══██╗    ████╗  ██║██║   ██║██║████╗ ████║',
-        '██╔████╔██║██║   ██║██║   ██║██║  ██║    ██╔██╗ ██║██║   ██║██║██╔████╔██║',
-        '██║╚██╔╝██║██║   ██║██║   ██║██║  ██║    ██║╚██╗██║╚██╗ ██╔╝██║██║╚██╔╝██║',
-        '██║ ╚═╝ ██║╚██████╔╝╚██████╔╝██████╔╝    ██║ ╚████║ ╚████╔╝ ██║██║ ╚═╝ ██║',
-        '╚═╝     ╚═╝ ╚═════╝  ╚═════╝ ╚═════╝     ╚═╝  ╚═══╝  ╚═══╝  ╚═╝╚═╝     ╚═╝',
-        '',
-        'Final Version!',
-        '',
-        ''
-      }
-
-      local no_tmux = vim.fn.system("echo $TMUX"):gsub("\n", "") == ""
-
-      if (no_tmux) then
-        table.insert(header, "[WARNING] You are not using tmux.  Some terminals features will not work.")
-        table.insert(header, "See the handbook (SPC h h) to learn about TMUX and Alacritty.")
-      end
-
-      local items = {
-        { desc = ' Git status                   ', key = 'SPC TAB', action = 'Telescope git_status' },
-        { desc = ' Harpoon                      ', key = '   ;   ',
-          action = 'lua require("mood-scripts.harpoon-menu")()' },
-        { desc = ' Find Files                   ', key = 'SPC SPC', action = 'Telescope find_files' },
-        { desc = ' Recent Files                 ', key = 'SPC f r', action = 'Telescope oldfiles' },
-        { desc = ' User Settings                ', key = 'SPC f p',
-          action = "lua require('mood-scripts.open-user-configs').call()" },
-        { desc = ' Open Handbook (docs)         ', key = 'SPC h h', action = 'e ~/.config/nvim/handbook.md' },
-        { desc = 'ﲉ Open Tutorial for mooD       ', key = 'SPC h T', action = 'lua require("tutorial").start()' },
-        { desc = ' Update mooD                  ', key = 'SPC h u', action = 'UpdateMood' },
-      }
-
-      require('dashboard').setup {
-        theme = 'doom',
-        config = {
-          header = header,
-          center = items
-        }
-      }
+    dashboard.section.header.val = vim.split(logo, "\n")
+    dashboard.section.buttons.val = {
+      dashboard.button("s", " " .. " Git Status", ":Telescope git_status <CR>"),
+      dashboard.button(";", "󱡅 " .. " Harpoon", ':lua require("mood-scripts.harpoon-menu")() <CR>'),
+      dashboard.button("n", " " .. " New file", ":ene <BAR> startinsert <CR>"),
+      dashboard.button("r", " " .. " Recent files", ":Telescope oldfiles <CR>"),
+      dashboard.button("g", " " .. " Find text", ":Telescope live_grep <CR>"),
+      dashboard.button("p", " " .. " User Settings", ":lua require('mood-scripts.open-user-configs').call() <CR>"),
+      dashboard.button("h", " " .. " Open Handbook (docs)", ":e ~/.config/nvim/handbook.md <CR>"),
+      dashboard.button("t", "ﲉ " .. " Open Tutorial for mooD", 'lua require("tutorial").start() <CR>'),
+      dashboard.button("u", " " .. " Update mooD", ':UpdateMood<CR>'),
+      dashboard.button("q", " " .. " Quit", ":qa<CR>"),
+    }
+    for _, button in ipairs(dashboard.section.buttons.val) do
+      button.opts.hl = "AlphaButtons"
+      button.opts.hl_shortcut = "AlphaShortcut"
     end
-  }
-}
+    dashboard.section.footer.opts.hl = "Type"
+    dashboard.section.header.opts.hl = "AlphaHeader"
+    dashboard.section.buttons.opts.hl = "AlphaButtons"
+    dashboard.opts.layout[1].val = 8
+    return dashboard
+  end,
+  config = function(_, dashboard)
+    -- close Lazy and re-open when the dashboard is ready
+    if vim.o.filetype == "lazy" then
+      vim.cmd.close()
+      vim.api.nvim_create_autocmd("User", {
+        pattern = "AlphaReady",
+        callback = function()
+          require("lazy").show()
+        end,
+      })
+    end
+
+    require("alpha").setup(dashboard.opts)
+
+    vim.api.nvim_create_autocmd("User", {
+      pattern = "LazyVimStarted",
+      callback = function()
+        local stats = require("lazy").stats()
+        local ms = (math.floor(stats.startuptime * 100 + 0.5) / 100)
+        dashboard.section.footer.val = "⚡ Neovim loaded " .. stats.count .. " plugins in " .. ms .. "ms"
+        pcall(vim.cmd.AlphaRedraw)
+      end,
+    })
+  end,
+} }
