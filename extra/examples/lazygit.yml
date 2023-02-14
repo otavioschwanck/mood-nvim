@@ -8,3 +8,8 @@ gui:
 keybinding:
   files:
     toggleTreeView: 't'
+
+git:
+  paging:
+    colorArg: always
+    pager: delta --dark --paging=never

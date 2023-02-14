@@ -59,7 +59,7 @@ install_packages_linux () {
 
 install_packages_mac () {
   echo "================= INSTALLING PACKAGES ================="
-  brew install readline openssl zlib postgresql sqlite ruby-build rbenv libffi ripgrep tmux tmuxinator alacritty bash
+  brew install git-delta readline openssl zlib postgresql sqlite ruby-build rbenv libffi ripgrep tmux tmuxinator alacritty bash
   brew link libpq --force
   install_tmux_package_manager
 }

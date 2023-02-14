@@ -55,6 +55,7 @@ rm -rf ~/.local/share/nvim
 - ripgrep
 - NerdFonts
 - Python
+- git-delta (for lazygit) - https://dandavison.github.io/delta/installation.html
 
 # Automatic Installation
 
