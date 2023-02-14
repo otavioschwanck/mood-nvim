@@ -31,8 +31,7 @@ local luasnip = require("luasnip")
 
 lsp.ensure_installed({
   'tsserver',
-  'sumneko_lua',
-  'solargraph',
+  'lua_ls',
   'jsonls',
   'solidity'
 })

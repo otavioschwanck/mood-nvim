@@ -98,6 +98,8 @@ local plugins = {
   'terryma/vim-multiple-cursors',
   'tommcdo/vim-exchange',
   'ecomba/vim-ruby-refactoring',
+  { "MunifTanjim/nui.nvim", lazy = true },
+  'nvim-tree/nvim-web-devicons',
   { 'xolox/vim-notes', dependencies = { 'xolox/vim-misc', } },
   { 'lukas-reineke/indent-blankline.nvim', config = function()
     vim.g.indent_blankline_filetype_exclude = {

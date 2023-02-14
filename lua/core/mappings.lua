@@ -77,8 +77,6 @@ function M.setup_which_key()
     N = { ":e ~/.nvim-scratch<CR>", "Open Scratch Buffer" },
     f = { ":Telescope buffers only_cwd=true<CR>", "Find Buffers in this project" },
     F = { ":Telescope buffers<CR>", "Find all buffers" },
-    n = { ":lua require('harpoon.ui').nav_next()<CR>", "Next Harpoon" },
-    p = { ":lua require('harpoon.ui').nav_prev()<CR>", "Prev Harpoon" }
   },
   [";"] = { ":Telescope buffers ignore_current_buffer=true sort_mru=true<CR>", "Find All Buffers" },
   ["*"] = { ":Telescope grep_string<CR>", "Search string at point on project" },
@@ -312,6 +310,9 @@ function M.setup_mappings()
 
   set({'n', 'i', 'v', 'c'}, '<C-w>;', tmux_win.go_to_next, {})
   set({'n', 'i', 'v', 'c'}, '<C-w>,', tmux_win.go_to_prev, {})
+
+  set('n', ']d', vim.diagnostic.goto_next)
+  set('n', '[d', vim.diagnostic.goto_prev)
 
   set({ "n", "v" }, "<C-s>", require("harpoon.mark").add_file)
 

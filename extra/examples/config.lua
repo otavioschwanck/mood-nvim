@@ -78,7 +78,7 @@ vim.g.dotfiles = {
 vim.api.nvim_set_option('mouse', 'a')
 
 local set = vim.api.nvim_set_option
-set('relativenumber', true) -- relative numbers?
+-- set('relativenumber', true) -- relative numbers?
 
 require('core.settings').remove_bicycle_small_whells({ includeNormalMode = true })
 

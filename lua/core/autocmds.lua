@@ -69,6 +69,20 @@ function M.setup()
     end,
   })
 
+  vim.api.nvim_create_autocmd('User', {
+    once = true,
+    pattern = { 'LazyVimStarted' },
+    callback = function()
+      require('core.mappings').setup()
+      require('user.keybindings')
+      require('user.config')
+      require('mood-scripts.bg-color').setup()
+      require("bufferline").setup{}
+
+      vim.cmd('call timer_start(50, {-> execute("colorscheme ' .. vim.g.colors_name .. '") })')
+    end,
+  })
+
   -- wrap and check for spell in text filetypes
   vim.api.nvim_create_autocmd("FileType", {
     group = augroup("wrap_spell"),
