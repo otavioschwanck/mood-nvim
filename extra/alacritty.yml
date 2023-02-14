@@ -41,6 +41,11 @@ schemes:
       cyan:    '0x0db9d7'
       white:   '0xacb0d0'
 
+    indexed_colors:
+    - { index: 16, color: '#063970' }
+    - { index: 17, color: '0xff5d62' }
+
+
   tokyo-night-storm: &tokyo-night-storm
     # Default colors
     primary:
@@ -69,9 +74,10 @@ schemes:
       cyan:    '0x0db9d7'
       white:   '0xacb0d0'
 
-  indexed_colors:
-  - { index: 16, color: '#063970' }
-  - { index: 17, color: '0xff5d62' }
+    indexed_colors:
+    - { index: 16, color: '#063970' }
+    - { index: 17, color: '0xff5d62' }
+
 
 colors: *tokyo-night-storm
 
