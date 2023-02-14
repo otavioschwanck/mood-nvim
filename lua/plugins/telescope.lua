@@ -14,16 +14,15 @@ return {
 
       local vertical_search = {
         layout_strategy = "vertical",
-        layout_config = { preview_cutoff = 10, height = 0.90, width = 0.95, prompt_position = 'top', mirror = true },
+        layout_config = { preview_cutoff = 10, height = 0.90, width = 0.95 },
       }
 
       require('telescope').setup {
         defaults = {
           prompt_prefix = " ",
           file_ignore_patterns = vim.g.folder_to_ignore,
-          layout_config = { width = 0.95, height = 0.90, prompt_position = "top" },
+          layout_config = { width = 0.95, height = 0.90 },
           borderchars = { '─', '│', '─', '│', '┌', '┐', '┘', '└' },
-          sorting_strategy = "ascending",
           mappings = {
             i = {
               ["<C-e>"] = function (picker)

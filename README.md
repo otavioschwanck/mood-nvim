@@ -25,6 +25,13 @@ mooD Nvim is a configuration made for those who wants to install and use, withou
 
 This configuration is made to use with Alacritty and Tmux.  Please install it and learn before use it.
 
+# Changelog
+
+* 2022-02-14
+
+- Changed from C-j and C-k to C-n and C-p to navigate in telescope items
+- Add bufferline.  Navigate with ]b and [b.
+
 # Breaking Changes
 
 After last upgrade (21/01/2023), you need to do some stuff:
