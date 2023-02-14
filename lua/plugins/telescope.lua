@@ -1,29 +1,5 @@
 return {
   'fhill2/telescope-ultisnips.nvim',
-  { "AckslD/nvim-neoclip.lua", cmd = "Telescope neoclip", config = function()
-    require('neoclip').setup({
-      enable_persistent_history = true,
-      keys = {
-        telescope = {
-          i = {
-            paste = '<cr>',
-            paste_behind = '<C-p>',
-            replay = '<c-q>',  -- replay a macro
-            delete = '<c-d>',  -- delete an entry
-            custom = {},
-          },
-          n = {
-            select = '<cr>',
-            paste = 'p',
-            paste_behind = 'P',
-            replay = 'q',
-            delete = 'd',
-            custom = {},
-          },
-        },
-      }
-    })
-  end},
   { 'nvim-telescope/telescope-fzf-native.nvim',
     build = 'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build' },
   'otavioschwanck/telescope-alternate.nvim',
@@ -50,19 +26,11 @@ return {
           sorting_strategy = "ascending",
           mappings = {
             i = {
-              ["<C-j>"] = actions.move_selection_next,
-              ["<C-k>"] = actions.move_selection_previous,
-              ["<C-n>"] = actions.cycle_history_next,
-              ["<C-p>"] = actions.cycle_history_prev,
               ["<C-e>"] = function (picker)
                 actions.send_selected_to_qflist(picker)
                 vim.cmd("copen")
               end,
             },
-            n = {
-              ["<C-j>"] = actions.move_selection_next,
-              ["<C-k>"] = actions.move_selection_previous,
-            }
           }
         },
         pickers = {
@@ -88,7 +56,7 @@ return {
             mappings = {
               ["i"] = {
                 ["<C-o>"] = fb_actions.remove,
-                ["<C-p>"] = fb_actions.copy,
+                ["<C-y>"] = fb_actions.copy,
                 ["<C-e>"] = fb_actions.move,
                 ["<C-space>"] = fb_actions.create_from_prompt,
                 ["<C-r>"] = fb_actions.rename,

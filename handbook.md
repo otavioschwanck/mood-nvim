@@ -217,13 +217,13 @@ To execute some command in all items of the quickfix list, just run `:cfdo S/old
 
 # Using the tree like a boss
 
-| Command | Description               |
-|---------|---------------------------|
-| TAB     | Preview / expand          |
-| SPC e   | Open the tree             |
-| SPC E   | Git Status on tree        |
-| ?       | See all possible commands |
-|---------|---------------------------|
+| Command     | Description                      |
+|-------------|----------------------------------|
+| TAB         | Preview / expand                 |
+| SPC e       | Open the tree                    |
+| ?           | See all possible commands        |
+| C-d and C-p | Use it after / and D to navigate |
+|-------------|----------------------------------|
 
 # Editing
 
