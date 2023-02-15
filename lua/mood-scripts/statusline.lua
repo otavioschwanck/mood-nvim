@@ -199,29 +199,6 @@ local function setup()
     color = { fg = colors.violet },
   }
 
-  local function harpoon_cond()
-    return has_30_space() and conditions.buffer_not_empty()
-  end
-
-  ins_left_both {
-    function()
-      local harpoon_number = require('harpoon.mark').get_index_of(vim.fn.bufname())
-      if harpoon_number then
-        return "ﯠ " .. harpoon_number
-      else
-        return "ﯡ "
-      end
-    end,
-    color = function()
-      if require('harpoon.mark').get_index_of(vim.fn.bufname()) then
-        return { fg = colors.green, gui = 'bold' }
-      else
-        return { fg = colors.red }
-      end
-    end,
-    cond = harpoon_cond,
-  }
-
   ins_left_both {
     'diagnostics',
     sources = { 'nvim_diagnostic' },

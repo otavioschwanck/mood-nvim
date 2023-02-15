@@ -95,6 +95,7 @@ function M.setup_which_key()
     },
   h = {
     name = "+Help",
+    l = { ':lua require("persistence").load()<cr>', "Load Session" },
     t = { ":Telescope colorscheme<CR>", "Change Theme" },
     h = { ":e ~/.config/nvim/handbook.md<CR>:AerialToggle<CR><C-w>h", "Open the Handbook" },
     u = { ":UpdateMood<CR>", "Update mooD" },
@@ -243,7 +244,6 @@ function M.setup_mappings()
   set('n', '<M-h>', '<C-w>h', bufopts)
   set('n', '<M-k>', '<C-w>k', bufopts)
   set('n', '<M-j>', '<C-w>j', bufopts)
-  set('n', ';', require("mood-scripts.harpoon-menu"), bufopts)
   set('n', ']g', ':Gitsigns next_hunk<CR>', bufopts)
   set('n', '[g', ':Gitsigns prev_hunk<CR>', bufopts)
   set('n', 'yb', ':%y+<CR>', bufopts)
@@ -290,15 +290,15 @@ function M.setup_mappings()
   set('c', '<C-d>', '<Delete>')
   set('n', '<CR>', ':call Maximize()<CR>')
 
-  set('n', '<leader>1', ':lua require("harpoon.ui").nav_file(1)<CR>')
-  set('n', '<leader>2', ':lua require("harpoon.ui").nav_file(2)<CR>')
-  set('n', '<leader>3', ':lua require("harpoon.ui").nav_file(3)<CR>')
-  set('n', '<leader>4', ':lua require("harpoon.ui").nav_file(4)<CR>')
-  set('n', '<leader>5', ':lua require("harpoon.ui").nav_file(5)<CR>')
-  set('n', '<leader>6', ':lua require("harpoon.ui").nav_file(6)<CR>')
-  set('n', '<leader>7', ':lua require("harpoon.ui").nav_file(7)<CR>')
-  set('n', '<leader>8', ':lua require("harpoon.ui").nav_file(8)<CR>')
-  set('n', '<leader>9', ':lua require("harpoon.ui").nav_file(9)<CR>')
+  set('n', '<leader>1', '<cmd>BufferLineGoToBuffer 1<CR>')
+  set('n', '<leader>2', '<cmd>BufferLineGoToBuffer 2<CR>')
+  set('n', '<leader>3', '<cmd>BufferLineGoToBuffer 3<CR>')
+  set('n', '<leader>4', '<cmd>BufferLineGoToBuffer 4<CR>')
+  set('n', '<leader>5', '<cmd>BufferLineGoToBuffer 5<CR>')
+  set('n', '<leader>6', '<cmd>BufferLineGoToBuffer 6<CR>')
+  set('n', '<leader>7', '<cmd>BufferLineGoToBuffer 7<CR>')
+  set('n', '<leader>8', '<cmd>BufferLineGoToBuffer 8<CR>')
+  set('n', '<leader>9', '<cmd>BufferLineGoToBuffer 9<CR>')
 
   set('n', 'H', '<cmd>BufferLineCyclePrev<cr><CR>')
   set('n', 'L', '<cmd>BufferLineCycleNext<CR>')
@@ -313,11 +313,6 @@ function M.setup_mappings()
 
   set('n', ']d', vim.diagnostic.goto_next)
   set('n', '[d', vim.diagnostic.goto_prev)
-
-  set({ "n", "v" }, "<C-s>", require("harpoon.mark").add_file)
-
-  set({'n', 'v'}, '<C-j>', require("harpoon.ui").nav_prev, {})
-  set({'n', 'v'}, '<C-k>', require("harpoon.ui").nav_next, {})
 
   vim.cmd([[
     nnoremap <expr> 0 (col('.') - 1) == match(getline('.'),'\S') ? "<Home>" : "^"

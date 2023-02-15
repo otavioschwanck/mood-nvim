@@ -104,12 +104,6 @@ Copy / search / Navigate:
 | M-;     | Switch orientation of panes                                                                              |
 | M-[     | Go to normal mode inside terminal                                                                        |
 
-# Harpoon
-
-Just press `;` and follow your heart.
-
-(You can switch between marks with with C-j and C-k too)
-
 # Quick Consult
 
 | Command   | MODE   | Description                                 |
@@ -136,7 +130,7 @@ OBS: This list persist between vim sections
 | SPC k                    | Kill current buffer                                  |
 | SPC A                    | Go to Test (and vsplit)                              |
 | SPC a                    | Go to test                                           |
-| SPC 1 to SPC 9           | Go to harpoons                                       |
+| SPC 1 to SPC 9           | Go to tabs                                           |
 | ------------------------ | ---------------------------------------------------- |
 | ]g                       | Next git hunk                                        |
 | [g                       | Previous git hunk                                    |
@@ -147,6 +141,15 @@ OBS: This list persist between vim sections
 | ]q                       | Next Quickfix                                        |
 | [q                       | Previous Quickfix                                    |
 | ------------------------ | ---------------------------------------------------- |
+
+# Buffer/Tab Bookmarks
+
+| Command                  | Description                                          |
+| ------------------------ | ---------------------------------------------------- |
+| C-s                      | Pin/Unpin buffers (Persist to session)               |
+| SPC b k                  | Kill all buffers expect pinned                       |
+| SPC h l                  | Load last session for this project                   |
+
 
 # LSP (Language Server Protocol)
 
@@ -274,7 +277,7 @@ I Consider this way the most efficient way to create files and find files on cur
 
 See: https://vonheikemen.github.io/devlog/tools/setup-nvim-lspconfig-plus-nvim-cmp/#snippets
 
-But just press C-d after a snippet and you go forward! trust me.
+But just press C-j after a snippet and you go forward! trust me.
 
 To open/close the autocomplete, just press C-e.
 

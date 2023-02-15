@@ -120,7 +120,6 @@ local plugins = {
     }
   end },
   { 'moll/vim-bbye' },
-  { 'ThePrimeagen/harpoon' },
   { 'lewis6991/gitsigns.nvim', config = function() require('gitsigns').setup() end,
     dependencies = { 'nvim-lua/plenary.nvim' } },
   {

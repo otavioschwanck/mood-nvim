@@ -148,13 +148,15 @@ local cmp_mappings = lsp.defaults.cmp_mappings({
   -- Uncomment to input on select in autocomplete
   -- ['<Tab>'] = cmp.mapping.select_next_item({ select = true }),
   -- ['<S-Tab>'] = cmp.mapping.select_prev_item({ select = true }),
-  ['<C-d>'] = cmp.mapping(function(fallback)
+  ['<C-j>'] = cmp.mapping(function(fallback)
     if luasnip.expand_or_jumpable() then
       luasnip.expand_or_jump()
     else
       fallback()
     end
   end),
+  ['<C-d>'] = cmp.mapping.scroll_docs(-4),
+  ['<C-u>'] = cmp.mapping.scroll_docs(4),
 })
 
 local sources = { { name = "path" },

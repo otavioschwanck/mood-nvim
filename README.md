@@ -27,6 +27,12 @@ This configuration is made to use with Alacritty and Tmux.  Please install it an
 
 # Changelog
 
+* 2022-02-15
+
+- Removed harpoon, use buffer pins now (C-s)
+- C-j to expand / jump on snippets
+- New tab management / session management.  Check Buffer/Tab Bookmarks on handbook.
+
 * 2022-02-14
 
 - Changed from C-j and C-k to C-n and C-p to navigate in telescope items
