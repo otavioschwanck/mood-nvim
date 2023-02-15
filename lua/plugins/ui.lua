@@ -5,6 +5,7 @@ return {
     keys = {
       { "<leader>bp", "<Cmd>BufferLineTogglePin<CR>",            desc = "Toggle pin" },
       { "<leader>bk", "<Cmd>BufferLineGroupClose ungrouped<CR>", desc = "Delete non-pinned buffers" },
+      { "<leader>bK", "<Cmd>BufferLineGroupClose ungrouped<CR><Cmd>BufferLineGroupClose pinned<CR>", desc = "Delete non-pinned buffers" },
       { "<leader>bn", ":e ~/.nvim-scratch<CR>",                  desc = "Open Scratch Buffer" },
       { "<C-s>",         "<cmd>BufferLineTogglePin<cr>",            desc = "Prev Buffer" },
       { "[b",         "<cmd>BufferLineCyclePrev<cr>",            desc = "Prev Buffer" },
