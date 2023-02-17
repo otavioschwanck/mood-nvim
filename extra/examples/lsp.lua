@@ -51,97 +51,98 @@ lsp.configure('solargraph', {
   },
   settings = {
     solargraph = {
-      diagnostics = false,
+      diagnostics = true,
       formatting = true,
       useBundler = true
     }
   }
 })
 
-lsp.configure('diagnosticls', {
-  filetypes = { "ruby" },
-  single_file_support = false,
-  init_options = {
-    linters = {
-      rubocop = {
-        command = "bundle",
-        sourceName = "rubocop",
-        debounce = 100,
-        args = { "exec",
-          "rubocop",
-          "--format",
-          "json",
-          "--force-exclusion",
-          "--stdin",
-          "%filepath"
-        },
-        parseJson = {
-          errorsRoot = "files[0].offenses",
-          line = "location.start_line",
-          endLine = "location.last_line",
-          column = "location.start_column",
-          endColumn = "location.end_column",
-          message = "[${cop_name}] ${message}",
-          security = "severity"
-        },
-        securities = {
-          fatal = "error",
-          error = "error",
-          warning = "warning",
-          convention = "info",
-          refactor = "info",
-          info = "info"
-        }
-      },
-      shellcheck = {
-        command = "shellcheck",
-        debounce = 100,
-        args = { "--format=gcc", "-" },
-        offsetLine = 0,
-        offsetColumn = 0,
-        sourceName = "shellcheck",
-        formatLines = 1,
-        formatPattern = {
-          "^[^:]+:(\\d+):(\\d+):\\s+([^:]+):\\s+(.*)$",
-          {
-            line = 1,
-            column = 2,
-            message = 4,
-            security = 3
-          }
-        },
-        securities = {
-          error = "error",
-          warning = "warning",
-          note = "info"
-        }
-      },
-      languagetool = {
-        command = "languagetool",
-        debounce = 200,
-        args = { "-" },
-        offsetLine = 0,
-        offsetColumn = 0,
-        sourceName = "languagetool",
-        formatLines = 2,
-        formatPattern = {
-          "^\\d+?\\.\\)\\s+Line\\s+(\\d+),\\s+column\\s+(\\d+),\\s+([^\\n]+)\nMessage:\\s+(.*)$",
-          {
-            line = 1,
-            column = 2,
-            message = { 4, 3 }
-          }
-        }
-      }
-    },
-    filetypes = {
-      sh = "shellcheck",
-      email = "languagetool",
-      ruby = "rubocop"
-    }
-  }
-})
-
+-- try it if lsp diagnostics not work well
+-- lsp.configure('diagnosticls', {
+--   filetypes = { "ruby" },
+--   single_file_support = false,
+--   init_options = {
+--     linters = {
+--       rubocop = {
+--         command = "bundle",
+--         sourceName = "rubocop",
+--         debounce = 100,
+--         args = { "exec",
+--           "rubocop",
+--           "--format",
+--           "json",
+--           "--force-exclusion",
+--           "--stdin",
+--           "%filepath"
+--         },
+--         parseJson = {
+--           errorsRoot = "files[0].offenses",
+--           line = "location.start_line",
+--           endLine = "location.last_line",
+--           column = "location.start_column",
+--           endColumn = "location.end_column",
+--           message = "[${cop_name}] ${message}",
+--           security = "severity"
+--         },
+--         securities = {
+--           fatal = "error",
+--           error = "error",
+--           warning = "warning",
+--           convention = "info",
+--           refactor = "info",
+--           info = "info"
+--         }
+--       },
+--       shellcheck = {
+--         command = "shellcheck",
+--         debounce = 100,
+--         args = { "--format=gcc", "-" },
+--         offsetLine = 0,
+--         offsetColumn = 0,
+--         sourceName = "shellcheck",
+--         formatLines = 1,
+--         formatPattern = {
+--           "^[^:]+:(\\d+):(\\d+):\\s+([^:]+):\\s+(.*)$",
+--           {
+--             line = 1,
+--             column = 2,
+--             message = 4,
+--             security = 3
+--           }
+--         },
+--         securities = {
+--           error = "error",
+--           warning = "warning",
+--           note = "info"
+--         }
+--       },
+--       languagetool = {
+--         command = "languagetool",
+--         debounce = 200,
+--         args = { "-" },
+--         offsetLine = 0,
+--         offsetColumn = 0,
+--         sourceName = "languagetool",
+--         formatLines = 2,
+--         formatPattern = {
+--           "^\\d+?\\.\\)\\s+Line\\s+(\\d+),\\s+column\\s+(\\d+),\\s+([^\\n]+)\nMessage:\\s+(.*)$",
+--           {
+--             line = 1,
+--             column = 2,
+--             message = { 4, 3 }
+--           }
+--         }
+--       }
+--     },
+--     filetypes = {
+--       sh = "shellcheck",
+--       email = "languagetool",
+--       ruby = "rubocop"
+--     }
+--   }
+-- })
+--
 lsp.nvim_workspace()
 
 local cmp_mappings = lsp.defaults.cmp_mappings({
