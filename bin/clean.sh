@@ -7,6 +7,14 @@ if test -f "$USER_CONFIG"; then
   echo "$USER_CONFIG Remove successfully..."
 fi
 
+AFTER_CONFIG=~/.config/nvim/lua/user/after_start.lua
+if test -f "$AFTER_CONFIG"; then
+
+  rm $AFTER_CONFIG
+  echo "$AFTER_CONFIG Remove successfully..."
+fi
+
+
 KEYBINDINGS=~/.config/nvim/lua/user/keybindings.lua
 if test -f "$KEYBINDINGS"; then
   rm $KEYBINDINGS

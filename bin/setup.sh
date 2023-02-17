@@ -10,6 +10,14 @@ else
   echo "$USER_CONFIG created."
 fi
 
+AFTER_CONFIG=~/.config/nvim/lua/user/after_start.lua
+if test -f "$AFTER_CONFIG"; then
+  echo "$AFTER_CONFIG exists. Ignoring..."
+else
+  cp ~/.config/nvim/extra/examples/after_start.lua ~/.config/nvim/lua/user/after_start.lua
+  echo "$AFTER_CONFIG created."
+fi
+
 USER_KEYBINDINGS=~/.config/nvim/lua/user/keybindings.lua
 if test -f "$USER_KEYBINDINGS"; then
   echo "$USER_KEYBINDINGS exists. Ignoring..."

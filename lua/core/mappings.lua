@@ -26,6 +26,11 @@ function M.setup_which_key()
       display = "Plugins            | Add more plugins to your neovim.",
       order = "4"
     },
+    {
+      path = "~/.config/nvim/lua/user/after_start.lua",
+      display = "After Start        | commands that should run after vim start.",
+      order = "5"
+    },
   }
 
   wk.register({

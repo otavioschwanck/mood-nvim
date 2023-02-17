@@ -46,3 +46,5 @@ if #not_ok > 0 then
     print(" - " .. not_ok[i])
   end
 end
+
+pcall(require, 'user.after_start')
