@@ -83,3 +83,7 @@ local set = vim.api.nvim_set_option
 require('core.settings').remove_bicycle_small_whells({ includeNormalMode = true })
 
 -- set('colorcolumn', '125') -- column length helper
+
+-- Auto load session
+require("persistence").load()
+

@@ -7,6 +7,8 @@ return {
       require("persistence").setup({
         options = { "buffers", "curdir", "tabpages", "winsize", "globals" },
       })
+
+      require("mood-scripts.auto-save-session").setup()
     end,
   }
 }
