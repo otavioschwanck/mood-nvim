@@ -65,7 +65,7 @@ return {
               },
               ["n"] = {
                 ["<C-o>"] = fb_actions.remove,
-                ["<C-p>"] = fb_actions.copy,
+                ["<C-y>"] = fb_actions.copy,
                 ["<C-e>"] = fb_actions.move,
                 ["<C-space>"] = fb_actions.create_from_prompt,
                 ["<C-r>"] = fb_actions.rename,

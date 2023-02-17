@@ -10,6 +10,13 @@ return { {
       preserve_cursor_position = {
         enabled = true,
       },
+      picker = {
+        telescope = {
+          mappings = {
+            ["<C-p>"] = nil
+          }
+        }
+      }
     })
 
     vim.api.nvim_set_keymap("n", "p", "<Plug>(YankyPutAfter)", {})
