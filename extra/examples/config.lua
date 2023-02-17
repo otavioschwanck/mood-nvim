@@ -85,5 +85,5 @@ require('core.settings').remove_bicycle_small_whells({ includeNormalMode = true 
 -- set('colorcolumn', '125') -- column length helper
 
 -- Auto load session
-require("persistence").load()
+-- require("persistence").load()
 
