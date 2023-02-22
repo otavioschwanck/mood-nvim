@@ -1,6 +1,6 @@
 return {
   {
-    "akinsho/bufferline.nvim",
+    "akinsho/bufferline.nvim", branch = 'dev',
     lazy = false,
     keys = {
       { "<leader>bp", "<Cmd>BufferLineTogglePin<CR>",                                                desc = "Toggle pin" },
@@ -21,6 +21,7 @@ return {
       options = {
         diagnostics = "nvim_lsp",
         always_show_bufferline = true,
+        persist_buffer_sort = true,
         offsets = {
           {
             filetype = "neo-tree",

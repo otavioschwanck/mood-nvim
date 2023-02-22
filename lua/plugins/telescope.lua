@@ -1,11 +1,14 @@
 return {
-  'fhill2/telescope-ultisnips.nvim',
-  { 'nvim-telescope/telescope-fzf-native.nvim',
-    build = 'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build' },
   'otavioschwanck/telescope-alternate.nvim',
   {
     'nvim-telescope/telescope.nvim',
-    dependencies = { 'nvim-telescope/telescope-ui-select.nvim', 'nvim-telescope/telescope-file-browser.nvim', 'nvim-lua/plenary.nvim' },
+    dependencies = {
+      'nvim-telescope/telescope-ui-select.nvim',
+      'nvim-telescope/telescope-file-browser.nvim',
+      'nvim-lua/plenary.nvim',
+      { 'nvim-telescope/telescope-fzf-native.nvim',
+        build = 'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build' }
+    },
     config = function()
 
       local _, actions = pcall(require, "telescope.actions")
@@ -79,7 +82,6 @@ return {
       require("telescope").load_extension("yank_history")
       require("telescope").load_extension("ui-select")
       require("telescope").load_extension "file_browser"
-      require('telescope').load_extension('ultisnips')
       require('telescope').load_extension('telescope-alternate')
       require('telescope').load_extension('fzf')
       require('telescope').load_extension('tmux-awesome-manager')

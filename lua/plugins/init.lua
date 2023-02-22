@@ -1,5 +1,7 @@
 local plugins = {
   { 'folke/tokyonight.nvim', priority = 10000, config = function ()
+    vim.cmd("colorscheme tokyonight-storm")
+
     require("tokyonight").setup({
       on_highlights = function(hl, c)
         local prompt = "#2d3149"
