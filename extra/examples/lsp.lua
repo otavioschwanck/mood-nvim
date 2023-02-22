@@ -155,7 +155,7 @@ local cmp_mappings = lsp.defaults.cmp_mappings({
     else
       fallback()
     end
-  end),
+  end, { 'i', 's' }),
   ['<C-d>'] = cmp.mapping.scroll_docs(-4),
   ['<C-u>'] = cmp.mapping.scroll_docs(4),
 })
