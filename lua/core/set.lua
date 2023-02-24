@@ -8,6 +8,9 @@ function M.setup()
 
   local opt = vim.opt
 
+  vim.g.VM_theme = 'olive'
+  vim.g.VM_show_warnings = false
+
   opt.autowrite = true -- Enable auto write
   opt.clipboard = "unnamedplus" -- Sync with system clipboard
   opt.completeopt = "menu,menuone,noselect"
