@@ -30,4 +30,36 @@ function M.call(files)
   }):find()
 end
 
+function M.open_dotfiles()
+  local mood_dotfiles = {
+    {
+      path = "~/.config/nvim/lua/user/config.lua",
+      display = "User Configuration | Configure your neovim plugins, themes, etc.",
+      order = "1"
+    },
+    {
+      path = "~/.config/nvim/lua/user/keybindings.lua",
+      display = "Keybindings        | Configure your personal keybindings.",
+      order = "2"
+    },
+    {
+      path = "~/.config/nvim/lua/user/lsp.lua",
+      display = "LSP                | Configure the LSP (Language server protocol)",
+      order = "3"
+    },
+    {
+      path = "~/.config/nvim/lua/user/plugins.lua",
+      display = "Plugins            | Add more plugins to your neovim.",
+      order = "4"
+    },
+    {
+      path = "~/.config/nvim/lua/user/after_start.lua",
+      display = "After Start        | commands that should run after vim start.",
+      order = "5"
+    },
+  }
+
+  M.call(mood_dotfiles)
+end
+
 return M
