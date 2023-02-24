@@ -81,7 +81,6 @@ local plugins = {
   { 'mattn/emmet-vim' },
 
   { "ray-x/lsp_signature.nvim" },
-  'mg979/vim-visual-multi',
 
   'windwp/nvim-ts-autotag',
   { 'svermeulen/vim-subversive' },
