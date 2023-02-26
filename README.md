@@ -8,6 +8,21 @@ mooD Nvim is a configuration made for those who wants to install and use, withou
 ![image 4](https://i.imgur.com/pe8HbTJ.png)
 ![image 5](https://i.imgur.com/ddcsriV.png)
 
+<!--toc:start-->
+- [Introduction](#introduction)
+- [Features](#features)
+- [Disclaimer](#disclaimer)
+- [Changelog](#changelog)
+  - [2022-02-26](#2022-02-26)
+  - [2022-02-15](#2022-02-15)
+  - [2022-02-14](#2022-02-14)
+- [Breaking Changes](#breaking-changes)
+- [Dependencies](#dependencies)
+- [Automatic Installation](#automatic-installation)
+- [After install](#after-install)
+- [How to learn the keybindings of this configuration?](#how-to-learn-the-keybindings-of-this-configuration)
+<!--toc:end-->
+
 # Features
 
 - 100% on Lua
@@ -27,16 +42,17 @@ This configuration is made to use with Alacritty and Tmux.  Please install it an
 
 # Changelog
 
-* 2022-02-26
+## 2022-02-26
+
 - Snippet is now C-n
 
-* 2022-02-15
+## 2022-02-15
 
 - Removed harpoon, use buffer pins now (C-s)
 - C-j to expand / jump on snippets
 - New tab management / session management.  Check Buffer/Tab Bookmarks on handbook.
 
-* 2022-02-14
+## 2022-02-14
 
 - Changed from C-j and C-k to C-n and C-p to navigate in telescope items
 - Add bufferline.  Navigate with ]b and [b.
