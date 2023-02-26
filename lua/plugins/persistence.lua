@@ -1,14 +1,21 @@
 return {
   {
     "folke/persistence.nvim",
-    event = "BufReadPre", -- this will only start session saving when an actual file was opened
-    module = "persistence",
-    config = function()
+    event = "BufReadPre",
+    config = function ()
       require("persistence").setup({
-        options = { "buffers", "curdir", "tabpages", "winsize", "globals" },
+        options = {'buffers', 'curdir', 'globals', 'tabpages', 'winsize'},
       })
 
       require("mood-scripts.auto-save-session").setup()
-    end,
+
+      vim.api.nvim_create_autocmd("VimLeavePre", {
+        group = vim.api.nvim_create_augroup("persistence_pre_save", { clear = true }),
+        callback = function ()
+          vim.cmd("doautocmd User SessionSavePre")
+          require('persistence').save()
+        end
+      })
+    end
   }
 }

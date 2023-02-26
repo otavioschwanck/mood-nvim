@@ -77,7 +77,16 @@ function M.setup()
       require('user.keybindings')
       require('user.config')
       require('mood-scripts.bg-color').setup()
-      require("bufferline").setup{}
+
+      require('bufferline').setup({
+        diagnostics = {
+          [vim.diagnostic.severity.ERROR] = { enabled = true, icon = ' ' },
+          [vim.diagnostic.severity.WARN] = { enabled = true, icon = ' ' },
+          [vim.diagnostic.severity.INFO] = { enabled = false },
+          [vim.diagnostic.severity.HINT] = { enabled = false },
+        },
+        icon_pinned = '',
+      })
 
       vim.cmd('call timer_start(50, {-> execute("colorscheme ' .. vim.g.colors_name .. '") })')
     end,

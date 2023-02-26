@@ -1,36 +1,25 @@
 return {
   {
-    "akinsho/bufferline.nvim", branch = 'dev',
-    lazy = false,
+    "romgrk/barbar.nvim",
+    lazy = true,
     keys = {
-      { "<leader>bp", "<Cmd>BufferLineTogglePin<CR>",                                                desc = "Toggle pin" },
-      { "<leader>bk", "<Cmd>BufferLineGroupClose ungrouped<CR>",                                     desc = "Delete non-pinned buffers" },
-      { "<leader>bK", "<Cmd>BufferLineGroupClose ungrouped<CR><Cmd>BufferLineGroupClose pinned<CR>", desc = "Kill all buffers" },
-      { "<leader>bn", ":e ~/.nvim-scratch<CR>",                                                      desc = "Open Scratch Buffer" },
-      { "<C-s>",      "<cmd>BufferLineTogglePin<cr>",                                                desc = "Prev Buffer" },
-      { "[b",         "<cmd>BufferLineCyclePrev<cr>",                                                desc = "Prev Buffer" },
-      { "]b",         "<cmd>BufferLineCycleNext<cr>",                                                desc = "Next Buffer" },
-      { "H",          "<cmd>BufferLineCyclePrev<cr>",                                                desc = "Prev Buffer" },
-      { "L",          "<cmd>BufferLineCycleNext<cr>",                                                desc = "Next Buffer" },
-      { "[B",         "<cmd>BufferLineMovePrev<cr>",                                                 desc = "Switch Prev Buffer" },
-      { "]B",         "<cmd>BufferLineMoveNext<cr>",                                                 desc = "Switch Next Buffer" },
-      { "<C-h>",      "<cmd>BufferLineMovePrev<cr>",                                                 desc = "Switch Prev Buffer" },
-      { "<C-l>",      "<cmd>BufferLineMoveNext<cr>",                                                 desc = "Switch Next Buffer" },
+      { "<leader>bp", "<Cmd>BufferPin<CR>",                desc = "Toggle pin" },
+      { "<leader>bk", "<Cmd>BufferCloseAllButPinned<CR>",  desc = "Delete non-pinned buffers" },
+      { "<leader>k",  "<Cmd>BufferClose<CR>",              desc = "Close Buffer" },
+      { "<leader>bK", "<Cmd>BufferCloseAllButCurrent<CR>", desc = "Kill all buffers except current" },
+      { "<leader>k",  "<Cmd>BufferClose<CR>",              desc = "Close Buffer" },
+      { "<leader>bn", ":e ~/.nvim-scratch<CR>",            desc = "Open Scratch Buffer" },
+      { "<C-s>",      "<cmd>BufferPin<cr>",                desc = "Pin Buffer" },
+      { "[b",         "<cmd>BufferPrevious<cr>",           desc = "Prev Buffer" },
+      { "]b",         "<cmd>BufferNext<cr>",               desc = "Next Buffer" },
+      { "H",          "<cmd>BufferPrevious<cr>",           desc = "Prev Buffer" },
+      { "L",          "<cmd>BufferNext<cr>",               desc = "Next Buffer" },
+      { "[B",         "<cmd>BufferMovePrevious<cr>",       desc = "Switch Prev Buffer" },
+      { "]B",         "<cmd>BufferMoveNext<cr>",           desc = "Switch Next Buffer" },
+      { "<C-h>",      "<cmd>BufferMovePrevious<cr>",       desc = "Switch Prev Buffer" },
+      { "<C-l>",      "<cmd>BufferMoveNext<cr>",           desc = "Switch Next Buffer" },
     },
-    opts = {
-      options = {
-        diagnostics = "nvim_lsp",
-        always_show_bufferline = false,
-        persist_buffer_sort = true,
-        offsets = {
-          {
-            filetype = "neo-tree",
-            text = "Neo-tree",
-            highlight = "Directory",
-            text_align = "left",
-          },
-        },
-      },
-    },
+    config = function()
+    end,
   }
 }

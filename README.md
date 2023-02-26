@@ -27,8 +27,8 @@ This configuration is made to use with Alacritty and Tmux.  Please install it an
 
 # Changelog
 
-* 2022-02-24
-- Snippet back to C-j
+* 2022-02-26
+- Snippet is now C-n
 
 * 2022-02-15
 
