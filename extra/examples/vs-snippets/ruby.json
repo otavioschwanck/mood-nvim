@@ -1,2565 +1,2755 @@
 {
-  "descw": {
-    "prefix": "descw",
-    "body": "describe 'when ${1:something}' do\n\t$0\nend",
-    "description": "describe 'when ...' do ... end"
-  },
-  "contw": {
-    "prefix": "contw",
-    "body": "context 'when ${1:something}' do\n\t$0\nend",
-    "description": "context 'when ...' do ... end"
-  },
-  "letm": {
-    "prefix": "letm",
-    "body": "let(:${1:model}) { create(:$1${2:, $3}) }$0",
-    "description": "let(:model) { create(:model, ...) }"
-  },
-  "lettm": {
-    "prefix": [
-      "lettm",
-      "let!m"
-    ],
-    "body": "let!(:${1:model}) { create(:$1${2:, $3}) }$0",
-    "description": "let!(:model) { create(:model, ...) }"
-  },
-  "descc": {
-    "prefix": "descc",
-    "body": "describe 'when #call' do\n\t$0\nend",
-    "description": "let!(:model) { create(:model, ...) }"
-  },
-  "deep_symbolize_keys": {
-    "prefix": "deep_symbolize_keys",
-    "body": "deep_symbolize_keys",
-    "description": "deep_symbolize_keys"
-  },
-  "deep_stringify_keys": {
-    "prefix": "deep_stringify_keys",
-    "body": "deep_stringify_keys",
-    "description": "deep_stringify_keys"
-  },
-  "greater_than": {
-    "prefix": "greater_than",
-    "body": "greater_than",
-    "description": "greater_than"
-  },
-  "to_json": {
-    "prefix": "to_json",
-    "body": "to_json",
-    "description": "to_json"
-  },
-  "valid?": {
-    "prefix": "valid?",
-    "body": "valid?",
-    "description": "valid?"
-  },
-  "invalid?": {
-    "prefix": "invalid?",
-    "body": "invalid?",
-    "description": "invalid?"
-  },
-  "greater_than_or_equal_to": {
-    "prefix": "greater_than_or_equal_to",
-    "body": "greater_than_or_equal_to",
-    "description": "greater_than_or_equal_to"
-  },
-  "equal_to": {
-    "prefix": "equal_to",
-    "body": "equal_to",
-    "description": "equal_to"
-  },
-  "less_than": {
-    "prefix": "less_than",
-    "body": "less_than",
-    "description": "less_than"
-  },
-  "less_than_or_equal_to": {
-    "prefix": "less_than_or_equal_to",
-    "body": "less_than_or_equal_to",
-    "description": "less_than_or_equal_to"
-  },
-  "other_than": {
-    "prefix": "other_than",
-    "body": "other_than",
-    "description": "other_than"
-  },
-  "any?": {
-    "prefix": "any?",
-    "body": "any?",
-    "description": "any?"
-  },
-  "assoc": {
-    "prefix": "assoc",
-    "body": "assoc",
-    "description": "assoc"
-  },
-  "clear": {
-    "prefix": "clear",
-    "body": "clear",
-    "description": "clear"
-  },
-  "Time.zone.now": {
-    "prefix": "Time.zone.now",
-    "body": "Time.zone.now",
-    "description": "Time.zone.now"
-  },
-  "Date.today": {
-    "prefix": "Date.today",
-    "body": "Date.today",
-    "description": "Date.today"
-  },
-  "present?": {
-    "prefix": "present?",
-    "body": "present?",
-    "description": "present?"
-  },
-  "blank?": {
-    "prefix": "blank?",
-    "body": "blank?",
-    "description": "blank?"
-  },
-  "nil?": {
-    "prefix": "nil?",
-    "body": "nil?",
-    "description": "nil?"
-  },
-  "compact": {
-    "prefix": "compact",
-    "body": "compact",
-    "description": "compact"
-  },
-  "compact!": {
-    "prefix": "compact!",
-    "body": "compact!",
-    "description": "compact!"
-  },
-  "compare_by_identity": {
-    "prefix": "compare_by_identity",
-    "body": "compare_by_identity",
-    "description": "compare_by_identity"
-  },
-  "compare_by_identity?": {
-    "prefix": "compare_by_identity?",
-    "body": "compare_by_identity?",
-    "description": "compare_by_identity?"
-  },
-  "deconstruct_keys": {
-    "prefix": "deconstruct_keys",
-    "body": "deconstruct_keys",
-    "description": "deconstruct_keys"
-  },
-  "default": {
-    "prefix": "default",
-    "body": "default",
-    "description": "default"
-  },
-  "default=": {
-    "prefix": "default=",
-    "body": "default=",
-    "description": "default="
-  },
-  "default_proc": {
-    "prefix": "default_proc",
-    "body": "default_proc",
-    "description": "default_proc"
-  },
-  "default_proc=": {
-    "prefix": "default_proc=",
-    "body": "default_proc=",
-    "description": "default_proc="
-  },
-  "delete": {
-    "prefix": "delete",
-    "body": "delete",
-    "description": "delete"
-  },
-  "delete_if": {
-    "prefix": "delete_if",
-    "body": "delete_if",
-    "description": "delete_if"
-  },
-  "dig": {
-    "prefix": "dig",
-    "body": "dig",
-    "description": "dig"
-  },
-  "each": {
-    "prefix": "each",
-    "body": "each",
-    "description": "each"
-  },
-  "each_key": {
-    "prefix": "each_key",
-    "body": "each_key",
-    "description": "each_key"
-  },
-  "each_pair": {
-    "prefix": "each_pair",
-    "body": "each_pair",
-    "description": "each_pair"
-  },
-  "each_value": {
-    "prefix": "each_value",
-    "body": "each_value",
-    "description": "each_value"
-  },
-  "empty?": {
-    "prefix": "empty?",
-    "body": "empty?",
-    "description": "empty?"
-  },
-  "eql?": {
-    "prefix": "eql?",
-    "body": "eql?",
-    "description": "eql?"
-  },
-  "except": {
-    "prefix": "except",
-    "body": "except",
-    "description": "except"
-  },
-  "fetch": {
-    "prefix": "fetch",
-    "body": "fetch",
-    "description": "fetch"
-  },
-  "fetch_values": {
-    "prefix": "fetch_values",
-    "body": "fetch_values",
-    "description": "fetch_values"
-  },
-  "filter": {
-    "prefix": "filter",
-    "body": "filter",
-    "description": "filter"
-  },
-  "filter!": {
-    "prefix": "filter!",
-    "body": "filter!",
-    "description": "filter!"
-  },
-  "flatten": {
-    "prefix": "flatten",
-    "body": "flatten",
-    "description": "flatten"
-  },
-  "has_key?": {
-    "prefix": "has_key?",
-    "body": "has_key?",
-    "description": "has_key?"
-  },
-  "has_value?": {
-    "prefix": "has_value?",
-    "body": "has_value?",
-    "description": "has_value?"
-  },
-  "hash": {
-    "prefix": "hash",
-    "body": "hash",
-    "description": "hash"
-  },
-  "include?": {
-    "prefix": "include?",
-    "body": "include?",
-    "description": "include?"
-  },
-  "initialize_copy": {
-    "prefix": "initialize_copy",
-    "body": "initialize_copy",
-    "description": "initialize_copy"
-  },
-  "inspect": {
-    "prefix": "inspect",
-    "body": "inspect",
-    "description": "inspect"
-  },
-  "invert": {
-    "prefix": "invert",
-    "body": "invert",
-    "description": "invert"
-  },
-  "keep_if": {
-    "prefix": "keep_if",
-    "body": "keep_if",
-    "description": "keep_if"
-  },
-  "key": {
-    "prefix": "key",
-    "body": "key",
-    "description": "key"
-  },
-  "key?": {
-    "prefix": "key?",
-    "body": "key?",
-    "description": "key?"
-  },
-  "keys": {
-    "prefix": "keys",
-    "body": "keys",
-    "description": "keys"
-  },
-  "length": {
-    "prefix": "length",
-    "body": "length",
-    "description": "length"
-  },
-  "member?": {
-    "prefix": "member?",
-    "body": "member?",
-    "description": "member?"
-  },
-  "merge": {
-    "prefix": "merge",
-    "body": "merge",
-    "description": "merge"
-  },
-  "merge!": {
-    "prefix": "merge!",
-    "body": "merge!",
-    "description": "merge!"
-  },
-  "rassoc": {
-    "prefix": "rassoc",
-    "body": "rassoc",
-    "description": "rassoc"
-  },
-  "rehash": {
-    "prefix": "rehash",
-    "body": "rehash",
-    "description": "rehash"
-  },
-  "reject": {
-    "prefix": "reject",
-    "body": "reject",
-    "description": "reject"
-  },
-  "reject!": {
-    "prefix": "reject!",
-    "body": "reject!",
-    "description": "reject!"
-  },
-  "replace": {
-    "prefix": "replace",
-    "body": "replace",
-    "description": "replace"
-  },
-  "select": {
-    "prefix": "select",
-    "body": "select",
-    "description": "select"
-  },
-  "select!": {
-    "prefix": "select!",
-    "body": "select!",
-    "description": "select!"
-  },
-  "shift": {
-    "prefix": "shift",
-    "body": "shift",
-    "description": "shift"
-  },
-  "size": {
-    "prefix": "size",
-    "body": "size",
-    "description": "size"
-  },
-  "slice": {
-    "prefix": "slice",
-    "body": "slice",
-    "description": "slice"
-  },
-  "store": {
-    "prefix": "store",
-    "body": "store",
-    "description": "store"
-  },
-  "to_a": {
-    "prefix": "to_a",
-    "body": "to_a",
-    "description": "to_a"
-  },
-  "to_h": {
-    "prefix": "to_h",
-    "body": "to_h",
-    "description": "to_h"
-  },
-  "to_hash": {
-    "prefix": "to_hash",
-    "body": "to_hash",
-    "description": "to_hash"
-  },
-  "to_proc": {
-    "prefix": "to_proc",
-    "body": "to_proc",
-    "description": "to_proc"
-  },
-  "to_s": {
-    "prefix": "to_s",
-    "body": "to_s",
-    "description": "to_s"
-  },
-  "transform_keys": {
-    "prefix": "transform_keys",
-    "body": "transform_keys",
-    "description": "transform_keys"
-  },
-  "transform_keys!": {
-    "prefix": "transform_keys!",
-    "body": "transform_keys!",
-    "description": "transform_keys!"
-  },
-  "transform_values": {
-    "prefix": "transform_values",
-    "body": "transform_values",
-    "description": "transform_values"
-  },
-  "transform_values!": {
-    "prefix": "transform_values!",
-    "body": "transform_values!",
-    "description": "transform_values!"
-  },
-  "update": {
-    "prefix": "update",
-    "body": "update",
-    "description": "update"
-  },
-  "value?": {
-    "prefix": "value?",
-    "body": "value?",
-    "description": "value?"
-  },
-  "values": {
-    "prefix": "values",
-    "body": "values",
-    "description": "values"
-  },
-  "values_at": {
-    "prefix": "values_at",
-    "body": "values_at",
-    "description": "values_at"
-  },
-  "all?": {
-    "prefix": "all?",
-    "body": "all?",
-    "description": "all?"
-  },
-  "append": {
-    "prefix": "append",
-    "body": "append",
-    "description": "append"
-  },
-  "at": {
-    "prefix": "at",
-    "body": "at",
-    "description": "at"
-  },
-  "bsearch": {
-    "prefix": "bsearch",
-    "body": "bsearch",
-    "description": "bsearch"
-  },
-  "bsearch_index": {
-    "prefix": "bsearch_index",
-    "body": "bsearch_index",
-    "description": "bsearch_index"
-  },
-  "collect": {
-    "prefix": "collect",
-    "body": "collect",
-    "description": "collect"
-  },
-  "collect!": {
-    "prefix": "collect!",
-    "body": "collect!",
-    "description": "collect!"
-  },
-  "combination": {
-    "prefix": "combination",
-    "body": "combination",
-    "description": "combination"
-  },
-  "concat": {
-    "prefix": "concat",
-    "body": "concat",
-    "description": "concat"
-  },
-  "count": {
-    "prefix": "count",
-    "body": "count",
-    "description": "count"
-  },
-  "cycle": {
-    "prefix": "cycle",
-    "body": "cycle",
-    "description": "cycle"
-  },
-  "deconstruct": {
-    "prefix": "deconstruct",
-    "body": "deconstruct",
-    "description": "deconstruct"
-  },
-  "delete_at": {
-    "prefix": "delete_at",
-    "body": "delete_at",
-    "description": "delete_at"
-  },
-  "difference": {
-    "prefix": "difference",
-    "body": "difference",
-    "description": "difference"
-  },
-  "drop": {
-    "prefix": "drop",
-    "body": "drop",
-    "description": "drop"
-  },
-  "drop_while": {
-    "prefix": "drop_while",
-    "body": "drop_while",
-    "description": "drop_while"
-  },
-  "each_index": {
-    "prefix": "each_index",
-    "body": "each_index",
-    "description": "each_index"
-  },
-  "fill": {
-    "prefix": "fill",
-    "body": "fill",
-    "description": "fill"
-  },
-  "find_index": {
-    "prefix": "find_index",
-    "body": "find_index",
-    "description": "find_index"
-  },
-  "first": {
-    "prefix": "first",
-    "body": "first",
-    "description": "first"
-  },
-  "flatten!": {
-    "prefix": "flatten!",
-    "body": "flatten!",
-    "description": "flatten!"
-  },
-  "index": {
-    "prefix": "index",
-    "body": "index",
-    "description": "index"
-  },
-  "insert": {
-    "prefix": "insert",
-    "body": "insert",
-    "description": "insert"
-  },
-  "intersection": {
-    "prefix": "intersection",
-    "body": "intersection",
-    "description": "intersection"
-  },
-  "join": {
-    "prefix": "join",
-    "body": "join",
-    "description": "join"
-  },
-  "last": {
-    "prefix": "last",
-    "body": "last",
-    "description": "last"
-  },
-  "map": {
-    "prefix": "map",
-    "body": "map",
-    "description": "map"
-  },
-  "map!": {
-    "prefix": "map!",
-    "body": "map!",
-    "description": "map!"
-  },
-  "max": {
-    "prefix": "max",
-    "body": "max",
-    "description": "max"
-  },
-  "min": {
-    "prefix": "min",
-    "body": "min",
-    "description": "min"
-  },
-  "minmax": {
-    "prefix": "minmax",
-    "body": "minmax",
-    "description": "minmax"
-  },
-  "none?": {
-    "prefix": "none?",
-    "body": "none?",
-    "description": "none?"
-  },
-  "old_to_s": {
-    "prefix": "old_to_s",
-    "body": "old_to_s",
-    "description": "old_to_s"
-  },
-  "one?": {
-    "prefix": "one?",
-    "body": "one?",
-    "description": "one?"
-  },
-  "pack": {
-    "prefix": "pack",
-    "body": "pack",
-    "description": "pack"
-  },
-  "permutation": {
-    "prefix": "permutation",
-    "body": "permutation",
-    "description": "permutation"
-  },
-  "pop": {
-    "prefix": "pop",
-    "body": "pop",
-    "description": "pop"
-  },
-  "prepend": {
-    "prefix": "prepend",
-    "body": "prepend",
-    "description": "prepend"
-  },
-  "product": {
-    "prefix": "product",
-    "body": "product",
-    "description": "product"
-  },
-  "push": {
-    "prefix": "push",
-    "body": "push",
-    "description": "push"
-  },
-  "repeated_combination": {
-    "prefix": "repeated_combination",
-    "body": "repeated_combination",
-    "description": "repeated_combination"
-  },
-  "repeated_permutation": {
-    "prefix": "repeated_permutation",
-    "body": "repeated_permutation",
-    "description": "repeated_permutation"
-  },
-  "reverse": {
-    "prefix": "reverse",
-    "body": "reverse",
-    "description": "reverse"
-  },
-  "reverse!": {
-    "prefix": "reverse!",
-    "body": "reverse!",
-    "description": "reverse!"
-  },
-  "reverse_each": {
-    "prefix": "reverse_each",
-    "body": "reverse_each",
-    "description": "reverse_each"
-  },
-  "rindex": {
-    "prefix": "rindex",
-    "body": "rindex",
-    "description": "rindex"
-  },
-  "rotate": {
-    "prefix": "rotate",
-    "body": "rotate",
-    "description": "rotate"
-  },
-  "rotate!": {
-    "prefix": "rotate!",
-    "body": "rotate!",
-    "description": "rotate!"
-  },
-  "sample": {
-    "prefix": "sample",
-    "body": "sample",
-    "description": "sample"
-  },
-  "shuffle": {
-    "prefix": "shuffle",
-    "body": "shuffle",
-    "description": "shuffle"
-  },
-  "shuffle!": {
-    "prefix": "shuffle!",
-    "body": "shuffle!",
-    "description": "shuffle!"
-  },
-  "slice!": {
-    "prefix": "slice!",
-    "body": "slice!",
-    "description": "slice!"
-  },
-  "sort": {
-    "prefix": "sort",
-    "body": "sort",
-    "description": "sort"
-  },
-  "sort!": {
-    "prefix": "sort!",
-    "body": "sort!",
-    "description": "sort!"
-  },
-  "sort_by!": {
-    "prefix": "sort_by!",
-    "body": "sort_by!",
-    "description": "sort_by!"
-  },
-  "sum": {
-    "prefix": "sum",
-    "body": "sum",
-    "description": "sum"
-  },
-  "take": {
-    "prefix": "take",
-    "body": "take",
-    "description": "take"
-  },
-  "take_while": {
-    "prefix": "take_while",
-    "body": "take_while",
-    "description": "take_while"
-  },
-  "to_ary": {
-    "prefix": "to_ary",
-    "body": "to_ary",
-    "description": "to_ary"
-  },
-  "transpose": {
-    "prefix": "transpose",
-    "body": "transpose",
-    "description": "transpose"
-  },
-  "union": {
-    "prefix": "union",
-    "body": "union",
-    "description": "union"
-  },
-  "uniq": {
-    "prefix": "uniq",
-    "body": "uniq",
-    "description": "uniq"
-  },
-  "uniq!": {
-    "prefix": "uniq!",
-    "body": "uniq!",
-    "description": "uniq!"
-  },
-  "unshift": {
-    "prefix": "unshift",
-    "body": "unshift",
-    "description": "unshift"
-  },
-  "zip": {
-    "prefix": "zip",
-    "body": "zip",
-    "description": "zip"
-  },
-  "ascii_only?": {
-    "prefix": "ascii_only?",
-    "body": "ascii_only?",
-    "description": "ascii_only?"
-  },
-  "bytes": {
-    "prefix": "bytes",
-    "body": "bytes",
-    "description": "bytes"
-  },
-  "bytesize": {
-    "prefix": "bytesize",
-    "body": "bytesize",
-    "description": "bytesize"
-  },
-  "byteslice": {
-    "prefix": "byteslice",
-    "body": "byteslice",
-    "description": "byteslice"
-  },
-  "capitalize": {
-    "prefix": "capitalize",
-    "body": "capitalize",
-    "description": "capitalize"
-  },
-  "capitalize!": {
-    "prefix": "capitalize!",
-    "body": "capitalize!",
-    "description": "capitalize!"
-  },
-  "casecmp": {
-    "prefix": "casecmp",
-    "body": "casecmp",
-    "description": "casecmp"
-  },
-  "casecmp?": {
-    "prefix": "casecmp?",
-    "body": "casecmp?",
-    "description": "casecmp?"
-  },
-  "center": {
-    "prefix": "center",
-    "body": "center",
-    "description": "center"
-  },
-  "chars": {
-    "prefix": "chars",
-    "body": "chars",
-    "description": "chars"
-  },
-  "chomp": {
-    "prefix": "chomp",
-    "body": "chomp",
-    "description": "chomp"
-  },
-  "chomp!": {
-    "prefix": "chomp!",
-    "body": "chomp!",
-    "description": "chomp!"
-  },
-  "chop": {
-    "prefix": "chop",
-    "body": "chop",
-    "description": "chop"
-  },
-  "chop!": {
-    "prefix": "chop!",
-    "body": "chop!",
-    "description": "chop!"
-  },
-  "chr": {
-    "prefix": "chr",
-    "body": "chr",
-    "description": "chr"
-  },
-  "codepoints": {
-    "prefix": "codepoints",
-    "body": "codepoints",
-    "description": "codepoints"
-  },
-  "crypt": {
-    "prefix": "crypt",
-    "body": "crypt",
-    "description": "crypt"
-  },
-  "delete!": {
-    "prefix": "delete!",
-    "body": "delete!",
-    "description": "delete!"
-  },
-  "delete_prefix": {
-    "prefix": "delete_prefix",
-    "body": "delete_prefix",
-    "description": "delete_prefix"
-  },
-  "delete_prefix!": {
-    "prefix": "delete_prefix!",
-    "body": "delete_prefix!",
-    "description": "delete_prefix!"
-  },
-  "delete_suffix": {
-    "prefix": "delete_suffix",
-    "body": "delete_suffix",
-    "description": "delete_suffix"
-  },
-  "delete_suffix!": {
-    "prefix": "delete_suffix!",
-    "body": "delete_suffix!",
-    "description": "delete_suffix!"
-  },
-  "downcase": {
-    "prefix": "downcase",
-    "body": "downcase",
-    "description": "downcase"
-  },
-  "downcase!": {
-    "prefix": "downcase!",
-    "body": "downcase!",
-    "description": "downcase!"
-  },
-  "dump": {
-    "prefix": "dump",
-    "body": "dump",
-    "description": "dump"
-  },
-  "each_byte": {
-    "prefix": "each_byte",
-    "body": "each_byte",
-    "description": "each_byte"
-  },
-  "each_char": {
-    "prefix": "each_char",
-    "body": "each_char",
-    "description": "each_char"
-  },
-  "each_codepoint": {
-    "prefix": "each_codepoint",
-    "body": "each_codepoint",
-    "description": "each_codepoint"
-  },
-  "each_grapheme_cluster": {
-    "prefix": "each_grapheme_cluster",
-    "body": "each_grapheme_cluster",
-    "description": "each_grapheme_cluster"
-  },
-  "each_line": {
-    "prefix": "each_line",
-    "body": "each_line",
-    "description": "each_line"
-  },
-  "encode": {
-    "prefix": "encode",
-    "body": "encode",
-    "description": "encode"
-  },
-  "encode!": {
-    "prefix": "encode!",
-    "body": "encode!",
-    "description": "encode!"
-  },
-  "encoding": {
-    "prefix": "encoding",
-    "body": "encoding",
-    "description": "encoding"
-  },
-  "end_with?": {
-    "prefix": "end_with?",
-    "body": "end_with?",
-    "description": "end_with?"
-  },
-  "force_encoding": {
-    "prefix": "force_encoding",
-    "body": "force_encoding",
-    "description": "force_encoding"
-  },
-  "freeze": {
-    "prefix": "freeze",
-    "body": "freeze",
-    "description": "freeze"
-  },
-  "getbyte": {
-    "prefix": "getbyte",
-    "body": "getbyte",
-    "description": "getbyte"
-  },
-  "grapheme_clusters": {
-    "prefix": "grapheme_clusters",
-    "body": "grapheme_clusters",
-    "description": "grapheme_clusters"
-  },
-  "gsub": {
-    "prefix": "gsub",
-    "body": "gsub",
-    "description": "gsub"
-  },
-  "gsub!": {
-    "prefix": "gsub!",
-    "body": "gsub!",
-    "description": "gsub!"
-  },
-  "hex": {
-    "prefix": "hex",
-    "body": "hex",
-    "description": "hex"
-  },
-  "intern": {
-    "prefix": "intern",
-    "body": "intern",
-    "description": "intern"
-  },
-  "lines": {
-    "prefix": "lines",
-    "body": "lines",
-    "description": "lines"
-  },
-  "ljust": {
-    "prefix": "ljust",
-    "body": "ljust",
-    "description": "ljust"
-  },
-  "lstrip": {
-    "prefix": "lstrip",
-    "body": "lstrip",
-    "description": "lstrip"
-  },
-  "lstrip!": {
-    "prefix": "lstrip!",
-    "body": "lstrip!",
-    "description": "lstrip!"
-  },
-  "match": {
-    "prefix": "match",
-    "body": "match",
-    "description": "match"
-  },
-  "match?": {
-    "prefix": "match?",
-    "body": "match?",
-    "description": "match?"
-  },
-  "next": {
-    "prefix": "next",
-    "body": "next",
-    "description": "next"
-  },
-  "next!": {
-    "prefix": "next!",
-    "body": "next!",
-    "description": "next!"
-  },
-  "oct": {
-    "prefix": "oct",
-    "body": "oct",
-    "description": "oct"
-  },
-  "ord": {
-    "prefix": "ord",
-    "body": "ord",
-    "description": "ord"
-  },
-  "partition": {
-    "prefix": "partition",
-    "body": "partition",
-    "description": "partition"
-  },
-  "rjust": {
-    "prefix": "rjust",
-    "body": "rjust",
-    "description": "rjust"
-  },
-  "rpartition": {
-    "prefix": "rpartition",
-    "body": "rpartition",
-    "description": "rpartition"
-  },
-  "rstrip": {
-    "prefix": "rstrip",
-    "body": "rstrip",
-    "description": "rstrip"
-  },
-  "rstrip!": {
-    "prefix": "rstrip!",
-    "body": "rstrip!",
-    "description": "rstrip!"
-  },
-  "scan": {
-    "prefix": "scan",
-    "body": "scan",
-    "description": "scan"
-  },
-  "scrub": {
-    "prefix": "scrub",
-    "body": "scrub",
-    "description": "scrub"
-  },
-  "scrub!": {
-    "prefix": "scrub!",
-    "body": "scrub!",
-    "description": "scrub!"
-  },
-  "setbyte": {
-    "prefix": "setbyte",
-    "body": "setbyte",
-    "description": "setbyte"
-  },
-  "split": {
-    "prefix": "split",
-    "body": "split",
-    "description": "split"
-  },
-  "squeeze": {
-    "prefix": "squeeze",
-    "body": "squeeze",
-    "description": "squeeze"
-  },
-  "squeeze!": {
-    "prefix": "squeeze!",
-    "body": "squeeze!",
-    "description": "squeeze!"
-  },
-  "start_with?": {
-    "prefix": "start_with?",
-    "body": "start_with?",
-    "description": "start_with?"
-  },
-  "strip": {
-    "prefix": "strip",
-    "body": "strip",
-    "description": "strip"
-  },
-  "strip!": {
-    "prefix": "strip!",
-    "body": "strip!",
-    "description": "strip!"
-  },
-  "sub": {
-    "prefix": "sub",
-    "body": "sub",
-    "description": "sub"
-  },
-  "sub!": {
-    "prefix": "sub!",
-    "body": "sub!",
-    "description": "sub!"
-  },
-  "succ": {
-    "prefix": "succ",
-    "body": "succ",
-    "description": "succ"
-  },
-  "succ!": {
-    "prefix": "succ!",
-    "body": "succ!",
-    "description": "succ!"
-  },
-  "swapcase": {
-    "prefix": "swapcase",
-    "body": "swapcase",
-    "description": "swapcase"
-  },
-  "swapcase!": {
-    "prefix": "swapcase!",
-    "body": "swapcase!",
-    "description": "swapcase!"
-  },
-  "to_c": {
-    "prefix": "to_c",
-    "body": "to_c",
-    "description": "to_c"
-  },
-  "to_f": {
-    "prefix": "to_f",
-    "body": "to_f",
-    "description": "to_f"
-  },
-  "to_i": {
-    "prefix": "to_i",
-    "body": "to_i",
-    "description": "to_i"
-  },
-  "to_r": {
-    "prefix": "to_r",
-    "body": "to_r",
-    "description": "to_r"
-  },
-  "to_str": {
-    "prefix": "to_str",
-    "body": "to_str",
-    "description": "to_str"
-  },
-  "to_sym": {
-    "prefix": "to_sym",
-    "body": "to_sym",
-    "description": "to_sym"
-  },
-  "tr": {
-    "prefix": "tr",
-    "body": "tr",
-    "description": "tr"
-  },
-  "tr!": {
-    "prefix": "tr!",
-    "body": "tr!",
-    "description": "tr!"
-  },
-  "tr_s": {
-    "prefix": "tr_s",
-    "body": "tr_s",
-    "description": "tr_s"
-  },
-  "tr_s!": {
-    "prefix": "tr_s!",
-    "body": "tr_s!",
-    "description": "tr_s!"
-  },
-  "undump": {
-    "prefix": "undump",
-    "body": "undump",
-    "description": "undump"
-  },
-  "unicode_normalize": {
-    "prefix": "unicode_normalize",
-    "body": "unicode_normalize",
-    "description": "unicode_normalize"
-  },
-  "unicode_normalize!": {
-    "prefix": "unicode_normalize!",
-    "body": "unicode_normalize!",
-    "description": "unicode_normalize!"
-  },
-  "unicode_normalized?": {
-    "prefix": "unicode_normalized?",
-    "body": "unicode_normalized?",
-    "description": "unicode_normalized?"
-  },
-  "unpack": {
-    "prefix": "unpack",
-    "body": "unpack",
-    "description": "unpack"
-  },
-  "unpack1": {
-    "prefix": "unpack1",
-    "body": "unpack1",
-    "description": "unpack1"
-  },
-  "upcase": {
-    "prefix": "upcase",
-    "body": "upcase",
-    "description": "upcase"
-  },
-  "upcase!": {
-    "prefix": "upcase!",
-    "body": "upcase!",
-    "description": "upcase!"
-  },
-  "upto": {
-    "prefix": "upto",
-    "body": "upto",
-    "description": "upto"
-  },
-  "valid_encoding?": {
-    "prefix": "valid_encoding?",
-    "body": "valid_encoding?",
-    "description": "valid_encoding?"
-  },
-  "ajd": {
-    "prefix": "ajd",
-    "body": "ajd",
-    "description": "ajd"
-  },
-  "amjd": {
-    "prefix": "amjd",
-    "body": "amjd",
-    "description": "amjd"
-  },
-  "asctime": {
-    "prefix": "asctime",
-    "body": "asctime",
-    "description": "asctime"
-  },
-  "ctime": {
-    "prefix": "ctime",
-    "body": "ctime",
-    "description": "ctime"
-  },
-  "cwday": {
-    "prefix": "cwday",
-    "body": "cwday",
-    "description": "cwday"
-  },
-  "cweek": {
-    "prefix": "cweek",
-    "body": "cweek",
-    "description": "cweek"
-  },
-  "cwyear": {
-    "prefix": "cwyear",
-    "body": "cwyear",
-    "description": "cwyear"
-  },
-  "day": {
-    "prefix": "day",
-    "body": "day",
-    "description": "day"
-  },
-  "day_fraction": {
-    "prefix": "day_fraction",
-    "body": "day_fraction",
-    "description": "day_fraction"
-  },
-  "downto": {
-    "prefix": "downto",
-    "body": "downto",
-    "description": "downto"
-  },
-  "england": {
-    "prefix": "england",
-    "body": "england",
-    "description": "england"
-  },
-  "friday?": {
-    "prefix": "friday?",
-    "body": "friday?",
-    "description": "friday?"
-  },
-  "gregorian": {
-    "prefix": "gregorian",
-    "body": "gregorian",
-    "description": "gregorian"
-  },
-  "gregorian?": {
-    "prefix": "gregorian?",
-    "body": "gregorian?",
-    "description": "gregorian?"
-  },
-  "httpdate": {
-    "prefix": "httpdate",
-    "body": "httpdate",
-    "description": "httpdate"
-  },
-  "infinite?": {
-    "prefix": "infinite?",
-    "body": "infinite?",
-    "description": "infinite?"
-  },
-  "inspect_raw": {
-    "prefix": "inspect_raw",
-    "body": "inspect_raw",
-    "description": "inspect_raw"
-  },
-  "iso8601": {
-    "prefix": "iso8601",
-    "body": "iso8601",
-    "description": "iso8601"
-  },
-  "italy": {
-    "prefix": "italy",
-    "body": "italy",
-    "description": "italy"
-  },
-  "jd": {
-    "prefix": "jd",
-    "body": "jd",
-    "description": "jd"
-  },
-  "jisx0301": {
-    "prefix": "jisx0301",
-    "body": "jisx0301",
-    "description": "jisx0301"
-  },
-  "julian": {
-    "prefix": "julian",
-    "body": "julian",
-    "description": "julian"
-  },
-  "julian?": {
-    "prefix": "julian?",
-    "body": "julian?",
-    "description": "julian?"
-  },
-  "ld": {
-    "prefix": "ld",
-    "body": "ld",
-    "description": "ld"
-  },
-  "leap?": {
-    "prefix": "leap?",
-    "body": "leap?",
-    "description": "leap?"
-  },
-  "marshal_dump_old": {
-    "prefix": "marshal_dump_old",
-    "body": "marshal_dump_old",
-    "description": "marshal_dump_old"
-  },
-  "mday": {
-    "prefix": "mday",
-    "body": "mday",
-    "description": "mday"
-  },
-  "mjd": {
-    "prefix": "mjd",
-    "body": "mjd",
-    "description": "mjd"
-  },
-  "mon": {
-    "prefix": "mon",
-    "body": "mon",
-    "description": "mon"
-  },
-  "monday?": {
-    "prefix": "monday?",
-    "body": "monday?",
-    "description": "monday?"
-  },
-  "month": {
-    "prefix": "month",
-    "body": "month",
-    "description": "month"
-  },
-  "new_start": {
-    "prefix": "new_start",
-    "body": "new_start",
-    "description": "new_start"
-  },
-  "next_day": {
-    "prefix": "next_day",
-    "body": "next_day",
-    "description": "next_day"
-  },
-  "next_month": {
-    "prefix": "next_month",
-    "body": "next_month",
-    "description": "next_month"
-  },
-  "next_year": {
-    "prefix": "next_year",
-    "body": "next_year",
-    "description": "next_year"
-  },
-  "nth_kday?": {
-    "prefix": "nth_kday?",
-    "body": "nth_kday?",
-    "description": "nth_kday?"
-  },
-  "prev_day": {
-    "prefix": "prev_day",
-    "body": "prev_day",
-    "description": "prev_day"
-  },
-  "prev_month": {
-    "prefix": "prev_month",
-    "body": "prev_month",
-    "description": "prev_month"
-  },
-  "prev_year": {
-    "prefix": "prev_year",
-    "body": "prev_year",
-    "description": "prev_year"
-  },
-  "rfc2822": {
-    "prefix": "rfc2822",
-    "body": "rfc2822",
-    "description": "rfc2822"
-  },
-  "rfc3339": {
-    "prefix": "rfc3339",
-    "body": "rfc3339",
-    "description": "rfc3339"
-  },
-  "rfc822": {
-    "prefix": "rfc822",
-    "body": "rfc822",
-    "description": "rfc822"
-  },
-  "saturday?": {
-    "prefix": "saturday?",
-    "body": "saturday?",
-    "description": "saturday?"
-  },
-  "start": {
-    "prefix": "start",
-    "body": "start",
-    "description": "start"
-  },
-  "step": {
-    "prefix": "step",
-    "body": "step",
-    "description": "step"
-  },
-  "strftime": {
-    "prefix": "strftime",
-    "body": "strftime",
-    "description": "strftime"
-  },
-  "strftime('%Y-%m-%d')": {
-    "prefix": "strftime('%Y-%m-%d')",
-    "body": "strftime('%Y-%m-%d')",
-    "description": "strftime('%Y-%m-%d')"
-  },
-  "strftime('%d/$m/%Y')": {
-    "prefix": "strftime('%d/$m/%Y')",
-    "body": "strftime('%d/$m/%Y')",
-    "description": "strftime('%d/$m/%Y')"
-  },
-  "sunday?": {
-    "prefix": "sunday?",
-    "body": "sunday?",
-    "description": "sunday?"
-  },
-  "thursday?": {
-    "prefix": "thursday?",
-    "body": "thursday?",
-    "description": "thursday?"
-  },
-  "to_date": {
-    "prefix": "to_date",
-    "body": "to_date",
-    "description": "to_date"
-  },
-  "to_datetime": {
-    "prefix": "to_datetime",
-    "body": "to_datetime",
-    "description": "to_datetime"
-  },
-  "to_time": {
-    "prefix": "to_time",
-    "body": "to_time",
-    "description": "to_time"
-  },
-  "tuesday?": {
-    "prefix": "tuesday?",
-    "body": "tuesday?",
-    "description": "tuesday?"
-  },
-  "wday": {
-    "prefix": "wday",
-    "body": "wday",
-    "description": "wday"
-  },
-  "wednesday?": {
-    "prefix": "wednesday?",
-    "body": "wednesday?",
-    "description": "wednesday?"
-  },
-  "xmlschema": {
-    "prefix": "xmlschema",
-    "body": "xmlschema",
-    "description": "xmlschema"
-  },
-  "acceptance": {
-    "prefix": "acceptance",
-    "body": "acceptance",
-    "description": "acceptance"
-  },
-  "validates_associated": {
-    "prefix": "validates_associated",
-    "body": "validates_associated",
-    "description": "validates_associated"
-  },
-  "confirmation": {
-    "prefix": "confirmation",
-    "body": "confirmation",
-    "description": "confirmation"
-  },
-  "exclusion": {
-    "prefix": "exclusion",
-    "body": "exclusion",
-    "description": "exclusion"
-  },
-  "format": {
-    "prefix": "format",
-    "body": "format",
-    "description": "format"
-  },
-  "inclusion": {
-    "prefix": "inclusion",
-    "body": "inclusion",
-    "description": "inclusion"
-  },
-  "perform_later": {
-    "prefix": "perform_later",
-    "body": "perform_later",
-    "description": "perform_later"
-  },
-  "perform_now": {
-    "prefix": "perform_now",
-    "body": "perform_now",
-    "description": "perform_now"
-  },
-  "set": {
-    "prefix": "set",
-    "body": "set",
-    "description": "set"
-  },
-  "perform": {
-    "prefix": "perform",
-    "body": "perform",
-    "description": "perform"
-  },
-  "numericality: ": {
-    "prefix": "numericality: ",
-    "body": "numericality: { $0 }",
-    "description": "numericality: "
-  },
-  "presence: true": {
-    "prefix": "presence:",
-    "body": "presence: true",
-    "description": "presence: true"
-  },
-  "absence": {
-    "prefix": "absence",
-    "body": "absence",
-    "description": "absence"
-  },
-  "uniqueness: ": {
-    "prefix": "uniqueness: ",
-    "body": "uniqueness: ",
-    "description": "uniqueness: "
-  },
-  "allow_nil: ": {
-    "prefix": "allow_nil: ",
-    "body": "allow_nil: ",
-    "description": "allow_nil: "
-  },
-  "allow_blank: ": {
-    "prefix": "allow_blank: ",
-    "body": "allow_blank: ",
-    "description": "allow_blank: "
-  },
-  "message: ": {
-    "prefix": "message: ",
-    "body": "message: ",
-    "description": "message: "
-  },
-  "on: ": {
-    "prefix": "on: ",
-    "body": "on: ",
-    "description": "on: "
-  },
-  "yday": {
-    "prefix": "yday",
-    "body": "yday",
-    "description": "yday"
-  },
-  "year": {
-    "prefix": "year",
-    "body": "year",
-    "description": "year"
-  },
-  "optional: false": {
-    "prefix": "optional: false",
-    "body": "optional: false",
-    "description": "optional: false"
-  },
-  "optional: true": {
-    "prefix": "optional: true",
-    "body": "optional: true",
-    "description": "optional: true"
-  },
-  "errors.full_messages.to_sentence": {
-    "prefix": "errors.full_messages.to_sentence",
-    "body": "errors.full_messages.to_sentence",
-    "description": "errors.full_messages.to_sentence"
-  },
-  "before_action": {
-    "prefix": "before_action",
-    "body": "before_action",
-    "description": "before_action"
-  },
-  "before_action :": {
-    "prefix": "before_action :",
-    "body": "before_action :",
-    "description": "before_action :"
-  },
-  "skip_before_action :": {
-    "prefix": "skip_before_action :",
-    "body": "skip_before_action :",
-    "description": "skip_before_action :"
-  },
-  "protect_from_forgery with: :": {
-    "prefix": "protect_from_forgery with: :",
-    "body": "protect_from_forgery with: :",
-    "description": "protect_from_forgery with: :"
-  },
-  "rescue_from :": {
-    "prefix": "rescue_from :",
-    "body": "rescue_from :",
-    "description": "rescue_from :"
-  },
-  "with: ": {
-    "prefix": "with: ",
-    "body": "with: ",
-    "description": "with: "
-  },
-  "acts_like_date?": {
-    "prefix": "acts_like_date?",
-    "body": "acts_like_date?",
-    "description": "acts_like_date?"
-  },
-  "advance": {
-    "prefix": "advance",
-    "body": "advance",
-    "description": "advance"
-  },
-  "ago": {
-    "prefix": "ago",
-    "body": "ago",
-    "description": "ago"
-  },
-  "at_beginning_of_day": {
-    "prefix": "at_beginning_of_day",
-    "body": "at_beginning_of_day",
-    "description": "at_beginning_of_day"
-  },
-  "at_end_of_day": {
-    "prefix": "at_end_of_day",
-    "body": "at_end_of_day",
-    "description": "at_end_of_day"
-  },
-  "at_midday": {
-    "prefix": "at_midday",
-    "body": "at_midday",
-    "description": "at_midday"
-  },
-  "at_middle_of_day": {
-    "prefix": "at_middle_of_day",
-    "body": "at_middle_of_day",
-    "description": "at_middle_of_day"
-  },
-  "at_midnight": {
-    "prefix": "at_midnight",
-    "body": "at_midnight",
-    "description": "at_midnight"
-  },
-  "at_noon": {
-    "prefix": "at_noon",
-    "body": "at_noon",
-    "description": "at_noon"
-  },
-  "beginning_of_day": {
-    "prefix": "beginning_of_day",
-    "body": "beginning_of_day",
-    "description": "beginning_of_day"
-  },
-  "beginning_of_week": {
-    "prefix": "beginning_of_week",
-    "body": "beginning_of_week",
-    "description": "beginning_of_week"
-  },
-  "compare_with_coercion": {
-    "prefix": "compare_with_coercion",
-    "body": "compare_with_coercion",
-    "description": "compare_with_coercion"
-  },
-  "compare_without_coercion": {
-    "prefix": "compare_without_coercion",
-    "body": "compare_without_coercion",
-    "description": "compare_without_coercion"
-  },
-  "current": {
-    "prefix": "current",
-    "body": "current",
-    "description": "current"
-  },
-  "default_inspect": {
-    "prefix": "default_inspect",
-    "body": "default_inspect",
-    "description": "default_inspect"
-  },
-  "end_of_day": {
-    "prefix": "end_of_day",
-    "body": "end_of_day",
-    "description": "end_of_day"
-  },
-  "find_beginning_of_week!": {
-    "prefix": "find_beginning_of_week!",
-    "body": "find_beginning_of_week!",
-    "description": "find_beginning_of_week!"
-  },
-  "midday": {
-    "prefix": "midday",
-    "body": "midday",
-    "description": "midday"
-  },
-  "middle_of_day": {
-    "prefix": "middle_of_day",
-    "body": "middle_of_day",
-    "description": "middle_of_day"
-  },
-  "midnight": {
-    "prefix": "midnight",
-    "body": "midnight",
-    "description": "midnight"
-  },
-  "noon": {
-    "prefix": "noon",
-    "body": "noon",
-    "description": "noon"
-  },
-  "readable_inspect": {
-    "prefix": "readable_inspect",
-    "body": "readable_inspect",
-    "description": "readable_inspect"
-  },
-  "since": {
-    "prefix": "since",
-    "body": "since",
-    "description": "since"
-  },
-  "tomorrow": {
-    "prefix": "tomorrow",
-    "body": "tomorrow",
-    "description": "tomorrow"
-  },
-  "yesterday": {
-    "prefix": "yesterday",
-    "body": "yesterday",
-    "description": "yesterday"
-  },
-  "actual": {
-    "prefix": "actual",
-    "body": "actual",
-    "description": "actual"
-  },
-  "actual_exists?": {
-    "prefix": "actual_exists?",
-    "body": "actual_exists?",
-    "description": "actual_exists?"
-  },
-  "add_should_and_should_not_to": {
-    "prefix": "add_should_and_should_not_to",
-    "body": "add_should_and_should_not_to",
-    "description": "add_should_and_should_not_to"
-  },
-  "and_return": {
-    "prefix": "and_return",
-    "body": "and_return",
-    "description": "and_return"
-  },
-  "allow": {
-    "prefix": "allow",
-    "body": "allow",
-    "description": "allow"
-  },
-  "aggregate_failures": {
-    "prefix": "aggregate_failures",
-    "body": "aggregate_failures",
-    "description": "aggregate_failures"
-  },
-  "aggregation_block_label": {
-    "prefix": "aggregation_block_label",
-    "body": "aggregation_block_label",
-    "description": "aggregation_block_label"
-  },
-  "aggregation_metadata": {
-    "prefix": "aggregation_metadata",
-    "body": "aggregation_metadata",
-    "description": "aggregation_metadata"
-  },
-  "lias_matcher": {
-    "prefix": "lias_matcher",
-    "body": "lias_matcher",
-    "description": "lias_matcher"
-  },
-  "all": {
-    "prefix": "all",
-    "body": "all",
-    "description": "all"
-  },
-  "all_exceptions": {
-    "prefix": "all_exceptions",
-    "body": "all_exceptions",
-    "description": "all_exceptions"
-  },
-  "and": {
-    "prefix": "and",
-    "body": "and",
-    "description": "and"
-  },
-  "argument": {
-    "prefix": "argument",
-    "body": "argument",
-    "description": "argument"
-  },
-  "at_least": {
-    "prefix": "at_least",
-    "body": "at_least",
-    "description": "at_least"
-  },
-  "at_most": {
-    "prefix": "at_most",
-    "body": "at_most",
-    "description": "at_most"
-  },
-  "backtrace_formatter": {
-    "prefix": "backtrace_formatter",
-    "body": "backtrace_formatter",
-    "description": "backtrace_formatter"
-  },
-  "be": {
-    "prefix": "be",
-    "body": "be",
-    "description": "be"
-  },
-  "be_a": {
-    "prefix": "be_a",
-    "body": "be_a",
-    "description": "be_a"
-  },
-  "be_a_kind_of": {
-    "prefix": "be_a_kind_of",
-    "body": "be_a_kind_of",
-    "description": "be_a_kind_of"
-  },
-  "be_an_instance_of": {
-    "prefix": "be_an_instance_of",
-    "body": "be_an_instance_of",
-    "description": "be_an_instance_of"
-  },
-  "be_between": {
-    "prefix": "be_between",
-    "body": "be_between",
-    "description": "be_between"
-  },
-  "be_falsey": {
-    "prefix": "be_falsey",
-    "body": "be_falsey",
-    "description": "be_falsey"
-  },
-  "be_nil": {
-    "prefix": "be_nil",
-    "body": "be_nil",
-    "description": "be_nil"
-  },
-  "be_truthy": {
-    "prefix": "be_truthy",
-    "body": "be_truthy",
-    "description": "be_truthy"
-  },
-  "be_within": {
-    "prefix": "be_within",
-    "body": "be_within",
-    "description": "be_within"
-  },
-  "block_arg": {
-    "prefix": "block_arg",
-    "body": "block_arg",
-    "description": "block_arg"
-  },
-  "by": {
-    "prefix": "by",
-    "body": "by",
-    "description": "by"
-  },
-  "by_at_least": {
-    "prefix": "by_at_least",
-    "body": "by_at_least",
-    "description": "by_at_least"
-  },
-  "by_at_most": {
-    "prefix": "by_at_most",
-    "body": "by_at_most",
-    "description": "by_at_most"
-  },
-  "captures": {
-    "prefix": "captures",
-    "body": "captures",
-    "description": "captures"
-  },
-  "chain": {
-    "prefix": "chain",
-    "body": "chain",
-    "description": "chain"
-  },
-  "change": {
-    "prefix": "change",
-    "body": "change",
-    "description": "change"
-  },
-  "lear_generated_description": {
-    "prefix": "lear_generated_description",
-    "body": "lear_generated_description",
-    "description": "lear_generated_description"
-  },
-  "color?": {
-    "prefix": "color?",
-    "body": "color?",
-    "description": "color?"
-  },
-  "onfiguration": {
-    "prefix": "onfiguration",
-    "body": "onfiguration",
-    "description": "onfiguration"
-  },
-  "contain_exactly": {
-    "prefix": "contain_exactly",
-    "body": "contain_exactly",
-    "description": "contain_exactly"
-  },
-  "cover": {
-    "prefix": "cover",
-    "body": "cover",
-    "description": "cover"
-  },
-  "efault_should_host": {
-    "prefix": "efault_should_host",
-    "body": "efault_should_host",
-    "description": "efault_should_host"
-  },
-  "define": {
-    "prefix": "define",
-    "body": "define",
-    "description": "define"
-  },
-  "efine_negated_matcher": {
-    "prefix": "efine_negated_matcher",
-    "body": "efine_negated_matcher",
-    "description": "efine_negated_matcher"
-  },
-  "description": {
-    "prefix": "description",
-    "body": "description",
-    "description": "description"
-  },
-  "description_of": {
-    "prefix": "description_of",
-    "body": "description_of",
-    "description": "description_of"
-  },
-  "diffable": {
-    "prefix": "diffable",
-    "body": "diffable",
-    "description": "diffable"
-  },
-  "diffable?": {
-    "prefix": "diffable?",
-    "body": "diffable?",
-    "description": "diffable?"
-  },
-  "isable_expect": {
-    "prefix": "isable_expect",
-    "body": "isable_expect",
-    "description": "isable_expect"
-  },
-  "isable_should": {
-    "prefix": "isable_should",
-    "body": "isable_should",
-    "description": "isable_should"
-  },
-  "does_not_match?": {
-    "prefix": "does_not_match?",
-    "body": "does_not_match?",
-    "description": "does_not_match?"
-  },
-  "nable_expect": {
-    "prefix": "nable_expect",
-    "body": "nable_expect",
-    "description": "nable_expect"
-  },
-  "nable_should": {
-    "prefix": "nable_should",
-    "body": "nable_should",
-    "description": "nable_should"
-  },
-  "end_with": {
-    "prefix": "end_with",
-    "body": "end_with",
-    "description": "end_with"
-  },
-  "eq": {
-    "prefix": "eq",
-    "body": "eq",
-    "description": "eq"
-  },
-  "eql": {
-    "prefix": "eql",
-    "body": "eql",
-    "description": "eql"
-  },
-  "equal": {
-    "prefix": "equal",
-    "body": "equal",
-    "description": "equal"
-  },
-  "exactly": {
-    "prefix": "exactly",
-    "body": "exactly",
-    "description": "exactly"
-  },
-  "exception_count_description": {
-    "prefix": "exception_count_description",
-    "body": "exception_count_description",
-    "description": "exception_count_description"
-  },
-  "exclusive": {
-    "prefix": "exclusive",
-    "body": "exclusive",
-    "description": "exclusive"
-  },
-  "exist": {
-    "prefix": "exist",
-    "body": "exist",
-    "description": "exist"
-  },
-  "expect": {
-    "prefix": "expect",
-    "body": "expect",
-    "description": "expect"
-  },
-  "xpect_enabled?": {
-    "prefix": "xpect_enabled?",
-    "body": "xpect_enabled?",
-    "description": "xpect_enabled?"
-  },
-  "expected": {
-    "prefix": "expected",
-    "body": "expected",
-    "description": "expected"
-  },
-  "expected_as_array": {
-    "prefix": "expected_as_array",
-    "body": "expected_as_array",
-    "description": "expected_as_array"
-  },
-  "expects_call_stack_jump?": {
-    "prefix": "expects_call_stack_jump?",
-    "body": "expects_call_stack_jump?",
-    "description": "expects_call_stack_jump?"
-  },
-  "fail": {
-    "prefix": "fail",
-    "body": "fail",
-    "description": "fail"
-  },
-  "fail_including": {
-    "prefix": "fail_including",
-    "body": "fail_including",
-    "description": "fail_including"
-  },
-  "ail_with": {
-    "prefix": "ail_with",
-    "body": "ail_with",
-    "description": "ail_with"
-  },
-  "fail_with": {
-    "prefix": "fail_with",
-    "body": "fail_with",
-    "description": "fail_with"
-  },
-  "failure_message": {
-    "prefix": "failure_message",
-    "body": "failure_message",
-    "description": "failure_message"
-  },
-  "failure_message_for_should": {
-    "prefix": "failure_message_for_should",
-    "body": "failure_message_for_should",
-    "description": "failure_message_for_should"
-  },
-  "failure_message_for_should_not": {
-    "prefix": "failure_message_for_should_not",
-    "body": "failure_message_for_should_not",
-    "description": "failure_message_for_should_not"
-  },
-  "failure_message_when_negated": {
-    "prefix": "failure_message_when_negated",
-    "body": "failure_message_when_negated",
-    "description": "failure_message_when_negated"
-  },
-  "failures": {
-    "prefix": "failures",
-    "body": "failures",
-    "description": "failures"
-  },
-  "or_many_matchers": {
-    "prefix": "or_many_matchers",
-    "body": "or_many_matchers",
-    "description": "or_many_matchers"
-  },
-  "rom": {
-    "prefix": "rom",
-    "body": "rom",
-    "description": "rom"
-  },
-  "from": {
-    "prefix": "from",
-    "body": "from",
-    "description": "from"
-  },
-  "enerated_description": {
-    "prefix": "enerated_description",
-    "body": "enerated_description",
-    "description": "enerated_description"
-  },
-  "have_attributes": {
-    "prefix": "have_attributes",
-    "body": "have_attributes",
-    "description": "have_attributes"
-  },
-  "include": {
-    "prefix": "include",
-    "body": "include",
-    "description": "include"
-  },
-  "include_chain_clauses_in_custom_matcher_descriptions?": {
-    "prefix": "include_chain_clauses_in_custom_matcher_descriptions?",
-    "body": "include_chain_clauses_in_custom_matcher_descriptions?",
-    "description": "include_chain_clauses_in_custom_matcher_descriptions?"
-  },
-  "inclusive": {
-    "prefix": "inclusive",
-    "body": "inclusive",
-    "description": "inclusive"
-  },
-  "indeterminate_actual_indexes": {
-    "prefix": "indeterminate_actual_indexes",
-    "body": "indeterminate_actual_indexes",
-    "description": "indeterminate_actual_indexes"
-  },
-  "indeterminate_expected_indexes": {
-    "prefix": "indeterminate_expected_indexes",
-    "body": "indeterminate_expected_indexes",
-    "description": "indeterminate_expected_indexes"
-  },
-  "initialize": {
-    "prefix": "initialize",
-    "body": "initialize",
-    "description": "initialize"
-  },
-  "ist": {
-    "prefix": "ist",
-    "body": "ist",
-    "description": "ist"
-  },
-  "match_array": {
-    "prefix": "match_array",
-    "body": "match_array",
-    "description": "match_array"
-  },
-  "match_for_should": {
-    "prefix": "match_for_should",
-    "body": "match_for_should",
-    "description": "match_for_should"
-  },
-  "match_for_should_not": {
-    "prefix": "match_for_should_not",
-    "body": "match_for_should_not",
-    "description": "match_for_should_not"
-  },
-  "match_unless_raises": {
-    "prefix": "match_unless_raises",
-    "body": "match_unless_raises",
-    "description": "match_unless_raises"
-  },
-  "match_when_negated": {
-    "prefix": "match_when_negated",
-    "body": "match_when_negated",
-    "description": "match_when_negated"
-  },
-  "matcher_matches?": {
-    "prefix": "matcher_matches?",
-    "body": "matcher_matches?",
-    "description": "matcher_matches?"
-  },
-  "matches?": {
-    "prefix": "matches?",
-    "body": "matches?",
-    "description": "matches?"
-  },
-  "message": {
-    "prefix": "message",
-    "body": "message",
-    "description": "message"
-  },
-  "message_with_diff": {
-    "prefix": "message_with_diff",
-    "body": "message_with_diff",
-    "description": "message_with_diff"
-  },
-  "method_missing": {
-    "prefix": "method_missing",
-    "body": "method_missing",
-    "description": "method_missing"
-  },
-  "name": {
-    "prefix": "name",
-    "body": "name",
-    "description": "name"
-  },
-  "names": {
-    "prefix": "names",
-    "body": "names",
-    "description": "names"
-  },
-  "not_to": {
-    "prefix": "not_to",
-    "body": "not_to",
-    "description": "not_to"
-  },
-  "of": {
-    "prefix": "of",
-    "body": "of",
-    "description": "of"
-  },
-  "on_potential_false_positives": {
-    "prefix": "on_potential_false_positives",
-    "body": "on_potential_false_positives",
-    "description": "on_potential_false_positives"
-  },
-  "once": {
-    "prefix": "once",
-    "body": "once",
-    "description": "once"
-  },
-  "or": {
-    "prefix": "or",
-    "body": "or",
-    "description": "or"
-  },
-  "other_errors": {
-    "prefix": "other_errors",
-    "body": "other_errors",
-    "description": "other_errors"
-  },
-  "output": {
-    "prefix": "output",
-    "body": "output",
-    "description": "output"
-  },
-  "percent_of": {
-    "prefix": "percent_of",
-    "body": "percent_of",
-    "description": "percent_of"
-  },
-  "raise_error": {
-    "prefix": "raise_error",
-    "body": "raise_error",
-    "description": "raise_error"
-  },
-  "rescued_exception": {
-    "prefix": "rescued_exception",
-    "body": "rescued_exception",
-    "description": "rescued_exception"
-  },
-  "respond_to": {
-    "prefix": "respond_to",
-    "body": "respond_to",
-    "description": "respond_to"
-  },
-  "respond_to?": {
-    "prefix": "respond_to?",
-    "body": "respond_to?",
-    "description": "respond_to?"
-  },
-  "respond_to_missing?": {
-    "prefix": "respond_to_missing?",
-    "body": "respond_to_missing?",
-    "description": "respond_to_missing?"
-  },
-  "satisfy": {
-    "prefix": "satisfy",
-    "body": "satisfy",
-    "description": "satisfy"
-  },
-  "should": {
-    "prefix": "should",
-    "body": "should",
-    "description": "should"
-  },
-  "hould_enabled?": {
-    "prefix": "hould_enabled?",
-    "body": "hould_enabled?",
-    "description": "hould_enabled?"
-  },
-  "hould_enumerate?": {
-    "prefix": "hould_enumerate?",
-    "body": "hould_enumerate?",
-    "description": "hould_enumerate?"
-  },
-  "should_not": {
-    "prefix": "should_not",
-    "body": "should_not",
-    "description": "should_not"
-  },
-  "plit_words": {
-    "prefix": "plit_words",
-    "body": "plit_words",
-    "description": "plit_words"
-  },
-  "start_with": {
-    "prefix": "start_with",
-    "body": "start_with",
-    "description": "start_with"
-  },
-  "summary": {
-    "prefix": "summary",
-    "body": "summary",
-    "description": "summary"
-  },
-  "supports_block_expectations": {
-    "prefix": "supports_block_expectations",
-    "body": "supports_block_expectations",
-    "description": "supports_block_expectations"
-  },
-  "supports_block_expectations?": {
-    "prefix": "supports_block_expectations?",
-    "body": "supports_block_expectations?",
-    "description": "supports_block_expectations?"
-  },
-  "urface_descriptions_in": {
-    "prefix": "urface_descriptions_in",
-    "body": "urface_descriptions_in",
-    "description": "urface_descriptions_in"
-  },
-  "syntax": {
-    "prefix": "syntax",
-    "body": "syntax",
-    "description": "syntax"
-  },
-  "syntax=": {
-    "prefix": "syntax=",
-    "body": "syntax=",
-    "description": "syntax="
-  },
-  "target": {
-    "prefix": "target",
-    "body": "target",
-    "description": "target"
-  },
-  "thrice": {
-    "prefix": "thrice",
-    "body": "thrice",
-    "description": "thrice"
-  },
-  "throw_symbol": {
-    "prefix": "throw_symbol",
-    "body": "throw_symbol",
-    "description": "throw_symbol"
-  },
-  "times": {
-    "prefix": "times",
-    "body": "times",
-    "description": "times"
-  },
-  "to": {
-    "prefix": "to",
-    "body": "to",
-    "description": "to"
-  },
-  "to_stderr": {
-    "prefix": "to_stderr",
-    "body": "to_stderr",
-    "description": "to_stderr"
-  },
-  "to_stderr_from_any_process": {
-    "prefix": "to_stderr_from_any_process",
-    "body": "to_stderr_from_any_process",
-    "description": "to_stderr_from_any_process"
-  },
-  "to_stdout": {
-    "prefix": "to_stdout",
-    "body": "to_stdout",
-    "description": "to_stdout"
-  },
-  "to_stdout_from_any_process": {
-    "prefix": "to_stdout_from_any_process",
-    "body": "to_stdout_from_any_process",
-    "description": "to_stdout_from_any_process"
-  },
-  "twice": {
-    "prefix": "twice",
-    "body": "twice",
-    "description": "twice"
-  },
-  "unmatched_actual_indexes": {
-    "prefix": "unmatched_actual_indexes",
-    "body": "unmatched_actual_indexes",
-    "description": "unmatched_actual_indexes"
-  },
-  "unmatched_expected_indexes": {
-    "prefix": "unmatched_expected_indexes",
-    "body": "unmatched_expected_indexes",
-    "description": "unmatched_expected_indexes"
-  },
-  "nreadable_io?": {
-    "prefix": "nreadable_io?",
-    "body": "nreadable_io?",
-    "description": "nreadable_io?"
-  },
-  "valid_test?": {
-    "prefix": "valid_test?",
-    "body": "valid_test?",
-    "description": "valid_test?"
-  },
-  "validity_message": {
-    "prefix": "validity_message",
-    "body": "validity_message",
-    "description": "validity_message"
-  },
-  "values_match?": {
-    "prefix": "values_match?",
-    "body": "values_match?",
-    "description": "values_match?"
-  },
-  "warn_about_potential_false_positives=": {
-    "prefix": "warn_about_potential_false_positives=",
-    "body": "warn_about_potential_false_positives=",
-    "description": "warn_about_potential_false_positives="
-  },
-  "warn_about_potential_false_positives?": {
-    "prefix": "warn_about_potential_false_positives?",
-    "body": "warn_about_potential_false_positives?",
-    "description": "warn_about_potential_false_positives?"
-  },
-  "arn_about_should!": {
-    "prefix": "arn_about_should!",
-    "body": "arn_about_should!",
-    "description": "arn_about_should!"
-  },
-  "arn_about_should_unless_configured": {
-    "prefix": "arn_about_should_unless_configured",
-    "body": "arn_about_should_unless_configured",
-    "description": "arn_about_should_unless_configured"
-  },
-  "with": {
-    "prefix": "with",
-    "body": "with",
-    "description": "with"
-  },
-  "with_any_keywords": {
-    "prefix": "with_any_keywords",
-    "body": "with_any_keywords",
-    "description": "with_any_keywords"
-  },
-  "with_captures": {
-    "prefix": "with_captures",
-    "body": "with_captures",
-    "description": "with_captures"
-  },
-  "with_keywords": {
-    "prefix": "with_keywords",
-    "body": "with_keywords",
-    "description": "with_keywords"
-  },
-  "with_message": {
-    "prefix": "with_message",
-    "body": "with_message",
-    "description": "with_message"
-  },
-  "with_unlimited_arguments": {
-    "prefix": "with_unlimited_arguments",
-    "body": "with_unlimited_arguments",
-    "description": "with_unlimited_arguments"
-  },
-  "yield_control": {
-    "prefix": "yield_control",
-    "body": "yield_control",
-    "description": "yield_control"
-  },
-  "yield_successive_args": {
-    "prefix": "yield_successive_args",
-    "body": "yield_successive_args",
-    "description": "yield_successive_args"
-  },
-  "yield_with_args": {
-    "prefix": "yield_with_args",
-    "body": "yield_with_args",
-    "description": "yield_with_args"
-  },
-  "yield_with_no_args": {
-    "prefix": "yield_with_no_args",
-    "body": "yield_with_no_args",
-    "description": "yield_with_no_args"
-  },
-  "instance_double": {
-    "prefix": "instance_double",
-    "body": "instance_double",
-    "description": "instance_double"
-  },
-  "be_present": {
-    "prefix": "be_present",
-    "body": "be_present",
-    "description": "be_present"
-  },
-  "be_blank": {
-    "prefix": "be_blank",
-    "body": "be_blank",
-    "description": "be_blank"
-  },
-  "be_valid": {
-    "prefix": "be_valid",
-    "body": "be_valid",
-    "description": "be_valid"
-  },
-  "be_invalid": {
-    "prefix": "be_invalid",
-    "body": "be_invalid",
-    "description": "be_invalid"
-  }
+    "descw": {
+        "prefix": "descw",
+        "body": "describe 'when ${1:something}' do\n\t$0\nend",
+        "description": "describe 'when ...' do ... end"
+    },
+    "contw": {
+        "prefix": "contw",
+        "body": "context 'when ${1:something}' do\n\t$0\nend",
+        "description": "context 'when ...' do ... end"
+    },
+    "letm": {
+        "prefix": "letm",
+        "body": "let(:${1:model}) { create(:$1${2:, $3}) }$0",
+        "description": "let(:model) { create(:model, ...) }"
+    },
+    "lettm": {
+        "prefix": [
+            "lettm",
+            "let!m"
+        ],
+        "body": "let!(:${1:model}) { create(:$1${2:, $3}) }$0",
+        "description": "let!(:model) { create(:model, ...) }"
+    },
+    "descc": {
+        "prefix": "descc",
+        "body": "describe 'when #call' do\n\t$0\nend",
+        "description": "let!(:model) { create(:model, ...) }"
+    },
+    "deep_symbolize_keys": {
+        "prefix": "deep_symbolize_keys",
+        "body": "deep_symbolize_keys",
+        "description": "deep_symbolize_keys"
+    },
+    "deep_stringify_keys": {
+        "prefix": "deep_stringify_keys",
+        "body": "deep_stringify_keys",
+        "description": "deep_stringify_keys"
+    },
+    "greater_than": {
+        "prefix": "greater_than",
+        "body": "greater_than",
+        "description": "greater_than"
+    },
+    "to_json": {
+        "prefix": "to_json",
+        "body": "to_json",
+        "description": "to_json"
+    },
+    "valid?": {
+        "prefix": "valid?",
+        "body": "valid?",
+        "description": "valid?"
+    },
+    "invalid?": {
+        "prefix": "invalid?",
+        "body": "invalid?",
+        "description": "invalid?"
+    },
+    "greater_than_or_equal_to": {
+        "prefix": "greater_than_or_equal_to",
+        "body": "greater_than_or_equal_to",
+        "description": "greater_than_or_equal_to"
+    },
+    "equal_to": {
+        "prefix": "equal_to",
+        "body": "equal_to",
+        "description": "equal_to"
+    },
+    "less_than": {
+        "prefix": "less_than",
+        "body": "less_than",
+        "description": "less_than"
+    },
+    "less_than_or_equal_to": {
+        "prefix": "less_than_or_equal_to",
+        "body": "less_than_or_equal_to",
+        "description": "less_than_or_equal_to"
+    },
+    "other_than": {
+        "prefix": "other_than",
+        "body": "other_than",
+        "description": "other_than"
+    },
+    "any?": {
+        "prefix": "any?",
+        "body": "any?",
+        "description": "any?"
+    },
+    "assoc": {
+        "prefix": "assoc",
+        "body": "assoc",
+        "description": "assoc"
+    },
+    "clear": {
+        "prefix": "clear",
+        "body": "clear",
+        "description": "clear"
+    },
+    "Time.zone.now": {
+        "prefix": "Time.zone.now",
+        "body": "Time.zone.now",
+        "description": "Time.zone.now"
+    },
+    "Date.today": {
+        "prefix": "Date.today",
+        "body": "Date.today",
+        "description": "Date.today"
+    },
+    "present?": {
+        "prefix": "present?",
+        "body": "present?",
+        "description": "present?"
+    },
+    "blank?": {
+        "prefix": "blank?",
+        "body": "blank?",
+        "description": "blank?"
+    },
+    "nil?": {
+        "prefix": "nil?",
+        "body": "nil?",
+        "description": "nil?"
+    },
+    "compact": {
+        "prefix": "compact",
+        "body": "compact",
+        "description": "compact"
+    },
+    "compact!": {
+        "prefix": "compact!",
+        "body": "compact!",
+        "description": "compact!"
+    },
+    "compare_by_identity": {
+        "prefix": "compare_by_identity",
+        "body": "compare_by_identity",
+        "description": "compare_by_identity"
+    },
+    "compare_by_identity?": {
+        "prefix": "compare_by_identity?",
+        "body": "compare_by_identity?",
+        "description": "compare_by_identity?"
+    },
+    "deconstruct_keys": {
+        "prefix": "deconstruct_keys",
+        "body": "deconstruct_keys",
+        "description": "deconstruct_keys"
+    },
+    "default": {
+        "prefix": "default",
+        "body": "default",
+        "description": "default"
+    },
+    "default=": {
+        "prefix": "default=",
+        "body": "default=",
+        "description": "default="
+    },
+    "default_proc": {
+        "prefix": "default_proc",
+        "body": "default_proc",
+        "description": "default_proc"
+    },
+    "default_proc=": {
+        "prefix": "default_proc=",
+        "body": "default_proc=",
+        "description": "default_proc="
+    },
+    "delete": {
+        "prefix": "delete",
+        "body": "delete",
+        "description": "delete"
+    },
+    "delete_if": {
+        "prefix": "delete_if",
+        "body": "delete_if",
+        "description": "delete_if"
+    },
+    "dig": {
+        "prefix": "dig",
+        "body": "dig",
+        "description": "dig"
+    },
+    "each": {
+        "prefix": "each",
+        "body": "each",
+        "description": "each"
+    },
+    "each_key": {
+        "prefix": "each_key",
+        "body": "each_key",
+        "description": "each_key"
+    },
+    "each_pair": {
+        "prefix": "each_pair",
+        "body": "each_pair",
+        "description": "each_pair"
+    },
+    "each_value": {
+        "prefix": "each_value",
+        "body": "each_value",
+        "description": "each_value"
+    },
+    "empty?": {
+        "prefix": "empty?",
+        "body": "empty?",
+        "description": "empty?"
+    },
+    "eql?": {
+        "prefix": "eql?",
+        "body": "eql?",
+        "description": "eql?"
+    },
+    "except": {
+        "prefix": "except",
+        "body": "except",
+        "description": "except"
+    },
+    "fetch": {
+        "prefix": "fetch",
+        "body": "fetch",
+        "description": "fetch"
+    },
+    "fetch_values": {
+        "prefix": "fetch_values",
+        "body": "fetch_values",
+        "description": "fetch_values"
+    },
+    "filter": {
+        "prefix": "filter",
+        "body": "filter",
+        "description": "filter"
+    },
+    "filter!": {
+        "prefix": "filter!",
+        "body": "filter!",
+        "description": "filter!"
+    },
+    "flatten": {
+        "prefix": "flatten",
+        "body": "flatten",
+        "description": "flatten"
+    },
+    "has_key?": {
+        "prefix": "has_key?",
+        "body": "has_key?",
+        "description": "has_key?"
+    },
+    "has_value?": {
+        "prefix": "has_value?",
+        "body": "has_value?",
+        "description": "has_value?"
+    },
+    "hash": {
+        "prefix": "hash",
+        "body": "hash",
+        "description": "hash"
+    },
+    "include?": {
+        "prefix": "include?",
+        "body": "include?",
+        "description": "include?"
+    },
+    "initialize_copy": {
+        "prefix": "initialize_copy",
+        "body": "initialize_copy",
+        "description": "initialize_copy"
+    },
+    "inspect": {
+        "prefix": "inspect",
+        "body": "inspect",
+        "description": "inspect"
+    },
+    "invert": {
+        "prefix": "invert",
+        "body": "invert",
+        "description": "invert"
+    },
+    "keep_if": {
+        "prefix": "keep_if",
+        "body": "keep_if",
+        "description": "keep_if"
+    },
+    "key": {
+        "prefix": "key",
+        "body": "key",
+        "description": "key"
+    },
+    "key?": {
+        "prefix": "key?",
+        "body": "key?",
+        "description": "key?"
+    },
+    "keys": {
+        "prefix": "keys",
+        "body": "keys",
+        "description": "keys"
+    },
+    "length": {
+        "prefix": "length",
+        "body": "length",
+        "description": "length"
+    },
+    "member?": {
+        "prefix": "member?",
+        "body": "member?",
+        "description": "member?"
+    },
+    "merge": {
+        "prefix": "merge",
+        "body": "merge",
+        "description": "merge"
+    },
+    "merge!": {
+        "prefix": "merge!",
+        "body": "merge!",
+        "description": "merge!"
+    },
+    "rassoc": {
+        "prefix": "rassoc",
+        "body": "rassoc",
+        "description": "rassoc"
+    },
+    "rehash": {
+        "prefix": "rehash",
+        "body": "rehash",
+        "description": "rehash"
+    },
+    "reject": {
+        "prefix": "reject",
+        "body": "reject",
+        "description": "reject"
+    },
+    "reject!": {
+        "prefix": "reject!",
+        "body": "reject!",
+        "description": "reject!"
+    },
+    "replace": {
+        "prefix": "replace",
+        "body": "replace",
+        "description": "replace"
+    },
+    "select": {
+        "prefix": "select",
+        "body": "select",
+        "description": "select"
+    },
+    "select!": {
+        "prefix": "select!",
+        "body": "select!",
+        "description": "select!"
+    },
+    "shift": {
+        "prefix": "shift",
+        "body": "shift",
+        "description": "shift"
+    },
+    "size": {
+        "prefix": "size",
+        "body": "size",
+        "description": "size"
+    },
+    "slice": {
+        "prefix": "slice",
+        "body": "slice",
+        "description": "slice"
+    },
+    "store": {
+        "prefix": "store",
+        "body": "store",
+        "description": "store"
+    },
+    "to_a": {
+        "prefix": "to_a",
+        "body": "to_a",
+        "description": "to_a"
+    },
+    "to_h": {
+        "prefix": "to_h",
+        "body": "to_h",
+        "description": "to_h"
+    },
+    "to_hash": {
+        "prefix": "to_hash",
+        "body": "to_hash",
+        "description": "to_hash"
+    },
+    "to_proc": {
+        "prefix": "to_proc",
+        "body": "to_proc",
+        "description": "to_proc"
+    },
+    "to_s": {
+        "prefix": "to_s",
+        "body": "to_s",
+        "description": "to_s"
+    },
+    "transform_keys": {
+        "prefix": "transform_keys",
+        "body": "transform_keys",
+        "description": "transform_keys"
+    },
+    "transform_keys!": {
+        "prefix": "transform_keys!",
+        "body": "transform_keys!",
+        "description": "transform_keys!"
+    },
+    "transform_values": {
+        "prefix": "transform_values",
+        "body": "transform_values",
+        "description": "transform_values"
+    },
+    "transform_values!": {
+        "prefix": "transform_values!",
+        "body": "transform_values!",
+        "description": "transform_values!"
+    },
+    "update": {
+        "prefix": "update",
+        "body": "update",
+        "description": "update"
+    },
+    "value?": {
+        "prefix": "value?",
+        "body": "value?",
+        "description": "value?"
+    },
+    "values": {
+        "prefix": "values",
+        "body": "values",
+        "description": "values"
+    },
+    "values_at": {
+        "prefix": "values_at",
+        "body": "values_at",
+        "description": "values_at"
+    },
+    "all?": {
+        "prefix": "all?",
+        "body": "all?",
+        "description": "all?"
+    },
+    "append": {
+        "prefix": "append",
+        "body": "append",
+        "description": "append"
+    },
+    "at": {
+        "prefix": "at",
+        "body": "at",
+        "description": "at"
+    },
+    "bsearch": {
+        "prefix": "bsearch",
+        "body": "bsearch",
+        "description": "bsearch"
+    },
+    "bsearch_index": {
+        "prefix": "bsearch_index",
+        "body": "bsearch_index",
+        "description": "bsearch_index"
+    },
+    "collect": {
+        "prefix": "collect",
+        "body": "collect",
+        "description": "collect"
+    },
+    "collect!": {
+        "prefix": "collect!",
+        "body": "collect!",
+        "description": "collect!"
+    },
+    "combination": {
+        "prefix": "combination",
+        "body": "combination",
+        "description": "combination"
+    },
+    "concat": {
+        "prefix": "concat",
+        "body": "concat",
+        "description": "concat"
+    },
+    "count": {
+        "prefix": "count",
+        "body": "count",
+        "description": "count"
+    },
+    "cycle": {
+        "prefix": "cycle",
+        "body": "cycle",
+        "description": "cycle"
+    },
+    "deconstruct": {
+        "prefix": "deconstruct",
+        "body": "deconstruct",
+        "description": "deconstruct"
+    },
+    "delete_at": {
+        "prefix": "delete_at",
+        "body": "delete_at",
+        "description": "delete_at"
+    },
+    "difference": {
+        "prefix": "difference",
+        "body": "difference",
+        "description": "difference"
+    },
+    "drop": {
+        "prefix": "drop",
+        "body": "drop",
+        "description": "drop"
+    },
+    "drop_while": {
+        "prefix": "drop_while",
+        "body": "drop_while",
+        "description": "drop_while"
+    },
+    "each_index": {
+        "prefix": "each_index",
+        "body": "each_index",
+        "description": "each_index"
+    },
+    "fill": {
+        "prefix": "fill",
+        "body": "fill",
+        "description": "fill"
+    },
+    "find_index": {
+        "prefix": "find_index",
+        "body": "find_index",
+        "description": "find_index"
+    },
+    "first": {
+        "prefix": "first",
+        "body": "first",
+        "description": "first"
+    },
+    "flatten!": {
+        "prefix": "flatten!",
+        "body": "flatten!",
+        "description": "flatten!"
+    },
+    "index": {
+        "prefix": "index",
+        "body": "index",
+        "description": "index"
+    },
+    "insert": {
+        "prefix": "insert",
+        "body": "insert",
+        "description": "insert"
+    },
+    "intersection": {
+        "prefix": "intersection",
+        "body": "intersection",
+        "description": "intersection"
+    },
+    "join": {
+        "prefix": "join",
+        "body": "join",
+        "description": "join"
+    },
+    "last": {
+        "prefix": "last",
+        "body": "last",
+        "description": "last"
+    },
+    "map": {
+        "prefix": "map",
+        "body": "map",
+        "description": "map"
+    },
+    "map!": {
+        "prefix": "map!",
+        "body": "map!",
+        "description": "map!"
+    },
+    "max": {
+        "prefix": "max",
+        "body": "max",
+        "description": "max"
+    },
+    "min": {
+        "prefix": "min",
+        "body": "min",
+        "description": "min"
+    },
+    "minmax": {
+        "prefix": "minmax",
+        "body": "minmax",
+        "description": "minmax"
+    },
+    "none?": {
+        "prefix": "none?",
+        "body": "none?",
+        "description": "none?"
+    },
+    "old_to_s": {
+        "prefix": "old_to_s",
+        "body": "old_to_s",
+        "description": "old_to_s"
+    },
+    "one?": {
+        "prefix": "one?",
+        "body": "one?",
+        "description": "one?"
+    },
+    "pack": {
+        "prefix": "pack",
+        "body": "pack",
+        "description": "pack"
+    },
+    "permutation": {
+        "prefix": "permutation",
+        "body": "permutation",
+        "description": "permutation"
+    },
+    "pop": {
+        "prefix": "pop",
+        "body": "pop",
+        "description": "pop"
+    },
+    "prepend": {
+        "prefix": "prepend",
+        "body": "prepend",
+        "description": "prepend"
+    },
+    "product": {
+        "prefix": "product",
+        "body": "product",
+        "description": "product"
+    },
+    "push": {
+        "prefix": "push",
+        "body": "push",
+        "description": "push"
+    },
+    "repeated_combination": {
+        "prefix": "repeated_combination",
+        "body": "repeated_combination",
+        "description": "repeated_combination"
+    },
+    "repeated_permutation": {
+        "prefix": "repeated_permutation",
+        "body": "repeated_permutation",
+        "description": "repeated_permutation"
+    },
+    "reverse": {
+        "prefix": "reverse",
+        "body": "reverse",
+        "description": "reverse"
+    },
+    "reverse!": {
+        "prefix": "reverse!",
+        "body": "reverse!",
+        "description": "reverse!"
+    },
+    "reverse_each": {
+        "prefix": "reverse_each",
+        "body": "reverse_each",
+        "description": "reverse_each"
+    },
+    "rindex": {
+        "prefix": "rindex",
+        "body": "rindex",
+        "description": "rindex"
+    },
+    "rotate": {
+        "prefix": "rotate",
+        "body": "rotate",
+        "description": "rotate"
+    },
+    "rotate!": {
+        "prefix": "rotate!",
+        "body": "rotate!",
+        "description": "rotate!"
+    },
+    "sample": {
+        "prefix": "sample",
+        "body": "sample",
+        "description": "sample"
+    },
+    "shuffle": {
+        "prefix": "shuffle",
+        "body": "shuffle",
+        "description": "shuffle"
+    },
+    "shuffle!": {
+        "prefix": "shuffle!",
+        "body": "shuffle!",
+        "description": "shuffle!"
+    },
+    "slice!": {
+        "prefix": "slice!",
+        "body": "slice!",
+        "description": "slice!"
+    },
+    "sort": {
+        "prefix": "sort",
+        "body": "sort",
+        "description": "sort"
+    },
+    "sort!": {
+        "prefix": "sort!",
+        "body": "sort!",
+        "description": "sort!"
+    },
+    "sort_by!": {
+        "prefix": "sort_by!",
+        "body": "sort_by!",
+        "description": "sort_by!"
+    },
+    "sum": {
+        "prefix": "sum",
+        "body": "sum",
+        "description": "sum"
+    },
+    "take": {
+        "prefix": "take",
+        "body": "take",
+        "description": "take"
+    },
+    "take_while": {
+        "prefix": "take_while",
+        "body": "take_while",
+        "description": "take_while"
+    },
+    "to_ary": {
+        "prefix": "to_ary",
+        "body": "to_ary",
+        "description": "to_ary"
+    },
+    "transpose": {
+        "prefix": "transpose",
+        "body": "transpose",
+        "description": "transpose"
+    },
+    "union": {
+        "prefix": "union",
+        "body": "union",
+        "description": "union"
+    },
+    "uniq": {
+        "prefix": "uniq",
+        "body": "uniq",
+        "description": "uniq"
+    },
+    "uniq!": {
+        "prefix": "uniq!",
+        "body": "uniq!",
+        "description": "uniq!"
+    },
+    "unshift": {
+        "prefix": "unshift",
+        "body": "unshift",
+        "description": "unshift"
+    },
+    "zip": {
+        "prefix": "zip",
+        "body": "zip",
+        "description": "zip"
+    },
+    "ascii_only?": {
+        "prefix": "ascii_only?",
+        "body": "ascii_only?",
+        "description": "ascii_only?"
+    },
+    "bytes": {
+        "prefix": "bytes",
+        "body": "bytes",
+        "description": "bytes"
+    },
+    "bytesize": {
+        "prefix": "bytesize",
+        "body": "bytesize",
+        "description": "bytesize"
+    },
+    "byteslice": {
+        "prefix": "byteslice",
+        "body": "byteslice",
+        "description": "byteslice"
+    },
+    "capitalize": {
+        "prefix": "capitalize",
+        "body": "capitalize",
+        "description": "capitalize"
+    },
+    "capitalize!": {
+        "prefix": "capitalize!",
+        "body": "capitalize!",
+        "description": "capitalize!"
+    },
+    "casecmp": {
+        "prefix": "casecmp",
+        "body": "casecmp",
+        "description": "casecmp"
+    },
+    "casecmp?": {
+        "prefix": "casecmp?",
+        "body": "casecmp?",
+        "description": "casecmp?"
+    },
+    "center": {
+        "prefix": "center",
+        "body": "center",
+        "description": "center"
+    },
+    "chars": {
+        "prefix": "chars",
+        "body": "chars",
+        "description": "chars"
+    },
+    "chomp": {
+        "prefix": "chomp",
+        "body": "chomp",
+        "description": "chomp"
+    },
+    "chomp!": {
+        "prefix": "chomp!",
+        "body": "chomp!",
+        "description": "chomp!"
+    },
+    "chop": {
+        "prefix": "chop",
+        "body": "chop",
+        "description": "chop"
+    },
+    "chop!": {
+        "prefix": "chop!",
+        "body": "chop!",
+        "description": "chop!"
+    },
+    "chr": {
+        "prefix": "chr",
+        "body": "chr",
+        "description": "chr"
+    },
+    "codepoints": {
+        "prefix": "codepoints",
+        "body": "codepoints",
+        "description": "codepoints"
+    },
+    "crypt": {
+        "prefix": "crypt",
+        "body": "crypt",
+        "description": "crypt"
+    },
+    "delete!": {
+        "prefix": "delete!",
+        "body": "delete!",
+        "description": "delete!"
+    },
+    "delete_prefix": {
+        "prefix": "delete_prefix",
+        "body": "delete_prefix",
+        "description": "delete_prefix"
+    },
+    "delete_prefix!": {
+        "prefix": "delete_prefix!",
+        "body": "delete_prefix!",
+        "description": "delete_prefix!"
+    },
+    "delete_suffix": {
+        "prefix": "delete_suffix",
+        "body": "delete_suffix",
+        "description": "delete_suffix"
+    },
+    "delete_suffix!": {
+        "prefix": "delete_suffix!",
+        "body": "delete_suffix!",
+        "description": "delete_suffix!"
+    },
+    "downcase": {
+        "prefix": "downcase",
+        "body": "downcase",
+        "description": "downcase"
+    },
+    "downcase!": {
+        "prefix": "downcase!",
+        "body": "downcase!",
+        "description": "downcase!"
+    },
+    "dump": {
+        "prefix": "dump",
+        "body": "dump",
+        "description": "dump"
+    },
+    "each_byte": {
+        "prefix": "each_byte",
+        "body": "each_byte",
+        "description": "each_byte"
+    },
+    "each_char": {
+        "prefix": "each_char",
+        "body": "each_char",
+        "description": "each_char"
+    },
+    "each_codepoint": {
+        "prefix": "each_codepoint",
+        "body": "each_codepoint",
+        "description": "each_codepoint"
+    },
+    "each_grapheme_cluster": {
+        "prefix": "each_grapheme_cluster",
+        "body": "each_grapheme_cluster",
+        "description": "each_grapheme_cluster"
+    },
+    "each_line": {
+        "prefix": "each_line",
+        "body": "each_line",
+        "description": "each_line"
+    },
+    "encode": {
+        "prefix": "encode",
+        "body": "encode",
+        "description": "encode"
+    },
+    "encode!": {
+        "prefix": "encode!",
+        "body": "encode!",
+        "description": "encode!"
+    },
+    "encoding": {
+        "prefix": "encoding",
+        "body": "encoding",
+        "description": "encoding"
+    },
+    "end_with?": {
+        "prefix": "end_with?",
+        "body": "end_with?",
+        "description": "end_with?"
+    },
+    "force_encoding": {
+        "prefix": "force_encoding",
+        "body": "force_encoding",
+        "description": "force_encoding"
+    },
+    "freeze": {
+        "prefix": "freeze",
+        "body": "freeze",
+        "description": "freeze"
+    },
+    "getbyte": {
+        "prefix": "getbyte",
+        "body": "getbyte",
+        "description": "getbyte"
+    },
+    "grapheme_clusters": {
+        "prefix": "grapheme_clusters",
+        "body": "grapheme_clusters",
+        "description": "grapheme_clusters"
+    },
+    "gsub": {
+        "prefix": "gsub",
+        "body": "gsub",
+        "description": "gsub"
+    },
+    "gsub!": {
+        "prefix": "gsub!",
+        "body": "gsub!",
+        "description": "gsub!"
+    },
+    "hex": {
+        "prefix": "hex",
+        "body": "hex",
+        "description": "hex"
+    },
+    "intern": {
+        "prefix": "intern",
+        "body": "intern",
+        "description": "intern"
+    },
+    "lines": {
+        "prefix": "lines",
+        "body": "lines",
+        "description": "lines"
+    },
+    "ljust": {
+        "prefix": "ljust",
+        "body": "ljust",
+        "description": "ljust"
+    },
+    "lstrip": {
+        "prefix": "lstrip",
+        "body": "lstrip",
+        "description": "lstrip"
+    },
+    "lstrip!": {
+        "prefix": "lstrip!",
+        "body": "lstrip!",
+        "description": "lstrip!"
+    },
+    "match": {
+        "prefix": "match",
+        "body": "match",
+        "description": "match"
+    },
+    "match?": {
+        "prefix": "match?",
+        "body": "match?",
+        "description": "match?"
+    },
+    "next": {
+        "prefix": "next",
+        "body": "next",
+        "description": "next"
+    },
+    "next!": {
+        "prefix": "next!",
+        "body": "next!",
+        "description": "next!"
+    },
+    "oct": {
+        "prefix": "oct",
+        "body": "oct",
+        "description": "oct"
+    },
+    "ord": {
+        "prefix": "ord",
+        "body": "ord",
+        "description": "ord"
+    },
+    "partition": {
+        "prefix": "partition",
+        "body": "partition",
+        "description": "partition"
+    },
+    "rjust": {
+        "prefix": "rjust",
+        "body": "rjust",
+        "description": "rjust"
+    },
+    "rpartition": {
+        "prefix": "rpartition",
+        "body": "rpartition",
+        "description": "rpartition"
+    },
+    "rstrip": {
+        "prefix": "rstrip",
+        "body": "rstrip",
+        "description": "rstrip"
+    },
+    "rstrip!": {
+        "prefix": "rstrip!",
+        "body": "rstrip!",
+        "description": "rstrip!"
+    },
+    "scan": {
+        "prefix": "scan",
+        "body": "scan",
+        "description": "scan"
+    },
+    "scrub": {
+        "prefix": "scrub",
+        "body": "scrub",
+        "description": "scrub"
+    },
+    "scrub!": {
+        "prefix": "scrub!",
+        "body": "scrub!",
+        "description": "scrub!"
+    },
+    "setbyte": {
+        "prefix": "setbyte",
+        "body": "setbyte",
+        "description": "setbyte"
+    },
+    "split": {
+        "prefix": "split",
+        "body": "split",
+        "description": "split"
+    },
+    "squeeze": {
+        "prefix": "squeeze",
+        "body": "squeeze",
+        "description": "squeeze"
+    },
+    "squeeze!": {
+        "prefix": "squeeze!",
+        "body": "squeeze!",
+        "description": "squeeze!"
+    },
+    "start_with?": {
+        "prefix": "start_with?",
+        "body": "start_with?",
+        "description": "start_with?"
+    },
+    "strip": {
+        "prefix": "strip",
+        "body": "strip",
+        "description": "strip"
+    },
+    "strip!": {
+        "prefix": "strip!",
+        "body": "strip!",
+        "description": "strip!"
+    },
+    "sub": {
+        "prefix": "sub",
+        "body": "sub",
+        "description": "sub"
+    },
+    "sub!": {
+        "prefix": "sub!",
+        "body": "sub!",
+        "description": "sub!"
+    },
+    "succ": {
+        "prefix": "succ",
+        "body": "succ",
+        "description": "succ"
+    },
+    "succ!": {
+        "prefix": "succ!",
+        "body": "succ!",
+        "description": "succ!"
+    },
+    "swapcase": {
+        "prefix": "swapcase",
+        "body": "swapcase",
+        "description": "swapcase"
+    },
+    "swapcase!": {
+        "prefix": "swapcase!",
+        "body": "swapcase!",
+        "description": "swapcase!"
+    },
+    "to_c": {
+        "prefix": "to_c",
+        "body": "to_c",
+        "description": "to_c"
+    },
+    "to_f": {
+        "prefix": "to_f",
+        "body": "to_f",
+        "description": "to_f"
+    },
+    "to_i": {
+        "prefix": "to_i",
+        "body": "to_i",
+        "description": "to_i"
+    },
+    "to_r": {
+        "prefix": "to_r",
+        "body": "to_r",
+        "description": "to_r"
+    },
+    "to_str": {
+        "prefix": "to_str",
+        "body": "to_str",
+        "description": "to_str"
+    },
+    "to_sym": {
+        "prefix": "to_sym",
+        "body": "to_sym",
+        "description": "to_sym"
+    },
+    "tr": {
+        "prefix": "tr",
+        "body": "tr",
+        "description": "tr"
+    },
+    "tr!": {
+        "prefix": "tr!",
+        "body": "tr!",
+        "description": "tr!"
+    },
+    "tr_s": {
+        "prefix": "tr_s",
+        "body": "tr_s",
+        "description": "tr_s"
+    },
+    "tr_s!": {
+        "prefix": "tr_s!",
+        "body": "tr_s!",
+        "description": "tr_s!"
+    },
+    "undump": {
+        "prefix": "undump",
+        "body": "undump",
+        "description": "undump"
+    },
+    "unicode_normalize": {
+        "prefix": "unicode_normalize",
+        "body": "unicode_normalize",
+        "description": "unicode_normalize"
+    },
+    "unicode_normalize!": {
+        "prefix": "unicode_normalize!",
+        "body": "unicode_normalize!",
+        "description": "unicode_normalize!"
+    },
+    "unicode_normalized?": {
+        "prefix": "unicode_normalized?",
+        "body": "unicode_normalized?",
+        "description": "unicode_normalized?"
+    },
+    "unpack": {
+        "prefix": "unpack",
+        "body": "unpack",
+        "description": "unpack"
+    },
+    "unpack1": {
+        "prefix": "unpack1",
+        "body": "unpack1",
+        "description": "unpack1"
+    },
+    "upcase": {
+        "prefix": "upcase",
+        "body": "upcase",
+        "description": "upcase"
+    },
+    "upcase!": {
+        "prefix": "upcase!",
+        "body": "upcase!",
+        "description": "upcase!"
+    },
+    "upto": {
+        "prefix": "upto",
+        "body": "upto",
+        "description": "upto"
+    },
+    "valid_encoding?": {
+        "prefix": "valid_encoding?",
+        "body": "valid_encoding?",
+        "description": "valid_encoding?"
+    },
+    "ajd": {
+        "prefix": "ajd",
+        "body": "ajd",
+        "description": "ajd"
+    },
+    "amjd": {
+        "prefix": "amjd",
+        "body": "amjd",
+        "description": "amjd"
+    },
+    "asctime": {
+        "prefix": "asctime",
+        "body": "asctime",
+        "description": "asctime"
+    },
+    "ctime": {
+        "prefix": "ctime",
+        "body": "ctime",
+        "description": "ctime"
+    },
+    "cwday": {
+        "prefix": "cwday",
+        "body": "cwday",
+        "description": "cwday"
+    },
+    "cweek": {
+        "prefix": "cweek",
+        "body": "cweek",
+        "description": "cweek"
+    },
+    "cwyear": {
+        "prefix": "cwyear",
+        "body": "cwyear",
+        "description": "cwyear"
+    },
+    "day": {
+        "prefix": "day",
+        "body": "day",
+        "description": "day"
+    },
+    "day_fraction": {
+        "prefix": "day_fraction",
+        "body": "day_fraction",
+        "description": "day_fraction"
+    },
+    "downto": {
+        "prefix": "downto",
+        "body": "downto",
+        "description": "downto"
+    },
+    "england": {
+        "prefix": "england",
+        "body": "england",
+        "description": "england"
+    },
+    "friday?": {
+        "prefix": "friday?",
+        "body": "friday?",
+        "description": "friday?"
+    },
+    "gregorian": {
+        "prefix": "gregorian",
+        "body": "gregorian",
+        "description": "gregorian"
+    },
+    "gregorian?": {
+        "prefix": "gregorian?",
+        "body": "gregorian?",
+        "description": "gregorian?"
+    },
+    "httpdate": {
+        "prefix": "httpdate",
+        "body": "httpdate",
+        "description": "httpdate"
+    },
+    "infinite?": {
+        "prefix": "infinite?",
+        "body": "infinite?",
+        "description": "infinite?"
+    },
+    "inspect_raw": {
+        "prefix": "inspect_raw",
+        "body": "inspect_raw",
+        "description": "inspect_raw"
+    },
+    "iso8601": {
+        "prefix": "iso8601",
+        "body": "iso8601",
+        "description": "iso8601"
+    },
+    "italy": {
+        "prefix": "italy",
+        "body": "italy",
+        "description": "italy"
+    },
+    "jd": {
+        "prefix": "jd",
+        "body": "jd",
+        "description": "jd"
+    },
+    "jisx0301": {
+        "prefix": "jisx0301",
+        "body": "jisx0301",
+        "description": "jisx0301"
+    },
+    "julian": {
+        "prefix": "julian",
+        "body": "julian",
+        "description": "julian"
+    },
+    "julian?": {
+        "prefix": "julian?",
+        "body": "julian?",
+        "description": "julian?"
+    },
+    "ld": {
+        "prefix": "ld",
+        "body": "ld",
+        "description": "ld"
+    },
+    "leap?": {
+        "prefix": "leap?",
+        "body": "leap?",
+        "description": "leap?"
+    },
+    "marshal_dump_old": {
+        "prefix": "marshal_dump_old",
+        "body": "marshal_dump_old",
+        "description": "marshal_dump_old"
+    },
+    "mday": {
+        "prefix": "mday",
+        "body": "mday",
+        "description": "mday"
+    },
+    "mjd": {
+        "prefix": "mjd",
+        "body": "mjd",
+        "description": "mjd"
+    },
+    "mon": {
+        "prefix": "mon",
+        "body": "mon",
+        "description": "mon"
+    },
+    "monday?": {
+        "prefix": "monday?",
+        "body": "monday?",
+        "description": "monday?"
+    },
+    "month": {
+        "prefix": "month",
+        "body": "month",
+        "description": "month"
+    },
+    "new_start": {
+        "prefix": "new_start",
+        "body": "new_start",
+        "description": "new_start"
+    },
+    "next_day": {
+        "prefix": "next_day",
+        "body": "next_day",
+        "description": "next_day"
+    },
+    "next_month": {
+        "prefix": "next_month",
+        "body": "next_month",
+        "description": "next_month"
+    },
+    "next_year": {
+        "prefix": "next_year",
+        "body": "next_year",
+        "description": "next_year"
+    },
+    "nth_kday?": {
+        "prefix": "nth_kday?",
+        "body": "nth_kday?",
+        "description": "nth_kday?"
+    },
+    "prev_day": {
+        "prefix": "prev_day",
+        "body": "prev_day",
+        "description": "prev_day"
+    },
+    "prev_month": {
+        "prefix": "prev_month",
+        "body": "prev_month",
+        "description": "prev_month"
+    },
+    "prev_year": {
+        "prefix": "prev_year",
+        "body": "prev_year",
+        "description": "prev_year"
+    },
+    "rfc2822": {
+        "prefix": "rfc2822",
+        "body": "rfc2822",
+        "description": "rfc2822"
+    },
+    "rfc3339": {
+        "prefix": "rfc3339",
+        "body": "rfc3339",
+        "description": "rfc3339"
+    },
+    "rfc822": {
+        "prefix": "rfc822",
+        "body": "rfc822",
+        "description": "rfc822"
+    },
+    "saturday?": {
+        "prefix": "saturday?",
+        "body": "saturday?",
+        "description": "saturday?"
+    },
+    "start": {
+        "prefix": "start",
+        "body": "start",
+        "description": "start"
+    },
+    "step": {
+        "prefix": "step",
+        "body": "step",
+        "description": "step"
+    },
+    "strftime": {
+        "prefix": "strftime",
+        "body": "strftime",
+        "description": "strftime"
+    },
+    "strftime('%Y-%m-%d')": {
+        "prefix": "strftime('%Y-%m-%d')",
+        "body": "strftime('%Y-%m-%d')",
+        "description": "strftime('%Y-%m-%d')"
+    },
+    "strftime('%d/$m/%Y')": {
+        "prefix": "strftime('%d/$m/%Y')",
+        "body": "strftime('%d/$m/%Y')",
+        "description": "strftime('%d/$m/%Y')"
+    },
+    "sunday?": {
+        "prefix": "sunday?",
+        "body": "sunday?",
+        "description": "sunday?"
+    },
+    "thursday?": {
+        "prefix": "thursday?",
+        "body": "thursday?",
+        "description": "thursday?"
+    },
+    "to_date": {
+        "prefix": "to_date",
+        "body": "to_date",
+        "description": "to_date"
+    },
+    "to_datetime": {
+        "prefix": "to_datetime",
+        "body": "to_datetime",
+        "description": "to_datetime"
+    },
+    "to_time": {
+        "prefix": "to_time",
+        "body": "to_time",
+        "description": "to_time"
+    },
+    "tuesday?": {
+        "prefix": "tuesday?",
+        "body": "tuesday?",
+        "description": "tuesday?"
+    },
+    "wday": {
+        "prefix": "wday",
+        "body": "wday",
+        "description": "wday"
+    },
+    "wednesday?": {
+        "prefix": "wednesday?",
+        "body": "wednesday?",
+        "description": "wednesday?"
+    },
+    "xmlschema": {
+        "prefix": "xmlschema",
+        "body": "xmlschema",
+        "description": "xmlschema"
+    },
+    "acceptance": {
+        "prefix": "acceptance",
+        "body": "acceptance",
+        "description": "acceptance"
+    },
+    "validates_associated": {
+        "prefix": "validates_associated",
+        "body": "validates_associated",
+        "description": "validates_associated"
+    },
+    "confirmation": {
+        "prefix": "confirmation",
+        "body": "confirmation",
+        "description": "confirmation"
+    },
+    "exclusion": {
+        "prefix": "exclusion",
+        "body": "exclusion",
+        "description": "exclusion"
+    },
+    "format": {
+        "prefix": "format",
+        "body": "format",
+        "description": "format"
+    },
+    "inclusion": {
+        "prefix": "inclusion",
+        "body": "inclusion",
+        "description": "inclusion"
+    },
+    "perform_later": {
+        "prefix": "perform_later",
+        "body": "perform_later",
+        "description": "perform_later"
+    },
+    "perform_now": {
+        "prefix": "perform_now",
+        "body": "perform_now",
+        "description": "perform_now"
+    },
+    "set": {
+        "prefix": "set",
+        "body": "set",
+        "description": "set"
+    },
+    "perform": {
+        "prefix": "perform",
+        "body": "perform",
+        "description": "perform"
+    },
+    "numericality: ": {
+        "prefix": "numericality: ",
+        "body": "numericality: { $0 }",
+        "description": "numericality: "
+    },
+    "presence: true": {
+        "prefix": "presence:",
+        "body": "presence: true",
+        "description": "presence: true"
+    },
+    "absence": {
+        "prefix": "absence",
+        "body": "absence",
+        "description": "absence"
+    },
+    "uniqueness: ": {
+        "prefix": "uniqueness: ",
+        "body": "uniqueness: ",
+        "description": "uniqueness: "
+    },
+    "allow_nil: ": {
+        "prefix": "allow_nil: ",
+        "body": "allow_nil: ",
+        "description": "allow_nil: "
+    },
+    "allow_blank: ": {
+        "prefix": "allow_blank: ",
+        "body": "allow_blank: ",
+        "description": "allow_blank: "
+    },
+    "message: ": {
+        "prefix": "message: ",
+        "body": "message: ",
+        "description": "message: "
+    },
+    "on: ": {
+        "prefix": "on: ",
+        "body": "on: ",
+        "description": "on: "
+    },
+    "yday": {
+        "prefix": "yday",
+        "body": "yday",
+        "description": "yday"
+    },
+    "year": {
+        "prefix": "year",
+        "body": "year",
+        "description": "year"
+    },
+    "optional: false": {
+        "prefix": "optional: false",
+        "body": "optional: false",
+        "description": "optional: false"
+    },
+    "optional: true": {
+        "prefix": "optional: true",
+        "body": "optional: true",
+        "description": "optional: true"
+    },
+    "errors.full_messages.to_sentence": {
+        "prefix": "errors.full_messages.to_sentence",
+        "body": "errors.full_messages.to_sentence",
+        "description": "errors.full_messages.to_sentence"
+    },
+    "before_action": {
+        "prefix": "before_action",
+        "body": "before_action",
+        "description": "before_action"
+    },
+    "before_action :": {
+        "prefix": "before_action :",
+        "body": "before_action :",
+        "description": "before_action :"
+    },
+    "skip_before_action :": {
+        "prefix": "skip_before_action :",
+        "body": "skip_before_action :",
+        "description": "skip_before_action :"
+    },
+    "protect_from_forgery with: :": {
+        "prefix": "protect_from_forgery with: :",
+        "body": "protect_from_forgery with: :",
+        "description": "protect_from_forgery with: :"
+    },
+    "rescue_from :": {
+        "prefix": "rescue_from :",
+        "body": "rescue_from :",
+        "description": "rescue_from :"
+    },
+    "with: ": {
+        "prefix": "with: ",
+        "body": "with: ",
+        "description": "with: "
+    },
+    "acts_like_date?": {
+        "prefix": "acts_like_date?",
+        "body": "acts_like_date?",
+        "description": "acts_like_date?"
+    },
+    "advance": {
+        "prefix": "advance",
+        "body": "advance",
+        "description": "advance"
+    },
+    "ago": {
+        "prefix": "ago",
+        "body": "ago",
+        "description": "ago"
+    },
+    "at_beginning_of_day": {
+        "prefix": "at_beginning_of_day",
+        "body": "at_beginning_of_day",
+        "description": "at_beginning_of_day"
+    },
+    "at_end_of_day": {
+        "prefix": "at_end_of_day",
+        "body": "at_end_of_day",
+        "description": "at_end_of_day"
+    },
+    "at_midday": {
+        "prefix": "at_midday",
+        "body": "at_midday",
+        "description": "at_midday"
+    },
+    "at_middle_of_day": {
+        "prefix": "at_middle_of_day",
+        "body": "at_middle_of_day",
+        "description": "at_middle_of_day"
+    },
+    "at_midnight": {
+        "prefix": "at_midnight",
+        "body": "at_midnight",
+        "description": "at_midnight"
+    },
+    "at_noon": {
+        "prefix": "at_noon",
+        "body": "at_noon",
+        "description": "at_noon"
+    },
+    "beginning_of_day": {
+        "prefix": "beginning_of_day",
+        "body": "beginning_of_day",
+        "description": "beginning_of_day"
+    },
+    "beginning_of_week": {
+        "prefix": "beginning_of_week",
+        "body": "beginning_of_week",
+        "description": "beginning_of_week"
+    },
+    "compare_with_coercion": {
+        "prefix": "compare_with_coercion",
+        "body": "compare_with_coercion",
+        "description": "compare_with_coercion"
+    },
+    "compare_without_coercion": {
+        "prefix": "compare_without_coercion",
+        "body": "compare_without_coercion",
+        "description": "compare_without_coercion"
+    },
+    "current": {
+        "prefix": "current",
+        "body": "current",
+        "description": "current"
+    },
+    "default_inspect": {
+        "prefix": "default_inspect",
+        "body": "default_inspect",
+        "description": "default_inspect"
+    },
+    "end_of_day": {
+        "prefix": "end_of_day",
+        "body": "end_of_day",
+        "description": "end_of_day"
+    },
+    "find_beginning_of_week!": {
+        "prefix": "find_beginning_of_week!",
+        "body": "find_beginning_of_week!",
+        "description": "find_beginning_of_week!"
+    },
+    "midday": {
+        "prefix": "midday",
+        "body": "midday",
+        "description": "midday"
+    },
+    "middle_of_day": {
+        "prefix": "middle_of_day",
+        "body": "middle_of_day",
+        "description": "middle_of_day"
+    },
+    "midnight": {
+        "prefix": "midnight",
+        "body": "midnight",
+        "description": "midnight"
+    },
+    "noon": {
+        "prefix": "noon",
+        "body": "noon",
+        "description": "noon"
+    },
+    "readable_inspect": {
+        "prefix": "readable_inspect",
+        "body": "readable_inspect",
+        "description": "readable_inspect"
+    },
+    "since": {
+        "prefix": "since",
+        "body": "since",
+        "description": "since"
+    },
+    "tomorrow": {
+        "prefix": "tomorrow",
+        "body": "tomorrow",
+        "description": "tomorrow"
+    },
+    "yesterday": {
+        "prefix": "yesterday",
+        "body": "yesterday",
+        "description": "yesterday"
+    },
+    "actual": {
+        "prefix": "actual",
+        "body": "actual",
+        "description": "actual"
+    },
+    "actual_exists?": {
+        "prefix": "actual_exists?",
+        "body": "actual_exists?",
+        "description": "actual_exists?"
+    },
+    "add_should_and_should_not_to": {
+        "prefix": "add_should_and_should_not_to",
+        "body": "add_should_and_should_not_to",
+        "description": "add_should_and_should_not_to"
+    },
+    "and_return": {
+        "prefix": "and_return",
+        "body": "and_return",
+        "description": "and_return"
+    },
+    "allow": {
+        "prefix": "allow",
+        "body": "allow",
+        "description": "allow"
+    },
+    "aggregate_failures": {
+        "prefix": "aggregate_failures",
+        "body": "aggregate_failures",
+        "description": "aggregate_failures"
+    },
+    "aggregation_block_label": {
+        "prefix": "aggregation_block_label",
+        "body": "aggregation_block_label",
+        "description": "aggregation_block_label"
+    },
+    "aggregation_metadata": {
+        "prefix": "aggregation_metadata",
+        "body": "aggregation_metadata",
+        "description": "aggregation_metadata"
+    },
+    "lias_matcher": {
+        "prefix": "lias_matcher",
+        "body": "lias_matcher",
+        "description": "lias_matcher"
+    },
+    "all": {
+        "prefix": "all",
+        "body": "all",
+        "description": "all"
+    },
+    "all_exceptions": {
+        "prefix": "all_exceptions",
+        "body": "all_exceptions",
+        "description": "all_exceptions"
+    },
+    "and": {
+        "prefix": "and",
+        "body": "and",
+        "description": "and"
+    },
+    "argument": {
+        "prefix": "argument",
+        "body": "argument",
+        "description": "argument"
+    },
+    "at_least": {
+        "prefix": "at_least",
+        "body": "at_least",
+        "description": "at_least"
+    },
+    "at_most": {
+        "prefix": "at_most",
+        "body": "at_most",
+        "description": "at_most"
+    },
+    "backtrace_formatter": {
+        "prefix": "backtrace_formatter",
+        "body": "backtrace_formatter",
+        "description": "backtrace_formatter"
+    },
+    "be": {
+        "prefix": "be",
+        "body": "be",
+        "description": "be"
+    },
+    "be_a": {
+        "prefix": "be_a",
+        "body": "be_a",
+        "description": "be_a"
+    },
+    "be_a_kind_of": {
+        "prefix": "be_a_kind_of",
+        "body": "be_a_kind_of",
+        "description": "be_a_kind_of"
+    },
+    "be_an_instance_of": {
+        "prefix": "be_an_instance_of",
+        "body": "be_an_instance_of",
+        "description": "be_an_instance_of"
+    },
+    "be_between": {
+        "prefix": "be_between",
+        "body": "be_between",
+        "description": "be_between"
+    },
+    "be_falsey": {
+        "prefix": "be_falsey",
+        "body": "be_falsey",
+        "description": "be_falsey"
+    },
+    "be_nil": {
+        "prefix": "be_nil",
+        "body": "be_nil",
+        "description": "be_nil"
+    },
+    "be_truthy": {
+        "prefix": "be_truthy",
+        "body": "be_truthy",
+        "description": "be_truthy"
+    },
+    "be_within": {
+        "prefix": "be_within",
+        "body": "be_within",
+        "description": "be_within"
+    },
+    "block_arg": {
+        "prefix": "block_arg",
+        "body": "block_arg",
+        "description": "block_arg"
+    },
+    "by": {
+        "prefix": "by",
+        "body": "by",
+        "description": "by"
+    },
+    "by_at_least": {
+        "prefix": "by_at_least",
+        "body": "by_at_least",
+        "description": "by_at_least"
+    },
+    "by_at_most": {
+        "prefix": "by_at_most",
+        "body": "by_at_most",
+        "description": "by_at_most"
+    },
+    "captures": {
+        "prefix": "captures",
+        "body": "captures",
+        "description": "captures"
+    },
+    "chain": {
+        "prefix": "chain",
+        "body": "chain",
+        "description": "chain"
+    },
+    "change": {
+        "prefix": "change",
+        "body": "change",
+        "description": "change"
+    },
+    "lear_generated_description": {
+        "prefix": "lear_generated_description",
+        "body": "lear_generated_description",
+        "description": "lear_generated_description"
+    },
+    "color?": {
+        "prefix": "color?",
+        "body": "color?",
+        "description": "color?"
+    },
+    "onfiguration": {
+        "prefix": "onfiguration",
+        "body": "onfiguration",
+        "description": "onfiguration"
+    },
+    "contain_exactly": {
+        "prefix": "contain_exactly",
+        "body": "contain_exactly",
+        "description": "contain_exactly"
+    },
+    "cover": {
+        "prefix": "cover",
+        "body": "cover",
+        "description": "cover"
+    },
+    "efault_should_host": {
+        "prefix": "efault_should_host",
+        "body": "efault_should_host",
+        "description": "efault_should_host"
+    },
+    "define": {
+        "prefix": "define",
+        "body": "define",
+        "description": "define"
+    },
+    "efine_negated_matcher": {
+        "prefix": "efine_negated_matcher",
+        "body": "efine_negated_matcher",
+        "description": "efine_negated_matcher"
+    },
+    "description": {
+        "prefix": "description",
+        "body": "description",
+        "description": "description"
+    },
+    "description_of": {
+        "prefix": "description_of",
+        "body": "description_of",
+        "description": "description_of"
+    },
+    "diffable": {
+        "prefix": "diffable",
+        "body": "diffable",
+        "description": "diffable"
+    },
+    "diffable?": {
+        "prefix": "diffable?",
+        "body": "diffable?",
+        "description": "diffable?"
+    },
+    "isable_expect": {
+        "prefix": "isable_expect",
+        "body": "isable_expect",
+        "description": "isable_expect"
+    },
+    "isable_should": {
+        "prefix": "isable_should",
+        "body": "isable_should",
+        "description": "isable_should"
+    },
+    "does_not_match?": {
+        "prefix": "does_not_match?",
+        "body": "does_not_match?",
+        "description": "does_not_match?"
+    },
+    "nable_expect": {
+        "prefix": "nable_expect",
+        "body": "nable_expect",
+        "description": "nable_expect"
+    },
+    "nable_should": {
+        "prefix": "nable_should",
+        "body": "nable_should",
+        "description": "nable_should"
+    },
+    "end_with": {
+        "prefix": "end_with",
+        "body": "end_with",
+        "description": "end_with"
+    },
+    "eq": {
+        "prefix": "eq",
+        "body": "eq",
+        "description": "eq"
+    },
+    "eql": {
+        "prefix": "eql",
+        "body": "eql",
+        "description": "eql"
+    },
+    "equal": {
+        "prefix": "equal",
+        "body": "equal",
+        "description": "equal"
+    },
+    "exactly": {
+        "prefix": "exactly",
+        "body": "exactly",
+        "description": "exactly"
+    },
+    "exception_count_description": {
+        "prefix": "exception_count_description",
+        "body": "exception_count_description",
+        "description": "exception_count_description"
+    },
+    "exclusive": {
+        "prefix": "exclusive",
+        "body": "exclusive",
+        "description": "exclusive"
+    },
+    "exist": {
+        "prefix": "exist",
+        "body": "exist",
+        "description": "exist"
+    },
+    "expect": {
+        "prefix": "expect",
+        "body": "expect",
+        "description": "expect"
+    },
+    "xpect_enabled?": {
+        "prefix": "xpect_enabled?",
+        "body": "xpect_enabled?",
+        "description": "xpect_enabled?"
+    },
+    "expected": {
+        "prefix": "expected",
+        "body": "expected",
+        "description": "expected"
+    },
+    "expected_as_array": {
+        "prefix": "expected_as_array",
+        "body": "expected_as_array",
+        "description": "expected_as_array"
+    },
+    "expects_call_stack_jump?": {
+        "prefix": "expects_call_stack_jump?",
+        "body": "expects_call_stack_jump?",
+        "description": "expects_call_stack_jump?"
+    },
+    "fail": {
+        "prefix": "fail",
+        "body": "fail",
+        "description": "fail"
+    },
+    "fail_including": {
+        "prefix": "fail_including",
+        "body": "fail_including",
+        "description": "fail_including"
+    },
+    "ail_with": {
+        "prefix": "ail_with",
+        "body": "ail_with",
+        "description": "ail_with"
+    },
+    "fail_with": {
+        "prefix": "fail_with",
+        "body": "fail_with",
+        "description": "fail_with"
+    },
+    "failure_message": {
+        "prefix": "failure_message",
+        "body": "failure_message",
+        "description": "failure_message"
+    },
+    "failure_message_for_should": {
+        "prefix": "failure_message_for_should",
+        "body": "failure_message_for_should",
+        "description": "failure_message_for_should"
+    },
+    "failure_message_for_should_not": {
+        "prefix": "failure_message_for_should_not",
+        "body": "failure_message_for_should_not",
+        "description": "failure_message_for_should_not"
+    },
+    "failure_message_when_negated": {
+        "prefix": "failure_message_when_negated",
+        "body": "failure_message_when_negated",
+        "description": "failure_message_when_negated"
+    },
+    "failures": {
+        "prefix": "failures",
+        "body": "failures",
+        "description": "failures"
+    },
+    "or_many_matchers": {
+        "prefix": "or_many_matchers",
+        "body": "or_many_matchers",
+        "description": "or_many_matchers"
+    },
+    "rom": {
+        "prefix": "rom",
+        "body": "rom",
+        "description": "rom"
+    },
+    "from": {
+        "prefix": "from",
+        "body": "from",
+        "description": "from"
+    },
+    "enerated_description": {
+        "prefix": "enerated_description",
+        "body": "enerated_description",
+        "description": "enerated_description"
+    },
+    "have_attributes": {
+        "prefix": "have_attributes",
+        "body": "have_attributes",
+        "description": "have_attributes"
+    },
+    "include": {
+        "prefix": "include",
+        "body": "include",
+        "description": "include"
+    },
+    "include_chain_clauses_in_custom_matcher_descriptions?": {
+        "prefix": "include_chain_clauses_in_custom_matcher_descriptions?",
+        "body": "include_chain_clauses_in_custom_matcher_descriptions?",
+        "description": "include_chain_clauses_in_custom_matcher_descriptions?"
+    },
+    "inclusive": {
+        "prefix": "inclusive",
+        "body": "inclusive",
+        "description": "inclusive"
+    },
+    "indeterminate_actual_indexes": {
+        "prefix": "indeterminate_actual_indexes",
+        "body": "indeterminate_actual_indexes",
+        "description": "indeterminate_actual_indexes"
+    },
+    "indeterminate_expected_indexes": {
+        "prefix": "indeterminate_expected_indexes",
+        "body": "indeterminate_expected_indexes",
+        "description": "indeterminate_expected_indexes"
+    },
+    "initialize": {
+        "prefix": "initialize",
+        "body": "initialize",
+        "description": "initialize"
+    },
+    "ist": {
+        "prefix": "ist",
+        "body": "ist",
+        "description": "ist"
+    },
+    "match_array": {
+        "prefix": "match_array",
+        "body": "match_array",
+        "description": "match_array"
+    },
+    "match_for_should": {
+        "prefix": "match_for_should",
+        "body": "match_for_should",
+        "description": "match_for_should"
+    },
+    "match_for_should_not": {
+        "prefix": "match_for_should_not",
+        "body": "match_for_should_not",
+        "description": "match_for_should_not"
+    },
+    "match_unless_raises": {
+        "prefix": "match_unless_raises",
+        "body": "match_unless_raises",
+        "description": "match_unless_raises"
+    },
+    "match_when_negated": {
+        "prefix": "match_when_negated",
+        "body": "match_when_negated",
+        "description": "match_when_negated"
+    },
+    "matcher_matches?": {
+        "prefix": "matcher_matches?",
+        "body": "matcher_matches?",
+        "description": "matcher_matches?"
+    },
+    "matches?": {
+        "prefix": "matches?",
+        "body": "matches?",
+        "description": "matches?"
+    },
+    "message": {
+        "prefix": "message",
+        "body": "message",
+        "description": "message"
+    },
+    "message_with_diff": {
+        "prefix": "message_with_diff",
+        "body": "message_with_diff",
+        "description": "message_with_diff"
+    },
+    "method_missing": {
+        "prefix": "method_missing",
+        "body": "method_missing",
+        "description": "method_missing"
+    },
+    "name": {
+        "prefix": "name",
+        "body": "name",
+        "description": "name"
+    },
+    "names": {
+        "prefix": "names",
+        "body": "names",
+        "description": "names"
+    },
+    "not_to": {
+        "prefix": "not_to",
+        "body": "not_to",
+        "description": "not_to"
+    },
+    "of": {
+        "prefix": "of",
+        "body": "of",
+        "description": "of"
+    },
+    "on_potential_false_positives": {
+        "prefix": "on_potential_false_positives",
+        "body": "on_potential_false_positives",
+        "description": "on_potential_false_positives"
+    },
+    "once": {
+        "prefix": "once",
+        "body": "once",
+        "description": "once"
+    },
+    "or": {
+        "prefix": "or",
+        "body": "or",
+        "description": "or"
+    },
+    "other_errors": {
+        "prefix": "other_errors",
+        "body": "other_errors",
+        "description": "other_errors"
+    },
+    "output": {
+        "prefix": "output",
+        "body": "output",
+        "description": "output"
+    },
+    "percent_of": {
+        "prefix": "percent_of",
+        "body": "percent_of",
+        "description": "percent_of"
+    },
+    "raise_error": {
+        "prefix": "raise_error",
+        "body": "raise_error",
+        "description": "raise_error"
+    },
+    "rescued_exception": {
+        "prefix": "rescued_exception",
+        "body": "rescued_exception",
+        "description": "rescued_exception"
+    },
+    "respond_to": {
+        "prefix": "respond_to",
+        "body": "respond_to",
+        "description": "respond_to"
+    },
+    "respond_to?": {
+        "prefix": "respond_to?",
+        "body": "respond_to?",
+        "description": "respond_to?"
+    },
+    "respond_to_missing?": {
+        "prefix": "respond_to_missing?",
+        "body": "respond_to_missing?",
+        "description": "respond_to_missing?"
+    },
+    "satisfy": {
+        "prefix": "satisfy",
+        "body": "satisfy",
+        "description": "satisfy"
+    },
+    "should": {
+        "prefix": "should",
+        "body": "should",
+        "description": "should"
+    },
+    "hould_enabled?": {
+        "prefix": "hould_enabled?",
+        "body": "hould_enabled?",
+        "description": "hould_enabled?"
+    },
+    "hould_enumerate?": {
+        "prefix": "hould_enumerate?",
+        "body": "hould_enumerate?",
+        "description": "hould_enumerate?"
+    },
+    "should_not": {
+        "prefix": "should_not",
+        "body": "should_not",
+        "description": "should_not"
+    },
+    "plit_words": {
+        "prefix": "plit_words",
+        "body": "plit_words",
+        "description": "plit_words"
+    },
+    "start_with": {
+        "prefix": "start_with",
+        "body": "start_with",
+        "description": "start_with"
+    },
+    "summary": {
+        "prefix": "summary",
+        "body": "summary",
+        "description": "summary"
+    },
+    "supports_block_expectations": {
+        "prefix": "supports_block_expectations",
+        "body": "supports_block_expectations",
+        "description": "supports_block_expectations"
+    },
+    "supports_block_expectations?": {
+        "prefix": "supports_block_expectations?",
+        "body": "supports_block_expectations?",
+        "description": "supports_block_expectations?"
+    },
+    "urface_descriptions_in": {
+        "prefix": "urface_descriptions_in",
+        "body": "urface_descriptions_in",
+        "description": "urface_descriptions_in"
+    },
+    "syntax": {
+        "prefix": "syntax",
+        "body": "syntax",
+        "description": "syntax"
+    },
+    "syntax=": {
+        "prefix": "syntax=",
+        "body": "syntax=",
+        "description": "syntax="
+    },
+    "target": {
+        "prefix": "target",
+        "body": "target",
+        "description": "target"
+    },
+    "thrice": {
+        "prefix": "thrice",
+        "body": "thrice",
+        "description": "thrice"
+    },
+    "throw_symbol": {
+        "prefix": "throw_symbol",
+        "body": "throw_symbol",
+        "description": "throw_symbol"
+    },
+    "times": {
+        "prefix": "times",
+        "body": "times",
+        "description": "times"
+    },
+    "to": {
+        "prefix": "to",
+        "body": "to",
+        "description": "to"
+    },
+    "to_stderr": {
+        "prefix": "to_stderr",
+        "body": "to_stderr",
+        "description": "to_stderr"
+    },
+    "to_stderr_from_any_process": {
+        "prefix": "to_stderr_from_any_process",
+        "body": "to_stderr_from_any_process",
+        "description": "to_stderr_from_any_process"
+    },
+    "to_stdout": {
+        "prefix": "to_stdout",
+        "body": "to_stdout",
+        "description": "to_stdout"
+    },
+    "to_stdout_from_any_process": {
+        "prefix": "to_stdout_from_any_process",
+        "body": "to_stdout_from_any_process",
+        "description": "to_stdout_from_any_process"
+    },
+    "twice": {
+        "prefix": "twice",
+        "body": "twice",
+        "description": "twice"
+    },
+    "unmatched_actual_indexes": {
+        "prefix": "unmatched_actual_indexes",
+        "body": "unmatched_actual_indexes",
+        "description": "unmatched_actual_indexes"
+    },
+    "unmatched_expected_indexes": {
+        "prefix": "unmatched_expected_indexes",
+        "body": "unmatched_expected_indexes",
+        "description": "unmatched_expected_indexes"
+    },
+    "nreadable_io?": {
+        "prefix": "nreadable_io?",
+        "body": "nreadable_io?",
+        "description": "nreadable_io?"
+    },
+    "valid_test?": {
+        "prefix": "valid_test?",
+        "body": "valid_test?",
+        "description": "valid_test?"
+    },
+    "validity_message": {
+        "prefix": "validity_message",
+        "body": "validity_message",
+        "description": "validity_message"
+    },
+    "values_match?": {
+        "prefix": "values_match?",
+        "body": "values_match?",
+        "description": "values_match?"
+    },
+    "warn_about_potential_false_positives=": {
+        "prefix": "warn_about_potential_false_positives=",
+        "body": "warn_about_potential_false_positives=",
+        "description": "warn_about_potential_false_positives="
+    },
+    "warn_about_potential_false_positives?": {
+        "prefix": "warn_about_potential_false_positives?",
+        "body": "warn_about_potential_false_positives?",
+        "description": "warn_about_potential_false_positives?"
+    },
+    "arn_about_should!": {
+        "prefix": "arn_about_should!",
+        "body": "arn_about_should!",
+        "description": "arn_about_should!"
+    },
+    "arn_about_should_unless_configured": {
+        "prefix": "arn_about_should_unless_configured",
+        "body": "arn_about_should_unless_configured",
+        "description": "arn_about_should_unless_configured"
+    },
+    "with": {
+        "prefix": "with",
+        "body": "with",
+        "description": "with"
+    },
+    "with_any_keywords": {
+        "prefix": "with_any_keywords",
+        "body": "with_any_keywords",
+        "description": "with_any_keywords"
+    },
+    "with_captures": {
+        "prefix": "with_captures",
+        "body": "with_captures",
+        "description": "with_captures"
+    },
+    "with_keywords": {
+        "prefix": "with_keywords",
+        "body": "with_keywords",
+        "description": "with_keywords"
+    },
+    "with_message": {
+        "prefix": "with_message",
+        "body": "with_message",
+        "description": "with_message"
+    },
+    "with_unlimited_arguments": {
+        "prefix": "with_unlimited_arguments",
+        "body": "with_unlimited_arguments",
+        "description": "with_unlimited_arguments"
+    },
+    "yield_control": {
+        "prefix": "yield_control",
+        "body": "yield_control",
+        "description": "yield_control"
+    },
+    "yield_successive_args": {
+        "prefix": "yield_successive_args",
+        "body": "yield_successive_args",
+        "description": "yield_successive_args"
+    },
+    "yield_with_args": {
+        "prefix": "yield_with_args",
+        "body": "yield_with_args",
+        "description": "yield_with_args"
+    },
+    "yield_with_no_args": {
+        "prefix": "yield_with_no_args",
+        "body": "yield_with_no_args",
+        "description": "yield_with_no_args"
+    },
+    "instance_double": {
+        "prefix": "instance_double",
+        "body": "instance_double",
+        "description": "instance_double"
+    },
+    "be_present": {
+        "prefix": "be_present",
+        "body": "be_present",
+        "description": "be_present"
+    },
+    "be_blank": {
+        "prefix": "be_blank",
+        "body": "be_blank",
+        "description": "be_blank"
+    },
+    "be_valid": {
+        "prefix": "be_valid",
+        "body": "be_valid",
+        "description": "be_valid"
+    },
+    "be_invalid": {
+        "prefix": "be_invalid",
+        "body": "be_invalid",
+        "description": "be_invalid"
+    },
+    "camelcase": {
+        "prefix": "camelcase",
+        "body": "camelcase",
+        "description": "camelcase"
+    },
+    "camelize": {
+        "prefix": "camelize",
+        "body": "camelize",
+        "description": "camelize"
+    },
+    "classify": {
+        "prefix": "classify",
+        "body": "classify",
+        "description": "classify"
+    },
+    "constantize": {
+        "prefix": "constantize",
+        "body": "constantize",
+        "description": "constantize"
+    },
+    "dasherize": {
+        "prefix": "dasherize",
+        "body": "dasherize",
+        "description": "dasherize"
+    },
+    "deconstantize": {
+        "prefix": "deconstantize",
+        "body": "deconstantize",
+        "description": "deconstantize"
+    },
+    "demodulize": {
+        "prefix": "demodulize",
+        "body": "demodulize",
+        "description": "demodulize"
+    },
+    "encode_json": {
+        "prefix": "encode_json",
+        "body": "encode_json",
+        "description": "encode_json"
+    },
+    "encoding_aware?": {
+        "prefix": "encoding_aware?",
+        "body": "encoding_aware?",
+        "description": "encoding_aware?"
+    },
+    "exclude?": {
+        "prefix": "exclude?",
+        "body": "exclude?",
+        "description": "exclude?"
+    },
+    "foreign_key": {
+        "prefix": "foreign_key",
+        "body": "foreign_key",
+        "description": "foreign_key"
+    },
+    "html_safe": {
+        "prefix": "html_safe",
+        "body": "html_safe",
+        "description": "html_safe"
+    },
+    "html_safe!": {
+        "prefix": "html_safe!",
+        "body": "html_safe!",
+        "description": "html_safe!"
+    },
+    "html_safe?": {
+        "prefix": "html_safe?",
+        "body": "html_safe?",
+        "description": "html_safe?"
+    },
+    "humanize": {
+        "prefix": "humanize",
+        "body": "humanize",
+        "description": "humanize"
+    },
+    "indent": {
+        "prefix": "indent",
+        "body": "indent",
+        "description": "indent"
+    },
+    "indent!": {
+        "prefix": "indent!",
+        "body": "indent!",
+        "description": "indent!"
+    },
+    "inquiry": {
+        "prefix": "inquiry",
+        "body": "inquiry",
+        "description": "inquiry"
+    },
+    "in_time_zone": {
+        "prefix": "in_time_zone",
+        "body": "in_time_zone",
+        "description": "in_time_zone"
+    },
+    "is_utf8?": {
+        "prefix": "is_utf8?",
+        "body": "is_utf8?",
+        "description": "is_utf8?"
+    },
+    "mb_chars": {
+        "prefix": "mb_chars",
+        "body": "mb_chars",
+        "description": "mb_chars"
+    },
+    "parameterize": {
+        "prefix": "parameterize",
+        "body": "parameterize",
+        "description": "parameterize"
+    },
+    "pluralize": {
+        "prefix": "pluralize",
+        "body": "pluralize",
+        "description": "pluralize"
+    },
+    "remove": {
+        "prefix": "remove",
+        "body": "remove",
+        "description": "remove"
+    },
+    "remove!": {
+        "prefix": "remove!",
+        "body": "remove!",
+        "description": "remove!"
+    },
+    "safe_constantize": {
+        "prefix": "safe_constantize",
+        "body": "safe_constantize",
+        "description": "safe_constantize"
+    },
+    "singularize": {
+        "prefix": "singularize",
+        "body": "singularize",
+        "description": "singularize"
+    },
+    "squish": {
+        "prefix": "squish",
+        "body": "squish",
+        "description": "squish"
+    },
+    "squish!": {
+        "prefix": "squish!",
+        "body": "squish!",
+        "description": "squish!"
+    },
+    "strip_heredoc": {
+        "prefix": "strip_heredoc",
+        "body": "strip_heredoc",
+        "description": "strip_heredoc"
+    },
+    "tableize": {
+        "prefix": "tableize",
+        "body": "tableize",
+        "description": "tableize"
+    },
+    "titlecase": {
+        "prefix": "titlecase",
+        "body": "titlecase",
+        "description": "titlecase"
+    },
+    "titleize": {
+        "prefix": "titleize",
+        "body": "titleize",
+        "description": "titleize"
+    },
+    "truncate": {
+        "prefix": "truncate",
+        "body": "truncate",
+        "description": "truncate"
+    },
+    "truncate_bytes": {
+        "prefix": "truncate_bytes",
+        "body": "truncate_bytes",
+        "description": "truncate_bytes"
+    },
+    "truncate_words": {
+        "prefix": "truncate_words",
+        "body": "truncate_words",
+        "description": "truncate_words"
+    },
+    "underscore": {
+        "prefix": "underscore",
+        "body": "underscore",
+        "description": "underscore"
+    },
+    "upcase_first": {
+        "prefix": "upcase_first",
+        "body": "upcase_first",
+        "description": "upcase_first"
+    }
 }
