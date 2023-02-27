@@ -106,7 +106,16 @@ local plugins = {
   } },
   'ecomba/vim-ruby-refactoring',
   { "MunifTanjim/nui.nvim", lazy = true },
-  'nvim-tree/nvim-web-devicons',
+  { 'nvim-tree/nvim-web-devicons', opts = {
+    override = {
+      rb = {
+        icon = "",
+        color = "#ff8587",
+        cterm_color = "65",
+        name = "Ruby"
+      }
+    }
+  } },
   { 'xolox/vim-notes', dependencies = { 'xolox/vim-misc', } },
   { 'lukas-reineke/indent-blankline.nvim', config = function()
     vim.g.indent_blankline_filetype_exclude = {
