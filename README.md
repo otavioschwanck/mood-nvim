@@ -42,6 +42,13 @@ This configuration is made to use with Alacritty and Tmux.  Please install it an
 
 # Changelog
 
+## 2022-02-27
+
+- Improved LSP default configuration.  Please delete your `~/.config/nvim/lua/user/lsp.lua` to be recreated (upgrade first)
+- New tabs
+- New awesome ruby snippets (every hidden ruby method was turned into a snippet)
+- Way to edit snippets
+
 ## 2022-02-26
 
 - Snippet is now C-n
