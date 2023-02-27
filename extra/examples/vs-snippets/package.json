@@ -1,0 +1,25 @@
+{
+	"name": "otavio-snippets",
+	"contributes": {
+		"snippets": [
+			{
+				"language": [
+					"ruby"
+				],
+				"path": "./ruby.json"
+			},
+			{
+				"language": [
+					"typescriptreact"
+				],
+				"path": "./typescriptreact.json"
+			},
+			{
+				"language": [
+					"typescript"
+				],
+				"path": "./typescript.json"
+			}
+		]
+	}
+}

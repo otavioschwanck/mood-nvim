@@ -57,6 +57,11 @@ function M.open_dotfiles()
       display = "After Start        | commands that should run after vim start.",
       order = "5"
     },
+    {
+      path = "~/.config/nvim/vs-snippets/",
+      display = "Snippets           | Write your own snippets!",
+      order = "5"
+    },
   }
 
   M.call(mood_dotfiles)

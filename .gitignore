@@ -7,3 +7,4 @@ lua/user-plugins.lua
 lua/user_lsp.lua
 databases/
 lua/user/*
+/vs-snippets
