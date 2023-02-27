@@ -10,11 +10,11 @@ else
   echo "$USER_CONFIG created."
 fi
 
-VS_SNIPPETS=~/.config/nvim/lua/vs-snippets
+VS_SNIPPETS=~/.config/nvim/vs-snippets
 if test -d "$VS_SNIPPETS"; then
   echo "$VS_SNIPPETS exists. Ignoring..."
 else
-  cp ~/.config/nvim/extra/examples/vs-snippets/ ~/.config/nvim/lua/vs-snippets
+  cp -r ~/.config/nvim/extra/examples/vs-snippets/ ~/.config/nvim/vs-snippets
   echo "$VS_SNIPPETS created."
 fi
 
