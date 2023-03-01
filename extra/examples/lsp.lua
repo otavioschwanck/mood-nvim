@@ -149,25 +149,21 @@ local cmp_mappings = lsp.defaults.cmp_mappings({
   -- Uncomment to input on select in autocomplete
   -- ['<Tab>'] = cmp.mapping.select_next_item({ select = true }),
   -- ['<S-Tab>'] = cmp.mapping.select_prev_item({ select = true }),
-  ['<C-n>'] = cmp.mapping(function(fallback)
-    if luasnip.jumpable() then
-      luasnip.jump(1)
-    elseif luasnip.expandable() then
-      luasnip.expand()
+  ['<C-j>'] = cmp.mapping(function(fallback)
+    if luasnip.expand_or_locally_jumpable() then
+      luasnip.expand_or_jump(1)
     end
   end, { 'i', 's' }),
-  ['<C-j>'] = cmp.mapping(function(fallback)
-    if luasnip.jumpable() then
+  ['<C-k>'] = cmp.mapping(function(fallback)
+    if luasnip.locally_jumpable() then
       luasnip.jump(-1)
-    elseif luasnip.expandable() then
-      luasnip.expand()
     end
   end, { 'i', 's' }),
   ['<BS>'] = cmp.mapping(function(fallback)
     vim.fn.feedkeys(vim.api.nvim_replace_termcodes("<Del>", true, true, true), "x")
     luasnip.jump(1)
   end, { "s" }),
-  ['<C-u>'] = cmp.mapping.scroll_docs(-4),
+  ['<C-u>'] = cmp.mapping.scroll_docs( -4),
   ['<C-d>'] = cmp.mapping.scroll_docs(4),
 })
 

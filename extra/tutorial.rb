@@ -394,10 +394,10 @@ must_be_splitted = [
 # Exercise 8 - Snippets and more snippets!
 # Snippets are awesome. Lets learn how to do in mooD.
 # Unlike other editor, to expand a snippet (and go forward), is <Ctrl + j>
-# <C-n> = Expand / Go forward on snippets
+# <C-j> = Expand / Go forward on snippets
 # <C-k> = Go back on snippets
 # <Delete> = Delete highlighted text on snippets
-# Commands; jidesc<C-n>#mood<C-n>letm<C-n>mood<C-n><C-n>name:<SPACE>'true'<C-n><Enter><Enter>contw<C-n>valid<C-n>itiexp<C-n><ESC>
+# Commands; jidesc<C-j>#mood<C-j>letm<C-j>mood<C-j><C-j>name:<SPACE>'true'<C-j><Enter><Enter>contw<C-j>valid<C-j>itiexp<C-j><ESC>
 
 # << Start Here
 
