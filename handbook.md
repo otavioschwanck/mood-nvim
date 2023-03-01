@@ -135,8 +135,8 @@ OBS: This list persist between vim sections
 | ]g                       | Next git hunk                                        |
 | [g                       | Previous git hunk                                    |
 | ------------------------ | ---------------------------------------------------- |
-| ]e                       | Next Error                                           |
-| [e                       | Previous Error                                       |
+| ]d                       | Next Error                                           |
+| [d                       | Previous Error                                       |
 | ------------------------ | ---------------------------------------------------- |
 | ]q                       | Next Quickfix                                        |
 | [q                       | Previous Quickfix                                    |
@@ -148,7 +148,7 @@ OBS: This list persist between vim sections
 | ------------------------ | ---------------------------------------------------- |
 | C-s                      | Pin/Unpin buffers (Persist to session)               |
 | SPC b k                  | Kill all buffers expect pinned                       |
-| SPC b K                  | Kill all buffers                                     |
+| SPC b K                  | Kill all buffers except current                      |
 | SPC h l                  | Load last session for this project                   |
 | C-h                      | Move tab to the left                                 |
 | C-l                      | Move tab to the right                                |
