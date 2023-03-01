@@ -5,17 +5,10 @@ return {
     config = function ()
       require("persistence").setup({
         options = {'buffers', 'curdir', 'globals', 'tabpages', 'winsize'},
+        pre_save = function() vim.api.nvim_exec_autocmds('User', { pattern = 'SessionSavePre' }) end,
       })
 
       require("mood-scripts.auto-save-session").setup()
-
-      vim.api.nvim_create_autocmd("VimLeavePre", {
-        group = vim.api.nvim_create_augroup("persistence_pre_save", { clear = true }),
-        callback = function ()
-          vim.cmd("doautocmd User SessionSavePre")
-          require('persistence').save()
-        end
-      })
     end
   }
 }
