@@ -19,7 +19,5 @@ return {
       { "<C-h>",      "<cmd>BufferMovePrevious<cr>",       desc = "Switch Prev Buffer" },
       { "<C-l>",      "<cmd>BufferMoveNext<cr>",           desc = "Switch Next Buffer" },
     },
-    config = function()
-    end,
   }
 }

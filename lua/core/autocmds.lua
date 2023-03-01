@@ -85,7 +85,8 @@ function M.setup()
           [vim.diagnostic.severity.INFO] = { enabled = false },
           [vim.diagnostic.severity.HINT] = { enabled = false },
         },
-        icon_pinned = '',
+        icon_pinned = '󰐃',
+        exclude_ft = {'netrw'},
       })
 
       vim.cmd('call timer_start(50, {-> execute("colorscheme ' .. vim.g.colors_name .. '") })')
