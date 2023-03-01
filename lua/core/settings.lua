@@ -19,10 +19,10 @@ function M.remove_bicycle_small_whells(opts)
   set('i', '<Down>', function() M.show_message("J", "Down Arrow", true) end)
 
   if opts.includeNormalMode then
-    set({ 'n', 'v' }, '<Left>', function() M.show_message("H", "Left Arrow") end)
-    set({ 'n', 'v' }, '<Right>', function() M.show_message("L", "Right Arrow") end)
-    set({ 'n', 'v' }, '<Up>', function() M.show_message("K", "Up Arrow") end)
-    set({ 'n', 'v' }, '<Down>', function() M.show_message("J", "Down Arrow") end)
+    set({ 'n', 'x' }, '<Left>', function() M.show_message("H", "Left Arrow") end)
+    set({ 'n', 'x' }, '<Right>', function() M.show_message("L", "Right Arrow") end)
+    set({ 'n', 'x' }, '<Up>', function() M.show_message("K", "Up Arrow") end)
+    set({ 'n', 'x' }, '<Down>', function() M.show_message("J", "Down Arrow") end)
   end
 end
 
