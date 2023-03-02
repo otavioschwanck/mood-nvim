@@ -51,7 +51,7 @@ local plugins = {
   'norcalli/nvim-colorizer.lua',
   { 'emmanueltouzery/agitator.nvim' },
   'dhruvasagar/vim-table-mode',
-  { 'tpope/vim-commentary', keys = "gc" },
+  { 'tpope/vim-commentary' },
   'machakann/vim-highlightedyank',
   'tpope/vim-surround',
   { 'vim-test/vim-test', init = function ()
