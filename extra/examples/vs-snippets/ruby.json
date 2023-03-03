@@ -14,6 +14,11 @@
         "body": "let(:${1:model}) { create(:$1${2:, $3}) }$0",
         "description": "let(:model) { create(:model, ...) }"
     },
+    "each_with_index": {
+        "prefix": "each_with_index",
+        "body": "each_with_index",
+        "description": "each_with_index"
+    },
     "lettm": {
         "prefix": [
             "lettm",
@@ -2541,6 +2546,11 @@
         "prefix": "instance_double",
         "body": "instance_double",
         "description": "instance_double"
+    },
+    "class_double": {
+        "prefix": "class_double",
+        "body": "class_double",
+        "description": "class_double"
     },
     "be_present": {
         "prefix": "be_present",
