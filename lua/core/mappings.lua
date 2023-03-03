@@ -286,8 +286,8 @@ function M.setup_mappings()
 
   local tmux_win = require("mood-scripts.tmux-integration")
 
-  set({'n', 'i', 'x'}, '<C-w>;', tmux_win.go_to_next, {})
-  set({'n', 'i', 'x'}, '<C-w>,', tmux_win.go_to_prev, {})
+  set({'n', 'x'}, '<C-w>;', tmux_win.go_to_next, {})
+  set({'n', 'x'}, '<C-w>,', tmux_win.go_to_prev, {})
 
   set('n', ']d', vim.diagnostic.goto_next)
   set('n', '[d', vim.diagnostic.goto_prev)
