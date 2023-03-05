@@ -286,6 +286,9 @@ function M.setup_mappings()
 
   local tmux_win = require("mood-scripts.tmux-integration")
 
+  set({'n', 'v'}, ']a', '<cmd>SidewaysJumpRight<CR>')
+  set({'n', 'v'}, '[a', '<cmd>SidewaysJumpLeft<CR>')
+
   set({'n', 'x'}, '<C-w>;', tmux_win.go_to_next, {})
   set({'n', 'x'}, '<C-w>,', tmux_win.go_to_prev, {})
 
