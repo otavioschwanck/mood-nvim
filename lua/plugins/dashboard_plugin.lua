@@ -21,7 +21,7 @@ return { {
       dashboard.button("g", " " .. " Find text", ":Telescope live_grep <CR>"),
       dashboard.button("p", " " .. " User Settings", ":lua require('mood-scripts.open-files').open_dotfiles()<CR>"),
       dashboard.button("h", " " .. " Open Handbook (docs)", ":e ~/.config/nvim/handbook.md <CR>"),
-      dashboard.button("t", "ﲉ " .. " Open Tutorial for mooD", 'lua require("tutorial").start() <CR>'),
+      dashboard.button("t", "ﲉ " .. " Open Tutorial for mooD", ':lua require("tutorial").start() <CR>'),
       dashboard.button("u", " " .. " Update mooD", ':UpdateMood<CR>'),
       dashboard.button("q", " " .. " Quit", ":qa<CR>"),
     }
