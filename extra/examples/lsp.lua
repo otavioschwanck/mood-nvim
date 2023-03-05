@@ -149,7 +149,7 @@ local cmp_mappings = lsp.defaults.cmp_mappings({
   -- Uncomment to input on select in autocomplete
   -- ['<Tab>'] = cmp.mapping.select_next_item({ select = true }),
   -- ['<S-Tab>'] = cmp.mapping.select_prev_item({ select = true }),
-  ['<C-j>'] = cmp.mapping(function(fallback)
+  ['<C-n>'] = cmp.mapping(function(fallback)
     if luasnip.expand_or_locally_jumpable() then
       luasnip.expand_or_jump(1)
     end

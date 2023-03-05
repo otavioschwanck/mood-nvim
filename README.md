@@ -48,6 +48,7 @@ This configuration is made to use with Alacritty and Tmux.  Please install it an
 - New tabs
 - New awesome ruby snippets (every hidden ruby method was turned into a snippet)
 - Way to edit snippets
+- Back to C-n (snippet)
 
 ## 2022-03-01
 - Snippet back to C-j (need to recreate lua/user/lsp.lua)

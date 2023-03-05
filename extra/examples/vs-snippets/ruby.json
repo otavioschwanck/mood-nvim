@@ -1,4 +1,9 @@
 {
+    "itiexp": {
+        "prefix": "itiexp",
+        "body": "it { is_expected.to ${1:be_valid} }$0",
+        "description": "describe 'when ...' do ... end"
+    },
     "descw": {
         "prefix": "descw",
         "body": "describe 'when ${1:something}' do\n\t$0\nend",

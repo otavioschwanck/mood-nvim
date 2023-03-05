@@ -55,7 +55,7 @@
 # f = go to character (next that you input)
 # M = start multiple cursors
 
-# Command to run: f,ldaajyyplMemail<ESC>MM
+# Command to run: f,ldaajyyplMemail<ESC>MM<ESC>
 def my_method(name, last_name, email) # << Start
   @name = name
 end
@@ -101,9 +101,10 @@ end
 # di{ = Delete inside keys (text object)
 # df = Delete until and
 
-# Commands to run: df_f'ca'first_name<SPACE><ESC>f[ds[di{
+# Commands: ffglgl[a[agl
+# PS: Remove extra characters on normal mode with x
 
-my_array = [{ name: 'otavio schwanck' }, [{ name: 'thiago ribeiro' }]] # << Start
+args = [three, four, one, two] # << Start
 
 # Code Goal:
 array = [{ name: first_name }, {}]
@@ -397,7 +398,7 @@ must_be_splitted = [
 # <C-j> = Expand / Go forward on snippets
 # <C-k> = Go back on snippets
 # <Delete> = Delete highlighted text on snippets
-# Commands; jidesc<C-j>#mood<C-j>letm<C-j>mood<C-j><C-j>name:<SPACE>'true'<C-j><Enter><Enter>contw<C-j>valid<C-j>itiexp<C-j><ESC>
+# Commands; jidesc<C-k#mood<C-kletm<C-kmood<C-k<C-kname:<SPACE>'true'<C-k<Enter><Enter>contw<C-kvalid<C-kitiexp<C-k<ESC>
 
 # << Start Here
 
