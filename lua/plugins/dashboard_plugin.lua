@@ -14,16 +14,16 @@ return { {
 
     dashboard.section.header.val = vim.split(logo, "\n")
     dashboard.section.buttons.val = {
-      dashboard.button("l", "󰉙 " .. " Load Session", ':lua require("persistence").load() <CR>'),
-      dashboard.button("s", " " .. " Git Status", ":Telescope git_status <CR>"),
-      dashboard.button("n", " " .. " New file", ":ene <BAR> startinsert <CR>"),
-      dashboard.button("r", " " .. " Recent files", ":Telescope oldfiles <CR>"),
-      dashboard.button("g", " " .. " Find text", ":Telescope live_grep <CR>"),
-      dashboard.button("p", " " .. " User Settings", ":lua require('mood-scripts.open-files').open_dotfiles()<CR>"),
-      dashboard.button("h", " " .. " Open Handbook (docs)", ":e ~/.config/nvim/handbook.md <CR>"),
-      dashboard.button("t", "ﲉ " .. " Open Tutorial for mooD", ':lua require("tutorial").start() <CR>'),
-      dashboard.button("u", " " .. " Update mooD", ':UpdateMood<CR>'),
-      dashboard.button("q", " " .. " Quit", ":qa<CR>"),
+      dashboard.button("SPC h l", "󰉙 " .. " Load Session", ':lua require("persistence").load() <CR>'),
+      dashboard.button("SPC tab", " " .. " Git Status", ":Telescope git_status <CR>"),
+      dashboard.button("SPC f r", " " .. " Recent files", ":Telescope oldfiles <CR>"),
+      dashboard.button("SPC s p", " " .. " Find text", ":Telescope live_grep <CR>"),
+      dashboard.button("SPC h m", "󰑶 " .. " Mason (Manage LSP / Linters)", ":Mason<CR>"),
+      dashboard.button("SPC f p", " " .. " User Settings", ":lua require('mood-scripts.open-files').open_dotfiles()<CR>"),
+      dashboard.button("SPC h h", " " .. " Open Handbook (docs)", ":e ~/.config/nvim/handbook.md <CR>"),
+      dashboard.button("SPC h H", "ﲉ " .. " Open Tutorial for mooD", ':lua require("tutorial").start() <CR>'),
+      dashboard.button("SPC h u", " " .. " Update mooD", ':UpdateMood<CR>'),
+      dashboard.button("SPC q q", " " .. " Quit", ":qa<CR>"),
     }
     for _, button in ipairs(dashboard.section.buttons.val) do
       button.opts.hl = "AlphaButtons"

@@ -78,6 +78,7 @@ function M.setup_which_key()
     u = { ":UpdateMood<CR>", "Update mooD" },
     d = { ":!rm -rf ~/.local/share/nvim/swap/*<CR>", "Delete SWP files" },
     r = { ":LspRestart<CR>", "Restart LSP" },
+    m = { ":Mason<CR>", "Mason" },
     T = { ":lua require('tutorial').start()<CR>", "Start Tutorial" }
     },
   A = { ":call OpenTestAlternateAndSplit()<cr>", "Go to Test (split)" },
