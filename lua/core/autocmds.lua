@@ -89,8 +89,7 @@ function M.setup()
         exclude_ft = {'netrw'},
         closable = false,
         minimum_padding = 1,
-        maximum_padding = 1,
-        icon_custom_colors = true,
+        maximum_padding = 1
       })
 
       vim.cmd('call timer_start(50, {-> execute("colorscheme ' .. vim.g.colors_name .. '") })')
