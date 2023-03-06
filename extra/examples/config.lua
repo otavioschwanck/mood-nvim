@@ -16,6 +16,7 @@ require('tmux-awesome-manager').setup({
     front = { { cmd = 'yarn start', name = 'react server' } }
   },
   default_size = '25%', -- use Alt + , and Alt + ; to switch between neovim and tmux panes
+  use_icon = true,
   open_new_as = 'pane', -- change to window to open terms in new tab
 })
 
