@@ -27,8 +27,8 @@ function M.setup_which_key()
   },
   c = {
     name = "+Lsp",
-    a = { "<cmd>lua vim.lsp.buf.range_code_action()<CR>", "Code Action" }
-    },
+    a = { "<cmd>lua vim.lsp.buf.code_action()<CR>", "Code Action" }
+  },
   m = {
     name = "+Ruby Extract",
     l = { ":RExtractLet<CR>", "Extract Let" },
