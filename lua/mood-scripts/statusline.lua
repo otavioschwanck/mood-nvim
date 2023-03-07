@@ -247,51 +247,16 @@ local function setup()
   -- for lualine it's any number greater then 2
   ins_left {
     function()
+      return require('nvim-lightbulb').get_status_text()
+    end,
+    color = { fg = colors.yellow }
+  }
+
+  ins_left {
+    function()
       return '%='
     end,
   }
-
-  local default_servers = {
-    {
-      buffer_name = 'Rails Console',
-      text = ' Console',
-    },
-    {
-      buffer_name = 'Rails Server',
-      text = ' Server',
-    },
-    {
-      buffer_name = 'Yarn Dev',
-      text = ' Server',
-    },
-    {
-      buffer_name = 'Brownie Console',
-      text = ' Console',
-    },
-    {
-      buffer_name = 'Brownie Server',
-      text = ' Console',
-    },
-  }
-
-  local function is_server_running()
-    local server_texts = {}
-    local servers = vim.g.servers_on_lualine or default_servers
-
-    local buffers = vim.api.nvim_list_bufs()
-
-    for b_index, b in pairs(buffers) do
-      local buf_name = vim.fn.bufname(b)
-
-      for s_index, server in pairs(servers) do
-        if string.find(buf_name, server.buffer_name) then
-          table.insert(server_texts, server.text)
-        end
-      end
-    end
-    return table.concat(server_texts, "  ")
-  end
-
   ins_right {
     'progress',
   }
@@ -300,12 +265,6 @@ local function setup()
     function()
       return 'ﴵ %-2v'
     end,
-    cond = has_50_space
-  }
-
-  ins_right {
-    is_server_running,
-    color = { fg = colors.green },
     cond = has_50_space
   }
 

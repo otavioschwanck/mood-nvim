@@ -1,6 +1,7 @@
 return { { 'VonHeikemen/lsp-zero.nvim', dependencies = {
   { 'neovim/nvim-lspconfig' }, -- Required
   { 'williamboman/mason.nvim' }, -- Optional
+  { 'kosayoda/nvim-lightbulb' },
   { 'hrsh7th/cmp-calc' },
   { 'williamboman/mason-lspconfig.nvim' }, -- Optional
   -- Autocompletion
@@ -19,6 +20,22 @@ return { { 'VonHeikemen/lsp-zero.nvim', dependencies = {
   require("user.lsp")
   local util = require("luasnip.util.util")
   local node_util = require("luasnip.nodes.util")
+
+    require('nvim-lightbulb').setup({
+      autocmd = {enabled = true},
+      sign = {
+        enabled = false,
+        -- Priority of the gutter sign
+        priority = 10,
+      },
+      status_text = {
+        enabled = true,
+        -- Text to provide when code actions are available
+        text = "",
+        -- Text to provide when no actions are available
+        text_unavailable = ""
+      },
+    })
 
   require('luasnip').setup({
     parser_nested_assembler = function(_, snippet)
