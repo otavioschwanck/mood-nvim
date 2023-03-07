@@ -172,7 +172,7 @@ local function setup()
     filename_with_icon,
     cond = conditions.buffer_not_empty,
     colored = true,
-    color = { fg = colors.magenta, gui = 'bold' },
+    color = { fg = colors.blue, gui = 'bold' },
   }
 
   ins_left_both {
@@ -200,32 +200,8 @@ local function setup()
   }
 
   ins_left_both {
-    'diagnostics',
-    sources = { 'nvim_diagnostic' },
-    symbols = { error = ' ', warn = ' ', info = ' ' },
-    diagnostics_color = {
-      color_error = { fg = colors.red },
-      color_warn = { fg = colors.yellow },
-      color_info = { fg = colors.cyan },
-    },
-    cond = has_30_space
-  }
-
-  ins_left_both {
     require('cool-substitute.status').status_with_icons,
     color = function() return { fg = require('cool-substitute.status').status_color() } end
-  }
-
-  ins_left {
-    'diff',
-    -- Is it me or the symbol for modified us really weird
-    symbols = { added = ' ', modified = '柳 ', removed = ' ' },
-    diff_color = {
-      added = { fg = colors.green },
-      modified = { fg = colors.orange },
-      removed = { fg = colors.red },
-    },
-    cond = has_50_space,
   }
 
   ins_left {
@@ -257,20 +233,37 @@ local function setup()
       return '%='
     end,
   }
+
   ins_right {
-    'progress',
+    'diff',
+    -- Is it me or the symbol for modified us really weird
+    symbols = { added = ' ', modified = '柳', removed = ' ' },
+    diff_color = {
+      added = { fg = colors.green },
+      modified = { fg = colors.orange },
+      removed = { fg = colors.red },
+    },
+    cond = has_50_space,
+  }
+
+  ins_right_both {
+    'diagnostics',
+    sources = { 'nvim_diagnostic' },
+    symbols = { error = ' ', warn = ' ', info = ' ' },
+    diagnostics_color = {
+      color_error = { fg = colors.red },
+      color_warn = { fg = colors.yellow },
+      color_info = { fg = colors.cyan },
+    },
+    cond = has_30_space
   }
 
   ins_right {
     function()
-      return 'ﴵ %-2v'
+      return '󰕭 %-2v'
     end,
     cond = has_50_space
   }
-
-  local function filetype_cond()
-    return conditions.buffer_not_empty() and has_80_space()
-  end
 
   ins_right {
     function()
@@ -278,14 +271,6 @@ local function setup()
     end,
     cond = has_50_space,
     color = { fg = colors.green },
-  }
-
-  ins_right {
-    function()
-      return require('tmux-awesome-manager.src.integrations.status').status_with_icons()
-    end,
-    cond = has_50_space,
-    color = { fg = colors.magenta, gui = 'bold' },
   }
 
   ins_right {
