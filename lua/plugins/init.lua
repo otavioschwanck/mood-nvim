@@ -104,7 +104,6 @@ local plugins = {
       border = "rounded"
     }
   } },
-  'ecomba/vim-ruby-refactoring',
   { "MunifTanjim/nui.nvim", lazy = true },
   { 'nvim-tree/nvim-web-devicons', opts = {
     override = {
