@@ -78,7 +78,7 @@ function M.setup_which_key()
     r = { ":LspRestart<CR>", "Restart LSP" },
     m = { ":Mason<CR>", "Mason" },
     T = { ":lua require('tutorial').start()<CR>", "Start Tutorial" }
-    },
+  },
   A = { ":call OpenTestAlternateAndSplit()<cr>", "Go to Test (split)" },
   ["."] = { ":Telescope file_browser path=%:p:h hidden=true respect_gitignore=false<CR>", "File Browser" },
   p = { ":Telescope yank_history<CR>", "Yank History" },
@@ -207,7 +207,7 @@ function M.setup_which_key()
       c = {":cclose<CR>", "Quick Fix Close"},
       d = { ":DiffviewClose<CR>", "Close Diffview" }
     }
-  }, { prefix = "<leader>", silent = false })
+  }, { prefix = "<leader>", silent = true })
 end
 
 function M.setup_mappings()

@@ -45,6 +45,7 @@ local function setup()
       component_separators = '',
       section_separators = '',
       globalstatus = false,
+      disabled_filetypes = { statusline = { 'neo-tree' } },
       theme = {
         -- We are going to use lualine_c an lualine_x as left and
         -- right section. Both are highlighted by c theme .  So we
