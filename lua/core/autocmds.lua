@@ -88,6 +88,8 @@ function M.setup()
         icon_pinned = '󰐃',
         exclude_ft = {'netrw'},
         closable = false,
+        icon_separator_active = '▎',
+        icon_separator_inactive = ' ',
         minimum_padding = 1,
         maximum_padding = 1
       })
