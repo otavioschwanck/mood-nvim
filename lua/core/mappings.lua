@@ -157,7 +157,6 @@ function M.setup_which_key()
     },
   m = {
     name = "+Ruby",
-    a = { ":RAddParameter<CR>", "Add Parameter" },
     c = { ":call GetClassName()<CR>", "Copy Class Name to Clipboard" },
     C = { ":call SearchClassName()<CR>", "Search current class on project" },
     d = { ":lua require('mood-scripts.rubocop').comment_rubocop()<CR>", "Comment Rubocop Error" },
