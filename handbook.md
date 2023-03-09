@@ -337,6 +337,21 @@ Just press C-p to expand.
 | SPC t a | TOggle camelCaseB    |
 |---------|----------------------|
 
+# ChatGPT
+
+Press `SPC i` to open ChatGPT
+
+| Command | Description                           |
+|---------|---------------------------------------|
+| <C-c>   | to close chat window.                 |
+| <C-u>   | scroll up chat window.                |
+| <C-d>   | scroll down chat window.              |
+| <C-y>   | to copy/yank last answer.             |
+| <C-o>   | Toggle settings window.               |
+| <C-n>   | Start new session.                    |
+| <Tab>   | Cycle over windows. Press <C-o> first |
+| <C-i>   | [Edit Window] use response as input.  |
+|---------|---------------------------------------|
 
 # Command mode
 
