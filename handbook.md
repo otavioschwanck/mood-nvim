@@ -339,6 +339,13 @@ Just press C-p to expand.
 
 # ChatGPT
 
+1 - Go to https://beta.openai.com/account/api-keys and get an api-key.
+2 - Add to your zshrc:
+
+```ruby
+export OPENAI_API_KEY='your_key_here'
+```
+
 Press `SPC i` to open ChatGPT
 
 | Command | Description                           |
