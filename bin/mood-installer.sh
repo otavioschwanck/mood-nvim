@@ -2,7 +2,7 @@
 APT_PACKAGES=(sqlite3 libsqlite3-dev xclip python3-pip tmux)
 NPM_PACKAGES=(neovim diagnostic-languageserver)
 GEMS=(solargraph neovim bundler)
-MOOD_GIT=(git@github.com:otavioschwanck/mood-nvim.git)
+MOOD_GIT=(https://github.com/otavioschwanck/mood-nvim.git)
 NVIM_DIR=".config/nvim"
 NPM_DIR="/npm"
 export LAZY_VER="0.35" # LAZYGIT VERSION
