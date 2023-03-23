@@ -1,5 +1,5 @@
 #!/bin/bash
-APT_PACKAGES=(sqlite3 libsqlite3-dev neovim xclip python3-pip tmux alacritty)
+APT_PACKAGES=(sqlite3 libsqlite3-dev xclip python3-pip tmux)
 NPM_PACKAGES=(neovim diagnostic-languageserver)
 GEMS=(solargraph neovim bundler)
 MOOD_GIT=(git@github.com:otavioschwanck/mood-nvim.git)
@@ -116,9 +116,25 @@ run_pre_check () {
   type python3 >/dev/null 2>&1 && PYTHON3_CHECK=true || PYTHON3_CHECK=false
   type rvm >/dev/null 2>&1 && RVM_CHECK=true || RVM_CHECK=false
   type rbenv >/dev/null 2>&1 && RBENV_CHECK=true || RBENV_CHECK=false
+  command -v nvim >/dev/null
+
+  if [[ $? -ne 0 ]]; then
+    NVIM_CHECK=false
+  else
+    NVIM_CHECK=true
+    nvim_version=$(nvim --version | head -1 | grep -o '[0-9]\.[0-9]')
+
+    if (( $(echo "$nvim_version < 0.8 " |bc -l) )); then
+      NVIM_VERSION_CHECK=false
+    else
+      NVIM_VERSION_CHECK=true
+    fi
+  fi
   echo "Your system is running: $MACHINE"
   echo "Your bash profile is: $BASH_PROFILE"
   printf "%20s     %6s\n" "CHECK" "STATUS"
+  check_color "NVIM is installed" "$NVIM_CHECK"
+  check_color "NVIM ver. >= 0.8" "$NVIM_VERSION_CHECK"
   check_color "Access to Mood Repo" "$GIT_CHECK"
   check_color "NVM is installed" "$NVM_CHECK"
   check_color "NPM is installed" "$NPM_CHECK"
@@ -130,10 +146,10 @@ run_pre_check () {
 # Checks if everything is alright before installing
 run_post_check () {
   echo "================= Checking post installation environment ================="
-  [ -d ~/.config/nvim ] && NVIM_CHECK=true || NVIM_CHECK=false
+  [ -d ~/.config/nvim ] && MOOD_CHECK=true || MOOD_CHECK=false
   [ -f ~/"$FONTS_LIBRARY/Fira Code Bold Nerd Font Complete.ttf" ] && FONTS_CHECK=true || FONTS_CHECK=false
   printf "%20s     %6s\n" "CHECK" "STATUS"
-  check_color "Nvim was installed" "$NVIM_CHECK"
+  check_color "Mood was installed" "$MOOD_CHECK"
   check_color "Fonts were installed" "$FONTS_CHECK"
 }
 
@@ -212,6 +228,15 @@ install_lazygit_mac () {
 }
 
 check_mandatory_parameters() {
+  if [ "$NVIM_CHECK" = false ];then
+    echo "It seems that Neovim is not installed, please install it with version >= 0.8 and run this script again."
+    exit 1
+  fi
+
+  if [ "$NVIM_VERSION_CHECK" = false ];then
+    echo "It seems that your Neovim version is not compatible with this configuration, please make sure it's version is >= 0.8"
+    exit 1
+  fi
   if [ "$GIT_CHECK" = false ]; then
     echo "Could not connect to MooD repo on Github, please make sure you have Git credentials to clone the repo: ${MOOD_GIT}"
     exit 1
@@ -220,7 +245,7 @@ check_mandatory_parameters() {
     echo "Neither NVM or NPM were found on your system, please install one of them and run this script again."
     exit 1
   fi
-  if [ "$PYTHON3_CHECK" = true ]; then
+  if [ "$PYTHON3_CHECK" = false ]; then
     echo "Python3 was not found on your system, please install it and run this script again."
     exit 1
   fi
@@ -256,9 +281,9 @@ case "${machine}" in
 esac
 
 
-# install_fonts
-# install_gems
-# install_nvim
+install_fonts
+install_gems
+install_nvim
 run_post_check
 
 echo "Script finished!"
