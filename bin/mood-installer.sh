@@ -2,7 +2,7 @@
 APT_PACKAGES=(sqlite3 libsqlite3-dev xclip python3-pip tmux)
 NPM_PACKAGES=(neovim diagnostic-languageserver)
 GEMS=(solargraph neovim bundler)
-MOOD_GIT=(git@github.com:otavioschwanck/mood-nvim.git)
+MOOD_GIT=(https://github.com/otavioschwanck/mood-nvim.git)
 NVIM_DIR=".config/nvim"
 NPM_DIR="/npm"
 export LAZY_VER="0.35" # LAZYGIT VERSION
@@ -111,7 +111,7 @@ run_pre_check () {
   echo "================= Checking install environment ================="
   [ -d ~/.nvm ] && NVM_CHECK=true || NVM_CHECK=false
   [ -d ~/.npm ] && NPM_CHECK=true || NPM_CHECK=false
-  GIT_SSH_COMMAND="ssh -o PasswordAuthentication=no " git ls-remote -q $MOOD_GIT &> /dev/null
+  GIT_SSH_COMMAND= git ls-remote -q $MOOD_GIT &> /dev/null
   [[ $? = 0 ]] && GIT_CHECK=true || GIT_CHECK=false
   type python3 >/dev/null 2>&1 && PYTHON3_CHECK=true || PYTHON3_CHECK=false
   type rvm >/dev/null 2>&1 && RVM_CHECK=true || RVM_CHECK=false
