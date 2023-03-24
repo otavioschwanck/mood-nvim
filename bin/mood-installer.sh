@@ -300,6 +300,15 @@ mac_workflow () {
   ulimit -S -n 200048
 }
 
+install_fzf () {
+  if [ "$(which fzf)" = "" ];then
+    echo "================= INSTALLING FZF ================="
+    git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
+    ~/.fzf/install
+    rm -rf ~/.fzf
+  fi
+}
+
 # SCRIPT QUESTIONAIRE
 case "${machine}" in
   Linux)     linux_workflow;;
@@ -310,6 +319,7 @@ esac
 
 install_fonts
 install_gems
+install_fzf
 install_nvim
 run_post_check
 
