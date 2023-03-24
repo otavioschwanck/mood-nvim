@@ -67,7 +67,7 @@ install_packages_mac () {
   install_tmux_package_manager
 }
 
-install_packages_linux () {
+install_nvm () {
   echo "================= INSTALLING NVM ================="
   curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
   NVM_CHECK=true
