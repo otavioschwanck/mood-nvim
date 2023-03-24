@@ -79,9 +79,9 @@ install_nvm () {
 install_nvim_ppa () {
   echo "================= INSTALLING NVIM with ppa:neovim-ppa/unstable ================="
   sudo apt remove neovim
-  sudo add-apt-repository ppa:neovim-ppa/unstable
-  sudo apt update
-  sudo apt install neovim
+  sudo add-apt-repository ppa:neovim-ppa/unstable -y
+  sudo apt update -y
+  sudo apt install neovim -y
   source ~/"$BASH_PROFILE"
   NVIM_CHECK=true
   NVIM_VERSION_CHECK=true
