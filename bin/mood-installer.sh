@@ -62,7 +62,7 @@ install_packages_linux () {
 
 install_packages_mac () {
   echo "================= INSTALLING PACKAGES ================="
-  brew install git-delta readline openssl zlib postgresql sqlite ruby-build rbenv libffi ripgrep tmux tmuxinator alacritty bash
+  brew install git-delta readline openssl zlib postgresql sqlite libffi ripgrep tmux tmuxinator alacritty bash
   brew link libpq --force
   install_tmux_package_manager
 }
@@ -70,7 +70,10 @@ install_packages_mac () {
 install_nvm () {
   echo "================= INSTALLING NVM ================="
   curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
+  source ~/"$BASH_PROFILE"
+  nvm install --lts
   NVM_CHECK=true
+  NPM_CHECK=true
 }
 
 install_nvim_ppa () {
@@ -79,6 +82,7 @@ install_nvim_ppa () {
   sudo add-apt-repository ppa:neovim-ppa/unstable
   sudo apt update
   sudo apt install neovim
+  source ~/"$BASH_PROFILE"
   NVIM_CHECK=true
   NVIM_VERSION_CHECK=true
 }
@@ -97,6 +101,9 @@ install_ruby_linux () {
   git clone https://github.com/rbenv/ruby-build.git
   cat ruby-build/install.sh
   PREFIX=/usr/local sudo ./ruby-build/install.sh
+  echo 'export PATH="$HOME/.rbenv/bin:$PATH"' >> ~/"$BASH_PROFILE"
+  echo 'eval "$(rbenv init -)"' >> ~/"$BASH_PROFILE"
+  source ~/"$BASH_PROFILE"
   echo "gem: --no-document" > ~/.gemrc
   prompt_ruby_versions
   for i in "${RUBY_VERSIONS[@]}"; do rbenv install $i -s; echo "Installed ruby version $i"; done
@@ -104,6 +111,7 @@ install_ruby_linux () {
 
 install_ruby_mac () {
   echo "================= INSTALLING RUBY ON MAC ================="
+  brew install rbenv ruby-build
   echo "gem: --no-document" > ~/.gemrc
   prompt_ruby_versions
   for i in "${RUBY_VERSIONS[@]}"; do rbenv install $i -s; echo "Installed ruby version $i"; done
