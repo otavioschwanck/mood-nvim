@@ -70,7 +70,7 @@ install_packages_mac () {
 install_nvm () {
   echo "================= INSTALLING NVM ================="
   curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
-  source ~/"$BASH_PROFILE"
+  source ~/$BASH_PROFILE
   nvm install --lts
   NVM_CHECK=true
   NPM_CHECK=true
@@ -80,9 +80,9 @@ install_nvim_ppa () {
   echo "================= INSTALLING NVIM with ppa:neovim-ppa/unstable ================="
   sudo apt remove neovim
   sudo add-apt-repository ppa:neovim-ppa/unstable -y
-  sudo apt update -y
-  sudo apt install neovim -y
-  source ~/"$BASH_PROFILE"
+  sudo apt update -qq -y
+  sudo apt install neovim -qq -y
+  source ~/$BASH_PROFILE
   NVIM_CHECK=true
   NVIM_VERSION_CHECK=true
 }
@@ -101,9 +101,9 @@ install_ruby_linux () {
   git clone https://github.com/rbenv/ruby-build.git
   cat ruby-build/install.sh
   PREFIX=/usr/local sudo ./ruby-build/install.sh
-  echo 'export PATH="$HOME/.rbenv/bin:$PATH"' >> ~/"$BASH_PROFILE"
-  echo 'eval "$(rbenv init -)"' >> ~/"$BASH_PROFILE"
-  source ~/"$BASH_PROFILE"
+  echo 'export PATH="$HOME/.rbenv/bin:$PATH"' >> ~/$BASH_PROFILE
+  echo 'eval "$(rbenv init -)"' >> ~/$BASH_PROFILE
+  source ~/$BASH_PROFILE
   echo "gem: --no-document" > ~/.gemrc
   prompt_ruby_versions
   for i in "${RUBY_VERSIONS[@]}"; do rbenv install $i -s; echo "Installed ruby version $i"; done
