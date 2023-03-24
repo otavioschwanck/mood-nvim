@@ -73,6 +73,15 @@ install_nvm () {
   NVM_CHECK=true
 }
 
+install_nvim_ppa () {
+  echo "================= INSTALLING NVIM with ppa:neovim-ppa/unstable ================="
+  sudo apt remove neovim
+  sudo add-apt-repository ppa:neovim-ppa/unstable
+  sudo apt update
+  sudo apt install neovim
+  NVIM_CHECK=true
+  NVIM_VERSION_CHECK=true
+}
 prompt_ruby_versions () {
   echo "Which ruby versions would you like to install? Use spaces to install more than one"
   echo "Example: 2.7.1 3.0.1 3.1.1"
@@ -236,10 +245,12 @@ install_lazygit_mac () {
 check_mandatory_parameters() {
   if [ "$NVIM_CHECK" = false ];then
     echo "It seems that Neovim is not installed, please install it with version >= 0.8 and run this script again."
+    ask_question "Nvim PPA > 0.8" install_nvim_ppa
   fi
 
   if [ "$NVIM_VERSION_CHECK" = false ];then
     echo "It seems that your Neovim version is not compatible with this configuration, please make sure it's version is >= 0.8"
+    ask_question "Nvim PPA > 0.8" install_nvim_ppa
   fi
   if [ "$GIT_CHECK" = false ]; then
     echo "Could not connect to MooD repo on Github, please make sure you have Git credentials to clone the repo: ${MOOD_GIT}"
