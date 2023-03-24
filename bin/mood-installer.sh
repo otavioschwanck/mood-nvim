@@ -244,14 +244,17 @@ check_mandatory_parameters() {
   if [ "$GIT_CHECK" = false ]; then
     echo "Could not connect to MooD repo on Github, please make sure you have Git credentials to clone the repo: ${MOOD_GIT}"
   fi
-  if [ "$NVM_CHECK" = false ] || [ "$NPM_CHECK" = false ]; then
-    echo "Neither NVM or NPM were found on your system, please install one of them and run this script again."
+  if [ "$NVM_CHECK" = false ]; then
+    echo "NVM was not found on your system, please install it and run this script again."
     ask_question "NVM" install_nvm
+  fi
+  if [ "$NPM_CHECK" = false ]; then
+    echo "NPM was not found on your system, please install it and run this script again."
   fi
   if [ "$PYTHON3_CHECK" = false ]; then
     echo "Python3 was not found on your system, please install it and run this script again."
   fi
-  if [[ "$NVIM_CHECK" = false || "$NVM_CHECK" = false || "$NVIM_VERSION_CHECK" = false || "$GIT_CHECK" = false || "$PYTHON3_CHECK" = false ]]; then
+  if [ "$NVIM_CHECK" = false ] || [ "$NVM_CHECK" = false ] || [ "$NVIM_VERSION_CHECK" = false ] || [ "$GIT_CHECK" = false ] || [ "$PYTHON3_CHECK" = false ]; then
     exit 1
   fi
 }
