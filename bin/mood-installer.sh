@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/bash -i
 APT_PACKAGES=(sqlite3 libsqlite3-dev xclip python3-pip tmux)
 NPM_PACKAGES=(neovim diagnostic-languageserver)
 GEMS=(solargraph neovim bundler)
@@ -62,11 +62,30 @@ install_packages_linux () {
 
 install_packages_mac () {
   echo "================= INSTALLING PACKAGES ================="
-  brew install git-delta readline openssl zlib postgresql sqlite ruby-build rbenv libffi ripgrep tmux tmuxinator alacritty bash
+  brew install git-delta readline openssl zlib postgresql sqlite libffi ripgrep tmux tmuxinator alacritty bash
   brew link libpq --force
   install_tmux_package_manager
 }
 
+install_nvm () {
+  echo "================= INSTALLING NVM ================="
+  curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
+  source ~/$BASH_PROFILE
+  nvm install --lts
+  NVM_CHECK=true
+  NPM_CHECK=true
+}
+
+install_nvim_ppa () {
+  echo "================= INSTALLING NVIM with ppa:neovim-ppa/unstable ================="
+  sudo apt remove neovim
+  sudo add-apt-repository ppa:neovim-ppa/unstable -y
+  sudo apt update -qq -y
+  sudo apt install neovim -qq -y
+  source ~/$BASH_PROFILE
+  NVIM_CHECK=true
+  NVIM_VERSION_CHECK=true
+}
 prompt_ruby_versions () {
   echo "Which ruby versions would you like to install? Use spaces to install more than one"
   echo "Example: 2.7.1 3.0.1 3.1.1"
@@ -82,6 +101,9 @@ install_ruby_linux () {
   git clone https://github.com/rbenv/ruby-build.git
   cat ruby-build/install.sh
   PREFIX=/usr/local sudo ./ruby-build/install.sh
+  echo 'export PATH="$HOME/.rbenv/bin:$PATH"' >> ~/$BASH_PROFILE
+  echo 'eval "$(rbenv init -)"' >> ~/$BASH_PROFILE
+  source ~/$BASH_PROFILE
   echo "gem: --no-document" > ~/.gemrc
   prompt_ruby_versions
   for i in "${RUBY_VERSIONS[@]}"; do rbenv install $i -s; echo "Installed ruby version $i"; done
@@ -89,6 +111,7 @@ install_ruby_linux () {
 
 install_ruby_mac () {
   echo "================= INSTALLING RUBY ON MAC ================="
+  brew install rbenv ruby-build
   echo "gem: --no-document" > ~/.gemrc
   prompt_ruby_versions
   for i in "${RUBY_VERSIONS[@]}"; do rbenv install $i -s; echo "Installed ruby version $i"; done
@@ -230,23 +253,27 @@ install_lazygit_mac () {
 check_mandatory_parameters() {
   if [ "$NVIM_CHECK" = false ];then
     echo "It seems that Neovim is not installed, please install it with version >= 0.8 and run this script again."
-    exit 1
+    ask_question "Nvim PPA > 0.8" install_nvim_ppa
   fi
 
   if [ "$NVIM_VERSION_CHECK" = false ];then
     echo "It seems that your Neovim version is not compatible with this configuration, please make sure it's version is >= 0.8"
-    exit 1
+    ask_question "Nvim PPA > 0.8" install_nvim_ppa
   fi
   if [ "$GIT_CHECK" = false ]; then
     echo "Could not connect to MooD repo on Github, please make sure you have Git credentials to clone the repo: ${MOOD_GIT}"
-    exit 1
   fi
-  if [ "$NVM_CHECK" = false ] || [ "$NPM_CHECK" = false ]; then
-    echo "Neither NVM or NPM were found on your system, please install one of them and run this script again."
-    exit 1
+  if [ "$NVM_CHECK" = false ]; then
+    echo "NVM was not found on your system, please install it and run this script again."
+    ask_question "NVM" install_nvm
+  fi
+  if [ "$NPM_CHECK" = false ]; then
+    echo "NPM was not found on your system, please install it and run this script again."
   fi
   if [ "$PYTHON3_CHECK" = false ]; then
     echo "Python3 was not found on your system, please install it and run this script again."
+  fi
+  if [ "$NVIM_CHECK" = false ] || [ "$NVM_CHECK" = false ] || [ "$NVIM_VERSION_CHECK" = false ] || [ "$GIT_CHECK" = false ] || [ "$PYTHON3_CHECK" = false ]; then
     exit 1
   fi
 }
