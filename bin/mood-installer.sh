@@ -251,7 +251,7 @@ check_mandatory_parameters() {
   if [ "$PYTHON3_CHECK" = false ]; then
     echo "Python3 was not found on your system, please install it and run this script again."
   fi
-  if [ "$NVIM_CHECK" = false || "$NVM_CHECK" = false || "$NVIM_VERSION_CHECK" = false || "$GIT_CHECK" = false || "$PYTHON3_CHECK" = false  ]; then
+  if [ "$NVIM_CHECK" = false || "$NVM_CHECK" = false || "$NVIM_VERSION_CHECK" = false || "$GIT_CHECK" = false || "$PYTHON3_CHECK" = false ]; then
     exit 1
   fi
 }
