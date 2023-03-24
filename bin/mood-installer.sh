@@ -67,6 +67,12 @@ install_packages_mac () {
   install_tmux_package_manager
 }
 
+install_packages_linux () {
+  echo "================= INSTALLING NVM ================="
+  curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
+  NVM_CHECK=true
+}
+
 prompt_ruby_versions () {
   echo "Which ruby versions would you like to install? Use spaces to install more than one"
   echo "Example: 2.7.1 3.0.1 3.1.1"
@@ -230,23 +236,22 @@ install_lazygit_mac () {
 check_mandatory_parameters() {
   if [ "$NVIM_CHECK" = false ];then
     echo "It seems that Neovim is not installed, please install it with version >= 0.8 and run this script again."
-    exit 1
   fi
 
   if [ "$NVIM_VERSION_CHECK" = false ];then
     echo "It seems that your Neovim version is not compatible with this configuration, please make sure it's version is >= 0.8"
-    exit 1
   fi
   if [ "$GIT_CHECK" = false ]; then
     echo "Could not connect to MooD repo on Github, please make sure you have Git credentials to clone the repo: ${MOOD_GIT}"
-    exit 1
   fi
   if [ "$NVM_CHECK" = false ] || [ "$NPM_CHECK" = false ]; then
     echo "Neither NVM or NPM were found on your system, please install one of them and run this script again."
-    exit 1
+    ask_question "NVM" install_nvm
   fi
   if [ "$PYTHON3_CHECK" = false ]; then
     echo "Python3 was not found on your system, please install it and run this script again."
+  fi
+  if [ "$NVIM_CHECK" = false || "$NVM_CHECK" = false || "$NVIM_VERSION_CHECK" = false || "$GIT_CHECK" = false || "$PYTHON3_CHECK" = false  ]; then
     exit 1
   fi
 }
