@@ -3,7 +3,25 @@ return {
   'RRethy/nvim-treesitter-endwise',
   { 'nvim-treesitter/nvim-treesitter', build = ':TSUpdate', config = function()
     require 'nvim-treesitter.configs'.setup {
-      ensure_installed = "all",
+      ensure_installed = {
+        "ruby",
+        "html",
+        "css",
+        "scss",
+        "javascript",
+        "typescript",
+        "solidity",
+        "yaml",
+        "json",
+        "lua",
+        "vim",
+        "help",
+        "query",
+        "embedded_template",
+        "bash"
+      },
+
+      auto_install = true,
 
       textobjects = {
         move = {
