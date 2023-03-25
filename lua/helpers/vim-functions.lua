@@ -285,7 +285,7 @@ function M.setup()
 
     function s:UpdateMood()
       execute "!cd ~/.config/nvim;git checkout HEAD .;git pull origin main -f"
-      execute "Lazy sync"
+      execute "Lazy restore"
     endfunction
 
     command! CleanConfigs :call s:CleanConfigs()
