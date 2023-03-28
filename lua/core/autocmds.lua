@@ -76,7 +76,6 @@ function M.setup()
       require('core.mappings').setup()
       require('user.keybindings')
       require('user.config')
-      require('mood-scripts.bg-color').setup()
 
       require('bufferline').setup({
         diagnostics = {
@@ -95,6 +94,7 @@ function M.setup()
       })
 
       vim.cmd('call timer_start(50, {-> execute("colorscheme ' .. vim.g.colors_name .. '") })')
+      vim.fn.timer_start(50, function() require('mood-scripts.statusline')() end)
     end,
   })
 
