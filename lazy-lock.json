@@ -6,6 +6,7 @@
   "agitator.nvim": { "branch": "main", "commit": "838dd14fb89687b4f054724d4fa55d2317eb3c4b" },
   "alpha-nvim": { "branch": "main", "commit": "dafa11a6218c2296df044e00f88d9187222ba6b0" },
   "barbar.nvim": { "branch": "master", "commit": "1c9d324c493650667ff621c835d552e56fd229ca" },
+  "beacon.nvim": { "branch": "main", "commit": "d02ee7dfcc999537c2f09abdf667aab52f8648f3" },
   "black": { "branch": "main", "commit": "bf5abdb0b6cf6644628977230736a0a6478c1bff" },
   "bufferize.vim": { "branch": "main", "commit": "ec7c4445a97f19e5784a6fb6ad3c3d4a8ff505ac" },
   "catppuccin": { "branch": "main", "commit": "73587f9c454da81679202f1668c30fea6cdafd5e" },

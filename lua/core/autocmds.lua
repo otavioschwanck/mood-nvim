@@ -94,7 +94,10 @@ function M.setup()
       })
 
       vim.cmd('call timer_start(50, {-> execute("colorscheme ' .. vim.g.colors_name .. '") })')
-      vim.fn.timer_start(50, function() require('mood-scripts.statusline')() end)
+      vim.fn.timer_start(50, function()
+        require('mood-scripts.statusline')()
+        vim.cmd('highlight Beacon guibg=white ctermbg=15')
+      end)
     end,
   })
 
