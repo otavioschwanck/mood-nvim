@@ -97,6 +97,10 @@ function M.setup()
       vim.fn.timer_start(50, function()
         require('mood-scripts.statusline')()
         vim.cmd('highlight Beacon guibg=white ctermbg=15')
+
+        if string.match(vim.g.colors_name, 'tokyonight') then
+          vim.cmd('highlight LineNr guifg=#565f89')
+        end
       end)
     end,
   })
