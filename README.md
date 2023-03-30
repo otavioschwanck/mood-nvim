@@ -3,12 +3,12 @@
 mooD Nvim is a configuration made for those who wants to install and use, without worries.
 
 <!--toc:start-->
-- [🪄 Features](#🪄-features)
-- [📃 Dependencies](#📃-dependencies)
-- [💾 Installation](#💾-installation)
+- [🪄 Features](#-features)
+- [📃 Dependencies](#-dependencies)
+- [💾 Installation](#-installation)
 - [⚠️ Disclaimer](#️-disclaimer)
-- [🔗 Useful links](#🔗-useful-links)
-- [🎓 How to learn the keybindings of this configuration?](#🎓-how-to-learn-the-keybindings-of-this-configuration)
+- [🔗 Useful links](#-useful-links)
+- [🎓 How to learn the keybindings of this configuration?](#-how-to-learn-the-keybindings-of-this-configuration)
 <!--toc:end-->
 
 ![image 1](https://i.imgur.com/F1MyQaW.png)
