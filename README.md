@@ -49,7 +49,7 @@ bash <(curl -Ls https://raw.githubusercontent.com/otavioschwanck/mood-nvim/main/
 ```
 If you will use tmux, after the first open, press `C-x I` to install the packages.
 
-To install manually, check the page: https://github.com/otavioschwanck/mood-nvim/wiki/Manual-Installation#manual-installation
+To install manually, check the [Manual Installation Page](https://github.com/otavioschwanck/mood-nvim/wiki/Manual-Installation#manual-installation).
 
 After the installation, check if is missing something with `:checkhealth`
 
