@@ -13,6 +13,8 @@ mooD Nvim is a configuration made for those who wants to install and use, withou
 - [Features](#features)
 - [Disclaimer](#disclaimer)
 - [Changelog](#changelog)
+  - [2022-02-27](#2022-02-27)
+  - [2022-03-01](#2022-03-01)
   - [2022-02-26](#2022-02-26)
   - [2022-02-15](#2022-02-15)
   - [2022-02-14](#2022-02-14)
@@ -35,6 +37,19 @@ mooD Nvim is a configuration made for those who wants to install and use, withou
   - You can bind terminal commands in your `keybindings.lua` (`SPC f p`).
   - Useful for commands such as rails console, server, sidekiq, yarn start, generate, open production stuff, etc. (Examples on `keybindings.lua`)
   - You can define server terminal commands separated by project and run with a single command.
+
+# Automatic Installation
+
+We created a bash script to make your life easier and install Mood Nvim automatically.
+Just run the below command in the terminal on either mac or linux (ubuntu only), choose what you want to install and have fun!
+
+```sh
+bash <(curl -Ls https://raw.githubusercontent.com/otavioschwanck/mood-nvim/main/bin/mood-installer.sh)
+```
+If you will use tmux, after the first open, press `C-x I` to install the packages.
+
+To install manually, check the page: https://github.com/otavioschwanck/mood-nvim/wiki/Manual-Installation#manual-installation
+
 
 # Disclaimer
 
@@ -92,19 +107,6 @@ rm -rf ~/.local/share/nvim
 - NerdFonts
 - Python
 - git-delta (for lazygit) - https://dandavison.github.io/delta/installation.html
-
-# Automatic Installation
-
-We created a bash script to make your life easier and install Mood Nvim automatically.
-Just run the below command in the terminal on either mac or linux, choose what you want to install and have fun!
-
-```sh
-bash <(curl -Ls https://raw.githubusercontent.com/otavioschwanck/mood-nvim/main/bin/mood-installer.sh)
-```
-
-If you will use tmux, after the first open, press `C-x I` to install the packages.
-
-To install manually, check the page: https://github.com/otavioschwanck/mood-nvim/wiki/Manual-Installation#manual-installation
 
 # After install
 
