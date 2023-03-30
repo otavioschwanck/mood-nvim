@@ -1,42 +1,10 @@
 local plugins = {
   { 'folke/tokyonight.nvim', priority = 10000, config = function ()
     vim.cmd("colorscheme tokyonight-storm")
-
-    require("tokyonight").setup({
-      on_highlights = function(hl, c)
-        local prompt = "#2d3149"
-        hl.TelescopeNormal = {
-          bg = c.bg_dark,
-          fg = c.fg_dark,
-        }
-        hl.TelescopeBorder = {
-          bg = c.bg_dark,
-          fg = c.bg_dark,
-        }
-        hl.TelescopePromptNormal = {
-          bg = prompt,
-        }
-        hl.TelescopePromptBorder = {
-          bg = prompt,
-          fg = prompt,
-        }
-        hl.TelescopePromptTitle = {
-          bg = prompt,
-          fg = prompt,
-        }
-        hl.TelescopePreviewTitle = {
-          bg = c.bg_dark,
-          fg = c.bg_dark,
-        }
-        hl.TelescopeResultsTitle = {
-          bg = c.bg_dark,
-          fg = c.bg_dark,
-        }
-      end,
-    })
   end },
   { 'AndrewRadev/bufferize.vim', cmd = "Bufferize" },
-  { 'otavioschwanck/tmux-awesome-manager.nvim' },
+  -- { 'otavioschwanck/tmux-awesome-manager.nvim' },
+  { dir = '~/Projetos/tmux-console-runner.nvim/' },
   'nyoom-engineering/oxocarbon.nvim',
   { "catppuccin/nvim", name = "catppuccin" },
   { 'stevearc/aerial.nvim', config = function() require('aerial').setup({}) end },

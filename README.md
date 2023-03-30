@@ -2,11 +2,11 @@
 
 mooD Nvim is a configuration made for those who wants to install and use, without worries.
 
-![image 1](https://i.imgur.com/2H8EqrG.png)
-![image 2](https://i.imgur.com/F87jxNP.png)
-![image 3](https://i.imgur.com/mn23tWt.png)
-![image 4](https://i.imgur.com/pe8HbTJ.png)
-![image 5](https://i.imgur.com/ddcsriV.png)
+![image 1](https://i.imgur.com/F1MyQaW.png)
+![image 2](https://i.imgur.com/DMY7vkg.png)
+![image 3](https://i.imgur.com/GethXfM.png)
+![image 4](https://i.imgur.com/SXsMcbn.png)
+![image 5](https://i.imgur.com/BOKdr05.png)
 
 <!--toc:start-->
 - [Introduction](#introduction)
