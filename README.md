@@ -1,5 +1,14 @@
 # Introduction
 
+<!--toc:start-->
+- [🪄 Features](#🪄-features)
+- [📃 Dependencies](#📃-dependencies)
+- [💾 Installation](#💾-installation)
+- [⚠️ Disclaimer](#️-disclaimer)
+- [🔗 Useful links](#🔗-useful-links)
+- [🎓 How to learn the keybindings of this configuration?](#🎓-how-to-learn-the-keybindings-of-this-configuration)
+<!--toc:end-->
+
 mooD Nvim is a configuration made for those who wants to install and use, without worries.
 
 ![image 1](https://i.imgur.com/F1MyQaW.png)
