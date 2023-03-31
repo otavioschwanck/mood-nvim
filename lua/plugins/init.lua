@@ -3,8 +3,7 @@ local plugins = {
     vim.cmd("colorscheme tokyonight-storm")
   end },
   { 'AndrewRadev/bufferize.vim', cmd = "Bufferize" },
-  -- { 'otavioschwanck/tmux-awesome-manager.nvim' },
-  { dir = '~/Projetos/tmux-console-runner.nvim/' },
+  { 'otavioschwanck/tmux-awesome-manager.nvim' },
   'nyoom-engineering/oxocarbon.nvim',
   { "catppuccin/nvim", name = "catppuccin" },
   { 'stevearc/aerial.nvim', config = function() require('aerial').setup({}) end },
