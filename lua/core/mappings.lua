@@ -176,7 +176,8 @@ function M.setup_which_key()
     p = { ":Gitsigns preview_hunk<CR>", "Preview Hunk" },
     b = { ":Git blame<CR>", "Blame" },
     d = { ":DiffviewOpen<CR>:echo 'Use SPC q d or :DiffviewClose to quit.'<CR>", "Git Diff" },
-    l = { ":DiffviewFileHistory<CR>:echo 'Use SPC q d or :DiffviewClose to quit.'<CR>", "Log Commits" },
+    l = { ":Git log -p %<CR>", "Git log -p on file" },
+    L = { ":DiffviewFileHistory<CR>:echo 'Use SPC q d or :DiffviewClose to quit.'<CR>", "Log Commits" },
     B = { ":Telescope git_branches<CR>", "Change Branch" }
     },
   [','] = { ":Telescope buffers only_cwd=true ignore_current_buffer=true sort_mru=true<CR>", "Find Buffers in this project" },
