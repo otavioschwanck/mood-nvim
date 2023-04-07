@@ -33,6 +33,12 @@ This configuration uses `tmux-awesome-manager` to manage multiple terminals.  Yo
 
 To see the already configured commands, press `SPC l f`.
 
+## Copilot
+
+Buy copilot in yout GH and then, run :Copilot setup.
+
+To expand the Copilot suggestion, press `<C-j>`
+
 ## Tmux Awesome Manager
 
 | Command              | Description                                               |
