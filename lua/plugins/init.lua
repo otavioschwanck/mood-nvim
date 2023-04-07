@@ -10,6 +10,12 @@ local plugins = {
   { 'sainnhe/gruvbox-material' },
   { 'tomlion/vim-solidity' },
   { 'rgroli/other.nvim' },
+  { 'jose-elias-alvarez/typescript.nvim', config = function()
+    local lsp = require('lsp-zero')
+    local null_opts = lsp.build_options('null-ls', {})
+
+    require("typescript").setup({ server = { on_attach = null_opts.on_attach } })
+  end},
   'tpope/vim-repeat',
   { 'olimorris/onedarkpro.nvim' },
   { 'ggandor/lightspeed.nvim', config = function()
@@ -82,7 +88,9 @@ local plugins = {
       }
     }
   } },
-  { 'xolox/vim-notes', dependencies = { 'xolox/vim-misc', } },
+  { 'JellyApple102/flote.nvim', config = function ()
+    require('flote').setup{}
+  end },
   { 'lukas-reineke/indent-blankline.nvim', config = function()
     vim.g.indent_blankline_filetype_exclude = {
       "help",

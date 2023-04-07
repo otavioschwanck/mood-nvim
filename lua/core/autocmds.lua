@@ -98,18 +98,18 @@ function M.setup()
             -- Requires `nvim-web-devicons` if `true`
             enabled = true,
           },
-          separator = {left = '▎', right = ''},
+          separator = {left = '', right = ''},
 
           -- Configure the icons on the bufferline when modified or pinned.
           -- Supports all the base icon options.
           modified = {button = '●'},
-          pinned = {button = '車', buffer_index = true},
+          pinned = {buffer_index = true, filename = true, button = '車', separator = { right = ''} },
 
           -- Configure the icons on the bufferline based on the visibility of a buffer.
           -- Supports all the base icon options, plus `modified` and `pinned`.
           alternate = {filetype = {enabled = false}},
           current = {buffer_index = false},
-          inactive = {button = ''},
+          inactive = {button = '', separator = {left = '', right = ''}},
           visible = {modified = {buffer_number = false}},
         },
         -- icon_pinned = '󰐃',
@@ -126,6 +126,21 @@ function M.setup()
 
         if string.match(vim.g.colors_name, 'tokyonight') then
           vim.cmd('highlight LineNr guifg=#565f89')
+
+          local tabColor = '#2f334d'
+
+          vim.cmd("highlight BufferCurrent guibg=" .. tabColor)
+          vim.cmd("highlight BufferCurrentERROR guibg=" .. tabColor)
+          vim.cmd("highlight BufferCurrentHINT guibg=" .. tabColor)
+          vim.cmd("highlight BufferCurrentINFO guibg=" .. tabColor)
+          vim.cmd("highlight BufferCurrentWARN guibg=" .. tabColor)
+          vim.cmd("highlight BufferCurrentIndex guibg=" .. tabColor)
+          vim.cmd("highlight BufferCurrentMod guibg=" .. tabColor)
+          vim.cmd("highlight BufferCurrentSign guibg=" .. tabColor)
+          vim.cmd("highlight BufferCurrentTarget guibg=" .. tabColor)
+          vim.cmd("highlight BufferAlternate guibg=" .. tabColor)
+          vim.cmd("highlight BufferAlternateERROR guibg=" .. tabColor)
+          vim.cmd("highlight BufferAlternateHINT guibg=" .. tabColor)
         end
       end)
     end,

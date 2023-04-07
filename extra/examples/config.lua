@@ -21,7 +21,6 @@ require('tmux-awesome-manager').setup({
 })
 
 -- Directory to store your notes (SPC z z)
-vim.g.notes_directories = { '~/Documents/Notes' }
 vim.g.ruby_debugger = "debugger" -- can be changed to byebug or pry, call with SPC d
 
 local two_space_languages = { "ruby", "yaml", "javascript", "typescript", "typescriptreact", "javascriptreact", "eruby", "lua", }

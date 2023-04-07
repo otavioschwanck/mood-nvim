@@ -105,11 +105,8 @@ function M.setup_which_key()
   },
   z = {
     name = '+Notes',
-    n = { ":Note<CR>", "New Note" },
-    z = { ":Note ", "Find Note" },
-    s = { ":SearchNotes ", "Search inside notes" },
-    d = { ":DeleteNote<CR>", "Delete Current Note" },
-    m = { ":NoteToMarkdown<CR>", "Convert Note do Markdown" },
+    z = { ":Flote global<CR>", "Global Notes" },
+    p = { ":Flote<CR>", "Project Notes" },
     },
   c = {
     name = "+Lsp",
