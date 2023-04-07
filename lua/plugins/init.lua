@@ -9,6 +9,7 @@ local plugins = {
   { 'stevearc/aerial.nvim', config = function() require('aerial').setup({}) end },
   { 'sainnhe/gruvbox-material' },
   { 'tomlion/vim-solidity' },
+
   { 'rgroli/other.nvim' },
   { 'jose-elias-alvarez/typescript.nvim', config = function()
     local lsp = require('lsp-zero')
@@ -21,7 +22,9 @@ local plugins = {
   { 'ggandor/lightspeed.nvim', config = function()
     require('lightspeed').setup({ ignore_case = true, jump_to_unique_chars = { safety_timeout = nil } })
   end },
-  'norcalli/nvim-colorizer.lua',
+  { 'norcalli/nvim-colorizer.lua', config = function()
+    require'colorizer'.setup()
+  end},
   { 'emmanueltouzery/agitator.nvim' },
   'dhruvasagar/vim-table-mode',
   { 'tpope/vim-commentary' },

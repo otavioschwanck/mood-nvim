@@ -115,8 +115,7 @@ function M.setup()
         -- icon_pinned = '󰐃',
         exclude_ft = {'netrw'},
         -- closable = false,
-        minimum_padding = 1,
-        maximum_padding = 1
+        highlight_visible = false,
       })
 
       vim.cmd('call timer_start(50, {-> execute("colorscheme ' .. vim.g.colors_name .. '") })')
@@ -127,7 +126,24 @@ function M.setup()
         if string.match(vim.g.colors_name, 'tokyonight') then
           vim.cmd('highlight LineNr guifg=#565f89')
 
-          local tabColor = '#2f334d'
+          local tabColor = '#24283b'
+          local barColor = '#333749'
+          local inactiveColor = '#292e42'
+          local dark5 = "#636a8d"
+          local error = "#b64448"
+          local hint = "#1c9e89"
+          local info = "#129cb8"
+          local warning = "#ba945f"
+
+          vim.cmd("highlight BufferInactive guibg=" .. inactiveColor .. " guifg=" .. dark5)
+          vim.cmd("highlight BufferInactiveERROR guibg=" .. inactiveColor .. " guifg=" .. error)
+          vim.cmd("highlight BufferInactiveHINT guibg=" .. inactiveColor .. " guifg=" .. hint)
+          vim.cmd("highlight BufferInactiveINFO guibg=" .. inactiveColor .. " guifg=" .. info)
+          vim.cmd("highlight BufferInactiveWARN guibg=" .. inactiveColor .. " guifg=" .. warning)
+          vim.cmd("highlight BufferInactiveIndex guibg=" .. inactiveColor)
+          vim.cmd("highlight BufferInactiveMod guibg=" .. inactiveColor .. " guifg=" .. warning)
+          vim.cmd("highlight BufferInactiveSign guibg=" .. inactiveColor)
+          vim.cmd("highlight BufferInactiveTarget guibg=" .. inactiveColor)
 
           vim.cmd("highlight BufferCurrent guibg=" .. tabColor)
           vim.cmd("highlight BufferCurrentERROR guibg=" .. tabColor)
@@ -141,6 +157,7 @@ function M.setup()
           vim.cmd("highlight BufferAlternate guibg=" .. tabColor)
           vim.cmd("highlight BufferAlternateERROR guibg=" .. tabColor)
           vim.cmd("highlight BufferAlternateHINT guibg=" .. tabColor)
+          vim.cmd("highlight BufferTabpageFill guibg=" .. barColor)
         end
       end)
     end,
