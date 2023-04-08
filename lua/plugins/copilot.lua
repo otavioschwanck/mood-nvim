@@ -1,10 +1,10 @@
 return {
   { 'github/copilot.vim', config = function ()
-    vim.g.copilot_no_tab_map = true
+    vim.keymap.set("i", "<C-f>", "<Plug>(copilot-next)", { noremap = false })
+    vim.keymap.set("i", "<C-b>", "<Plug>(copilot-previous)", { noremap = false })
 
     vim.cmd([[
       imap <silent><script><expr> <C-J> copilot#Accept("\<CR>")
     ]])
   end }
 }
-

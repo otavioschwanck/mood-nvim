@@ -39,6 +39,10 @@ Buy copilot in yout GH and then, run :Copilot setup.
 
 To expand the Copilot suggestion, press `<C-j>`
 
+To go to next suggestion, press `<C-f>`
+
+Use C-f and C-b to cycle on copilot suggestions.
+
 ## Tmux Awesome Manager
 
 | Command              | Description                                               |
