@@ -147,8 +147,8 @@ lsp.nvim_workspace()
 
 local cmp_mappings = lsp.defaults.cmp_mappings({
   -- Uncomment to input on select in autocomplete
-  -- ['<Tab>'] = cmp.mapping.select_next_item({ select = true }),
-  -- ['<S-Tab>'] = cmp.mapping.select_prev_item({ select = true }),
+  ['<Tab>'] = cmp.mapping.select_next_item({ select = true }), -- comment those two tab lines to don't autoselect items
+  ['<S-Tab>'] = cmp.mapping.select_prev_item({ select = true }),
   ['<C-n>'] = cmp.mapping(function(fallback)
     if luasnip.expand_or_locally_jumpable() then
       luasnip.expand_or_jump(1)
@@ -177,10 +177,10 @@ local sources = { { name = "path" },
 lsp.setup_nvim_cmp({
   sources = sources,
   mapping = cmp_mappings,
-  -- preselect = 'none', -- Uncomment those 4 lines to not select first on autocomplete.
-  -- completion = {
-  --     completeopt = 'menu,menuone,noinsert,noselect'
-  -- },
+  preselect = 'none', -- comment those 4 lines to select first on autocomplete.
+  completion = {
+      completeopt = 'menu,menuone,noinsert,noselect'
+  },
 })
 
 lsp.setup()
