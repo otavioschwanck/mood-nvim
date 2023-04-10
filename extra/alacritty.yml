@@ -1,5 +1,5 @@
 font:
-  size: 14.0
+  size: 12.0
   normal:
     family: FiraCode Nerd Font
     style: Regular
@@ -13,6 +13,38 @@ schemes:
   # Tokyo Night theme, based on both:
   #   https://github.com/ghifarit53/tokyonight-vim
   #   https://github.com/enkia/tokyo-night-vscode-theme
+  tokyo-night-moon: &tokyo-night-moon
+    primary:
+      background: '0x222436'
+      foreground: '0xc8d3f5'
+
+    # Normal colors
+    normal:
+      black:   '0x1b1d2b'
+      red:     '0xff757f'
+      green:   '0xc3e88d'
+      yellow:  '0xffc777'
+      blue:    '0x82aaff'
+      magenta: '0xc099ff'
+      cyan:    '0x86e1fc'
+      white:   '0x828bb8'
+
+    # Bright colors
+    bright:
+      black:   '0x444a73'
+      red:     '0xff757f'
+      green:   '0xc3e88d'
+      yellow:  '0xffc777'
+      blue:    '0x82aaff'
+      magenta: '0xc099ff'
+      cyan:    '0x86e1fc'
+      white:   '0xc8d3f5'
+
+    indexed_colors:
+    - { index: 16, color: '#063970' }
+    - { index: 17, color: '0xff5d62' }
+
+      
   tokyo-night: &tokyo-night
     # Default colors
     primary:
@@ -79,7 +111,7 @@ schemes:
     - { index: 17, color: '0xff5d62' }
 
 
-colors: *tokyo-night-storm
+colors: *tokyo-night-moon
 
 # To get keybinding, just run: xxd -psd
 key_bindings:
@@ -164,6 +196,7 @@ key_bindings:
   - { key: Escape, mods: Command, chars: "\x18\x01" }
   - { key: Comma,    mods: Command, chars: "\x18\x10"                      }
   - { key: Semicolon,    mods: Command, chars: "\x18\x0e"                      }
+  - { key: F,    mods: Shift|Command, chars: "\x18\x09"                      }
 
   # Linux
   - { key: E, mods: Alt,                    chars: "\x1bOF",   mode: AppCursor   }
@@ -213,3 +246,4 @@ key_bindings:
   - { key: Period,     mods: Shift|Command,     chars: "\x18>" }
   - { key: Comma,    mods: Alt, chars: "\x18\x10"                      }
   - { key: Semicolon,    mods: Alt, chars: "\x18\x0e"                      }
+  - { key: F,    mods: Shift|Alt, chars: "\x18\x09"                      }

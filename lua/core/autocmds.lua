@@ -112,13 +112,16 @@ function M.setup()
           inactive = {button = '', separator = {left = '', right = ''}},
           visible = {modified = {buffer_number = false}},
         },
+        sidebar_filetypes = {
+          ['neo-tree'] = {event = 'BufWipeout'},
+        },
         -- icon_pinned = '󰐃',
         exclude_ft = {'netrw'},
         -- closable = false,
         highlight_visible = false,
       })
 
-      vim.cmd('call timer_start(50, {-> execute("colorscheme ' .. vim.g.colors_name .. '") })')
+      vim.cmd('call timer_start(5, {-> execute("colorscheme ' .. (vim.g.colors_name or 'tokyonight-moon') .. '") })')
       vim.fn.timer_start(50, function()
         require('mood-scripts.statusline')()
         vim.cmd('highlight Beacon guibg=white ctermbg=15')
@@ -126,7 +129,7 @@ function M.setup()
         if string.match(vim.g.colors_name, 'tokyonight') then
           vim.cmd('highlight LineNr guifg=#565f89')
 
-          local tabColor = '#24283b'
+          local tabColor = '#222437'
           local barColor = '#333749'
           local inactiveColor = '#292e42'
           local dark5 = "#636a8d"

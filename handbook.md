@@ -84,8 +84,9 @@ Movimentation and Navigation:
 | M-Esc           | Go to next pane and maximize                     |
 | M-Esc           | Go to next pane and maximize                     |
 | M-a             | Alternate between current window and last window |
-| C-,             | Go to previous pane / nvim pane                  |
-| C-;             | Go to next pane / nvim pane                      |
+| M-,             | Go to previous pane / nvim pane                  |
+| M-;             | Go to next pane / nvim pane                      |
+| M-S-f           | Search and copy some text.                       |
 
 Obs: C-; C-, works for neovim splits too (thanks for a script)
 Obs2: Maybe you need to upgrade your alacritty.yml and tmux.conf.  Press SPC f d and delete those files.

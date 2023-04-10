@@ -1,6 +1,4 @@
 local function setup()
-  vim.cmd("colorscheme " .. (vim.g.colors_name or ''))
-
   local lualine = require('lualine')
 
   local colors = {

@@ -1,6 +1,7 @@
 local plugins = {
   { 'folke/tokyonight.nvim', priority = 10000, config = function ()
     vim.cmd("colorscheme tokyonight-storm")
+    vim.opt.termguicolors = true
   end },
   { 'AndrewRadev/bufferize.vim', cmd = "Bufferize" },
   { 'otavioschwanck/tmux-awesome-manager.nvim' },
