@@ -25,8 +25,8 @@ schemes:
       green:   '0xc3e88d'
       yellow:  '0xffc777'
       blue:    '0x82aaff'
-      magenta: '0xc099ff'
-      cyan:    '0x86e1fc'
+      magenta: '#8B008B'
+      cyan:    '#2596be'
       white:   '0x828bb8'
 
     # Bright colors
