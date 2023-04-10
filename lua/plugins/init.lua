@@ -29,7 +29,10 @@ local plugins = {
   { 'emmanueltouzery/agitator.nvim' },
   'dhruvasagar/vim-table-mode',
   { 'tpope/vim-commentary' },
-  'machakann/vim-highlightedyank',
+  {'machakann/vim-highlightedyank', config = function ()
+    require('template-string').setup({})
+  end},
+  'axelvc/template-string.nvim',
   {
     "kylechui/nvim-surround",
     version = "*", -- Use for stability; omit to use `main` branch for the latest features
