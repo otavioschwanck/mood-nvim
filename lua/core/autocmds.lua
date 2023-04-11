@@ -78,6 +78,7 @@ function M.setup()
       require('user.config')
 
       require('bufferline').setup({
+        hide = {extensions = true},
         icons = {
           -- Configure the base icons on the bufferline.
           buffer_index = false,
