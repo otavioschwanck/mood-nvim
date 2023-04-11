@@ -98,18 +98,18 @@ function M.setup()
             -- Requires `nvim-web-devicons` if `true`
             enabled = true,
           },
-          separator = {left = '', right = ''},
+          separator = {left = '', right = '▕'},
 
           -- Configure the icons on the bufferline when modified or pinned.
           -- Supports all the base icon options.
           modified = {button = '●'},
-          pinned = {buffer_index = true, filename = true, button = '車', separator = { right = ''} },
+          pinned = {buffer_index = true, filename = true, button = '', separator = { right = '▕', left = ''} },
 
           -- Configure the icons on the bufferline based on the visibility of a buffer.
           -- Supports all the base icon options, plus `modified` and `pinned`.
           alternate = {filetype = {enabled = false}},
           current = {buffer_index = false},
-          inactive = {button = '', separator = {left = '', right = ''}},
+          inactive = {button = '', separator = {left = '', right = '▕'}},
           visible = {modified = {buffer_number = false}},
         },
         sidebar_filetypes = {
@@ -145,7 +145,7 @@ function M.setup()
           vim.cmd("highlight BufferInactiveWARN guibg=" .. inactiveColor .. " guifg=" .. warning)
           vim.cmd("highlight BufferInactiveIndex guibg=" .. inactiveColor)
           vim.cmd("highlight BufferInactiveMod guibg=" .. inactiveColor .. " guifg=" .. warning)
-          vim.cmd("highlight BufferInactiveSign guibg=" .. inactiveColor)
+          vim.cmd("highlight BufferInactiveSign guibg=" .. inactiveColor .. " guifg=" .. tabColor)
           vim.cmd("highlight BufferInactiveTarget guibg=" .. inactiveColor)
 
           vim.cmd("highlight BufferCurrent guibg=" .. tabColor)
@@ -155,7 +155,7 @@ function M.setup()
           vim.cmd("highlight BufferCurrentWARN guibg=" .. tabColor)
           vim.cmd("highlight BufferCurrentIndex guibg=" .. tabColor)
           vim.cmd("highlight BufferCurrentMod guibg=" .. tabColor)
-          vim.cmd("highlight BufferCurrentSign guibg=" .. tabColor)
+          vim.cmd("highlight BufferCurrentSign guibg=" .. tabColor .. " guifg=" .. tabColor)
           vim.cmd("highlight BufferCurrentTarget guibg=" .. tabColor)
           vim.cmd("highlight BufferAlternate guibg=" .. tabColor)
           vim.cmd("highlight BufferAlternateERROR guibg=" .. tabColor)
