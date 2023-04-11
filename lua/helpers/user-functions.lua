@@ -11,11 +11,11 @@ function M.call_term(command, title, unique, close_after_create, term_opts)
     command = command .. "'"
   end
 
-  return { pre .. ":call OpenTerm('" .. command .. ", '" .. title  .. "', " .. unique .. ", " .. close_after_create .. ")<CR>", title  }
+  return { pre .. "<cmd>call OpenTerm('" .. command .. ", '" .. title  .. "', " .. unique .. ", " .. close_after_create .. ")<CR>", title  }
 end
 
 function M.find_in_folder(folder, title)
-  return { ":call FindInFolder('" .. folder .. "', '" .. title .. "')<CR>", title }
+  return { "<cmd>call FindInFolder('" .. folder .. "', '" .. title .. "')<CR>", title }
 end
 
 return M
