@@ -41,6 +41,8 @@ To expand the Copilot suggestion, press `<C-j>`
 
 To go to next suggestion, press `<C-f>`
 
+Use <C-q> to force suggestion.
+
 Use C-f and C-b to cycle on copilot suggestions.
 
 ## Tmux Awesome Manager
