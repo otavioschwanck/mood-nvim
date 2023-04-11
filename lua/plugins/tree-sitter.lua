@@ -15,7 +15,6 @@ return {
         "json",
         "lua",
         "vim",
-        "help",
         "query",
         "embedded_template",
         "bash"
