@@ -2,7 +2,7 @@ font:
   size: 12.0
   normal:
     family: FiraCode Nerd Font
-    style: Regular
+    use_thin_stroke: true
 
 # window:
 #   opacity: 0.8
@@ -164,7 +164,6 @@ key_bindings:
   - { key: Key0,     mods: Command, action: ResetFontSize                }
   - { key: Equals,   mods: Command, action: IncreaseFontSize             }
   - { key: Minus,    mods: Command, action: DecreaseFontSize             }
-  - { key: N,         mods: Command,      action: SpawnNewInstance       }
   - { key: Back,     mods: Command, chars: "\x15" } # delete word/line
   - { key: D, mods: Shift|Command, chars: "\x18\x64" }
   - { key: V, mods: Shift|Command, chars: "\x18\x76" }
@@ -197,6 +196,8 @@ key_bindings:
   - { key: Comma,    mods: Command, chars: "\x18\x10"                      }
   - { key: Semicolon,    mods: Command, chars: "\x18\x0e"                      }
   - { key: F,    mods: Shift|Command, chars: "\x18\x09"                      }
+  - { key: N,    mods: Command, chars: "\x18\x6e"                      }
+  - { key: P,    mods: Command, chars: "\x18\x70"                      }
 
   # Linux
   - { key: E, mods: Alt,                    chars: "\x1bOF",   mode: AppCursor   }
@@ -212,7 +213,6 @@ key_bindings:
   - { key: Key0,     mods: Alt, action: ResetFontSize                }
   - { key: Equals,   mods: Alt, action: IncreaseFontSize             }
   - { key: Minus,    mods: Alt, action: DecreaseFontSize             }
-  - { key: N,         mods: Alt,      action: SpawnNewInstance       }
   - { key: Back,     mods: Alt, chars: "\x15" } # delete word/line
   - { key: D, mods: Shift|Alt, chars: "\x18\x64" }
   - { key: V, mods: Shift|Alt, chars: "\x18\x76" }
@@ -247,3 +247,5 @@ key_bindings:
   - { key: Comma,    mods: Alt, chars: "\x18\x10"                      }
   - { key: Semicolon,    mods: Alt, chars: "\x18\x0e"                      }
   - { key: F,    mods: Shift|Alt, chars: "\x18\x09"                      }
+  - { key: N,    mods: Alt, chars: "\x18\x6e"                      }
+  - { key: P,    mods: Alt, chars: "\x18\x70"                      }
