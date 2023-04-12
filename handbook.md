@@ -79,6 +79,7 @@ Movimentation and Navigation:
 
 | Command         | Description                                      |
 |-----------------|--------------------------------------------------|
+| M-/             | Search on tmux                                   |
 | M-o             | Go to next pane                                  |
 | M-1 to M-9      | Switch window                                    |
 | M-S-a           | See all sessions (Press x to close one)          |
