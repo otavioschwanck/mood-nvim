@@ -149,6 +149,8 @@ function M.setup()
           vim.cmd("highlight BufferInactiveSign guibg=" .. inactiveColor .. " guifg=" .. tabColor)
           vim.cmd("highlight BufferInactiveTarget guibg=" .. inactiveColor)
 
+          vim.cmd("highlight TreesitterContext guibg=" .. tabColor)
+          vim.cmd("highlight TreesitterContextLineNumber gui=bold guifg=" .. hint)
           vim.cmd("highlight BufferCurrent guibg=" .. tabColor)
           vim.cmd("highlight BufferCurrentERROR guibg=" .. tabColor)
           vim.cmd("highlight BufferCurrentHINT guibg=" .. tabColor)
