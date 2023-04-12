@@ -184,7 +184,7 @@ key_bindings:
   - { key: T, mods: Command, chars: "\x18\x63" }
   - { key: X, mods: Command, chars: "\x18\x78" }
   - { key: S, mods: Command, chars: "\x18\x77" }
-  - { key: Slash, mods: Command, chars: "\x18\x2f" }
+  - { key: Slash, mods: Control|Command, chars: "\x18\x2f" }
   - { key: R,     mods: Command,     chars: "\x18\x2c"                    }
   - { key: LBracket,     mods: Command,     chars: "\x18\x5b" }
   - { key: A,     mods: Command,     chars: "\x18\x3d" }
@@ -197,7 +197,8 @@ key_bindings:
   - { key: F,    mods: Shift|Command, chars: "\x18\x09"                      }
   - { key: N,    mods: Command, chars: "\x18\x6e"                      }
   - { key: P,    mods: Command, chars: "\x18\x70"                      }
-  - { key: F,    mods: Command, chars: "\x18\x3f"                      }
+  - { key: Slash,    mods: Command, chars: "\x18\x3f"                      }
+  - { key: F,        mods: Command, chars: "\x1b\x66"                      }
 
   # Linux
   - { key: E, mods: Alt,                    chars: "\x1bOF",   mode: AppCursor   }
@@ -233,7 +234,7 @@ key_bindings:
   - { key: T, mods: Alt, chars: "\x18\x63" }
   - { key: X, mods: Alt, chars: "\x18\x78" }
   - { key: S, mods: Alt, chars: "\x18\x77" }
-  - { key: Slash, mods: Alt, chars: "\x18\x2f" }
+  - { key: Slash, mods: Control|Alt, chars: "\x18\x2f" }
   - { key: R,     mods: Alt,     chars: "\x18\x2c"                    }
   - { key: LBracket,     mods: Alt,     chars: "\x18\x5b" }
   - { key: A,     mods: Alt,     chars: "\x18\x3d" }
@@ -248,4 +249,5 @@ key_bindings:
   - { key: F,    mods: Shift|Alt, chars: "\x18\x09"                      }
   - { key: N,    mods: Alt, chars: "\x18\x6e"                      }
   - { key: P,    mods: Alt, chars: "\x18\x70"                      }
-  - { key: F,    mods: Alt, chars: "\x18\x3f"                      }
+  - { key: Slash,    mods: Alt, chars: "\x18\x3f"                      }
+  - { key: F,        mods: Alt, chars: "\x1b\x66"                      }
