@@ -12,10 +12,9 @@ mooD Nvim is a configuration made for those who wants to install and use, withou
 <!--toc:end-->
 
 ![image 1](https://i.imgur.com/GhD6HgM.png)
-![image 2](https://i.imgur.com/bMgnstv.png)
-![image 3](https://i.imgur.com/nCPvYFN.png)
-![image 4](https://i.imgur.com/baphYpq.png)
-![image 5](https://i.imgur.com/sYYWXYt.png)
+![image 2](https://i.imgur.com/nCPvYFN.png)
+![image 3](https://i.imgur.com/baphYpq.png)
+![image 4](https://i.imgur.com/sYYWXYt.png)
 
 # 🪄 Features
 
