@@ -323,4 +323,4 @@ install_fzf
 install_nvim
 run_post_check
 
-echo "Script finished!"
+echo "Script finished! After you start tmux, press C-x I to install missing plugins."

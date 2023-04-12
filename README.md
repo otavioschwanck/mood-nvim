@@ -53,6 +53,8 @@ To install manually, check the [Manual Installation Page](https://github.com/ota
 
 After the installation, check if is missing something with `:checkhealth`
 
+When you run the tmux for the first time, press `C-x I` to install the missing plugins.
+
 # ⚠️ Disclaimer
 
 This configuration is made to use with Alacritty and Tmux.  Please install it and learn before use it.
