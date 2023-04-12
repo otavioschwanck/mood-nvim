@@ -11,11 +11,11 @@ mooD Nvim is a configuration made for those who wants to install and use, withou
 - [🎓 How to learn the keybindings of this configuration?](#-how-to-learn-the-keybindings-of-this-configuration)
 <!--toc:end-->
 
-![image 1](https://i.imgur.com/F1MyQaW.png)
-![image 2](https://i.imgur.com/DMY7vkg.png)
-![image 3](https://i.imgur.com/GethXfM.png)
-![image 4](https://i.imgur.com/SXsMcbn.png)
-![image 5](https://i.imgur.com/BOKdr05.png)
+![image 1](https://i.imgur.com/GhD6HgM.png)
+![image 2](https://i.imgur.com/bMgnstv.png)
+![image 3](https://i.imgur.com/nCPvYFN.png)
+![image 4](https://i.imgur.com/baphYpq.png)
+![image 5](https://i.imgur.com/sYYWXYt.png)
 
 # 🪄 Features
 
@@ -23,6 +23,7 @@ mooD Nvim is a configuration made for those who wants to install and use, withou
 - 💡 IDE Features: LSP, snippets, autocomplete, go to definition, go to references, etc.
 - 📚 Handbook (SPC h h) and Tutorial (SPC h T) natively.  Most of cool feature are listed there.
 - ▶️ Awesome Test Runner.
+-  Copilot Integration
 - ✏️ Fully customizable by user (plugins, settings, LSP)
 - 🔎 Find In Folder helpers: Find inside models, controller, etc using keybindngs. See `keybindings.lua` (`SPC f p`) for more examples. You can define your own custom finders.
 - 🪟 TMUX Framework with `tmux-awesome-manager` that can:
