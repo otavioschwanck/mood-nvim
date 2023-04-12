@@ -9,6 +9,7 @@ return {
       { "<leader>bK", "<Cmd>BufferCloseAllButCurrent<CR>", desc = "Kill all buffers except current" },
       { "<leader>k",  "<Cmd>BufferClose<CR>",              desc = "Close Buffer" },
       { "<leader>bn", ":e ~/.nvim-scratch<CR>",            desc = "Open Scratch Buffer" },
+      { "<C-q>",      "<cmd>BufferPick<cr>",               desc = "Pick Buffer" },
       { "<C-s>",      "<cmd>BufferPin<cr>",                desc = "Pin Buffer" },
       { "[b",         "<cmd>BufferPrevious<cr>",           desc = "Prev Buffer" },
       { "]b",         "<cmd>BufferNext<cr>",               desc = "Next Buffer" },

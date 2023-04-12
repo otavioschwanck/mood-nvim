@@ -160,6 +160,7 @@ OBS: This list persist between vim sections
 | Command                  | Description                                          |
 | ------------------------ | ---------------------------------------------------- |
 | C-s                      | Pin/Unpin buffers (Persist to session)               |
+| C-q                      | Pick Buffer                                          |
 | SPC b k                  | Kill all buffers expect pinned                       |
 | SPC b K                  | Kill all buffers except current                      |
 | SPC h l                  | Load last session for this project                   |
