@@ -105,7 +105,12 @@ local plugins = {
     }
   } },
   { 'JellyApple102/flote.nvim', config = function ()
-    require('flote').setup{}
+    require('flote').setup({
+      q_to_quit = true,
+      window_style = 'minimal',
+      window_border = 'solid',
+      window_title = true
+    })
   end },
   { 'lukas-reineke/indent-blankline.nvim', config = function()
     vim.g.indent_blankline_filetype_exclude = {
