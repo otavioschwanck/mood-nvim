@@ -127,7 +127,7 @@ function M.setup_which_key()
   ["<return>"] = { ":Telescope resume<CR>", "Telescope Resume" },
   s = {
     name = "+Search",
-    D = { ":lua require('mood-scripts.custom_telescope').live_grep_in_folder()<CR>", 'Search text in one or more folders' },
+    D = { ":lua require('mood-scripts.custom_telescope').live_grep_in_folder({ respect_gitignore = true })<CR>", 'Search text in one or more folders' },
     d = { ":lua require('telescope.builtin').live_grep { search_dirs = {vim.fn.expand('%:p:h')}, prompt_title = 'Live grep inside ' .. vim.fn.expand('%:p:h') }<CR>", 'Search text in some folder' },
     p = { ":Telescope live_grep<CR>", "Search text on Project" },
     o = { ":Telescope live_grep grep_open_files=true<CR>", "Search on Open Files" },
