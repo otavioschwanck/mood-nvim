@@ -92,22 +92,12 @@ function M.setup()
             [vim.diagnostic.severity.HINT] = {enabled = false},
           },
           filetype = {
-            -- Sets the icon's highlight group.
-            -- If false, will use nvim-web-devicons colors
             custom_colors = false,
-
-            -- Requires `nvim-web-devicons` if `true`
             enabled = true,
           },
           separator = {left = '', right = '▕'},
-
-          -- Configure the icons on the bufferline when modified or pinned.
-          -- Supports all the base icon options.
           modified = {button = '●'},
           pinned = {buffer_index = true, filename = true, button = '', separator = { right = '▕', left = ''} },
-
-          -- Configure the icons on the bufferline based on the visibility of a buffer.
-          -- Supports all the base icon options, plus `modified` and `pinned`.
           alternate = {filetype = {enabled = false}},
           current = {buffer_index = false},
           inactive = {button = '', separator = {left = '', right = '▕'}},
@@ -116,9 +106,7 @@ function M.setup()
         sidebar_filetypes = {
           ['neo-tree'] = {event = 'BufWipeout'},
         },
-        -- icon_pinned = '󰐃',
         exclude_ft = {'netrw'},
-        -- closable = false,
         highlight_visible = false,
       })
 
@@ -131,39 +119,10 @@ function M.setup()
           vim.cmd('highlight LineNr guifg=#565f89')
 
           local tabColor = '#222437'
-          local barColor = '#333749'
-          local inactiveColor = '#292e42'
-          local dark5 = "#636a8d"
-          local error = "#b64448"
           local hint = "#1c9e89"
-          local info = "#129cb8"
-          local warning = "#ba945f"
-
-          vim.cmd("highlight BufferInactive guibg=" .. inactiveColor .. " guifg=" .. dark5)
-          vim.cmd("highlight BufferInactiveERROR guibg=" .. inactiveColor .. " guifg=" .. error)
-          vim.cmd("highlight BufferInactiveHINT guibg=" .. inactiveColor .. " guifg=" .. hint)
-          vim.cmd("highlight BufferInactiveINFO guibg=" .. inactiveColor .. " guifg=" .. info)
-          vim.cmd("highlight BufferInactiveWARN guibg=" .. inactiveColor .. " guifg=" .. warning)
-          vim.cmd("highlight BufferInactiveIndex guibg=" .. inactiveColor)
-          vim.cmd("highlight BufferInactiveMod guibg=" .. inactiveColor .. " guifg=" .. warning)
-          vim.cmd("highlight BufferInactiveSign guibg=" .. inactiveColor .. " guifg=" .. tabColor)
-          vim.cmd("highlight BufferInactiveTarget guibg=" .. inactiveColor)
 
           vim.cmd("highlight TreesitterContext guibg=" .. tabColor)
           vim.cmd("highlight TreesitterContextLineNumber gui=bold guifg=" .. hint)
-          vim.cmd("highlight BufferCurrent guibg=" .. tabColor)
-          vim.cmd("highlight BufferCurrentERROR guibg=" .. tabColor)
-          vim.cmd("highlight BufferCurrentHINT guibg=" .. tabColor)
-          vim.cmd("highlight BufferCurrentINFO guibg=" .. tabColor)
-          vim.cmd("highlight BufferCurrentWARN guibg=" .. tabColor)
-          vim.cmd("highlight BufferCurrentIndex guibg=" .. tabColor)
-          vim.cmd("highlight BufferCurrentMod guibg=" .. tabColor)
-          vim.cmd("highlight BufferCurrentSign guibg=" .. tabColor .. " guifg=" .. tabColor)
-          vim.cmd("highlight BufferCurrentTarget guibg=" .. tabColor)
-          vim.cmd("highlight BufferAlternate guibg=" .. tabColor)
-          vim.cmd("highlight BufferAlternateERROR guibg=" .. tabColor)
-          vim.cmd("highlight BufferAlternateHINT guibg=" .. tabColor)
-          vim.cmd("highlight BufferTabpageFill guibg=" .. barColor)
         end
       end)
     end,
