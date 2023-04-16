@@ -58,24 +58,38 @@ return {
         build = 'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build' }
     },
     config = function()
-
       local _, actions = pcall(require, "telescope.actions")
 
       local fb_actions = require "telescope".extensions.file_browser.actions
 
-      local vertical_search = {
-        layout_strategy = "vertical",
-        layout_config = { preview_cutoff = 10, height = 0.90, width = 0.95 },
-      }
+      local winwidth = vim.fn.winwidth(0)
+
+      local vertical_search
+
+      if winwidth < 250 then
+        vertical_search = {
+          layout_strategy = "vertical",
+          layout_config = { preview_cutoff = 10, height = 0.90, width = 0.95 },
+        }
+      else
+        vertical_search = {
+          layout_strategy = "horizontal",
+        }
+      end
+
+      ternary = function(cond, T, F)
+        if cond then return T else return F end
+      end
 
       require('telescope').setup {
         defaults = {
           prompt_prefix = " ",
           file_ignore_patterns = vim.g.folder_to_ignore,
           borderchars = { '─', '│', '─', '│', '┌', '┐', '┘', '└' },
+          layout_config = ternary(winwidth < 250, { preview_cutoff = 10, height = 0.90, width = 0.95 }, nil),
           mappings = {
             i = {
-              ["<C-e>"] = function (picker)
+              ["<C-e>"] = function(picker)
                 actions.send_selected_to_qflist(picker)
                 vim.cmd("copen")
               end,
