@@ -2,6 +2,39 @@ local plugins = {
   { 'folke/tokyonight.nvim', priority = 10000, config = function ()
     vim.cmd("colorscheme tokyonight-moon")
     vim.opt.termguicolors = true
+
+    require("tokyonight").setup({
+      on_highlights = function(hl, c)
+        local prompt = "#2d3149"
+        hl.TelescopeNormal = {
+          bg = c.bg_dark,
+          fg = c.fg_dark,
+        }
+        hl.TelescopeBorder = {
+          bg = c.bg_dark,
+          fg = c.bg_dark,
+        }
+        hl.TelescopePromptNormal = {
+          bg = prompt,
+        }
+        hl.TelescopePromptBorder = {
+          bg = prompt,
+          fg = prompt,
+        }
+        hl.TelescopePromptTitle = {
+          bg = prompt,
+          fg = prompt,
+        }
+        hl.TelescopePreviewTitle = {
+          bg = c.bg_dark,
+          fg = c.fg_dark,
+        }
+        hl.TelescopeResultsTitle = {
+          bg = c.bg_dark,
+          fg = c.fg_dark,
+        }
+      end,
+    })
   end },
   { 'mrjones2014/smart-splits.nvim', config = function ()
     require('smart-splits').setup({
