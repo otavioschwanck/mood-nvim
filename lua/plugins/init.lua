@@ -3,6 +3,11 @@ local plugins = {
     vim.cmd("colorscheme tokyonight-moon")
     vim.opt.termguicolors = true
   end },
+  { 'mrjones2014/smart-splits.nvim', config = function ()
+    require('smart-splits').setup({
+      multiplexer_integration = true,
+    })
+  end},
   { 'AndrewRadev/bufferize.vim', cmd = "Bufferize" },
   { 'otavioschwanck/tmux-awesome-manager.nvim' },
   'nyoom-engineering/oxocarbon.nvim',
