@@ -27,7 +27,7 @@ local plugins = {
         }
         hl.TelescopePreviewTitle = {
           bg = c.bg_dark,
-          fg = c.fg_dark,
+          fg = c.bg_dark,
         }
         hl.TelescopeResultsTitle = {
           bg = c.bg_dark,
