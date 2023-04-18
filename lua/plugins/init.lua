@@ -1,4 +1,10 @@
 local plugins = {
+  {
+    's1n7ax/nvim-window-picker',
+    config = function()
+      require'window-picker'.setup()
+    end,
+  },
   { 'folke/tokyonight.nvim', priority = 10000, config = function ()
     vim.cmd("colorscheme tokyonight-moon")
     vim.opt.termguicolors = true
