@@ -33,17 +33,17 @@ This configuration uses `tmux-awesome-manager` to manage multiple terminals.  Yo
 
 To see the already configured commands, press `SPC l f`.
 
-## Copilot
+## Codeium IA Autocomplete (like copilot / whisperes)
 
-Buy copilot in yout GH and then, run :Copilot setup.
+Run :Codeium Auth and follow the instructions.
 
-To expand the Copilot suggestion, press `<C-j>`
+To expand the suggestion, press `<C-j>`
 
 To go to next suggestion, press `<C-f>`
 
-Use <C-q> to force suggestion.
+To clear suggestions, press `<C-]>`
 
-Use C-f and C-b to cycle on copilot suggestions.
+Use C-f and C-b to cycle on codeium suggestions.
 
 ## Tmux Awesome Manager
 

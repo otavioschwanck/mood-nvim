@@ -22,7 +22,7 @@ mooD Nvim is a configuration made for those who wants to install and use, withou
 - 💡 IDE Features: LSP, snippets, autocomplete, go to definition, go to references, etc.
 - 📚 Handbook (SPC h h) and Tutorial (SPC h T) natively.  Most of cool feature are listed there.
 - ▶️ Awesome Test Runner.
-- 🧑‍✈️ Copilot Integration
+- 🧑‍✈️ Codeium Integration (like Copilot or Whisperer)
 - ✏️ Fully customizable by user (plugins, settings, LSP)
 - 🔎 Find In Folder helpers: Find inside models, controller, etc using keybindngs. See `keybindings.lua` (`SPC f p`) for more examples. You can define your own custom finders.
 - 🪟 TMUX Framework with `tmux-awesome-manager` that can:

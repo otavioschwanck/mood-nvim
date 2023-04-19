@@ -1,5 +1,3 @@
-vim.g.copilot_no_tab_map = true
-
 local not_ok = {}
 
 local function setup(path)
