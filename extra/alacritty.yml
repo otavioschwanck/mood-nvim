@@ -148,7 +148,6 @@ key_bindings:
   - { key: Comma,     mods: Shift|Alt,     chars: "\x18<" }
   - { key: Period,     mods: Shift|Alt,     chars: "\x18>" }
   - { key: Comma,    mods: Alt, chars: "\x1b,"                      }
-  - { key: Period,    mods: Alt, chars: "\x1b."                      }
 
   # Mac
   - { key: E, mods: Command,                    chars: "\x1bOF",   mode: AppCursor   }
@@ -199,6 +198,8 @@ key_bindings:
   - { key: P,    mods: Command, chars: "\x18\x70"                      }
   - { key: Slash,    mods: Command, chars: "\x18\x3f"                      }
   - { key: F,        mods: Command, chars: "\x1b\x66"                      }
+  - { key: I,        mods: Command, chars: "\x18\x21"                      }
+  - { key: I,        mods: Shift|Command, chars: "\x18\x24"                      }
 
   # Linux
   - { key: E, mods: Alt,                    chars: "\x1bOF",   mode: AppCursor   }
@@ -251,3 +252,5 @@ key_bindings:
   - { key: P,    mods: Alt, chars: "\x18\x70"                      }
   - { key: Slash,    mods: Alt, chars: "\x18\x3f"                      }
   - { key: F,        mods: Alt, chars: "\x1b\x66"                      }
+  - { key: I,        mods: Alt, chars: "\x18\x21"                      }
+  - { key: I,        mods: Shift|Alt, chars: "\x18\x24"                      }
