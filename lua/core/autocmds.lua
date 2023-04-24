@@ -110,6 +110,8 @@ function M.setup()
         highlight_visible = false,
       })
 
+      require("mood-scripts.bg-color").setup()
+
       vim.cmd('call timer_start(5, {-> execute("colorscheme ' .. (vim.g.colors_name or 'tokyonight-moon') .. '") })')
       vim.fn.timer_start(50, function()
         require('mood-scripts.statusline')()
