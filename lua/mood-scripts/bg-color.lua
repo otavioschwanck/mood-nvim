@@ -41,7 +41,7 @@ end
 local function blink()
   local count_cmd = M.normalize_return(vim.fn.system("tmux list-panes -t " .. M.window_id() .. " | wc -l"))
 
-  if tonumber(count_cmd) > 1 or require("utils.buf_count")() then
+  if tonumber(count_cmd) > 1 or require("utils.buf_count")() > 1 then
     call_blink()
   end
 end
