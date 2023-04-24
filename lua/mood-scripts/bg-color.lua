@@ -21,7 +21,7 @@ local function set_win_stuff()
   M.winhighlight = get_color('winhighlight', 'bg#')
 
   vim.cmd("hi ActiveWindow guibg=#" .. M.winhighlight)
-  vim.cmd("hi InactiveWindow guibg=#2f334d")
+  vim.cmd("hi InactiveWindow guibg=#292c41")
 end
 
 local function call_blink()
