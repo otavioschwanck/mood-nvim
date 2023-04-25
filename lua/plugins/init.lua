@@ -1,4 +1,5 @@
 local plugins = {
+  'junegunn/vim-easy-align',
   {
     's1n7ax/nvim-window-picker',
     config = function()

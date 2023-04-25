@@ -88,6 +88,7 @@
   "vim-camelsnek": { "branch": "master", "commit": "84b363aa42b5bc3a2314a56d242df20e7bbfcbf3" },
   "vim-closetag": { "branch": "master", "commit": "d0a562f8bdb107a50595aefe53b1a690460c3822" },
   "vim-commentary": { "branch": "master", "commit": "e87cd90dc09c2a203e13af9704bd0ef79303d755" },
+  "vim-easy-align": { "branch": "master", "commit": "12dd6316974f71ce333e360c0260b4e1f81169c3" },
   "vim-enmasse": { "branch": "master", "commit": "c2286f1d7bd735287a661cd223cd94e2a1f74deb" },
   "vim-eunuch": { "branch": "master", "commit": "291ef1f8c8996ca7715df1032a35a27b12d7b5cf" },
   "vim-exchange": { "branch": "master", "commit": "784d63083ad7d613aa96f00021cd0dfb126a781a" },
