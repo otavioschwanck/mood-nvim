@@ -190,14 +190,6 @@ function M.setup()
       echom "Yanked: " . value
     endfunction
 
-    function Maximize()
-      if expand('%') != '' && (&buftype != '' || &filetype != '') && &buftype != 'nofile' && &buftype != 'qf' && &buftype != 'quickfix'
-        lua require('utils.maximize')()
-      else
-        execute "norm! \<CR>"
-      endif
-    endfunction
-
     function! TermStrategy(cmd)
       lua require("tmux-awesome-manager").execute_command({ cmd = vim.api.nvim_eval("a:cmd"), name = "Tests...", open_as = 'pane', size = '50%', focus_when_call = false })
     endfunction

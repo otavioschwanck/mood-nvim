@@ -197,7 +197,8 @@ function M.setup_which_key()
     q = { ":call undoquit#SaveWindowQuitHistory()<cr><c-w>c", "Kill Window" },
     x = { "<C-w>x", "Swap windows" },
     v = { "<C-w>v", "Split Vertical" },
-    s = { "<C-w>s", "Split Horizontal" }
+    s = { "<C-w>s", "Split Horizontal" },
+    m = { require('utils.maximize'), "Maximize Window" }
     },
     q = {
       name = "+Quit and Close",
@@ -262,7 +263,6 @@ function M.setup_mappings()
   set('n', 'gF', '<C-w>f')
   set('i', '<C-d>', '<Delete>')
   set('c', '<C-d>', '<Delete>')
-  set('n', '<CR>', ':call Maximize()<CR>')
 
   set('n', '<leader>1', '<cmd>BufferGoto 1<CR>')
   set('n', '<leader>2', '<cmd>BufferGoto 2<CR>')
