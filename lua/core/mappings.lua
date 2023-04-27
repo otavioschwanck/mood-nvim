@@ -315,7 +315,7 @@ function M.setup_mappings()
     nmap <expr> T reg_recording() . reg_executing() == "" ? "<Plug>Lightspeed_T" : "T"
 
     xnoremap @ :<C-u>call ExecuteMacroOverVisualRange()<CR>
-    nnoremap <expr> gp '`[' . strpart(getregtype(), 0, 1) . '`]'
+    nnoremap <expr> gb '`[' . strpart(getregtype(), 0, 1) . '`]'
     xnoremap <silent><expr> A mode() ==# "V" ? "<C-v>$A" : "A"
     xnoremap <silent><expr> I mode() ==# "V" ? "<C-v>$^I" : "I"
     xnoremap <silent><expr> i mode() ==# "V" ? "<C-v>$\<Home>I" : "i"
