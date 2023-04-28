@@ -15,7 +15,12 @@ function M.setup()
 
   vim.opt.runtimepath:prepend(lazypath)
 
-  require("lazy").setup('plugins')
+  require("lazy").setup('plugins', {
+    change_detection = {
+      enabled = false,
+      notify = false,
+    },
+  })
 end
 
 return M
