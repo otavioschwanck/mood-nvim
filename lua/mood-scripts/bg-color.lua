@@ -38,18 +38,33 @@ local function call_blink()
   end)
 end
 
+local function fix_wins()
+  vim.fn.timer_start(1000, function()
+    local all_windows = vim.api.nvim_list_wins()
+
+    for _, win in ipairs(all_windows) do
+      if vim.fn.getwinvar(win, "&winhighlight") == "Normal:InactiveWindow" then
+        vim.fn.setwinvar(win, "&winhighlight", "Normal:ActiveWindow")
+      end
+    end
+  end)
+end
+
 local function blink()
   local count_cmd = M.normalize_return(vim.fn.system("tmux list-panes -t " .. M.window_id() .. " | wc -l"))
 
   if tonumber(count_cmd) > 1 or require("utils.buf_count")() > 1 then
     call_blink()
   end
+
+  fix_wins()
 end
 
 local function win_blink()
   local count_cmd = M.normalize_return(vim.fn.system("tmux list-panes -t " .. M.window_id() .. " | wc -l"))
 
   call_blink()
+  fix_wins()
 end
 
 function M.setup()
