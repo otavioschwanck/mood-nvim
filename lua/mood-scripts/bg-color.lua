@@ -49,9 +49,7 @@ end
 local function win_blink()
   local count_cmd = M.normalize_return(vim.fn.system("tmux list-panes -t " .. M.window_id() .. " | wc -l"))
 
-  if require("utils.buf_count")() > 1 then
-    call_blink()
-  end
+  call_blink()
 end
 
 function M.setup()

@@ -10,7 +10,9 @@ return {
 
     },
     config = function()
-      require('goto-preview').setup {}
+      require('goto-preview').setup {
+        height = 23;
+      }
     end
   },
 }
