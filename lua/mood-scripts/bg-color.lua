@@ -67,6 +67,8 @@ function M.setup()
     pattern = '*',
     callback = set_win_stuff,
   })
+
+  set_win_stuff()
 end
 
 M.setup()
