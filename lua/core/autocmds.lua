@@ -77,7 +77,8 @@ function M.setup()
       require('user.keybindings')
       require('user.config')
 
-      require('bufferline').setup({
+      require('barbar').setup({
+        animation = false,
         hide = {extensions = true},
         icons = {
           -- Configure the base icons on the bufferline.
