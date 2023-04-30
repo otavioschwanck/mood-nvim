@@ -145,7 +145,6 @@ local plugins = {
     }
   end },
   { 'moll/vim-bbye' },
-  { 'rainbowhxch/beacon.nvim', opts = { ignore_filetypes = { 'alpha' } } },
   { 'otavioschwanck/ruby-toolkit.nvim', keys = {
     { "<leader>mv", "<cmd>lua require('ruby-toolkit').extract_variable()<CR>", desc = "Extract Variable", mode = { "v" } },
     { "<leader>mf", "<cmd>lua require('ruby-toolkit').extract_to_function()<CR>", desc = "Extract To Function", mode = { "v" } },
