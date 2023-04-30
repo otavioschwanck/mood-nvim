@@ -78,6 +78,7 @@ function M.setup()
       require('user.config')
 
       require('barbar').setup({
+        auto_hide = true,
         animation = false,
         hide = {extensions = true},
         icons = {
