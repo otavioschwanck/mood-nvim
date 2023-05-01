@@ -1,17 +1,13 @@
 local M = {}
 
-function M.save_session()
-  local file_type = vim.bo.filetype
+function M.save_session(ft)
+  if vim.g.exiting == false and ft.file and ft.file ~= "" then
+    vim.fn.timer_start(100, function()
+      vim.api.nvim_exec_autocmds('User', { pattern = 'SessionSavePre' })
 
-  if file_type ~= 'alpha' then
-    require('persistence').save()
+      require('persistence').save()
+    end)
   end
-end
-
-function M.setup()
-  vim.cmd([[
-    call timer_start(1000 * 15, { id -> execute("lua require('mood-scripts.auto-save-session').save_session()") }, { 'repeat': -1 })
-  ]])
 end
 
 return M

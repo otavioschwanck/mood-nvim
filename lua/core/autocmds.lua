@@ -1,10 +1,14 @@
 local M = {}
 
 function M.setup()
+  vim.g.exiting = false
+
   local autocommands = {
     { { "FileType" },    { "qf" },              function() vim.cmd('map <buffer> dd :RemoveQFItem<CR>') end },
+    { { "VimLeavePre" },    { "*" },              function() vim.g.exiting = true end },
     { { "FileType" },    { "TelescopePrompt" }, function() vim.cmd('setlocal nocursorline') end },
     { { "BufWritePre" }, { "*" },               function() vim.cmd('call mkdir(expand("<afile>:p:h"), "p")') end },
+    { { "BufReadPost", "BufDelete" },      { "*" },               function(ft) require("mood-scripts.auto-save-session").save_session(ft) end },
   }
 
   for i = 1, #autocommands, 1 do
@@ -78,7 +82,7 @@ function M.setup()
       require('user.config')
 
       require('barbar').setup({
-        auto_hide = true,
+        auto_hide = false,
         animation = false,
         hide = {extensions = true},
         icons = {

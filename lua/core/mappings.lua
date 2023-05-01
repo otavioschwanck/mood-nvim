@@ -70,6 +70,7 @@ function M.setup_which_key()
     },
   h = {
     name = "+Help",
+    K = { "<cmd>!rm -rf ~/.local/state/nvim/sessions<CR>", "Delete All Sessions" },
     l = { ':lua require("persistence").load()<cr>', "Load Session" },
     t = { ":Telescope colorscheme<CR>", "Change Theme" },
     h = { ":e ~/.config/nvim/handbook.md<CR>:AerialToggle<CR><C-w>h", "Open the Handbook" },
