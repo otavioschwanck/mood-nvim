@@ -12,6 +12,9 @@ null_ls.setup({
   on_attach = null_opts.on_attach,
   sources = {
     null_ls.builtins.formatting.prettier,
+    -- SUPER IMPORTANT HERE, it this not works, change the solargraph formatting and diagnostics to true
+    -- To make it work, you may need to have fix the warnings on your rubocop.yml
+    null_ls.builtins.diagnostics.rubocop,
   }
 })
 
@@ -43,118 +46,33 @@ lsp.configure('solidity', {
   }
 })
 
--- the reason to configure solargraph here and use diagnosticsls, is because if handles better the rubocop, specially for big projects.
--- Just comment lsp.configure(solargraph) and lsp.configure(diagnosticsls) if you want the default stuff.
 lsp.configure('solargraph', {
   flags = {
     debounce_text_changes = 50,
   },
   settings = {
     solargraph = {
-      diagnostics = true,
-      formatting = true,
-      useBundler = true
+      formatting = true, -- solargraph format is just faster
+      useBundler = true,
+      -- change to true if you want to use here instead of null-ls (null ls is faster for diagnostics)
+      diagnostics = false,
     }
   }
 })
 
--- try it if lsp diagnostics not work well
--- lsp.configure('diagnosticls', {
---   filetypes = { "ruby" },
---   single_file_support = false,
---   init_options = {
---     linters = {
---       rubocop = {
---         command = "bundle",
---         sourceName = "rubocop",
---         debounce = 100,
---         args = { "exec",
---           "rubocop",
---           "--format",
---           "json",
---           "--force-exclusion",
---           "--stdin",
---           "%filepath"
---         },
---         parseJson = {
---           errorsRoot = "files[0].offenses",
---           line = "location.start_line",
---           endLine = "location.last_line",
---           column = "location.start_column",
---           endColumn = "location.end_column",
---           message = "[${cop_name}] ${message}",
---           security = "severity"
---         },
---         securities = {
---           fatal = "error",
---           error = "error",
---           warning = "warning",
---           convention = "info",
---           refactor = "info",
---           info = "info"
---         }
---       },
---       shellcheck = {
---         command = "shellcheck",
---         debounce = 100,
---         args = { "--format=gcc", "-" },
---         offsetLine = 0,
---         offsetColumn = 0,
---         sourceName = "shellcheck",
---         formatLines = 1,
---         formatPattern = {
---           "^[^:]+:(\\d+):(\\d+):\\s+([^:]+):\\s+(.*)$",
---           {
---             line = 1,
---             column = 2,
---             message = 4,
---             security = 3
---           }
---         },
---         securities = {
---           error = "error",
---           warning = "warning",
---           note = "info"
---         }
---       },
---       languagetool = {
---         command = "languagetool",
---         debounce = 200,
---         args = { "-" },
---         offsetLine = 0,
---         offsetColumn = 0,
---         sourceName = "languagetool",
---         formatLines = 2,
---         formatPattern = {
---           "^\\d+?\\.\\)\\s+Line\\s+(\\d+),\\s+column\\s+(\\d+),\\s+([^\\n]+)\nMessage:\\s+(.*)$",
---           {
---             line = 1,
---             column = 2,
---             message = { 4, 3 }
---           }
---         }
---       }
---     },
---     filetypes = {
---       sh = "shellcheck",
---       email = "languagetool",
---       ruby = "rubocop"
---     }
---   }
--- })
---
 lsp.nvim_workspace()
 
+-- make cmp don't select first item
 local cmp_mappings = lsp.defaults.cmp_mappings({
   -- Uncomment to input on select in autocomplete
-  ['<Tab>'] = cmp.mapping.select_next_item({ select = true }), -- comment those two tab lines to don't autoselect items
+  ['<Tab>'] = cmp.mapping.select_next_item({ select = true }),
   ['<S-Tab>'] = cmp.mapping.select_prev_item({ select = true }),
   ['<C-n>'] = cmp.mapping(function(fallback)
     if luasnip.expand_or_locally_jumpable() then
       luasnip.expand_or_jump(1)
     end
   end, { 'i', 's' }),
-  ['<C-k>'] = cmp.mapping(function(fallback)
+  ['<C-p>'] = cmp.mapping(function(fallback)
     if luasnip.locally_jumpable() then
       luasnip.jump(-1)
     end
