@@ -11,7 +11,7 @@ return {
     'ThePrimeagen/harpoon',
     opts = {},
     keys = {
-      {'<leader>;', '<cmd>lua require("harpoon.ui").toggle_quick_menu()<cr>', desc = 'Harpoon menu' },
+      {';', '<cmd>lua require("harpoon.ui").toggle_quick_menu()<cr>', desc = 'Harpoon menu' },
       { '<C-s>', save_or_remove, desc = 'Pin on Harpoon' },
     }
   }
