@@ -2,13 +2,14 @@ local M = {}
 
 function M.setup()
   vim.g.exiting = false
+  vim.g.scheduled_save_session = false
 
   local autocommands = {
     { { "FileType" },    { "qf" },              function() vim.cmd('map <buffer> dd :RemoveQFItem<CR>') end },
     { { "VimLeavePre" },    { "*" },              function() vim.g.exiting = true end },
     { { "FileType" },    { "TelescopePrompt" }, function() vim.cmd('setlocal nocursorline') end },
     { { "BufWritePre" }, { "*" },               function() vim.cmd('call mkdir(expand("<afile>:p:h"), "p")') end },
-    { { "BufRead", "BufDelete" },      { "*" },               function(ft) require("mood-scripts.auto-save-session").save_session(ft) end },
+    { { "BufReadPost", "BufDelete" },      { "*" },               function(ft) require("mood-scripts.auto-save-session").save_session(ft) end },
   }
 
   for i = 1, #autocommands, 1 do
@@ -80,41 +81,6 @@ function M.setup()
       require('core.mappings').setup()
       require('user.keybindings')
       require('user.config')
-
-      require('barbar').setup({
-        auto_hide = false,
-        animation = false,
-        hide = {extensions = true},
-        icons = {
-          -- Configure the base icons on the bufferline.
-          buffer_index = false,
-          buffer_number = false,
-          button = '',
-          -- Enables / disables diagnostic symbols
-          diagnostics = {
-            [vim.diagnostic.severity.ERROR] = {enabled = true, icon = 'ﬀ'},
-            [vim.diagnostic.severity.WARN] = {enabled = false},
-            [vim.diagnostic.severity.INFO] = {enabled = false},
-            [vim.diagnostic.severity.HINT] = {enabled = false},
-          },
-          filetype = {
-            custom_colors = false,
-            enabled = true,
-          },
-          separator = {left = '', right = '▕'},
-          modified = {button = '●'},
-          pinned = {buffer_index = true, filename = true, button = '', separator = { right = '▕', left = ''} },
-          alternate = {filetype = {enabled = false}},
-          current = {buffer_index = false},
-          inactive = {button = '', separator = {left = '', right = '▕'}},
-          visible = {modified = {buffer_number = false}},
-        },
-        sidebar_filetypes = {
-          ['neo-tree'] = {event = 'BufWipeout'},
-        },
-        exclude_ft = {'netrw'},
-        highlight_visible = false,
-      })
 
       require("mood-scripts.bg-color").setup()
 

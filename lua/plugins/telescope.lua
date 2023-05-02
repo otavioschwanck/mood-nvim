@@ -146,6 +146,7 @@ return {
       require('telescope').load_extension('telescope-alternate')
       require('telescope').load_extension('fzf')
       require('telescope').load_extension('tmux-awesome-manager')
+      require("telescope").load_extension('harpoon')
     end
   }
 }

@@ -135,8 +135,9 @@ OBS: This list persist between vim sections
 
 | Command                  | Description                                          |
 | ------------------------ | ---------------------------------------------------- |
-| H or [b                  | Previous Buffer (History)                            |
-| L or ]b                  | Next Buffer (History)                                |
+| H or [b                  | Previous Buffer (Harpoon)                            |
+| L or ]b                  | Next Buffer (Harpoon)                                |
+| C-h                      | Alternate Buffer (Previous Buffer)                   |
 | SPC ,                    | Find Buffer in Project                               |
 | SPC TAB                  | Git Status                                           |
 | SPC .                    | File Browser                                         |
@@ -144,7 +145,7 @@ OBS: This list persist between vim sections
 | SPC k                    | Kill current buffer                                  |
 | SPC A                    | Go to Test (and vsplit)                              |
 | SPC a                    | Go to test                                           |
-| SPC 1 to SPC 9           | Go to tabs                                           |
+| SPC 1 to SPC 9           | Go to harpoons                                       |
 | ------------------------ | ---------------------------------------------------- |
 | ]g                       | Next git hunk                                        |
 | [g                       | Previous git hunk                                    |
@@ -156,17 +157,16 @@ OBS: This list persist between vim sections
 | [q                       | Previous Quickfix                                    |
 | ------------------------ | ---------------------------------------------------- |
 
-# Buffer/Tab Bookmarks
+# Bookmarks (harpoon)
 
 | Command                  | Description                                          |
 | ------------------------ | ---------------------------------------------------- |
-| C-s                      | Pin/Unpin buffers (Persist to session)               |
-| C-q                      | Pick Buffer                                          |
-| SPC b k                  | Kill all buffers expect pinned                       |
-| SPC b K                  | Kill all buffers except current                      |
+| C-s                      | Pin/Unpin buffers                                    |
 | SPC h l                  | Load last session for this project                   |
-| C-h                      | Move tab to the left                                 |
+| SPC ;                    | Open Harmoon Menu                                    |
+| SPC h c                  | Harpoon Clear                                        |
 | C-l                      | Move tab to the right                                |
+| SPC 1 to SPC 9           | Navigate harpoon                                     |
 
 
 # LSP (Language Server Protocol)

@@ -53,7 +53,7 @@ function M.setup_which_key()
     f = { ":Telescope buffers only_cwd=true<CR>", "Find Buffers in this project" },
     F = { ":Telescope buffers<CR>", "Find all buffers" },
   },
-  [";"] = { ":Telescope buffers ignore_current_buffer=true sort_mru=true<CR>", "Find All Buffers" },
+  ["<"] = { ":Telescope buffers ignore_current_buffer=true sort_mru=true<CR>", "Find All Buffers" },
   ["*"] = { ":Telescope grep_string<CR>", "Search string at point on project" },
   ["<space>"] = { ":Telescope find_files<CR>", "Find Files" },
   e = { ":Neotree toggle<CR>", "Toggle Tree" },
@@ -70,6 +70,7 @@ function M.setup_which_key()
     },
   h = {
     name = "+Help",
+    c = { "<cmd>lua require('harpoon.mark').clear_all()<CR>", "Harpoon Clear" },
     K = { "<cmd>!rm -rf ~/.local/state/nvim/sessions<CR>", "Delete All Sessions" },
     l = { ':lua require("persistence").load()<cr>', "Load Session" },
     t = { ":Telescope colorscheme<CR>", "Change Theme" },
@@ -254,6 +255,8 @@ function M.setup_mappings()
   set('i', '<C-l>', '<Right>')
   set('i', '<C-a>', '<C-o>0')
   set('i', '<C-h>', '<Left>')
+  set('n', 'H', '<cmd>lua require("harpoon.ui").nav_prev()<CR>')
+  set('n', 'L', '<cmd>lua require("harpoon.ui").nav_next()<CR>')
   set('c', '<C-l>', '<Right>')
   set('c', '<C-h>', '<Left>')
   set('c', '<C-a>', '<Home>')
@@ -265,18 +268,17 @@ function M.setup_mappings()
   set('i', '<C-d>', '<Delete>')
   set('c', '<C-d>', '<Delete>')
 
-  set('n', '<leader>1', '<cmd>BufferGoto 1<CR>')
-  set('n', '<leader>2', '<cmd>BufferGoto 2<CR>')
-  set('n', '<leader>3', '<cmd>BufferGoto 3<CR>')
-  set('n', '<leader>4', '<cmd>BufferGoto 4<CR>')
-  set('n', '<leader>5', '<cmd>BufferGoto 5<CR>')
-  set('n', '<leader>6', '<cmd>BufferGoto 6<CR>')
-  set('n', '<leader>7', '<cmd>BufferGoto 7<CR>')
-  set('n', '<leader>8', '<cmd>BufferGoto 8<CR>')
-  set('n', '<leader>9', '<cmd>BufferGoto 9<CR>')
+  set('n', '<leader>1', '<cmd>lua require("harpoon.ui").nav_file(1)<CR>')
+  set('n', '<leader>2', '<cmd>lua require("harpoon.ui").nav_file(2)<CR>')
+  set('n', '<leader>3', '<cmd>lua require("harpoon.ui").nav_file(3)<CR>')
+  set('n', '<leader>4', '<cmd>lua require("harpoon.ui").nav_file(4)<CR>')
+  set('n', '<leader>5', '<cmd>lua require("harpoon.ui").nav_file(5)<CR>')
+  set('n', '<leader>6', '<cmd>lua require("harpoon.ui").nav_file(6)<CR>')
+  set('n', '<leader>7', '<cmd>lua require("harpoon.ui").nav_file(7)<CR>')
+  set('n', '<leader>8', '<cmd>lua require("harpoon.ui").nav_file(8)<CR>')
+  set('n', '<leader>9', '<cmd>lua require("harpoon.ui").nav_file(9)<CR>')
 
-  set('n', 'H', '<cmd>BufferLineCyclePrev<cr><CR>')
-  set('n', 'L', '<cmd>BufferLineCycleNext<CR>')
+  set('n', '<C-h>', '<cmd>b#<CR>')
 
   set('x', '<C-g>', ':<c-u>call SaveSelectionToQuickConsult()<cr>')
   set('n', '<C-g>', ':<c-u>call OpenConsultationWindow()<cr>')

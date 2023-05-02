@@ -102,6 +102,24 @@ local function setup()
     return estimated_space_available > space
   end
 
+  local function has_30_space()
+    return has_space(30)
+  end
+
+  local function harpoon_cond()
+    return has_30_space() and conditions.buffer_not_empty()
+  end
+
+
+  local options = vim.tbl_deep_extend('keep', {}, default_options)
+
+  local function has_space(space)
+    local windwidth = options.globalstatus and vim.go.columns or vim.fn.winwidth(0)
+    local estimated_space_available = windwidth - options.shorting_target
+
+    return estimated_space_available > space
+  end
+
   local function has_50_space()
     return has_space(50)
   end
@@ -225,6 +243,25 @@ local function setup()
       return require('nvim-lightbulb').get_status_text()
     end,
     color = { fg = colors.yellow }
+  }
+
+  ins_left {
+    function()
+      local harpoon_number = require('harpoon.mark').get_index_of(vim.fn.bufname())
+      if harpoon_number then
+        return "ﯠ " .. harpoon_number
+      else
+        return "ﯡ "
+      end
+    end,
+    color = function()
+      if require('harpoon.mark').get_index_of(vim.fn.bufname()) then
+        return { fg = colors.green, gui = 'bold' }
+      else
+        return { fg = colors.red }
+      end
+    end,
+    cond = harpoon_cond,
   }
 
   ins_left {
