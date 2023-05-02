@@ -12,9 +12,13 @@ null_ls.setup({
   on_attach = null_opts.on_attach,
   sources = {
     null_ls.builtins.formatting.prettier,
-    -- SUPER IMPORTANT HERE, it this not works, change the solargraph formatting and diagnostics to true
-    -- To make it work, you may need to have fix the warnings on your rubocop.yml
-    null_ls.builtins.diagnostics.rubocop,
+    -- SUPER IMPORTANT HERE, if this not works, change the solargraph formatting and diagnostics to true
+    -- To make it work, you need to have fix the warning on your rubocop.yml
+    null_ls.builtins.diagnostics.rubocop.with({
+      command = "bundle",
+      args = { "exec", "rubocop", "--format", "json", "--force-exclusion", "--stdin", "$FILENAME" },
+      prefer_local = { "bin/" }
+    })
   }
 })
 
