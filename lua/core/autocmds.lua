@@ -8,7 +8,7 @@ function M.setup()
     { { "VimLeavePre" },    { "*" },              function() vim.g.exiting = true end },
     { { "FileType" },    { "TelescopePrompt" }, function() vim.cmd('setlocal nocursorline') end },
     { { "BufWritePre" }, { "*" },               function() vim.cmd('call mkdir(expand("<afile>:p:h"), "p")') end },
-    { { "BufReadPost", "BufDelete" },      { "*" },               function(ft) require("mood-scripts.auto-save-session").save_session(ft) end },
+    { { "BufRead", "BufDelete" },      { "*" },               function(ft) require("mood-scripts.auto-save-session").save_session(ft) end },
   }
 
   for i = 1, #autocommands, 1 do
