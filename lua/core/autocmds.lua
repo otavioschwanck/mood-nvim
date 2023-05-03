@@ -81,6 +81,7 @@ function M.setup()
       require('core.mappings').setup()
       require('user.keybindings')
       require('user.config')
+      require('mood-scripts.setup-telescope').setup()
 
       require("mood-scripts.bg-color").setup()
 
