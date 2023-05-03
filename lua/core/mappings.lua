@@ -122,7 +122,7 @@ function M.setup_which_key()
     X = { ':Telescope diagnostics<CR>', 'Diagnostics' },
     r = { '<cmd>lua vim.lsp.buf.rename()<CR>', 'Rename' },
     a = { '<cmd>lua vim.lsp.buf.code_action()<CR>', 'Code Action' },
-    f = { '<cmd>lua vim.lsp.buf.formatting()<CR>', 'Format' },
+    f = { '<cmd>LspZeroFormat<CR>', 'Format' },
     i = { ':Telescope lsp_document_symbols<CR>', 'Document Symbols' },
     j = { ':Telescope lsp_dynamic_workspace_symbols<CR>', 'Workspace Symbols' },
     },
