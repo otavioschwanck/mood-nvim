@@ -60,7 +60,7 @@ function M.open_dotfiles()
     {
       path = "~/.config/nvim/vs-snippets/",
       display = "Snippets           | Write your own snippets!",
-      order = "5"
+      order = "6"
     },
   }
 
