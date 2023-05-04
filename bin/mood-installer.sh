@@ -247,7 +247,7 @@ install_lazygit_linux () {
 install_lazygit_mac () {
   echo "================= INSTALLING LAZY GIT ================="
   brew install jesseduffield/lazygit/lazygit
-  brew install lazygit
+  brew install lazygit git-delta
 }
 
 check_mandatory_parameters() {
