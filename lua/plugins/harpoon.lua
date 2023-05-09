@@ -37,17 +37,19 @@ return {
         local tabline = ''
 
         for i, tab in ipairs(original_tabs) do
-          local is_current = string.match(vim.fn.bufname(), tab.filename)
+          local is_current = string.match(vim.fn.bufname(), tab.filename) or vim.fn.bufname() == tab.filename
 
           local label = tabs[i].filename
 
+          tabline = tabline .. '%#HarpoonNumber#   ' .. i .. ': %*'
+
           if is_current then
-            tabline = tabline .. '%#TabLineSel#'
+            tabline = tabline .. '%#HarpoonActive#'
           else
-            tabline = tabline .. '%#TabLine#'
+            tabline = tabline .. '%#HarpoonInactive#'
           end
 
-          tabline = tabline .. '   ' .. i .. ':' .. label .. '   %*'
+          tabline = tabline .. label .. '   %*'
           if i < #tabs then
             tabline = tabline .. '%T'
           end
@@ -59,8 +61,17 @@ return {
       vim.opt.showtabline = 2
 
       -- -- Set the highlight groups for the tabline
-      vim.cmd('highlight! TabLine guibg=NONE guifg=#63698c')
-      vim.cmd('highlight! TabLineSel guibg=NONE guifg=white')
+      -- when colorscheme change, run the function, autocmd
+
+      vim.api.nvim_create_autocmd("ColorScheme", {
+        group = vim.api.nvim_create_augroup("harpoon", { clear = true }),
+        pattern = { "*" },
+        callback = function ()
+          vim.cmd('highlight! HarpoonInactive guibg=NONE guifg=#63698c')
+          vim.cmd('highlight! HarpoonActive guibg=NONE guifg=white')
+          vim.cmd('highlight! HarpoonNumber guibg=NONE guifg=#7aa2f7')
+        end,
+      })
 
       -- Set the tabline
       set_tabline()
