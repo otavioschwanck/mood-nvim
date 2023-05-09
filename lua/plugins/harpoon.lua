@@ -1,11 +1,3 @@
-local function save_or_remove()
-  if require('harpoon.mark').get_index_of(vim.fn.bufname()) then
-    require("harpoon.mark").rm_file()
-  else
-    require("harpoon.mark").add_file()
-  end
-end
-
 local function shorten_filenames(filenames)
   local shortened = {}
 
@@ -34,7 +26,6 @@ return {
   {
     'ThePrimeagen/harpoon',
     opts = {},
-
     config = function()
       local function set_tabline()
         vim.o.tabline = '%!v:lua.tabline()'
@@ -76,7 +67,7 @@ return {
     end,
     keys = {
       { ';',     '<cmd>lua require("harpoon.ui").toggle_quick_menu()<cr>', desc = 'Harpoon menu' },
-      { '<C-s>', save_or_remove,                                           desc = 'Pin on Harpoon' },
+      { '<C-s>', '<cmd>lua require("harpoon.mark").toggle_file()<cr>',                                           desc = 'Pin on Harpoon' },
     }
   }
 }
