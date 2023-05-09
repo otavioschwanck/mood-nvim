@@ -41,7 +41,7 @@ return {
 
           local label = tabs[i].filename
 
-          tabline = tabline .. '%#HarpoonNumber#   ' .. i .. ': %*'
+          tabline = tabline .. '%#HarpoonNumber#   ' .. i .. ' %*'
 
           if is_current then
             tabline = tabline .. '%#HarpoonActive#'
