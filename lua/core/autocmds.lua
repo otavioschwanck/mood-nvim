@@ -96,6 +96,10 @@ function M.setup()
           local tabColor = '#222437'
           local hint = "#1c9e89"
 
+          vim.cmd('highlight! TabLine guibg=NONE guifg=#63698c')
+          vim.cmd('highlight! TabLineSel guibg=NONE guifg=white')
+          vim.cmd('highlight! TabLineFill guibg=NONE guifg=white')
+
           vim.cmd("highlight CursorLineNr guifg=#7aa2f7")
           vim.cmd("highlight TreesitterContext guibg=" .. tabColor)
           vim.cmd("highlight TreesitterContextLineNumber gui=bold guifg=" .. hint)
