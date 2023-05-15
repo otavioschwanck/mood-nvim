@@ -53,6 +53,7 @@ custom_pickers.live_grep_in_folder = function(opts)
     finder = finders.new_table { results = data, entry_maker = make_entry.gen_from_file(opts) },
     previewer = conf.file_previewer(opts),
     sorter = conf.file_sorter(opts),
+    additional_args = { "-j1" },
     attach_mappings = function(prompt_bufnr)
       action_set.select:replace(function()
         local current_picker = action_state.get_current_picker(prompt_bufnr)

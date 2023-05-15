@@ -130,8 +130,8 @@ function M.setup_which_key()
   s = {
     name = "+Search",
     D = { ":lua require('mood-scripts.custom_telescope').live_grep_in_folder({ respect_gitignore = true })<CR>", 'Search text in one or more folders' },
-    d = { ":lua require('telescope.builtin').live_grep { search_dirs = {vim.fn.expand('%:p:h')}, prompt_title = 'Live grep inside ' .. vim.fn.expand('%:p:h') }<CR>", 'Search text in some folder' },
-    p = { ":Telescope live_grep<CR>", "Search text on Project" },
+    d = { ":lua require('telescope.builtin').live_grep { search_dirs = {vim.fn.expand('%:p:h'), additional_args = '-j1'}, prompt_title = 'Live grep inside ' .. vim.fn.expand('%:p:h') }<CR>", 'Search text in some folder' },
+    p = { '<cmd>lua require("telescope.builtin").live_grep({ additional_args = { "-j1" }})<CR>', "Search text on Project" },
     o = { ":Telescope live_grep grep_open_files=true<CR>", "Search on Open Files" },
     P = { ":lua require('mood-scripts.custom_telescope').ripgrep()<CR>", "Advanced Search text on Project" },
     f = { ":CtrlSF ", "Search text using CoC (for search and replace)" },
