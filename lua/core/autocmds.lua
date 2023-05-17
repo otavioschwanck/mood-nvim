@@ -85,7 +85,19 @@ function M.setup()
 
       require("mood-scripts.bg-color").setup()
 
+      vim.api.nvim_create_autocmd("ColorScheme", {
+        group = vim.api.nvim_create_augroup("harpoon", { clear = true }),
+        pattern = { "*" },
+        callback = function()
+          vim.cmd('highlight! HarpoonInactive guibg=NONE guifg=#63698c')
+          vim.cmd('highlight! HarpoonActive guibg=NONE guifg=white')
+          vim.cmd('highlight! HarpoonNumberActive guibg=NONE guifg=#7aa2f7')
+          vim.cmd('highlight! HarpoonNumberInactive guibg=NONE guifg=#7aa2f7')
+        end,
+      })
+
       vim.cmd('call timer_start(5, {-> execute("colorscheme ' .. (vim.g.colors_name or 'tokyonight-moon') .. '") })')
+
       vim.fn.timer_start(50, function()
         require('mood-scripts.statusline')()
         vim.cmd('highlight Beacon guibg=white ctermbg=15')
