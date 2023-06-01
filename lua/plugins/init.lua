@@ -145,11 +145,7 @@ local plugins = {
     }
   end },
   { 'moll/vim-bbye' },
-  { 'otavioschwanck/ruby-toolkit.nvim', keys = {
-    { "<leader>mv", "<cmd>lua require('ruby-toolkit').extract_variable()<CR>", desc = "Extract Variable", mode = { "v" } },
-    { "<leader>mf", "<cmd>lua require('ruby-toolkit').extract_to_function()<CR>", desc = "Extract To Function", mode = { "v" } },
-    { "<leader>mf", "<cmd>lua require('ruby-toolkit').create_function_from_text()<CR>", desc = "Create Function from item on cursor" },
-  } },
+  { 'otavioschwanck/ruby-toolkit.nvim' },
   { 'lewis6991/gitsigns.nvim', config = function() require('gitsigns').setup() end,
     dependencies = { 'nvim-lua/plenary.nvim' } },
   {

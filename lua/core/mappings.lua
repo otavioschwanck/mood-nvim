@@ -61,7 +61,6 @@ function M.setup_which_key()
   d = { ":call AddDebugger()<CR>", "+Debug" },
   D = { ":call ClearDebugger()<CR>", "Clear debuggers" },
   u = { ":UndotreeToggle<CR>", "Undo Tree" },
-  a = { ":call OpenTestAlternate()<cr>", "Go to Test" },
   n = {
     name = "+Toggle Case",
     s = { ":Snake<CR>", "snake_case" },
@@ -81,7 +80,6 @@ function M.setup_which_key()
     m = { ":Mason<CR>", "Mason" },
     T = { ":lua require('tutorial').start()<CR>", "Start Tutorial" }
   },
-  A = { ":call OpenTestAlternateAndSplit()<cr>", "Go to Test (split)" },
   ["."] = { ":Telescope file_browser path=%:p:h hidden=true respect_gitignore=false<CR>", "File Browser" },
   p = { ":Telescope yank_history<CR>", "Yank History" },
    ["<C-g>"] = {
@@ -154,12 +152,6 @@ function M.setup_which_key()
     Y = { ":call CopyFullPath()<CR>", "Copy Full Path" },
     C = { ":call BetterCopy()<CR>", "Copy current file to" }
     },
-  m = {
-    name = "+Ruby",
-    c = { ":call GetClassName()<CR>", "Copy Class Name to Clipboard" },
-    C = { ":call SearchClassName()<CR>", "Search current class on project" },
-    d = { ":lua require('mood-scripts.rubocop').comment_rubocop()<CR>", "Comment Rubocop Error" },
-  },
   ["#"] = { tmux.run_project_terms, "Execute / Re-excute project terminals" },
   ["%"] = { ":lua require('mood-scripts.command-on-start').restart_all()<CR>", "TMUX: Execute / Re-execute project terminal all" },
   g = {
@@ -187,7 +179,7 @@ function M.setup_which_key()
     R = { "<Plug>RestNvimLast<CR>", "Run Last" },
     p = { "<Plug>RestNvimPreview<CR>", "Preview" },
     m = { ":set filetype=http<CR>", "Set Current File as HTTP" },
-    h = { ":!open https://github.com/NTBBloodbath/rest.nvim/tree/main/tests", "See Examples of usages" },
+    h = { ":!open https://github.com/NTBBloodbath/rest.nvim/tree/main/tests<CR>", "See Examples of usages" },
   },
   w = {
     name = "+Window",
@@ -329,9 +321,62 @@ function M.setup_mappings()
   ]])
 end
 
+function M.typescript()
+  vim.api.nvim_create_autocmd('FileType', { pattern = { 'typescript', 'typescriptreact', 'vue' }, callback = function(buf)
+    local wk = require("which-key")
+    wk.register({
+      m = {
+        name = '+typescript',
+        i = { ":TypescriptAddMissingImports<CR>", "Add Missing Imports" },
+        o = { ":TypescriptOrganizeImports<CR>", "Organize Imports" },
+        u = { ":TypescriptRemoveUnused<CR>", "Remove Unused" },
+        r = { ":TypescriptRenameFile<CR>", "Rename File" },
+      }
+    }, {
+      mode = 'n',
+      prefix = '<leader>',
+      buffer = buf.buf,
+    })
+  end})
+end
+
+function M.ruby()
+  vim.api.nvim_create_autocmd('FileType', { pattern = { 'ruby' }, callback = function(buf)
+    local wk = require("which-key")
+    wk.register({
+      m = {
+        name = '+ruby',
+        c = { ":call GetClassName()<CR>", "Copy Class Name to Clipboard" },
+        C = { ":call SearchClassName()<CR>", "Search current class on project" },
+        d = { ":lua require('mood-scripts.rubocop').comment_rubocop()<CR>", "Comment Rubocop Error" },
+        f = { "<cmd>lua require('ruby-toolkit').create_function_from_text()<CR>", "Create Function from item on cursor" },
+      },
+      A = { ":call OpenTestAlternateAndSplit()<cr>", "Go to Test (split)" },
+      a = { ":call OpenTestAlternate()<cr>", "Go to Test" },
+    }, {
+      mode = 'n',
+      prefix = '<leader>',
+      buffer = buf.buf,
+    })
+
+    wk.register({
+      m = {
+        v = { "<cmd>lua require('ruby-toolkit').extract_variable()<CR>", "Extract Variable" },
+        f = { "<cmd>lua require('ruby-toolkit').extract_to_function()<CR>", "Extract To Function" },
+      },
+    }, {
+      mode = 'v',
+      prefix = '<leader>',
+      buffer = buf.buf,
+    })
+  end})
+end
+
 function M.setup()
   M.setup_which_key()
   M.setup_mappings()
+  M.typescript()
+  M.ruby()
 end
 
 return M
