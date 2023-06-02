@@ -29,7 +29,7 @@ lsp.on_attach(function(_, bufnr)
 
   local bind = vim.keymap.set
 
-  bind('n', 'gd', '<cmd>Telescope lsp_definitions<cr>', opts)
+  bind('n', 'gd', '<cmd>lua vim.lsp.buf.definition()<cr>', opts)
   bind('n', 'gr', '<cmd>Telescope lsp_references<cr>', opts)
   bind('n', 'gI', '<cmd>Telescope lsp_implementations<cr>', opts)
   bind('n', 'gt', '<cmd>Telescope lsp_type_definitions<cr>', opts)
