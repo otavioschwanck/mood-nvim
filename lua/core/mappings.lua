@@ -29,9 +29,6 @@ function M.setup_which_key()
     name = "+Lsp",
     a = { "<cmd>lua vim.lsp.buf.code_action()<CR>", "Code Action" }
   },
-  m = {
-    name = "+Ruby Extract",
-  },
   }, { mode = "v", prefix = "<leader>" })
 
   -- Normal mode:
@@ -361,6 +358,7 @@ function M.ruby()
 
     wk.register({
       m = {
+        name = '+ruby',
         v = { "<cmd>lua require('ruby-toolkit').extract_variable()<CR>", "Extract Variable" },
         f = { "<cmd>lua require('ruby-toolkit').extract_to_function()<CR>", "Extract To Function" },
       },
