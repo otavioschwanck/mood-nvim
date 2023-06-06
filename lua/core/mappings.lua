@@ -33,7 +33,6 @@ function M.setup_which_key()
 
   -- Normal mode:
   wk.register({
-  x = { "<C-w>c", "Kill Window" },
   ["-"] = { "migg=G\'i:w<CR>", "Indent Current File" },
   ["1"] = "which_key_ignore",
   ["2"] = "which_key_ignore",
