@@ -3,15 +3,15 @@ local function setup()
 
   local colors = {
     bg       = '#fff',
-    fg       = '#bbc2cf',
-    yellow   = '#ECBE7B',
-    cyan     = '#008080',
+    fg       = '#cad3f5',
+    yellow   = '#eed49f',
+    cyan     = '#8bd5ca',
     darkblue = '#081633',
-    green    = '#98BB6C',
-    orange   = '#FF8800',
-    violet   = '#938AA9',
-    magenta  = '#957FB8',
-    blue     = '#7E9CD8',
+    green    = '#a6da95',
+    orange   = '#f5a97f',
+    violet   = '#c6a0f6',
+    magenta  = '#b7bdf8',
+    blue     = '#8aadf4',
     red      = '#E46876',
   }
 
@@ -132,7 +132,7 @@ local function setup()
     function()
       return '▊'
     end,
-    color = { fg = colors.blue }, -- Sets highlighting of component
+    color = { fg = colors.violet }, -- Sets highlighting of component
     padding = { left = 0, right = 1 }, -- We don't need space before this
   }
 
@@ -185,7 +185,7 @@ local function setup()
     filename_with_icon,
     cond = conditions.buffer_not_empty,
     colored = true,
-    color = { fg = colors.blue, gui = 'bold' },
+    color = { fg = colors.yellow, gui = 'bold' },
   }
 
   ins_left_both {
