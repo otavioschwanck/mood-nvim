@@ -126,7 +126,6 @@ key_bindings:
   - { key: Comma,    mods: Alt, chars: "\x1b,"                      }
 
   # Mac
-  - { key: E, mods: Command,                    chars: "\x1bOF",   mode: AppCursor   }
   - { key: V,        mods: Command, action: Paste                        }
   - { key: B,        mods: Command, chars: "\x1b\x62"                      }
   - { key: D,        mods: Command, chars: "\x1b\x64"                      }
@@ -179,7 +178,6 @@ key_bindings:
   - { key: I,        mods: Shift|Command, chars: "\x18\x24"                      }
 
   # Linux
-  - { key: E, mods: Alt,                    chars: "\x1bOF",   mode: AppCursor   }
   - { key: V,        mods: Alt, action: Paste                        }
   - { key: D,        mods: Alt, chars: "\x1b\x64"                      }
   - { key: B,        mods: Alt, chars: "\x1b\x62"                      }
