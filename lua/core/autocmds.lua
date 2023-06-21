@@ -109,7 +109,7 @@ function M.setup()
         autocmd_harpoon('#7aa2f7')
       end
 
-      vim.cmd('call timer_start(5, {-> execute("colorscheme ' .. (vim.g.colors_name or 'tokyonight-moon') .. '") })')
+      vim.cmd('call timer_start(5, {-> execute("colorscheme ' .. (vim.g.colors_name or 'catppuccin-macchiato') .. '") })')
 
       vim.fn.timer_start(50, function()
         require('mood-scripts.statusline')()

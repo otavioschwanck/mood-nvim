@@ -3,7 +3,7 @@
 ---------------------------------------------------
 
 -- Theme?
-vim.g.colors_name = 'tokyonight-moon' -- SPC h t to see more themes
+vim.g.colors_name = 'catppuccin-macchiato' -- SPC h t to see more themes
 
 -- Configure your per project commands.  See more at: https://github.com/otavioschwanck/tmux-awesome-manager.nvim
 -- Run the per project with SPC #

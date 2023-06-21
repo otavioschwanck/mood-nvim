@@ -10,7 +10,7 @@ local plugins = {
     'folke/tokyonight.nvim',
     priority = 10000,
     config = function()
-      vim.cmd("colorscheme tokyonight-moon")
+      vim.cmd("colorscheme catppuccin-macchiato")
       vim.opt.termguicolors = true
 
       require("tokyonight").setup({
