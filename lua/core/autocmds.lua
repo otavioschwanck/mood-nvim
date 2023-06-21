@@ -85,16 +85,29 @@ function M.setup()
 
       require("mood-scripts.bg-color").setup()
 
-      vim.api.nvim_create_autocmd("ColorScheme", {
-        group = vim.api.nvim_create_augroup("harpoon", { clear = true }),
-        pattern = { "*" },
-        callback = function()
-          vim.cmd('highlight! HarpoonInactive guibg=NONE guifg=#63698c')
-          vim.cmd('highlight! HarpoonActive guibg=NONE guifg=white')
-          vim.cmd('highlight! HarpoonNumberActive guibg=NONE guifg=#7aa2f7')
-          vim.cmd('highlight! HarpoonNumberInactive guibg=NONE guifg=#7aa2f7')
-        end,
-      })
+      if string.match(vim.g.colors_name, 'catppuccin') then
+        vim.api.nvim_create_autocmd("ColorScheme", {
+          group = vim.api.nvim_create_augroup("harpoon", { clear = true }),
+          pattern = { "*" },
+          callback = function()
+            vim.cmd('highlight! HarpoonInactive guibg=NONE guifg=#63698c')
+            vim.cmd('highlight! HarpoonActive guibg=NONE guifg=white')
+            vim.cmd('highlight! HarpoonNumberActive guibg=NONE guifg=#eed49f')
+            vim.cmd('highlight! HarpoonNumberInactive guibg=NONE guifg=#eed49f')
+          end,
+        })
+      else
+        vim.api.nvim_create_autocmd("ColorScheme", {
+          group = vim.api.nvim_create_augroup("harpoon", { clear = true }),
+          pattern = { "*" },
+          callback = function()
+            vim.cmd('highlight! HarpoonInactive guibg=NONE guifg=#63698c')
+            vim.cmd('highlight! HarpoonActive guibg=NONE guifg=white')
+            vim.cmd('highlight! HarpoonNumberActive guibg=NONE guifg=#7aa2f7')
+            vim.cmd('highlight! HarpoonNumberInactive guibg=NONE guifg=#7aa2f7')
+          end,
+        })
+      end
 
       vim.cmd('call timer_start(5, {-> execute("colorscheme ' .. (vim.g.colors_name or 'tokyonight-moon') .. '") })')
 
@@ -111,6 +124,19 @@ function M.setup()
           vim.cmd('highlight! TabLineFill guibg=NONE guifg=white')
 
           vim.cmd("highlight CursorLineNr guifg=#7aa2f7")
+          vim.cmd("highlight TreesitterContext guibg=" .. tabColor)
+          vim.cmd("highlight TreesitterContextLineNumber gui=bold guifg=" .. hint)
+        end
+
+        if string.match(vim.g.colors_name, 'catppuccin') then
+          vim.cmd('highlight LineNr guifg=#8087a2')
+
+          local tabColor = '#24273a'
+          local hint = "#c6a0f6"
+
+          vim.cmd('highlight! TabLineFill guibg=NONE guifg=white')
+
+          vim.cmd("highlight CursorLineNr guifg=#a6da95")
           vim.cmd("highlight TreesitterContext guibg=" .. tabColor)
           vim.cmd("highlight TreesitterContextLineNumber gui=bold guifg=" .. hint)
         end

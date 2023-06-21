@@ -116,16 +116,18 @@ local plugins = {
     }
   } },
   { "MunifTanjim/nui.nvim", lazy = true },
-  { 'nvim-tree/nvim-web-devicons', opts = {
-    override = {
-      rb = {
-        icon = "",
-        color = "#ff8587",
-        cterm_color = "65",
-        name = "Ruby"
-      }
+  { 'nvim-tree/nvim-web-devicons', config = function()
+    require'nvim-web-devicons'.setup {
+      override_by_extension = {
+        ["rb"] = {
+          icon = "",
+          color = "#ff8587",
+          cterm_color = "65",
+          name = "Ruby"
+        }
+      };
     }
-  } },
+  end},
   { 'JellyApple102/flote.nvim', config = function ()
     require('flote').setup({
       q_to_quit = true,

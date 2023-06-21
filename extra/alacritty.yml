@@ -1,5 +1,5 @@
 font:
-  size: 12.0
+  size: 14.0
   normal:
     family: FiraCode Nerd Font
     use_thin_stroke: true
@@ -9,109 +9,85 @@ font:
 #   dynamic_title: true
 #   decorations_theme_variant: None
 
-schemes:
-  # Tokyo Night theme, based on both:
-  #   https://github.com/ghifarit53/tokyonight-vim
-  #   https://github.com/enkia/tokyo-night-vscode-theme
-  tokyo-night-moon: &tokyo-night-moon
-    primary:
-      background: '0x222436'
-      foreground: '0xc8d3f5'
-
-    # Normal colors
-    normal:
-      black:   '0x1b1d2b'
-      red:     '0xff757f'
-      green:   '0xc3e88d'
-      yellow:  '0xffc777'
-      blue:    '0x82aaff'
-      magenta: '#8B008B'
-      cyan:    '#2596be'
-      white:   '0x828bb8'
-
-    # Bright colors
-    bright:
-      black:   '0x444a73'
-      red:     '0xff757f'
-      green:   '0xc3e88d'
-      yellow:  '0xffc777'
-      blue:    '0x82aaff'
-      magenta: '0xc099ff'
-      cyan:    '0x86e1fc'
-      white:   '0xc8d3f5'
-
-    indexed_colors:
-    - { index: 16, color: '#063970' }
-    - { index: 17, color: '0xff5d62' }
-
-      
-  tokyo-night: &tokyo-night
+colors:
     # Default colors
     primary:
-      background: '0x1a1b26'
-      foreground: '0xa9b1d6'
+        background: "#24273A" # base
+        foreground: "#CAD3F5" # text
+        # Bright and dim foreground colors
+        dim_foreground: "#CAD3F5" # text
+        bright_foreground: "#CAD3F5" # text
+
+    # Cursor colors
+    cursor:
+        text: "#24273A" # base
+        cursor: "#F4DBD6" # rosewater
+    vi_mode_cursor:
+        text: "#24273A" # base
+        cursor: "#B7BDF8" # lavender
+
+    # Search colors
+    search:
+        matches:
+            foreground: "#24273A" # base
+            background: "#A5ADCB" # subtext0
+        focused_match:
+            foreground: "#24273A" # base
+            background: "#A6DA95" # green
+        footer_bar:
+            foreground: "#24273A" # base
+            background: "#A5ADCB" # subtext0
+
+    # Keyboard regex hints
+    hints:
+        start:
+            foreground: "#24273A" # base
+            background: "#EED49F" # yellow
+        end:
+            foreground: "#24273A" # base
+            background: "#A5ADCB" # subtext0
+
+    # Selection colors
+    selection:
+        text: "#24273A" # base
+        background: "#F4DBD6" # rosewater
 
     # Normal colors
     normal:
-      black:   '0x32344a'
-      red:     '0xf7768e'
-      green:   '0x9ece6a'
-      yellow:  '0xe0af68'
-      blue:    '0x7aa2f7'
-      magenta: '0xad8ee6'
-      cyan:    '0x449dab'
-      white:   '0x787c99'
+        black: "#494D64" # surface1
+        red: "#ED8796" # red
+        green: "#A6DA95" # green
+        yellow: "#EED49F" # yellow
+        blue: "#8AADF4" # blue
+        magenta: "#b884aa" # pink
+        cyan: "#5b8a83" # teal
+        white: "#B8C0E0" # subtext1
 
     # Bright colors
     bright:
-      black:   '0x444b6a'
-      red:     '0xff7a93'
-      green:   '0xb9f27c'
-      yellow:  '0xff9e64'
-      blue:    '0x7da6ff'
-      magenta: '0xbb9af7'
-      cyan:    '0x0db9d7'
-      white:   '0xacb0d0'
+        black: "#5B6078" # surface2
+        red: "#ED8796" # red
+        green: "#A6DA95" # green
+        yellow: "#EED49F" # yellow
+        blue: "#8AADF4" # blue
+        magenta: "#F5BDE6" # pink
+        cyan: "#8BD5CA" # teal
+        white: "#A5ADCB" # subtext0
+
+    # Dim colors
+    dim:
+        black: "#494D64" # surface1
+        red: "#ED8796" # red
+        green: "#A6DA95" # green
+        yellow: "#EED49F" # yellow
+        blue: "#8AADF4" # blue
+        magenta: "#F5BDE6" # pink
+        cyan: "#8BD5CA" # teal
+        white: "#B8C0E0" # subtext1
 
     indexed_colors:
-    - { index: 16, color: '#063970' }
-    - { index: 17, color: '0xff5d62' }
-
-
-  tokyo-night-storm: &tokyo-night-storm
-    # Default colors
-    primary:
-      background: '0x24283b'
-      foreground: '0xa9b1d6'
-
-    # Normal colors
-    normal:
-      black:   '0x32344a'
-      red:     '0xf7768e'
-      green:   '0x9ece6a'
-      yellow:  '0xe0af68'
-      blue:    '0x7aa2f7'
-      magenta: '#deccff'
-      cyan:    '#b8f5ff'
-      white:   '0x9699a8'
-
-    # Bright colors
-    bright:
-      black:   '0x444b6a'
-      red:     '0xff7a93'
-      green:   '0xb9f27c'
-      yellow:  '0xff9e64'
-      blue:    '0x7da6ff'
-      magenta: '0xbb9af7'
-      cyan:    '0x0db9d7'
-      white:   '0xacb0d0'
-
-    indexed_colors:
-    - { index: 16, color: '#063970' }
-    - { index: 17, color: '0xff5d62' }
-
-
-colors: *tokyo-night-moon
+        - { index: 16, color: "#9c715a" }
+        - { index: 17, color: "#F4DBD6" }
 
 # To get keybinding, just run: xxd -psd
 key_bindings:
@@ -194,9 +170,10 @@ key_bindings:
   - { key: Comma,    mods: Command, chars: "\x18\x10"                      }
   - { key: Semicolon,    mods: Command, chars: "\x18\x0e"                      }
   - { key: F,    mods: Shift|Command, chars: "\x18\x09"                      }
+  - { key: E,    mods: Command, chars: "\x18\x09"                      }
   - { key: N,    mods: Command, chars: "\x18\x6e"                      }
   - { key: P,    mods: Command, chars: "\x18\x70"                      }
-  - { key: Slash,    mods: Command, chars: "\x18\x3f"                      }
+  - { key: Slash,    mods: Command, chars: "\x18\x2f"                      }
   - { key: F,        mods: Command, chars: "\x1b\x66"                      }
   - { key: I,        mods: Command, chars: "\x18\x21"                      }
   - { key: I,        mods: Shift|Command, chars: "\x18\x24"                      }
@@ -248,9 +225,10 @@ key_bindings:
   - { key: Comma,    mods: Alt, chars: "\x18\x10"                      }
   - { key: Semicolon,    mods: Alt, chars: "\x18\x0e"                      }
   - { key: F,    mods: Shift|Alt, chars: "\x18\x09"                      }
+  - { key: E,    mods: Alt, chars: "\x18\x09"                      }
   - { key: N,    mods: Alt, chars: "\x18\x6e"                      }
   - { key: P,    mods: Alt, chars: "\x18\x70"                      }
-  - { key: Slash,    mods: Alt, chars: "\x18\x3f"                      }
+  - { key: Slash,    mods: Alt, chars: "\x18\x2f"                      }
   - { key: F,        mods: Alt, chars: "\x1b\x66"                      }
   - { key: I,        mods: Alt, chars: "\x18\x21"                      }
   - { key: I,        mods: Shift|Alt, chars: "\x18\x24"                      }
