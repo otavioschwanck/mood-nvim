@@ -5,11 +5,13 @@ function M.setup()
   vim.g.scheduled_save_session = false
 
   local autocommands = {
-    { { "FileType" },    { "qf" },              function() vim.cmd('map <buffer> dd :RemoveQFItem<CR>') end },
-    { { "VimLeavePre" },    { "*" },              function() vim.g.exiting = true end },
-    { { "FileType" },    { "TelescopePrompt" }, function() vim.cmd('setlocal nocursorline') end },
-    { { "BufWritePre" }, { "*" },               function() vim.cmd('call mkdir(expand("<afile>:p:h"), "p")') end },
-    { { "BufReadPost", "BufDelete" },      { "*" },               function(ft) require("mood-scripts.auto-save-session").save_session(ft) end },
+    { { "FileType" },                 { "qf" },              function() vim.cmd('map <buffer> dd :RemoveQFItem<CR>') end },
+    { { "VimLeavePre" },              { "*" },               function() vim.g.exiting = true end },
+    { { "FileType" },                 { "TelescopePrompt" }, function() vim.cmd('setlocal nocursorline') end },
+    { { "BufWritePre" },              { "*" },               function() vim.cmd('call mkdir(expand("<afile>:p:h"), "p")') end },
+    { { "BufReadPost", "BufDelete" }, { "*" },
+                                                               function(ft) require("mood-scripts.auto-save-session")
+            .save_session(ft) end },
   }
 
   for i = 1, #autocommands, 1 do
@@ -85,28 +87,26 @@ function M.setup()
 
       require("mood-scripts.bg-color").setup()
 
+      local autocmd_harpoon = function(color)
+        vim.api.nvim_create_autocmd("ColorScheme", {
+          group = vim.api.nvim_create_augroup("harpoon", { clear = true }),
+          pattern = { "*" },
+          callback = function()
+            vim.cmd('highlight! HarpoonInactive guibg=NONE guifg=#63698c')
+            vim.cmd('highlight! HarpoonActive guibg=NONE guifg=white')
+            vim.cmd('highlight! HarpoonNumberActive guibg=NONE guifg=' .. color)
+            vim.cmd('highlight! HarpoonNumberInactive guibg=NONE guifg=' .. color)
+
+            require("nvim-web-devicons").set_icon({
+              rb = { icon = "", color = "#ff8587", name = "DevIconRb" } })
+          end,
+        })
+      end
+
       if string.match(vim.g.colors_name, 'catppuccin') then
-        vim.api.nvim_create_autocmd("ColorScheme", {
-          group = vim.api.nvim_create_augroup("harpoon", { clear = true }),
-          pattern = { "*" },
-          callback = function()
-            vim.cmd('highlight! HarpoonInactive guibg=NONE guifg=#63698c')
-            vim.cmd('highlight! HarpoonActive guibg=NONE guifg=white')
-            vim.cmd('highlight! HarpoonNumberActive guibg=NONE guifg=#f5bde6')
-            vim.cmd('highlight! HarpoonNumberInactive guibg=NONE guifg=#f5bde6')
-          end,
-        })
+        autocmd_harpoon('#f5bde6')
       else
-        vim.api.nvim_create_autocmd("ColorScheme", {
-          group = vim.api.nvim_create_augroup("harpoon", { clear = true }),
-          pattern = { "*" },
-          callback = function()
-            vim.cmd('highlight! HarpoonInactive guibg=NONE guifg=#63698c')
-            vim.cmd('highlight! HarpoonActive guibg=NONE guifg=white')
-            vim.cmd('highlight! HarpoonNumberActive guibg=NONE guifg=#7aa2f7')
-            vim.cmd('highlight! HarpoonNumberInactive guibg=NONE guifg=#7aa2f7')
-          end,
-        })
+        autocmd_harpoon('#7aa2f7')
       end
 
       vim.cmd('call timer_start(5, {-> execute("colorscheme ' .. (vim.g.colors_name or 'tokyonight-moon') .. '") })')
