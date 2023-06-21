@@ -92,8 +92,8 @@ function M.setup()
           callback = function()
             vim.cmd('highlight! HarpoonInactive guibg=NONE guifg=#63698c')
             vim.cmd('highlight! HarpoonActive guibg=NONE guifg=white')
-            vim.cmd('highlight! HarpoonNumberActive guibg=NONE guifg=#eed49f')
-            vim.cmd('highlight! HarpoonNumberInactive guibg=NONE guifg=#eed49f')
+            vim.cmd('highlight! HarpoonNumberActive guibg=NONE guifg=#f5bde6')
+            vim.cmd('highlight! HarpoonNumberInactive guibg=NONE guifg=#f5bde6')
           end,
         })
       else
