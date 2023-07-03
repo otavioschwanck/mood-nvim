@@ -26,7 +26,7 @@ return {
     opts = {
       filesystem = {
         bind_to_cwd = true,
-        follow_current_file = true,
+        follow_current_file = false,
       },
       window = {
         mappings = {

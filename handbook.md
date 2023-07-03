@@ -240,8 +240,9 @@ To execute some command in all items of the quickfix list, just run `:cfdo S/old
 |-------------|----------------------------------|
 | TAB         | Preview / expand                 |
 | SPC e       | Open the tree                    |
+| SPC E       | Open the tree on current file    |
 | ?           | See all possible commands        |
-| C-d and C-p | Use it after / and D to navigate |
+| C-n and C-p | Use it after / and D to navigate |
 |-------------|----------------------------------|
 
 # Editing

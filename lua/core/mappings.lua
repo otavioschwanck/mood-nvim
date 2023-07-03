@@ -53,7 +53,7 @@ function M.setup_which_key()
   ["*"] = { ":Telescope grep_string<CR>", "Search string at point on project" },
   ["<space>"] = { ":Telescope find_files<CR>", "Find Files" },
   e = { ":Neotree toggle<CR>", "Toggle Tree" },
-  E = { ":Neotree git_status<CR>", "Tree Git Status" },
+  E = { ":Neotree %<CR>", "Tree On Current File" },
   d = { ":call AddDebugger()<CR>", "+Debug" },
   D = { ":call ClearDebugger()<CR>", "Clear debuggers" },
   u = { ":UndotreeToggle<CR>", "Undo Tree" },
