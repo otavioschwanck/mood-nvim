@@ -163,7 +163,7 @@ OBS: This list persist between vim sections
 | ------------------------ | ---------------------------------------------------- |
 | C-s                      | Pin/Unpin buffers                                    |
 | SPC h l                  | Load last session for this project                   |
-| ;                        | Open Harmoon Menu                                    |
+| SPC ;                    | Open Harmoon Menu                                    |
 | SPC h c                  | Harpoon Clear                                        |
 | C-l                      | Move tab to the right                                |
 | SPC 1 to SPC 9           | Navigate harpoon                                     |
@@ -189,13 +189,13 @@ To configure your LSP: SPC f p + lsp
 
 # Window Navigation
 
-| Command | Description                                              |
-|---------|----------------------------------------------------------|
-| M-,     | Focus Previous Window                                    |
-| M-;     | Focus Next window                                        |
-|---------|----------------------------------------------------------|
-| C-w o   | Maximize window                                          |
-| ENTER   | Maximize window temporary (press ENTER again to restore)
+| Command  | Description                                              |
+|----------|----------------------------------------------------------|
+| M-, or , | Focus Previous Window                                    |
+| M-; or ; | Focus Next window                                        |
+|----------|----------------------------------------------------------|
+| C-w o    | Maximize window                                          |
+| ENTER    | Maximize window temporary (press ENTER again to restore)
 
 # Searching
 

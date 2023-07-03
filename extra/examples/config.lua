@@ -87,4 +87,3 @@ require('core.settings').remove_bicycle_small_whells({ includeNormalMode = true 
 
 -- Auto load session
 -- require("persistence").load()
-

@@ -72,7 +72,7 @@ function M.setup_which_key()
     h = { ":e ~/.config/nvim/handbook.md<CR>:AerialToggle<CR><C-w>h", "Open the Handbook" },
     u = { ":UpdateMood<CR>", "Update mooD" },
     d = { ":!rm -rf ~/.local/share/nvim/swap/*<CR>", "Delete SWP files" },
-    r = { ":LspRestart<CR>", "Restart LSP" },
+    r = { "<cmd>lua require('mood-scripts.restart-lsp').restart_lsp()<CR>", "Restart LSP" },
     m = { ":Mason<CR>", "Mason" },
     T = { ":lua require('tutorial').start()<CR>", "Start Tutorial" }
   },
@@ -177,6 +177,7 @@ function M.setup_which_key()
     m = { ":set filetype=http<CR>", "Set Current File as HTTP" },
     h = { ":!open https://github.com/NTBBloodbath/rest.nvim/tree/main/tests<CR>", "See Examples of usages" },
   },
+  [";"] = { '<cmd>lua require("harpoon.ui").toggle_quick_menu()<cr>', "Harpoon Menu" },
   w = {
     name = "+Window",
     w = { "<C-w>w", "Next Window" },
@@ -224,6 +225,7 @@ function M.setup_mappings()
   set('n', '-', '$')
   set('x', '-', '$<Left>')
   set('n', ',', '<C-w>W')
+  set('n', ';', '<C-w>w')
   set('n', 'gh', ':SidewaysLeft<cr>')
   set('n', 'gl', ':SidewaysRight<cr>')
   set('x', 'J', ":m '>+1<CR>gv=gv")
