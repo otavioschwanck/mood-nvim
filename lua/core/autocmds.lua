@@ -137,6 +137,7 @@ function M.setup()
           vim.cmd('highlight! TabLineFill guibg=NONE guifg=white')
 
           vim.cmd("highlight CursorLineNr guifg=#a6da95")
+          vim.cmd("highlight TelescopeBorder guifg=#565f89")
           vim.cmd("highlight TreesitterContext guibg=" .. tabColor)
           vim.cmd("highlight TreesitterContextLineNumber gui=bold guifg=" .. hint)
         end
