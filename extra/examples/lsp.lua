@@ -42,7 +42,10 @@ lsp.ensure_installed({
   'tsserver',
   'lua_ls',
   'jsonls',
-  'solidity'
+  'solidity',
+  'yamlls',
+  'json-lsp',
+  'solargraph'
 })
 
 lsp.configure('solidity', {
