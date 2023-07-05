@@ -17,10 +17,7 @@ function M.setup_which_key()
     s = { ":Snake<CR>", "snake_case" },
     c = { ":Camel<CR>", "CamelCase" },
     b = { ":CamelB<CR>", "camelCaseB" }
-    },
-  z = {
-    n = { ":NoteFromSelectedText<CR>", "New Note from Selected Text" }
-    },
+  },
   l = {
     tmux.send_text_to,
     "Send selection to tmux window / pane",
@@ -99,11 +96,6 @@ function M.setup_which_key()
     f = { ":RSpec --only-failures --format documentation<CR>", "Test Only Failed Tests" },
     r = { ":TestLast<CR>", "Rerun Last Test" },
   },
-  z = {
-    name = '+Notes',
-    z = { ":Flote global<CR>", "Global Notes" },
-    p = { ":Flote<CR>", "Project Notes" },
-    },
   c = {
     name = "+Lsp",
     w = {
