@@ -158,6 +158,27 @@ local plugins = {
     end
   },
   {
+    "nvim-neorg/neorg",
+    build = ":Neorg sync-parsers",
+    dependencies = { "nvim-lua/plenary.nvim" },
+    config = function()
+      require("neorg").setup {
+        load = {
+          ["core.defaults"] = {}, -- Loads default behaviour
+          ["core.concealer"] = {}, -- Adds pretty icons to your documents
+          ["core.dirman"] = { -- Manages Neorg workspaces
+            config = {
+              workspaces = {
+                work = "~/notes/work",
+                personal = "~/notes/personal",
+              },
+            },
+          },
+        },
+      }
+    end,
+  },
+  {
     'lukas-reineke/indent-blankline.nvim',
     config = function()
       vim.g.indent_blankline_filetype_exclude = {

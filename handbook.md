@@ -342,6 +342,16 @@ Just press C-p to expand.
 | SPC t k | Clear tests from buffer                                                                       |
 |---------|-----------------------------------------------------------------------------------------------|
 
+## Note Taking
+
+To take notes, use Neorg.
+
+See a vídeo about: https://www.youtube.com/watch?v=NnmRVY22Lq8&list=PLx2ksyallYzVI8CN1JMXhEf62j2AijeDa&index=2
+
+:Neorg workspace work
+:Neorg workspace personal
+
+
 ## Toggle Case
 
 | Command | Description          |
