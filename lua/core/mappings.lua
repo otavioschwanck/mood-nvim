@@ -172,7 +172,8 @@ function M.setup_which_key()
     h = { ":!open https://github.com/NTBBloodbath/rest.nvim/tree/main/tests<CR>", "See Examples of usages" },
   },
   [";"] = { '<cmd>lua require("harpoon.ui").toggle_quick_menu()<cr>', "Harpoon Menu" },
-  z = { "<CR>Neorg index<CR>", "Go to Neorg" },
+  z = { "<cmd>Neorg index<CR>", "Go to Neorg" },
+  Z = { "<cmd>Neorg return<CR>", "Neorg Return" },
   w = {
     name = "+Window",
     w = { "<C-w>w", "Next Window" },
