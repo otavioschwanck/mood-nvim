@@ -172,6 +172,7 @@ local plugins = {
                 work = "~/notes/work",
                 personal = "~/notes/personal",
               },
+              default_workspace = "work",
             },
           },
         },

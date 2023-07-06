@@ -18,6 +18,7 @@ function M.setup_which_key()
     c = { ":Camel<CR>", "CamelCase" },
     b = { ":CamelB<CR>", "camelCaseB" }
   },
+  m = { "<cmd>WhichKey <F-12> v<CR>", "+Localleader Mappings" },
   l = {
     tmux.send_text_to,
     "Send selection to tmux window / pane",
@@ -74,6 +75,7 @@ function M.setup_which_key()
     T = { ":lua require('tutorial').start()<CR>", "Start Tutorial" }
   },
   ["."] = { ":Telescope file_browser path=%:p:h hidden=true respect_gitignore=false<CR>", "File Browser" },
+  m = { "<cmd>WhichKey <F-12><CR>", "+Localleader Mappings" },
   p = { ":Telescope yank_history<CR>", "Yank History" },
    ["<C-g>"] = {
      name = "+QuickConsult",
@@ -170,6 +172,7 @@ function M.setup_which_key()
     h = { ":!open https://github.com/NTBBloodbath/rest.nvim/tree/main/tests<CR>", "See Examples of usages" },
   },
   [";"] = { '<cmd>lua require("harpoon.ui").toggle_quick_menu()<cr>', "Harpoon Menu" },
+  z = { "<CR>Neorg index<CR>", "Go to Neorg" },
   w = {
     name = "+Window",
     w = { "<C-w>w", "Next Window" },
@@ -315,7 +318,7 @@ function M.typescript()
   vim.api.nvim_create_autocmd('FileType', { pattern = { 'typescript', 'typescriptreact', 'vue' }, callback = function(buf)
     local wk = require("which-key")
     wk.register({
-      m = {
+      ["<F-12>"] = {
         name = '+typescript',
         i = { ":TypescriptAddMissingImports<CR>", "Add Missing Imports" },
         o = { ":TypescriptOrganizeImports<CR>", "Organize Imports" },
@@ -333,31 +336,36 @@ end
 function M.ruby()
   vim.api.nvim_create_autocmd('FileType', { pattern = { 'ruby' }, callback = function(buf)
     local wk = require("which-key")
+
     wk.register({
-      m = {
+      ["<F-12>"] = {
         name = '+ruby',
         c = { ":call GetClassName()<CR>", "Copy Class Name to Clipboard" },
         C = { ":call SearchClassName()<CR>", "Search current class on project" },
         d = { ":lua require('mood-scripts.rubocop').comment_rubocop()<CR>", "Comment Rubocop Error" },
         f = { "<cmd>lua require('ruby-toolkit').create_function_from_text()<CR>", "Create Function from item on cursor" },
       },
-      A = { ":call OpenTestAlternateAndSplit()<cr>", "Go to Test (split)" },
-      a = { ":call OpenTestAlternate()<cr>", "Go to Test" },
     }, {
       mode = 'n',
-      prefix = '<leader>',
       buffer = buf.buf,
     })
 
     wk.register({
-      m = {
+      A = { ":call OpenTestAlternateAndSplit()<cr>", "Go to Test (split)" },
+      a = { ":call OpenTestAlternate()<cr>", "Go to Test" },
+    }, {
+      mode = 'n',
+      buffer = buf.buf,
+    })
+
+    wk.register({
+      ["<F-12>"] = {
         name = '+ruby',
         v = { "<cmd>lua require('ruby-toolkit').extract_variable()<CR>", "Extract Variable" },
         f = { "<cmd>lua require('ruby-toolkit').extract_to_function()<CR>", "Extract To Function" },
       },
     }, {
       mode = 'v',
-      prefix = '<leader>',
       buffer = buf.buf,
     })
   end})

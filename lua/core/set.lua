@@ -4,7 +4,7 @@ function M.setup()
   -- This file is automatically loaded by plugins.config
 
   vim.g.mapleader = " "
-  vim.g.maplocalleader = " "
+  vim.g.maplocalleader = "<F-12>"
 
   local opt = vim.opt
 
