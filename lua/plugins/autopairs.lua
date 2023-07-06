@@ -2,7 +2,7 @@ return {
   {
     'windwp/nvim-autopairs', config = function()
       require('nvim-autopairs').setup({
-        disable_filetype = { "TelescopePrompt" , "vim" },
+        disable_filetype = { "TelescopePrompt" , "vim", "norg" },
       })
 
       local npairs = require'nvim-autopairs'
