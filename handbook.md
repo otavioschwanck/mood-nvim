@@ -348,6 +348,9 @@ To take notes, use Neorg.
 
 See a vídeo about: https://www.youtube.com/watch?v=NnmRVY22Lq8&list=PLx2ksyallYzVI8CN1JMXhEf62j2AijeDa&index=2
 
+SPC z = :Neorg index (quick go)
+SPC Z = :Neorg return (quick return)
+
 :Neorg workspace work
 :Neorg workspace personal
 
