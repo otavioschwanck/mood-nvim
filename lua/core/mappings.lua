@@ -337,7 +337,6 @@ function M.typescript()
           }
         }, {
           mode = 'n',
-          prefix = '<leader>',
           buffer = buf.buf,
         })
       end
