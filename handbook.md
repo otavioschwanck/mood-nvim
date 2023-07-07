@@ -351,6 +351,12 @@ See a vídeo about: https://www.youtube.com/watch?v=NnmRVY22Lq8&list=PLx2ksyallY
 :Neorg workspace work
 :Neorg workspace personal
 
+Tips:
+
+zr = Open an folds
+zm = Close folds
+za = Toggle fold at cursor
+
 
 ## Toggle Case
 
