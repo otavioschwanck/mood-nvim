@@ -140,7 +140,6 @@ function M.setup_which_key()
       M = { ":call BetterMove()<CR>", "Move Current File" },
       D = { ":call BetterDelete()<CR>", "Delete the current file" },
       p = { function() require('mood-scripts.open-files').open_dotfiles() end, "User Mood Files" },
-      d = { function() require('mood-scripts.open-files').call(vim.g.dotfiles) end, "Dotfiles" },
       y = { ":call CopyRelativePath()<CR>", "Copy Relative Path" },
       l = { ":call CopyRelativePathWithLine()<CR>", "Copy Path With Line" },
       Y = { ":call CopyFullPath()<CR>", "Copy Full Path" },

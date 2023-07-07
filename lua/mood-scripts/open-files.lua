@@ -64,6 +64,14 @@ function M.open_dotfiles()
     },
   }
 
+  local user_dotfiles = vim.g.dotfiles
+
+  if(user_dotfiles) then
+    for i = 1, #user_dotfiles do
+      table.insert(mood_dotfiles, user_dotfiles[i])
+    end
+  end
+
   M.call(mood_dotfiles)
 end
 
