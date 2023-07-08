@@ -34,12 +34,9 @@ local plugins = {
   },
   { 'AndrewRadev/bufferize.vim',               cmd = "Bufferize" },
   { 'otavioschwanck/tmux-awesome-manager.nvim' },
-  'nyoom-engineering/oxocarbon.nvim',
   { "catppuccin/nvim",         name = "catppuccin" },
   { 'stevearc/aerial.nvim',    config = function() require('aerial').setup({}) end },
-  { 'sainnhe/gruvbox-material' },
   { 'tomlion/vim-solidity' },
-
   { 'rgroli/other.nvim' },
   {
     'jose-elias-alvarez/typescript.nvim',
@@ -51,7 +48,6 @@ local plugins = {
     end
   },
   'tpope/vim-repeat',
-  { 'olimorris/onedarkpro.nvim' },
   {
     'ggandor/lightspeed.nvim',
     config = function()
@@ -97,13 +93,10 @@ local plugins = {
   'farmergreg/vim-lastplace',
   'svermeulen/vim-yoink',
   'p00f/nvim-ts-rainbow',
-  { 'psf/black',           cmd = "Black" },
   'tpope/vim-fugitive',
   'AndrewRadev/undoquit.vim',
   'michaeljsmith/vim-indent-object',
   { 'mbbill/undotree',        cmd = "UndotreeToggle" },
-  'sk1418/HowMuch',
-  'gbprod/nord.nvim',
   { 'sindrets/diffview.nvim', dependencies = 'nvim-lua/plenary.nvim' },
   'Olical/vim-enmasse',
   { 'rcarriga/nvim-notify' },
@@ -113,30 +106,24 @@ local plugins = {
   },
   "rafamadriz/friendly-snippets",
   { 'hrsh7th/cmp-calc' },
-  { 'mattn/emmet-vim' },
 
   { "ray-x/lsp_signature.nvim" },
 
   'windwp/nvim-ts-autotag',
   { 'svermeulen/vim-subversive' },
-
   { 'beloglazov/vim-textobj-quotes', dependencies = { 'kana/vim-textobj-user', } },
-  'EdenEast/nightfox.nvim',
   { 'kdheepak/lazygit.nvim', cmd = "LazyGit" },
   'nicwest/vim-camelsnek',
   'AndrewRadev/sideways.vim',
   'AndrewRadev/splitjoin.vim',
   'AndrewRadev/switch.vim',
-  {
-    'folke/which-key.nvim'
-  },
-  'editorconfig/editorconfig-vim',
+  'folke/which-key.nvim',
   'tpope/vim-abolish',
   'tommcdo/vim-exchange',
   {
     'ray-x/lsp_signature.nvim',
     opts = {
-      bind = true, -- This is mandatory, otherwise border config won't get registered.
+      bind = true,
       handler_opts = {
         border = "rounded"
       }

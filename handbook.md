@@ -298,9 +298,6 @@ But just press C-n after a snippet and you go forward! trust me. (Check your lsp
 
 To open/close the autocomplete, just press C-e.
 
-# Emmet
-Just press C-p to expand.
-
 # Multiple Cursors (Cool Substitute)
 
 | Command  | Description                                                                        |
@@ -360,7 +357,6 @@ zr = Open an folds
 zm = Close folds
 za = Toggle fold at cursor
 
-
 ## Toggle Case
 
 | Command | Description          |
@@ -369,34 +365,6 @@ za = Toggle fold at cursor
 | SPC t s | Toggle CamelCase     |
 | SPC t a | TOggle camelCaseB    |
 |---------|----------------------|
-
-# ChatGPT
-
-1 - Go to https://beta.openai.com/account/api-keys and get an api-key.
-2 - Add to your zshrc:
-
-```ruby
-export OPENAI_API_KEY='your_key_here'
-```
-
-Press `SPC i` to open ChatGPT
-
-| Command | Description                           |
-|---------|---------------------------------------|
-| <C-c>   | to close chat window.                 |
-| <C-u>   | scroll up chat window.                |
-| <C-s>   | Submit message.                       |
-| <C-d>   | scroll down chat window.              |
-| <C-y>   | to copy/yank last answer.             |
-| <C-o>   | Toggle settings window.               |
-| <C-n>   | Start new session.                    |
-| <Tab>   | Cycle over windows. Press <C-o> first |
-| <C-i>   | [Edit Window] use response as input.  |
-|---------|---------------------------------------|
-
-# Command mode
-
-On command mode `:`, you can press C-v to paste, `C-j` to go back one word, and `C-k` to go forward one word.
 
 ## Some useful plugins
 

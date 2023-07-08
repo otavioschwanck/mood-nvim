@@ -15,7 +15,6 @@ function M.setup()
   vim.g.dashboard_default_executive ='telescope'
   vim.g.table_mode_disable_tableize_mappings = 1
   vim.g.table_mode_disable_mappings = 1
-  vim.g.HowMuch_no_mappings = 1
   vim.g.send_disable_mapping = 1
   vim.g.folder_to_ignore = {".*.git/.*", "node_modules/.*"}
   vim.g['test#runner_commands'] = { 'RSpec' }
