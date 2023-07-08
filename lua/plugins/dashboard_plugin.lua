@@ -21,7 +21,7 @@ return { {
       dashboard.button("SPC h m", "󰑶 " .. " Mason (Manage LSP / Linters)", "<cmd>Mason<CR>"),
       dashboard.button("SPC f p", " " .. " User Settings", "<cmd>lua require('mood-scripts.open-files').open_dotfiles()<CR>"),
       dashboard.button("SPC h h", " " .. " Open Handbook (docs)", "<cmd>e ~/.config/nvim/handbook.md <CR>"),
-      dashboard.button("SPC h H", "ﲉ " .. " Open Tutorial for mooD", '<cmd>lua require("tutorial").start() <CR>'),
+      dashboard.button("SPC h T", "ﲉ " .. " Open Tutorial for mooD", '<cmd>lua require("tutorial").start() <CR>'),
       dashboard.button("SPC h u", " " .. " Update mooD", '<cmd>UpdateMood<CR>'),
       dashboard.button("SPC q q", " " .. " Quit", "<cmd>qa<CR>"),
     }
