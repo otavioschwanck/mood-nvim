@@ -1,7 +1,7 @@
 font:
   size: 14.0
   normal:
-    family: FiraCode Nerd Font
+    family: MesloLGL NF
     use_thin_stroke: true
 
 # window:
@@ -58,7 +58,7 @@ colors:
         red: "#ED8796" # red
         green: "#A6DA95" # green
         yellow: "#EED49F" # yellow
-        blue: "#8AADF4" # blue
+        blue: "#494D64" # blue
         magenta: "#b884aa" # pink
         cyan: "#5b8a83" # teal
         white: "#B8C0E0" # subtext1

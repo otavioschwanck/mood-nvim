@@ -124,9 +124,9 @@ install_fonts () {
   else
     mkdir ~/$FONTS_LIBRARY
   fi
-  cd; wget -q https://github.com/ryanoasis/nerd-fonts/releases/download/v2.3.3/FiraCode.zip
-  unzip -q -o FiraCode.zip -d ~/$FONTS_LIBRARY
-  cd; rm FiraCode.zip
+  cd; wget -q https://github.com/ryanoasis/nerd-fonts/releases/download/v3.0.2/Meslo.zip
+  unzip -q -o Meslo.zip -d ~/$FONTS_LIBRARY
+  cd; rm Meslo.zip
 }
 
 # Checks if everything is alright before installing
@@ -170,7 +170,7 @@ run_pre_check () {
 run_post_check () {
   echo "================= Checking post installation environment ================="
   [ -d ~/.config/nvim ] && MOOD_CHECK=true || MOOD_CHECK=false
-  [ -f ~/"$FONTS_LIBRARY/Fira Code Bold Nerd Font Complete.ttf" ] && FONTS_CHECK=true || FONTS_CHECK=false
+  [ -f ~/"$FONTS_LIBRARY/Meslo LG L Bold Nerd Font Complete.ttf" ] && FONTS_CHECK=true || FONTS_CHECK=false
   printf "%20s     %6s\n" "CHECK" "STATUS"
   check_color "Mood was installed" "$MOOD_CHECK"
   check_color "Fonts were installed" "$FONTS_CHECK"
