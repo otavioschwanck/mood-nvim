@@ -1,6 +1,10 @@
 local plugins = {
   'junegunn/vim-easy-align',
   {
+    'stevearc/oil.nvim',
+    opts = {},
+  },
+  {
     's1n7ax/nvim-window-picker',
     config = function()
       require 'window-picker'.setup()
