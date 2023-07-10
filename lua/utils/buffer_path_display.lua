@@ -36,7 +36,7 @@ local buffer_path_display = function(opts, path)
   end
 
   local displayer =  require("telescope.pickers.entry_display").create({
-    separator = " | ",
+    separator = " ",
     items = {
       { width = max_width + 5 },
       { remaining = true }
