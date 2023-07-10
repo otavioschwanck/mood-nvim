@@ -79,15 +79,17 @@ function M.setup()
 
       require("mood-scripts.bg-color").setup()
 
-      local autocmd_harpoon = function(color)
+      local autocmd_harpoon = function(color, fill)
         vim.api.nvim_create_autocmd("ColorScheme", {
           group = vim.api.nvim_create_augroup("harpoon", { clear = true }),
           pattern = { "*" },
           callback = function()
-            vim.cmd('highlight! HarpoonInactive guibg=NONE guifg=#63698c')
+            vim.cmd('highlight! HarpoonInactive guibg=' .. fill .. ' guifg=#63698c')
             vim.cmd('highlight! HarpoonActive guibg=NONE guifg=white')
             vim.cmd('highlight! HarpoonNumberActive guibg=NONE guifg=' .. color)
-            vim.cmd('highlight! HarpoonNumberInactive guibg=NONE guifg=' .. color)
+            vim.cmd('highlight! HarpoonNumberInactive guibg=' .. fill .. ' guifg=' .. color)
+
+            vim.cmd('highlight! TabLineFill guibg=' .. fill .. ' guifg=NONE')
 
             require("nvim-web-devicons").set_icon({
               rb = { icon = "", color = "#ff8587", name = "DevIconRb" } })
@@ -96,9 +98,9 @@ function M.setup()
       end
 
       if string.match(vim.g.colors_name, 'catppuccin') then
-        autocmd_harpoon('#f5bde6')
+        autocmd_harpoon('#f5bde6', '#1e2030')
       else
-        autocmd_harpoon('#7aa2f7')
+        autocmd_harpoon('#7aa2f7', '#1e2030')
       end
 
       vim.cmd('call timer_start(5, {-> execute("colorscheme ' .. (vim.g.colors_name or 'catppuccin-macchiato') .. '") })')
@@ -113,8 +115,6 @@ function M.setup()
           local tabColor = '#222437'
           local hint = "#1c9e89"
 
-          vim.cmd('highlight! TabLineFill guibg=NONE guifg=white')
-
           vim.cmd("highlight CursorLineNr guifg=#7aa2f7")
           vim.cmd("highlight TreesitterContext guibg=" .. tabColor)
           vim.cmd("highlight TreesitterContextLineNumber gui=bold guifg=" .. hint)
@@ -125,8 +125,6 @@ function M.setup()
 
           local tabColor = '#24273a'
           local hint = "#c6a0f6"
-
-          vim.cmd('highlight! TabLineFill guibg=NONE guifg=white')
 
           vim.cmd("highlight CursorLineNr guifg=#f5bde6")
           vim.cmd("highlight TelescopeBorder guifg=#565f89")

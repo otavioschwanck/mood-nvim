@@ -35,6 +35,45 @@ custom_pickers.ripgrep = function()
   end)
 end
 
+custom_pickers.open_with_mini_files = function (opts)
+  opts = opts or {}
+  local data = {}
+
+  scan.scan_dir(vim.loop.cwd(), {
+    hidden = opts.hidden,
+    only_dirs = true,
+    respect_gitignore = opts.respect_gitignore,
+    on_insert = function(entry)
+      table.insert(data, entry .. os_sep)
+    end,
+  })
+
+  pickers.new(opts, {
+    prompt_title = "Folders to Open File Manager",
+    finder = finders.new_table { results = data, entry_maker = make_entry.gen_from_file(opts) },
+    previewer = conf.file_previewer(opts),
+    sorter = conf.file_sorter(opts),
+    additional_args = { "-j1" },
+    attach_mappings = function(prompt_bufnr)
+      action_set.select:replace(function()
+        local current_picker = action_state.get_current_picker(prompt_bufnr)
+        local dirs = {}
+        local selections = current_picker:get_multi_selection()
+        if vim.tbl_isempty(selections) then
+          table.insert(dirs, action_state.get_selected_entry().value)
+        else
+          for _, selection in ipairs(selections) do
+            table.insert(dirs, selection.value)
+          end
+        end
+        actions._close(prompt_bufnr, current_picker.initial_mode == "insert")
+        MiniFiles.open(dirs[1], false)
+      end)
+      return true
+    end,
+  }):find()
+end
+
 custom_pickers.live_grep_in_folder = function(opts)
   opts = opts or {}
   local data = {}

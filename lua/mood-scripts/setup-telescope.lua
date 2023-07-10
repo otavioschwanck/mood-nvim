@@ -3,8 +3,6 @@ local M = {}
 function M.setup()
   local _, actions = pcall(require, "telescope.actions")
 
-  local fb_actions = require "telescope".extensions.file_browser.actions
-
   local winwidth = vim.fn.winwidth(0)
 
   local vertical_search
@@ -57,35 +55,11 @@ function M.setup()
       ["ui-select"] = {
         require("telescope.themes").get_dropdown {}
       },
-      file_browser = {
-        hidden = true,
-        mappings = {
-          ["i"] = {
-            ["<C-o>"] = fb_actions.remove,
-            ["<C-y>"] = fb_actions.copy,
-            ["<C-e>"] = fb_actions.move,
-            ["<C-space>"] = fb_actions.create_from_prompt,
-            ["<C-r>"] = fb_actions.rename,
-            ["<C-c>"] = fb_actions.goto_parent_dir,
-            ["<C-g>"] = fb_actions.goto_cwd,
-            ["<C-w>"] = function() vim.cmd('normal vbd') end,
-          },
-          ["n"] = {
-            ["<C-o>"] = fb_actions.remove,
-            ["<C-y>"] = fb_actions.copy,
-            ["<C-e>"] = fb_actions.move,
-            ["<C-space>"] = fb_actions.create_from_prompt,
-            ["<C-r>"] = fb_actions.rename,
-            ["<C-c>"] = fb_actions.goto_parent_dir
-          },
-        },
-      },
     },
   }
 
   require("telescope").load_extension("yank_history")
   require("telescope").load_extension("ui-select")
-  require("telescope").load_extension "file_browser"
   require('telescope').load_extension('telescope-alternate')
   require('telescope').load_extension('fzf')
   require('telescope').load_extension('tmux-awesome-manager')

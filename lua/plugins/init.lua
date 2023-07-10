@@ -38,8 +38,8 @@ local plugins = {
   },
   { 'AndrewRadev/bufferize.vim',               cmd = "Bufferize" },
   { 'otavioschwanck/tmux-awesome-manager.nvim' },
-  { "catppuccin/nvim",         name = "catppuccin" },
-  { 'stevearc/aerial.nvim',    config = function() require('aerial').setup({}) end },
+  { "catppuccin/nvim",                         name = "catppuccin" },
+  { 'stevearc/aerial.nvim',                    config = function() require('aerial').setup({}) end },
   { 'tomlion/vim-solidity' },
   { 'rgroli/other.nvim' },
   {
@@ -53,10 +53,33 @@ local plugins = {
   },
   'tpope/vim-repeat',
   {
-    'ggandor/lightspeed.nvim',
-    config = function()
-      require('lightspeed').setup({ ignore_case = true, jump_to_unique_chars = { safety_timeout = nil } })
-    end
+    "folke/flash.nvim",
+    event = "VeryLazy",
+    opts = {
+      modes = {
+        char = {
+          keys = { "f", "F", "t", "T" },
+        }
+      }
+    },
+    keys = {
+      {
+        "S",
+        mode = { "n", "o", "x" },
+        function()
+          require("flash").treesitter()
+        end,
+        desc = "Flash Treesitter",
+      },
+      {
+        "s",
+        mode = { "n", "x", "o" },
+        function()
+          require("flash").jump()
+        end,
+        desc = "Flash",
+      },
+    },
   },
   {
     'norcalli/nvim-colorizer.lua',
@@ -116,7 +139,7 @@ local plugins = {
   'windwp/nvim-ts-autotag',
   { 'svermeulen/vim-subversive' },
   { 'beloglazov/vim-textobj-quotes', dependencies = { 'kana/vim-textobj-user', } },
-  { 'kdheepak/lazygit.nvim', cmd = "LazyGit" },
+  { 'kdheepak/lazygit.nvim',         cmd = "LazyGit" },
   'nicwest/vim-camelsnek',
   'AndrewRadev/sideways.vim',
   'AndrewRadev/splitjoin.vim',
@@ -133,7 +156,7 @@ local plugins = {
       }
     }
   },
-  { "MunifTanjim/nui.nvim",  lazy = true },
+  { "MunifTanjim/nui.nvim",            lazy = true },
   {
     'nvim-tree/nvim-web-devicons',
     config = function()
@@ -155,9 +178,9 @@ local plugins = {
     config = function()
       require("neorg").setup {
         load = {
-          ["core.defaults"] = {}, -- Loads default behaviour
+          ["core.defaults"] = {},  -- Loads default behaviour
           ["core.concealer"] = {}, -- Adds pretty icons to your documents
-          ["core.dirman"] = { -- Manages Neorg workspaces
+          ["core.dirman"] = {      -- Manages Neorg workspaces
             config = {
               workspaces = {
                 work = "~/notes/work",
