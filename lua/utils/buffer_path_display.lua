@@ -19,7 +19,7 @@ local buffer_path_display = function(opts, path)
   end
 
   -- get all buffer names of current cwd
-  local buffers = require('lua.utils.valid_listed_buffers')()
+  local buffers = vim.api.nvim_list_bufs()
   local buffer_names = {}
   for _, buffer in pairs(buffers) do
     -- insert buffer name only filename no path

@@ -44,7 +44,7 @@ lsp.ensure_installed({
   'jsonls',
   'solidity',
   'yamlls',
-  'json-lsp',
+  'jsonls',
   'solargraph'
 })
 
@@ -92,6 +92,7 @@ local cmp_mappings = lsp.defaults.cmp_mappings({
   end, { "s" }),
   ['<C-u>'] = cmp.mapping.scroll_docs( -4),
   ['<C-d>'] = cmp.mapping.scroll_docs(4),
+  ['<CR>'] = cmp.mapping.confirm(),
 })
 
 local sources = { { name = "path" },
