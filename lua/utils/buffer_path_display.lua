@@ -43,7 +43,7 @@ local buffer_path_display = function(opts, path)
     }
   })
 
-  return displayer({ { tail, "File" }, { path_name:sub(2, #path_name), "Path" } })
+  return displayer({ tail, "󰉋 " .. path_name:sub(2, #path_name) })
 end
 
 return buffer_path_display
