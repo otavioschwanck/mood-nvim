@@ -18,10 +18,27 @@ local buffer_path_display = function(opts, path)
     path_name = '/'
   end
 
+  -- get all buffer names of current cwd
+  local buffers = require('lua.utils.valid_listed_buffers')()
+  local buffer_names = {}
+  for _, buffer in pairs(buffers) do
+    -- insert buffer name only filename no path
+    table.insert(buffer_names, require("telescope.utils").path_tail(vim.api.nvim_buf_get_name(buffer)))
+  end
+
+  local max_width = 0
+
+  for _, buffer_name in pairs(buffer_names) do
+    local width = #buffer_name
+    if width > max_width then
+      max_width = width
+    end
+  end
+
   local displayer =  require("telescope.pickers.entry_display").create({
-    separator = " ",
+    separator = " | ",
     items = {
-      { width = 80 },
+      { width = max_width + 5 },
       { remaining = true }
     }
   })
