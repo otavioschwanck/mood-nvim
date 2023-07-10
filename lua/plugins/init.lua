@@ -90,12 +90,6 @@ local plugins = {
   { 'emmanueltouzery/agitator.nvim' },
   'dhruvasagar/vim-table-mode',
   { 'tpope/vim-commentary' },
-  {
-    'machakann/vim-highlightedyank',
-    config = function()
-      require('template-string').setup({})
-    end
-  },
   'axelvc/template-string.nvim',
   {
     "kylechui/nvim-surround",
