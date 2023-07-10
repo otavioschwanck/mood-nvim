@@ -9,7 +9,7 @@ local buffer_path_display = function(opts, path)
   if #splitted_tail >= 2 then
     for i = 1, #splitted_tail - 1, 1 do
       if i < #splitted_tail - 1 then
-        path_name = path_name .. '/' .. splitted_tail[i]:sub(1,2)
+        path_name = path_name .. '/' .. splitted_tail[i]
       else
         path_name = path_name .. '/' .. splitted_tail[i]
       end
@@ -18,7 +18,15 @@ local buffer_path_display = function(opts, path)
     path_name = '/'
   end
 
-  return string.format("%s |  %s", tail, path_name)
+  local displayer =  require("telescope.pickers.entry_display").create({
+    separator = " ",
+    items = {
+      { width = 80 },
+      { remaining = true }
+    }
+  })
+
+  return displayer({ { tail, "File" }, { path_name:sub(2, #path_name), "Path" } })
 end
 
 return buffer_path_display
