@@ -57,6 +57,9 @@ local plugins = {
     event = "VeryLazy",
     opts = {
       modes = {
+        search = {
+          enabled = false
+        },
         char = {
           keys = { "f", "F", "t", "T" },
         }
