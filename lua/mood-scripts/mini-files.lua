@@ -45,4 +45,12 @@ function M.open_current()
   end
 end
 
+function M.open_folder(folder)
+  local files = require('mini.files')
+
+  files.open(folder)
+  files.reset()
+  files.reveal_cwd()
+end
+
 return M

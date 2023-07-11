@@ -67,7 +67,7 @@ custom_pickers.open_with_mini_files = function (opts)
           end
         end
         actions._close(prompt_bufnr, current_picker.initial_mode == "insert")
-        MiniFiles.open(dirs[1], false)
+        require("mood-scripts.mini-files").open_folder(dirs[1])
       end)
       return true
     end,
