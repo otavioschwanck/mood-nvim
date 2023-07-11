@@ -1,42 +1,44 @@
 local M = {}
 
+M.path_tail = (function()
+  local os_sep = "/"
+
+  return function(path)
+    for i = #path, 1, -1 do
+      if path:sub(i, i) == os_sep then
+        return path:sub(i + 1, -1)
+      end
+    end
+    return path
+  end
+end)()
+
 function M.open_current()
   local files = require('mini.files')
   if vim.bo.filetype == 'minifiles' then
     files.close()
   else
-    local current_file = vim.api.nvim_buf_get_name(0)
     local is_file = not vim.bo.buftype or vim.bo.buftype == ''
-
-    files.open(vim.loop.cwd(), false)
+    local current_file = vim.fn.expand("%:p")
 
     if is_file then
+      files.open(vim.fn.expand("%:p:h"))
+      files.reset()
+      files.reveal_cwd()
+
       vim.schedule(function()
-        files.reset()
-        local line = 1
-        local entry = files.get_fs_entry(0, line)
+        local line_num = 1
+        local entry = files.get_fs_entry(0, line_num)
+
         while entry do
-          if not entry then
+          line_num = line_num + 1
+
+          if M.path_tail(current_file) == entry.name then
+            vim.api.nvim_win_set_cursor(0, { line_num, 1 })
             return
           end
 
-          if current_file == entry.path then
-            vim.api.nvim_win_set_cursor(0, { line, 1 })
-            return
-          elseif
-              current_file:find(
-                string.format('%s/', entry.path),
-                1,
-                true
-              ) == 1
-          then
-            vim.api.nvim_win_set_cursor(0, { line, 1 })
-            require('mini.files').go_in()
-            line = 1
-          else
-            line = line + 1
-          end
-          entry = files.get_fs_entry(0, line)
+          entry = files.get_fs_entry(0, line_num)
         end
       end)
     end
