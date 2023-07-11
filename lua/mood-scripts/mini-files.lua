@@ -15,32 +15,12 @@ end)()
 
 function M.open_current()
   local files = require('mini.files')
+
   if vim.bo.filetype == 'minifiles' then
     files.close()
   else
-    local is_file = not vim.bo.buftype or vim.bo.buftype == ''
-    local current_file = vim.fn.expand("%:p")
-
-    if is_file then
-      vim.schedule(function()
-        files.open(vim.fn.expand("%:p:h"))
-        files.reset()
-        files.reveal_cwd()
-
-        local line_num = 1
-        local entry = files.get_fs_entry(0, line_num)
-
-        while entry do
-          if M.path_tail(current_file) == entry.name then
-            vim.api.nvim_win_set_cursor(0, { line_num, 1 })
-            return
-          end
-
-          line_num = line_num + 1
-          entry = files.get_fs_entry(0, line_num)
-        end
-      end)
-    end
+    files.open(vim.api.nvim_buf_get_name(0))
+    files.reveal_cwd()
   end
 end
 
