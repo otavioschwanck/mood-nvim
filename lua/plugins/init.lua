@@ -65,7 +65,7 @@ local plugins = {
     keys = {
       {
         "S",
-        mode = { "n", "o", "x" },
+        mode = { "n" },
         function()
           require("flash").treesitter()
         end,
