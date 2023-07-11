@@ -22,22 +22,21 @@ function M.open_current()
     local current_file = vim.fn.expand("%:p")
 
     if is_file then
-      files.open(vim.fn.expand("%:p:h"))
-      files.reset()
-      files.reveal_cwd()
-
       vim.schedule(function()
+        files.open(vim.fn.expand("%:p:h"))
+        files.reset()
+        files.reveal_cwd()
+
         local line_num = 1
         local entry = files.get_fs_entry(0, line_num)
 
         while entry do
-          line_num = line_num + 1
-
           if M.path_tail(current_file) == entry.name then
             vim.api.nvim_win_set_cursor(0, { line_num, 1 })
             return
           end
 
+          line_num = line_num + 1
           entry = files.get_fs_entry(0, line_num)
         end
       end)
