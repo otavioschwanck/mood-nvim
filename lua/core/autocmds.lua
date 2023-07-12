@@ -18,6 +18,11 @@ function M.setup()
     vim.api.nvim_create_autocmd(autocommands[i][1], { pattern = autocommands[i][2], callback = autocommands[i][3] })
   end
 
+  vim.api.nvim_create_autocmd("BufRead", {
+    pattern = "*.norg",
+    command = "norm zR"
+  })
+
   local function augroup(name)
     return vim.api.nvim_create_augroup("otavioschwanck_" .. name, { clear = true })
   end
