@@ -24,7 +24,7 @@ null_ls.setup({
   }
 })
 
-lsp.on_attach(function(_, bufnr)
+local on_attach = function(client, bufnr)
   local opts = { buffer = bufnr }
 
   local bind = vim.keymap.set
@@ -33,7 +33,9 @@ lsp.on_attach(function(_, bufnr)
   bind('n', 'gr', '<cmd>Telescope lsp_references<cr>', opts)
   bind('n', 'gI', '<cmd>Telescope lsp_implementations<cr>', opts)
   bind('n', 'gt', '<cmd>Telescope lsp_type_definitions<cr>', opts)
-end)
+end
+
+lsp.on_attach(on_attach)
 
 local cmp = require('cmp')
 local luasnip = require("luasnip")
@@ -56,6 +58,7 @@ lsp.configure('solidity', {
 })
 
 lsp.configure('solargraph', {
+  on_attach = on_attach,
   flags = {
     debounce_text_changes = 50,
   },
@@ -76,6 +79,7 @@ local cmp_mappings = lsp.defaults.cmp_mappings({
   -- Uncomment to input on select in autocomplete
   ['<Tab>'] = cmp.mapping.select_next_item({ select = true }),
   ['<S-Tab>'] = cmp.mapping.select_prev_item({ select = true }),
+  ['<CR>'] = cmp.mapping.confirm(),
   ['<C-n>'] = cmp.mapping(function(fallback)
     if luasnip.expand_or_locally_jumpable() then
       luasnip.expand_or_jump(1)
@@ -92,7 +96,6 @@ local cmp_mappings = lsp.defaults.cmp_mappings({
   end, { "s" }),
   ['<C-u>'] = cmp.mapping.scroll_docs( -4),
   ['<C-d>'] = cmp.mapping.scroll_docs(4),
-  ['<CR>'] = cmp.mapping.confirm(),
 })
 
 local sources = { { name = "path" },
