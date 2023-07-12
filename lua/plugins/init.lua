@@ -44,12 +44,6 @@ local plugins = {
   { 'rgroli/other.nvim' },
   {
     'jose-elias-alvarez/typescript.nvim',
-    config = function()
-      local lsp = require('lsp-zero')
-      local null_opts = lsp.build_options('null-ls', {})
-
-      require("typescript").setup({ server = { on_attach = null_opts.on_attach } })
-    end
   },
   'tpope/vim-repeat',
   {

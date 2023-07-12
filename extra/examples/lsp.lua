@@ -1,29 +1,39 @@
+-- LSP --------------------------------------------
+-- Your Language server protocol stuff
+---------------------------------------------------
+-- Configure autocomplete keybindings, servers, etc
+-- Line 26: LSPs to install. See the list at: https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md
+-- Line 37: On attach (configure keybindings for LSP)
+-- Line 101: Mappings
+
 require("luasnip.loaders.from_vscode").lazy_load()
 require("luasnip.loaders.from_vscode").lazy_load({ paths = { "./vs-snippets" } })
 
+-- Plugins that we will use to setup LSP
 local lsp = require('lsp-zero')
-
-lsp.preset('recommended')
-
-lsp.set_preferences({ configure_diagnostics = false }) -- Use default LSP diagnostics
-
 local null_ls = require('null-ls')
-local null_opts = lsp.build_options('null-ls', {})
+local lsp_capabilities = require('cmp_nvim_lsp').default_capabilities()
+local lspconfig = require('lspconfig')
+local cmp = require('cmp')
+local luasnip = require("luasnip")
 
-null_ls.setup({
-  on_attach = null_opts.on_attach,
-  sources = {
-    null_ls.builtins.formatting.prettier,
-    -- SUPER IMPORTANT HERE, if this not works, change the solargraph formatting and diagnostics to true
-    -- To make it work, you need to have fix the warning on your rubocop.yml
-    null_ls.builtins.diagnostics.rubocop.with({
-      command = "bundle",
-      args = { "exec", "rubocop", "--format", "json", "--force-exclusion", "--stdin", "$FILENAME" },
-      prefer_local = { "bin/" }
-    })
+-- Setup Mason
+require('mason').setup()
+
+-- Configure your servers.
+require('mason-lspconfig').setup({
+  ensure_installed = {
+    'tsserver',
+    'lua_ls',
+    'jsonls',
+    'solidity',
+    'yamlls',
+    'jsonls',
+    'solargraph'
   }
 })
 
+-- when LSP os connceted, this function is called. 
 local on_attach = function(client, bufnr)
   local opts = { buffer = bufnr }
 
@@ -35,51 +45,64 @@ local on_attach = function(client, bufnr)
   bind('n', 'gt', '<cmd>Telescope lsp_type_definitions<cr>', opts)
 end
 
-lsp.on_attach(on_attach)
-
-local cmp = require('cmp')
-local luasnip = require("luasnip")
-
-lsp.ensure_installed({
-  'tsserver',
-  'lua_ls',
-  'jsonls',
-  'solidity',
-  'yamlls',
-  'jsonls',
-  'solargraph'
+-- Add our on_attach for mason installed LSP.
+require('mason-lspconfig').setup_handlers({
+  function(server_name)
+    lspconfig[server_name].setup({
+      on_attach = on_attach,
+      capabilities = lsp_capabilities,
+    })
+  end,
 })
 
-lsp.configure('solidity', {
+-- just uncomment this if mason ins not handling the on_attach
+
+-- local get_servers = require('mason-lspconfig').get_installed_servers
+
+-- for _, server_name in ipairs(get_servers()) do
+--   lspconfig[server_name].setup({
+--     on_attach = lsp_attach,
+--     capabilities = lsp_capabilities,
+--   })
+-- end
+
+vim.opt.completeopt = {"menu", "menuone", "noinsert", "noselect"} -- Dont select first item
+
+lspconfig['solidity'].setup({ -- setup solidity (remove if you don't use)
   settings = {
     solidity = { includePath = '',
       remapping = { ["@OpenZeppelin/"] = 'dependencies/OpenZeppelin/openzeppelin-contracts@4.6.0/' } }
   }
 })
 
-lsp.configure('solargraph', {
-  on_attach = on_attach,
-  flags = {
-    debounce_text_changes = 50,
-  },
-  settings = {
-    solargraph = {
-      formatting = true, -- solargraph format is just faster
-      useBundler = true,
-      -- change to true if you want to use here instead of null-ls (null ls is faster for diagnostics)
-      diagnostics = false,
+lspconfig['solargraph'].setup( -- setup solargraph (remove if you don't use)
+  {
+    on_attach = on_attach,
+    flags = {
+      debounce_text_changes = 50,
+    },
+    settings = {
+      solargraph = {
+        formatting = true, -- solargraph format is just faster
+        useBundler = true,
+        -- change to true if you want to use here instead of null-ls (null ls is faster for diagnostics)
+        diagnostics = false,
+      }
     }
-  }
-})
+  })
 
-lsp.nvim_workspace()
+local sources = { { name = "path" }, -- cmp sources
+  { keyword_length = 2, name = "nvim_lsp" },
+  { name = "buffer", option = { get_bufnrs = require('utils.valid_listed_buffers') } },
+  { name = "luasnip", keyword_length = 2 },
+  { name = "calc" }
+}
 
--- make cmp don't select first item
-local cmp_mappings = lsp.defaults.cmp_mappings({
-  -- Uncomment to input on select in autocomplete
+local autocomplete_mappings = { -- autocomplete mappings
   ['<Tab>'] = cmp.mapping.select_next_item({ select = true }),
   ['<S-Tab>'] = cmp.mapping.select_prev_item({ select = true }),
   ['<CR>'] = cmp.mapping.confirm(),
+  ['<C-e>'] = cmp.mapping.abort(),
   ['<C-n>'] = cmp.mapping(function(fallback)
     if luasnip.expand_or_locally_jumpable() then
       luasnip.expand_or_jump(1)
@@ -96,22 +119,53 @@ local cmp_mappings = lsp.defaults.cmp_mappings({
   end, { "s" }),
   ['<C-u>'] = cmp.mapping.scroll_docs( -4),
   ['<C-d>'] = cmp.mapping.scroll_docs(4),
-})
-
-local sources = { { name = "path" },
-  { keyword_length = 2, name = "nvim_lsp" },
-  { name = "buffer", option = { get_bufnrs = require('utils.valid_listed_buffers') } },
-  { name = "luasnip", keyword_length = 2 },
-  { name = "calc" }
 }
 
-lsp.setup_nvim_cmp({
+cmp.setup({
+  mapping = autocomplete_mappings,
+  snippet = {
+    expand = function(args)
+      luasnip.lsp_expand(args.body)
+    end
+  },
+  window = {
+    documentation = { border = { '', '', '', ' ', '', '', '', ' ' } }
+  },
   sources = sources,
-  mapping = cmp_mappings,
-  preselect = 'none', -- comment those 4 lines to select first on autocomplete.
-  completion = {
-      completeopt = 'menu,menuone,noinsert,noselect'
+  formatting = {
+    fields = {'abbr', 'menu', 'kind'},
+    format = function(entry, item)
+      local menu_icon = {
+        nvim_lsp = 'λ',
+        luasnip = '󰅩',
+        buffer = '',
+        path = '/',
+      }
+
+      print(vim.inspect(item))
+
+      item.menu = menu_icon[entry.source.name]
+      return item
+    end,
   },
 })
 
-lsp.setup()
+-- Configuration your diagnostics and formatters with null-ls.  Configuring rubocop diagnostics <3
+local null_opts = lsp.build_options('null-ls', {})
+
+null_ls.setup({
+  on_attach = null_opts.on_attach,
+  sources = {
+    null_ls.builtins.formatting.prettier,
+    -- SUPER IMPORTANT HERE, if this not works, change the solargraph formatting and diagnostics to true
+    -- To make it work, you need to have fix the warning on your rubocop.yml
+    null_ls.builtins.diagnostics.rubocop.with({
+      command = "bundle",
+      args = { "exec", "rubocop", "--format", "json", "--force-exclusion", "--stdin", "$FILENAME" },
+      prefer_local = { "bin/" }
+    })
+  }
+})
+
+-- Our typescript utils plugin. See the commands with SPC m on a javascript/typescript file.
+require("typescript").setup({ server = { on_attach = null_opts.on_attach } })
