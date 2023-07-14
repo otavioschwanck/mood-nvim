@@ -50,8 +50,8 @@ function M.setup_which_key()
     ["<"] = { ":Telescope buffers ignore_current_buffer=true sort_mru=true<CR>", "Find All Buffers" },
     ["*"] = { ":Telescope grep_string<CR>", "Search string at point on project" },
     ["<space>"] = { ":Telescope find_files<CR>", "Find Files" },
-    e = { function() MiniFiles.open() end, "Toggle Tree" },
-    E = { require("mood-scripts.mini-files").open_current, "Toggle Tree Current File" },
+    e = { ":NvimTreeToggle<CR>", "Toggle Tree" },
+    E = { ":NvimTreeFindFile<CR>", "Toggle Tree Current File" },
     d = { ":call AddDebugger()<CR>", "+Debug" },
     D = { ":call ClearDebugger()<CR>", "Clear debuggers" },
     u = { ":UndotreeToggle<CR>", "Undo Tree" },
@@ -74,7 +74,7 @@ function M.setup_which_key()
       m = { ":Mason<CR>", "Mason" },
       T = { ":lua require('tutorial').start()<CR>", "Start Tutorial" }
     },
-    ["."] = { require("mood-scripts.mini-files").open_current, "File Browser" },
+    ["."] = { ":Telescope file_browser path=%:p:h hidden=true respect_gitignore=false<CR>", "File Browser" },
     m = { "<cmd>WhichKey <F-12><CR>", "+Localleader Mappings" },
     p = { ":Telescope yank_history<CR>", "Yank History" },
     ["<C-g>"] = {
@@ -136,7 +136,6 @@ function M.setup_which_key()
       o = { ":AerialToggle<CR>", "Show Window Symbols" },
       a = { ":lua require('telescope-alternate.telescope').alternate()<CR>", "Alternate File" },
       r = { ":Telescope oldfiles<CR>", "Recent Files" },
-      d = { ":lua require('mood-scripts.custom_telescope').open_with_mini_files()<CR>", "Search Folder and open in tree" },
       R = { ":call BetterRename()<CR>", "Rename Current File" },
       M = { ":call BetterMove()<CR>", "Move Current File" },
       D = { ":call BetterDelete()<CR>", "Delete the current file" },

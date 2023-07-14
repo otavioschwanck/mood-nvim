@@ -1,22 +1,4 @@
 return {
-  { "echasnovski/mini.files", opts = {
-    mappings = {
-      close       = 'q',
-      go_in       = 'L',
-      go_in_plus  = '<CR>',
-      go_out      = '<Esc>',
-      go_out_plus = 'H',
-      reset       = '<BS>',
-      show_help   = 'g?',
-      synchronize = '=',
-      trim_left   = '<',
-      trim_right  = '>',
-    },
-    windows = {
-      preview = true,
-      width_preview = 75,
-    }
-  } },
   {
     "echasnovski/mini.bufremove",
     keys = {

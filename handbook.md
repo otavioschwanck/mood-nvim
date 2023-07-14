@@ -142,7 +142,6 @@ OBS: This list persist between vim sections
 | SPC TAB                  | Git Status                                           |
 | SPC .                    | File Browser                                         |
 | SPC e                    | Open Tree                                            |
-| SPC E                    | Open Tree In Current File                            |
 | SPC k                    | Kill current buffer                                  |
 | SPC A                    | Go to Test (and vsplit)                              |
 | SPC a                    | Go to test                                           |
@@ -237,19 +236,12 @@ To execute some command in all items of the quickfix list, just run `:cfdo S/old
 
 # Using the tree like a boss
 
-You can do any operation like was a normal file.
-
-Create 
-
 | Command     | Description                      |
 |-------------|----------------------------------|
-| =           | Synchronize changes (use after create files, move, rename, etc) |
+| TAB         | Preview / expand                 |
 | SPC e       | Open the tree                    |
 | SPC E       | Open the tree on current file    |
 | g?          | See all possible commands        |
-| Enter       | Enter in folder / open file      |
-| Esc         | Go to previous folder            |
-| Backspace   | Reset Tree                       |
 |-------------|----------------------------------|
 
 # Editing

@@ -4,7 +4,7 @@
 -- Configure autocomplete keybindings, servers, etc
 -- Line 26: LSPs to install. See the list at: https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md
 -- Line 37: On attach (configure keybindings for LSP)
--- Line 101: Mappings
+-- Line 102: Mappings
 
 require("luasnip.loaders.from_vscode").lazy_load()
 require("luasnip.loaders.from_vscode").lazy_load({ paths = { "./vs-snippets" } })
@@ -43,6 +43,7 @@ local on_attach = function(client, bufnr)
   bind('n', 'gr', '<cmd>Telescope lsp_references<cr>', opts)
   bind('n', 'gI', '<cmd>Telescope lsp_implementations<cr>', opts)
   bind('n', 'gt', '<cmd>Telescope lsp_type_definitions<cr>', opts)
+  bind('n', 'K', vim.lsp.buf.hover, opts)
 end
 
 -- Add our on_attach for mason installed LSP.
