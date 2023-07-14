@@ -62,7 +62,7 @@ require('mason-lspconfig').setup_handlers({
 
 -- for _, server_name in ipairs(get_servers()) do
 --   lspconfig[server_name].setup({
---     on_attach = lsp_attach,
+--     on_attach = on_attach,
 --     capabilities = lsp_capabilities,
 --   })
 -- end
@@ -70,6 +70,7 @@ require('mason-lspconfig').setup_handlers({
 vim.opt.completeopt = {"menu", "menuone", "noinsert", "noselect"} -- Dont select first item
 
 lspconfig['solidity'].setup({ -- setup solidity (remove if you don't use)
+  on_attach = on_attach,
   settings = {
     solidity = { includePath = '',
       remapping = { ["@OpenZeppelin/"] = 'dependencies/OpenZeppelin/openzeppelin-contracts@4.6.0/' } }
