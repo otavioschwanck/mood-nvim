@@ -170,4 +170,4 @@ null_ls.setup({
 })
 
 -- Our typescript utils plugin. See the commands with SPC m on a javascript/typescript file.
-require("typescript").setup({ server = { on_attach = null_opts.on_attach } })
+require("typescript").setup({ server = { on_attach = on_attach } })
