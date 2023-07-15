@@ -273,7 +273,7 @@ I Consider this way the most efficient way to create files and find files on cur
 | tab                          | Mark item to item to move / copy / Rename                           |
 | C-f                          | Go to a folder on project (super useful to create new files / move) |
 | C-space or S-RET (alacritty) | Create file/folder from what you typed on prompt                    |
-| C-p                          | Paste Stuff that will marked with tab                               |
+| C-y                          | Paste Stuff that will marked with tab                               |
 | C-r                          | Rename multi-selected files/folders                                 |
 | C-e                          | Move multi-selected files/folders to current path                   |
 | C-c/c                        | Go to parent directory                                              |

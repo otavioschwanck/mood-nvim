@@ -1,10 +1,11 @@
 return {
   {
     'otavioschwanck/harpoon',
-    config = function ()
+    config = function()
       require('harpoon').setup(
         {
           global_settings = {
+            mark_branch = true,
             tabline = true,
             tabline_icons = true,
             tabline_prefix = '   '
