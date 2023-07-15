@@ -177,13 +177,10 @@ OBS: This list persist between vim sections
 | gr      | See references                                                   |
 | gt      | Type Definition                                                  |
 | SPC c x | List all diagnostics                                             |
-| SPC c a | Code Actions (Awesome for JS/TS, use when the lightbulb appears) |
+| SPC c a | Code Actions                                                     |
 | SPC c f | Format document with LSP                                         |
 | SPC s i | Document Symbols                                                 |
 | SPC s j | Workspace Symbols                                                |
-
-To learn more about the LSP used on mooD:
-https://github.com/VonHeikemen/lsp-zero.nvim
 
 To configure your LSP: SPC f p + lsp
 

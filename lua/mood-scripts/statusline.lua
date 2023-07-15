@@ -232,15 +232,6 @@ local function setup()
     color = { fg = colors.orange }
   }
 
-  -- Insert mid section. You can make any number of sections in neovim :)
-  -- for lualine it's any number greater then 2
-  ins_left {
-    function()
-      return require('nvim-lightbulb').get_status_text()
-    end,
-    color = { fg = colors.yellow }
-  }
-
   ins_left {
     function()
       return '%='
