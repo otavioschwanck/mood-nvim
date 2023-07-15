@@ -154,11 +154,8 @@ cmp.setup({
   },
 })
 
--- Configuration your diagnostics and formatters with null-ls.  Configuring rubocop diagnostics <3
-local null_opts = lsp.build_options('null-ls', {})
-
 null_ls.setup({
-  on_attach = null_opts.on_attach,
+  on_attach = on_attach,
   sources = {
     null_ls.builtins.formatting.prettier,
     -- SUPER IMPORTANT HERE, if this not works, change the solargraph formatting and diagnostics to true

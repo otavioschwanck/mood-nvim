@@ -78,8 +78,9 @@ function M.setup()
     pattern = { 'LazyVimStarted' },
     callback = function()
       require('core.mappings').setup()
-      require('user.keybindings')
+      require("mood-scripts.ask_delete").require_ask_delete_if_fails("user.keybindings", "~/.config/nvim/lua/user/keybindings.lua", "~/.config/nvim/extra/examples/keybindings.lua")
       require('user.config')
+      require("mood-scripts.ask_delete").require_ask_delete_if_fails("user.config", "~/.config/nvim/lua/user/config.lua", "~/.config/nvim/extra/examples/config.lua")
       require('mood-scripts.setup-telescope').setup()
 
       require("mood-scripts.bg-color").setup()

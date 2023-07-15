@@ -47,4 +47,4 @@ if #not_ok > 0 then
   end
 end
 
-pcall(require, 'user.after_start')
+require("mood-scripts.ask_delete").require_ask_delete_if_fails("user.after_start", "~/.config/nvim/lua/user/after_start.lua", "~/.config/nvim/extra/examples/after_start.lua")

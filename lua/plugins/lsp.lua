@@ -15,7 +15,7 @@ return { { 'neovim/nvim-lspconfig', dependencies = {
   { 'L3MON4D3/LuaSnip', build = "make install_jsregexp" }, -- Required
   { 'rafamadriz/friendly-snippets' }, -- Optional
 }, config = function()
-  require("user.lsp")
+  require("mood-scripts.ask_delete").require_ask_delete_if_fails("user.lsp", "~/.config/nvim/lua/user/lsp.lua", "~/.config/nvim/extra/examples/lsp.lua")
   local util = require("luasnip.util.util")
   local node_util = require("luasnip.nodes.util")
 
