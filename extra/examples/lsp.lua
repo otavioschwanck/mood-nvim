@@ -4,7 +4,7 @@
 -- Configure autocomplete keybindings, servers, etc
 -- Line 26: LSPs to install. See the list at: https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md
 -- Line 37: On attach (configure keybindings for LSP)
--- Line 102: Mappings
+-- Line 103: Mappings for autocomplete
 
 require("luasnip.loaders.from_vscode").lazy_load()
 require("luasnip.loaders.from_vscode").lazy_load({ paths = { "./vs-snippets" } })
@@ -123,6 +123,8 @@ local autocomplete_mappings = { -- autocomplete mappings
   ['<C-d>'] = cmp.mapping.scroll_docs(4),
 }
 
+local border_opts = { border = "single", winhighlight = "Normal:Normal,FloatBorder:FloatBorder,CursorLine:Visual,Search:None", }
+
 cmp.setup({
   mapping = autocomplete_mappings,
   snippet = {
@@ -131,7 +133,8 @@ cmp.setup({
     end
   },
   window = {
-    documentation = { border = { '', '', '', ' ', '', '', '', ' ' } }
+    documentation = border_opts,
+    completion = border_opts,
   },
   sources = sources,
   formatting = {
