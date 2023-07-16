@@ -20,21 +20,25 @@ local tmux = require('tmux-awesome-manager.src.term')
 wk.register({
   -- Example of custom terminal commands
   ["="] = { ":w | :silent !bundle exec rubocop -A %<CR>:e %<CR>", "Rubocop on current file" },
-  ["+"] = tmux.run_wk({ cmd = 'bundle exec rubocop -A', name = 'rubocop', open_as = 'pane', close_on_timer = 2, visit_first_call = false, focus_when_call = false  }),
+  ["+"] = tmux.run_wk({ cmd = 'bundle exec rubocop -A', name = 'rubocop', open_as = 'pane', close_on_timer = 2, visit_first_call = false, focus_when_call = false }),
   o = { -- SPC o
     y = {
       name = "+yarn",
-      i = tmux.run_wk({ cmd = 'yarn install', name = 'Yarn Install'}),
-      a = tmux.run_wk({ cmd = 'yarn add %1', name = 'Yarn Add', questions = { { question = 'package name: ', required = true } } }),
-      d = tmux.run_wk({ cmd = 'yarn dev', name = 'Yarn Dev'}),
+      i = tmux.run_wk({ cmd = 'yarn install', name = 'Yarn Install' }),
+      a = tmux.run_wk({
+        cmd = 'yarn add %1',
+        name = 'Yarn Add',
+        questions = { { question = 'package name: ', required = true } }
+      }),
+      d = tmux.run_wk({ cmd = 'yarn dev', name = 'Yarn Dev' }),
     },
     r = { ":silent !bundle exec rubocop -a %<CR>", "Rubocop on current file" },
     name = "+Term Commands",
     ["1"] = tmux.run_wk({ cmd = 'docker-compose up -d', name = 'Docker Compose up' }),
     b = {
       name = "+Brownie",
-      t = tmux.run_wk({ cmd = 'brownie test', name = 'Brownie Test'}),
-      C = tmux.run_wk({ cmd = 'brownie compile', name = 'Brownie Compile'}),
+      t = tmux.run_wk({ cmd = 'brownie test', name = 'Brownie Test' }),
+      C = tmux.run_wk({ cmd = 'brownie compile', name = 'Brownie Compile' }),
       c = tmux.run_wk({ cmd = 'brownie console', name = 'brownie console' }),
     },
   },
@@ -42,11 +46,47 @@ wk.register({
     name = "+Rails",
     r = tmux.run_wk({ cmd = 'rails c', name = 'Rails Console', close_on_timer = 3 }),
     R = tmux.run_wk({ cmd = 'rails s', name = 'Rails Server', visit_first_call = false, open_as = 'window' }),
-    b = tmux.run_wk({ cmd = 'bundle install', name = 'Bundle Install', open_as = 'pane', close_on_timer = 2, visit_first_call = false, focus_when_call = false }),
-    g = tmux.run_wk({ cmd = 'rails generate %1', name = 'Rails Generate',  questions = { { question = "Rails generate: ", required = true, open_as = 'pane', close_on_timer = 4, visit_first_call = false, focus_when_call = false } }}),
-    d = tmux.run_wk({ cmd = 'rails destroy %1', name = 'Rails Destroy', questions = { { question = "Rails destroy: ", required = true } }, open_as = 'pane', close_on_timer = 4, visit_first_call = false, focus_when_call = false}),
-    i = tmux.run_wk({ cmd = 'rails db:migrate', name = 'Rails db:migrate', open_as = 'pane', close_on_timer = 4, visit_first_call = false, focus_when_call = false}),
-    I = { ":call ResetRailsDb('bin/rails db:environment:set RAILS_ENV=development; rails db:drop db:create db:migrate;rails db:seed')<CR>", "Rails Reset DB" },
+    b = tmux.run_wk({
+      cmd = 'bundle install',
+      name = 'Bundle Install',
+      open_as = 'pane',
+      close_on_timer = 2,
+      visit_first_call = false,
+      focus_when_call = false
+    }),
+    g = tmux.run_wk({
+      cmd = 'rails generate %1',
+      name = 'Rails Generate',
+      questions = {
+        {
+          question = "Rails generate: ",
+          required = true,
+          open_as = 'pane',
+          close_on_timer = 4,
+          visit_first_call = false,
+          focus_when_call = false
+        } }
+    }),
+    d = tmux.run_wk({
+      cmd = 'rails destroy %1',
+      name = 'Rails Destroy',
+      questions = { { question = "Rails destroy: ", required = true } },
+      open_as = 'pane',
+      close_on_timer = 4,
+      visit_first_call = false,
+      focus_when_call = false
+    }),
+    i = tmux.run_wk({
+      cmd = 'rails db:migrate',
+      name = 'Rails db:migrate',
+      open_as = 'pane',
+      close_on_timer = 4,
+      visit_first_call = false,
+      focus_when_call = false
+    }),
+    I = {
+      ":call ResetRailsDb('bin/rails db:environment:set RAILS_ENV=development; rails db:drop db:create db:migrate;rails db:seed')<CR>",
+      "Rails Reset DB" },
     m = find_in_folder('app/models', 'Find Model'),
     q = find_in_folder('app/contracts', 'Find Contracts'),
     z = find_in_folder('app/serializers', 'Find Serialiazers'),
@@ -64,4 +104,3 @@ wk.register({
     N = { ":Emigration<CR>", "Find Current Migration" },
   }
 }, { prefix = "<leader>", silent = false })
-

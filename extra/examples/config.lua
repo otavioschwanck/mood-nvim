@@ -23,15 +23,16 @@ require('tmux-awesome-manager').setup({
 -- Directory to store your notes (SPC z z)
 vim.g.ruby_debugger = "debugger" -- can be changed to byebug or pry, call with SPC d
 
-local two_space_languages = { "ruby", "yaml", "javascript", "typescript", "typescriptreact", "javascriptreact", "eruby", "lua", }
+local two_space_languages = { "ruby", "yaml", "javascript", "typescript", "typescriptreact", "javascriptreact", "eruby",
+  "lua", }
 local four_space_languages = { "solidity" }
 
 -- autocmd array(AutoCmd, pattern, callback)
 -- Add your format on save here
 local autocommands = {
-  { {"FileType"}, two_space_languages, function() vim.cmd('setlocal shiftwidth=2 tabstop=2') end },
-  { {"FileType"}, four_space_languages, function() vim.cmd('setlocal shiftwidth=4 tabstop=4') end },
-  -- { {'BufWritePre'}, {"*.tsx", "*.ts", "*.jsx", "*.js"}, function() vim.lsp.buf.format({}) end, }, -- Format on save for those languages. You can also call SPC c f to format.
+  { { "FileType" }, two_space_languages, function() vim.cmd('setlocal shiftwidth=2 tabstop=2') end },
+  { { "FileType" }, four_space_languages, function() vim.cmd('setlocal shiftwidth=4 tabstop=4') end },
+  -- { {'BufWritePre'}, {"*.tsx", "*.ts", "*.jsx", "*.js", "*.lua"}, function() vim.lsp.buf.format({}) end, }, -- Format on save for those languages. You can also call SPC c f to format.
   -- { {'BufWritePre'}, {"*.rb"}, function() vim.lsp.buf.format { async = false, filter = function(client) return client.name == "solargraph" end } end, } -- rubocop on save
 }
 
@@ -42,24 +43,33 @@ end
 
 -- Use SPC f d to navigate to your dotfiles, configure then here.
 vim.g.dotfiles = {
-  { path = "~/.zshrc", display = "zshrc" },
-  { path = "~/.config/alacritty/alacritty.yml", display = "Alacritty" },
-  { path = "~/.tmux.conf", display = "TMUX" },
+  { path = "~/.zshrc",                                         display = "zshrc" },
+  { path = "~/.config/alacritty/alacritty.yml",                display = "Alacritty" },
+  { path = "~/.tmux.conf",                                     display = "TMUX" },
   { path = "~/Library/Application Support/lazygit/config.yml", display = "Lazygit" },
   -- { path = "~/.config/lazygit/config.yml", display = "Lazygit" }, -- (for Linux)
-  { path = "~/.gitconfig", display = "GitConfig" }
+  { path = "~/.gitconfig",                                     display = "GitConfig" }
 }
 
 -- see more at https://github.com/otavioschwanck/telescope-alternate.nvim
 require('telescope-alternate').setup({
   mappings = {
-    { pattern = 'app/services/(.*)_services/(.*).rb', targets = {
-      { template =  'app/contracts/[1]_contracts/[2].rb', label = 'Contract' }
-    } },
-    { 'app/contracts/(.*)_contracts/(.*).rb', { { 'app/services/[1]_services/[2].rb', 'Service' } } },
-    { 'src/(.*)/service(.*)/(.*).service.ts', { { 'src/[1]/controller*/*.controller.ts', 'Controller', true }, { 'src/[1]/dto/*', 'DTO', true } } },
-    { 'src/(.*)/controller(.*)/(.*).controller.ts', { { 'src/[1]/service*/*.service.ts', 'Service', true }, { 'src/[1]/dto/*', 'DTO', true } } },
-    { 'src/(.*)/dto(.*)/(.*)', { { 'src/[1]/service*/*.service.ts', 'Service', true }, { 'src/[1]/controller*/*.controller.ts', 'Controller', true } } },
+    {
+      pattern = 'app/services/(.*)_services/(.*).rb',
+      targets = {
+        { template = 'app/contracts/[1]_contracts/[2].rb', label = 'Contract' }
+      }
+    },
+    { 'app/contracts/(.*)_contracts/(.*).rb',       { { 'app/services/[1]_services/[2].rb', 'Service' } } },
+    { 'src/(.*)/service(.*)/(.*).service.ts',
+                                                      { { 'src/[1]/controller*/*.controller.ts', 'Controller', true },
+        { 'src/[1]/dto/*', 'DTO', true } } },
+    { 'src/(.*)/controller(.*)/(.*).controller.ts',
+                                                      { { 'src/[1]/service*/*.service.ts', 'Service', true },
+        { 'src/[1]/dto/*', 'DTO', true } } },
+    { 'src/(.*)/dto(.*)/(.*)',
+                                                      { { 'src/[1]/service*/*.service.ts', 'Service', true },
+        { 'src/[1]/controller*/*.controller.ts', 'Controller', true } } },
   }
 })
 
@@ -67,12 +77,12 @@ vim.g.folder_to_ignore = { ".*.git/.*", "node_modules/.*", "sorbet/.*", "tmp/.*"
 
 -- access your dotfiles with SPC f d
 vim.g.dotfiles = {
-  { path = "~/.zshrc", display = "zshrc" },
-  { path = "~/.config/alacritty/alacritty.yml", display = "Alacritty" },
-  { path = "~/.tmux.conf", display = "TMUX" },
+  { path = "~/.zshrc",                                         display = "zshrc" },
+  { path = "~/.config/alacritty/alacritty.yml",                display = "Alacritty" },
+  { path = "~/.tmux.conf",                                     display = "TMUX" },
   { path = "~/Library/Application Support/lazygit/config.yml", display = "Lazygit" },
   -- { path = "~/.config/lazygit/config.yml", display = "Lazygit" }, -- (for Linux)
-  { path = "~/.gitconfig", display = "GitConfig" }
+  { path = "~/.gitconfig",                                     display = "GitConfig" }
 }
 
 -- Mouse?

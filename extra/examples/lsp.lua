@@ -4,10 +4,11 @@
 -- Configure autocomplete keybindings, servers, etc
 -- Line 26: LSPs to install. See the list at: https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md
 -- Line 37: On attach (configure keybindings for LSP)
--- Line 103: Mappings for autocomplete
+-- Line 105: Mappings for autocomplete
 
 require("luasnip.loaders.from_vscode").lazy_load()
 require("luasnip.loaders.from_vscode").lazy_load({ paths = { "./vs-snippets" } })
+
 
 -- Plugins that we will use to setup LSP
 local null_ls = require('null-ls')
@@ -32,7 +33,7 @@ require('mason-lspconfig').setup({
   }
 })
 
--- when LSP os connceted, this function is called. 
+-- when LSP os connceted, this function is called.
 local on_attach = function(client, bufnr)
   local opts = { buffer = bufnr }
 
@@ -66,13 +67,15 @@ require('mason-lspconfig').setup_handlers({
 --   })
 -- end
 
-vim.opt.completeopt = {"menu", "menuone", "noinsert", "noselect"} -- Dont select first item
+vim.opt.completeopt = { "menu", "menuone", "noinsert", "noselect" } -- Dont select first item
 
-lspconfig['solidity'].setup({ -- setup solidity (remove if you don't use)
+lspconfig['solidity'].setup({                                       -- setup solidity (remove if you don't use)
   on_attach = on_attach,
   settings = {
-    solidity = { includePath = '',
-      remapping = { ["@OpenZeppelin/"] = 'dependencies/OpenZeppelin/openzeppelin-contracts@4.6.0/' } }
+    solidity = {
+      includePath = '',
+      remapping = { ["@OpenZeppelin/"] = 'dependencies/OpenZeppelin/openzeppelin-contracts@4.6.0/' }
+    }
   }
 })
 
@@ -94,8 +97,8 @@ lspconfig['solargraph'].setup( -- setup solargraph (remove if you don't use)
 
 local sources = { { name = "path" }, -- cmp sources
   { keyword_length = 2, name = "nvim_lsp" },
-  { name = "buffer", option = { get_bufnrs = require('utils.valid_listed_buffers') } },
-  { name = "luasnip", keyword_length = 2 },
+  { name = "buffer",    option = { get_bufnrs = require('utils.valid_listed_buffers') } },
+  { name = "luasnip",   keyword_length = 2 },
   { name = "calc" }
 }
 
@@ -118,11 +121,30 @@ local autocomplete_mappings = { -- autocomplete mappings
     vim.fn.feedkeys(vim.api.nvim_replace_termcodes("<Del>", true, true, true), "x")
     luasnip.jump(1)
   end, { "s" }),
-  ['<C-u>'] = cmp.mapping.scroll_docs( -4),
+  ['<C-u>'] = cmp.mapping.scroll_docs(-4),
   ['<C-d>'] = cmp.mapping.scroll_docs(4),
 }
 
-local border_opts = { border = "single", winhighlight = "Normal:Normal,FloatBorder:FloatBorder,CursorLine:Visual,Search:None", }
+local border_opts = {
+  border = "single",
+  winhighlight = "Normal:Normal,FloatBorder:FloatBorder,CursorLine:Visual,Search:None",
+}
+
+vim.lsp.handlers['textDocument/signatureHelp'] = vim.lsp.with(
+  vim.lsp.handlers.signature_help, {
+    border = "single",
+    winhighlight = "Normal:Normal,FloatBorder:FloatBorder,CursorLine:Visual,Search:None",
+    close_events = { "BufHidden", "InsertLeave" },
+  }
+)
+
+vim.diagnostic.config {
+  float = border_opts,
+}
+
+vim.lsp.handlers['textDocument/hover'] = vim.lsp.with(
+  vim.lsp.handlers.hover, border_opts
+)
 
 cmp.setup({
   mapping = autocomplete_mappings,
@@ -137,7 +159,7 @@ cmp.setup({
   },
   sources = sources,
   formatting = {
-    fields = {'abbr', 'menu', 'kind'},
+    fields = { 'abbr', 'menu', 'kind' },
     format = function(entry, item)
       local menu_icon = {
         nvim_lsp = 'λ',
