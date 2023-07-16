@@ -1,17 +1,29 @@
 local M = {}
 
+function M.set_hl_for_floating_window(border_color)
+  vim.api.nvim_set_hl(0, 'NormalFloat', {
+    link = 'Normal',
+  })
+  vim.api.nvim_set_hl(0, 'FloatBorder', {
+    bg = 'none',
+    fg = border_color
+  })
+end
+
 function M.setup()
   vim.g.exiting = false
   vim.g.scheduled_save_session = false
 
   local autocommands = {
-    { { "FileType" },                 { "qf" },              function() vim.cmd('map <buffer> dd :RemoveQFItem<CR>') end },
-    { { "VimLeavePre" },              { "*" },               function() vim.g.exiting = true end },
-    { { "FileType" },                 { "TelescopePrompt" }, function() vim.cmd('setlocal nocursorline') end },
-    { { "BufWritePre" },              { "*" },               function() vim.cmd('call mkdir(expand("<afile>:p:h"), "p")') end },
+    { { "FileType" },    { "qf" },              function() vim.cmd('map <buffer> dd :RemoveQFItem<CR>') end },
+    { { "VimLeavePre" }, { "*" },               function() vim.g.exiting = true end },
+    { { "FileType" },    { "TelescopePrompt" }, function() vim.cmd('setlocal nocursorline') end },
+    { { "BufWritePre" }, { "*" },               function() vim.cmd('call mkdir(expand("<afile>:p:h"), "p")') end },
     { { "BufReadPost", "BufDelete" }, { "*" },
-                                                               function(ft) require("mood-scripts.auto-save-session")
-            .save_session(ft) end },
+      function(ft)
+        require("mood-scripts.auto-save-session")
+            .save_session(ft)
+      end },
   }
 
   for i = 1, #autocommands, 1 do
@@ -78,9 +90,11 @@ function M.setup()
     pattern = { 'LazyVimStarted' },
     callback = function()
       require('core.mappings').setup()
-      require("mood-scripts.ask_delete").require_ask_delete_if_fails("user.keybindings", "~/.config/nvim/lua/user/keybindings.lua", "~/.config/nvim/extra/examples/keybindings.lua")
+      require("mood-scripts.ask_delete").require_ask_delete_if_fails("user.keybindings",
+        "~/.config/nvim/lua/user/keybindings.lua", "~/.config/nvim/extra/examples/keybindings.lua")
       require('user.config')
-      require("mood-scripts.ask_delete").require_ask_delete_if_fails("user.config", "~/.config/nvim/lua/user/config.lua", "~/.config/nvim/extra/examples/config.lua")
+      require("mood-scripts.ask_delete").require_ask_delete_if_fails("user.config", "~/.config/nvim/lua/user/config.lua",
+        "~/.config/nvim/extra/examples/config.lua")
       require('mood-scripts.setup-telescope').setup()
 
       require("mood-scripts.bg-color").setup()
@@ -90,6 +104,7 @@ function M.setup()
           group = vim.api.nvim_create_augroup("harpoon", { clear = true }),
           pattern = { "*" },
           callback = function()
+            M.set_hl_for_floating_window(color)
             vim.cmd('highlight! HarpoonInactive guibg=' .. fill .. ' guifg=#63698c')
             vim.cmd('highlight! HarpoonActive guibg=NONE guifg=white')
             vim.cmd('highlight! HarpoonNumberActive guibg=NONE guifg=' .. color)

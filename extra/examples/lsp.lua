@@ -127,13 +127,14 @@ local autocomplete_mappings = { -- autocomplete mappings
 
 local border_opts = {
   border = "single",
-  winhighlight = "Normal:Normal,FloatBorder:FloatBorder,CursorLine:Visual,Search:None",
+  winhighlight = "Normal:Normal,FloatBorder:FloatBorder,CursorLine:Visual,Search:None,NormalFloat:Normal",
+  scrollbar = false,
 }
 
 vim.lsp.handlers['textDocument/signatureHelp'] = vim.lsp.with(
   vim.lsp.handlers.signature_help, {
-    border = "single",
-    winhighlight = "Normal:Normal,FloatBorder:FloatBorder,CursorLine:Visual,Search:None",
+    border = border_opts.border,
+    winhighlight = border_opts.winhighlight,
     close_events = { "BufHidden", "InsertLeave" },
   }
 )
