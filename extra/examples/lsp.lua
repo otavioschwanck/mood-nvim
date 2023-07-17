@@ -11,7 +11,6 @@ require("luasnip.loaders.from_vscode").lazy_load({ paths = { "./vs-snippets" } }
 
 
 -- Plugins that we will use to setup LSP
-local null_ls = require('null-ls')
 local lsp_capabilities = require('cmp_nvim_lsp').default_capabilities()
 local lspconfig = require('lspconfig')
 local cmp = require('cmp')
@@ -89,7 +88,7 @@ lspconfig['solargraph'].setup( -- setup solargraph (remove if you don't use)
       solargraph = {
         formatting = true, -- solargraph format is just faster
         useBundler = true,
-        -- change to true if you want to use here instead of null-ls (null ls is faster for diagnostics)
+        -- change to true if you want to use here instead of guard (guard is faster for it, look at the end of file)
         diagnostics = false,
       }
     }
@@ -177,19 +176,16 @@ cmp.setup({
   },
 })
 
-null_ls.setup({
-  on_attach = on_attach,
-  sources = {
-    null_ls.builtins.formatting.prettier,
-    -- SUPER IMPORTANT HERE, if this not works, change the solargraph formatting and diagnostics to true
-    -- To make it work, you need to have fix the warning on your rubocop.yml
-    null_ls.builtins.diagnostics.rubocop.with({
-      command = "bundle",
-      args = { "exec", "rubocop", "--format", "json", "--force-exclusion", "--stdin", "$FILENAME" },
-      prefer_local = { "bin/" }
-    })
-  }
-})
+local ft = require('guard.filetype')
+local diag_fmt = require('guard.lint').diag_fmt
+
+ft('ruby'):fmt('lsp'):lint('rubocop')
+ft('javascript'):fmt('prettier')
+ft('typescript'):fmt('prettier')
+ft('javascriptreact'):fmt('prettier')
+ft('typescriptreact'):fmt('prettier')
+
+require('guard').setup({ fmt_on_save = true }) -- Format on save
 
 -- Our typescript utils plugin. See the commands with SPC m on a javascript/typescript file.
 require("typescript").setup({ server = { on_attach = on_attach } })

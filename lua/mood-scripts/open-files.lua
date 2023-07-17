@@ -13,7 +13,11 @@ function M.call(files)
     finder = finders.new_table {
       results = files,
       entry_maker = function(entry)
-        return { value = entry.path, display = entry.display or entry.path, ordinal = (entry.order or '') .. (entry.display or '') .. entry.path }
+        return {
+          value = entry.path,
+          display = entry.display or entry.path,
+          ordinal = (entry.order or '') .. (entry.display or '') .. entry.path
+        }
       end
     },
     sorter = conf.generic_sorter({}),
@@ -30,6 +34,8 @@ function M.call(files)
   }):find()
 end
 
+require('guard').setup({ fmt_on_save = true })
+
 function M.open_dotfiles()
   local mood_dotfiles = {
     {
@@ -44,7 +50,7 @@ function M.open_dotfiles()
     },
     {
       path = "~/.config/nvim/lua/user/lsp.lua",
-      display = "LSP                | Configure the LSP (Language server protocol)",
+      display = "LSP                | Configure the LSP (Language server protocol) and linters / formatters",
       order = "3"
     },
     {
@@ -66,7 +72,7 @@ function M.open_dotfiles()
 
   local user_dotfiles = vim.g.dotfiles
 
-  if(user_dotfiles) then
+  if (user_dotfiles) then
     for i = 1, #user_dotfiles do
       table.insert(mood_dotfiles, user_dotfiles[i])
     end

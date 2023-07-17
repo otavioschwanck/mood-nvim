@@ -20,6 +20,8 @@ require('tmux-awesome-manager').setup({
   open_new_as = 'pane', -- change to window to open terms in new tab
 })
 
+-- To disable format_on_save, go to lua/user/lsp.lua:189 (press gf on the path to go automatically)
+
 -- Directory to store your notes (SPC z z)
 vim.g.ruby_debugger = "debugger" -- can be changed to byebug or pry, call with SPC d
 
@@ -28,12 +30,9 @@ local two_space_languages = { "ruby", "yaml", "javascript", "typescript", "types
 local four_space_languages = { "solidity" }
 
 -- autocmd array(AutoCmd, pattern, callback)
--- Add your format on save here
 local autocommands = {
-  { { "FileType" }, two_space_languages, function() vim.cmd('setlocal shiftwidth=2 tabstop=2') end },
+  { { "FileType" }, two_space_languages,  function() vim.cmd('setlocal shiftwidth=2 tabstop=2') end },
   { { "FileType" }, four_space_languages, function() vim.cmd('setlocal shiftwidth=4 tabstop=4') end },
-  -- { {'BufWritePre'}, {"*.tsx", "*.ts", "*.jsx", "*.js", "*.lua"}, function() vim.lsp.buf.format({}) end, }, -- Format on save for those languages. You can also call SPC c f to format.
-  -- { {'BufWritePre'}, {"*.rb"}, function() vim.lsp.buf.format { async = false, filter = function(client) return client.name == "solargraph" end } end, } -- rubocop on save
 }
 
 -- loading the autocmds
@@ -60,15 +59,15 @@ require('telescope-alternate').setup({
         { template = 'app/contracts/[1]_contracts/[2].rb', label = 'Contract' }
       }
     },
-    { 'app/contracts/(.*)_contracts/(.*).rb',       { { 'app/services/[1]_services/[2].rb', 'Service' } } },
+    { 'app/contracts/(.*)_contracts/(.*).rb', { { 'app/services/[1]_services/[2].rb', 'Service' } } },
     { 'src/(.*)/service(.*)/(.*).service.ts',
-                                                      { { 'src/[1]/controller*/*.controller.ts', 'Controller', true },
-        { 'src/[1]/dto/*', 'DTO', true } } },
+      { { 'src/[1]/controller*/*.controller.ts', 'Controller', true },
+        { 'src/[1]/dto/*',                       'DTO',        true } } },
     { 'src/(.*)/controller(.*)/(.*).controller.ts',
-                                                      { { 'src/[1]/service*/*.service.ts', 'Service', true },
-        { 'src/[1]/dto/*', 'DTO', true } } },
+      { { 'src/[1]/service*/*.service.ts', 'Service', true },
+        { 'src/[1]/dto/*',                 'DTO',     true } } },
     { 'src/(.*)/dto(.*)/(.*)',
-                                                      { { 'src/[1]/service*/*.service.ts', 'Service', true },
+      { { 'src/[1]/service*/*.service.ts',     'Service',    true },
         { 'src/[1]/controller*/*.controller.ts', 'Controller', true } } },
   }
 })

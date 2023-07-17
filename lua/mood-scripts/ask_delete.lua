@@ -8,7 +8,11 @@ function M.require_ask_delete_if_fails(module, file_path, example_path)
   local ok, err = pcall(require, module)
 
   if not ok then
-    vim.notify("Looks like an error happens while loading your " .. module .. ".\n\nThis could be some plugin beign removed from mood\n The Error:\n " .. err .. "\n\n1 - Recreate default\n2 - Open File\n3 - Ignore", vim.log.levels.ERROR)
+    vim.notify(
+    "Looks like an error happens while loading your " ..
+    module ..
+    ".\n\nThis could be some plugin beign removed from mood\n The Error:\n " ..
+    err .. "\n\n1 - Recreate default\n2 - Open File\n3 - Ignore", vim.log.levels.ERROR)
 
     local input = vim.fn.input("What do you want to do? (1/2/3): ")
 
@@ -28,7 +32,6 @@ function M.require_ask_delete_if_fails(module, file_path, example_path)
         vim.cmd(t("norm! <C-w>v"))
         vim.cmd("edit " .. file_path)
       end
-
     elseif input == "2" then
       vim.cmd("edit " .. file_path)
     end
