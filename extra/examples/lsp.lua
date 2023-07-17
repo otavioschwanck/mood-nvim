@@ -5,6 +5,7 @@
 -- Line 26: LSPs to install. See the list at: https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md
 -- Line 37: On attach (configure keybindings for LSP)
 -- Line 105: Mappings for autocomplete
+-- Line 184: Linter and Formatter (prettier, rubocop, etc)
 
 require("luasnip.loaders.from_vscode").lazy_load()
 require("luasnip.loaders.from_vscode").lazy_load({ paths = { "./vs-snippets" } })
