@@ -165,7 +165,7 @@ cmp.setup({
         nvim_lsp = 'λ',
         luasnip = '󰅩',
         buffer = '',
-        path = '/',
+        path = '󰉋',
       }
 
       print(vim.inspect(item))
