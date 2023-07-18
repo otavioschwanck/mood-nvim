@@ -40,12 +40,12 @@ local function comment_rubocop()
     local current_line = vim.fn.getline(".")
     local parsed_message = Split(message, "%[")
     parsed_message = parsed_message[#parsed_message]
-    parsed_message = string.sub(parsed_message, 1, -3)
+    local real_cop_name = string.sub(parsed_message, 1, -3)
 
     if string.match(current_line, "# rubocop:disable") then
-      vim.cmd("normal! A, " .. parsed_message)
+      vim.cmd("normal! A, " .. real_cop_name)
     else
-      vim.cmd("normal! A # rubocop:disable " .. parsed_message)
+      vim.cmd("normal! A # rubocop:disable " .. real_cop_name)
     end
   end
 end
