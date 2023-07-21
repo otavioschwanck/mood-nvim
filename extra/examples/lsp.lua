@@ -180,6 +180,7 @@ cmp.setup({
 local ft = require('guard.filetype')
 local diag_fmt = require('guard.lint').diag_fmt
 
+-- See all formatters at https://github.com/nvimdev/guard.nvim
 ft('ruby'):fmt('lsp'):lint('rubocop')
 ft('javascript'):fmt('prettier')
 ft('typescript'):fmt('prettier')
