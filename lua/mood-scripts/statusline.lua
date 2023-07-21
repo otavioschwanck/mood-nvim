@@ -232,6 +232,19 @@ local function setup()
     color = { fg = colors.orange }
   }
 
+  -- ins_left_both {
+  --   function()
+  --     local is_formatting = require("guard.format").is_formatting()
+
+  --     if is_formatting then
+  --       return " Formatting"
+  --     else
+  --       return ""
+  --     end
+  --   end,
+  --   color = { fg = colors.blue },
+  -- }
+
   ins_left {
     function()
       return '%='
