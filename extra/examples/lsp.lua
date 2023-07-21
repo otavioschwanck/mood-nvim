@@ -182,10 +182,8 @@ local diag_fmt = require('guard.lint').diag_fmt
 
 -- See all formatters at https://github.com/nvimdev/guard.nvim
 ft('ruby'):fmt('lsp'):lint('rubocop')
-ft('javascript'):fmt('prettier')
-ft('typescript'):fmt('prettier')
-ft('javascriptreact'):fmt('prettier')
-ft('typescriptreact'):fmt('prettier')
+ft('lua'):fmt('lsp')
+ft('javascript,typescript,typescriptreact,javascriptreact'):fmt('prettier')
 
 require('guard').setup({ fmt_on_save = false }) -- Format on save
 
