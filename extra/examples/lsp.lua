@@ -186,7 +186,7 @@ ft('typescript'):fmt('prettier')
 ft('javascriptreact'):fmt('prettier')
 ft('typescriptreact'):fmt('prettier')
 
-require('guard').setup({ fmt_on_save = true }) -- Format on save
+require('guard').setup({ fmt_on_save = false }) -- Format on save
 
 -- Our typescript utils plugin. See the commands with SPC m on a javascript/typescript file.
 require("typescript").setup({ server = { on_attach = on_attach } })

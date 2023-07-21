@@ -20,7 +20,7 @@ require('tmux-awesome-manager').setup({
   open_new_as = 'pane', -- change to window to open terms in new tab
 })
 
--- To disable format_on_save, go to lua/user/lsp.lua:189 (press gf on the path to go automatically)
+-- To enable format_on_save, go to lua/user/lsp.lua:189 (press gf on the path to go automatically)
 
 -- Directory to store your notes (SPC z z)
 vim.g.ruby_debugger = "debugger" -- can be changed to byebug or pry, call with SPC d
