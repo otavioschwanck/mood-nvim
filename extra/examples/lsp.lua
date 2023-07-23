@@ -181,7 +181,7 @@ local ft = require('guard.filetype')
 local diag_fmt = require('guard.lint').diag_fmt
 
 -- See all formatters at https://github.com/nvimdev/guard.nvim
-ft('ruby'):fmt('lsp'):lint('rubocop')
+ft('ruby'):fmt('lsp'):lint('rubocop') -- Change fmt to 'rubocop' if this way does not work
 ft('lua'):fmt('lsp')
 ft('javascript,typescript,typescriptreact,javascriptreact'):fmt('prettier')
 
