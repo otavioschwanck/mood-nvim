@@ -5,7 +5,7 @@
 -- Line 26: LSPs to install. See the list at: https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md
 -- Line 37: On attach (configure keybindings for LSP)
 -- Line 105: Mappings for autocomplete
--- Line 184: Linter and Formatter (prettier, rubocop, etc)
+-- Line 183: Linter and Formatter (prettier, rubocop, etc)
 
 require("luasnip.loaders.from_vscode").lazy_load()
 require("luasnip.loaders.from_vscode").lazy_load({ paths = { "./vs-snippets" } })
@@ -126,10 +126,13 @@ local autocomplete_mappings = { -- autocomplete mappings
 }
 
 local border_opts = {
-  border = "single",
-  winhighlight = "Normal:Normal,FloatBorder:FloatBorder,CursorLine:Visual,Search:None,NormalFloat:Normal",
+  border = { { "╭" }, { "─" }, { "╮" }, { "│" }, { "╯" }, { "─" }, { "╰" }, { "│" }, },
+  winhighlight = "Normal:Normal,FloatBorder:FloatBorder,CursorLine:CmpSel,Search:None,NormalFloat:Normal",
   scrollbar = false,
+  transparency = 0,
 }
+
+
 
 vim.lsp.handlers['textDocument/signatureHelp'] = vim.lsp.with(
   vim.lsp.handlers.signature_help, {
@@ -147,6 +150,8 @@ vim.lsp.handlers['textDocument/hover'] = vim.lsp.with(
   vim.lsp.handlers.hover, border_opts
 )
 
+local icons = require("mood-scripts.icons")
+
 cmp.setup({
   mapping = autocomplete_mappings,
   snippet = {
@@ -162,16 +167,10 @@ cmp.setup({
   formatting = {
     fields = { 'abbr', 'menu', 'kind' },
     format = function(entry, item)
-      local menu_icon = {
-        nvim_lsp = 'λ',
-        luasnip = '󰅩',
-        buffer = '',
-        path = '󰉋',
-      }
+      local icon = icons[item.kind] or icons[entry.source.name]
 
-      print(vim.inspect(item))
+      item.menu = icon
 
-      item.menu = menu_icon[entry.source.name]
       return item
     end,
   },

@@ -111,6 +111,8 @@ function M.setup()
             vim.cmd('highlight! HarpoonNumberInactive guibg=' .. fill .. ' guifg=' .. color)
 
             vim.cmd('highlight! TabLineFill guibg=' .. fill .. ' guifg=NONE')
+            vim.cmd("highlight! FloatBorder guifg=#494d64")
+            vim.cmd("highlight! CmpSel guifg=#181926 guibg=#a6da95")
 
             require("nvim-web-devicons").set_icon({
               rb = { icon = "", color = "#ff8587", name = "DevIconRb" } })
