@@ -5,7 +5,7 @@
 -- Line 26: LSPs to install. See the list at: https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md
 -- Line 37: On attach (configure keybindings for LSP)
 -- Line 105: Mappings for autocomplete
--- Line 183: Linter and Formatter (prettier, rubocop, etc)
+-- Line 180: Linter and Formatter (prettier, rubocop, etc)
 
 require("luasnip.loaders.from_vscode").lazy_load()
 require("luasnip.loaders.from_vscode").lazy_load({ paths = { "./vs-snippets" } })
@@ -129,10 +129,7 @@ local border_opts = {
   border = { { "╭" }, { "─" }, { "╮" }, { "│" }, { "╯" }, { "─" }, { "╰" }, { "│" }, },
   winhighlight = "Normal:Normal,FloatBorder:FloatBorder,CursorLine:CmpSel,Search:None,NormalFloat:Normal",
   scrollbar = false,
-  transparency = 0,
 }
-
-
 
 vim.lsp.handlers['textDocument/signatureHelp'] = vim.lsp.with(
   vim.lsp.handlers.signature_help, {
