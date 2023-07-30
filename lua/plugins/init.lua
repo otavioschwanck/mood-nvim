@@ -163,8 +163,6 @@ local plugins = {
     config = function() require('cool-substitute').setup({ setup_keybindings = true }) end
   },
   "rafamadriz/friendly-snippets",
-  { 'hrsh7th/cmp-calc' },
-
   { "ray-x/lsp_signature.nvim" },
 
   'windwp/nvim-ts-autotag',
