@@ -202,7 +202,7 @@ ft('ruby'):fmt('lsp'):lint('rubocop') -- Change fmt to 'rubocop' if this way doe
 ft('lua'):fmt('lsp')
 ft('javascript,typescript,typescriptreact,javascriptreact'):fmt('prettier')
 
-require('guard').setup({ fmt_on_save = false }) -- Format on save
+require('guard').setup({ fmt_on_save = false, lsp_as_default_formatter = true }) -- Format on save
 
 -- Our typescript utils plugin. See the commands with SPC m on a javascript/typescript file.
 require("typescript").setup({ server = { on_attach = on_attach } })
