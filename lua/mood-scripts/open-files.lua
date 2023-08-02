@@ -34,8 +34,6 @@ function M.call(files)
   }):find()
 end
 
-require('guard').setup({ fmt_on_save = true })
-
 function M.open_dotfiles()
   local mood_dotfiles = {
     {
