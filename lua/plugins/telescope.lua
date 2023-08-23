@@ -29,10 +29,9 @@ return {
 									i = {
 										["<C-p>"] = actions.move_selection_previous,
 										["<C-n>"] = actions.move_selection_next,
-										["<C-r>"] = mapping.put("p"),
 										["<c-k>"] = mapping.put("P"),
 										["<c-x>"] = mapping.delete(),
-										["<c-r>"] = mapping.set_register(utils.get_default_register()),
+										["<c-r>"] = mapping.set_register("+"),
 									},
 									n = {
 										p = mapping.put("p"),
