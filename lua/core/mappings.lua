@@ -14,7 +14,7 @@ function M.setup_which_key()
 		["<C-g>"] = { ":<c-u>call AppendSelectionToQuickConsult()<CR>", "Append Selection" },
 		n = {
 			name = "+Toggle Case",
-			s = { ":Snake<CR>", "snake_case" },
+			s = { ":Snek<CR>", "snake_case" },
 			c = { ":Camel<CR>", "CamelCase" },
 			b = { ":CamelB<CR>", "camelCaseB" },
 		},
@@ -57,7 +57,7 @@ function M.setup_which_key()
 		u = { ":UndotreeToggle<CR>", "Undo Tree" },
 		n = {
 			name = "+Toggle Case",
-			s = { ":Snake<CR>", "snake_case" },
+			s = { ":Snek<CR>", "snake_case" },
 			c = { ":Camel<CR>", "camelCase" },
 			b = { ":CamelB<CR>", "CamelCaseB" },
 		},
