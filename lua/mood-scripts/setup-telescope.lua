@@ -60,6 +60,8 @@ function M.setup()
 		extensions = {
 			fzf = {
 				fuzzy = true,
+				override_generic_sorter = false,
+				override_file_sorter = false,
 			},
 			["ui-select"] = {
 				require("telescope.themes").get_dropdown({}),

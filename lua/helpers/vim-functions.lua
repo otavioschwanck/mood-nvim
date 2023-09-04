@@ -1,15 +1,15 @@
 local M = {}
 
 function M.close_term()
-  if vim.o.buftype == 'terminal' then
-    vim.cmd("close")
-  end
+	if vim.o.buftype == "terminal" then
+		vim.cmd("close")
+	end
 end
 
 function M.setup()
-  -- TODO: Migrate this functions to lua
+	-- TODO: Migrate this functions to lua
 
-  vim.cmd([[
+	vim.cmd([[
     function! WordForGq()
       let l:word = substitute(getreg('"'), "\\", "\\\\", "gre")
       let l:word = substitute(l:word, "[", "\\\\[", "gre")
@@ -277,7 +277,10 @@ function M.setup()
 
     function s:UpdateMood()
       execute "!cd ~/.config/nvim;git checkout HEAD .;git pull origin main -f"
+      execute "Lazy load all"
       execute "Lazy restore"
+      execute "Lazy load all"
+      execute "Lazy install"
     endfunction
 
     command! CleanConfigs :call s:CleanConfigs()
