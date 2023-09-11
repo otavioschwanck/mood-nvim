@@ -60,7 +60,7 @@ function M.setup()
 		extensions = {
 			fzf = {
 				fuzzy = true,
-				override_generic_sorter = false,
+				override_generic_sorter = true,
 				override_file_sorter = false,
 			},
 			["ui-select"] = {
