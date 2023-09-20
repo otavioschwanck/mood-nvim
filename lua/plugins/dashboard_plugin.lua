@@ -63,9 +63,7 @@ return {
 						"Your branch is up to date"
 					)
 
-					if is_updated then
-						dashboard.section.footer.val = "Mood is up to date. Nice work! Load Time: " .. ms .. "ms"
-					else
+					if not is_updated then
 						dashboard.section.footer.val =
 							"Mood has some updates.  Press SPC h u to install the latest updates."
 					end
