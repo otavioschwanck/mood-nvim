@@ -65,7 +65,7 @@ return {
 
 					if not is_updated then
 						dashboard.section.footer.val =
-							"Mood has some updates.  Press SPC h u to install the latest updates."
+							"  Mood has some updates.  Press SPC h u to install the latest updates."
 					end
 					pcall(vim.cmd.AlphaRedraw)
 				end,
