@@ -68,6 +68,7 @@ function M.setup()
 			},
 			file_browser = {
 				hidden = true,
+				prompt_path = true,
 				mappings = {
 					["i"] = {
 						["<C-o>"] = fb_actions.remove,
