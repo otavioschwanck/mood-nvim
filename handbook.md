@@ -29,11 +29,11 @@ After your tmux first open, press `C-x I` to install the packages.
 
 I also recommend `tmuxinator` to manage your projects.
 
-This configuration uses `tmux-awesome-manager` to manage multiple terminals.  You can configure your own commands on `SPC f p`.
+This configuration uses `tmux-awesome-manager` to manage multiple terminals.  You can configure your own commands on `SPC f p` and go to the Keybindings.
 
 To see the already configured commands, press `SPC l f`.
 
-## Codeium IA Autocomplete (like copilot / whisperes)
+## Codeium IA Autocomplete (like copilot / whisperer)
 
 Run :Codeium Auth and follow the instructions.
 
@@ -58,11 +58,11 @@ Use C-f and C-b to cycle on codeium suggestions.
 
 ## TMUX integration with alacritty
 
-Tmux prefix: C-x.  See more of tmux pressing `SPC o d t`
-Alacritty Configuration: `SPC o d a`.  (You can change here your font size, terminal theme, etc)
+Tmux prefix: C-x.  See more of tmux by accessing your ~/.tmux.conf
+Alacritty Configuration: SPC f p -> Alacritty.
 
 Every command inside tmux is called using a prefix.  Alacritty allows to bypass the prefix, like: To switch tabs on tmux, is C-x 1,  with
-alacritty, is possible to map alt/cmd + 1 to call C-x 1 inside terminal.  Every major command is already mapped.  See your alacritty config at: `SPC o d a`.
+alacritty, is possible to map alt/cmd + 1 to call C-x 1 inside terminal.  Every major command is already mapped. 
 
 Explaining the commands (keybindings):
 M-o = Alt or Command + o
@@ -77,24 +77,23 @@ Pane = A split inside a window
 
 Movimentation and Navigation:
 
-| Command         | Description                                      |
-|-----------------|--------------------------------------------------|
-| M-/             | Search on tmux                                   |
-| M-o             | Go to next pane                                  |
-| M-1 to M-9      | Switch window                                    |
-| M-S-a           | See all sessions (Press x to close one)          |
-| M-S-n and M-S-p | Next / Previous session                          |
-| M-Esc           | Go to next pane and maximize                     |
-| M-Esc           | Go to next pane and maximize                     |
-| M-a             | Alternate between current window and last window |
-| M-,             | Go to previous pane / nvim pane                  |
-| M-;             | Go to next pane / nvim pane                      |
-| M-S-f           | Search and copy some text.                       |
+| Command         | Description                                                                                    |
+|-----------------|------------------------------------------------------------------------------------------------|
+| M-/             | Search on tmux                                                                                 |
+| M-o             | Go to next pane                                                                                |
+| M-1 to M-9      | Switch window                                                                                  |
+| M-S-a           | See all sessions (Press x to close one)                                                        |
+| M-S-n and M-S-p | Next / Previous session                                                                        |
+| M-Esc           | Go to next pane and maximize                                                                   |
+| M-Esc           | Go to next pane and maximize                                                                   |
+| M-a             | Alternate between current window and last window                                               |
+| M-,             | Go to previous pane / nvim pane                                                                |
+| M-;             | Go to next pane / nvim pane                                                                    |
+| M-S-f           | Search text in your terminal and copy / insert, super useful to copy id or some command output |
 
 Obs: C-; C-, works for neovim splits too (thanks for a script)
-Obs2: Maybe you need to upgrade your alacritty.yml and tmux.conf.  Press SPC f d and delete those files.
 
-Management:
+## Window / Tab Management inside Tmux:
 
 | Command  | Description                                   |
 |----------|-----------------------------------------------|
@@ -108,15 +107,15 @@ Management:
 | M-k      | Detach current pane as new window             |
 | M-S-d    | Detach tmux session                           |
 | M-x      | Close window / pane                           |
+| M-i      | Switch orientation of panes                   |
+| M-S-i    | Switch windows                                |
 
-Copy / search / Navigate:
+## Copy / search / Navigate:
 
 | Command | Description                                                                                              |
 |---------|----------------------------------------------------------------------------------------------------------|
 | M-/     | Search on terminal (Use n and N to go next / previous, you can press any vim motion after and y to copy)
-| M-,     | Copy a text from the terminal                                                                            |
-| M-;     | Switch orientation of panes                                                                              |
-| M-[     | Go to normal mode inside terminal                                                                        |
+| M-[     | Go to cim mode inside terminal                                                                        |
 
 # Quick Consult
 
