@@ -133,8 +133,7 @@ Also, is very good to move files between folders.
 | C-r               |  Rename file / selected files               |
 | C-e               |  Go to project root                         |
 
-
-OBS: This list persist between vim sections
+- Example of usage: https://imgur.com/BNK1JCt
 
 # Buffer Navigation and Management
 
