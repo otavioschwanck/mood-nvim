@@ -117,16 +117,22 @@ Obs: C-; C-, works for neovim splits too (thanks for a script)
 | M-/     | Search on terminal (Use n and N to go next / previous, you can press any vim motion after and y to copy)
 | M-[     | Go to cim mode inside terminal                                                                        |
 
-# Quick Consult
+# On the SPC . (file browser)
 
-| Command   | MODE   | Description                                 |
-|-----------|--------|---------------------------------------------|
-| C-g       | Visual | Save selection to quick consult             |
-| C-g       | Normal | Open Saved text from quick consult          |
-| SPC C-g   | Visual | Append Selection to quick consult           |
-| SPC C-g a | Normal | Append Text from clipboard to quick consult |
-| SPC C-g s | Normal | Save Text from clpiboard to quick consult   |
-|-----------|--------|---------------------------------------------|
+I Consider this way the most efficient way to create files and find files on current file folder.  
+Also, is very good to move files between folders.
+
+| insert keybinding |  Action                                     |
+|-------------------|---------------------------------------------|
+| tab               |  Select a file (to move, delete, copy, etc) |
+| C-f               |  Go to a folder (search folders)            |
+| C-d               |  Delete selected files                      |
+| C-v               |  Paste selected files (make a copy)         |
+| C-x               |  Paste selected files (move / cut)          |
+| C-Space           |  Create a new file from text in prompt      |
+| C-r               |  Rename file / selected files               |
+| C-e               |  Go to project root                         |
+
 
 OBS: This list persist between vim sections
 
@@ -257,33 +263,6 @@ To execute some command in all items of the quickfix list, just run `:cfdo S/old
 | gJ      | Join multiline method \ args                                                        |
 | gs      | Toggle thing at point.  `:foo` to `foo =>` to `'foo'` and `do ... end` to `{ ... }` |
 |---------|-------------------------------------------------------------------------------------|
-
-# On the SPC . (file browser)
-
-I Consider this way the most efficient way to create files and find files on current file folder.
-
-| Insert / Normal              | / Action                                                            |
-|------------------------------|---------------------------------------------------------------------|
-| Most Important commands      |                                                                     |
-|------------------------------|---------------------------------------------------------------------|
-| tab                          | Mark item to item to move / copy / Rename                           |
-| C-f                          | Go to a folder on project (super useful to create new files / move) |
-| C-space or S-RET (alacritty) | Create file/folder from what you typed on prompt                    |
-| C-y                          | Paste Stuff that was marked with tab                                 |
-| C-r                          | Rename multi-selected files/folders                                 |
-| C-e                          | Move multi-selected files/folders to current path                   |
-| C-c/c                        | Go to parent directory                                              |
-| C-o/o                        | Delete selected file(s)                                             |
-| C-g                          | Go to current working directory (cwd)                               |
-|------------------------------|---------------------------------------------------------------------|
-| Other commands               |                                                                     |
-|------------------------------|---------------------------------------------------------------------|
-| C-o/o                        | Open file/folder with default system application                    |
-| C-t/t                        | Change nvim's cwd to selected folder/file(parent)                   |
-| C-f/f                        | Toggle between file and folder browser                              |
-| C-h/h                        | Toggle hidden files/folders                                         |
-| C-s/s                        | Toggle all entries ignoring ./ and ../                              |
-|------------------------------|---------------------------------------------------------------------|
 
 # Snippets and autocomplete
 
