@@ -61,7 +61,7 @@ function M.setup()
 			fzf = {
 				fuzzy = true,
 				override_generic_sorter = true,
-				override_file_sorter = false,
+				override_file_sorter = true,
 			},
 			["ui-select"] = {
 				require("telescope.themes").get_dropdown({}),
@@ -70,6 +70,8 @@ function M.setup()
 				hidden = true,
 				prompt_path = true,
 				hide_parent_dir = true,
+				layout_config = { height = 0.4 },
+				theme = "ivy",
 				mappings = {
 					["i"] = {
 						["<C-o>"] = fb_actions.remove,
