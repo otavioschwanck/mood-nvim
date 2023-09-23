@@ -66,6 +66,9 @@ function M.setup()
 			["ui-select"] = {
 				require("telescope.themes").get_dropdown({}),
 			},
+			smart_open = {
+				match_algorithm = "fzf",
+			},
 			file_browser = {
 				hidden = true,
 				prompt_path = true,

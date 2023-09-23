@@ -51,7 +51,7 @@ function M.setup_which_key()
 		["*"] = { ":Telescope grep_string<CR>", "Search string at point on project" },
 		["<space>"] = {
 			function()
-				require("telescope").extensions.smart_open.smart_open({ cwd_only = true })
+				require("telescope").extensions.smart_open.smart_open({ cwd_only = true, filename_first = false })
 			end,
 			"Find Files",
 		},
@@ -136,7 +136,7 @@ function M.setup_which_key()
 			},
 			o = { ":Telescope live_grep grep_open_files=true<CR>", "Search on Open Files" },
 			P = { ":lua require('mood-scripts.custom_telescope').ripgrep()<CR>", "Advanced Search text on Project" },
-			f = { ":CtrlSF ", "Search text using CoC (for search and replace)" },
+			f = { ":CtrlSF ", "Search text using CtrlSF (for search and replace)" },
 			s = { ":Telescope current_buffer_fuzzy_find fuzzy=false case_mode=ignore_case<CR>", "Fuzzy Current Buffer" },
 			i = { ":Telescope lsp_document_symbols<CR>", "Search Outline Symbols" },
 			j = { ":Telescope lsp_dynamic_workspace_symbols<CR>", "Symbols" },
@@ -146,6 +146,7 @@ function M.setup_which_key()
 			o = { ":AerialToggle<CR>", "Show Window Symbols" },
 			a = { ":lua require('telescope-alternate.telescope').alternate()<CR>", "Alternate File" },
 			r = { ":Telescope oldfiles<CR>", "Recent Files" },
+			f = { "<cmd>Telescope find_files<CR>", "Find Files" },
 			R = { ":call BetterRename()<CR>", "Rename Current File" },
 			M = { ":call BetterMove()<CR>", "Move Current File" },
 			D = { ":call BetterDelete()<CR>", "Delete the current file" },

@@ -12,7 +12,6 @@ return {
 			},
 			"nvim-telescope/telescope-ui-select.nvim",
 			"nvim-telescope/telescope-file-browser.nvim",
-			"nvim-telescope/telescope-fzy-native.nvim",
 			"nvim-lua/plenary.nvim",
 			{
 				"gbprod/yanky.nvim",
