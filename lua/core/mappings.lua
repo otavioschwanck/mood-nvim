@@ -53,7 +53,7 @@ function M.setup_which_key()
 			function()
 				require("telescope").extensions.smart_open.smart_open({
 					cwd_only = true,
-					filename_first = true,
+					filename_first = false,
 					match_algorithm = "fzf",
 					space_as_separator = true,
 				})
