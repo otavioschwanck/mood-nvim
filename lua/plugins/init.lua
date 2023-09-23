@@ -75,7 +75,6 @@ local plugins = {
 					width = {
 						min = 30,
 						max = 60,
-						padding = 2,
 					},
 				},
 				renderer = {
