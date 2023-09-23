@@ -55,6 +55,7 @@
   "plenary.nvim": { "branch": "master", "commit": "9ce85b0f7dcfe5358c0be937ad23e456907d410b" },
   "ruby-toolkit.nvim": { "branch": "main", "commit": "56e01ec882088d0defd976f76e1b827fe8e7deed" },
   "sideways.vim": { "branch": "main", "commit": "eb7f35f6a652f60d3b4f262d64d4846adbd4d104" },
+  "smart-open.nvim": { "branch": "0.2.x", "commit": "20ac086494a6dda649b0cfb255565e8b248d0550" },
   "smart-splits.nvim": { "branch": "master", "commit": "0beb14427dcf2a5d5d63e0064b45032a7bd3e763" },
   "splitjoin.vim": { "branch": "main", "commit": "53962443e4dc557e4d4c02b501adfcb5cd1368c3" },
   "sqlite.lua": { "branch": "master", "commit": "b7e28c8463254c46a8e61c52d27d6a2040492fc3" },
