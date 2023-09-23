@@ -51,7 +51,11 @@ function M.setup_which_key()
 		["*"] = { ":Telescope grep_string<CR>", "Search string at point on project" },
 		["<space>"] = {
 			function()
-				require("telescope").extensions.smart_open.smart_open({ cwd_only = true, filename_first = false })
+				require("telescope").extensions.smart_open.smart_open({
+					cwd_only = true,
+					filename_first = false,
+					match_algorithm = "fzf",
+				})
 			end,
 			"Find Files",
 		},
