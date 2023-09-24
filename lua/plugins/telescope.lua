@@ -3,13 +3,6 @@ return {
 	{
 		"nvim-telescope/telescope.nvim",
 		dependencies = {
-			{
-				"danielfalk/smart-open.nvim",
-				branch = "0.2.x",
-				config = function()
-					require("telescope").load_extension("smart_open")
-				end,
-			},
 			"nvim-telescope/telescope-ui-select.nvim",
 			"nvim-telescope/telescope-file-browser.nvim",
 			"nvim-lua/plenary.nvim",

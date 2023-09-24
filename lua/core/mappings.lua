@@ -49,16 +49,7 @@ function M.setup_which_key()
 		},
 		["<"] = { ":Telescope buffers ignore_current_buffer=true sort_mru=true<CR>", "Find All Buffers" },
 		["*"] = { ":Telescope grep_string<CR>", "Search string at point on project" },
-		["<space>"] = {
-			function()
-				require("telescope").extensions.smart_open.smart_open({
-					cwd_only = true,
-					filename_first = false,
-					match_algorithm = "fzf",
-				})
-			end,
-			"Find Files",
-		},
+		["<space>"] = { "<cmd>Telescope find_files<CR>", "Find Files" },
 		e = { ":NvimTreeToggle<CR>", "Toggle Tree" },
 		E = { ":NvimTreeFindFile<CR>", "Toggle Tree Current File" },
 		d = { ":call AddDebugger()<CR>", "+Debug" },

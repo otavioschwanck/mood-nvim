@@ -58,6 +58,10 @@ function M.setup()
 			current_buffer_fuzzy_find = vertical_search,
 		},
 		extensions = {
+			fzy_native = {
+				override_generic_sorter = false,
+				override_file_sorter = true,
+			},
 			fzf = {
 				fuzzy = true,
 				override_generic_sorter = true,
@@ -65,9 +69,6 @@ function M.setup()
 			},
 			["ui-select"] = {
 				require("telescope.themes").get_dropdown({}),
-			},
-			smart_open = {
-				match_algorithm = "fzf",
 			},
 			file_browser = {
 				hidden = true,
