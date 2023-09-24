@@ -127,14 +127,23 @@ function M.setup_which_key()
 				"Search text in one or more folders",
 			},
 			d = {
-				":lua require('telescope.builtin').live_grep { search_dirs = {vim.fn.expand('%:p:h'), additional_args = '-j1'}, prompt_title = 'Live grep inside ' .. vim.fn.expand('%:p:h') }<CR>",
+				function()
+					require("mood-scripts.visible_path").prettyGrepPicker({
+						picker = "live_grep",
+						options = {
+							additional_args = "-j1",
+							search_dirs = { vim.fn.expand("%:p:h") },
+							prompt_title = "Searching on " .. vim.fn.expand("%:p:h"),
+						},
+					})
+				end,
 				"Search text in some folder",
 			},
 			p = {
 				function()
 					require("mood-scripts.visible_path").prettyGrepPicker({
 						picker = "live_grep",
-						options = { additional_args = "j1" },
+						options = { additional_args = "-j1" },
 					})
 				end,
 				"Search text on Project",

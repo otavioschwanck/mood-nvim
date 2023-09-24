@@ -9,6 +9,7 @@ local os_sep = Path.path.sep
 local pickers = require("telescope.pickers")
 local builtin = require("telescope.builtin")
 local scan = require("plenary.scandir")
+local telescopeMakeEntryModule = require("telescope.make_entry")
 
 local custom_pickers = {}
 
@@ -29,26 +30,6 @@ custom_pickers.project_files = function()
 		require("mood-scripts.visible_path").prettyFilesPicker({ picker = "git_files" })
 	else
 		require("mood-scripts.visible_path").prettyFilesPicker({ picker = "find_files" })
-	end
-end
-
--- We cache the results of "git rev-parse"
--- Process creation is expensive in Windows, so this reduces latency
-local is_inside_work_tree = {}
-
-M.project_files = function()
-	local opts = {} -- define here if you want to define something
-
-	local cwd = vim.fn.getcwd()
-	if is_inside_work_tree[cwd] == nil then
-		vim.fn.system("git rev-parse --is-inside-work-tree")
-		is_inside_work_tree[cwd] = vim.v.shell_error == 0
-	end
-
-	if is_inside_work_tree[cwd] then
-		builtin.git_files(opts)
-	else
-		builtin.find_files(opts)
 	end
 end
 
@@ -111,7 +92,11 @@ custom_pickers.live_grep_in_folder = function(opts)
 						end
 					end
 					actions._close(prompt_bufnr, current_picker.initial_mode == "insert")
-					require("telescope.builtin").live_grep({ search_dirs = dirs })
+
+					require("mood-scripts.visible_path").prettyGrepPicker({
+						picker = "live_grep",
+						options = { additional_args = "-j1", search_dirs = dirs },
+					})
 				end)
 				return true
 			end,
