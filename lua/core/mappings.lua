@@ -49,7 +49,7 @@ function M.setup_which_key()
 		},
 		["<"] = { ":Telescope buffers ignore_current_buffer=true sort_mru=true<CR>", "Find All Buffers" },
 		["*"] = { ":Telescope grep_string<CR>", "Search string at point on project" },
-		["<space>"] = { "<cmd>Telescope git_files<CR>", "Find Files" },
+		["<space>"] = { "<cmd>Telescope git_files show_untracked=true<CR>", "Find Files" },
 		e = { ":NvimTreeToggle<CR>", "Toggle Tree" },
 		E = { ":NvimTreeFindFile<CR>", "Toggle Tree Current File" },
 		d = { ":call AddDebugger()<CR>", "+Debug" },

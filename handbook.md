@@ -131,7 +131,7 @@ Also, is very good to move files between folders.
 | C-x               |  Paste selected files (move / cut)          |
 | C-Space           |  Create a new file from text in prompt      |
 | C-r               |  Rename file / selected files               |
-| C-e               |  Go to project root                         |
+| C-b               |  Go to project root                         |
 
 - Example of usage: https://imgur.com/BNK1JCt
 
@@ -139,14 +139,15 @@ Also, is very good to move files between folders.
 
 | Command                  | Description                                          |
 | ------------------------ | ---------------------------------------------------- |
-| H or [b                  | Previous Buffer (Harpoon)                            |
-| L or ]b                  | Next Buffer (Harpoon)                                |
+| H                        | Previous Buffer (Harpoon)                            |
+| L                        | Next Buffer (Harpoon)                                |
 | C-h                      | Alternate Buffer (Previous Buffer)                   |
 | SPC ,                    | Find Buffer in Project                               |
 | SPC TAB                  | Git Status                                           |
 | SPC .                    | File Browser                                         |
 | SPC e                    | Open Tree                                            |
 | SPC k                    | Kill current buffer                                  |
+| SPC K                    | Kill current buffer (Force)                          |
 | SPC A                    | Go to Test (and vsplit)                              |
 | SPC a                    | Go to test                                           |
 | SPC 1 to SPC 9           | Go to harpoons                                       |
@@ -196,7 +197,6 @@ To configure your LSP: SPC f p + lsp
 | M-; or ; | Focus Next window                                        |
 |----------|----------------------------------------------------------|
 | C-w o    | Maximize window                                          |
-| ENTER    | Maximize window temporary (press ENTER again to restore)
 
 # Searching
 
@@ -213,7 +213,7 @@ To configure your LSP: SPC f p + lsp
 | SPC *   | Search text at point on project                                                                 |
 |---------|-------------------------------------------------------------------------------------------------|
 
-Quick Tip: You can come back to any telescope search with `SPC RET`.
+Quick Tip: You can come back to any telescope search with `SPC RET` (Resume).
 
 ## Search and Replace on Project
 
@@ -257,15 +257,13 @@ To execute some command in all items of the quickfix list, just run `:cfdo S/old
 | gcc     | Comment (insert mode)                                                               |
 | gc      | Comment (viaul mode)                                                                |
 |---------|-------------------------------------------------------------------------------------|
-| daa     | Delete argument                                                                     |
+| daa     | Delete argument (foo, <cursor here>bar, foo) -> (foo, foo)                          |
 | gS      | Split to multiline method / args                                                    |
 | gJ      | Join multiline method \ args                                                        |
 | gs      | Toggle thing at point.  `:foo` to `foo =>` to `'foo'` and `do ... end` to `{ ... }` |
 |---------|-------------------------------------------------------------------------------------|
 
 # Snippets and autocomplete
-
-See: https://vonheikemen.github.io/devlog/tools/setup-nvim-lspconfig-plus-nvim-cmp/#snippets
 
 But just press C-n after a snippet and you go forward! trust me. (Check your lsp.lua to see if is C-n), it was changed recently
 
@@ -281,9 +279,11 @@ To open/close the autocomplete, just press C-e.
 | g!m      | start multiple cursor but doesn't edit current word, only edit full word           |
 | M        | start multiple cursors and edit cw / finish multiple cursor / Apply and go to next |
 | Ctrl + b | Same as M but backwards                                                            |
-| ENTER    | Skip current editing and go next                                                   |
+| n        | Skip current editing and go next                                                   |
 | ga       | Apply editing to all                                                               |
 |----------|------------------------------------------------------------------------------------|
+
+95% of time you can use just `M` to do it.
 
 # Ruby Stuff
 
@@ -293,23 +293,22 @@ To open/close the autocomplete, just press C-e.
 | SPC m l  | Extract let                                                    |
 | SPC m v  | Extract local variable                                         |
 | SPC m a  | Add Parameter                                                  |
+| SPC m f  | On visual mode, extract the function                           |
+| SPC m f  | On normal mode, create function from the text at cursor.       |
 |----------|----------------------------------------------------------------|
 
 # Running stuff
 
-## Test
+## TestS
 
 | Command | Description                                                                                   |
 |---------|-----------------------------------------------------------------------------------------------|
 | SPC t v | Run current file                                                                              |
 | SPC t s | Run nearest tests                                                                             |
 | SPC t a | Run all tests                                                                                 |
-| ]e      | Go to next test                                                                               |
-| [e      | Go to prev test                                                                               |
 | SPC t w | Focus test window (after ]e and [e, SUPER USEFUL to copy the test result. Use SPC k to close. |
 | SPC t r | Rerun last test                                                                               |
 | SPC t f | Rerun only failures                                                                           |
-| SPC t k | Clear tests from buffer                                                                       |
 |---------|-----------------------------------------------------------------------------------------------|
 
 ## Note Taking
@@ -341,7 +340,22 @@ za = Toggle fold at cursor
 
 ## Some useful plugins
 
-`:TableModeEnable` will facilitate your life when creating tables
+`:Tableize` will facilitate your life when creating tables.  Change from this:
+
+|editor|awesomeness|
+|-|
+|nvim|10|
+|emacs|9|
+|vscode|0|
+
+to this:
+
+| editor | awesomeness |
+|--------|-------------|
+| nvim   | 10          |
+| emacs  | 9           |
+| vscode | 0           |
+
 
 ### Reseting configs
 
