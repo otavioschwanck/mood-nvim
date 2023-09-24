@@ -204,13 +204,15 @@ To configure your LSP: SPC f p + lsp
 
 | Command | Description                                                                                     |
 |---------|-------------------------------------------------------------------------------------------------|
-| SPC SPC | Find Files in Project                                                                           |
+| SPC SPC | Find Files in Project (Based on git)                                                            |
+| SPC f f | Find files in current cwd (slower but more cmoplete)                                            |
 | SPC TAB | Git Modified Files                                                                              |
 | SPC s i | Search Document Symbols (Just love this command)                                                |
 | spc s j | Search Workspace Symbols                                                                        |
 | SPC s s | Fuzzy find in current buffer                                                                    |
 | SPC s p | Search text on project, keep pressing shift + enter (requires tmux + alacritty) to chain search |
 | SPC *   | Search text at point on project                                                                 |
+| SPC f
 |---------|-------------------------------------------------------------------------------------------------|
 
 Quick Tip: You can come back to any telescope search with `SPC RET` (Resume).
