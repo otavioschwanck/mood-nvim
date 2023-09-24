@@ -52,6 +52,9 @@ function M.setup()
 				path_display = require("utils.buffer_path_display"),
 				layout_config = { preview_cutoff = 10, width = 0.92 },
 			},
+			git_files = {
+				show_untracked = true,
+			},
 			live_grep = vertical_search,
 			grep_string = vertical_search,
 			diagnostics = vertical_search,

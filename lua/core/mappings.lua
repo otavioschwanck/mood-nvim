@@ -49,7 +49,12 @@ function M.setup_which_key()
 		},
 		["<"] = { ":Telescope buffers ignore_current_buffer=true sort_mru=true<CR>", "Find All Buffers" },
 		["*"] = { ":Telescope grep_string<CR>", "Search string at point on project" },
-		["<space>"] = { "<cmd>Telescope git_files show_untracked=true<CR>", "Find Files" },
+		["<space>"] = {
+			function()
+				require("mood-scripts.visible_path").prettyFilesPicker({ picker = "git_files" })
+			end,
+			"Find Files",
+		},
 		e = { ":NvimTreeToggle<CR>", "Toggle Tree" },
 		E = { ":NvimTreeFindFile<CR>", "Toggle Tree Current File" },
 		d = { ":call AddDebugger()<CR>", "+Debug" },
@@ -126,7 +131,12 @@ function M.setup_which_key()
 				"Search text in some folder",
 			},
 			p = {
-				'<cmd>lua require("telescope.builtin").live_grep({ additional_args = { "-j1" }})<CR>',
+				function()
+					require("mood-scripts.visible_path").prettyGrepPicker({
+						picker = "live_grep",
+						options = { additional_args = "j1" },
+					})
+				end,
 				"Search text on Project",
 			},
 			o = { ":Telescope live_grep grep_open_files=true<CR>", "Search on Open Files" },
@@ -140,8 +150,18 @@ function M.setup_which_key()
 			name = "+File",
 			o = { ":AerialToggle<CR>", "Show Window Symbols" },
 			a = { ":lua require('telescope-alternate.telescope').alternate()<CR>", "Alternate File" },
-			r = { ":Telescope oldfiles<CR>", "Recent Files" },
-			f = { "<cmd>Telescope find_files<CR>", "Find Files" },
+			r = {
+				function()
+					require("mood-scripts.visible_path").prettyFilesPicker({ picker = "oldfiles" })
+				end,
+				"Recent Files",
+			},
+			f = {
+				function()
+					require("mood-scripts.visible_path").prettyFilesPicker({ picker = "find_files" })
+				end,
+				"Find Files",
+			},
 			R = { ":call BetterRename()<CR>", "Rename Current File" },
 			M = { ":call BetterMove()<CR>", "Move Current File" },
 			D = { ":call BetterDelete()<CR>", "Delete the current file" },
