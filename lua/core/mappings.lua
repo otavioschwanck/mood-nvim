@@ -55,7 +55,6 @@ function M.setup_which_key()
 					cwd_only = true,
 					filename_first = false,
 					match_algorithm = "fzf",
-					space_as_separator = true,
 				})
 			end,
 			"Find Files",
