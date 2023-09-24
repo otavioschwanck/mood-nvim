@@ -51,7 +51,7 @@ function M.setup_which_key()
 		["*"] = { ":Telescope grep_string<CR>", "Search string at point on project" },
 		["<space>"] = {
 			function()
-				require("mood-scripts.visible_path").prettyFilesPicker({ picker = "git_files" })
+				require("mood-scripts.custom_telescope").project_files()
 			end,
 			"Find Files",
 		},
