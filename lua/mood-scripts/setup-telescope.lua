@@ -13,6 +13,7 @@ function M.setup()
 	if winwidth < 250 then
 		vertical_search = {
 			layout_strategy = "vertical",
+			layout_config = { preview_cutoff = 10, height = 0.90, width = 0.95 },
 		}
 	else
 		vertical_search = {

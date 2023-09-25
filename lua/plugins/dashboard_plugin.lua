@@ -10,8 +10,8 @@ return {
 			dashboard.section.buttons.val = {
 				dashboard.button("SPC h l", "󰉙 " .. " Load Session", '<cmd>lua require("persistence").load() <CR>'),
 				dashboard.button("SPC tab", " " .. " Git Status", "<cmd>Telescope git_status <CR>"),
-				dashboard.button("SPC f r", " " .. " Recent files", "<cmd>Telescope oldfiles <CR>"),
-				dashboard.button("SPC s p", " " .. " Find text", "<cmd>Telescope live_grep <CR>"),
+				dashboard.button("SPC f r", " " .. " Recent files"),
+				dashboard.button("SPC s p", " " .. " Find text"),
 				dashboard.button("SPC h m", "󰑶 " .. " Mason (Manage LSP / Linters)", "<cmd>Mason<CR>"),
 				dashboard.button(
 					"SPC f p",
