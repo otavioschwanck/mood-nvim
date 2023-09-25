@@ -46,6 +46,7 @@ function M.setup_which_key()
 			N = { ":e ~/.nvim-scratch<CR>", "Open Scratch Buffer" },
 			f = { ":Telescope buffers only_cwd=true<CR>", "Find Buffers in this project" },
 			F = { ":Telescope buffers<CR>", "Find all buffers" },
+			d = { "<cmd>silent w | %bd | e#<CR>", "Close all buffer except this one" },
 		},
 		["<"] = { ":Telescope buffers ignore_current_buffer=true sort_mru=true<CR>", "Find All Buffers" },
 		["*"] = { ":Telescope grep_string<CR>", "Search string at point on project" },

@@ -43,7 +43,7 @@ local buffer_path_display = function(opts, path)
 		},
 	})
 
-	return displayer({ tail, "󰉋 " .. path_name:sub(2, #path_name) })
+	return displayer({ tail, { "󰉋 " .. path_name:sub(2, #path_name), "TelescopeResultsComment" } })
 end
 
 return buffer_path_display
