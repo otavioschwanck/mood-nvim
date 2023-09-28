@@ -105,7 +105,7 @@ function M.setup()
 					border = {
 						style = border.results,
 						text = {
-							top = picker.results_title,
+							top = picker.prompt_title,
 							top_align = "center",
 						},
 					},
@@ -119,7 +119,6 @@ function M.setup()
 					border = {
 						style = border.prompt,
 						text = {
-							top = picker.prompt_title,
 							top_align = "center",
 						},
 					},
@@ -133,7 +132,6 @@ function M.setup()
 					border = {
 						style = border.preview,
 						text = {
-							top = picker.preview_title,
 							top_align = "center",
 						},
 					},
