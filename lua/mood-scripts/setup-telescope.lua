@@ -190,6 +190,8 @@ function M.setup()
 
 				if width < 200 then
 					total_width = "90%"
+				elseif width < 400 and picker.prompt_title == "Live Grep" then
+					total_width = "90%"
 				else
 					total_width = "80%"
 				end
