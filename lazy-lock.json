@@ -51,6 +51,7 @@
   "oil.nvim": { "branch": "master", "commit": "bfc5a4c48f4a53b95648e41d91e49b83fb03e919" },
   "other.nvim": { "branch": "main", "commit": "cba4e5feb0c0a703acc9b78bc64422ac1469c468" },
   "persistence.nvim": { "branch": "main", "commit": "4b8051c01f696d8849a5cb8afa9767be8db16e40" },
+  "playground": { "branch": "master", "commit": "ba48c6a62a280eefb7c85725b0915e021a1a0749" },
   "plenary.nvim": { "branch": "master", "commit": "9ce85b0f7dcfe5358c0be937ad23e456907d410b" },
   "rainbow-delimiters.nvim": { "branch": "master", "commit": "ece052dbcb2b3d2980f0f9881e41277929813644" },
   "ruby-toolkit.nvim": { "branch": "main", "commit": "56e01ec882088d0defd976f76e1b827fe8e7deed" },

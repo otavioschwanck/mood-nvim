@@ -256,7 +256,14 @@ local plugins = {
 			end)
 
 			vim.g.rainbow_delimiters = { highlight = highlight }
-			require("ibl").setup({ scope = { highlight = highlight } })
+			require("ibl").setup({
+				scope = {
+					highlight = highlight,
+					show_start = false,
+					show_end = false,
+					include = { node_type = { ruby = { "if" } } },
+				},
+			})
 
 			hooks.register(hooks.type.SCOPE_HIGHLIGHT, hooks.builtin.scope_highlight_from_extmark)
 		end,
