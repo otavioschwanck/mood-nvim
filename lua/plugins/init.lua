@@ -261,7 +261,7 @@ local plugins = {
 					highlight = highlight,
 					show_start = false,
 					show_end = false,
-					include = { node_type = { ruby = { "if" } } },
+					include = { node_type = { ruby = { "if", "assignment" } } },
 				},
 			})
 
