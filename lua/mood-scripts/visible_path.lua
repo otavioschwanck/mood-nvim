@@ -224,11 +224,7 @@ function telescopePickers.prettyGrepPicker(pickerAndOptions)
 
 			if not options.disable_coordinates then
 				if entry.lnum then
-					if entry.col then
-						coordinates = string.format(" -> %s:%s", entry.lnum, entry.col)
-					else
-						coordinates = string.format(" -> %s", entry.lnum)
-					end
+					coordinates = string.format(" -> %s", entry.lnum)
 				end
 			end
 
