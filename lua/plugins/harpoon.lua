@@ -8,6 +8,9 @@ return {
 					tabline = true,
 					tabline_icons = true,
 					tabline_prefix = "   ",
+					tabline_previous_buffer_text = "C-h",
+					tabline_show_previous_buffer = true,
+					tabline_show_current_buffer_not_added = true,
 				},
 			})
 		end,
