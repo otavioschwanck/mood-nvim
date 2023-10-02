@@ -129,13 +129,9 @@ function M.setup_which_key()
 			},
 			d = {
 				function()
-					require("mood-scripts.visible_path").prettyGrepPicker({
-						picker = "live_grep",
-						options = {
-							additional_args = "-j1",
-							search_dirs = { vim.fn.expand("%:p:h") },
-							prompt_title = "Searching on " .. vim.fn.expand("%:p:h"),
-						},
+					require("telescope").extensions.egrepify.egrepify({
+						additional_args = "-j1",
+						search_dirs = { vim.fn.expand("%:p:h") },
 					})
 				end,
 				"Search text in some folder",
@@ -144,7 +140,7 @@ function M.setup_which_key()
 				"<cmd>Telescope egrepify<CR>",
 				"Search text on Project",
 			},
-			o = { ":Telescope live_grep grep_open_files=true<CR>", "Search on Open Files" },
+			o = { ":Telescope egrepify grep_open_files=true<CR>", "Search on Open Files" },
 			P = { ":lua require('mood-scripts.custom_telescope').ripgrep()<CR>", "Advanced Search text on Project" },
 			f = { ":CtrlSF ", "Search text using CtrlSF (for search and replace)" },
 			s = { ":Telescope current_buffer_fuzzy_find fuzzy=false case_mode=ignore_case<CR>", "Fuzzy Current Buffer" },

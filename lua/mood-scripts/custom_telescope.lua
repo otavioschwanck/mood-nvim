@@ -93,9 +93,8 @@ custom_pickers.live_grep_in_folder = function(opts)
 					end
 					actions._close(prompt_bufnr, current_picker.initial_mode == "insert")
 
-					require("mood-scripts.visible_path").prettyGrepPicker({
-						picker = "live_grep",
-						options = { additional_args = "-j1", search_dirs = dirs },
+					require("telescope").extensions.egrepify.egrepify({
+						search_dirs = dirs,
 					})
 				end)
 				return true
