@@ -141,12 +141,7 @@ function M.setup_which_key()
 				"Search text in some folder",
 			},
 			p = {
-				function()
-					require("mood-scripts.visible_path").prettyGrepPicker({
-						picker = "live_grep",
-						options = { additional_args = "-j1" },
-					})
-				end,
+				"<cmd>Telescope egrepify<CR>",
 				"Search text on Project",
 			},
 			o = { ":Telescope live_grep grep_open_files=true<CR>", "Search on Open Files" },

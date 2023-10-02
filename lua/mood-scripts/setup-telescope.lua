@@ -22,11 +22,19 @@ function M.setup()
 
 	require("telescope").setup({
 		defaults = {
-			create_layout = layout,
+			layout_strategy = ternary(winwidth > 150, "horizontal", "vertical"),
+			layout_config = {
+				horizontal = {
+					prompt_position = "top",
+				},
+				vertical = {
+					prompt_position = "top",
+				},
+			},
+			sorting_strategy = "ascending",
 			prompt_prefix = " ",
 			file_ignore_patterns = vim.g.folder_to_ignore,
 			borderchars = { "─", "│", "─", "│", "┌", "┐", "┘", "└" },
-			layout_config = ternary(winwidth < 250, { preview_cutoff = 10, height = 0.90, width = 0.95 }, nil),
 			mappings = {
 				i = {
 					["<C-e>"] = function(picker)
@@ -48,6 +56,10 @@ function M.setup()
 			},
 		},
 		extensions = {
+			egrepify = {
+				filename_hl = "@attribute",
+				layout_strategy = ternary(winwidth > 300, "horizontal", "vertical"),
+			},
 			fzy_native = {
 				override_generic_sorter = false,
 				override_file_sorter = true,
@@ -96,6 +108,7 @@ function M.setup()
 	require("telescope").load_extension("fzf")
 	require("telescope").load_extension("tmux-awesome-manager")
 	require("telescope").load_extension("harpoon")
+	require("telescope").load_extension("egrepify")
 end
 
 return M

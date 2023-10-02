@@ -5,6 +5,7 @@ return {
 		dependencies = {
 			"nvim-telescope/telescope-ui-select.nvim",
 			"nvim-telescope/telescope-file-browser.nvim",
+			"fdschmidt93/telescope-egrepify.nvim",
 			"nvim-lua/plenary.nvim",
 			{
 				"gbprod/yanky.nvim",
