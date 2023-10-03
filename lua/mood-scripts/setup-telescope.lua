@@ -18,11 +18,17 @@ function M.setup()
 		end
 	end
 
-	local layout = require("mood-scripts.telescope_layout")
-
 	require("telescope").setup({
 		defaults = {
-			create_layout = layout,
+			layout_strategy = ternary(winwidth > 150, "horizontal", "vertical"),
+			layout_config = {
+				horizontal = {
+					prompt_position = "top",
+				},
+				vertical = {
+					prompt_position = "top",
+				},
+			},
 			sorting_strategy = "ascending",
 			prompt_prefix = " ",
 			file_ignore_patterns = vim.g.folder_to_ignore,
@@ -50,7 +56,7 @@ function M.setup()
 		extensions = {
 			egrepify = {
 				filename_hl = "@attribute",
-				lnum_hl = "CursorLineNr",
+				layout_strategy = ternary(winwidth > 280, "horizontal", "vertical"),
 			},
 			fzy_native = {
 				override_generic_sorter = false,
