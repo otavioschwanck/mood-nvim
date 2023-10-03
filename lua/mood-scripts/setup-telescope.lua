@@ -24,7 +24,8 @@ function M.setup()
 			layout_config = {
 				horizontal = {
 					prompt_position = "top",
-				},
+          height = 0.93,
+        },
 				vertical = {
 					prompt_position = "top",
 				},
