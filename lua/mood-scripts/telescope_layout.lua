@@ -118,7 +118,7 @@ local function layout(picker)
 	local box_by_kind = {
 		vertical = Layout.Box({
 			Layout.Box(preview, { grow = 1 }),
-			Layout.Box(prompt, { size = 3 }),
+			Layout.Box(prompt, { size = 2 }),
 			Layout.Box(results, { grow = 1 }),
 		}, { dir = "col" }),
 		horizontal = Layout.Box({
@@ -129,7 +129,7 @@ local function layout(picker)
 			Layout.Box(preview, { size = "50%" }),
 		}, { dir = "row" }),
 		minimal = Layout.Box({
-			Layout.Box(prompt, { size = 3 }),
+			Layout.Box(prompt, { size = 2 }),
 			Layout.Box(results, { grow = 1 }),
 		}, { dir = "col" }),
 	}
