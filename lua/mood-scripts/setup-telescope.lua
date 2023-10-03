@@ -50,7 +50,7 @@ function M.setup()
 		extensions = {
 			egrepify = {
 				filename_hl = "@attribute",
-				lnum_hl = "@attribute",
+				lnum_hl = "CursorLineNr",
 			},
 			fzy_native = {
 				override_generic_sorter = false,
