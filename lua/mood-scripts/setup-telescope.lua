@@ -57,7 +57,7 @@ function M.setup()
 		extensions = {
 			egrepify = {
 				filename_hl = "@attribute",
-				layout_strategy = ternary(winwidth > 280, "horizontal", "vertical"),
+				layout_strategy = ternary(winwidth > 260, "horizontal", "vertical"),
 			},
 			fzy_native = {
 				override_generic_sorter = false,
