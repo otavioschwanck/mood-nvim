@@ -1,5 +1,4 @@
 local M = {}
-
 local tmux = require("tmux-awesome-manager")
 
 function M.setup_which_key()

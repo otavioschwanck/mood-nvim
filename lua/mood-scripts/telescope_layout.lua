@@ -5,6 +5,27 @@ local Popup = require("nui.popup")
 local function layout(picker)
 	local border = {
 		results = {
+			top_left = "├",
+			top = "─",
+			top_right = "┤",
+			right = "│",
+			bottom_right = "┘",
+			bottom = "─",
+			bottom_left = "└",
+			left = "│",
+		},
+		results_patch = {
+			minimal = {
+				bottom_right = "┘",
+			},
+			horizontal = {
+				bottom_right = "┴",
+			},
+			vertical = {
+				bottom_right = "┘",
+			},
+		},
+		prompt = {
 			top_left = "┌",
 			top = "─",
 			top_right = "┬",
@@ -14,7 +35,7 @@ local function layout(picker)
 			bottom_left = "",
 			left = "│",
 		},
-		results_patch = {
+		prompt_patch = {
 			minimal = {
 				top_left = "┌",
 				top_right = "┐",
@@ -26,27 +47,6 @@ local function layout(picker)
 			vertical = {
 				top_left = "├",
 				top_right = "┤",
-			},
-		},
-		prompt = {
-			top_left = "├",
-			top = "─",
-			top_right = "┤",
-			right = "│",
-			bottom_right = "┘",
-			bottom = "─",
-			bottom_left = "└",
-			left = "│",
-		},
-		prompt_patch = {
-			minimal = {
-				bottom_right = "┘",
-			},
-			horizontal = {
-				bottom_right = "┴",
-			},
-			vertical = {
-				bottom_right = "┘",
 			},
 		},
 		preview = {
@@ -83,7 +83,6 @@ local function layout(picker)
 		border = {
 			style = border.results,
 			text = {
-				top = picker.prompt_title,
 				top_align = "center",
 			},
 		},
@@ -98,6 +97,7 @@ local function layout(picker)
 			style = border.prompt,
 			text = {
 				top_align = "center",
+				top = picker.prompt_title,
 			},
 		},
 		win_options = {
@@ -118,19 +118,19 @@ local function layout(picker)
 	local box_by_kind = {
 		vertical = Layout.Box({
 			Layout.Box(preview, { grow = 1 }),
-			Layout.Box(results, { grow = 1 }),
 			Layout.Box(prompt, { size = 3 }),
+			Layout.Box(results, { grow = 1 }),
 		}, { dir = "col" }),
 		horizontal = Layout.Box({
 			Layout.Box({
+				Layout.Box(prompt, { size = 2 }),
 				Layout.Box(results, { grow = 1 }),
-				Layout.Box(prompt, { size = 3 }),
 			}, { dir = "col", size = "50%" }),
 			Layout.Box(preview, { size = "50%" }),
 		}, { dir = "row" }),
 		minimal = Layout.Box({
-			Layout.Box(results, { grow = 1 }),
 			Layout.Box(prompt, { size = 3 }),
+			Layout.Box(results, { grow = 1 }),
 		}, { dir = "col" }),
 	}
 

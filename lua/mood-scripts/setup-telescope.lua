@@ -22,15 +22,7 @@ function M.setup()
 
 	require("telescope").setup({
 		defaults = {
-			layout_strategy = ternary(winwidth > 150, "horizontal", "vertical"),
-			layout_config = {
-				horizontal = {
-					prompt_position = "top",
-				},
-				vertical = {
-					prompt_position = "top",
-				},
-			},
+			create_layout = layout,
 			sorting_strategy = "ascending",
 			prompt_prefix = " ",
 			file_ignore_patterns = vim.g.folder_to_ignore,
@@ -58,7 +50,7 @@ function M.setup()
 		extensions = {
 			egrepify = {
 				filename_hl = "@attribute",
-				layout_strategy = ternary(winwidth > 280, "horizontal", "vertical"),
+				lnum_hl = "@attribute",
 			},
 			fzy_native = {
 				override_generic_sorter = false,
