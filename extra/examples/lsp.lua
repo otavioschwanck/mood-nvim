@@ -2,10 +2,10 @@
 -- Your Language server protocol stuff
 ---------------------------------------------------
 -- Configure autocomplete keybindings, servers, etc
--- Line 23: LSPs to install. See the list at: https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md
--- Line 36: On attach (configure keybindings for LSP)
+-- Line 26: LSPs to install. See the list at: https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md
+-- Line 37: On attach (configure keybindings for LSP)
 -- Line 105: Mappings for autocomplete
--- Line 195: Formatter (prettier, rubocop, etc)
+-- Line 180: Linter and Formatter (prettier, rubocop, etc)
 
 require("luasnip.loaders.from_vscode").lazy_load()
 require("luasnip.loaders.from_vscode").lazy_load({ paths = { "./vs-snippets" } })
@@ -88,7 +88,7 @@ lspconfig["solargraph"].setup( -- setup solargraph (remove if you don't use)
 			solargraph = {
 				formatting = false,
 				useBundler = true,
-				diagnostics = true,
+				diagnostics = false, -- lsp diagnostics are slow
 			},
 		},
 	}
@@ -176,7 +176,17 @@ cmp.setup.cmdline("/", {
 	},
 })
 
--- Your formatters. (See all at https://github.com/mhartington/formatter.nvim)
+local null_ls = require("null-ls")
+
+-- Your linters
+null_ls.setup({
+    sources = {
+        null_ls.builtins.diagnostics.rubocop,
+        null_ls.builtins.diagnostics.eslint,
+    },
+})
+
+-- Your formatters (formatter are better then null). (Comment this to disable autoformatters)
 require("formatter").setup({
 	logging = false,
 	filetype = {
@@ -186,7 +196,6 @@ require("formatter").setup({
 		javascriptreact = { require("formatter.filetypes.javascriptreact").prettier },
 		typescriptreact = { require("formatter.filetypes.typescriptreact").prettier },
 		lua = { require("formatter.filetypes.lua").stylua },
-		python = { require("formatter.filetypes.python").black },
 	},
 })
 

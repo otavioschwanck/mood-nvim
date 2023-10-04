@@ -20,7 +20,7 @@ require('tmux-awesome-manager').setup({
   open_new_as = 'pane', -- change to window to open terms in new tab
 })
 
--- To enable format_on_save, go to lua/user/lsp.lua:189 (press gf on the path to go automatically)
+-- To disable format_on_save, go to lua/user/lsp.lua:189 (press gf on the path to go automatically)
 
 -- Directory to store your notes (SPC z z)
 vim.g.ruby_debugger = "debugger" -- can be changed to byebug or pry, call with SPC d
@@ -93,6 +93,3 @@ local set = vim.api.nvim_set_option
 require('core.settings').remove_bicycle_small_whells({ includeNormalMode = true })
 
 -- set('colorcolumn', '125') -- column length helper
-
--- Auto load session
--- require("persistence").load()
