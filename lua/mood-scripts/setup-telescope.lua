@@ -20,11 +20,10 @@ function M.setup()
 
 	require("telescope").setup({
 		defaults = {
-			layout_strategy = ternary(winwidth > 150, "horizontal", "vertical"),
 			layout_config = {
 				horizontal = {
 					prompt_position = "top",
-          height = 0.93,
+          height = 0.9,
         },
 				vertical = {
 					prompt_position = "top",
