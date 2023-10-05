@@ -8,18 +8,9 @@ function M.setup()
 	local fb_actions = require("telescope").extensions.file_browser.actions
 	local mapping = require("yanky.telescope.mapping")
 
-	local winwidth = vim.fn.winwidth(0)
-
-	local ternary = function(cond, T, F)
-		if cond then
-			return T
-		else
-			return F
-		end
-	end
-
 	require("telescope").setup({
 		defaults = {
+      layout_strategy = "flex",
 			layout_config = {
 				horizontal = {
 					prompt_position = "top",
@@ -57,7 +48,6 @@ function M.setup()
 			egrepify = {
 				filename_hl = "@attribute",
 				lnum_hl = "LineNr",
-				layout_strategy = ternary(winwidth > 300, "horizontal", "vertical"),
 			},
 			fzy_native = {
 				override_generic_sorter = false,

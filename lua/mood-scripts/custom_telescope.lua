@@ -95,6 +95,7 @@ custom_pickers.live_grep_in_folder = function(opts)
 
 					require("telescope").extensions.egrepify.egrepify({
 						search_dirs = dirs,
+            layout_strategy = require("mood-scripts.layout_strategy").grep_layout(),
 					})
 				end)
 				return true

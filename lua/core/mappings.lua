@@ -131,12 +131,18 @@ function M.setup_which_key()
 					require("telescope").extensions.egrepify.egrepify({
 						additional_args = "-j1",
 						search_dirs = { vim.fn.expand("%:p:h") },
+            layout_strategy = require("mood-scripts.layout_strategy").grep_layout(),
 					})
 				end,
 				"Search text in some folder",
 			},
 			p = {
-				"<cmd>Telescope egrepify<CR>",
+				function()
+					require("telescope").extensions.egrepify.egrepify({
+						additional_args = "-j1",
+            layout_strategy = require("mood-scripts.layout_strategy").grep_layout(),
+					})
+				end,
 				"Search text on Project",
 			},
 			o = { ":Telescope egrepify grep_open_files=true<CR>", "Search on Open Files" },
