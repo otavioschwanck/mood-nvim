@@ -181,7 +181,11 @@ local null_ls = require("null-ls")
 -- Your linters
 null_ls.setup({
     sources = {
-        null_ls.builtins.diagnostics.rubocop,
+        null_ls.builtins.diagnostics.rubocop.with({
+          command = "bundle",
+          args = { "exec", "rubocop", "--format", "json", "--force-exclusion", "--stdin", "$FILENAME" },
+          prefer_local = { "bin/" }
+        }),
         null_ls.builtins.diagnostics.eslint,
     },
 })
@@ -199,11 +203,11 @@ require("formatter").setup({
 	},
 })
 
--- Enable Format on Save
+-- Enable Format on Save (uncomment here)
 vim.api.nvim_create_autocmd({ "BufWritePost" }, {
-	callback = function()
-		vim.cmd("FormatWrite")
-	end,
+callback = function()
+  vim.cmd("FormatWrite")
+end,
 })
 
 -- Our typescript utils plugin. See the commands with SPC m on a javascript/typescript file.
