@@ -43,8 +43,18 @@ function M.setup_which_key()
 		b = {
 			name = "+Buffer",
 			N = { ":e ~/.nvim-scratch<CR>", "Open Scratch Buffer" },
-			f = { ":Telescope buffers only_cwd=true<CR>", "Find Buffers in this project" },
-			F = { ":Telescope buffers<CR>", "Find all buffers" },
+			f = {
+				function()
+					require("mood-scripts.visible_path").prettyBuffersPicker({ only_cwd = true })
+				end,
+				"Find Buffers in this project",
+			},
+			F = {
+				function()
+					require("mood-scripts.visible_path").prettyBuffersPicker({})
+				end,
+				"Find all buffers",
+			},
 			d = { "<cmd>silent w | %bd | e#<CR>", "Close all buffer except this one" },
 		},
 		["<"] = { ":Telescope buffers ignore_current_buffer=true sort_mru=true<CR>", "Find All Buffers" },
@@ -131,7 +141,7 @@ function M.setup_which_key()
 					require("telescope").extensions.egrepify.egrepify({
 						additional_args = "-j1",
 						search_dirs = { vim.fn.expand("%:p:h") },
-            layout_strategy = require("mood-scripts.layout_strategy").grep_layout(),
+						layout_strategy = require("mood-scripts.layout_strategy").grep_layout(),
 					})
 				end,
 				"Search text in some folder",
@@ -140,7 +150,7 @@ function M.setup_which_key()
 				function()
 					require("telescope").extensions.egrepify.egrepify({
 						additional_args = "-j1",
-            layout_strategy = require("mood-scripts.layout_strategy").grep_layout(),
+						layout_strategy = require("mood-scripts.layout_strategy").grep_layout(),
 					})
 				end,
 				"Search text on Project",
@@ -205,7 +215,13 @@ function M.setup_which_key()
 			B = { ":Telescope git_branches<CR>", "Change Branch" },
 		},
 		[","] = {
-			":Telescope buffers only_cwd=true ignore_current_buffer=true sort_mru=true<CR>",
+			function()
+				require("mood-scripts.visible_path").prettyBuffersPicker({
+					only_cwd = true,
+					ignore_current_buffer = true,
+					sort_mru = true,
+				})
+			end,
 			"Find Buffers in this project",
 		},
 		["<tab>"] = { ":Telescope git_status<CR>", "Git Modified Files" },

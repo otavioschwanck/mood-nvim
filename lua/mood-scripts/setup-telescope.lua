@@ -10,12 +10,12 @@ function M.setup()
 
 	require("telescope").setup({
 		defaults = {
-      layout_strategy = "flex",
+			layout_strategy = "flex",
 			layout_config = {
 				horizontal = {
 					prompt_position = "top",
-          height = 0.9,
-        },
+					height = 0.9,
+				},
 				vertical = {
 					prompt_position = "top",
 				},
@@ -36,9 +36,6 @@ function M.setup()
 		pickers = {
 			find_files = {
 				hidden = true,
-			},
-			buffers = {
-				path_display = require("utils.buffer_path_display"),
 			},
 			git_files = {
 				show_untracked = true,

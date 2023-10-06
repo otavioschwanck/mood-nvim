@@ -263,5 +263,47 @@ function telescopePickers.prettyGrepPicker(pickerAndOptions)
 	end
 end
 
+function telescopePickers.prettyBuffersPicker(localOptions)
+	if localOptions ~= nil and type(localOptions) ~= "table" then
+		print("Options must be a table.")
+		return
+	end
+
+	local options = localOptions or {}
+
+	local originalEntryMaker = telescopeMakeEntryModule.gen_from_buffer(options)
+
+	options.entry_maker = function(line)
+		local originalEntryTable = originalEntryMaker(line)
+
+		local displayer = telescopeEntryDisplayModule.create({
+			separator = " ",
+			items = {
+				{ width = fileTypeIconWidth },
+				{ width = nil },
+				{ width = nil },
+				{ remaining = true },
+			},
+		})
+
+		originalEntryTable.display = function(entry)
+			local tail, path = telescopePickers.getPathAndTail(entry.filename)
+			local tailForDisplay = tail .. " "
+			local icon, iconHighlight = telescopeUtilities.get_devicons(tail)
+
+			return displayer({
+				{ icon, iconHighlight },
+				tailForDisplay,
+				{ "(" .. entry.bufnr .. ")", "TelescopeResultsNumber" },
+				{ path, "TelescopeResultsComment" },
+			})
+		end
+
+		return originalEntryTable
+	end
+
+	require("telescope.builtin").buffers(options)
+end
+
 -- Return the module for use
 return telescopePickers
