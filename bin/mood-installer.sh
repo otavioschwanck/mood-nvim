@@ -1,5 +1,5 @@
 #!/bin/bash -i
-APT_PACKAGES=(sqlite3 libsqlite3-dev xclip python3-pip tmux)
+APT_PACKAGES=(sqlite3 libsqlite3-dev xclip python3-pip tmux build-essentials)
 NPM_PACKAGES=(neovim diagnostic-languageserver)
 GEMS=(solargraph neovim bundler)
 MOOD_GIT=(https://github.com/otavioschwanck/mood-nvim.git)
