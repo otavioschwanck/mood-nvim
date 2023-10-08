@@ -62,6 +62,7 @@ function M.setup()
 				hidden = true,
 				prompt_path = true,
 				hide_parent_dir = true,
+				grouped = true,
 				mappings = {
 					["i"] = {
 						["<C-d>"] = fb_actions.remove,
