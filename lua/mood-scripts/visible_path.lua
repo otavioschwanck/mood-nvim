@@ -8,6 +8,40 @@ local plenaryStrings = require("plenary.strings")
 local devIcons = require("nvim-web-devicons")
 local telescopeEntryDisplayModule = require("telescope.pickers.entry_display")
 
+local kind_icons = {
+	Text = "",
+	String = "",
+	Array = "",
+	Object = "󰅩",
+	Namespace = "",
+	Method = "m",
+	Function = "󰊕",
+	Constructor = "",
+	Field = "",
+	Variable = "󰫧",
+	Class = "",
+	Interface = "",
+	Module = "",
+	Property = "",
+	Unit = "",
+	Value = "",
+	Enum = "",
+	Keyword = "",
+	Snippet = "",
+	Color = "",
+	File = "",
+	Reference = "",
+	Folder = "",
+	EnumMember = "",
+	Constant = "",
+	Struct = "",
+	Event = "",
+	Operator = "",
+	TypeParameter = "",
+	Copilot = "🤖",
+	Boolean = "",
+}
+
 -- Obtain Filename icon width
 -- --------------------------
 -- INSIGHT: This width applies to all icons that represent a file type
@@ -303,6 +337,88 @@ function telescopePickers.prettyBuffersPicker(localOptions)
 	end
 
 	require("telescope.builtin").buffers(options)
+end
+
+function telescopePickers.prettyDocumentSymbols(localOptions)
+	if localOptions ~= nil and type(localOptions) ~= "table" then
+		print("Options must be a table.")
+		return
+	end
+
+	local options = localOptions or {}
+
+	local originalEntryMaker = telescopeMakeEntryModule.gen_from_lsp_symbols(options)
+
+	options.entry_maker = function(line)
+		local originalEntryTable = originalEntryMaker(line)
+
+		local displayer = telescopeEntryDisplayModule.create({
+			separator = " ",
+			items = {
+				{ width = fileTypeIconWidth },
+				{ width = 20 },
+				{ remaining = true },
+			},
+		})
+
+		originalEntryTable.display = function(entry)
+			return displayer({
+				string.format("%s", kind_icons[(entry.symbol_type:lower():gsub("^%l", string.upper))]),
+				{ entry.symbol_type:lower(), "TelescopeResultsVariable" },
+				{ entry.symbol_name, "TelescopeResultsConstant" },
+			})
+		end
+
+		return originalEntryTable
+	end
+
+	require("telescope.builtin").lsp_document_symbols(options)
+end
+
+function telescopePickers.prettyWorkspaceSymbols(localOptions)
+	if localOptions ~= nil and type(localOptions) ~= "table" then
+		print("Options must be a table.")
+		return
+	end
+
+	options = localOptions or {}
+
+	local originalEntryMaker = telescopeMakeEntryModule.gen_from_lsp_symbols(options)
+
+	options.entry_maker = function(line)
+		local originalEntryTable = originalEntryMaker(line)
+
+		local displayer = telescopeEntryDisplayModule.create({
+			separator = " ",
+			items = {
+				{ width = fileTypeIconWidth },
+				{ width = 15 },
+				{ width = 30 },
+				{ width = nil },
+				{ remaining = true },
+			},
+		})
+
+		originalEntryTable.display = function(entry)
+			local tail, _ = telescopePickers.getPathAndTail(entry.filename)
+			local tailForDisplay = tail .. " "
+			local pathToDisplay = telescopeUtilities.transform_path({
+				path_display = { shorten = { num = 2, exclude = { -2, -1 } }, "truncate" },
+			}, entry.value.filename)
+
+			return displayer({
+				string.format("%s", kind_icons[(entry.symbol_type:lower():gsub("^%l", string.upper))]),
+				{ entry.symbol_type:lower(), "TelescopeResultsVariable" },
+				{ entry.symbol_name, "TelescopeResultsConstant" },
+				tailForDisplay,
+				{ pathToDisplay, "TelescopeResultsComment" },
+			})
+		end
+
+		return originalEntryTable
+	end
+
+	require("telescope.builtin").lsp_dynamic_workspace_symbols(options)
 end
 
 -- Return the module for use

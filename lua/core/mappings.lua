@@ -126,8 +126,18 @@ function M.setup_which_key()
 			r = { "<cmd>lua vim.lsp.buf.rename()<CR>", "Rename" },
 			a = { "<cmd>lua vim.lsp.buf.code_action()<CR>", "Code Action" },
 			f = { "<cmd>FormatWrite<CR>", "Format" },
-			i = { ":Telescope lsp_document_symbols<CR>", "Document Symbols" },
-			j = { ":Telescope lsp_dynamic_workspace_symbols<CR>", "Workspace Symbols" },
+			i = {
+				function()
+					require("mood-scripts.visible_path").prettyDocumentSymbols({})
+				end,
+				"Document Symbols",
+			},
+			j = {
+				function()
+					require("mood-scripts.visible_path").prettyWorkspaceSymbols({})
+				end,
+				"Workspace Symbols",
+			},
 		},
 		["<return>"] = { ":Telescope resume<CR>", "Telescope Resume" },
 		s = {
@@ -159,8 +169,18 @@ function M.setup_which_key()
 			P = { ":lua require('mood-scripts.custom_telescope').ripgrep()<CR>", "Advanced Search text on Project" },
 			f = { ":CtrlSF ", "Search text using CtrlSF (for search and replace)" },
 			s = { ":Telescope current_buffer_fuzzy_find fuzzy=false case_mode=ignore_case<CR>", "Fuzzy Current Buffer" },
-			i = { ":Telescope lsp_document_symbols<CR>", "Search Outline Symbols" },
-			j = { ":Telescope lsp_dynamic_workspace_symbols<CR>", "Symbols" },
+			i = {
+				function()
+					require("mood-scripts.visible_path").prettyDocumentSymbols({})
+				end,
+				"Search Outline Symbols",
+			},
+			j = {
+				function()
+					require("mood-scripts.visible_path").prettyWorkspaceSymbols({})
+				end,
+				"Symbols",
+			},
 		},
 		f = {
 			name = "+File",
