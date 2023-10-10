@@ -141,6 +141,7 @@ function M.setup()
 						vim.cmd("highlight! HarpoonActive guibg=NONE guifg=white")
 						vim.cmd("highlight! HarpoonNumberActive guibg=NONE guifg=" .. color)
 						vim.cmd("highlight! HarpoonNumberInactive guibg=" .. fill .. " guifg=" .. color)
+						vim.cmd("highlight! TelescopeMatching guibg=" .. "#FFF" .. " guifg=" .. color)
 
 						vim.cmd("highlight! TabLineFill guibg=" .. fill .. " guifg=NONE")
 						vim.cmd("highlight! FloatBorder guifg=#494d64")
