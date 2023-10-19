@@ -282,6 +282,7 @@ function M.setup_mappings()
 	set("n", "]g", ":Gitsigns next_hunk<CR>", bufopts)
 	set("n", "[g", ":Gitsigns prev_hunk<CR>", bufopts)
 	set("n", "yb", ":%y+<CR>", bufopts)
+	set("n", "ge", "`", { noremap = true })
 
 	set("n", "<Esc>", ":noh<CR><esc>", bufopts)
 
