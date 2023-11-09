@@ -1,6 +1,7 @@
 return {
 	{
 		"otavioschwanck/harpoon",
+		lazy = false,
 		config = function()
 			require("harpoon").setup({
 				global_settings = {
