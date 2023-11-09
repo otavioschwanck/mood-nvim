@@ -37,6 +37,7 @@ mooD Nvim is a configuration made for those who wants to install and use, withou
 - ripgrep
 - NerdFonts
 - Python
+- pynvim (without this, it will thrown an error when you open mood)
 - git-delta (for lazygit, optional) - [Installation](https://dandavison.github.io/delta/installation.html)
 
 # 💾 Installation
