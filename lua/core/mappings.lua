@@ -150,7 +150,7 @@ function M.setup_which_key()
 				function()
 					require("telescope").extensions.egrepify.egrepify({
 						additional_args = "-j1",
-						search_dirs = { vim.fn.expand("%:p:h") },
+						search_dirs = { vim.fn.expand("%:h") },
 						layout_strategy = require("mood-scripts.layout_strategy").grep_layout(),
 					})
 				end,

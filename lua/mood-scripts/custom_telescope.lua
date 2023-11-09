@@ -93,9 +93,15 @@ custom_pickers.live_grep_in_folder = function(opts)
 					end
 					actions._close(prompt_bufnr, current_picker.initial_mode == "insert")
 
+					local cwd = vim.fn.getcwd() .. "/"
+
+					for i, item in ipairs(dirs) do
+						dirs[i] = string.gsub(item, cwd, "")
+					end
+
 					require("telescope").extensions.egrepify.egrepify({
 						search_dirs = dirs,
-            layout_strategy = require("mood-scripts.layout_strategy").grep_layout(),
+						layout_strategy = require("mood-scripts.layout_strategy").grep_layout(),
 					})
 				end)
 				return true
