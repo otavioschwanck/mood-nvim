@@ -13,6 +13,8 @@ return {
 					tabline_show_current_buffer_not_added = true,
 				},
 			})
+
+			require("telescope").load_extension("harpoon")
 		end,
 		keys = {
 			{ "<C-s>", '<cmd>lua require("harpoon.mark").toggle_file()<cr>', desc = "Pin on Harpoon" },

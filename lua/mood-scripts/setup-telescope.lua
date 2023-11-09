@@ -94,7 +94,6 @@ function M.setup()
 	require("telescope").load_extension("telescope-alternate")
 	require("telescope").load_extension("fzf")
 	require("telescope").load_extension("tmux-awesome-manager")
-	require("telescope").load_extension("harpoon")
 	require("telescope").load_extension("egrepify")
 end
 
