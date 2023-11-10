@@ -103,8 +103,8 @@ local sources = {
 }
 
 local autocomplete_mappings = { -- autocomplete mappings
-	["<Tab>"] = cmp.mapping.select_next_item({ select = true }),
-	["<S-Tab>"] = cmp.mapping.select_prev_item({ select = true }),
+	["<Tab>"] = cmp.mapping.select_next_item({ select = true }, { "i", "s" }),
+	["<S-Tab>"] = cmp.mapping.select_prev_item({ select = true }, { "i", "s" }),
 	["<CR>"] = cmp.mapping.confirm(),
 	["<C-e>"] = cmp.mapping.abort(),
 	["<C-n>"] = cmp.mapping(function(fallback)
