@@ -84,7 +84,7 @@ return {
 		config = function()
 			require("treesitter-context").setup({
 				enable = true,
-				max_lines = 0,
+				max_lines = 1,
 				trim_scope = "outer",
 				patterns = { -- Match patterns for TS nodes. These get wrapped to match at word boundaries.
 					-- For all filetypes
