@@ -185,7 +185,6 @@ null_ls.setup({
 			command = "bundle",
 			args = { "exec", "rubocop", "--format", "json", "--force-exclusion", "--stdin", "$FILENAME" },
 		}),
-		null_ls.builtins.diagnostics.eslint,
 	},
 })
 
