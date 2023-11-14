@@ -27,8 +27,7 @@ require("mason-lspconfig").setup({
 		"jsonls",
 		"solidity",
 		"yamlls",
-		"jsonls",
-		"solargraph",
+		"jsonls", -- Don't install solargraph with mason, it sucks.
 	},
 })
 
