@@ -165,11 +165,30 @@ cmp.setup({
 	},
 })
 
+-- Fix C-n and C-p for cmdline
+local cmdline_mappings = cmp.mapping.preset.cmdline()
+
+cmdline_mappings["<C-P>"] = nil
+cmdline_mappings["<C-N>"] = nil
+
 cmp.setup.cmdline("/", {
-	mapping = cmp.mapping.preset.cmdline(),
+	mapping = cmdline_mappings,
 	sources = {
 		{ name = "buffer" },
 	},
+})
+
+local function send_wildchar()
+	local char = vim.fn.nr2char(vim.opt.wildchar:get())
+	local key = vim.api.nvim_replace_termcodes(char, true, false, true)
+	vim.api.nvim_feedkeys(key, "nt", true)
+end
+
+cmp.setup.cmdline(":", {
+	mapping = {
+		["<Tab>"] = { c = send_wildchar },
+	},
+	sources = cmp.config.sources({}),
 })
 
 local null_ls = require("null-ls")
