@@ -77,12 +77,9 @@ lspconfig["solidity"].setup({ -- setup solidity (remove if you don't use)
 	},
 })
 
-lspconfig["solargraph"].setup( -- setup solargraph (remove if you don't use)
+lspconfig["solargraph"].setup( -- setup solargraph (Don't install it with mason, it sucks)
 	{
 		on_attach = on_attach,
-		flags = {
-			debounce_text_changes = 50,
-		},
 		settings = {
 			solargraph = {
 				formatting = false,
