@@ -178,6 +178,7 @@ cmp.setup.cmdline("/", {
 	},
 })
 
+-- Workround to improve the :
 local function send_wildchar()
 	local char = vim.fn.nr2char(vim.opt.wildchar:get())
 	local key = vim.api.nvim_replace_termcodes(char, true, false, true)
