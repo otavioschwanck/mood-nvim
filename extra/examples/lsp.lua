@@ -178,18 +178,18 @@ cmp.setup.cmdline("/", {
 	},
 })
 
--- Workround to improve the :
-local function send_wildchar()
-	local char = vim.fn.nr2char(vim.opt.wildchar:get())
-	local key = vim.api.nvim_replace_termcodes(char, true, false, true)
-	vim.api.nvim_feedkeys(key, "nt", true)
-end
-
 cmp.setup.cmdline(":", {
-	mapping = {
-		["<Tab>"] = { c = send_wildchar },
-	},
-	sources = cmp.config.sources({}),
+	mapping = cmp.mapping.preset.cmdline(),
+	sources = cmp.config.sources({
+		{ name = "path" },
+	}, {
+		{
+			name = "cmdline",
+			option = {
+				ignore_cmds = { "Man", "!" },
+			},
+		},
+	}),
 })
 
 local null_ls = require("null-ls")
