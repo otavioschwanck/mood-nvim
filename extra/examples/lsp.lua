@@ -84,7 +84,7 @@ lspconfig["solargraph"].setup( -- setup solargraph (Don't install it with mason,
 			solargraph = {
 				formatting = false,
 				useBundler = true,
-				diagnostics = false, -- lsp diagnostics are slow
+				diagnostics = true, -- lsp diagnostics are slow
 			},
 		},
 	}
@@ -192,20 +192,7 @@ cmp.setup.cmdline(":", {
 	}),
 })
 
-local null_ls = require("null-ls")
-
--- Your linters
-null_ls.setup({
-	sources = {
-		null_ls.builtins.diagnostics.rubocop.with({
-			command = "bundle",
-			args = { "exec", "rubocop", "--format", "json", "--force-exclusion", "--stdin", "$FILENAME" },
-		}),
-		-- null_ls.builtins.diagnostics.eslint,
-	},
-})
-
--- Your formatters (formatter are better then null). (Comment this to disable autoformatters)
+-- Your formatters. (Comment this to disable autoformatters)
 require("formatter").setup({
 	logging = false,
 	filetype = {
