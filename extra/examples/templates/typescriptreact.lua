@@ -21,7 +21,7 @@ local function index_template(relative_path, filename)
 
 	return string.format(
 		[[
-import .* from "./%s";|cursor|]],
+import * from "./%s";|cursor|]],
 		file
 	)
 end
