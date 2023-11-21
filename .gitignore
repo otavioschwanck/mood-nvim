@@ -1,5 +1,6 @@
 .DS_Files
 plugin/
+lua/templates/*
 user.vim
 user-snippets/
 coc-settings.json

@@ -68,6 +68,14 @@ else
   echo "$PLUGINS created."
 fi
 
+TEMPLATES=~/.config/nvim/lua/templates/ruby.lua
+if test -f "$TEMPLATES"; then
+  echo "$TEMPLATES exists. Ignoring..."
+else
+  cp -r ~/.config/nvim/extra/examples/templates/ ~/.config/nvim/lua/templates/
+  echo "$TEMPLATES created."
+fi
+
 get_machine_type () {
   unameOut="$(uname -s)"
   case "${unameOut}" in

@@ -1,5 +1,6 @@
 local plugins = {
 	"junegunn/vim-easy-align",
+	{ "otavioschwanck/new-file-template.nvim", opts = {} },
 	{
 		"stevearc/oil.nvim",
 		opts = {},

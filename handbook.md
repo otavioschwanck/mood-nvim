@@ -340,6 +340,10 @@ za = Toggle fold at cursor
 | SPC t a | TOggle camelCaseB    |
 |---------|----------------------|
 
+## Templates
+
+mooD has some awesome templates that you can add.  To see how to use, just go: https://github.com/otavioschwanck/new-file-template.nvim
+
 ## Some useful plugins
 
 `:Tableize` will facilitate your life when creating tables.  Change from this:
