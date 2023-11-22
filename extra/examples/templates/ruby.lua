@@ -94,6 +94,46 @@ end]],
 	return generate_module_structure(class_text, 2, path)
 end
 
+local function create_service_template(path, filename)
+	print(
+		"Mood Tip: Para criar ou ir até o contrato referente a este service.  Digite: SPC f a (telescope-alternate plugin)"
+	)
+
+	local class_text = inheritance_class(filename, "CreateService")
+
+	return generate_module_structure(class_text, 2, path)
+end
+
+local function update_service_template(path, filename)
+	print(
+		"Mood Tip: Para criar ou ir até o contrato referente a este service.  Digite: SPC f a (telescope-alternate plugin)"
+	)
+
+	local class_text = inheritance_class(filename, "UpdateService")
+
+	return generate_module_structure(class_text, 2, path)
+end
+
+local function delete_service_template(path, filename)
+	print(
+		"Mood Tip: Para criar ou ir até o contrato referente a este service.  Digite: SPC f a (telescope-alternate plugin)"
+	)
+
+	local class_text = inheritance_class(filename, "DeleteService")
+
+	return generate_module_structure(class_text, 2, path)
+end
+
+local function contract_template(path, filename)
+	print(
+		"Mood Tip: Para criar ou ir até o service referente a este contrato.  Digite: SPC f a (telescope-alternate plugin)"
+	)
+
+	local class_text = inheritance_class(filename, "BaseContract")
+
+	return generate_module_structure(class_text, 2, path)
+end
+
 --- @param opts table
 ---   A table containing the following fields:
 ---   - `full_path` (string): The full path of the new file, e.g., "lua/new-file-template/templates/init.lua".
@@ -101,6 +141,10 @@ end
 ---   - `filename` (string): The filename of the new file, e.g., "init.lua".
 return function(opts)
 	local template = {
+		{ pattern = "app/services/.*_services/create.rb", content = create_service_template },
+		{ pattern = "app/services/.*_services/delete.rb", content = delete_service_template },
+		{ pattern = "app/services/.*_services/.*.rb", content = update_service_template },
+		{ pattern = "app/contracts/.*_contracts/.*.rb", content = contract_template },
 		{ pattern = "app/business/chain_api/.*/.*", content = base_template },
 	}
 
