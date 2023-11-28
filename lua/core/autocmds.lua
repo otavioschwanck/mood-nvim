@@ -147,6 +147,12 @@ function M.setup()
 						vim.cmd("highlight! FloatBorder guifg=#494d64")
 						vim.cmd("highlight! CmpSel guifg=#181926 guibg=#a6da95")
 
+						vim.cmd("highlight NvimTreeFolderIcon guifg=#EED49F")
+						vim.cmd("highlight NvimTreeFolderName guifg=#cad3f5")
+						vim.cmd("highlight NvimTreeEmtpyFolderName guifg=#cad3f5")
+						vim.cmd("highlight NvimTreeOpenedFolderName guifg=#cad3f5")
+						vim.cmd("highlight NvimTreeSymlinkFolderName guifg=#cad3f5")
+
 						require("nvim-web-devicons").set_icon({
 							rb = { icon = "", color = "#ff8587", name = "DevIconRb" },
 							rake = { icon = "", color = "#ff8587", name = "DevIconRb" },
