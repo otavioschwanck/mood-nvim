@@ -5,10 +5,9 @@ return {
 		dependencies = "nvim-tree/nvim-web-devicons",
 		opts = {
 			options = {
-				numbers = function(opts)
-					return string.format("%s", opts.ordinal)
-				end,
-				offsets = { { filetype = "NvimTree", text = "File Explorer" } },
+				offsets = {
+					{ filetype = "NvimTree", text = "File Explorer", highlight = "@storageclass", separator = false },
+				},
 			},
 		},
 	},
