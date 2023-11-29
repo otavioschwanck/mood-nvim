@@ -139,9 +139,8 @@ Also, is very good to move files between folders.
 
 | Command                  | Description                                          |
 | ------------------------ | ---------------------------------------------------- |
-| H                        | Previous Buffer (Harpoon)                            |
-| L                        | Next Buffer (Harpoon)                                |
-| C-h                      | Alternate Buffer (Previous Buffer)                   |
+| H                        | Previous Buffer (Tab)                                |
+| L                        | Next Buffer (Tab)                                    |
 | SPC ,                    | Find Buffer in Project                               |
 | SPC TAB                  | Git Status                                           |
 | SPC .                    | File Browser                                         |
@@ -150,7 +149,9 @@ Also, is very good to move files between folders.
 | SPC K                    | Kill current buffer (Force)                          |
 | SPC A                    | Go to Test (and vsplit)                              |
 | SPC a                    | Go to test                                           |
-| SPC 1 to SPC 9           | Go to harpoons                                       |
+| SPC 1 to SPC 9           | Go to Tab                                            |
+| SPC b d                  | Close all buffers but pinned                         |
+| SPC b D                  | Close all buffers but current                        |
 | ------------------------ | ---------------------------------------------------- |
 | ]g                       | Next git hunk                                        |
 | [g                       | Previous git hunk                                    |
@@ -161,17 +162,16 @@ Also, is very good to move files between folders.
 | ]q                       | Next Quickfix                                        |
 | [q                       | Previous Quickfix                                    |
 | ------------------------ | ---------------------------------------------------- |
+| C-s                      | Pin/Unpin buffers                                    |
 
-# Bookmarks (harpoon)
+# Bookmarks
 
 | Command                  | Description                                          |
 | ------------------------ | ---------------------------------------------------- |
-| C-s                      | Pin/Unpin buffers                                    |
 | SPC h l                  | Load last session for this project                   |
-| SPC ;                    | Open Harmoon Menu                                    |
-| SPC h c                  | Harpoon Clear                                        |
 | C-l                      | Move tab to the right                                |
-| SPC 1 to SPC 9           | Navigate harpoon                                     |
+| C-h                      | Move tab to the left                                 |
+| SPC 1 to SPC 9           | Navigate Tabs                                        |
 
 
 # LSP (Language Server Protocol)

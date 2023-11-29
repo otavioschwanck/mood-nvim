@@ -55,7 +55,8 @@ function M.setup_which_key()
 				end,
 				"Find all buffers",
 			},
-			d = { "<cmd>silent w | %bd | e#<CR>", "Close all buffer except this one" },
+			d = { "<cmd>BufferLineGroupClose ungrouped<CR>", "Clear All But Pinned" },
+			D = { "<cmd>BufferLineCloseOthers<CR>", "Close all buffers but current" },
 		},
 		["<"] = { ":Telescope buffers ignore_current_buffer=true sort_mru=true<CR>", "Find All Buffers" },
 		["*"] = { ":Telescope grep_string<CR>", "Search string at point on project" },
@@ -78,7 +79,6 @@ function M.setup_which_key()
 		},
 		h = {
 			name = "+Help",
-			c = { "<cmd>lua require('harpoon.mark').clear_all()<CR>", "Harpoon Clear" },
 			K = { "<cmd>!rm -rf ~/.local/state/nvim/sessions<CR>", "Delete All Sessions" },
 			l = { ':lua require("persistence").load()<cr>', "Load Session" },
 			t = { ":Telescope colorscheme<CR>", "Change Theme" },
@@ -245,7 +245,6 @@ function M.setup_which_key()
 			"Find Buffers in this project",
 		},
 		["<tab>"] = { ":Telescope git_status<CR>", "Git Modified Files" },
-		[";"] = { '<cmd>lua require("harpoon.ui").toggle_quick_menu()<cr>', "Harpoon Menu" },
 		z = { "<cmd>Neorg index<CR>", "Go to Neorg" },
 		Z = { "<cmd>Neorg return<CR>", "Neorg Return" },
 		w = {
@@ -289,6 +288,10 @@ function M.setup_mappings()
 	set("t", "<C-g>", "<C-\\><C-n>")
 	set("t", "<C-v>", "<C-\\><C-N>pi")
 
+	set("n", "<C-h>", "<cmd>BufferLineMovePrev<CR>")
+	set("n", "<C-l>", "<cmd>BufferLineMoveNext<CR>")
+	set("n", "<C-s>", "<cmd>BufferLineTogglePin<cr>")
+	set("n", "S", "<cmd>BufferLinePick<cr>")
 	set("n", "]q", ":cnext<CR>")
 	set("n", "[q", ":cprevious<CR>")
 	set("n", "ç", ":wall<CR>")
@@ -315,8 +318,8 @@ function M.setup_mappings()
 	set("i", "<C-l>", "<Right>")
 	set("i", "<C-a>", "<C-o>0")
 	set("i", "<C-h>", "<Left>")
-	set("n", "H", '<cmd>lua require("harpoon.ui").nav_prev()<CR>')
-	set("n", "L", '<cmd>lua require("harpoon.ui").nav_next()<CR>')
+	set("n", "H", "<cmd>BufferLineCyclePrev<CR>")
+	set("n", "L", "<cmd>BufferLineCycleNext<CR>")
 	set("c", "<C-l>", "<Right>")
 	set("c", "<C-h>", "<Left>")
 	set("c", "<C-a>", "<Home>")
@@ -328,17 +331,15 @@ function M.setup_mappings()
 	set("i", "<C-d>", "<Delete>")
 	set("c", "<C-d>", "<Delete>")
 
-	set("n", "<leader>1", '<cmd>lua require("harpoon.ui").nav_file(1)<CR>')
-	set("n", "<leader>2", '<cmd>lua require("harpoon.ui").nav_file(2)<CR>')
-	set("n", "<leader>3", '<cmd>lua require("harpoon.ui").nav_file(3)<CR>')
-	set("n", "<leader>4", '<cmd>lua require("harpoon.ui").nav_file(4)<CR>')
-	set("n", "<leader>5", '<cmd>lua require("harpoon.ui").nav_file(5)<CR>')
-	set("n", "<leader>6", '<cmd>lua require("harpoon.ui").nav_file(6)<CR>')
-	set("n", "<leader>7", '<cmd>lua require("harpoon.ui").nav_file(7)<CR>')
-	set("n", "<leader>8", '<cmd>lua require("harpoon.ui").nav_file(8)<CR>')
-	set("n", "<leader>9", '<cmd>lua require("harpoon.ui").nav_file(9)<CR>')
-
-	set("n", "<C-h>", "<cmd>b#<CR>")
+	set("n", "<leader>1", "<cmd>BufferLineGoToBuffer 1<CR>")
+	set("n", "<leader>2", "<cmd>BufferLineGoToBuffer 2<CR>")
+	set("n", "<leader>3", "<cmd>BufferLineGoToBuffer 3<CR>")
+	set("n", "<leader>4", "<cmd>BufferLineGoToBuffer 4<CR>")
+	set("n", "<leader>5", "<cmd>BufferLineGoToBuffer 5<CR>")
+	set("n", "<leader>6", "<cmd>BufferLineGoToBuffer 6<CR>")
+	set("n", "<leader>7", "<cmd>BufferLineGoToBuffer 7<CR>")
+	set("n", "<leader>8", "<cmd>BufferLineGoToBuffer 8<CR>")
+	set("n", "<leader>9", "<cmd>BufferLineGoToBuffer 9<CR>")
 
 	set("x", "<C-g>", ":<c-u>call SaveSelectionToQuickConsult()<cr>")
 	set("n", "<C-g>", ":<c-u>call OpenConsultationWindow()<cr>")
