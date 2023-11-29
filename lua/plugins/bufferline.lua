@@ -14,8 +14,8 @@ return {
 					offsets = {
 						{
 							filetype = "NvimTree",
-							text = "File Explorer",
-							highlight = "@storageclass",
+							text = " File Explorer",
+							highlight = "NvimTreeTitle",
 							separator = false,
 						},
 					},

@@ -137,10 +137,6 @@ function M.setup()
 					pattern = { "*" },
 					callback = function()
 						M.set_hl_for_floating_window(color)
-						vim.cmd("highlight! HarpoonInactive guibg=" .. fill .. " guifg=#63698c")
-						vim.cmd("highlight! HarpoonActive guibg=NONE guifg=white")
-						vim.cmd("highlight! HarpoonNumberActive guibg=NONE guifg=" .. color)
-						vim.cmd("highlight! HarpoonNumberInactive guibg=" .. fill .. " guifg=" .. color)
 						vim.cmd("highlight! TelescopeMatching guibg=" .. "#FFF" .. " guifg=" .. color)
 
 						vim.cmd("highlight! TabLineFill guibg=" .. fill .. " guifg=NONE")
@@ -152,6 +148,7 @@ function M.setup()
 						vim.cmd("highlight NvimTreeEmtpyFolderName guifg=#cad3f5")
 						vim.cmd("highlight NvimTreeOpenedFolderName guifg=#cad3f5")
 						vim.cmd("highlight NvimTreeSymlinkFolderName guifg=#cad3f5")
+						vim.cmd("highlight NvimTreeTitle guifg=#EED49F guibg=" .. fill)
 
 						require("nvim-web-devicons").set_icon({
 							rb = { icon = "", color = "#ff8587", name = "DevIconRb" },
