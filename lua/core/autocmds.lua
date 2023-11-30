@@ -196,7 +196,7 @@ function M.setup()
 					vim.cmd("highlight TreesitterContext guibg=" .. tabColor)
 					vim.cmd("highlight TreesitterContextLineNumber gui=bold guifg=" .. hint)
 
-					local inactive_color = "#181926"
+					local inactive_color = "#1e2030"
 
 					-- current
 					vim.cmd("highlight BufferCurrent guifg=#cad3f5 guibg=" .. tabColor .. " gui=bold")
