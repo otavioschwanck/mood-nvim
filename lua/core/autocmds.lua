@@ -196,6 +196,8 @@ function M.setup()
 					vim.cmd("highlight TreesitterContext guibg=" .. tabColor)
 					vim.cmd("highlight TreesitterContextLineNumber gui=bold guifg=" .. hint)
 
+					local inactive_color = "#181926"
+
 					-- current
 					vim.cmd("highlight BufferCurrent guifg=#cad3f5 guibg=" .. tabColor .. " gui=bold")
 					vim.cmd("highlight BufferCurrentIndex guifg=#cad3f5 guibg=" .. tabColor)
@@ -207,22 +209,22 @@ function M.setup()
 					vim.cmd("highlight BufferCurrentRight guifg=#494d64 guibg=" .. tabColor)
 
 					-- inactive
-					vim.cmd("highlight BufferInactive guifg=#6e738d guibg=" .. tabColor)
-					vim.cmd("highlight BufferInactiveIndex guifg=#6e738d guibg=" .. tabColor)
-					vim.cmd("highlight BufferInactiveMod guifg=#eed49f guibg=" .. tabColor)
-					vim.cmd("highlight BufferInactiveSign guifg=#6e738d guibg=" .. tabColor)
-					vim.cmd("highlight BufferInactiveIcon guifg=#6e738d guibg=" .. tabColor)
+					vim.cmd("highlight BufferInactive guifg=#939ab7 guibg=" .. inactive_color)
+					vim.cmd("highlight BufferInactiveIndex guifg=#939ab7 guibg=" .. inactive_color)
+					vim.cmd("highlight BufferInactiveMod guifg=#eed49f guibg=" .. inactive_color)
+					vim.cmd("highlight BufferInactiveSign guifg=#939ab7 guibg=" .. inactive_color)
+					vim.cmd("highlight BufferInactiveIcon guifg=#939ab7 guibg=" .. inactive_color)
 
-					vim.cmd("highlight BufferInactiveSign guifg=#494d64 guibg=" .. tabColor)
+					vim.cmd("highlight BufferInactiveSign guifg=#494d64 guibg=" .. inactive_color)
 
 					-- visible
-					vim.cmd("highlight BufferVisible guifg=#6e738d guibg=" .. tabColor)
-					vim.cmd("highlight BufferVisibleIndex guifg=#6e738d guibg=" .. tabColor)
-					vim.cmd("highlight BufferVisibleMod guifg=#eed49f guibg=" .. tabColor)
-					vim.cmd("highlight BufferVisibleSign guifg=#6e738d guibg=" .. tabColor)
-					vim.cmd("highlight BufferVisibleIcon guifg=#6e738d guibg=" .. tabColor)
+					vim.cmd("highlight BufferVisible guifg=#939ab7 guibg=" .. inactive_color)
+					vim.cmd("highlight BufferVisibleIndex guifg=#939ab7 guibg=" .. inactive_color)
+					vim.cmd("highlight BufferVisibleMod guifg=#eed49f guibg=" .. inactive_color)
+					vim.cmd("highlight BufferVisibleSign guifg=#939ab7 guibg=" .. inactive_color)
+					vim.cmd("highlight BufferVisibleIcon guifg=#939ab7 guibg=" .. inactive_color)
 
-					vim.cmd("highlight BufferVisibleSign guifg=#494d64 guibg=" .. tabColor)
+					vim.cmd("highlight BufferVisibleSign guifg=#494d64 guibg=" .. inactive_color)
 				end
 			end)
 		end,

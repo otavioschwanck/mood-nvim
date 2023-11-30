@@ -19,7 +19,11 @@ return {
 			highlight_inactive_file_icons = true,
 			icons = {
 				buffer_index = true,
-				pinned = { button = "", filename = true },
+				pinned = {
+					button = "",
+					filename = true,
+				},
+				separator_at_end = false,
 			},
 		},
 		version = "^1.0.0", -- optional: only update when a new 1.x version is released
