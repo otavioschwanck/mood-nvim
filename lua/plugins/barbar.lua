@@ -1,10 +1,6 @@
 return {
 	{
 		"romgrk/barbar.nvim",
-		dependencies = {
-			"lewis6991/gitsigns.nvim", -- OPTIONAL: for git status
-			"nvim-tree/nvim-web-devicons", -- OPTIONAL: for file icons
-		},
 		init = function()
 			vim.g.barbar_auto_setup = false
 		end,
@@ -19,6 +15,12 @@ return {
 			highlight_inactive_file_icons = true,
 			icons = {
 				buffer_index = true,
+				diagnostics = {
+					[vim.diagnostic.severity.ERROR] = { enabled = true },
+					[vim.diagnostic.severity.WARN] = { enabled = true },
+					[vim.diagnostic.severity.INFO] = { enabled = true },
+					[vim.diagnostic.severity.HINT] = { enabled = false },
+				},
 				pinned = {
 					button = "",
 					filename = true,

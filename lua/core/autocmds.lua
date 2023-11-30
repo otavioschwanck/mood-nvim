@@ -201,6 +201,13 @@ function M.setup()
 					-- current
 					vim.cmd("highlight BufferCurrent guifg=#cad3f5 guibg=" .. tabColor .. " gui=bold")
 					vim.cmd("highlight BufferCurrentIndex guifg=#cad3f5 guibg=" .. tabColor)
+
+					-- errors
+					vim.cmd("highlight BufferCurrentWARN guifg=#eed49f guibg=" .. tabColor)
+					vim.cmd("highlight BufferCurrentERROR guifg=#ed8796 guibg=" .. tabColor)
+					vim.cmd("highlight BufferCurrentHINT guifg=#8bd5ca guibg=" .. tabColor)
+					vim.cmd("highlight BufferCurrentINFO guifg=#8bd5ca guibg=" .. tabColor)
+
 					vim.cmd("highlight BufferCurrentIcon guifg=#cad3f5 guibg=" .. tabColor .. " gui=bold")
 					vim.cmd("highlight BufferCurrentMod guifg=#eed49f guibg=" .. tabColor .. " gui=bold")
 					vim.cmd("highlight BufferCurrentNumber guifg=#cad3f5 guibg=" .. tabColor .. " gui=bold")
