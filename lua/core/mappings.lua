@@ -55,8 +55,8 @@ function M.setup_which_key()
 				end,
 				"Find all buffers",
 			},
-			d = { "<cmd>BufferLineGroupClose ungrouped<CR>", "Clear All But Pinned" },
-			D = { "<cmd>BufferLineCloseOthers<CR>", "Close all buffers but current" },
+			d = { "<cmd>BufferCloseAllButCurrentOrPinned<CR>", "Clear All But Pinned" },
+			D = { "<cmd>BufferCloseAllButCurrent<CR>", "Close all buffers but current" },
 		},
 		["<"] = { ":Telescope buffers ignore_current_buffer=true sort_mru=true<CR>", "Find All Buffers" },
 		["*"] = { ":Telescope grep_string<CR>", "Search string at point on project" },
@@ -288,10 +288,10 @@ function M.setup_mappings()
 	set("t", "<C-g>", "<C-\\><C-n>")
 	set("t", "<C-v>", "<C-\\><C-N>pi")
 
-	set("n", "<C-h>", "<cmd>BufferLineMovePrev<CR>")
-	set("n", "<C-l>", "<cmd>BufferLineMoveNext<CR>")
-	set("n", "<C-s>", "<cmd>BufferLineTogglePin<cr>")
-	set("n", "S", "<cmd>BufferLinePick<cr>")
+	set("n", "<C-h>", "<cmd>BufferMovePrevious<CR>")
+	set("n", "<C-l>", "<cmd>BufferMoveNext<CR>")
+	set("n", "<C-s>", "<cmd>BufferPin<cr>")
+	set("n", "S", "<cmd>BufferPick<cr>")
 	set("n", "]q", ":cnext<CR>")
 	set("n", "[q", ":cprevious<CR>")
 	set("n", "ç", ":wall<CR>")
@@ -318,8 +318,8 @@ function M.setup_mappings()
 	set("i", "<C-l>", "<Right>")
 	set("i", "<C-a>", "<C-o>0")
 	set("i", "<C-h>", "<Left>")
-	set("n", "H", "<cmd>BufferLineCyclePrev<CR>")
-	set("n", "L", "<cmd>BufferLineCycleNext<CR>")
+	set("n", "H", "<cmd>BufferPrevious<CR>")
+	set("n", "L", "<cmd>BufferNext<CR>")
 	set("c", "<C-l>", "<Right>")
 	set("c", "<C-h>", "<Left>")
 	set("c", "<C-a>", "<Home>")
@@ -331,15 +331,15 @@ function M.setup_mappings()
 	set("i", "<C-d>", "<Delete>")
 	set("c", "<C-d>", "<Delete>")
 
-	set("n", "<leader>1", "<cmd>BufferLineGoToBuffer 1<CR>")
-	set("n", "<leader>2", "<cmd>BufferLineGoToBuffer 2<CR>")
-	set("n", "<leader>3", "<cmd>BufferLineGoToBuffer 3<CR>")
-	set("n", "<leader>4", "<cmd>BufferLineGoToBuffer 4<CR>")
-	set("n", "<leader>5", "<cmd>BufferLineGoToBuffer 5<CR>")
-	set("n", "<leader>6", "<cmd>BufferLineGoToBuffer 6<CR>")
-	set("n", "<leader>7", "<cmd>BufferLineGoToBuffer 7<CR>")
-	set("n", "<leader>8", "<cmd>BufferLineGoToBuffer 8<CR>")
-	set("n", "<leader>9", "<cmd>BufferLineGoToBuffer 9<CR>")
+	set("n", "<leader>1", "<cmd>BufferGoto 1<CR>")
+	set("n", "<leader>2", "<cmd>BufferGoto 2<CR>")
+	set("n", "<leader>3", "<cmd>BufferGoto 3<CR>")
+	set("n", "<leader>4", "<cmd>BufferGoto 4<CR>")
+	set("n", "<leader>5", "<cmd>BufferGoto 5<CR>")
+	set("n", "<leader>6", "<cmd>BufferGoto 6<CR>")
+	set("n", "<leader>7", "<cmd>BufferGoto 7<CR>")
+	set("n", "<leader>8", "<cmd>BufferGoto 8<CR>")
+	set("n", "<leader>9", "<cmd>BufferGoto 9<CR>")
 
 	set("x", "<C-g>", ":<c-u>call SaveSelectionToQuickConsult()<cr>")
 	set("n", "<C-g>", ":<c-u>call OpenConsultationWindow()<cr>")

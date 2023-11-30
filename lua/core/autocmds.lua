@@ -195,6 +195,34 @@ function M.setup()
 					vim.cmd("highlight TelescopeBorder guifg=#565f89")
 					vim.cmd("highlight TreesitterContext guibg=" .. tabColor)
 					vim.cmd("highlight TreesitterContextLineNumber gui=bold guifg=" .. hint)
+
+					-- current
+					vim.cmd("highlight BufferCurrent guifg=#cad3f5 guibg=" .. tabColor .. " gui=bold")
+					vim.cmd("highlight BufferCurrentIndex guifg=#cad3f5 guibg=" .. tabColor)
+					vim.cmd("highlight BufferCurrentIcon guifg=#cad3f5 guibg=" .. tabColor .. " gui=bold")
+					vim.cmd("highlight BufferCurrentMod guifg=#eed49f guibg=" .. tabColor .. " gui=bold")
+					vim.cmd("highlight BufferCurrentNumber guifg=#cad3f5 guibg=" .. tabColor .. " gui=bold")
+
+					vim.cmd("highlight BufferCurrentSign guifg=#f5bde6 guibg=" .. tabColor)
+					vim.cmd("highlight BufferCurrentRight guifg=#494d64 guibg=" .. tabColor)
+
+					-- inactive
+					vim.cmd("highlight BufferInactive guifg=#6e738d guibg=" .. tabColor)
+					vim.cmd("highlight BufferInactiveIndex guifg=#6e738d guibg=" .. tabColor)
+					vim.cmd("highlight BufferInactiveMod guifg=#eed49f guibg=" .. tabColor)
+					vim.cmd("highlight BufferInactiveSign guifg=#6e738d guibg=" .. tabColor)
+					vim.cmd("highlight BufferInactiveIcon guifg=#6e738d guibg=" .. tabColor)
+
+					vim.cmd("highlight BufferInactiveSign guifg=#494d64 guibg=" .. tabColor)
+
+					-- visible
+					vim.cmd("highlight BufferVisible guifg=#6e738d guibg=" .. tabColor)
+					vim.cmd("highlight BufferVisibleIndex guifg=#6e738d guibg=" .. tabColor)
+					vim.cmd("highlight BufferVisibleMod guifg=#eed49f guibg=" .. tabColor)
+					vim.cmd("highlight BufferVisibleSign guifg=#6e738d guibg=" .. tabColor)
+					vim.cmd("highlight BufferVisibleIcon guifg=#6e738d guibg=" .. tabColor)
+
+					vim.cmd("highlight BufferVisibleSign guifg=#494d64 guibg=" .. tabColor)
 				end
 			end)
 		end,
