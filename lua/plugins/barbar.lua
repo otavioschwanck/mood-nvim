@@ -10,7 +10,7 @@ return {
 			tabpages = false,
 			focus_on_close = "previous",
 			sidebar_filetypes = {
-				NvimTree = { event = "BufWinLeave", text = "File Tree" },
+				NvimTree = { event = "BufWinLeave", text = " File Tree" },
 			},
 			highlight_inactive_file_icons = true,
 			icons = {
