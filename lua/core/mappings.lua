@@ -55,8 +55,6 @@ function M.setup_which_key()
 				end,
 				"Find all buffers",
 			},
-			d = { "<cmd>BufferCloseAllButCurrentOrPinned<CR>", "Clear All But Pinned" },
-			D = { "<cmd>BufferCloseAllButCurrent<CR>", "Close all buffers but current" },
 		},
 		["<"] = { ":Telescope buffers ignore_current_buffer=true sort_mru=true<CR>", "Find All Buffers" },
 		["*"] = { ":Telescope grep_string<CR>", "Search string at point on project" },
@@ -288,10 +286,6 @@ function M.setup_mappings()
 	set("t", "<C-g>", "<C-\\><C-n>")
 	set("t", "<C-v>", "<C-\\><C-N>pi")
 
-	set("n", "<C-h>", "<cmd>BufferMovePrevious<CR>")
-	set("n", "<C-l>", "<cmd>BufferMoveNext<CR>")
-	set("n", "<C-s>", "<cmd>BufferPin<cr>")
-	set("n", "S", "<cmd>BufferPick<cr>")
 	set("n", "]q", ":cnext<CR>")
 	set("n", "[q", ":cprevious<CR>")
 	set("n", "ç", ":wall<CR>")
@@ -299,7 +293,7 @@ function M.setup_mappings()
 	set("n", "-", "$")
 	set("x", "-", "$<Left>")
 	set("n", ",", "<C-w>W")
-	set("n", ";", "<C-w>w")
+  set("n", ";", "<cmd>ReachOpen marks<CR>")
 	set("n", "gh", ":SidewaysLeft<cr>")
 	set("n", "gl", ":SidewaysRight<cr>")
 	set("x", "J", ":m '>+1<CR>gv=gv")
@@ -318,8 +312,6 @@ function M.setup_mappings()
 	set("i", "<C-l>", "<Right>")
 	set("i", "<C-a>", "<C-o>0")
 	set("i", "<C-h>", "<Left>")
-	set("n", "H", "<cmd>BufferPrevious<CR>")
-	set("n", "L", "<cmd>BufferNext<CR>")
 	set("c", "<C-l>", "<Right>")
 	set("c", "<C-h>", "<Left>")
 	set("c", "<C-a>", "<Home>")
