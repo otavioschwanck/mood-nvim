@@ -1,6 +1,19 @@
 local M = {}
 local tmux = require("tmux-awesome-manager")
 
+local function close_all_buffers()
+	-- Get a list of all buffer numbers
+	local buf_nums = vim.fn.filter(vim.fn.range(1, vim.fn.bufnr("$")), "buflisted(v:val)")
+
+	-- Iterate through the buffer numbers and close them
+	for _, buf_num in ipairs(buf_nums) do
+		-- Ensure the buffer is not the current buffer
+		if vim.fn.bufwinnr(buf_num) == -1 then
+			vim.cmd("bdelete " .. buf_num)
+		end
+	end
+end
+
 function M.setup_which_key()
 	local wk = require("which-key")
 
@@ -42,6 +55,17 @@ function M.setup_which_key()
 		["9"] = "which_key_ignore",
 		b = {
 			name = "+Buffer",
+			c = {
+				function()
+					require("harpoon"):list():clear()
+					print("Harpoon List Cleared")
+				end,
+				"Clear Harpoon List",
+			},
+			D = {
+				close_all_buffers,
+				"Close All Buffers but visible",
+			},
 			N = { ":e ~/.nvim-scratch<CR>", "Open Scratch Buffer" },
 			f = {
 				function()
@@ -148,7 +172,7 @@ function M.setup_which_key()
 				function()
 					require("telescope").extensions.egrepify.egrepify({
 						additional_args = "-j1",
-						search_dirs = { vim.fn.expand("%:h") },
+						search_dirs = { vim.fn.fnamemodify(vim.fn.expand("%:~:h"), ":.") },
 						layout_strategy = require("mood-scripts.layout_strategy").grep_layout(),
 					})
 				end,
@@ -268,11 +292,18 @@ function M.setup_which_key()
 end
 
 function M.setup_mappings()
+	local harpoon = require("harpoon")
 	local bufopts = { noremap = true, silent = true }
 
 	local set = vim.keymap.set
 
 	set("n", "<M-l>", "<C-w>l", bufopts)
+	set("n", "H", function()
+		harpoon:list():prev()
+	end)
+	set("n", "L", function()
+		harpoon:list():next()
+	end)
 	set("n", "<M-h>", "<C-w>h", bufopts)
 	set("n", "<M-k>", "<C-w>k", bufopts)
 	set("n", "<M-j>", "<C-w>j", bufopts)
@@ -293,7 +324,15 @@ function M.setup_mappings()
 	set("n", "-", "$")
 	set("x", "-", "$<Left>")
 	set("n", ",", "<C-w>W")
-  set("n", ";", "<cmd>ReachOpen marks<CR>")
+	set("n", ";", function()
+		harpoon.ui:toggle_quick_menu(harpoon:list())
+	end)
+	set("n", "<C-s>", function()
+		harpoon:list():toggle()
+	end)
+	set("n", "go", function()
+		harpoon:list():toggle()
+	end)
 	set("n", "gh", ":SidewaysLeft<cr>")
 	set("n", "gl", ":SidewaysRight<cr>")
 	set("x", "J", ":m '>+1<CR>gv=gv")
@@ -312,6 +351,7 @@ function M.setup_mappings()
 	set("i", "<C-l>", "<Right>")
 	set("i", "<C-a>", "<C-o>0")
 	set("i", "<C-h>", "<Left>")
+	set("n", "<C-h>", "<cmd>b#<CR>")
 	set("c", "<C-l>", "<Right>")
 	set("c", "<C-h>", "<Left>")
 	set("c", "<C-a>", "<Home>")
@@ -323,15 +363,33 @@ function M.setup_mappings()
 	set("i", "<C-d>", "<Delete>")
 	set("c", "<C-d>", "<Delete>")
 
-	set("n", "<leader>1", "<cmd>BufferGoto 1<CR>")
-	set("n", "<leader>2", "<cmd>BufferGoto 2<CR>")
-	set("n", "<leader>3", "<cmd>BufferGoto 3<CR>")
-	set("n", "<leader>4", "<cmd>BufferGoto 4<CR>")
-	set("n", "<leader>5", "<cmd>BufferGoto 5<CR>")
-	set("n", "<leader>6", "<cmd>BufferGoto 6<CR>")
-	set("n", "<leader>7", "<cmd>BufferGoto 7<CR>")
-	set("n", "<leader>8", "<cmd>BufferGoto 8<CR>")
-	set("n", "<leader>9", "<cmd>BufferGoto 9<CR>")
+	set("n", "<leader>1", function()
+		harpoon:list():select(1)
+	end)
+	set("n", "<leader>2", function()
+		harpoon:list():select(2)
+	end)
+	set("n", "<leader>3", function()
+		harpoon:list():select(3)
+	end)
+	set("n", "<leader>4", function()
+		harpoon:list():select(4)
+	end)
+	set("n", "<leader>5", function()
+		harpoon:list():select(5)
+	end)
+	set("n", "<leader>6", function()
+		harpoon:list():select(6)
+	end)
+	set("n", "<leader>7", function()
+		harpoon:list():select(7)
+	end)
+	set("n", "<leader>8", function()
+		harpoon:list():select(8)
+	end)
+	set("n", "<leader>9", function()
+		harpoon:list():select(9)
+	end)
 
 	set("x", "<C-g>", ":<c-u>call SaveSelectionToQuickConsult()<cr>")
 	set("n", "<C-g>", ":<c-u>call OpenConsultationWindow()<cr>")

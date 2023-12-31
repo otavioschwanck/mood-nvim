@@ -266,6 +266,7 @@ local plugins = {
 	"HiPhish/rainbow-delimiters.nvim",
 	{
 		"lewis6991/gitsigns.nvim",
+    lazy = false,
 		config = function()
 			require("gitsigns").setup()
 		end,
@@ -294,5 +295,7 @@ local user_plugins = require("user.plugins")
 for p = 1, table.getn(user_plugins) do
 	table.insert(plugins, user_plugins[p])
 end
+
+vim.opt.number = true
 
 return plugins

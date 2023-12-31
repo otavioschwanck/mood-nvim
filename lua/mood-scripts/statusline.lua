@@ -1,5 +1,28 @@
 local function setup()
 	local lualine = require("lualine")
+	local harpoon = require("harpoon")
+
+	local function is_on_harpoon()
+		local list = harpoon:list()
+		local item = list.config.create_list_item(list.config)
+
+		return list:get_by_display(item.value)
+	end
+
+	local function index_of(items, element, config)
+		local equals = config and config.equals or function(a, b)
+			return a == b
+		end
+		local index = -1
+		for i, item in ipairs(items) do
+			if equals(element, item) then
+				index = i
+				break
+			end
+		end
+
+		return index
+	end
 
 	local colors = {
 		bg = "#fff",
@@ -181,10 +204,31 @@ local function setup()
 	end
 
 	ins_left_both({
+		function()
+			local is_harpoon = is_on_harpoon()
+
+			if is_harpoon then
+				local index = index_of(harpoon:list().items, is_harpoon, harpoon:list().config)
+
+				return index .. " 󰃁"
+			end
+
+			return ""
+		end,
+		color = { fg = colors.green },
+	})
+
+	ins_left_both({
 		filename_with_icon,
 		cond = conditions.buffer_not_empty,
 		colored = true,
-		color = { fg = colors.yellow, gui = "bold" },
+		color = function()
+			if is_on_harpoon() then
+				return { fg = colors.green, gui = "bold" }
+			else
+				return { fg = colors.yellow, gui = "bold" }
+			end
+		end,
 	})
 
 	ins_left_both({
@@ -220,31 +264,15 @@ local function setup()
 
 	ins_left({
 		function()
-			if vim.g.maximized then
-				if has_50_space then
-					return "  Maximized"
-				else
-					return ""
-				end
+			local alternate_filename = vim.fn.expand("#:t")
+			if alternate_filename == "" then
+				return ""
+			else
+				return "[Alt: " .. alternate_filename .. "]"
 			end
-
-			return ""
 		end,
-		color = { fg = colors.orange },
+		color = { fg = colors.yellow },
 	})
-
-	-- ins_left_both {
-	--   function()
-	--     local is_formatting = require("guard.format").is_formatting()
-
-	--     if is_formatting then
-	--       return " Formatting"
-	--     else
-	--       return ""
-	--     end
-	--   end,
-	--   color = { fg = colors.blue },
-	-- }
 
 	ins_left({
 		function()

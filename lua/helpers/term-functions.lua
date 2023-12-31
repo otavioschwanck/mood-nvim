@@ -1,7 +1,7 @@
 local M = {}
 
 function M.setup()
-  vim.cmd([[
+	vim.cmd([[
     function OpenTerm(command, name, unique, close_after_create)
       lua vim.notify("You mood config.lua is outated.  Fixing for you.")
 
@@ -18,7 +18,7 @@ function M.setup()
     endfunction
 
     function KillRubyInstances()
-      execute "silent !killall -9 rails ruby spring bundle"
+      execute "silent !killall -9 rails ruby spring bundle;lsof -i :3000 | grep LISTEN | awk '{print $2}' | xargs kill;"
 
       lua require('notify')('Ruby Instances killed.', 'info', { title='mooD' })
 

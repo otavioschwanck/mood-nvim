@@ -135,6 +135,19 @@ Also, is very good to move files between folders.
 
 - Example of usage: https://imgur.com/BNK1JCt
 
+# Harpoon (File bookmarks)
+
+Harpoon is awesome and you should use.
+
+|-----------------|--------------------------------------------------------|
+| Command         | Description                                            |
+|-----------------|--------------------------------------------------------|
+| C-s or go       | Save file on harpoon                                   |
+| SPC 1 to SPC 9  | Navigate on harpoons                                   |
+| ;               | Open harpoon menu (you can navigate with 1-9 here too) |
+| SPC b c         | Delete all harpoons                                    |
+|-----------------|--------------------------------------------------------|
+
 # Buffer Navigation and Management
 
 | Command                  | Description                                          |
@@ -147,11 +160,9 @@ Also, is very good to move files between folders.
 | SPC e                    | Open Tree                                            |
 | SPC k                    | Kill current buffer                                  |
 | SPC K                    | Kill current buffer (Force)                          |
+| SPC b D                  | Close All Buffers But Current                        |
 | SPC A                    | Go to Test (and vsplit)                              |
 | SPC a                    | Go to test                                           |
-| SPC 1 to SPC 9           | Go to Tab                                            |
-| SPC b d                  | Close all buffers but pinned                         |
-| SPC b D                  | Close all buffers but current                        |
 | ------------------------ | ---------------------------------------------------- |
 | ]g                       | Next git hunk                                        |
 | [g                       | Previous git hunk                                    |
@@ -162,15 +173,12 @@ Also, is very good to move files between folders.
 | ]q                       | Next Quickfix                                        |
 | [q                       | Previous Quickfix                                    |
 | ------------------------ | ---------------------------------------------------- |
-| C-s                      | Pin/Unpin buffers                                    |
 
 # Bookmarks
 
 | Command                  | Description                                          |
 | ------------------------ | ---------------------------------------------------- |
 | SPC h l                  | Load last session for this project                   |
-| C-l                      | Move tab to the right                                |
-| C-h                      | Move tab to the left                                 |
 | SPC 1 to SPC 9           | Navigate Tabs                                        |
 
 
