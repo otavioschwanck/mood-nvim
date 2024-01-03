@@ -129,8 +129,6 @@ function M.setup()
 			)
 			require("mood-scripts.setup-telescope").setup()
 
-			require("mood-scripts.bg-color").setup()
-
 			local autocmd_harpoon = function(color, fill)
 				vim.api.nvim_create_autocmd("ColorScheme", {
 					group = vim.api.nvim_create_augroup("harpoon", { clear = true }),
@@ -164,12 +162,13 @@ function M.setup()
 				autocmd_harpoon("#7aa2f7", "#1e2030")
 			end
 
-			vim.cmd("colorscheme " .. vim.g.colors_name)
+			require("mood-scripts.statusline")()
 
 			vim.fn.timer_start(1, function()
 				vim.cmd("colorscheme " .. vim.g.colors_name)
 
-				require("mood-scripts.statusline")()
+				require("mood-scripts.bg-color").setup()
+
 				vim.cmd("highlight Beacon guibg=white ctermbg=15")
 
 				if string.match(vim.g.colors_name, "tokyonight") then
