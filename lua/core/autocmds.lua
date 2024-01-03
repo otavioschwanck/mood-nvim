@@ -164,13 +164,11 @@ function M.setup()
 				autocmd_harpoon("#7aa2f7", "#1e2030")
 			end
 
-			vim.cmd(
-				'call timer_start(5, {-> execute("colorscheme '
-					.. (vim.g.colors_name or "catppuccin-macchiato")
-					.. '") })'
-			)
+			vim.cmd("colorscheme " .. vim.g.colors_name)
 
-			vim.fn.timer_start(50, function()
+			vim.fn.timer_start(1, function()
+				vim.cmd("colorscheme " .. vim.g.colors_name)
+
 				require("mood-scripts.statusline")()
 				vim.cmd("highlight Beacon guibg=white ctermbg=15")
 
