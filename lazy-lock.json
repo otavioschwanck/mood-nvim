@@ -3,7 +3,7 @@
   "aerial.nvim": { "branch": "master", "commit": "88764566f96bf900a64b3dcd6d178cfb69b1c8ce" },
   "agitator.nvim": { "branch": "main", "commit": "a7444b8d3d0ae38610e08bd601ef5cfd663f2f99" },
   "alpha-nvim": { "branch": "main", "commit": "234822140b265ec4ba3203e3e0be0e0bb826dff5" },
-  "arrow.nvim": { "branch": "master", "commit": "e71b45e7dff84021fd2be61838c81c05197aa821" },
+  "arrow.nvim": { "branch": "master", "commit": "2207a4d2d3d8e059b7fd85cfc31ee2011ae8204f" },
   "bufferize.vim": { "branch": "main", "commit": "ec7c4445a97f19e5784a6fb6ad3c3d4a8ff505ac" },
   "catppuccin": { "branch": "main", "commit": "a2107df4379d66e72a36a89792603151cebec1bf" },
   "cmp-buffer": { "branch": "main", "commit": "3022dbc9166796b644a841a02de8dd1cc1d311fa" },
