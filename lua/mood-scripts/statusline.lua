@@ -1,13 +1,6 @@
 local function setup()
 	local lualine = require("lualine")
-	local harpoon = require("harpoon")
-
-	local function is_on_harpoon()
-		local list = harpoon:list()
-		local item = list.config.create_list_item(list.config)
-
-		return list:get_by_display(item.value)
-	end
+	local arrow = require("arrow.statusline")
 
 	local function index_of(items, element, config)
 		local equals = config and config.equals or function(a, b)
@@ -204,17 +197,7 @@ local function setup()
 	end
 
 	ins_left_both({
-		function()
-			local is_harpoon = is_on_harpoon()
-
-			if is_harpoon then
-				local index = index_of(harpoon:list().items, is_harpoon, harpoon:list().config)
-
-				return index .. " 󰃁"
-			end
-
-			return ""
-		end,
+		arrow.text_for_statusline_with_icons,
 		color = { fg = colors.green },
 	})
 
@@ -223,7 +206,7 @@ local function setup()
 		cond = conditions.buffer_not_empty,
 		colored = true,
 		color = function()
-			if is_on_harpoon() then
+			if arrow.in_on_arrow_file() then
 				return { fg = colors.green, gui = "bold" }
 			else
 				return { fg = colors.yellow, gui = "bold" }

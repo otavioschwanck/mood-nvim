@@ -55,13 +55,6 @@ function M.setup_which_key()
 		["9"] = "which_key_ignore",
 		b = {
 			name = "+Buffer",
-			c = {
-				function()
-					require("harpoon"):list():clear()
-					print("Harpoon List Cleared")
-				end,
-				"Clear Harpoon List",
-			},
 			D = {
 				close_all_buffers,
 				"Close All Buffers but visible",
@@ -292,18 +285,13 @@ function M.setup_which_key()
 end
 
 function M.setup_mappings()
-	local harpoon = require("harpoon")
 	local bufopts = { noremap = true, silent = true }
 
 	local set = vim.keymap.set
 
 	set("n", "<M-l>", "<C-w>l", bufopts)
-	set("n", "H", function()
-		harpoon:list():prev()
-	end)
-	set("n", "L", function()
-		harpoon:list():next()
-	end)
+	set("n", "H", require("arrow.persist").previous)
+	set("n", "L", require("arrow.persist").next)
 	set("n", "<M-h>", "<C-w>h", bufopts)
 	set("n", "<M-k>", "<C-w>k", bufopts)
 	set("n", "<M-j>", "<C-w>j", bufopts)
@@ -324,15 +312,6 @@ function M.setup_mappings()
 	set("n", "-", "$")
 	set("x", "-", "$<Left>")
 	set("n", ",", "<C-w>W")
-	set("n", ";", function()
-		harpoon.ui:toggle_quick_menu(harpoon:list())
-	end)
-	set("n", "<C-s>", function()
-		harpoon:list():toggle()
-	end)
-	set("n", "go", function()
-		harpoon:list():toggle()
-	end)
 	set("n", "gh", ":SidewaysLeft<cr>")
 	set("n", "gl", ":SidewaysRight<cr>")
 	set("x", "J", ":m '>+1<CR>gv=gv")
@@ -362,34 +341,6 @@ function M.setup_mappings()
 	set("n", "gF", "<C-w>f")
 	set("i", "<C-d>", "<Delete>")
 	set("c", "<C-d>", "<Delete>")
-
-	set("n", "<leader>1", function()
-		harpoon:list():select(1)
-	end)
-	set("n", "<leader>2", function()
-		harpoon:list():select(2)
-	end)
-	set("n", "<leader>3", function()
-		harpoon:list():select(3)
-	end)
-	set("n", "<leader>4", function()
-		harpoon:list():select(4)
-	end)
-	set("n", "<leader>5", function()
-		harpoon:list():select(5)
-	end)
-	set("n", "<leader>6", function()
-		harpoon:list():select(6)
-	end)
-	set("n", "<leader>7", function()
-		harpoon:list():select(7)
-	end)
-	set("n", "<leader>8", function()
-		harpoon:list():select(8)
-	end)
-	set("n", "<leader>9", function()
-		harpoon:list():select(9)
-	end)
 
 	set("x", "<C-g>", ":<c-u>call SaveSelectionToQuickConsult()<cr>")
 	set("n", "<C-g>", ":<c-u>call OpenConsultationWindow()<cr>")

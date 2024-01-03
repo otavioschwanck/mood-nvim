@@ -135,17 +135,15 @@ Also, is very good to move files between folders.
 
 - Example of usage: https://imgur.com/BNK1JCt
 
-# Harpoon (File bookmarks)
+# Arrow (File bookmarks)
 
-Harpoon is awesome and you should use.
+Arrow is awesome and you should use.  Add boomarks for you files.
 
 |-----------------|--------------------------------------------------------|
 | Command         | Description                                            |
 |-----------------|--------------------------------------------------------|
-| C-s or go       | Save file on harpoon                                   |
-| SPC 1 to SPC 9  | Navigate on harpoons                                   |
-| ;               | Open harpoon menu (you can navigate with 1-9 here too) |
-| SPC b c         | Delete all harpoons                                    |
+| ;               | Save file on arrow                                     |
+| H and L         | Next / Previous bookmark                               | 
 |-----------------|--------------------------------------------------------|
 
 # Buffer Navigation and Management
