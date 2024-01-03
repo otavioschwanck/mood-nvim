@@ -342,6 +342,8 @@ function M.setup_mappings()
 	set("i", "<C-d>", "<Delete>")
 	set("c", "<C-d>", "<Delete>")
 
+	set("n", "<C-s>", require("arrow.persist").toggle)
+
 	set("x", "<C-g>", ":<c-u>call SaveSelectionToQuickConsult()<cr>")
 	set("n", "<C-g>", ":<c-u>call OpenConsultationWindow()<cr>")
 

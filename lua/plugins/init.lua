@@ -3,6 +3,7 @@ local plugins = {
 	{
 		"otavioschwanck/arrow.nvim",
 		opts = {
+			always_show_path = true,
 			show_icons = true,
 			mappings = {
 				edit = "e",
@@ -36,7 +37,6 @@ local plugins = {
 		"folke/tokyonight.nvim",
 		priority = 10000,
 		config = function()
-			vim.cmd("colorscheme catppuccin-macchiato")
 			vim.opt.termguicolors = true
 
 			require("tokyonight").setup({
