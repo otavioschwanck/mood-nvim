@@ -3,7 +3,7 @@ local plugins = {
 	{
 		"otavioschwanck/arrow.nvim",
 		opts = {
-			always_show_path = true,
+			always_show_path = false,
 			show_icons = true,
 			mappings = {
 				edit = "e",
