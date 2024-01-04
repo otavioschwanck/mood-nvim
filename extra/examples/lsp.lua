@@ -1,11 +1,6 @@
 -- LSP --------------------------------------------
 -- Your Language server protocol stuff
 ---------------------------------------------------
--- Configure autocomplete keybindings, servers, etc
--- Line 26: LSPs to install. See the list at: https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md
--- Line 37: On attach (configure keybindings for LSP)
--- Line 105: Mappings for autocomplete
--- Line 180: Linter and Formatter (prettier, rubocop, etc)
 
 require("luasnip.loaders.from_vscode").lazy_load()
 require("luasnip.loaders.from_vscode").lazy_load({ paths = { "./vs-snippets" } })
@@ -31,6 +26,19 @@ require("mason-lspconfig").setup({
 	},
 })
 
+-- Your formatters. (Comment this to disable autoformatters)
+require("formatter").setup({
+	logging = false,
+	filetype = {
+		ruby = { require("mood-scripts.formatter_rubocop") }, -- Format with rubocop -A instead normal.
+		javascript = { require("formatter.filetypes.javascript").prettier },
+		typescript = { require("formatter.filetypes.typescript").prettier },
+		javascriptreact = { require("formatter.filetypes.javascriptreact").prettier },
+		typescriptreact = { require("formatter.filetypes.typescriptreact").prettier },
+		lua = { require("formatter.filetypes.lua").stylua },
+	},
+})
+
 -- when LSP os connceted, this function is called.
 local on_attach = function(client, bufnr)
 	local opts = { buffer = bufnr }
@@ -53,17 +61,6 @@ require("mason-lspconfig").setup_handlers({
 		})
 	end,
 })
-
--- just uncomment this if mason ins not handling the on_attach
-
--- local get_servers = require('mason-lspconfig').get_installed_servers
-
--- for _, server_name in ipairs(get_servers()) do
---   lspconfig[server_name].setup({
---     on_attach = on_attach,
---     capabilities = lsp_capabilities,
---   })
--- end
 
 vim.opt.completeopt = { "menu", "menuone", "noinsert", "noselect" } -- Dont select first item
 
@@ -192,23 +189,11 @@ cmp.setup.cmdline(":", {
 	}),
 })
 
--- Your formatters. (Comment this to disable autoformatters)
-require("formatter").setup({
-	logging = false,
-	filetype = {
-		ruby = { require("mood-scripts.formatter_rubocop") }, -- Format with rubocop -A instead normal.
-		javascript = { require("formatter.filetypes.javascript").prettier },
-		typescript = { require("formatter.filetypes.typescript").prettier },
-		javascriptreact = { require("formatter.filetypes.javascriptreact").prettier },
-		typescriptreact = { require("formatter.filetypes.typescriptreact").prettier },
-		lua = { require("formatter.filetypes.lua").stylua },
-	},
-})
-
--- Enable Format on Save (uncomment here)
 vim.api.nvim_create_autocmd({ "BufWritePost" }, {
 	callback = function()
-		vim.cmd("FormatWrite")
+		if vim.g.format_on_save == true then
+			vim.cmd("FormatWrite")
+		end
 	end,
 })
 

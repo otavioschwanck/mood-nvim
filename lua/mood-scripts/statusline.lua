@@ -289,6 +289,24 @@ local function setup()
 
 	ins_right({
 		function()
+			if vim.g.format_on_save then
+				return "fmt: on"
+			else
+				return "fmt: off"
+			end
+		end,
+		color = function()
+			if vim.g.format_on_save then
+				return { fg = colors.green }
+			else
+				return { fg = colors.red }
+			end
+		end,
+		cond = has_80_space,
+	})
+
+	ins_right({
+		function()
 			return "󰕭 %-2v"
 		end,
 		cond = has_50_space,
