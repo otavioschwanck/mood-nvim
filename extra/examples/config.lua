@@ -116,4 +116,6 @@ local set = vim.api.nvim_set_option
 
 require("core.settings").remove_bicycle_small_whells({ includeNormalMode = true })
 
+-- require("arrow.config").setState("hide_handbook", true) -- disable handbook from arrow
+
 -- set('colorcolumn', '125') -- column length helper
