@@ -98,7 +98,7 @@ function M.setup_which_key()
 			l = { ':lua require("persistence").load()<cr>', "Load Session" },
 			f = {
 				function()
-					vim.g.format_on_save = not vim.g.format_on_save
+					vim.g.disable_format_on_save = not vim.g.disable_format_on_save
 				end,
 				"Enable/Disable format on save",
 			},

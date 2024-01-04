@@ -279,6 +279,7 @@ local function setup()
 		"diagnostics",
 		sources = { "nvim_diagnostic" },
 		symbols = { error = " ", warn = " ", info = " " },
+
 		diagnostics_color = {
 			color_error = { fg = colors.red },
 			color_warn = { fg = colors.yellow },
@@ -289,19 +290,13 @@ local function setup()
 
 	ins_right({
 		function()
-			if vim.g.format_on_save then
-				return "fmt: on"
-			else
+			if vim.g.disable_format_on_save then
 				return "fmt: off"
-			end
-		end,
-		color = function()
-			if vim.g.format_on_save then
-				return { fg = colors.green }
 			else
-				return { fg = colors.red }
+				return ""
 			end
 		end,
+		color = { fg = colors.red },
 		cond = has_80_space,
 	})
 

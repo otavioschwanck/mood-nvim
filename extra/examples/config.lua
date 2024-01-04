@@ -5,7 +5,7 @@
 -- Theme?
 vim.g.colors_name = "catppuccin-macchiato" -- SPC h t to see more themes
 
-vim.g.format_on_save = true -- To configure your formatters, go to SPC f p and find LSP.  SPC h f to enable/disable format on save.
+vim.g.disable_format_on_save = false -- To configure your formatters, press SPC f p and find LSP.  SPC h f to enable/disable format on save.
 
 -- Configure your per project commands.  See more at: https://github.com/otavioschwanck/tmux-awesome-manager.nvim
 -- Run the per project with SPC #

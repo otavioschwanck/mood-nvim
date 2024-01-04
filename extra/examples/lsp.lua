@@ -191,7 +191,7 @@ cmp.setup.cmdline(":", {
 
 vim.api.nvim_create_autocmd({ "BufWritePost" }, {
 	callback = function()
-		if vim.g.format_on_save == true then
+		if not(vim.g.disable_format_on_save) then
 			vim.cmd("FormatWrite")
 		end
 	end,
