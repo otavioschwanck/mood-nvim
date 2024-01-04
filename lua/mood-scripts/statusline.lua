@@ -2,21 +2,6 @@ local function setup()
 	local lualine = require("lualine")
 	local arrow = require("arrow.statusline")
 
-	local function index_of(items, element, config)
-		local equals = config and config.equals or function(a, b)
-			return a == b
-		end
-		local index = -1
-		for i, item in ipairs(items) do
-			if equals(element, item) then
-				index = i
-				break
-			end
-		end
-
-		return index
-	end
-
 	local colors = {
 		bg = "#fff",
 		fg = "#cad3f5",
