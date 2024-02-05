@@ -3,7 +3,7 @@ local M = {}
 function M.setup()
 	vim.cmd([[
     function OpenTerm(command, name, unique, close_after_create)
-      lua vim.notify("You mood config.lua is outated.  Fixing for you.")
+      lua vim.notify("Your mood config.lua is outdated.  Fixing for you.")
 
       lua vim.fn.system("mv ~/.config/nvim/lua/user/config.lua ~/.config/nvim/lua/user/config.lua.bak")
 
