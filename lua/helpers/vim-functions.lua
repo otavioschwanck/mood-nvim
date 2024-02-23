@@ -10,20 +10,6 @@ function M.setup()
 	-- TODO: Migrate this functions to lua
 
 	vim.cmd([[
-    function! WordForGq()
-      let l:word = substitute(getreg('"'), "\\", "\\\\", "gre")
-      let l:word = substitute(l:word, "[", "\\\\[", "gre")
-      let l:word = substitute(l:word, "]", "\\\\]", "gre")
-      let l:word = substitute(l:word, "/", "\\\\/", "gre")
-      let l:word = substitute(l:word, "\\*", "\\\\*", "gre")
-      let l:word = substitute(l:word, "\\$", "\\\\$", "gre")
-      let l:word = substitute(l:word, "\\~", "\\\\~", "gre")
-      let l:word = substitute(l:word, "\\^", "\\\\^", "gre")
-      let l:word = substitute(l:word, "\\.", "\\\\.", "gre")
-
-      return l:word
-    endfunction
-
     function OpenTestAlternateAndSplit()
       let win_count = luaeval('require("utils.buf_count")()')
       let test_path = eval('rails#buffer().alternate()')
