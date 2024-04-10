@@ -319,24 +319,6 @@ To open/close the autocomplete, just press C-e.
 | SPC t f | Rerun only failures                                                                           |
 |---------|-----------------------------------------------------------------------------------------------|
 
-## Note Taking
-
-To take notes, use Neorg.
-
-See a vídeo about: https://www.youtube.com/watch?v=NnmRVY22Lq8&list=PLx2ksyallYzVI8CN1JMXhEf62j2AijeDa&index=2
-
-SPC z = :Neorg index (quick go)
-SPC Z = :Neorg return (quick return)
-
-:Neorg workspace work
-:Neorg workspace personal
-
-Tips:
-
-zr = Open an folds
-zm = Close folds
-za = Toggle fold at cursor
-
 ## Toggle Case
 
 | Command | Description          |

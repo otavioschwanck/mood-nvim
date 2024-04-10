@@ -266,8 +266,6 @@ function M.setup_which_key()
 			"Find Buffers in this project",
 		},
 		["<tab>"] = { ":Telescope git_status<CR>", "Git Modified Files" },
-		z = { "<cmd>Neorg index<CR>", "Go to Neorg" },
-		Z = { "<cmd>Neorg return<CR>", "Neorg Return" },
 		w = {
 			name = "+Window",
 			w = { "<C-w>w", "Next Window" },
