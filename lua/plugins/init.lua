@@ -15,6 +15,7 @@ local plugins = {
 				quit = "q",
 			},
 			leader_key = ";",
+			buffer_leader_key = "m",
 			after_9_keys = "zxcbnmZXVBNM,afghjklAFGHJKLwrtyuiopWRTYUIOP", -- Please, don't pin more then 9 XD,
 			save_key = function()
 				return vim.loop.cwd() -- we use the cwd as the context from the bookmarks.  You can change it for anything you want.
@@ -60,7 +61,29 @@ local plugins = {
 	},
 	{ "AndrewRadev/bufferize.vim", cmd = "Bufferize" },
 	{ "otavioschwanck/tmux-awesome-manager.nvim" },
-	{ "catppuccin/nvim", name = "catppuccin" },
+	{
+		"catppuccin/nvim",
+		name = "catppuccin",
+		opts = {
+
+			custom_highlights = function()
+				return {
+					NormalFloat = { link = "Normal" },
+				}
+			end,
+			integrations = {
+				cmp = true,
+				gitsigns = true,
+				nvimtree = true,
+				treesitter = true,
+				notify = true,
+				telescope = {
+					enabled = true,
+					style = "nvchad",
+				},
+			},
+		},
+	},
 	{
 		"stevearc/aerial.nvim",
 		config = function()
