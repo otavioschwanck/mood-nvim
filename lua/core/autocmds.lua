@@ -135,8 +135,6 @@ function M.setup()
 					pattern = { "*" },
 					callback = function()
 						M.set_hl_for_floating_window(color)
-						vim.cmd("highlight! TelescopeMatching guibg=" .. "#FFF" .. " guifg=" .. color)
-
 						vim.cmd("highlight! TabLineFill guibg=" .. fill .. " guifg=NONE")
 						vim.cmd("highlight! FloatBorder guifg=#494d64")
 						vim.cmd("highlight! CmpSel guifg=#181926 guibg=#a6da95")
@@ -189,7 +187,6 @@ function M.setup()
 					local hint = "#c6a0f6"
 
 					vim.cmd("highlight CursorLineNr guifg=#f5bde6")
-					vim.cmd("highlight TelescopeBorder guifg=#565f89")
 					vim.cmd("highlight TreesitterContext guibg=" .. tabColor)
 					vim.cmd("highlight TreesitterContextLineNumber gui=bold guifg=" .. hint)
 

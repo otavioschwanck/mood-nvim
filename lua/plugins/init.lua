@@ -2,6 +2,7 @@ local plugins = {
 	"junegunn/vim-easy-align",
 	{
 		"otavioschwanck/arrow.nvim",
+		event = "VeryLazy",
 		opts = {
 			always_show_path = false,
 			show_icons = true,

@@ -181,8 +181,13 @@ local function setup()
 		return select(2, string.gsub(base, pattern, ""))
 	end
 
+	local arrow_status = function(props)
+		local bufnr = props.buf
+		return require("arrow.statusline").text_for_statusline_with_icons(bufnr)
+	end
+
 	ins_left_both({
-		arrow.text_for_statusline_with_icons,
+		arrow_status,
 		color = { fg = colors.green },
 	})
 
@@ -191,7 +196,7 @@ local function setup()
 		cond = conditions.buffer_not_empty,
 		colored = true,
 		color = function()
-			if arrow.in_on_arrow_file() then
+			if arrow.is_on_arrow_file() then
 				return { fg = colors.green, gui = "bold" }
 			else
 				return { fg = colors.yellow, gui = "bold" }
