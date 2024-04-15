@@ -23,6 +23,18 @@ local plugins = {
 			end,
 			full_path_list = { "update_stuff" }, -- filenames on this list will ALWAYS show the file path too.
 		},
+		keys = {
+			{
+				"<C-j>",
+				"<cmd>Arrow next_buffer_bookmark<CR>",
+				desc = "Save Current Line",
+			},
+			{
+				"<C-k>",
+				"<cmd>Arrow prev_buffer_bookmark<CR>",
+				desc = "Save Current Line",
+			},
+		},
 	},
 	{ "otavioschwanck/new-file-template.nvim", opts = {} },
 	{
@@ -200,12 +212,6 @@ local plugins = {
 	{ "sindrets/diffview.nvim", dependencies = "nvim-lua/plenary.nvim" },
 	"Olical/vim-enmasse",
 	{ "rcarriga/nvim-notify" },
-	{
-		"otavioschwanck/cool-substitute.nvim",
-		config = function()
-			require("cool-substitute").setup({ setup_keybindings = true })
-		end,
-	},
 	"rafamadriz/friendly-snippets",
 	{ "ray-x/lsp_signature.nvim" },
 

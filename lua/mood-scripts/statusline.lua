@@ -228,13 +228,6 @@ local function setup()
 		color = { fg = colors.violet },
 	})
 
-	ins_left_both({
-		require("cool-substitute.status").status_with_icons,
-		color = function()
-			return { fg = require("cool-substitute.status").status_color() }
-		end,
-	})
-
 	ins_left({
 		function()
 			local alternate_filename = vim.fn.expand("#:t")
