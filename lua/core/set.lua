@@ -62,4 +62,6 @@ function M.setup()
 	vim.g.markdown_recommended_style = 0
 end
 
+vim.o.winbar = "%{%v:lua.require'core.winbar'.eval()%}"
+
 return M
