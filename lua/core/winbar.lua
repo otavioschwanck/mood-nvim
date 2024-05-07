@@ -10,6 +10,10 @@ function M.eval()
 	local file_path = vim.api.nvim_eval_statusline("%f", {}).str
 	local modified = vim.api.nvim_eval_statusline("%M", {}).str == "+" and "⊚" or ""
 
+	if string.match(file_path, "^~/") then
+		file_path = vim.fn.fnamemodify(file_path, ":~:.")
+	end
+
 	local splitted_path = vim.split(file_path, "/")
 
 	local path = ""
