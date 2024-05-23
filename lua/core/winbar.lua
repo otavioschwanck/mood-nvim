@@ -14,6 +14,12 @@ function M.eval()
 		file_path = vim.fn.fnamemodify(file_path, ":~:.")
 	end
 
+	local is_a_file = vim.fn.filereadable(file_path) == 1
+
+	if not is_a_file then
+		return file_path
+	end
+
 	local splitted_path = vim.split(file_path, "/")
 
 	local path = ""
