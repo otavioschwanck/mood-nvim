@@ -30,11 +30,11 @@ function M.setup()
 
 	local neovim_file_path = vim.fn.stdpath("config")
 
-	vim.cmd(
-		"let test#ruby#rspec#options = { 'file': '--require="
-			.. neovim_file_path
-			.. "/helpers/vim_formatter.rb --format VimFormatter --out /tmp/quickfix.out  --format progress' }"
-	)
+	local full_command = "--require="
+		.. neovim_file_path
+		.. "/helpers/vim_formatter.rb --format VimFormatter --out /tmp/quickfix.out --format progress"
+
+	vim.cmd("let test#ruby#rspec#options = { 'file': '" .. full_command .. "', 'nearest': '" .. full_command .. "' }")
 
 	vim.cmd("let g:test#custom_strategies = {'mood-term': function('TermStrategy')}")
 end
