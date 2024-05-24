@@ -18,7 +18,7 @@ class VimFormatter
   private
 
   def format(notification)
-    rtn = "%s: %s" % [notification.example.location, notification.exception.message]
+    rtn = "%s: %s" % [notification.example.location, notification.exception.message.gsub("\n", "\\n")]
     rtn.gsub("\n", ' ')
   end
 end
