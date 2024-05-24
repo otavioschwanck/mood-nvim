@@ -129,6 +129,7 @@ function M.setup_which_key()
 		t = {
 			name = "+Test",
 			o = { "<cmd>cg /tmp/quickfix.out<CR><cmd>copen<CR><cmd>cfirst<CR>", "Open Quickfix Output" },
+			c = { require("mood-scripts.rspec").clear_diagnostics, "Clear Test Diagnostics" },
 			v = { ":TestFile<CR>", "Test Current File" },
 			s = { ":TestNearest<CR>", "Test Nearest Test" },
 			a = { ":TestSuite<CR>", "Test Project" },

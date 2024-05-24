@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class VimFormatter
-  RSpec::Core::Formatters.register self, :example_failed
+  RSpec::Core::Formatters.register self, :example_failed, :close
 
   def initialize(output)
     @output = output
@@ -11,10 +11,14 @@ class VimFormatter
     @output << format(notification) + "\n"
   end
 
+  def close(notification)
+    @output << "finished\n"
+  end
+
   private
 
   def format(notification)
     rtn = "%s: %s" % [notification.example.location, notification.exception.message]
-    rtn.gsub("\n", ' ')[0,160]
+    rtn.gsub("\n", ' ')
   end
 end

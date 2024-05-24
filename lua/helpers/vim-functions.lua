@@ -177,6 +177,15 @@ function M.setup()
     endfunction
 
     function! TermStrategy(cmd)
+      if a:cmd =~ 'rspec'
+        if filereadable("/tmp/quickfix.out")
+          call delete("/tmp/quickfix.out")
+        endif
+
+        lua require("mood-scripts.rspec").clear_diagnostics()
+        lua require("mood-scripts.rspec").wait_quickfix_to_insert_diagnostics()
+      endif
+
       lua require("tmux-awesome-manager").execute_command({ cmd = vim.api.nvim_eval("a:cmd"), name = "Tests...", open_as = 'pane', size = '50%', focus_when_call = false })
     endfunction
 
