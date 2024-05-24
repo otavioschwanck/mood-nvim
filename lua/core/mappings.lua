@@ -133,7 +133,25 @@ function M.setup_which_key()
 			v = { ":TestFile<CR>", "Test Current File" },
 			s = { ":TestNearest<CR>", "Test Nearest Test" },
 			a = { ":TestSuite<CR>", "Test Project" },
-			f = { ":RSpec --only-failures --format documentation<CR>", "Test Only Failed Tests" },
+			f = {
+				function()
+					if vim.fn.filereadable("/tmp/quickfix.out") then
+						os.remove("/tmp/quickfix.out")
+					end
+
+					require("mood-scripts.rspec").clear_diagnostics()
+					require("mood-scripts.rspec").wait_quickfix_to_insert_diagnostics()
+
+					local neovim_file_path = vim.fn.stdpath("config")
+					vim.cmd(
+						"RSpec "
+							.. "--require="
+							.. neovim_file_path
+							.. "/helpers/vim_formatter.rb --format VimFormatter --out /tmp/quickfix.out --format progress --only-failures"
+					)
+				end,
+				"Test Only Failed Tests",
+			},
 			r = { ":TestLast<CR>", "Rerun Last Test" },
 		},
 		c = {
