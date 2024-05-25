@@ -9,12 +9,17 @@ function M.insert_diagnostics(lines)
 
 	local error_count = 0
 
+	local line_of_error = {}
+
+	-- Ler o arquivo de quickfix
 	for line in lines do
 		if line ~= "finished" then
+			-- Extrair as partes da linha
 			local filename, lineno, message = line:match("([^:]+):(%d+): (.+)")
 
 			error_count = error_count + 1
 
+			-- verify if exists a buffer with filename open
 			local bufnr = vim.fn.bufnr(filename)
 
 			local already_inserted = false
@@ -27,11 +32,16 @@ function M.insert_diagnostics(lines)
 				end
 			end
 
-			if filename and lineno and message and not already_inserted then
+			if filename and lineno and message and not already_inserted and bufnr ~= -1 then
 				lineno = tonumber(lineno)
 				if not diagnostics_by_bufnr[bufnr] then
 					diagnostics_by_bufnr[bufnr] = {}
 				end
+
+				if vim.fn.fnamemodify(vim.fn.expand("%"), "%") == vim.fn.fnamemodify(filename, "%") then
+					table.insert(line_of_error, lineno)
+				end
+
 				table.insert(diagnostics_by_bufnr[bufnr], {
 					lnum = lineno - 1, -- Linhas no Neovim são indexadas a partir de 0
 					col = 0,
@@ -46,6 +56,31 @@ function M.insert_diagnostics(lines)
 
 	for bufnr, diagnostics in pairs(diagnostics_by_bufnr) do
 		vim.diagnostic.set(M.quickfix_ns, bufnr, diagnostics)
+	end
+
+	if #line_of_error > 0 then
+		-- create a mark to go back with C-o
+		vim.cmd("normal! m'")
+
+		local cursor_line_number = vim.fn.line(".")
+
+		local closest_of_the_cursor_line_number = nil
+
+		for _, line in ipairs(line_of_error) do
+			if not closest_of_the_cursor_line_number then
+				closest_of_the_cursor_line_number = line
+			elseif
+				math.abs(cursor_line_number - line) < math.abs(cursor_line_number - closest_of_the_cursor_line_number)
+			then
+				closest_of_the_cursor_line_number = line
+			end
+		end
+
+		vim.api.nvim_win_set_cursor(0, { closest_of_the_cursor_line_number, 0 })
+
+		vim.defer_fn(function()
+			vim.diagnostic.open_float()
+		end, 50)
 	end
 
 	if error_count == 0 then
