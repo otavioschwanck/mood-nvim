@@ -4,6 +4,21 @@ M.search_id = nil
 
 M.quickfix_ns = vim.api.nvim_create_namespace("quickfix")
 
+local function is_diagnostic_float(win_id)
+	return vim.api.nvim_win_get_config(win_id).relative ~= ""
+end
+
+-- Function to close all diagnostic float windows
+local function close_diagnostic_floats()
+	local windows = vim.api.nvim_list_wins()
+
+	for _, win_id in ipairs(windows) do
+		if is_diagnostic_float(win_id) then
+			vim.api.nvim_win_close(win_id, true)
+		end
+	end
+end
+
 function M.insert_diagnostics(lines)
 	local diagnostics_by_bufnr = {}
 
@@ -34,6 +49,7 @@ function M.insert_diagnostics(lines)
 
 			if filename and lineno and message and not already_inserted and bufnr ~= -1 then
 				lineno = tonumber(lineno)
+
 				if not diagnostics_by_bufnr[bufnr] then
 					diagnostics_by_bufnr[bufnr] = {}
 				end
@@ -76,11 +92,15 @@ function M.insert_diagnostics(lines)
 			end
 		end
 
-		vim.api.nvim_win_set_cursor(0, { closest_of_the_cursor_line_number, 0 })
+		if closest_of_the_cursor_line_number ~= cursor_line_number then
+			vim.api.nvim_win_set_cursor(0, { closest_of_the_cursor_line_number, 0 })
+		end
+
+		close_diagnostic_floats()
 
 		vim.defer_fn(function()
 			vim.diagnostic.open_float()
-		end, 50)
+		end, 30)
 	end
 
 	if error_count == 0 then
