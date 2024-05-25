@@ -14,6 +14,29 @@ function M.setup()
 	vim.g.exiting = false
 	vim.g.scheduled_save_session = false
 
+	-- Save cursor position before resizing
+	vim.api.nvim_exec(
+		[[
+  augroup SaveCursor
+    autocmd!
+    autocmd CursorHold,WinEnter * let b:saved_cursor_pos = getpos(".")
+    autocmd WinLeave * if exists("b:saved_cursor_pos") | let b:saved_cursor_pos = getpos(".") | endif
+  augroup END
+]],
+		false
+	)
+
+	-- Restore cursor position after resizing
+	vim.api.nvim_exec(
+		[[
+  augroup RestoreCursor
+    autocmd!
+    autocmd WinResized * if exists("b:saved_cursor_pos") | call setpos(".", b:saved_cursor_pos) | endif
+  augroup END
+]],
+		false
+	)
+
 	local autocommands = {
 		{
 			{ "FileType" },
