@@ -81,7 +81,7 @@ function M.wait_quickfix_to_insert_diagnostics(retry_count, search_id)
 
 	search_id = search_id or M.generate_random_search_id()
 
-	if retry_count > 500 then
+	if retry_count > 1100 then
 		return
 	end
 
@@ -100,7 +100,7 @@ function M.wait_quickfix_to_insert_diagnostics(retry_count, search_id)
 		else
 			M.wait_quickfix_to_insert_diagnostics(retry_count + 1, search_id)
 		end
-	end, 1000)
+	end, 300)
 end
 
 return M
