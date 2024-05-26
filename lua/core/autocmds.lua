@@ -146,6 +146,12 @@ function M.setup()
 						vim.cmd("highlight NvimTreeSymlinkFolderName guifg=#cad3f5")
 						vim.cmd("highlight NvimTreeTitle guifg=#EED49F guibg=" .. fill)
 
+						local catppuccin_palette = require("catppuccin.palettes").get_palette()
+
+						vim.api.nvim_set_hl(0, "WinBarPath", { fg = catppuccin_palette.overlay2 })
+						vim.api.nvim_set_hl(0, "WinBarFileName", { fg = catppuccin_palette.text })
+						vim.api.nvim_set_hl(0, "WinBarModified", { fg = catppuccin_palette.red })
+
 						require("nvim-web-devicons").set_icon({
 							rb = { icon = "", color = "#ff8587", name = "DevIconRb" },
 							rake = { icon = "", color = "#ff8587", name = "DevIconRb" },
