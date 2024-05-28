@@ -21,6 +21,10 @@ class VimFormatter
     example_location = notification.example.location
     expect_location = extract_expect_location(notification.exception.backtrace, example_location)
     message = notification.exception.message.gsub("\n", "\\n")
+    # remove all color term codes of the message
+
+    message = message.gsub(/\e\[\d+m/, '')
+
     rtn = "%s: %s" % [expect_location || example_location, message]
     rtn.gsub("\n", ' ')
   end
