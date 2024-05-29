@@ -132,6 +132,7 @@ function M.setup_which_key()
 			c = { require("mood-scripts.rspec").clear_diagnostics, "Clear Test Diagnostics" },
 			v = { ":TestFile<CR>", "Test Current File" },
 			s = { ":TestNearest<CR>", "Test Nearest Test" },
+			b = { require("mood-scripts.rspec").go_to_backtrace, "Go to Backtrace" },
 			a = { ":TestSuite<CR>", "Test Project" },
 			f = {
 				function()

@@ -19,6 +19,73 @@ local function close_diagnostic_floats()
 	end
 end
 
+function M.go_to_backtrace()
+	-- get the diagnostic on the line of type quickfix, get the message
+	local diagnostic = vim.diagnostic.get(0, { severity = vim.diagnostic.severity.ERROR, namespace = M.quickfix_ns })[1]
+
+	if diagnostic then
+		local message = diagnostic.message
+
+		-- verify if diagnostic contains backtrace
+		if string.match(message, "Backtrace:") then
+			-- join message with \\n
+			local lines = vim.split(message, "\n")
+			local backtrace_line = nil
+
+			local i = 1
+
+			for _, line in ipairs(lines) do
+				if string.match(line, "Backtrace:") then
+					backtrace_line = i
+					break
+				end
+
+				i = i + 1
+			end
+
+			if backtrace_line then
+				local local_of_backtrace = lines[backtrace_line + 1]
+
+				local parsed_file = vim.split(local_of_backtrace, ":")[1]
+				local parsed_line = vim.split(local_of_backtrace, ":")[2]
+
+				if not vim.fn.filereadable(parsed_file) then
+					print("File not found: " .. parsed_file)
+					return
+				end
+
+				local win_exists = false
+
+				local absolute_parsed_file = vim.fn.fnamemodify(parsed_file, ":p")
+
+				for _, win in ipairs(vim.api.nvim_list_wins()) do
+					local buf = vim.api.nvim_win_get_buf(win)
+					local buf_file = vim.api.nvim_buf_get_name(buf)
+					local absolute_buf_file = vim.fn.fnamemodify(buf_file, ":p")
+
+					if absolute_buf_file == absolute_parsed_file then
+						-- go to window instead of set window
+						vim.api.nvim_set_current_win(win)
+
+						vim.cmd("normal! " .. parsed_line .. "G")
+						win_exists = true
+						break
+					end
+				end
+
+				if not win_exists then
+					vim.cmd("vsplit " .. parsed_file)
+					vim.cmd("normal! " .. parsed_line .. "G")
+				end
+			else
+				print("No backtrace found in diagnostic")
+			end
+		end
+	else
+		print("No diagnostics found here")
+	end
+end
+
 function M.insert_diagnostics(lines)
 	local diagnostics_by_bufnr = {}
 
