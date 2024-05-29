@@ -54,7 +54,18 @@ function M.insert_diagnostics(lines)
 					diagnostics_by_bufnr[bufnr] = {}
 				end
 
-				if vim.fn.fnamemodify(vim.fn.expand("%"), "%") == vim.fn.fnamemodify(filename, "%") then
+				local expanded_cur = vim.fn.fnamemodify(vim.fn.expand("%"), "%")
+				local expanded_line = vim.fn.fnamemodify(filename, "%")
+
+				if string.sub(expanded_cur, 1, 2) == "./" then
+					expanded_cur = string.sub(expanded_cur, 3)
+				end
+
+				if string.sub(expanded_line, 1, 2) == "./" then
+					expanded_line = string.sub(expanded_line, 3)
+				end
+
+				if expanded_cur == expanded_line then
 					table.insert(line_of_error, lineno)
 				end
 
