@@ -301,6 +301,7 @@ To open/close the autocomplete, just press C-e.
 | SPC t s | Run nearest tests                                                                             |
 | SPC t a | Run all tests                                                                                 |
 | SPC t o | Open the failed tests on a quick fix list (only rspec)                                        |
+| SPC t b | Open backtrace of failed test on cursor (only rspec)                                          |
 | SPC t w | Focus test window (after ]e and [e, SUPER USEFUL to copy the test result. Use SPC k to close. |
 | SPC t r | Rerun last test                                                                               |
 | SPC t f | Rerun only failures                                                                           |
