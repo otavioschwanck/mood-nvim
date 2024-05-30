@@ -26,7 +26,7 @@ class VimFormatter
     backtraces = find_backtrace(notification.exception.backtrace, example_location, expect_location)
 
     if backtraces.any?
-      message = "#{message}\\n\\nBacktrace:\\n#{backtraces[0..3].join("\\n")}"
+      message = "#{message}\\n\\nBacktrace:\\n#{backtraces[0..7].join("\\n")}"
     end
 
     message = message.gsub(/\e\[\d+m/, '')
