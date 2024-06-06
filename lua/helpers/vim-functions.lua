@@ -186,7 +186,7 @@ function M.setup()
         lua require("mood-scripts.rspec").wait_quickfix_to_insert_diagnostics()
       endif
 
-      lua require("tmux-awesome-manager").execute_command({ cmd = vim.api.nvim_eval("a:cmd"), name = "<Tests>", open_as = 'window', focus_when_call = true, visit_first_call = true })
+      lua require("tmux-awesome-manager").execute_command({ cmd = vim.api.nvim_eval("a:cmd"), name = "Tests...", open_as = 'pane', size = '50%', focus_when_call = false })
     endfunction
 
     function! StripTrailingWhitespaces()
