@@ -186,13 +186,7 @@ function M.setup()
         lua require("mood-scripts.rspec").wait_quickfix_to_insert_diagnostics()
       endif
 
-      let neovim_width = luaeval('vim.api.nvim_get_option("columns")')
-
-      if neovim_width > 150
-        lua require("tmux-awesome-manager").execute_command({ cmd = vim.api.nvim_eval("a:cmd"), name = "Tests...", open_as = 'pane', orientation = 'horizontal', size = '35%', focus_when_call = false })
-      else
-        lua require("tmux-awesome-manager").execute_command({ cmd = vim.api.nvim_eval("a:cmd"), name = "Tests...", open_as = 'pane', size = '50%', focus_when_call = false })
-      endif
+      lua require("tmux-awesome-manager").execute_command({ cmd = vim.api.nvim_eval("a:cmd"), name = "<Tests>", open_as = 'window', focus_when_call = true, visit_first_call = true })
     endfunction
 
     function! StripTrailingWhitespaces()
