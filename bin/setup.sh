@@ -10,6 +10,15 @@ else
   echo "$USER_CONFIG created."
 fi
 
+BEFORE_START=~/.config/nvim/lua/user/before_start.lua
+
+if test -f "$BEFORE_START"; then
+  echo "$BEFORE_START exists. Ignoring..."
+else
+  cp ~/.config/nvim/extra/examples/before_start.lua ~/.config/nvim/lua/user/before_start.lua
+  echo "$BEFORE_START created."
+fi
+
 VS_SNIPPETS=~/.config/nvim/vs-snippets
 if test -d "$VS_SNIPPETS"; then
   echo "$VS_SNIPPETS exists. Ignoring..."

@@ -3,7 +3,7 @@
 ---------------------------------------------------
 
 -- Theme?
-vim.g.colors_name = "catppuccin-macchiato" -- SPC h t to see more themes
+-- Set your theme on SPC f p -> before_start
 
 vim.g.disable_format_on_save = false -- To configure your formatters, press SPC f p and find LSP.  SPC h f to enable/disable format on save.
 

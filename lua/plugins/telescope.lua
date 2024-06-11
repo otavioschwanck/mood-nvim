@@ -1,7 +1,8 @@
 return {
-	"otavioschwanck/telescope-alternate.nvim",
+	{ "otavioschwanck/telescope-alternate.nvim", event = "VeryLazy" },
 	{
 		"nvim-telescope/telescope.nvim",
+		event = "VeryLazy",
 		dependencies = {
 			"nvim-telescope/telescope-ui-select.nvim",
 			"nvim-telescope/telescope-file-browser.nvim",

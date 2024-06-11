@@ -1,5 +1,5 @@
 local plugins = {
-	"junegunn/vim-easy-align",
+	{ "junegunn/vim-easy-align", event = "VeryLazy" },
 	{
 		"otavioschwanck/arrow.nvim",
 		event = "VeryLazy",
@@ -36,20 +36,22 @@ local plugins = {
 			},
 		},
 	},
-	{ "otavioschwanck/new-file-template.nvim", opts = {} },
+	{ "otavioschwanck/new-file-template.nvim", opts = {}, event = "VeryLazy" },
 	{
 		"stevearc/oil.nvim",
+		event = "VeryLazy",
 		opts = {},
 	},
 	{
 		"s1n7ax/nvim-window-picker",
+		event = "VeryLazy",
 		config = function()
 			require("window-picker").setup()
 		end,
 	},
 	{
 		"folke/tokyonight.nvim",
-		priority = 10000,
+		lazy = false,
 		config = function()
 			vim.opt.termguicolors = true
 
@@ -66,17 +68,19 @@ local plugins = {
 	},
 	{
 		"mrjones2014/smart-splits.nvim",
+		event = "VeryLazy",
 		config = function()
 			require("smart-splits").setup({
 				multiplexer_integration = true,
 			})
 		end,
 	},
-	{ "AndrewRadev/bufferize.vim", cmd = "Bufferize" },
-	{ "otavioschwanck/tmux-awesome-manager.nvim" },
+	{ "AndrewRadev/bufferize.vim", cmd = "Bufferize", event = "VeryLazy" },
+	{ "otavioschwanck/tmux-awesome-manager.nvim", event = "VeryLazy" },
 	{
 		"catppuccin/nvim",
 		name = "catppuccin",
+		lazy = false,
 		opts = {
 
 			custom_highlights = function()
@@ -102,11 +106,13 @@ local plugins = {
 		config = function()
 			require("aerial").setup({})
 		end,
+		event = "VeryLazy",
 	},
-	{ "tomlion/vim-solidity" },
-	{ "rgroli/other.nvim" },
+	{ "tomlion/vim-solidity", event = "VeryLazy" },
+	{ "rgroli/other.nvim", event = "VeryLazy" },
 	{
 		"nvim-tree/nvim-tree.lua",
+		event = "VeryLazy",
 		config = function()
 			local function on_attach(bufnr)
 				local api = require("nvim-tree.api")
@@ -147,8 +153,9 @@ local plugins = {
 	},
 	{
 		"jose-elias-alvarez/typescript.nvim",
+		event = "VeryLazy",
 	},
-	"tpope/vim-repeat",
+	{ "tpope/vim-repeat", event = "VeryLazy" },
 	{
 		"folke/flash.nvim",
 		event = "VeryLazy",
@@ -179,9 +186,9 @@ local plugins = {
 			require("colorizer").setup()
 		end,
 	},
-	{ "emmanueltouzery/agitator.nvim" },
-	"dhruvasagar/vim-table-mode",
-	{ "tpope/vim-commentary" },
+	{ "emmanueltouzery/agitator.nvim", event = "VeryLazy" },
+	{ "dhruvasagar/vim-table-mode", event = "VeryLazy" },
+	{ "tpope/vim-commentary", event = "VeryLazy" },
 	"axelvc/template-string.nvim",
 	{
 		"kylechui/nvim-surround",
@@ -198,34 +205,35 @@ local plugins = {
 		init = function()
 			vim.g["test#runner_commands"] = { "RSpec" }
 		end,
+		event = "VeryLazy",
 	},
-	"tpope/vim-eunuch",
-	"alvan/vim-closetag",
-	"tpope/vim-rails",
-	"vim-ruby/vim-ruby",
-	"farmergreg/vim-lastplace",
-	"svermeulen/vim-yoink",
-	"tpope/vim-fugitive",
-	"AndrewRadev/undoquit.vim",
-	"michaeljsmith/vim-indent-object",
-	{ "mbbill/undotree", cmd = "UndotreeToggle" },
-	{ "sindrets/diffview.nvim", dependencies = "nvim-lua/plenary.nvim" },
-	"Olical/vim-enmasse",
-	{ "rcarriga/nvim-notify" },
-	"rafamadriz/friendly-snippets",
-	{ "ray-x/lsp_signature.nvim" },
+	{ "tpope/vim-eunuch", event = "VeryLazy" },
+	{ "alvan/vim-closetag", event = "VeryLazy" },
+	{ "tpope/vim-rails", event = "VeryLazy" },
+	{ "vim-ruby/vim-ruby", event = "VeryLazy" },
+	{ "farmergreg/vim-lastplace", event = "VeryLazy" },
+	{ "svermeulen/vim-yoink", event = "VeryLazy" },
+	{ "tpope/vim-fugitive", event = "VeryLazy" },
+	{ "AndrewRadev/undoquit.vim", event = "VeryLazy" },
+	{ "michaeljsmith/vim-indent-object", event = "VeryLazy" },
+	{ "mbbill/undotree", cmd = "UndotreeToggle", event = "VeryLazy" },
+	{ "sindrets/diffview.nvim", dependencies = "nvim-lua/plenary.nvim", event = "VeryLazy" },
+	{ "Olical/vim-enmasse", event = "VeryLazy" },
+	{ "rcarriga/nvim-notify", event = "VeryLazy" },
+	{ "rafamadriz/friendly-snippets", event = "VeryLazy" },
+	{ "ray-x/lsp_signature.nvim", event = "VeryLazy" },
 
-	"windwp/nvim-ts-autotag",
-	{ "svermeulen/vim-subversive" },
-	{ "beloglazov/vim-textobj-quotes", dependencies = { "kana/vim-textobj-user" } },
-	{ "kdheepak/lazygit.nvim", cmd = "LazyGit" },
-	"nicwest/vim-camelsnek",
-	"AndrewRadev/sideways.vim",
-	"AndrewRadev/splitjoin.vim",
-	"AndrewRadev/switch.vim",
-	"folke/which-key.nvim",
-	"tpope/vim-abolish",
-	"tommcdo/vim-exchange",
+	{ "windwp/nvim-ts-autotag", event = "VeryLazy" },
+	{ "svermeulen/vim-subversive", event = "VeryLazy" },
+	{ "beloglazov/vim-textobj-quotes", dependencies = { "kana/vim-textobj-user" }, event = "VeryLazy" },
+	{ "kdheepak/lazygit.nvim", cmd = "LazyGit", event = "VeryLazy" },
+	{ "nicwest/vim-camelsnek", event = "VeryLazy" },
+	{ "AndrewRadev/sideways.vim", event = "VeryLazy" },
+	{ "AndrewRadev/splitjoin.vim", event = "VeryLazy" },
+	{ "AndrewRadev/switch.vim", event = "VeryLazy" },
+	{ "folke/which-key.nvim", event = "VeryLazy" },
+	{ "tpope/vim-abolish", event = "VeryLazy" },
+	{ "tommcdo/vim-exchange", event = "VeryLazy" },
 	{
 		"ray-x/lsp_signature.nvim",
 		opts = {
@@ -234,8 +242,9 @@ local plugins = {
 				border = "rounded",
 			},
 		},
+		event = "VeryLazy",
 	},
-	{ "MunifTanjim/nui.nvim", lazy = true },
+	{ "MunifTanjim/nui.nvim", lazy = true, event = "VeryLazy" },
 	{
 		"nvim-tree/nvim-web-devicons",
 		config = function()
@@ -249,12 +258,14 @@ local plugins = {
 				},
 			})
 		end,
+		event = "VeryLazy",
 	},
-	{ "moll/vim-bbye" },
-	{ "otavioschwanck/ruby-toolkit.nvim" },
+	{ "moll/vim-bbye", event = "VeryLazy" },
+	{ "otavioschwanck/ruby-toolkit.nvim", event = "VeryLazy" },
 	{
 		"lukas-reineke/indent-blankline.nvim",
 		main = "ibl",
+		event = "VeryLazy",
 		config = function()
 			local highlight = {
 				"RainbowRed",
@@ -281,6 +292,7 @@ local plugins = {
 			vim.g.rainbow_delimiters = { highlight = highlight }
 			require("ibl").setup({
 				indent = { tab_char = { "▎" } },
+				exclude = { filetypes = { "dashboard" } },
 				scope = {
 					highlight = highlight,
 					show_start = false,
@@ -292,19 +304,20 @@ local plugins = {
 			hooks.register(hooks.type.SCOPE_HIGHLIGHT, hooks.builtin.scope_highlight_from_extmark)
 		end,
 	},
-	"HiPhish/rainbow-delimiters.nvim",
+	{ "HiPhish/rainbow-delimiters.nvim", event = "VeryLazy" },
 	{
 		"lewis6991/gitsigns.nvim",
-		lazy = false,
+		event = "VeryLazy",
 		config = function()
 			require("gitsigns").setup()
 		end,
 		dependencies = { "nvim-lua/plenary.nvim" },
 	},
-	"mhartington/formatter.nvim",
+	{ "mhartington/formatter.nvim", event = "VeryLazy" },
 	{
 		"prochri/telescope-all-recent.nvim",
 		dependencies = { "kkharji/sqlite.lua" },
+		event = "VeryLazy",
 		config = function()
 			require("telescope-all-recent").setup({
 				pickers = {

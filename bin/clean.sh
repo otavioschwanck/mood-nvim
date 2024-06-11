@@ -7,6 +7,13 @@ if test -f "$USER_CONFIG"; then
   echo "$USER_CONFIG Remove successfully..."
 fi
 
+BEFORE_START=~/.config/nvim/lua/user/before_start.lua
+if test -f "$BEFORE_START"; then
+
+  rm $BEFORE_START
+  echo "$BEFORE_START Remove successfully..."
+fi
+
 AFTER_CONFIG=~/.config/nvim/lua/user/after_start.lua
 if test -f "$AFTER_CONFIG"; then
 

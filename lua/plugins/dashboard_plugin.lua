@@ -1,75 +1,59 @@
 return {
 	{
-		"goolord/alpha-nvim",
+		"nvimdev/dashboard-nvim",
 		event = "VimEnter",
 		opts = function()
-			local dashboard = require("alpha.themes.dashboard")
-			local logo = ""
+			local logo = [[ ]]
 
-			dashboard.section.header.val = vim.split(logo, "\n")
-			dashboard.section.buttons.val = {
-				dashboard.button("SPC h l", "󰉙 " .. " Load Session", '<cmd>lua require("persistence").load() <CR>'),
-				dashboard.button("SPC tab", " " .. " Git Status", "<cmd>Telescope git_status <CR>"),
-				dashboard.button("SPC f r", " " .. " Recent files"),
-				dashboard.button("SPC s p", " " .. " Find text"),
-				dashboard.button("SPC h m", "󰑶 " .. " Mason (Manage LSP / Linters)", "<cmd>Mason<CR>"),
-				dashboard.button(
-					"SPC f p",
-					" " .. " User Settings",
-					"<cmd>lua require('mood-scripts.open-files').open_dotfiles()<CR>"
-				),
-				dashboard.button(
-					"SPC h h",
-					" " .. " Open Handbook (docs)",
-					"<cmd>e ~/.config/nvim/handbook.md <CR>"
-				),
-				dashboard.button(
-					"SPC h T",
-					"ﲉ " .. " Open Tutorial for mooD",
-					'<cmd>lua require("tutorial").start() <CR>'
-				),
-				dashboard.button("SPC h u", " " .. " Update mooD", "<cmd>UpdateMood<CR>"),
-				dashboard.button("SPC q q", " " .. " Quit", "<cmd>qa<CR>"),
+			logo = string.rep("\n", 8) .. logo .. "\n\n"
+
+			local opts = {
+				theme = "doom",
+				hide = {
+					-- this is taken care of by lualine
+					-- enabling this messes up the actual laststatus setting after loading a file
+					statusline = false,
+				},
+				config = {
+					header = vim.split(logo, "\n"),
+        -- stylua: ignore
+        center = {
+          { key = "SPC h l", icon =  "󰉙 ", desc = " Load Session", action = 'lua require("persistence").load() ' },
+          { key = "SPC tab", icon =  " ", desc = " Git Status", action = "Telescope git_status " },
+          { key = "SPC h m", icon =  "󰑶 ", desc = " Mason (Manage LSP / Linters)", action = "Mason" },
+          { key =  "SPC f p", icon =  " ", desc = " User Settings", action = "lua require('mood-scripts.open-files').open_dotfiles()" },
+          { key =  "SPC h h", icon =  " ", desc = " Open Handbook (docs)", action = "e ~/.config/nvim/handbook.md " },
+          { key =  "SPC h T", icon =  "ﲉ ", desc = " Open Tutorial for mooD", action = 'lua require("tutorial").start() ' },
+          { key = "SPC h u", icon =  " ", desc = " Update mooD", action = "UpdateMood" },
+          { key = "SPC q q", icon =  " ", desc = " Quit", action = "qa" },
+        },
+					footer = function()
+						local stats = require("lazy").stats()
+						local ms = (math.floor(stats.startuptime * 100 + 0.5) / 100)
+						return {
+							"⚡ Neovim loaded " .. stats.loaded .. "/" .. stats.count .. " plugins in " .. ms .. "ms",
+						}
+					end,
+				},
 			}
-			for _, button in ipairs(dashboard.section.buttons.val) do
-				button.opts.hl = "AlphaButtons"
-				button.opts.hl_shortcut = "AlphaShortcut"
+
+			for _, button in ipairs(opts.config.center) do
+				button.desc = button.desc .. string.rep(" ", 43 - #button.desc)
+				button.key_format = "  %s"
 			end
-			dashboard.opts.layout[1].val = 8
-			return dashboard
-		end,
-		config = function(_, dashboard)
+
 			-- close Lazy and re-open when the dashboard is ready
 			if vim.o.filetype == "lazy" then
 				vim.cmd.close()
 				vim.api.nvim_create_autocmd("User", {
-					pattern = "AlphaReady",
+					pattern = "DashboardLoaded",
 					callback = function()
 						require("lazy").show()
 					end,
 				})
 			end
 
-			require("alpha").setup(dashboard.opts)
-
-			vim.api.nvim_create_autocmd("User", {
-				pattern = "LazyVimStarted",
-				callback = function()
-					local stats = require("lazy").stats()
-					local ms = (math.floor(stats.startuptime * 100 + 0.5) / 100)
-
-					local is_updated = string.match(
-						string.gsub(vim.fn.system("cd ~/.config/nvim; git status"), "\n", ""),
-						"Your branch is up to date"
-					)
-
-					if not is_updated then
-						dashboard.section.footer.val =
-							"  Mood has some updates.  Press SPC h u to install the latest updates."
-					end
-					pcall(vim.cmd.AlphaRedraw)
-				end,
-			})
+			return opts
 		end,
 	},
 }

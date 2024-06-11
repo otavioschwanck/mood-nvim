@@ -1,9 +1,10 @@
 return {
-	"nvim-treesitter/nvim-treesitter-textobjects",
-	"RRethy/nvim-treesitter-endwise",
+	{ "nvim-treesitter/nvim-treesitter-textobjects", event = "VeryLazy" },
+	{ "RRethy/nvim-treesitter-endwise", event = "VeryLazy" },
 	{
 		"nvim-treesitter/nvim-treesitter",
 		build = ":TSUpdate",
+		event = "VeryLazy",
 		config = function()
 			require("nvim-treesitter.configs").setup({
 				ensure_installed = {
