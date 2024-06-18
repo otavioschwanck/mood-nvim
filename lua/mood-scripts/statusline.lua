@@ -37,6 +37,13 @@ local function setup()
 		end,
 	}
 
+	local substitute = {
+		require("cool-substitute.status").status_with_icons,
+		color = function()
+			return { fg = require("cool-substitute.status").status_color() }
+		end,
+	}
+
 	-- Config
 	local config = {
 		options = {
@@ -167,6 +174,8 @@ local function setup()
 		end,
 		padding = { right = 1 },
 	})
+
+	ins_left(substitute)
 
 	local filename_with_icon = require("lualine.components.filename"):extend()
 	filename_with_icon.apply_icon = require("lualine.components.filetype").apply_icon
