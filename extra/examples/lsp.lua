@@ -27,12 +27,16 @@ require("mason-lspconfig").setup({
 })
 
 require("conform").setup({
-  format_on_save = {
-    timeout_ms = 5000,
-    quiet = true,
-    async = false,
-    lsp_fallback = true,
-  },
+  format_on_save = function(bufnr)
+    if vim.g.format_on_save then
+      return {
+        timeout_ms = 5000,
+        quiet = true,
+        async = false,
+        lsp_fallback = true,
+      }
+    end
+  end,
   formatters_by_ft = {
     lua = { "stylua" },
     javascript = { "prettier" },
