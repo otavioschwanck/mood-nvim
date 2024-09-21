@@ -1,11 +1,11 @@
 local M = {}
 
 function M.setup()
-	vim.cmd([[
+  vim.cmd([[
     function OpenTerm(command, name, unique, close_after_create)
       lua vim.notify("Your mood config.lua is outdated.  Fixing for you.")
 
-      lua vim.fn.system("mv ~/.config/nvim/lua/user/config.lua ~/.config/nvim/lua/user/config.lua.bak")
+      lua vim.fn.system("mv " .. vim.fn.fnamemodify(vim.fn.expand("$MYVIMRC"), ":h") .. "/lua/user/config.lua ~/.config/nvim/lua/user/config.lua.bak")
 
       lua vim.notify("Moved your old config to ~/.config/nvim/lua/user/config.lua")
       lua vim.notify("IMPORTANT: Please restart your neovim.")

@@ -1,53 +1,54 @@
 #!/bin/bash
 
-mkdir -p ~/.config/nvim/lua/user/
+CONFIG_DIR=$(dirname "$MYVIMRC")
 
-USER_CONFIG=~/.config/nvim/lua/user/config.lua
+mkdir -p "$CONFIG_DIR/lua/user/"
+
+USER_CONFIG="$CONFIG_DIR/lua/user/config.lua"
 if test -f "$USER_CONFIG"; then
   echo "$USER_CONFIG exists. Ignoring..."
 else
-  cp ~/.config/nvim/extra/examples/config.lua ~/.config/nvim/lua/user/config.lua
+  cp "$CONFIG_DIR/extra/examples/config.lua" "$USER_CONFIG"
   echo "$USER_CONFIG created."
 fi
 
-BEFORE_START=~/.config/nvim/lua/user/before_start.lua
-
+BEFORE_START="$CONFIG_DIR/lua/user/before_start.lua"
 if test -f "$BEFORE_START"; then
   echo "$BEFORE_START exists. Ignoring..."
 else
-  cp ~/.config/nvim/extra/examples/before_start.lua ~/.config/nvim/lua/user/before_start.lua
+  cp "$CONFIG_DIR/extra/examples/before_start.lua" "$BEFORE_START"
   echo "$BEFORE_START created."
 fi
 
-VS_SNIPPETS=~/.config/nvim/vs-snippets
+VS_SNIPPETS="$CONFIG_DIR/vs-snippets"
 if test -d "$VS_SNIPPETS"; then
   echo "$VS_SNIPPETS exists. Ignoring..."
 else
-  cp -r ~/.config/nvim/extra/examples/vs-snippets/ ~/.config/nvim/vs-snippets
+  cp -r "$CONFIG_DIR/extra/examples/vs-snippets/" "$VS_SNIPPETS"
   echo "$VS_SNIPPETS created."
 fi
 
-AFTER_CONFIG=~/.config/nvim/lua/user/after_start.lua
+AFTER_CONFIG="$CONFIG_DIR/lua/user/after_start.lua"
 if test -f "$AFTER_CONFIG"; then
   echo "$AFTER_CONFIG exists. Ignoring..."
 else
-  cp ~/.config/nvim/extra/examples/after_start.lua ~/.config/nvim/lua/user/after_start.lua
+  cp "$CONFIG_DIR/extra/examples/after_start.lua" "$AFTER_CONFIG"
   echo "$AFTER_CONFIG created."
 fi
 
-USER_KEYBINDINGS=~/.config/nvim/lua/user/keybindings.lua
+USER_KEYBINDINGS="$CONFIG_DIR/lua/user/keybindings.lua"
 if test -f "$USER_KEYBINDINGS"; then
   echo "$USER_KEYBINDINGS exists. Ignoring..."
 else
-  cp ~/.config/nvim/extra/examples/keybindings.lua ~/.config/nvim/lua/user/keybindings.lua
+  cp "$CONFIG_DIR/extra/examples/keybindings.lua" "$USER_KEYBINDINGS"
   echo "$USER_KEYBINDINGS created."
 fi
 
-USER_LSP=~/.config/nvim/lua/user/lsp.lua
+USER_LSP="$CONFIG_DIR/lua/user/lsp.lua"
 if test -f "$USER_LSP"; then
   echo "$USER_LSP exists. Ignoring..."
 else
-  cp ~/.config/nvim/extra/examples/lsp.lua ~/.config/nvim/lua/user/lsp.lua
+  cp "$CONFIG_DIR/extra/examples/lsp.lua" "$USER_LSP"
   echo "$USER_LSP created."
 fi
 
@@ -55,7 +56,7 @@ TMUX=~/.tmux.conf
 if test -f "$TMUX"; then
   echo "$TMUX exists. Ignoring..."
 else
-  cp ~/.config/nvim/extra/.tmux.conf ~/.tmux.conf
+  cp "$CONFIG_DIR/extra/.tmux.conf" "$TMUX"
   echo "$TMUX created."
 fi
 
@@ -63,25 +64,24 @@ ALACRITTY=~/.config/alacritty/alacritty.yml
 if test -f "$ALACRITTY"; then
   echo "$ALACRITTY exists. Ignoring..."
 else
-  mkdir ~/.config/alacritty
-  cp ~/.config/nvim/extra/alacritty.yml ~/.config/alacritty/alacritty.yml
-
+  mkdir -p ~/.config/alacritty
+  cp "$CONFIG_DIR/extra/alacritty.yml" "$ALACRITTY"
   echo "$ALACRITTY created."
 fi
 
-PLUGINS=~/.config/nvim/lua/user/plugins.lua
+PLUGINS="$CONFIG_DIR/lua/user/plugins.lua"
 if test -f "$PLUGINS"; then
   echo "$PLUGINS exists. Ignoring..."
 else
-  cp ~/.config/nvim/extra/examples/plugins.lua ~/.config/nvim/lua/user/plugins.lua
+  cp "$CONFIG_DIR/extra/examples/plugins.lua" "$PLUGINS"
   echo "$PLUGINS created."
 fi
 
-TEMPLATES=~/.config/nvim/lua/templates/ruby.lua
+TEMPLATES="$CONFIG_DIR/lua/templates/ruby.lua"
 if test -f "$TEMPLATES"; then
   echo "$TEMPLATES exists. Ignoring..."
 else
-  cp -r ~/.config/nvim/extra/examples/templates/ ~/.config/nvim/lua/templates/
+  cp -r "$CONFIG_DIR/extra/examples/templates/" "$CONFIG_DIR/lua/templates/"
   echo "$TEMPLATES created."
 fi
 
@@ -102,7 +102,7 @@ linux_workflow () {
   if test -f "$LAZYGIT"; then
     echo "$LAZYGIT exists. Ignoring..."
   else
-    cp ~/.config/nvim/extra/examples/lazygit.yml ~/.config/lazygit/config.yml
+    cp "$CONFIG_DIR/extra/examples/lazygit.yml" ~/.config/lazygit/config.yml
     echo "$LAZYGIT created."
   fi
 }
@@ -112,7 +112,7 @@ mac_workflow () {
   if test -f "$LAZYGIT"; then
     echo "$LAZYGIT exists. Ignoring..."
   else
-    cp ~/.config/nvim/extra/examples/lazygit.yml ~/Library/Application\ Support/lazygit/config.yml
+    cp "$CONFIG_DIR/extra/examples/lazygit.yml" ~/Library/Application\ Support/lazygit/config.yml
     echo "$LAZYGIT created."
   fi
 }
@@ -124,4 +124,3 @@ case "${machine}" in
   Mac)       mac_workflow;;
   *)         echo "OS not recognized"
 esac
-

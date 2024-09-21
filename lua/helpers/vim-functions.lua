@@ -1,15 +1,15 @@
 local M = {}
 
 function M.close_term()
-	if vim.o.buftype == "terminal" then
-		vim.cmd("close")
-	end
+  if vim.o.buftype == "terminal" then
+    vim.cmd("close")
+  end
 end
 
 function M.setup()
-	-- TODO: Migrate this functions to lua
+  -- TODO: Migrate this functions to lua
 
-	vim.cmd([[
+  vim.cmd([[
     function OpenTestAlternateAndSplit()
       let win_count = luaeval('require("utils.buf_count")()')
       let test_path = eval('rails#buffer().alternate()')
@@ -259,19 +259,19 @@ function M.setup()
     endfunction
 
     function s:CleanConfigs()
-      execute "!sh ~/.config/nvim/bin/clean.sh"
+      execute "!sh " .. vim.fn.fnamemodify(vim.fn.expand("$MYVIMRC"), ":h") .. "/bin/clean.sh"
     endfunction
 
     function s:CleanBasicConfigs()
-      execute "!sh ~/.config/nvim/bin/basic_clean.sh"
+      execute "!sh " .. vim.fn.fnamemodify(vim.fn.expand("$MYVIMRC"), ":h") .. "/bin/basic_clean.sh"
     endfunction
 
     function s:CleanAllExceptConfig()
-      execute "!sh ~/.config/nvim/bin/clean_all_except_config.sh"
+      execute "!sh " .. vim.fn.fnamemodify(vim.fn.expand("$MYVIMRC"), ":h") .. "/bin/clean_all_except_config.sh"
     endfunction
 
     function s:UpdateMood()
-      execute "!cd ~/.config/nvim;git checkout HEAD .;git pull origin main -f"
+      execute "!cd " .. vim.fn.fnamemodify(vim.fn.expand("$MYVIMRC"), ":h") .. ";git checkout HEAD .;git pull origin main -f"
       execute "Lazy load all"
       execute "Lazy restore"
       execute "Lazy load all"

@@ -282,7 +282,7 @@ local function setup()
 
 	ins_right({
 		function()
-			if vim.g.disable_format_on_save then
+			if not(vim.g.format_on_save) then
 				return "fmt: off"
 			else
 				return ""

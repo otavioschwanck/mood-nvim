@@ -4,11 +4,11 @@ local exerciseComment = 'Exercise \\d'
 local exerciseStart = '# << Start'
 
 function M.start(ignore_notification)
-  vim.cmd("silent !cp ~/.config/nvim/extra/tutorial.rb ~/.tutorial.rb")
+  vim.cmd("silent !cp " .. vim.fn.fnamemodify(vim.fn.expand("$MYVIMRC"), ":h") .. "/extra/tutorial.rb ~/.tutorial.rb")
   vim.cmd("silent e ~/.tutorial.rb")
 
   if not ignore_notification then
-    require('notify')("Welcome to mood nvim editing Tutorial.", 'info', { title='mooD Nvim' })
+    require('notify')("Welcome to mood nvim editing Tutorial.", 'info', { title = 'mooD Nvim' })
   end
 
   M.define_mappings()
@@ -21,7 +21,7 @@ function M.jump()
 
   vim.cmd("norm gg")
 
----@diagnostic disable-next-line: unused-local
+  ---@diagnostic disable-next-line: unused-local
   for __ = 1, exercise_count, 1 do
     M.next_exercise()
   end
@@ -30,7 +30,7 @@ end
 function M.define_mappings()
   local bufnr = vim.fn.bufnr('.tutorial.rb')
 
-  local bufopts = { noremap=true, silent=true, buffer=bufnr }
+  local bufopts = { noremap = true, silent = true, buffer = bufnr }
 
   vim.keymap.set('n', '<C-j>', M.next_exercise, bufopts)
   vim.keymap.set('n', '<C-K>', M.prev_exercise, bufopts)

@@ -169,7 +169,7 @@ run_pre_check () {
 # Checks if everything is alright before installing
 run_post_check () {
   echo "================= Checking post installation environment ================="
-  [ -d ~/.config/nvim ] && MOOD_CHECK=true || MOOD_CHECK=false
+  [ -d~/.config/nvim  ..  ] && MOOD_CHECK=true || MOOD_CHECK=false
   [ -f ~/"$FONTS_LIBRARY/Meslo LG L Bold Nerd Font Complete.ttf" ] && FONTS_CHECK=true || FONTS_CHECK=false
   printf "%20s     %6s\n" "CHECK" "STATUS"
   check_color "Mood was installed" "$MOOD_CHECK"
@@ -203,15 +203,15 @@ install_pip_with_python () {
 check_for_previous_nvim () {
   if [ -d "$NVIM_DIR" ]; then
     echo "We found an already installed nvim on your computer!"
-    mv ~/.config/nvim ~/.config/nvim-mood-backup-"$TODAY"
+    mv~/.config/nvim  ..  ~/.config/nvim-mood-backup-"$TODAY"
     echo "The files were moved to .config/nvim-mood-backup"
     echo "Now installing mood nvim from main branch."
   fi
 }
 
 clone_nvim_repositories () {
-  git clone --quiet $MOOD_GIT ~/.config/nvim
-  git config --global push.default current
+  git clone --quiet $MOOD_GIT~ .. /.config/nvim
+   git config --global push.default current
 }
 
 install_nvim () {

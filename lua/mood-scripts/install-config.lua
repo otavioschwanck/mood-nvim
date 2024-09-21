@@ -3,7 +3,7 @@ local M = {}
 function M.setup()
   vim.cmd([[
     function s:InstallConfigs()
-      execute "!sh ~/.config/nvim/bin/setup.sh"
+      execute "!sh " .. fnamemodify(expand("$MYVIMRC"), ":h") .. "/bin/setup.sh"
     endfunction
 
     command! InstallConfigs :call s:InstallConfigs()
