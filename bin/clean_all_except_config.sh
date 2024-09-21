@@ -14,7 +14,7 @@ if test -f "$TMUX"; then
   echo "$TMUX Removed successfully..."
 fi
 
-ALACRITTY=~/.config/alacritty/alacritty.yml
+ALACRITTY=~/.config/alacritty/alacritty.toml
 if test -f "$ALACRITTY"; then
   rm $ALACRITTY
   echo "$ALACRITTY Removed successfully..."

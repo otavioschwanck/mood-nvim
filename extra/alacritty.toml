@@ -1,0 +1,751 @@
+[[colors.indexed_colors]]
+color = "#9c715a"
+index = 16
+
+[[colors.indexed_colors]]
+color = "#F4DBD6"
+index = 17
+
+[colors.bright]
+black = "#5B6078"
+blue = "#8AADF4"
+cyan = "#8BD5CA"
+green = "#A6DA95"
+magenta = "#F5BDE6"
+red = "#ED8796"
+white = "#A5ADCB"
+yellow = "#EED49F"
+
+[colors.cursor]
+cursor = "#F4DBD6"
+text = "#24273A"
+
+[colors.dim]
+black = "#494D64"
+blue = "#8AADF4"
+cyan = "#8BD5CA"
+green = "#A6DA95"
+magenta = "#F5BDE6"
+red = "#ED8796"
+white = "#B8C0E0"
+yellow = "#EED49F"
+
+[colors.hints.end]
+background = "#A5ADCB"
+foreground = "#24273A"
+
+[colors.hints.start]
+background = "#EED49F"
+foreground = "#24273A"
+
+[colors.normal]
+black = "#494D64"
+blue = "#494D64"
+cyan = "#5b8a83"
+green = "#A6DA95"
+magenta = "#b884aa"
+red = "#ED8796"
+white = "#B8C0E0"
+yellow = "#EED49F"
+
+[colors.primary]
+background = "#24273A"
+bright_foreground = "#CAD3F5"
+dim_foreground = "#CAD3F5"
+foreground = "#CAD3F5"
+
+[colors.search.focused_match]
+background = "#A6DA95"
+foreground = "#24273A"
+
+[colors.search.matches]
+background = "#A5ADCB"
+foreground = "#24273A"
+
+[colors.selection]
+background = "#F4DBD6"
+text = "#24273A"
+
+[colors.vi_mode_cursor]
+cursor = "#B7BDF8"
+text = "#24273A"
+
+[font]
+size = 14.0
+
+[font.normal]
+family = "MesloLGL NF"
+
+[[keyboard.bindings]]
+chars = "\u001BOH"
+key = "Home"
+mode = "AppCursor"
+
+[[keyboard.bindings]]
+chars = "\u001B[H"
+key = "Home"
+mode = "~AppCursor"
+
+[[keyboard.bindings]]
+chars = "\u001BOF"
+key = "End"
+mode = "AppCursor"
+
+[[keyboard.bindings]]
+chars = "\u001B[F"
+key = "End"
+mode = "~AppCursor"
+
+[[keyboard.bindings]]
+chars = "\u001B[5;2~"
+key = "PageUp"
+mods = "Shift"
+
+[[keyboard.bindings]]
+chars = "\u001B[5;5~"
+key = "PageUp"
+mods = "Control"
+
+[[keyboard.bindings]]
+chars = "\u001B[5~"
+key = "PageUp"
+
+[[keyboard.bindings]]
+chars = "\u001B[6;2~"
+key = "PageDown"
+mods = "Shift"
+
+[[keyboard.bindings]]
+chars = " "
+key = "Space"
+mods = "Alt"
+
+[[keyboard.bindings]]
+chars = "\u001B\u007F"
+key = "Back"
+mods = "Alt"
+
+[[keyboard.bindings]]
+chars = "\u001Bb"
+key = "Left"
+mods = "Alt"
+
+[[keyboard.bindings]]
+chars = "\u001Bf"
+key = "Right"
+mods = "Alt"
+
+[[keyboard.bindings]]
+chars = "\u001Bb"
+key = "Left"
+mods = "Control"
+
+[[keyboard.bindings]]
+chars = "\u001Bf"
+key = "Right"
+mods = "Control"
+
+[[keyboard.bindings]]
+chars = "\u007F"
+key = "Delete"
+mods = "Shift"
+
+[[keyboard.bindings]]
+chars = "\u001B\u007F"
+key = "Back"
+mods = "Shift"
+
+[[keyboard.bindings]]
+chars = "\u0018,"
+key = "R"
+mods = "Alt"
+
+[[keyboard.bindings]]
+chars = "\u0000"
+key = "Return"
+mods = "Shift"
+
+[[keyboard.bindings]]
+chars = "\u0000"
+key = "Space"
+mods = "Control"
+
+[[keyboard.bindings]]
+chars = "\u0000"
+key = "Space"
+mods = "Alt"
+
+[[keyboard.bindings]]
+chars = "\u0000"
+key = "Space"
+mods = "Command"
+
+[[keyboard.bindings]]
+chars = "\u0018)"
+key = "N"
+mods = "Shift|Command"
+
+[[keyboard.bindings]]
+chars = "\u0018)"
+key = "N"
+mods = "Shift|Alt"
+
+[[keyboard.bindings]]
+chars = "\u0018("
+key = "P"
+mods = "Shift|Command"
+
+[[keyboard.bindings]]
+chars = "\u0018("
+key = "P"
+mods = "Shift|Alt"
+
+[[keyboard.bindings]]
+chars = "\u0018C"
+key = "T"
+mods = "Shift|Command"
+
+[[keyboard.bindings]]
+chars = "\u0018C"
+key = "T"
+mods = "Shift|Alt"
+
+[[keyboard.bindings]]
+chars = "\u0018$"
+key = "R"
+mods = "Shift|Command"
+
+[[keyboard.bindings]]
+chars = "\u0018$"
+key = "R"
+mods = "Shift|Alt"
+
+[[keyboard.bindings]]
+chars = "\u0018<"
+key = "Comma"
+mods = "Shift|Alt"
+
+[[keyboard.bindings]]
+chars = "\u0018>"
+key = "Period"
+mods = "Shift|Alt"
+
+[[keyboard.bindings]]
+chars = "\u001B,"
+key = "Comma"
+mods = "Alt"
+
+[[keyboard.bindings]]
+action = "Paste"
+key = "V"
+mods = "Command"
+
+[[keyboard.bindings]]
+chars = "\u001Bb"
+key = "B"
+mods = "Command"
+
+[[keyboard.bindings]]
+chars = "\u001Bd"
+key = "D"
+mods = "Command"
+
+[[keyboard.bindings]]
+chars = "\u0018m"
+key = "J"
+mods = "Command"
+
+[[keyboard.bindings]]
+chars = "\u0018b"
+key = "K"
+mods = "Command"
+
+[[keyboard.bindings]]
+action = "Copy"
+key = "C"
+mods = "Command"
+
+[[keyboard.bindings]]
+action = "Quit"
+key = "Q"
+mods = "Command"
+
+[[keyboard.bindings]]
+action = "Quit"
+key = "W"
+mods = "Command"
+
+[[keyboard.bindings]]
+action = "ResetFontSize"
+key = "Key0"
+mods = "Command"
+
+[[keyboard.bindings]]
+action = "IncreaseFontSize"
+key = "Equals"
+mods = "Command"
+
+[[keyboard.bindings]]
+action = "DecreaseFontSize"
+key = "Minus"
+mods = "Command"
+
+[[keyboard.bindings]]
+chars = "\u0015"
+key = "Back"
+mods = "Command"
+
+[[keyboard.bindings]]
+chars = "\u0018d"
+key = "D"
+mods = "Shift|Command"
+
+[[keyboard.bindings]]
+chars = "\u0018v"
+key = "V"
+mods = "Shift|Command"
+
+[[keyboard.bindings]]
+chars = "\u0018s"
+key = "A"
+mods = "Shift|Command"
+
+[[keyboard.bindings]]
+chars = "\u0018V"
+key = "S"
+mods = "Shift|Command"
+
+[[keyboard.bindings]]
+chars = "\u0018\b"
+key = "H"
+mods = "Shift|Command"
+
+[[keyboard.bindings]]
+chars = """
+\u0018
+"""
+key = "J"
+mods = "Shift|Command"
+
+[[keyboard.bindings]]
+chars = "\u0018\u000B"
+key = "K"
+mods = "Shift|Command"
+
+[[keyboard.bindings]]
+chars = "\u0018\f"
+key = "L"
+mods = "Shift|Command"
+
+[[keyboard.bindings]]
+chars = "\u00181"
+key = "Key1"
+mods = "Command"
+
+[[keyboard.bindings]]
+chars = "\u00182"
+key = "Key2"
+mods = "Command"
+
+[[keyboard.bindings]]
+chars = "\u00183"
+key = "Key3"
+mods = "Command"
+
+[[keyboard.bindings]]
+chars = "\u00184"
+key = "Key4"
+mods = "Command"
+
+[[keyboard.bindings]]
+chars = "\u00185"
+key = "Key5"
+mods = "Command"
+
+[[keyboard.bindings]]
+chars = "\u00186"
+key = "Key6"
+mods = "Command"
+
+[[keyboard.bindings]]
+chars = "\u00187"
+key = "Key7"
+mods = "Command"
+
+[[keyboard.bindings]]
+chars = "\u00188"
+key = "Key8"
+mods = "Command"
+
+[[keyboard.bindings]]
+chars = "\u00189"
+key = "Key9"
+mods = "Command"
+
+[[keyboard.bindings]]
+chars = "\u0018c"
+key = "T"
+mods = "Command"
+
+[[keyboard.bindings]]
+chars = "\u0018x"
+key = "X"
+mods = "Command"
+
+[[keyboard.bindings]]
+chars = "\u0018w"
+key = "S"
+mods = "Command"
+
+[[keyboard.bindings]]
+chars = "\u0018/"
+key = "Slash"
+mods = "Control|Command"
+
+[[keyboard.bindings]]
+chars = "\u0018,"
+key = "R"
+mods = "Command"
+
+[[keyboard.bindings]]
+chars = "\u0018["
+key = "LBracket"
+mods = "Command"
+
+[[keyboard.bindings]]
+chars = "\u0018="
+key = "A"
+mods = "Command"
+
+[[keyboard.bindings]]
+chars = "\u0018o"
+key = "O"
+mods = "Command"
+
+[[keyboard.bindings]]
+chars = "\u0018z"
+key = "O"
+mods = "Shift|Command"
+
+[[keyboard.bindings]]
+chars = "\u0018z"
+key = "Return"
+mods = "Command"
+
+[[keyboard.bindings]]
+chars = "\u0018\u0001"
+key = "Escape"
+mods = "Command"
+
+[[keyboard.bindings]]
+chars = "\u0018\u0010"
+key = "Comma"
+mods = "Command"
+
+[[keyboard.bindings]]
+chars = "\u0018\u000E"
+key = "Semicolon"
+mods = "Command"
+
+[[keyboard.bindings]]
+chars = "\u0018\t"
+key = "F"
+mods = "Shift|Command"
+
+[[keyboard.bindings]]
+chars = "\u0018\t"
+key = "E"
+mods = "Command"
+
+[[keyboard.bindings]]
+chars = "\u0018n"
+key = "N"
+mods = "Command"
+
+[[keyboard.bindings]]
+chars = "\u0018p"
+key = "P"
+mods = "Command"
+
+[[keyboard.bindings]]
+chars = "\u0018/"
+key = "Slash"
+mods = "Command"
+
+[[keyboard.bindings]]
+chars = "\u001Bf"
+key = "F"
+mods = "Command"
+
+[[keyboard.bindings]]
+chars = "\u0018!"
+key = "I"
+mods = "Command"
+
+[[keyboard.bindings]]
+chars = "\u0018$"
+key = "I"
+mods = "Shift|Command"
+
+[[keyboard.bindings]]
+action = "Paste"
+key = "V"
+mods = "Alt"
+
+[[keyboard.bindings]]
+chars = "\u001Bd"
+key = "D"
+mods = "Alt"
+
+[[keyboard.bindings]]
+chars = "\u001Bb"
+key = "B"
+mods = "Alt"
+
+[[keyboard.bindings]]
+chars = "\u0018m"
+key = "J"
+mods = "Alt"
+
+[[keyboard.bindings]]
+chars = "\u0018b"
+key = "K"
+mods = "Alt"
+
+[[keyboard.bindings]]
+action = "Copy"
+key = "C"
+mods = "Alt"
+
+[[keyboard.bindings]]
+action = "Quit"
+key = "Q"
+mods = "Alt"
+
+[[keyboard.bindings]]
+action = "Quit"
+key = "W"
+mods = "Alt"
+
+[[keyboard.bindings]]
+action = "ResetFontSize"
+key = "Key0"
+mods = "Alt"
+
+[[keyboard.bindings]]
+action = "IncreaseFontSize"
+key = "Equals"
+mods = "Alt"
+
+[[keyboard.bindings]]
+action = "DecreaseFontSize"
+key = "Minus"
+mods = "Alt"
+
+[[keyboard.bindings]]
+chars = "\u0015"
+key = "Back"
+mods = "Alt"
+
+[[keyboard.bindings]]
+chars = "\u0018d"
+key = "D"
+mods = "Shift|Alt"
+
+[[keyboard.bindings]]
+chars = "\u0018v"
+key = "V"
+mods = "Shift|Alt"
+
+[[keyboard.bindings]]
+chars = "\u0018s"
+key = "A"
+mods = "Shift|Alt"
+
+[[keyboard.bindings]]
+chars = "\u0018V"
+key = "S"
+mods = "Shift|Alt"
+
+[[keyboard.bindings]]
+chars = "\u0018\b"
+key = "H"
+mods = "Shift|Alt"
+
+[[keyboard.bindings]]
+chars = """
+\u0018
+"""
+key = "J"
+mods = "Shift|Alt"
+
+[[keyboard.bindings]]
+chars = "\u0018\u000B"
+key = "K"
+mods = "Shift|Alt"
+
+[[keyboard.bindings]]
+chars = "\u0018\f"
+key = "L"
+mods = "Shift|Alt"
+
+[[keyboard.bindings]]
+chars = "\u00181"
+key = "Key1"
+mods = "Alt"
+
+[[keyboard.bindings]]
+chars = "\u00182"
+key = "Key2"
+mods = "Alt"
+
+[[keyboard.bindings]]
+chars = "\u00183"
+key = "Key3"
+mods = "Alt"
+
+[[keyboard.bindings]]
+chars = "\u00184"
+key = "Key4"
+mods = "Alt"
+
+[[keyboard.bindings]]
+chars = "\u00185"
+key = "Key5"
+mods = "Alt"
+
+[[keyboard.bindings]]
+chars = "\u00186"
+key = "Key6"
+mods = "Alt"
+
+[[keyboard.bindings]]
+chars = "\u00187"
+key = "Key7"
+mods = "Alt"
+
+[[keyboard.bindings]]
+chars = "\u00188"
+key = "Key8"
+mods = "Alt"
+
+[[keyboard.bindings]]
+chars = "\u00189"
+key = "Key9"
+mods = "Alt"
+
+[[keyboard.bindings]]
+chars = "\u0018c"
+key = "T"
+mods = "Alt"
+
+[[keyboard.bindings]]
+chars = "\u0018x"
+key = "X"
+mods = "Alt"
+
+[[keyboard.bindings]]
+chars = "\u0018w"
+key = "S"
+mods = "Alt"
+
+[[keyboard.bindings]]
+chars = "\u0018/"
+key = "Slash"
+mods = "Control|Alt"
+
+[[keyboard.bindings]]
+chars = "\u0018,"
+key = "R"
+mods = "Alt"
+
+[[keyboard.bindings]]
+chars = "\u0018["
+key = "LBracket"
+mods = "Alt"
+
+[[keyboard.bindings]]
+chars = "\u0018="
+key = "A"
+mods = "Alt"
+
+[[keyboard.bindings]]
+chars = "\u0018o"
+key = "O"
+mods = "Alt"
+
+[[keyboard.bindings]]
+chars = "\u0018z"
+key = "O"
+mods = "Shift|Alt"
+
+[[keyboard.bindings]]
+chars = "\u0018z"
+key = "Return"
+mods = "Alt"
+
+[[keyboard.bindings]]
+chars = "\u0018\u0001"
+key = "Escape"
+mods = "Alt"
+
+[[keyboard.bindings]]
+chars = "\u0018<"
+key = "Comma"
+mods = "Shift|Command"
+
+[[keyboard.bindings]]
+chars = "\u0018>"
+key = "Period"
+mods = "Shift|Command"
+
+[[keyboard.bindings]]
+chars = "\u0018\u0010"
+key = "Comma"
+mods = "Alt"
+
+[[keyboard.bindings]]
+chars = "\u0018\u000E"
+key = "Semicolon"
+mods = "Alt"
+
+[[keyboard.bindings]]
+chars = "\u0018\t"
+key = "F"
+mods = "Shift|Alt"
+
+[[keyboard.bindings]]
+chars = "\u0018\t"
+key = "E"
+mods = "Alt"
+
+[[keyboard.bindings]]
+chars = "\u0018n"
+key = "N"
+mods = "Alt"
+
+[[keyboard.bindings]]
+chars = "\u0018p"
+key = "P"
+mods = "Alt"
+
+[[keyboard.bindings]]
+chars = "\u0018/"
+key = "Slash"
+mods = "Alt"
+
+[[keyboard.bindings]]
+chars = "\u001Bf"
+key = "F"
+mods = "Alt"
+
+[[keyboard.bindings]]
+chars = "\u0018!"
+key = "I"
+mods = "Alt"
+
+[[keyboard.bindings]]
+chars = "\u0018$"
+key = "I"
+mods = "Shift|Alt"
+

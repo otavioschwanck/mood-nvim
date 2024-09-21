@@ -60,12 +60,12 @@ else
   echo "$TMUX created."
 fi
 
-ALACRITTY=~/.config/alacritty/alacritty.yml
+ALACRITTY=~/.config/alacritty/alacritty.toml
 if test -f "$ALACRITTY"; then
   echo "$ALACRITTY exists. Ignoring..."
 else
   mkdir -p ~/.config/alacritty
-  cp "$CONFIG_DIR/extra/alacritty.yml" "$ALACRITTY"
+  cp "$CONFIG_DIR/extra/alacritty.toml" "$ALACRITTY"
   echo "$ALACRITTY created."
 fi
 
