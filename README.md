@@ -32,7 +32,7 @@ mooD Nvim is a configuration made for those who wants to install and use, withou
 
 # 📃 Dependencies
 
-- Neovim >= 0.8 <= 0.9
+- Neovim >= 0.9.5 < 0.10 (Neovim 0.10 is still buggy for rubocop LSP, lets use 0.9) You can use [Bob](https://github.com/MordechaiHadad/bob) to install the 0.9.5
 - lazygit (optional)
 - ripgrep
 - NerdFonts
