@@ -147,6 +147,7 @@ function M.setup_which_key()
         desc = "Search text on Project"
       },
       { "<leader>so", ":Telescope egrepify grep_open_files=true<CR>",                desc = "Search on Open Files" },
+      { "<leader>ss", ":Telescope current_buffer_fuzzy_find<CR>",                    desc = "Fuzzy find current buffer" },
       { "<leader>P",  ":lua require('mood-scripts.custom_telescope').ripgrep()<CR>", desc = "Advanced Search text on Project" },
       { "<leader>sf", ":CtrlSF ",                                                    desc = "Search text using CtrlSF (for search and replace)" },
       {

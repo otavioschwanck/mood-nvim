@@ -55,7 +55,7 @@ end
 -- Use SPC f d to navigate to your dotfiles, configure then here.
 vim.g.dotfiles = {
   { path = "~/.zshrc",                                         display = "zshrc" },
-  { path = "~/.config/alacritty/alacritty.toml",                display = "Alacritty" },
+  { path = "~/.config/alacritty/alacritty.toml",               display = "Alacritty" },
   { path = "~/.tmux.conf",                                     display = "TMUX" },
   { path = "~/Library/Application Support/lazygit/config.yml", display = "Lazygit" },
   -- { path = "~/.config/lazygit/config.yml", display = "Lazygit" }, -- (for Linux)
@@ -101,7 +101,7 @@ vim.g.folder_to_ignore = { ".*.git/.*", "node_modules/.*", "sorbet/.*", "tmp/.*"
 -- access your dotfiles with SPC f d
 vim.g.dotfiles = {
   { path = "~/.zshrc",                                         display = "zshrc" },
-  { path = "~/.config/alacritty/alacritty.toml",                display = "Alacritty" },
+  { path = "~/.config/alacritty/alacritty.toml",               display = "Alacritty" },
   { path = "~/.tmux.conf",                                     display = "TMUX" },
   { path = "~/Library/Application Support/lazygit/config.yml", display = "Lazygit" },
   -- { path = "~/.config/lazygit/config.yml", display = "Lazygit" }, -- (for Linux)
