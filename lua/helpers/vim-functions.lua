@@ -259,19 +259,19 @@ function M.setup()
     endfunction
 
     function s:CleanConfigs()
-      execute "!sh " .. vim.fn.fnamemodify(vim.fn.expand("$MYVIMRC"), ":h") .. "/bin/clean.sh"
+      execute "!sh " .. fnamemodify(expand("$MYVIMRC"), ":h") .. "/bin/clean.sh"
     endfunction
 
     function s:CleanBasicConfigs()
-      execute "!sh " .. vim.fn.fnamemodify(vim.fn.expand("$MYVIMRC"), ":h") .. "/bin/basic_clean.sh"
+      execute "!sh " .. fnamemodify(expand("$MYVIMRC"), ":h") .. "/bin/basic_clean.sh"
     endfunction
 
     function s:CleanAllExceptConfig()
-      execute "!sh " .. vim.fn.fnamemodify(vim.fn.expand("$MYVIMRC"), ":h") .. "/bin/clean_all_except_config.sh"
+      execute "!sh " .. fnamemodify(expand("$MYVIMRC"), ":h") .. "/bin/clean_all_except_config.sh"
     endfunction
 
     function s:UpdateMood()
-      execute "!cd " .. vim.fn.fnamemodify(vim.fn.expand("$MYVIMRC"), ":h") .. ";git checkout HEAD .;git pull origin main -f"
+      execute "!cd " .. fnamemodify(expand("$MYVIMRC"), ":h") .. ";git checkout HEAD .;git pull origin main -f"
       execute "Lazy load all"
       execute "Lazy restore"
       execute "Lazy load all"
