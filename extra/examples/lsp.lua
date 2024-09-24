@@ -46,16 +46,6 @@ require("conform").setup({
   },
 })
 
--- Format on save?
-vim.api.nvim_create_autocmd("BufWritePre", {
-  pattern = "*",
-  callback = function(args)
-    if vim.g.format_on_save then
-      require("conform").format({ bufnr = args.buf })
-    end
-  end,
-})
-
 -- when LSP os connceted, this function is called.
 local on_attach = function(client, bufnr)
   local opts = { buffer = bufnr }
@@ -145,13 +135,11 @@ local autocomplete_mappings = { -- autocomplete mappings
 
 local border_opts = {
   border = { { "╭" }, { "─" }, { "╮" }, { "│" }, { "╯" }, { "─" }, { "╰" }, { "│" } },
-  winhighlight = "Normal:Normal,FloatBorder:FloatBorder,CursorLine:CmpSel,Search:None,NormalFloat:Normal",
   scrollbar = false,
 }
 
 vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, {
   border = border_opts.border,
-  winhighlight = border_opts.winhighlight,
   close_events = { "BufHidden", "InsertLeave" },
 })
 
