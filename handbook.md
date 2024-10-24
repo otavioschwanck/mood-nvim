@@ -56,6 +56,19 @@ Use C-f and C-b to cycle on codeium suggestions.
 | SPC l o              | Switch: Orientation of new panes to horizontal / vertical |
 | SPC l on visual mode | Send text terminal window                                 |
 
+## vim visual multi (multiple cursors)
+
+| Command | Description                                                                                               |
+|---------|-----------------------------------------------------------------------------------------------------------|
+| C-n     | Start multiple cursors (and go next)                                                                      |
+| n       | go next word (while in multiple cursors)                                                                  |
+| q       | Skip current word and go next                                                                             |
+| Q       | Skip current word and go previous                                                                         |
+| SPC n A | Select all words on file                                                                                  |
+| TAB     | (While multiple cursors is active) switch from normal mode to visual mode [dont use v on multiple cursor] |
+| SPC n   | Leader key for visual multi, you can do varios operations like add number to end, change case, etc.       |
+| esc     | Quit multiple cursor                                                                                      |
+
 ## TMUX integration with alacritty
 
 Tmux prefix: C-x.  See more of tmux by accessing your ~/.tmux.conf
