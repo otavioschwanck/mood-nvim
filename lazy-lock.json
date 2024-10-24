@@ -14,7 +14,6 @@
   "cmp_luasnip": { "branch": "master", "commit": "05a9ab28b53f71d1aece421ef32fee2cb857a843" },
   "codeium.vim": { "branch": "main", "commit": "fa65fa942aaf1aef73b6dbe3cc0faa713b738fbe" },
   "conform.nvim": { "branch": "master", "commit": "00f9d91391b04b1935e2f15948bd96cc111e7d3a" },
-  "cool-substitute.nvim": { "branch": "main", "commit": "2095e2304aecfea4b6c2a8b1a9e1794b5920472c" },
   "ctrlsf.vim": { "branch": "master", "commit": "32236a8b376d9311dec9b5fe795ca99d32060b13" },
   "dashboard-nvim": { "branch": "master", "commit": "fabf5feec96185817c732d47d363f34034212685" },
   "diffview.nvim": { "branch": "main", "commit": "4516612fe98ff56ae0415a259ff6361a89419b0a" },
@@ -98,6 +97,7 @@
   "vim-test": { "branch": "master", "commit": "c090bfd93919888bb0b86e1ab707bc6a3095097f" },
   "vim-textobj-quotes": { "branch": "master", "commit": "cca9686acf7b21d930ced1801120ecf23fb2f995" },
   "vim-textobj-user": { "branch": "master", "commit": "41a675ddbeefd6a93664a4dc52f302fe3086a933" },
+  "vim-visual-multi": { "branch": "master", "commit": "a6975e7c1ee157615bbc80fc25e4392f71c344d4" },
   "vim-yoink": { "branch": "master", "commit": "89ed6934679fdbc3c20f552b50b1f869f624cd22" },
   "which-key.nvim": { "branch": "main", "commit": "fb070344402cfc662299d9914f5546d840a22126" },
   "yanky.nvim": { "branch": "main", "commit": "73215b77d22ebb179cef98e7e1235825431d10e4" }
