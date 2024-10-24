@@ -64,6 +64,8 @@ Use C-f and C-b to cycle on codeium suggestions.
 | n       | go next word (while in multiple cursors)                                                                  |
 | q       | Skip current word and go next                                                                             |
 | Q       | Skip current word and go previous                                                                         |
+| C-j     | Create cursor down                                                                                        |
+| C-k     | Create cursor up                                                                                          |
 | SPC n A | Select all words on file                                                                                  |
 | TAB     | (While multiple cursors is active) switch from normal mode to visual mode [dont use v on multiple cursor] |
 | SPC n   | Leader key for visual multi, you can do varios operations like add number to end, change case, etc.       |
