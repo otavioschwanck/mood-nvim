@@ -70,6 +70,7 @@ Use C-f and C-b to cycle on codeium suggestions.
 | TAB     | (While multiple cursors is active) switch from normal mode to visual mode [dont use v on multiple cursor] |
 | SPC n   | Leader key for visual multi, you can do varios operations like add number to end, change case, etc.       |
 | esc     | Quit multiple cursor                                                                                      |
+| ] and [ | Navigate between the cursors                                                                              |
 
 ## TMUX integration with alacritty
 
