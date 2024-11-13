@@ -19,9 +19,9 @@ local plugins = {
       buffer_leader_key = "m",
       after_9_keys = "zxcbnmZXVBNM,afghjklAFGHJKLwrtyuiopWRTYUIOP", -- Please, don't pin more then 9 XD,
       save_key = function()
-        return vim.loop.cwd()                                    -- we use the cwd as the context from the bookmarks.  You can change it for anything you want.
+        return vim.loop.cwd()                                       -- we use the cwd as the context from the bookmarks.  You can change it for anything you want.
       end,
-      full_path_list = { "update_stuff" },                       -- filenames on this list will ALWAYS show the file path too.
+      full_path_list = { "update_stuff" },                          -- filenames on this list will ALWAYS show the file path too.
     },
     keys = {
       {
@@ -82,12 +82,6 @@ local plugins = {
     name = "catppuccin",
     lazy = false,
     opts = {
-
-      custom_highlights = function()
-        return {
-          NormalFloat = { link = "Normal" },
-        }
-      end,
       integrations = {
         cmp = true,
         gitsigns = true,
