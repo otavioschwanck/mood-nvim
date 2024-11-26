@@ -252,7 +252,7 @@ function M.setup()
 
     function FindInFolder(folder, title)
       if isdirectory(a:folder)
-        execute "lua require'telescope.builtin'.find_files({ cwd = '" . a:folder . "', prompt_title = '" . a:title . "' })"
+        execute "lua require'telescope.builtin'.find_files({ cwd = '" . a:folder . "', prompt_title = '" . a:title . "', path_display = 'absolute' })"
       else
         echo "Directory: '" . a:folder . "' not found in this project..."
       endif
