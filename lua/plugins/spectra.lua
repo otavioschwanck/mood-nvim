@@ -21,7 +21,7 @@ return {
         }
       end
 
-      require("spectre").setup({})
+      require("spectre").setup(args)
     end,
     keys = {
       { "<leader>sr", function() require("spectre").open() end, desc = "Replace in files (Spectre)" },
