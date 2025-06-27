@@ -55,7 +55,7 @@
 # f = go to character (next that you input)
 # M = start multiple cursors
 
-# Command to run: f,ldaajyyplMemail<ESC>MM<ESC>
+# Command to run: f, l daa j yy p l <C-n><C-n> c email<ESC><ESC>
 def my_method(name, last_name, email) # << Start
   @name = name
 end
@@ -101,10 +101,9 @@ end
 # di{ = Delete inside keys (text object)
 # df = Delete until and
 
-# Commands: ffglgl[a[agl
-# PS: Remove extra characters on normal mode with x
+# Commands to run: df_ <ESC> f' ca' first_name <ESC> f[ ds[ di}
 
-args = [three, four, one, two] # << Start
+my_array = [{ name: 'otavio schwanck' }, [{ name: 'ewerton brabo' }]] # << Start
 
 # Code Goal:
 array = [{ name: first_name }, {}]
@@ -154,7 +153,7 @@ array = [{ name: first_name }, {}]
 # p while in visual mode (selecting something) = Will substitute selected text with last yank
 # <Ctrl + p> (after paste) = Navigate in yank history, you can also use <Ctrl + n> to go back
 
-# Commands to run: ct.Mood<ESC>f,yi(lvf,fdjvi(p<C-p><C-p>
+# Commands to run: ct. Mood <ESC> f, yi( l vf, f d j vi( p <C-p><C-p>
 
 value = Charge::Name.new(name, last_name, email, document_number) # << Start
 old_args(invalid_args)
@@ -217,7 +216,7 @@ old_args(name, last_name, email, document_number)
 # W = Jump all words until next space, going to first character
 #
 # Commands ot execute:
-# f[cs[{wlrOhvEhS{a<space>name:<SPACE><ESC>f[cs[{a<space>name:<ESC><SPACE>f,dt,..f:gsWgsgs
+# f[ cs[{ w l rO h v E h S{ a<space>name: <SPACE><ESC> f[ cs[{ a<space>name: <ESC><SPACE>f, dt, .. f: gsW gs gs
 
 my_hash = ["otavio", ["tulio"], "wrong 1", "wrong 2", "wrong 3", { :name => "thiagovsk" }] # << Start
 # Code Goal:
@@ -267,7 +266,7 @@ my_hash = { { name: "otavio" }, { name: "tulio" }, { name: :thiagovsk } }
 # cia = change inside argument (text object a = arguemnt)
 # F = same as f, but backwards (T and S works as well)
 
-# Commands: ftglglF[lglglglF'fghciatwo<ESC>f'daa
+# Commands: ft gl gl F[ l gl gl gl F' fg h cia two<ESC> f' daa
 
 args = [three, four, one, 'wrong argument', '!!DELETE ME!!'] # << Start
 
@@ -346,7 +345,8 @@ end
 # gJ
 
 # Tip: go see the goal with j, then press zr to come to the top again
-# commands gS/block<ENTER>gJj-gJj0f[gS
+# commands gS/ block<ENTER> gJ j - gJ j 0 f[ gS
+
 mood? ? 'awesome, best editor' : 'please, install mood nvim!' # << STart
 block_to_be_joined.each do |b|
   b.save
@@ -392,24 +392,6 @@ must_be_splitted = [
 
 
 
-# Exercise 8 - Snippets and more snippets!
-# Snippets are awesome. Lets learn how to do in mooD.
-# Unlike other editor, to expand a snippet (and go forward), is <Ctrl + j>
-# <C-j> = Expand / Go forward on snippets
-# <C-k> = Go back on snippets
-# <Delete> = Delete highlighted text on snippets
-# Commands; jidesc<C-k#mood<C-kletm<C-kmood<C-k<C-kname:<SPACE>'true'<C-k<Enter><Enter>contw<C-kvalid<C-kitiexp<C-k<ESC>
-
-# << Start Here
-
-# Goal:
-describe '#mood' do
-  let(:mood) { create(:mood, name: 'true') }
-
-  context 'when valid' do
-    it { is_expected.to be_valid }
-  end
-end
 
 
 
@@ -429,11 +411,7 @@ end
 
 
 
-
-
-
-
-# Exercise 9 - Just a warning
+# Exercise 8 - Just a warning
 # This exercise is just to remember you:  DONT USE ARROWS ON INSERT MODE (or any more) (this is for you Thiago!),
 # use w, e, b, f, t, s, etc..
 # to select stuff, use v, or V and the text objects
@@ -485,7 +463,7 @@ end
 
 
 
-# Exercise 10 - Search and Replace on block
+# Exercise 9 - Search and Replace on block
 # Commands: vij = select block
 #           s/old_text/new_text/gr = changes texts from the block. If you type \0 on old, it will get the current text
 # Commands to execute: vij:s/john/new_\0_is_awesome/gr<ENTER>
@@ -549,7 +527,7 @@ end
 
 
 
-# Exercise 11: Macros (Boss Fight)
+# Exercise 10: Macros (Boss Fight)
 #
 # Commands:
 
