@@ -1,3 +1,13 @@
+# ⚠️ MIGRATION NOTICE
+
+**🚨 This configuration has been migrated to [NeoMood](https://github.com/otavioschwanck/neomood) and will no longer be updated! 🚨**
+
+**NeoMood** is simpler to configure and much better documented. It includes all the features from this configuration and more. 
+
+This configuration still works if you want to use it, but I strongly recommend migrating to **NeoMood** for the best experience and future updates.
+
+---
+
 # Introduction
 
 mooD Nvim is a configuration made for those who wants to install and use, without worries.
